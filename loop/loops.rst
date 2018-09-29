@@ -26,49 +26,61 @@ Loops
 ``for``
 =======
 
-Iterating simple types
+Iterating over ``str``
 ----------------------
-.. code-block:: python
+* Iterating ``str`` will get character on each iteration:
 
-    for number in range(0, 5):
-        print(f'Value is: {number}')
+    .. code-block:: python
 
-    # Value is: 0
-    # Value is: 1
-    # Value is: 2
-    # Value is: 3
-    # Value is: 4
+        for character in 'Hello':
+            print(character)
 
-.. code-block:: python
+        # H
+        # e
+        # l
+        # l
+        # o
 
-    for number in range(0, 10, 2):
-        print(number)
+Iterating simple collections
+----------------------------
+* Iterating over ``list``:
 
-    # 0
-    # 2
-    # 4
-    # 6
-    # 8
+    .. code-block:: python
 
-.. code-block:: python
+        DATA = [1, 2.5, 'Jose Jimenez']
 
-    for character in 'Hello':
-        print(character)
+        for element in DATA:
+            print(element)
 
-    # H
-    # e
-    # l
-    # l
-    # o
+        # 1
+        # 2.5
+        # 'Jose Jimenez'
 
-.. code-block:: python
+* Iterating over ``tuple``:
 
-    for element in [1, 3, 4]:
-        print(element)
+    .. code-block:: python
 
-    # 1
-    # 3
-    # 4
+        DATA = (1, 2.5, 'Jose Jimenez')
+
+        for element in DATA:
+            print(element)
+
+        # 1
+        # 2.5
+        # 'Jose Jimenez'
+
+* ``range(0, 5)`` will generate ``(0, 1, 2, 3, 4)``
+
+    .. code-block:: python
+
+        for number in range(0, 5):
+            print(f'Value is: {number}')
+
+        # Value is: 0
+        # Value is: 1
+        # Value is: 2
+        # Value is: 3
+        # Value is: 4
 
 Iterating over nested ``list`` items
 ------------------------------------
@@ -143,66 +155,83 @@ Iterating over nested ``list`` items
 
 Iterating over ``dict`` items
 -----------------------------
-.. code-block:: python
+* ``dict`` elements order changes!
+* Iterating over ``dict`` values:
 
-    DATA = {
-        'first_name': 'José',
-        'last_name': 'Jiménez',
-        'age': 42,
-    }
+    .. code-block:: python
 
-    for element in DATA.values():
-        print(element)
+        DATA = {
+            'first_name': 'José',
+            'last_name': 'Jiménez',
+            'age': 42,
+        }
 
-    # 'José'
-    # 'Jiménez'
-    # 42
+        DATA.values()
+        # ['José', 'Jiménez', 42]
 
-.. code-block:: python
+        for element in DATA.values():
+            print(element)
 
-    DATA = {
-        'first_name': 'José',
-        'last_name': 'Jiménez',
-        'age': 42,
-    }
+        # 'José'
+        # 'Jiménez'
+        # 42
 
-    for element in DATA.keys():
-        print(element)
+* Iterating over ``dict`` keys:
 
-    # 'first_name'
-    # 'last_name'
-    # 'age'
+    .. code-block:: python
 
-.. code-block:: python
+        DATA = {
+            'first_name': 'José',
+            'last_name': 'Jiménez',
+            'age': 42,
+        }
 
-    DATA = {
-        'first_name': 'José',
-        'last_name': 'Jiménez',
-        'age': 42,
-    }
+        my_dict.keys()
+        # ['first_name', 'last_name', 'age']
 
-    # for domyślnie iteruje po kluczach w ``dict``
-    for element in DATA:
-        print(element)
+        for element in DATA.keys():
+            print(element)
 
-    # 'first_name'
-    # 'last_name'
-    # 'age'
+        # 'first_name'
+        # 'last_name'
+        # 'age'
 
-.. code-block:: python
+* By default ``dict`` iterates over keys:
 
-    DATA = {
-        'first_name': 'José',
-        'last_name': 'Jiménez',
-        'age': 42,
-    }
+    .. code-block:: python
 
-    for key, value in DATA.items():
-        print(f'key: "{key}", value: "{value}"')
+        DATA = {
+            'first_name': 'José',
+            'last_name': 'Jiménez',
+            'age': 42,
+        }
 
-    # key: "first_name", value: "José"
-    # key: "last_name",  value: "Jiménez"
-    # key: "age",        value: "42"
+        for element in DATA:
+            print(element)
+
+        # 'first_name'
+        # 'last_name'
+        # 'age'
+
+* Getting pair: ``key``, ``value`` from ``dict`` items:
+
+    .. code-block:: python
+
+        DATA = {
+            'first_name': 'José',
+            'last_name': 'Jiménez',
+            'age': 42,
+        }
+
+        DATA.items()
+        # [('first_name', 'José'), ('last_name', 'Jiménez'), ('age', 42)]
+
+        for key, value in DATA.items():
+            print(f'key: "{key}", value: "{value}"')
+
+        # key: "first_name", value: "José"
+        # key: "last_name",  value: "Jiménez"
+        # key: "age",        value: "42"
 
 Iterating complex types
 -----------------------
