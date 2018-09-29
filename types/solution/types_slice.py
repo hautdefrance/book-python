@@ -16,7 +16,7 @@ print(f[5:-4])
 print(g[0:-7])
 print(h[4:-8])
 
-
+# alternatively
 offset = len('Jana III Sobieskiego')
 print(a[4:offset])
 print(b[6:offset+6])
