@@ -47,6 +47,7 @@ Using
 =====
 ``import ...``
 
+
 Importing
 =========
 .. code-block:: python
@@ -76,13 +77,12 @@ Importing
 
 .. code-block:: python
 
-    from ..config import RESOLUTION_MAX_X
-
-.. code-block:: python
-
     from game.dragon import red
+    from game.dragon import white
 
-    my_dragon = red.RedDragon()
+
+    my_dragon1 = red.RedDragon()
+    my_dragon2 = white.WhiteDragon()
 
 .. code-block:: python
 
@@ -93,25 +93,16 @@ Importing
 
 .. code-block:: python
 
-    from game.smoki.dragon.red import RedDragon
+    from game.dragon.red import RedDragon
+    from game.dragon.white import WhiteDragon
 
-    wawelski = RedDragon()
-
-.. code-block:: python
-
-    import game
-
-    wawelski = game.dragon.red.RedDragon()
+    my_dragon1 = RedDragon()
+    my_dragon2 = WhiteDragon()
 
 .. code-block:: python
 
-    from game import *
+    from game.dragon.red import RedDragon as Smok
 
-    wawelski = dragon.red.RedDragon()
-
-.. code-block:: python
-
-    from game.smoki.dragon.red import RedDragon as Smok
     wawelski = Smok()
 
 
