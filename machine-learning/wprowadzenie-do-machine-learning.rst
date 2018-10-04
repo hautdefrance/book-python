@@ -281,15 +281,6 @@ Przykład pracy z ``scikit-learn``
     # array([2, 0])
 
 
-Przykład pracy z ``PyMC3``
---------------------------
-#. Sparametryzuj swój problem używając rozkładów statystycznych
-#. Uzasadnij strukturę swojego modelu
-#. Napisz swój model używając PyMC3 i dokonaj obliczeń
-#. Zinterpretuj wynik bazując na rozkładach wynikowych
-#. (opcjonalnie) z nowymi wynikami dostosuj swój model statystyczny
-
-
 Kategorie algorytmów uczenia maszynowego
 ========================================
 
@@ -343,9 +334,6 @@ Example problems are clustering, dimensionality reduction and association rule l
 
 Semi-Supervised Learning
 ------------------------
-Also known as:
-
-    - Reinforcement learning
 
 Input data is a mixture of labeled and unlabelled examples.
 
@@ -372,3 +360,6 @@ Example algorithms are extensions to other flexible methods that make assumption
     * przedstawia iterację człowiekowi
     * człowiek interaktywnie poprawia i określa jakość oznaczania
     * komputer dokonuje kolejnej analizy
+
+Reinforcement learning
+----------------------

@@ -14,8 +14,10 @@ extensions = [
     # 'sphinx.ext.autodoc',
     # 'sphinx.ext.intersphinx',
     # 'sphinx.ext.graphviz',
+    'nbsphinx',
     'sphinxcontrib.bibtex',
     # 'sphinxjp.themes.revealjs',
+    'IPython.sphinxext.ipython_console_highlighting',
 ]
 
 todo_emit_warnings = False
@@ -63,8 +65,9 @@ exclude_patterns = [
     'about/src/*.rst',
     '_build', '.build',
     '_themes',
+    '**.ipynb_checkpoints',
     '_static',
-     '*/_template.rst',
+    '*/_template.rst',
     '.*', 'venv*', 'virtualenv*'
 ]
 
