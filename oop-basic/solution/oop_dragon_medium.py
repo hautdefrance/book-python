@@ -9,8 +9,7 @@ BORDER_Y_MIN = 0
 
 
 class SuperDragon(Dragon):
-
-    def move(self, left: int = 0, down: int = 0, right: int = 0, up: int = 0) -> None:
+    def set_position(self, x: int, y: int) -> None:
         """
         >>> wawelski = SuperDragon(name='Red', position_x=0, position_y=0)
         >>> wawelski.move(right=1)
@@ -26,23 +25,11 @@ class SuperDragon(Dragon):
         >>> wawelski.get_position()
         (0, 0)
         """
-        self.set_position(
-            x=self.position_x + right - left,
-            y=self.position_y + down - up,
-        )
+        x = max(x, BORDER_X_MIN)
+        x = min(x, BORDER_X_MAX)
 
-    def set_position(self, x: int, y: int) -> None:
-        if x < BORDER_X_MIN:
-            x = BORDER_X_MIN
-
-        if x > BORDER_X_MAX:
-            x = BORDER_X_MAX
-
-        if y < BORDER_Y_MIN:
-            y = BORDER_Y_MIN
-
-        if y > BORDER_Y_MAX:
-            y = BORDER_Y_MAX
+        y = max(y, BORDER_X_MIN)
+        y = min(y, BORDER_Y_MAX)
 
         self.position_x = x
         self.position_y = y

@@ -8,13 +8,23 @@ class Status(Enum):
 
 
 class Dragon:
-    def __init__(self, name='Wawelski', position_x=0, position_y=0, texture='dragon.png'):
+    BASE_HIT_POINTS = randint(50, 100)
+    BASE_DAMAGE = randint(5, 20)
+    TEXTURE = 'dragon.png'
+
+    def __init__(self, name, position_x=0, position_y=0, texture=TEXTURE):
         self.name = name
         self.position_x = position_x
         self.position_y = position_y
         self.texture = texture
-        self.hit_points = randint(50, 100)
+        self.hit_points = self.BASE_HIT_POINTS
         self.status = Status.ALIVE
+
+    def move(self, left: int = 0, down: int = 0, right: int = 0, up: int = 0) -> None:
+        self.set_position(
+            x=self.position_x + right - left,
+            y=self.position_y + down - up
+        )
 
     def set_position(self, x: int, y: int) -> None:
         self.position_x = x
@@ -23,18 +33,14 @@ class Dragon:
     def get_position(self):
         return self.position_x, self.position_y
 
-    def move(self, left: int = 0, down: int = 0, right: int = 0, up: int = 0) -> None:
-        self.position_x += right - left
-        self.position_y += down - up
-
-    def make_damage(self):
-        return randint(5, 20)
-
     def is_dead(self):
         if self.status == Status.DEAD:
             return True
         else:
             return False
+
+    def make_damage(self):
+        return self.BASE_DAMAGE
 
     def take_damage(self, damage):
         if self.is_dead():
@@ -43,9 +49,9 @@ class Dragon:
         self.hit_points -= damage
 
         if self.hit_points <= 0:
-            self.make_dead()
+            self._make_dead()
 
-    def make_dead(self):
+    def _make_dead(self):
         print('Dragon is dead')
         self.texture = 'dragon-dead.png'
         self.status = Status.DEAD

@@ -25,12 +25,12 @@ def celsius_to_kelvin(degrees):
     elif isinstance(degrees, (list, tuple, set)):
         what = type(degrees)
         return what(x + C2K_OFFSET for x in degrees)
-
-        # elif isinstance(degrees, tuple):
-        #     return tuple(x + C2K_OFFSET for x in degrees)
-        # elif isinstance(degrees, list):
-        #     return list(x + C2K_OFFSET for x in degrees)
-        # elif isinstance(degrees, set):
-        #     return set(x + C2K_OFFSET for x in degrees)
     else:
         raise TypeError('Invalid argument')
+
+    # elif isinstance(degrees, tuple):
+    #     return tuple(x + C2K_OFFSET for x in degrees)
+    # elif isinstance(degrees, list):
+    #     return list(x + C2K_OFFSET for x in degrees)
+    # elif isinstance(degrees, set):
+    #     return set(x + C2K_OFFSET for x in degrees)

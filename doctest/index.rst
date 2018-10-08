@@ -294,23 +294,23 @@ Refactoring
 
     .. code-block:: python
 
-        def c_to_k(degrees):
+        def celsius_to_kelvin(degrees):
             """
-            >>> c_to_k(0)
+            >>> celsius_to_kelvin(0)
             273.15
-            >>> c_to_k(1)
+            >>> celsius_to_kelvin(1)
             274.15
-            >>> c_to_k(-1)
+            >>> celsius_to_kelvin(-1)
             272.15
-            >>> c_to_k('a')
+            >>> celsius_to_kelvin('a')
             Traceback (most recent call last):
                 ...
             TypeError: Invalid argument
-            >>> c_to_k([0, 1])
+            >>> celsius_to_kelvin([0, 1])
             [273.15, 274.15]
-            >>> c_to_k((0, 1))
+            >>> celsius_to_kelvin((0, 1))
             (273.15, 274.15)
-            >>> c_to_k({0, 1})
+            >>> celsius_to_kelvin({0, 1})
             {273.15, 274.15}
             """
             pass

@@ -214,7 +214,7 @@ Dragon (Medium)
 .. note:: Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
 
 #. Zaimportuj smoka z zadania podstawowego rozszerz go przez dziedziczenie
-#. Smok nie może wyjść poza obszar ekranu (1024x768)
+#. Smok nie może wyjść poza obszar ekranu (1024x768) + ``napis doctest``
 #. Jeżeli dojdzie do granicy ekranu, to przesuwając dalej, pozycja będzie ustawiona na maks
 #. Stwórz bohatera (José Jiménez):
 
@@ -222,8 +222,7 @@ Dragon (Medium)
     * zadaje losowe obrażenia (1-15)
     * klasa postaci (domyślnie "wojownik")
 
-#. Napisz ``doctest`` do funkcji poruszania, sprawdzający wychodzenie poza ekran
-#. Dodaj statusy:
+#. Wszystkie istoty mają statusy:
 
     * "Pełnia życia" (zastąp status "alive") - gdy punkty życia 100%
     * "Lekko Ranny" - gdy punkty życia 99% - 75%
