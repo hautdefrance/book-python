@@ -145,6 +145,21 @@ More advanced topics
 Assignments
 ===========
 
+Bank i Bankomaty
+----------------
+#. Klient może otworzyć konto w banku
+#. Bank może mieć wiele kont dla różnych klientów
+#. Każde konto ma unikalny numer, który jest generowany przy zakładaniu
+#. Klient może odpytać o swój numer
+#. Klient może wpłacić pieniądze na swoje konto
+#. Klient może wybrać pieniądze z bankomatu
+
+:About:
+    * Filename: ``oop_bank.py``
+    * Lines of code to write: 60 lines
+    * Estimated time of completion: 20 min
+
+
 Dragon (Easy)
 -------------
 .. note:: Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
@@ -158,30 +173,29 @@ Dragon (Easy)
     * teksturę, domyślnie ``dragon.png``
     * punkty życia, domyślnie losowy ``int`` z zakresu od 50 do 100
 
-#. Stwórz metody:
+#. Smok może:
 
-    * otrzymywania obrażeń podanych jako parametr
-    * zadawania obrażeń - Smok zadaje komuś losowe obrażenia od 5 do 20
-    * ustawiania pozycji smoka na ekranie
-    * aktualne położenie smoka
-    * Przesuwanie smoka o zadaną liczbę punktów w którymś z kierunków
+    * otrzymywać obrażenia
+    * zadawać komuś losowe obrażenia z przedziału od 5 do 20
+    * być ustawiony w dowolne miejsce ekranu
+    * być przesuwany o zadaną liczbę punktów w którymś z kierunków
 
 #. Przesuwając smoka, można podać tylko niektóre kierunki, np: ``right=30, down=50`` lub ``up=20``
-
 #. Przyjmij górny lewy róg ekranu za punkt (0, 0)
 
-    - idąc w prawo dodajesz ``x``
-    - idąc w lewo odejmujesz ``x``
-    - idąc w górę odejmujesz ``y``
-    - idąc w dół dodajesz ``y``
+    * idąc w prawo dodajesz ``x``
+    * idąc w lewo odejmujesz ``x``
+    * idąc w górę odejmujesz ``y``
+    * idąc w dół dodajesz ``y``
 
+#. Przy każdym obrażeniu wypisz na ekranie nazwę smoka, ilość obrażeń i pozostałe punkty życia
 #. Kiedy punkty życia smoka spadną do, lub poniżej zera:
 
     * ustaw status obiektu na ``dead``
     * na ekranie ma pojawić się napis 'Dragon is dead'
     * zmień teksturę smoka na ``dragon-dead.png``
     * na ekranie pojawi się informacja ile złota smok wyrzucił (losowa 1-100)
-    * na ekranie pojawi się informacja w gdzie smok zginął
+    * na ekranie pojawi się informacja o pozycji gdzie smok zginął
 
 #. Nie można zadawać smokowi obrażeń, jeżeli już nie żyje
 
@@ -199,18 +213,25 @@ Dragon (Medium)
 -----------------
 .. note:: Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
 
-#. Zaimportuj smoka z zadania podstawowego i stwórz klasę ``SuperDragon`` dziedziczącą po ``Dragon``
+#. Zaimportuj smoka z zadania podstawowego rozszerz go przez dziedziczenie
 #. Smok nie może wyjść poza obszar ekranu (1024x768)
 #. Jeżeli dojdzie do granicy ekranu, to przesuwając dalej, pozycja będzie ustawiona na maks
-#. Stwórz klasę ``Hero``
-#. Nasz bohater (José Jiménez) ma skończone losowe ``hit_points`` (100-150)
-#. Smok zadaje losowe obrażenia (5-20)
-#. Bohater zadaje losowe obrażenia (1-15)
-#. Napisz ``doctest`` do funkcji move, sprawdzający poruszanie się poza planszą
-#. Do statusów zastosuj ``Enum``
-#. Bohater przejmuje złoto smoka
-#. Przeprowadź symulację walki
-#. Kto zginie pierwszy?
+#. Stwórz bohatera (José Jiménez):
+
+    * losowe punkty życia (100-150)
+    * zadaje losowe obrażenia (1-15)
+    * klasa postaci (domyślnie "wojownik")
+
+#. Napisz ``doctest`` do funkcji poruszania, sprawdzający wychodzenie poza ekran
+#. Dodaj statusy:
+
+    * "Pełnia życia" (zastąp status "alive") - gdy punkty życia 100%
+    * "Lekko Ranny" - gdy punkty życia 99% - 75%
+    * "Poważnie ranny" - gdy punkty życia 75% - 25%
+    * "Na skraju śmierci" - gdy punkty życia poniżej 25%
+
+#. Bohater przejmuje złoto smoka, jeżeli go zabije
+#. Przeprowadź symulację walki. Kto zginie pierwszy?
 
 :About:
     * Filename: ``oop_dragon_medium.py``
@@ -222,21 +243,22 @@ Dragon (Medium)
 
 Dragon (Advanced)
 -----------------
-#. Zaimportuj i wykorzystaj dziedziczenie klas ``SuperDragon`` i ``Hero``
+#. Dodaj możliwość poruszania się smoka i bohatera w 3 wymiarach
+#. Bohater może należeć do drużyny, który może składać się maks z 6 postaci (różnych klas)
+#. Żadna z istot na planszy nie może wyjść poza zakres ekranu
 #. Bohater może dodatkowo założyć ekwipunek i może być to wiele obiektów na raz
 #. Każdy z przedmiotów ma swoją nazwę, typ oraz modyfikator
 
-    * zbroję (dodatkowe punkty obrony, np. +10)
-    * tarczę (dodatkowe punkty obrony, np. +5)
-    * miecz (dodatkowe punkty ataku, np. +5)
+    * zbroję (dodatkowe punkty obrony, np. +10%)
+    * tarczę (dodatkowe punkty obrony, np. +5%)
+    * miecz (dodatkowe punkty ataku, np. +5%)
 
-#. Zbroja i tarcza chroni przed uderzeniami obniżając ``damage`` o wartość obrony
+#. Zbroja i tarcza chroni przed uderzeniami obniżając ilość obrażeń o wartość obrony
 #. Miecz zwiększa ilość zadawanych obrażeń
-#. Obrażenia smoka maleją z sześcianem odległości
+#. Obrażenia smoka maleją z sześcianem odległości (zianie ogniem)
 #. Bohater nie może zadawać obrażeń jak jest dalej niż 50 punktów od przeciwnika
-#. Smok i bohater może lewelować a bazowe punty życia i obrażeń się zmieniają z poziomem
-#. Przeprowadź symulację walki.
-#. Kto zginie pierwszy?
+#. Wszystkie istoty mogą lewelować a bazowe punty życia i obrażeń się zmieniają z poziomem
+#. Przeprowadź symulację walki. Kto zginie pierwszy?
 
 :About:
     * Filename: ``oop_dragon_advanced.py``
@@ -292,11 +314,3 @@ Przekształć swój kod z przykładu z modułu "Matematyka" tak żeby wykorzysty
     * Filename: ``oop-vector.py``
     * Lines of code to write: 20 lines
     * Estimated time of completion: 30 min
-
-Bank i Bankomaty
-----------------
-#. Stwórz klasę Bank
-#. Stwórz klasę Bankomat
-#. Stwórz klasę Osoba
-#. Osoba ma konto w banku
-#. Osoba może wybrać pieniądze z bankomatu
