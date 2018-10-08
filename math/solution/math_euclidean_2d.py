@@ -32,4 +32,5 @@ def euclidean_distance(A, B):
 
     return math.sqrt(part_x + part_y)
 
+    return math.sqrt((x2-x1)**2 + (y2-y1)**2)
     return math.sqrt(pow(B[1]-A[1],2)+pow(B[0]-A[0],2))

@@ -24,9 +24,8 @@ def euclidean_distance_n_dimensions(A, B):
         raise ValueError('Punkty muszą być w przestrzeni tylu-samo wymiarowej')
 
     pod_pierwiastkiem = 0
-    ile_wymiarow = len(A)
 
-    for i in range(ile_wymiarow):
+    for i, _ in enumerate(A):
         pod_pierwiastkiem += (B[i]-A[i]) ** 2
 
     return math.sqrt(pod_pierwiastkiem)
