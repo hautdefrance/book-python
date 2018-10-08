@@ -147,44 +147,43 @@ Assignments
 
 Dragon (Easy)
 -------------
-#. UWAGA: Zadanie opisuje wymagania do gry a nie interfejs, tzn. jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić.
-#. Stwórz klasę ``Dragon``
+.. note:: Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
+
+#. Skopiuj kod gry z listingu :numref:`listing-oop-dragon`
 #. Smok ma mieć:
 
-    * ``name`` - nazwa smoka
-    * ``hit_points`` domyślnie losowy ``int`` z zakresu od 50 do 100
-    * ``position_x`` domyślnie 0
-    * ``position_y`` domyślnie 0
-    * ``texture`` domyślnie ``dragon.png``
-    * ``status`` domyślnie ``alive``
+    * nazwę smoka
+    * pozycja ``x`` na ekranie
+    * pozycja ``y`` na ekranie
+    * teksturę, domyślnie ``dragon.png``
+    * punkty życia, domyślnie losowy ``int`` z zakresu od 50 do 100
 
 #. Stwórz metody:
 
-    * ``.take_damage(damage)`` - smok otrzymuje obrażenia
-    * ``.make_damage()`` - Smok zadaje komuś losowe obrażenia (5-20)
-    * ``.set_position(x, y)`` - ustawia pozycję smoka na ``x`` i ``y``
-    * ``.get_position()`` - która zwraca aktualne położenie smoka
-    * ``.move(left, right, down, up)`` - przesuwa smoka o zadaną liczbę punktów w którymś z kierunków
+    * otrzymywania obrażeń podanych jako parametr
+    * zadawania obrażeń - Smok zadaje komuś losowe obrażenia od 5 do 20
+    * ustawiania pozycji smoka na ekranie
+    * aktualne położenie smoka
+    * Przesuwanie smoka o zadaną liczbę punktów w którymś z kierunków
 
-#. Można podać tylko niektóre z parametry metody ``.move()`` np. ``.move(right=30, down=50)`` lub ``.move(up=20)``
+#. Przesuwając smoka, można podać tylko niektóre kierunki, np: ``right=30, down=50`` lub ``up=20``
 
 #. Przyjmij górny lewy róg ekranu za punkt (0, 0)
 
-    - idąc w prawo dodajesz ``x`` do ``position_x``
-    - idąc w lewo odejmujesz ``x`` od ``position_x``
-    - idąc w górę odejmujesz ``y`` od ``position_y``
-    - idąc w dół dodajesz ``y`` do ``position_y``
+    - idąc w prawo dodajesz ``x``
+    - idąc w lewo odejmujesz ``x``
+    - idąc w górę odejmujesz ``y``
+    - idąc w dół dodajesz ``y``
 
-#. Kiedy ``hit_points`` smoka spadnie do lub poniżej zera:
+#. Kiedy punkty życia smoka spadną do, lub poniżej zera:
 
-    * ``status`` ma mieć wartość ``dead``
-    * Na ekranie ma pojawić się napis 'Dragon is dead'
-    * ``texture`` smoka musi być ustawione na ``dragon-dead.png``
-    * Na ekranie pojawi się informacja ile złota smok wyrzucił (losowa 1-100)
-    * Na ekranie pojawi się informacja w jakiej pozycji smok wyrzucił pieniądze (ostania, w której widziano smoka)
+    * ustaw status obiektu na ``dead``
+    * na ekranie ma pojawić się napis 'Dragon is dead'
+    * zmień teksturę smoka na ``dragon-dead.png``
+    * na ekranie pojawi się informacja ile złota smok wyrzucił (losowa 1-100)
+    * na ekranie pojawi się informacja w gdzie smok zginął
 
 #. Nie można zadawać smokowi obrażeń, jeżeli już nie żyje
-#. Granie ze smokiem tak jak na :numref:`listing-oop-dragon`
 
 :About:
     * Filename: ``oop_dragon_easy.py``
@@ -198,6 +197,8 @@ Dragon (Easy)
 
 Dragon (Medium)
 -----------------
+.. note:: Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
+
 #. Zaimportuj smoka z zadania podstawowego i stwórz klasę ``SuperDragon`` dziedziczącą po ``Dragon``
 #. Smok nie może wyjść poza obszar ekranu (1024x768)
 #. Jeżeli dojdzie do granicy ekranu, to przesuwając dalej, pozycja będzie ustawiona na maks
@@ -206,9 +207,9 @@ Dragon (Medium)
 #. Smok zadaje losowe obrażenia (5-20)
 #. Bohater zadaje losowe obrażenia (1-15)
 #. Napisz ``doctest`` do funkcji move, sprawdzający poruszanie się poza planszą
-#. Do statusów zastosuj ENUM
+#. Do statusów zastosuj ``Enum``
 #. Bohater przejmuje złoto smoka
-#. Przeprowadź symulację walki.
+#. Przeprowadź symulację walki
 #. Kto zginie pierwszy?
 
 :About:
