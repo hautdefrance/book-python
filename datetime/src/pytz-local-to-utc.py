@@ -1,22 +1,13 @@
 from datetime import datetime
-import pytz
+from pytz import utc, timezone
 
 
-utc = pytz.utc
-eastern = pytz.timezone('US/Eastern')
-warsaw = pytz.timezone('Europe/Warsaw')
-
-
+warsaw = timezone('Europe/Warsaw')
 gagarin = datetime(1961, 4, 12, 14, 7)
 
 
-in_utc = utc.localize(gagarin, is_dst=None)      # No daylight saving time
-in_waw = warsaw.localize(gagarin, is_dst=None)   # No daylight saving time
+in_utc = utc.localize(gagarin, is_dst=None)
+# datetime.datetime(1961, 4, 12, 14, 7, tzinfo=<UTC>)
 
-
-print(f'{in_utc:%Y-%m-%d %H:%M:%S %Z%z}')
-# 1961-04-12 14:07:00 UTC+0000
-
-
-print(f'{in_waw:%Y-%m-%d %H:%M:%S %Z%z}')
-# 1961-04-12 14:07:00 CET+0100
+in_waw = warsaw.localize(gagarin, is_dst=None)
+# datetime.datetime(1961, 4, 12, 14, 7, tzinfo=<DstTzInfo 'Europe/Warsaw' CET+1:00:00 STD>)

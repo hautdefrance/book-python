@@ -5,64 +5,89 @@ Dates and Time
 .. warning:: If you're thinking about implementing your own time calculator or system, watch Computerophile Time & Time Zones https://www.youtube.com/watch?v=-5wpm-gesOY
 
 
-Różne formaty dat i czasu
-=========================
-https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
+Date and time formats
+=====================
+* https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
 
-Problem z formatami dat:
+Date formats
+------------
+* Which format is a formal standard in USA?
+* Which format is a formal standard in Germany?
+* Which format is a formal standard in Poland?
 
-* '12.4.1961'
-* '12.04.1961'
-* '12 IV 1961'
-* '12.IV.1961'
-* '12/4/1961'
-* '12/04/1961'
-* '12 kwietnia 1961'
-* '12 kwiecień 1961'
-* '4/12/61'
-* 'April 12, 1961'
+.. code-block:: text
 
-Problem z formatami czasu:
+    12.4.1961
+    12.04.1961
+    12 IV 1961
+    12.IV.1961
+    12/4/1961
+    12/04/1961
+    12 kwietnia 1961
+    12 kwiecień 1961
+    4/12/61
+    April 12, 1961
 
-* '12:00 am'
-* '12:00 pm'
-* '12:00'
-* '23:59'
-* '24:00'
-* '0:00'
-* '00:00'
+Time formats
+------------
+* Which time is a midnight?
+* Which time is a noon?
 
-Standard ISO:
+.. code-block:: text
 
-* '1961-04-12'
-* '1961-04-12T06:07:00'
-* '1961-04-12T06:07:00.123456'
+    12:00 am
+    12:00 pm
+    12:00
+    23:59
+    24:00
+    0:00
+    00:00
+
+ISO 8601 Standard
+-----------------
+* Dates:
+
+    .. code-block: text
+
+       1961-04-12
+
+* Date and time
+
+.. code-block:: text
+
+    1961-04-12T06:07:00
+
+* Date and time with microseconds
+
+    .. code-block:: text
+
+        1961-04-12T06:07:00.123456
 
 
 ``datetime``
 ============
 
-Tworzenie obiektu ``date`` i ``datetime``
------------------------------------------
+Creating ``date`` and ``datetime`` objects
+------------------------------------------
 .. literalinclude:: src/datetime-new.py
     :language: python
     :caption: Creating ``date`` and ``datetime`` objects
 
-Formatowanie dat
+Date formatting
 ----------------
 .. literalinclude:: src/datetime-format.py
     :language: python
     :caption: Datetime formatting as string
 
-Parsowanie dat
---------------
+Parsing dates
+-------------
 * Parsing - analyze (a sentence) into its parts and describe their syntactic roles.
 
 .. literalinclude:: src/datetime-parse.py
     :language: python
     :caption: Datetime parsing from string
 
-Tabelka parametrów formatowania i parsowania dat i czasu
+Table of date and time parsing and formatting parameters
 --------------------------------------------------------
 .. note:: Prawie wszystkie parametry są podobne różnych językach programowania. Od czasu do czasu występują małe zmiany, np. w JavaScript minuty to ``i`` a nie ``M``
 
@@ -70,8 +95,8 @@ Tabelka parametrów formatowania i parsowania dat i czasu
     :header-rows: 1
     :file: data/datetime-formatting.csv
 
-Przesunięcia czasu (dodawanie i odejmowanie)
---------------------------------------------
+Time shifts and time deltas
+---------------------------
 .. literalinclude:: src/datetime-shift.py
     :language: python
     :caption: Shifting datetimes
@@ -84,8 +109,8 @@ Przesunięcia czasu (dodawanie i odejmowanie)
     :language: python
     :caption: Diff between datetimes
 
-Strefy czasowe
---------------
+Time zones in ``datetime`` library
+----------------------------------
 * Always keep dates and times only in UTC (**important!**)
 * Datetimes should be converted to localtime only when displaying to user
 
@@ -99,6 +124,9 @@ Strefy czasowe
 
 List of Timezones
 -----------------
+* https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+* https://www.iana.org/time-zones
+
 .. literalinclude:: src/pytz-tzlist.py
     :language: python
     :caption: ``pytz`` brings the Olson tz database into Python.
@@ -114,6 +142,12 @@ From local to UTC
 .. literalinclude:: src/pytz-local-to-utc.py
     :language: python
     :caption: From local to UTC
+
+Between timezones
+-----------------
+.. literalinclude:: src/pytz-between-timezones.py
+    :language: python
+    :caption: Between timezones
 
 
 ``calendar``
@@ -132,6 +166,7 @@ From local to UTC
 .. literalinclude:: src/time-timestamp.py
     :language: python
     :caption: Get timestamp
+
 
 .. _timeit:
 
@@ -185,21 +220,21 @@ From local to UTC
 Assignments
 ===========
 
-Manipulacja datami
+Date manipulation
 ------------------
 #. Dane są dwie następujące daty w formacie jak poniżej:
 
     .. code-block:: python
 
-        date1 = 'April 12, 1961 2:07 local time'  # ALMT Timezone
+        date1 = 'April 12, 1961 2:07 local time'  # Asia/Almaty
         date2 = '"07/21/69 2:56:15 AM UTC"'
 
 #. Przedstaw daty jako obiekt ``datetime``
-#. Wyświetl daty w formacie ISO, e.g. "1961-04-12T06:07:00.123456"
-#. Odejmij obie daty od siebie.
-#. Oblicz ile lat i miesięcy minęło między wydarzeniami.
-#. Od obecnej chwili (UTC) odejmij ten sam czas, który Ci wyszedł w poprzednim punkcie.
-#. Wyświetl samą datę (bez czasu).
+#. Wyświetl daty w formacie ISO, e.g. "1961-04-12T06:07:00.123456" w UTC
+#. Odejmij obie daty od siebie
+#. Oblicz ile lat i miesięcy minęło między wydarzeniami
+#. Od obecnej chwili (UTC) odejmij ten sam czas, który Ci wyszedł w poprzednim punkcie
+#. Wyświetl samą datę (bez czasu)
 #. Ile miałeś wtedy lat?
 #. Przyjmij:
 
@@ -217,7 +252,8 @@ Manipulacja datami
     * Co robiłeś przez ten czas?
 
 :Hint:
-    Standard ISO:
+    * Wpisz "local time" jako zwykły tekst do ``strptime``
+    * Standard ISO:
 
         * '1961-04-12'
         * '1961-04-12T06:07:00'

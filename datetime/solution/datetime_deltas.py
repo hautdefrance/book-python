@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta, timezone
 
+
 SECOND = 1
 MINUTE = 60 * SECOND
 HOUR = 60 * MINUTE
@@ -7,8 +8,10 @@ DAY = 24 * HOUR
 MONTH = 30.436875               # Average days a month in solar calendar
 YEAR = 365.2425                 # Solar calendar
 
+
 input1 = 'April 12, 1961 2:07 local time'  # ALMT Timezone
 input2 = '"07/21/69 2:56:15 AM UTC"'
+
 
 gagarin = datetime.strptime(input1, '%B %d, %Y %H:%M local time')
 # datetime.datetime(1961, 4, 12, 2, 7)
@@ -21,6 +24,7 @@ armstrong = datetime.strptime(input2, '"%m/%d/%y %I:%M:%S %p %Z"')
 
 diff = armstrong - gagarin
 # datetime.timedelta(days=3022, seconds=2955)
+
 
 years, days = divmod(diff.days, YEAR)
 months, days = divmod(days, MONTH)

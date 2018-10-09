@@ -1,5 +1,5 @@
-import pytz
+from pytz import utc, timezone
 
-utc = pytz.utc
-eastern = pytz.timezone('US/Eastern')
-warsaw = pytz.timezone('Europe/Warsaw')
+utc = utc
+eastern = timezone('US/Eastern')
+warsaw = timezone('Europe/Warsaw')

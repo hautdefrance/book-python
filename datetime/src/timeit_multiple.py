@@ -18,6 +18,6 @@ for stmt in TEST.values():
     print(f'{duration:.5}\t{stmt}')
 
 # 0.00071559    name = f"{first_name} {last_name}"
-# 0.0026514	    name = "{0} {1}".format(first_name, last_name)
+# 0.0026514     name = "{0} {1}".format(first_name, last_name)
 # 0.001015      name = first_name + " " + last_name
 # 0.0013494     name = " ".join([first_name, last_name])
