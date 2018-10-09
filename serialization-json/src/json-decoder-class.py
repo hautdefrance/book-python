@@ -4,7 +4,7 @@ import json
 DATA = """
 {
     "astronaut":{
-        "date": "1923-11-18",
+        "date": "1969-07-21",
         "person": "jose.jimenez@nasa.gov"
     },
     "flight": [
@@ -13,6 +13,7 @@ DATA = """
     ]
 }
 """
+
 
 class DatetimeDecoder(json.JSONDecoder):
     def __init__(self):

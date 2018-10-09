@@ -3,13 +3,19 @@ import json
 
 
 DATA = {
-    "datetime": datetime(1961, 4, 12, 2, 7, 0, 123456),
-    "date": date(1969, 7, 21),
-    "name": "Jose Jimenez",
+    "astronaut": {
+        "date": date(1969, 7, 21),
+        "person": "jose.jimenez@nasa.gov"
+    },
+    "flight": [
+        {"datetime": datetime(1961, 5, 5, 14, 34, 13), "action": "launch"},
+        {"datetime": datetime(1961, 5, 5, 14, 49, 35), "action": "landing"}
+    ]
 }
 
 
 def encoder(self, value):
+
     if isinstance(value, datetime):
         return f'{value:%Y-%m-%dT%H:%M:%S.%fZ}'
 

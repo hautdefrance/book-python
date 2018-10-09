@@ -1,40 +1,30 @@
 import json
+from dataclasses import dataclass
 
 
-class Kontakt:
-    def __init__(self, imie, nazwisko, adresy=[]):
-        self.imie = imie
-        self.nazwisko = nazwisko
-        self.adresy = adresy
-
-    def __str__(self):
-        return f'{self.imie} {self.nazwisko} {self.adresy}'
-
-    def __repr__(self):
-        return self.__str__()
-
-
+@dataclass
 class Adres:
     def __init__(self, **kwargs):
         for key, value in kwargs.items():
             setattr(self, key, value)
 
-    def __str__(self):
-        return f'{self.__dict__}'
 
-    def __repr__(self):
-        return self.__str__()
+@dataclass
+class Kontakt:
+    imie: str
+    nazwisko: str
+    adresy: tuple = ()
 
 
 ksiazka_adresowa = [
-    Kontakt(imie='Matt', nazwisko='Kowalski', adresy=[
+    Kontakt(imie='Matt', nazwisko='Kowalski', adresy=(
         Adres(ulica='2101 E NASA Pkwy', miasto='Houston', stan='Texas', kod='77058', panstwo='USA'),
         Adres(ulica=None, miasto='Kennedy Space Center', kod='32899', panstwo='USA'),
         Adres(ulica='4800 Oak Grove Dr', miasto='Pasadena', kod='91109', panstwo='USA'),
         Adres(ulica='2825 E Ave P', miasto='Palmdale', stan='California', kod='93550', panstwo='USA'),
-    ]),
+    )),
     Kontakt(imie='José', nazwisko='Jiménez'),
-    Kontakt(imie='Иван', nazwisko='Иванович', adresy=[]),
+    Kontakt(imie='Иван', nazwisko='Иванович', adresy=()),
 ]
 
 
@@ -43,7 +33,11 @@ class KontaktEncoder(json.JSONEncoder):
         try:
             return super().default(obj)
         except TypeError:
-            return obj.__dict__
+            return {
+                "type": obj.__class__.__name__,
+                "fields": obj.__dict__
+            }
+
 
 out = json.dumps(ksiazka_adresowa, cls=KontaktEncoder)
 print(out)

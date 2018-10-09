@@ -33,12 +33,11 @@ def decoder(obj):
 
 with open(FILENAME, mode='w', encoding='utf-8') as file:
     json.JSONEncoder.default = encoder
-    data = json.dumps(DATA)
-    file.write(data)
+    json.dump(DATA, file)
 
 
 with open(FILENAME, encoding='utf-8') as file:
-    content = file.read()
-    data = json.loads(content, object_hook=decoder)
+    data = json.load(file, object_hook=decoder)
+
 
 print(data)

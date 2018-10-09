@@ -1,8 +1,8 @@
 from datetime import datetime, date
 import json
 
+
 DATA = {
-    "datetime": datetime(1961, 4, 12, 2, 7, 0, 123456),
     "astronaut": {
         "date": date(1969, 7, 21),
         "person": "jose.jimenez@nasa.gov"
@@ -28,7 +28,6 @@ json.JSONEncoder.default = encoder
 out = json.dumps(DATA)
 print(out)
 # {
-#   "datetime": "1961-04-12T02:07:00.123456Z",
 #   "astronaut": {
 #       "date": "1969-07-21",
 #       "person": "jose.jimenez@nasa.gov"

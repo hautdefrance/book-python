@@ -1,7 +1,7 @@
 import json
 
 DATA = {
-    'first_name': 'Ivan',
+    'first_name': 'Иван',
     'last_name': 'Иванович'
 }
 

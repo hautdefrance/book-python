@@ -5,7 +5,7 @@ import json
 DATA = """
 {
     "astronaut":{
-        "date": "1923-11-18",
+        "date": "1969-07-21",
         "person": "jose.jimenez@nasa.gov"
     },
     "flight": [
@@ -14,7 +14,6 @@ DATA = """
     ]
 }
 """
-
 
 def decoder(obj):
     for key, value in obj.items():

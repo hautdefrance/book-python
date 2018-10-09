@@ -35,7 +35,10 @@ class JSONObjectEncoder(json.JSONEncoder):
         try:
             return super().default(obj)
         except TypeError:
-            return obj.__dict__
+            return {
+                "type": obj.__class__.__name__,
+                "fields": obj.__dict__
+            }
 
 
 class JSONObjectDecoder(json.JSONDecoder):
@@ -47,3 +50,7 @@ class JSONObjectDecoder(json.JSONDecoder):
             return Adres(**dictionary)
         else:
             return Kontakt(**dictionary)
+
+data = json.dumps(ksiazka_adresowa)
+output = json.loads(data)
+print(output)
