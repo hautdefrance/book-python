@@ -24,7 +24,7 @@ Line Profiling
 Numpy vectorization
 -------------------
 .. figure:: img/scipy-ecosystem.png
-    :scale: 50%
+    :scale: 25%
     :align: center
 
     Scipy Ecosystem
@@ -38,9 +38,71 @@ Specialized data structures
 * ``sparse`` (package) - for N-dimensional structured data
 * ``scipy.sparse.csgraph`` - for graph-like problems (e.g. finding shortest paths)
 
-CPython
--------
+Cython
+------
+* https://en.wikipedia.org/wiki/Cython
+* https://youtu.be/zQeYx87mfyw?t=747
 * types
+* Cython files have a ``.pyx`` extension
+
+.. code-block:: text
+
+    def primes(int kmax):   # The argument will be converted to int or raise a TypeError.
+        cdef int n, k, i    # These variables are declared with C types.
+        cdef int p[1000]    # Another C type
+        result = []         # A Python type
+
+        if kmax > 1000:
+            kmax = 1000
+
+        k = 0
+        n = 2
+
+        while k < kmax:
+            i = 0
+
+            while i < k and n % p[i] != 0:
+                i = i + 1
+
+            if i == k:
+                p[k] = n
+                k = k + 1
+                result.append(n)
+
+            n = n + 1
+        return result
+
+.. code-block:: text
+
+    In [1]: %load_ext Cython
+
+    In [2]: %%cython
+       ...: def f(n):
+       ...:     a = 0
+       ...:     for i in range(n):
+       ...:         a += i
+       ...:     return a
+       ...:
+       ...: cpdef g(int n):
+       ...:     cdef int a = 0, i
+       ...:     for i in range(n):
+       ...:         a += i
+       ...:     return a
+       ...:
+
+    In [3]: %timeit f(1000000)
+    42.7 ms ± 783 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+
+    In [4]: %timeit g(1000000)
+    74 µs ± 16.6 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+
+    # which gives a 585 times improvement over the pure-python version
+
+.. figure:: img/performance-cython.png
+    :scale: 50%
+    :align: center
+
+    Cython compiling
 
 Numba
 -----
@@ -145,38 +207,11 @@ Memoization
 
 #. Porównaj prędkość działania
 
-
 :About:
     * Filename: ``performance_memoize.py``
     * Lines of code to write: 5 lines
     * Estimated time of completion: 15 min
 
-:Hints:
-    * ``import timeit`` - :ref:`timeit`
-    * .. code-block:: python
-
-        def factorial_nocache(n: int) -> int:
-            if n == 0:
-                return 1
-            else:
-                return n * factorial(n-1)
-
-        def factorial_cache(n: int) -> int:
-            raise NotImplementedError
-
-
-        duration_cache = timeit(
-            stmt='factorial_cache(500); factorial_cache(400); factorial_cache(450); factorial_cache(350)',
-            globals=globals(),
-            number=10000,
-        )
-
-        duration_nocache = timeit(
-            stmt='factorial_nocache(500); factorial_nocache(400); factorial_nocache(450); factorial_nocache(350)',
-            globals=globals(),
-            number=10000
-        )
-
-        print(f'factorial_cache time: {round(duration_cache, 4)} seconds')
-        print(f'factorial_nocache time: {round(duration_nocache, 3)} seconds')
-        print(f'Cached solution is {round(duration_nocache / duration_cache, 1)} times faster')
+.. literalinclude:: src/performance-memoize.py
+    :language: python
+    :caption: Memoization
