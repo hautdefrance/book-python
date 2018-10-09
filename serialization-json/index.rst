@@ -18,14 +18,14 @@ Serializing to JSON
 -------------------
 .. literalinclude:: src/json-simple-dumps.py
     :language: python
-    :caption: Zapis danych do formatu JSON
+    :caption: Serializing to JSON
 
 
 Deserializing from JSON
 -----------------------
 .. literalinclude:: src/json-simple-loads.py
     :language: python
-    :caption: Odczyt danych z formatu JSON
+    :caption: Deserializing from JSON
 
 
 Serializing ``datetime`` and ``date``
@@ -45,7 +45,7 @@ Decoding ``datetime`` and ``date``
 ----------------------------------
 .. literalinclude:: src/json-datetime-loads.py
     :language: python
-    :caption: Simple loading ``datetime`` and ``date`` from JSON is not working
+    :caption: Simple loading returns ``str`` not ``datetime`` or ``date``
 
 .. literalinclude:: src/json-datetime-decoder.py
     :language: python

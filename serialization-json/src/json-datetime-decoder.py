@@ -2,17 +2,12 @@ from datetime import datetime, timezone
 import json
 
 
-DATA = """
-{
-    "email": "jose.jimenez@nasa.gov",
-    "date": "1961-04-12",
-    "datetime": "1969-07-21T14:56:15.000Z"
-}
-"""
+DATA = '{"email": "jose.jimenez@nasa.gov", "date": "1961-04-12", "datetime": "1969-07-21T14:56:15.000Z"}'
 
 
 def decoder(obj):
     for key, value in obj.items():
+
         if key == 'datetime':
             dt = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%fZ')
             obj['datetime'] = dt.replace(tzinfo=timezone.utc)

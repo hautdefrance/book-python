@@ -10,6 +10,7 @@ DATA = {
 
 
 def encoder(self, value):
+
     if isinstance(value, datetime):
         return f'{value:%Y-%m-%dT%H:%M:%S.%fZ}'
     elif isinstance(value, date):
@@ -21,8 +22,4 @@ json.JSONEncoder.default = encoder
 output = json.dumps(DATA)
 
 print(output)
-# {
-#     "email": "jose.jimenez@nasa.gov",
-#     "date": "1961-04-12",
-#     "datetime": "1969-07-21T14:56:15.000000Z"
-# }
+# '{"email": "jose.jimenez@nasa.gov", "date": "1961-04-12", "datetime": "1969-07-21T14:56:15.000Z"}'

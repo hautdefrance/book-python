@@ -22,23 +22,16 @@ class Contact:
     addresses: tuple = ()
 
 
-class JSONDecoder(json.JSONDecoder):
-    def __init__(self):
-        super().__init__(object_hook=self.default)
+def decoder(obj):
+    type = obj.pop('__type__')
 
-    def default(self, obj):
-        what = obj.pop('__type__')
-
-        if not what:
-            return None
-
-        if what == 'Address':
-            return Address(**obj)
-        elif what == 'Contact':
-            return Contact(**obj)
+    if type == 'Address':
+        return Address(**obj)
+    elif type == 'Contact':
+        return Contact(**obj)
 
 
-output = json.loads(DATA, cls=JSONDecoder)
+output = json.loads(DATA, object_hook=decoder)
 
 print(output)
 # [

@@ -2,20 +2,14 @@ import datetime
 import json
 
 
-DATA = """
-{
-    "email": "jose.jimenez@nasa.gov",
-    "date": "1961-04-12",
-    "datetime": "1969-07-21T14:56:15.000Z"
-}
-"""
+DATA = '{"email": "jose.jimenez@nasa.gov", "date": "1961-04-12", "datetime": "1969-07-21T14:56:15.000Z"}'
 
 
 class DatetimeDecoder(json.JSONDecoder):
     def __init__(self):
-        json.JSONDecoder.__init__(self, object_hook=self.convert_datetime)
+        super().__init__(object_hook=self.default)
 
-    def convert_datetime(slef, obj):
+    def default(self, obj):
         for key, value in obj.items():
 
             if key == 'datetime':
