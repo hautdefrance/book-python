@@ -363,7 +363,7 @@ Hosts
     * Estimated time of completion: 15 min
 
 .. literalinclude:: src/etc-hosts.txt
-    :name: `listing-etc-hosts`
+    :name: listing-etc-hosts
     :language: python
     :caption: Listing pliku ``/etc/hosts``
 

@@ -1,109 +1,95 @@
-**********************************
-Serializacja i deserializacja JSON
-**********************************
+******************
+JSON Serialization
+******************
 
 
 Format JSON jest podobny do zapisu dict w Python, ale różni się:
 
-- nie może być przecinka po ostatnim elemencie list
-- zawsze są stosowane podwójne cudzysłowia
-- ``true`` i ``false`` jest pisane małymi literami
-- zamiast ``None`` jest ``null``
+    * nie może być przecinka po ostatnim elemencie list
+    * zawsze są stosowane podwójne cudzysłowia
+    * ``true`` i ``false`` jest pisane małymi literami
+    * zamiast ``None`` jest ``null``
 
-Zapis danych do formatu JSON
-============================
-.. literalinclude:: src/json-dumps.py
-    :name: listing-json-dumps
+
+JSON Serialization of simple objects
+====================================
+
+Serializing to JSON
+-------------------
+.. literalinclude:: src/json-simple-dumps.py
     :language: python
     :caption: Zapis danych do formatu JSON
 
-Odczyt danych z formatu JSON
-============================
-.. literalinclude:: src/json-loads.py
-    :name: listing-json-loads
+
+Deserializing from JSON
+-----------------------
+.. literalinclude:: src/json-simple-loads.py
     :language: python
     :caption: Odczyt danych z formatu JSON
 
 
-Problemy z serializacją i deserializacją
-========================================
-* Serializacja i deserializacja dat
-* Serializacja i deserializacja obiektów
+Serializing ``datetime`` and ``date``
+=====================================
 
-
-Serializacja i pisanie własnych encoderów
-=========================================
-Problem z rzutowaniem daty na JSON:
-
-.. literalinclude:: src/json-encoder-exception.py
-    :name: listing-json-encoder-exception
+Encoding ``datetime`` and ``date``
+----------------------------------
+.. literalinclude:: src/json-datetime-dumps.py
     :language: python
     :caption: Exception during encoding datetime
 
-Encoder Klasowy
----------------
-.. literalinclude:: src/json-encoder-class.py
-    :name: listing-json-encoder-class
+.. literalinclude:: src/json-datetime-encoder.py
     :language: python
-    :caption: Encoder Klasowy
+    :caption: Encoding ``datetime`` and ``date``
 
-Encoder Function
+Decoding ``datetime`` and ``date``
+----------------------------------
+.. literalinclude:: src/json-datetime-loads.py
+    :language: python
+    :caption: Simple loading ``datetime`` and ``date`` from JSON is not working
+
+.. literalinclude:: src/json-datetime-decoder.py
+    :language: python
+    :caption: Decoding ``datetime`` and ``date``
+
+
+Serializing objects
+===================
+
+Encoding objects
 ----------------
-.. literalinclude:: src/json-encoder-function.py
-    :name: listing-json-encoder-function
+.. literalinclude:: src/json-object-encoder.py
     :language: python
-    :caption: Encoder Function
+    :caption: Encoding objects to JSON
 
-Encodowanie daty
+Decoding objects
 ----------------
-.. literalinclude:: src/json-encoder-datetime.py
-    :name: listing-json-encoder-datetime
+.. literalinclude:: src/json-object-decoder.py
     :language: python
-    :caption: Encoder dat do formatu JSON
-
-Encodowanie obiektów
---------------------
-.. literalinclude:: src/json-encoder-object.py
-    :name: listing-json-encoder-object
-    :language: python
-    :caption: Encoder klas do formatu JSON
+    :caption: Decoding objects from JSON
 
 
-Deserializacja i pisanie własnych decoderów
-===========================================
-.. literalinclude:: src/json-decoder-datetime.py
-    :name: listing-json-dumps-datetime
-    :language: python
-    :caption: Daty w formacie JSON domyślnie nie są parsowane
+Class based encoders and decoders
+=================================
 
-Class decoder
--------------
-.. literalinclude:: src/json-decoder-class.py
-    :name: listing-json-decoder-class
+Class based encoder
+-------------------
+.. literalinclude:: src/json-class-encoder.py
     :language: python
-    :caption: Decoder dat do formatu JSON
+    :caption: Class based encoder
 
-Function decoder
-----------------
-.. literalinclude:: src/json-decoder-function.py
-    :name: listing-json-decoder-function
+Class based decoder
+-------------------
+.. literalinclude:: src/json-class-decoder.py
     :language: python
-    :caption: Decoder dat do formatu JSON
-
-Object decoder
---------------
-.. literalinclude:: src/json-decoder-object.py
-    :name: listing-json-decoder-object
-    :language: python
-    :caption: Encoder do formatu JSON
+    :caption: Class based decoder
 
 
 Assignments
 ===========
 
-Serializacja dat
-----------------
-#. Skopiuj do swojego pliku strukturę danych :numref:`listing-json-encoder-datetime`
+Date serialization
+------------------
+#. Skopiuj do swojego pliku strukturę danych :numref:`listing-json-assignment-datetime`
 #. Zapisz ją do pliku json
 #. Wczytaj ją z pliku json jako obiekty Pythona (ten sam efekt co na listingu)
 
@@ -112,27 +98,33 @@ Serializacja dat
     * Lines of code to write: 10 lines
     * Estimated time of completion: 15 min
 
-:Co zadanie sprawdza:
+:The whys and wherefores:
+    * Serializacja danych
+    * Korzystanie z biblioteki JSON
+    * Serializowanie zagnieżdżonych dat i dat z czasem
+
+.. literalinclude:: src/json-assignment-datetime.py
+    :name: listing-json-assignment-datetime
+    :language: python
+    :caption: Sample Python data JSON
+
+Serializing custom class to JSON
+--------------------------------
+#. Skopiuj do pliku ``iris.json`` dane z listingu :numref:`listing-json-assignment-objects`
+#. Stwórz klasy ``Setosa``, ``Virginica``, ``Versicolor``
+#. Czytając dane z pliku twórz obiekty powyższych klas w zależności od wyniku pomiaru (pole "species")
+
+:About:
+    * Filename: ``json_objects.py``
+    * Lines of code to write: 15 lines
+    * Estimated time of completion: 20 min
+
+:The whys and wherefores:
     * Serializacja danych
     * Korzystanie z biblioteki JSON
     * Serializowanie zagnieżdżonych obiektów
 
-.. literalinclude:: src/json-excercise-datetime.py
-    :name: listing-json-excercise-datetime
+.. literalinclude:: src/json-assignment-objects.py
+    :name: listing-json-assignment-objects
     :language: python
     :caption: Sample Python data JSON
-
-Serializacja obiektów do JSON
------------------------------
-#. Użyj obiektu ``ksiazka_adresowa`` stworzonego w zadaniu z programowaniem obiektowym
-#. Zapisz kontakty z książki adresowej w JSON
-#. Jak odtworzyć relacje?
-#. Stwórz obiekty książki adresowej na podstawie danych odczytanych z pliku
-
-:About:
-    * Filename: ``csv_dictwriter.py``
-    * Lines of code to write: 8 lines
-    * Estimated time of completion: 15 min
-
-:Hints:
-    * ``self.__dict__``
