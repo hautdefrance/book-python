@@ -64,10 +64,6 @@ Mock:
 Frontend Testing
 ================
 
-``SonarLint``
--------------
-Plugin do IDE
-
 ``selenium``
 ------------
 * http://www.seleniumhq.org/
@@ -96,6 +92,10 @@ WebDriver is the name of the key interface against which tests should be written
 
 Static Code Analysis
 ====================
+
+``SonarLint``
+-------------
+Plugin do IDE
 
 ``pycodestyle`` previously known as ``PEP8``
 --------------------------------------------
@@ -372,7 +372,20 @@ Testy Mutacyjne
 * http://cosmic-ray.readthedocs.io/en/latest/
 * https://github.com/sk-/elcap
 
-Transifex
-=========
+Translation
+===========
 
+Transifex
+---------
 * https://www.transifex.com
+
+PoEdit
+------
+
+
+Assignments
+===========
+
+Dragon
+------
+#. Napisz testy jednostkowe dla Smoka z OOP
