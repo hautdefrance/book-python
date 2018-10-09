@@ -161,25 +161,9 @@ Running doctest from standalone scripts
 =======================================
 * Testy dla wszystkich funkcji aktualnie zdefiniowanych w przestrzeni nazw
 
-.. code-block:: python
-
-    def add(a, b):
-        """
-        >>> add(1, 2)
-        3
-
-        >>> add(-1, 1)
-        0
-
-        >>> add(0, 0)
-        0
-        """
-        return a + b
-
-
-    if __name__ == '__main__':
-        import doctest
-        doctest.testmod()
+.. literalinclude:: src/doctest-testmod.py
+    :language: python
+    :caption: Wykorzystanie ``doctest.testmod()`` do uruchamiania testów
 
 
 Practical example
@@ -187,47 +171,10 @@ Practical example
 
 Celsius to Kelvin temperature conversion
 ----------------------------------------
-.. code-block:: python
+.. literalinclude:: src/doctest-corner-cases.py
+    :language: python
+    :caption: Pokrycie przypadków brzegowych doctestami
 
-    from typing import Union
-
-
-    def celsius_to_kelvin(temperature_in_celsius: Union[int, float]) -> float:
-        """
-        >>> celsius_to_kelvin(0)
-        273.15
-
-        >>> celsius_to_kelvin(1)
-        274.15
-
-        >>> celsius_to_kelvin(-1)
-        272.15
-
-        >>> celsius_to_kelvin(-273.15)
-        0.0
-
-        >>> celsius_to_kelvin(-274.15)
-        Traceback (most recent call last):
-            ...
-        ValueError: Argument must be greater than -273.15
-
-        >>> celsius_to_kelvin([-1, 0, 1])
-        Traceback (most recent call last):
-            ...
-        ValueError: Argument must be int or float
-
-        >>> celsius_to_kelvin('one')
-        Traceback (most recent call last):
-            ...
-        ValueError: Argument must be int or float
-        """
-        if not isinstance(temperature_in_celsius, (float, int)):
-            raise ValueError('Argument must be int or float')
-
-        if temperature_in_celsius < -273.15:
-            raise ValueError('Argument must be greater than -273.15')
-
-        return float(temperature_in_celsius + 273.15)
 
 Email regex
 -----------

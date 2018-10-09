@@ -38,7 +38,7 @@ Foundations
     loop/comprehensions.rst
     functions-basic/index.rst
     exceptions/index.rst
-    doctest/index.rst
+    quality-and-tests/doctest.rst
     modules-use/index.rst
     builtin/index.rst
     programming-convention/index.rst
@@ -63,9 +63,9 @@ Intermediate
     logging/index.rst
     print-formatting/index.rst
     performance/index.rst
-    http-simple/index.rst
+    http/simple.rst
     serialization-json/index.rst
-    quality-and-tests/index.rst
+    quality-and-tests/unittest.rst
     functions-advanced/index.rst
     oop-operator-overload/index.rst
     regex/index.rst
@@ -83,6 +83,7 @@ Advanced
     type-annotation/index.rst
     modules-venv/index.rst
     modules-create/index.rst
+    quality-and-tests/ci-cd-tools.rst
     oop-advanced/index.rst
     compiler/index.rst
     debugging-advanced/index.rst
@@ -97,7 +98,7 @@ Advanced
     descriptor/index.rst
     decorator/index.rst
     collections/index.rst
-    http-advanced/index.rst
+    http/advanced.rst
     network-socket/index.rst
     threading-and-multiprocessing/index.rst
     concurrency/index.rst

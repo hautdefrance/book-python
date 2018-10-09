@@ -20,6 +20,6 @@ def km_na_metry(ile):
 
 
 if __name__ == "__main__":
-    import doctest
 
+    import doctest
     doctest.testmod()

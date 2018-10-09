@@ -1,38 +1,39 @@
-MINIMALNA_TEMPERATURA = -273.15
+from typing import Union
 
 
-def przelicz_celsius_na_kelvin(temperatura):
+def celsius_to_kelvin(temperature_in_celsius: Union[int, float]) -> float:
     """
-    >>> przelicz_celsius_na_kelvin(1)
-    274.15
-
-    >>> przelicz_celsius_na_kelvin(0)
+    >>> celsius_to_kelvin(0)
     273.15
 
-    >>> przelicz_celsius_na_kelvin(-300)
-    Traceback (most recent call last):
-        ...
-    ValueError: Nie może być mniejsze niż minimalna temperatura
+    >>> celsius_to_kelvin(1)
+    274.15
 
-    >>> przelicz_celsius_na_kelvin('jeden')
-    Traceback (most recent call last):
-        ...
-    ValueError: Temperatura musi być float
+    >>> celsius_to_kelvin(-1)
+    272.15
 
-    >>> przelicz_celsius_na_kelvin([1.0, 1, 0])
+    >>> celsius_to_kelvin(-273.15)
+    0.0
+
+    >>> celsius_to_kelvin(-274.15)
     Traceback (most recent call last):
         ...
-    TypeError: Nie obsługiwany typ argumentu
+    ValueError: Argument must be greater than -273.15
+
+    >>> celsius_to_kelvin([-1, 0, 1])
+    Traceback (most recent call last):
+        ...
+    ValueError: Argument must be int or float
+
+    >>> celsius_to_kelvin('one')
+    Traceback (most recent call last):
+        ...
+    ValueError: Argument must be int or float
     """
+    if not isinstance(temperature_in_celsius, (float, int)):
+        raise ValueError('Argument must be int or float')
 
-    try:
-        temperatura = float(temperatura)
-    except ValueError:
-        raise ValueError('Temperatura musi być float')
-    except TypeError:
-        raise TypeError('Nie obsługiwany typ argumentu')
+    if temperature_in_celsius < -273.15:
+        raise ValueError('Argument must be greater than -273.15')
 
-    if temperatura < MINIMALNA_TEMPERATURA:
-        raise ValueError('Nie może być mniejsze niż minimalna temperatura')
-    else:
-        return temperatura - MINIMALNA_TEMPERATURA
+    return float(temperature_in_celsius + 273.15)
