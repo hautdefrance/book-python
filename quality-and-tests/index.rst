@@ -114,7 +114,6 @@ Plugin do IDE
     .. code-block:: console
 
         $ pip install pycodestyle
-        $ pip install --upgrade pycodestyle
 
 :Usage:
     .. code-block:: console
@@ -141,7 +140,7 @@ Plugin do IDE
 ``flake8``
 ----------
 :About:
-    Simply speaking flake8 is “the wrapper which verifies pep8, pyflakes and circular complexity “. For other functions, it can control the warnings for specific line (impossible by a simple pyflakes)by # flake8: noqa or it can customize warnings happening by configuration file such as pep8.
+    Simply speaking flake8 is "the wrapper which verifies ``pycodestyle``, ``pyflakes`` and circular complexity". For other functions, it can control the warnings for specific line (impossible by a simple pyflakes)by # flake8: noqa or it can customize warnings happening by configuration file such as ``pycodestyle``.
 
 ``SonarQube``
 -------------
@@ -179,8 +178,6 @@ Plugin do IDE
     .. code-block:: console
 
         $ pip install pylint
-        $ pip install --upgrade pylint
-        $ pip uninstall pylint
 
 :Usage:
     .. code-block:: console
@@ -202,8 +199,6 @@ Plugin do IDE
     .. code-block:: console
 
         $ pip install pyflakes
-        $ pip install --upgrade pyflakes
-        $ pip uninstall pyflakes
 
 :Usage:
     .. code-block:: console
@@ -225,8 +220,6 @@ Plugin do IDE
     .. code-block:: console
 
         $ pip install coverage
-        $ pip install --upgrade coverage
-        $ pip uninstall coverage
 
 :Usage:
     .. code-block:: console
@@ -327,7 +320,7 @@ Type Checking
 
 .. code-block:: console
 
-    $ python3 -m pip install -U mypy
+    $ pip install mypy
     $ mypy FILENAME
 
 ``setup.cfg``
@@ -355,8 +348,6 @@ Fabric
     .. code-block:: console
 
         $ pip install fabric
-        $ pip install --upgrade fabric
-        $ pip uninstall fabric
 
 PSSH
 ----
