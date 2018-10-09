@@ -34,10 +34,10 @@ New style dataclasses
 
     @dataclass
     class Kelvin:
-        value: float = 0
+        value: float = 0.0
 
         def __post_init__(self):
-            if self.value < 0:
+            if self.value < 0.0:
                 raise ValueError('Temperature must be greater than 0')
 
 
@@ -78,11 +78,6 @@ Dataclass will add
 .. code-block:: python
 
     class InventoryItem:
-
-        def __init__(self, name, unit_price, quantity_on_hand=0):
-            self.name = name
-            self.unit_price = unit_price
-            self.quantity_on_hand = quantity_on_hand
 
         def total_cost(self) -> float:
             return self.unit_price * self.quantity_on_hand

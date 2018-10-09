@@ -155,15 +155,14 @@ f-strings to rozwinięcie funkcji ``format``. Jedyne co trzeba zrobić żeby umi
     print(f'Today is: {now():{format}}')                             # 'Today is: 1969-07-21 02:56:15'
 
 
-Przykład z życia
-================
-.. warning:: Kod podatny jest na SQL Injection. W praktyce skorzystaj z funkcji ``prepare``.
-
+SQL Injection
+=============
 .. code-block:: python
 
-    username =
+    username = input('Username: ')  # User type: ' OR 1=1; DROP TABLE users --
+    password = input('Password: ')  # User type: whatever
 
-    sql_query = """
+    query = f"""
 
         SELECT id, username, email
         FROM users
@@ -171,13 +170,16 @@ Przykład z życia
 
     """
 
-    sql_query.format(
-        username="' OR 1=1; DROP TABLE users -- ",
-        password = '132'
-    )
+    print(query)
     # SELECT id, username, email
     # FROM users
     # WHERE username='' OR 1=1; DROP TABLE users -- ' AND password='132'
+
+.. figure:: img/sql-injection.jpg
+    :scale: 50%
+    :align: center
+
+    SQL Injection
 
 
 PEP 3101 -- Advanced String Formatting
