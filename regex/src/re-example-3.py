@@ -2,12 +2,16 @@ import collections
 import re
 
 """
-A tokenizer or scanner analyzes a string to categorize groups of characters. This is a useful first step in writing a compiler or interpreter.
+A tokenizer or scanner analyzes a string to categorize groups of characters.
+This is a useful first step in writing a compiler or interpreter.
 
-The text categories are specified with regular expressions. The technique is to combine those into a single master regular expression and to loop over successive matches
+The text categories are specified with regular expressions.
+The technique is to combine those into a single master regular
+expression and to loop over successive matches
 """
 
 Token = collections.namedtuple('Token', ['typ', 'value', 'line', 'column'])
+
 
 def tokenize(code):
     keywords = {'IF', 'THEN', 'ENDIF', 'FOR', 'NEXT', 'GOSUB', 'RETURN'}
