@@ -1,4 +1,5 @@
 "Flag", "Description"
-"``re.IGNORECASE``", "Perform case-insensitive matching; expressions like [A-Z] will also match lowercase letters. Full Unicode matching (such as Ü matching ü)"
-"``re.MULTILINE``", "When specified, the pattern character '^' matches at the beginning of the string and at the beginning of each line (immediately following each newline); and the pattern character '$' matches at the end of the string and at the end of each line (immediately preceding each newline)."
-"``re.DOTALL``", "without this flag, '.' will match anything except a newline."
+"``re.IGNORECASE``", "Case-insensitive (Unicode support i.e. Ü and ü)"
+"``re.MULTILINE``", "``^`` matches beginning of the string and each line"
+"``re.MULTILINE``", "``$`` matches end of the string and each line"
+"``re.DOTALL``", "``.`` matches newlines"

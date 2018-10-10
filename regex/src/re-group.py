@@ -1,19 +1,16 @@
 import re
 
 PATTERN = r'(?P<first_name>\w+) (?P<last_name>\w+)'
-matches = re.match(PATTERN, 'José Jiménez')
+TEXT = 'José Jiménez'
+
+matches = re.match(PATTERN, TEXT)
+
 
 matches.group('first_name')
 # 'José'
 
 matches.group('last_name')
 # 'Jiménez'
-
-matches.group()
-# 'José Jiménez'
-
-matches.group(0)
-# 'José Jiménez'
 
 matches.group(1)
 # 'José'

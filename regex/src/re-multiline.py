@@ -1,12 +1,16 @@
 import re
 
 
-COMMIT_MESSAGE = """Fixed #27533 -- Fixed inspectdb crash if a unique constraint uses an … #31337
- …unsupported type."""
+PATTERN = r'^#[0-9]+'
 
-re.findall(r'#[0-9]+', COMMIT_MESSAGE, flags=re.MULTILINE)
-# ['#23919', '#31337']
+TEXT = """
+#27533 Fixed inspectdb crash;
+#31337 Remove commented out code
+"""
 
-issues = re.compile(r'#[0-9]+', flags=re.MULTILINE)
-issues.findall(COMMIT_MESSAGE)
-# ['#23919', '#31337']
+
+re.findall(PATTERN, TEXT)
+# []
+
+re.findall(PATTERN, TEXT, flags=re.MULTILINE)
+# ['#27533', '#31337']

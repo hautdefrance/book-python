@@ -1,4 +1,9 @@
 import re
 
-re.sub(r'\sAND\s', ' & ', 'Baked Beans And Spam', flags=re.IGNORECASE)
+
+PATTERN = r'\s[a-z]{3}\s'
+TEXT = 'Baked Beans And Spam'
+
+
+re.sub(PATTERN, ' & ', TEXT, flags=re.IGNORECASE)
 # 'Baked Beans & Spam'

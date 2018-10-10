@@ -1,9 +1,9 @@
 import re
 
-text = '<strong>Ehlo World</strong>'
+TEXT = '<strong>Ehlo World</strong>'
 
-re.findall(r'<.*>', text)
+re.findall(r'<.*>', TEXT)
 # ['<strong>Ehlo World</strong>']
 
-re.findall(r'<.*?>', text)
+re.findall(r'<.*?>', TEXT)
 # ['<strong>', '</strong>']

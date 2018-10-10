@@ -6,6 +6,18 @@ Regular Expressions
 Constructing Regular Expressions
 ================================
 
+Visualizing RegExps
+-------------------
+* https://regexper.com/
+* https://regex101.com/
+* ``r'^[a-zA-Z0-9][\w.+-]*@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,20}$'``
+
+.. figure:: img/regexp-vizualization.png
+    :scale: 100%
+    :align: center
+
+    Visualization for pattern ``r'^[a-zA-Z0-9][\w.+-]*@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,20}$'``
+
 Regular Expression Syntax
 -------------------------
 .. csv-table:: Regular Expression Syntax
@@ -13,15 +25,12 @@ Regular Expression Syntax
     :file: data/re-syntax.csv
     :widths: 25, 75
 
-Visualizing RegExps
--------------------
-* https://regexper.com/
-* https://regex101.com/
-
-.. figure:: img/regexp-vizualization.png
-    :name: figure-regexp-vizualization
-    :scale: 100%
-    :align: center
+Regex Flags
+-----------
+.. csv-table:: Regular Expression Flags
+    :header-rows: 1
+    :file: data/re-flags.csv
+    :widths: 25, 75
 
 
 Most frequent used functions in ``re`` module
@@ -30,73 +39,71 @@ Most frequent used functions in ``re`` module
 ``re.match()``
 --------------
 .. literalinclude:: src/re-match.py
-    :name: listing-re-match
     :language: python
     :caption: Usage of ``re.match()``
 
 ``re.search()``
 ---------------
 .. literalinclude:: src/re-search.py
-    :name: listing-re-search()
     :language: python
     :caption: Usage of ``re.search()``
 
 ``re.findall()`` and ``re.finditer()``
 --------------------------------------
 .. literalinclude:: src/re-find.py
-    :name: listing-re-find
     :language: python
     :caption: Usage of ``re.findall()`` and ``re.finditer()``
 
 ``re.compile()``
 ----------------
-.. literalinclude:: src/re-compile.py
-    :name: listing-re-compile
+.. literalinclude:: src/re-compile-no.py
     :language: python
-    :caption: Usage of compile
+    :caption: Compiles at every loop iteration, and then matches
+
+.. literalinclude:: src/re-compile-yes.py
+    :language: python
+    :caption: Compiling before loop, hence matching only inside
 
 ``re.sub()``
 ------------
 .. literalinclude:: src/re-sub.py
-    :name: listing-re-sub
     :language: python
     :caption: Usage of ``re.sub()``
 
 ``re.split()``
 --------------
 .. literalinclude:: src/re-split.py
-    :name: listing-re-split
     :language: python
     :caption: Usage of ``re.split()``
 
-
-Regex Flags
-===========
-.. csv-table:: Regular Expression Flags
-    :header-rows: 1
-    :file: data/re-flags.csv
-    :widths: 25, 75
-
-.. literalinclude:: src/re-multiline.py
-    :name: listing-re-regexp
+Comparision between ``re.match()``, ``re.search()`` and ``re.findall()``
+------------------------------------------------------------------------
+.. literalinclude:: src/re-comparision.py
     :language: python
-    :caption: Usage of regexp
+    :caption: Comparision between ``re.match()``, ``re.search()`` and ``re.findall()``
 
 
 RegEx parameters (variables)
 ============================
 .. literalinclude:: src/re-group.py
-    :name: listing-re-group
     :language: python
     :caption: Usage of group in ``re.match()``
 
 
+Multi line searches
+===================
+.. literalinclude:: src/re-multiline.py
+    :language: python
+    :caption: Usage of regexp
+
+
 Greedy and non-greedy search
 ============================
-The '*', '+', and '?' qualifiers are all greedy; they match as much text as possible. Sometimes this behaviour isn’t desired; if the RE <.*> is matched against '<a> b <c>', it will match the entire string, and not just '<a>'. Adding ? after the qualifier makes it perform the match in non-greedy or minimal fashion; as few characters as possible will be matched. Using the RE <.*?> will match only '<a>'.
+* greedy qualifiers: ``*``, ``+``, ``?``
+* they match as much text as possible
+* Adding ``?`` after the qualifier makes it non-greedy
 
 .. literalinclude:: src/re-greedy.py
-    :name: listing-re-greedy
     :language: python
     :caption: Usage of greedy and non-greedy search in ``re.findall()``
 
@@ -107,21 +114,18 @@ Practical example of Regex usage
 Making a Phonebook
 ------------------
 .. literalinclude:: src/re-example-1.py
-    :name: listing-re-example-1
     :language: python
     :caption: Practical example of Regex usage
 
 Finding all Adverbs
 -------------------
 .. literalinclude:: src/re-example-2.py
-    :name: listing-re-example-2
     :language: python
     :caption: Finding all Adverbs
 
 Writing a Tokenizer
 -------------------
 .. literalinclude:: src/re-example-3.py
-    :name: listing-re-example-3
     :language: python
     :caption: Writing a Tokenizer.
 
@@ -137,6 +141,7 @@ Parsing text from webpage
 -------------------------
 #. Dla listingu poniżej
 #. Za pomocą regexpów wytnij tekst fragmentu przemówienia JFK
+#. Zwróć pierwszy paragraf tekstu przemówienia zaczynający się od słów "We choose to go to the moon"
 
 :About:
     * Filename: ``regex_html.py``
