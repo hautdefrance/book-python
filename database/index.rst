@@ -2,9 +2,11 @@
 Databases
 *********
 
+
 SQL Syntax
 ==========
 .. note:: For SQL Syntax refer to :ref:`SQL`
+
 
 DB API
 ======
@@ -115,11 +117,15 @@ Cursor
     for post in posts.find({"author": "Mike"}):
         print(post)
 
+
+ORM
+===
+
 ``SQLAlchemy``
-==============
+--------------
 
 ``Django ORM``
-==============
+--------------
 
 
 Data exploration
