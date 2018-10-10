@@ -9,7 +9,7 @@ Why to use operator overload?
 * Simpler operations
 
 Example usage of operator Overload
-==================================
+----------------------------------
 .. code-block:: python
 
     class Vector:
@@ -45,6 +45,7 @@ Example usage of operator Overload
         def __abs__(self):
             return math.sqrt(self.x**2 + self.y**2)
 
+
 Numerical Operator Overload
 ===========================
 .. csv-table:: Operator Overload
@@ -63,6 +64,8 @@ Numerical Operator Overload
     "``__divmod__()``", "``divmod(a, b)``"
     "``__abs__()``", "``abs(a)``"
     "``__pow__()``", "``pow(a)``"
+    "``__round__()``", "``round(a)``, or ``round(a, x)``, where ``x`` is ndigits presision"
+
 
 Logical Operator Overload
 =========================
@@ -79,7 +82,7 @@ Logical Operator Overload
     "``__bool__()``", "``bool(a)``"
     "``__neg__()``", "``-a``"
     "``__pos__``", "``+a``"
-    "``__contains__()``", "``a in b``"
+
 
 Boolean Operator Overload
 =========================
@@ -93,8 +96,9 @@ Boolean Operator Overload
     "``__lshift__()``", "``a << b``"
     "``__rshift__()``", "``a >> b``"
 
-Functional Operator Overload
-============================
+
+Builtins Function Overload
+==========================
 .. csv-table:: Operator Overload
     :header-rows: 1
 
@@ -107,60 +111,19 @@ Functional Operator Overload
     "``__float__()``", "``float(a)``"
     "``__oct__()``", "``oct(a)``"
     "``__hex__()``", "``hex(a)``"
+    "``__reversed__()``", "``reversed()``"
+
 
 Accessors Overload
 ==================
+.. csv-table:: Operator Overload
+    :header-rows: 1
 
-``__delattr__()``
------------------
-.. code-block:: python
-
-    class Point:
-        x = 10
-        y = -5
-        z = 0
-
-    delattr(Point, 'z')
-    del Point.y
-
-``__getattribute__()``
-----------------------
-.. code-block:: python
-
-    class Point:
-        x = 10
-        y = -5
-        z = 0
-
-    x = getattr(Point, 'x')
-    # 10
-
-``__setattr__()``
------------------
-.. code-block:: python
-
-    class Kelvin:
-        def __init__(self, value):
-            self.temperature = value
-
-        def __setattr__(self, name, new_value):
-            if name == 'value' and new_value < 0.0:
-                raise ValueError('Temperature cannot be negative')
-            else:
-                super().__setattr__(name, new_value)
-
-
-    temp = Kelvin(273)
-
-    temp.value = 20
-    print(temp.value)   # 20
-
-    temp.value = -10
-    print(temp.value)   # ValueError: Temperature cannot be negative
-
-
-``__getitem__()``
------------------
+    "Operator", "Description"
+    "``__getitem__()``", "``a[b]``"
+    "``__setitem__()``", "``a[b] = 10``"
+    "``__contains__()``", "``a in b``"
+    "``__missing__()``", "``a[b]`` when ``b`` is not in ``a``"
 
 
 Assignment
@@ -187,12 +150,16 @@ Address Book
             return f'{self.__dict__}'
 
 
-    contact = Contact(name='José', addresses=[Address(location='JPL')])
+    contact = Contact(name='José Jiménez', addresses=[Address(location='JPL')])
     contact += Address(location='Houston')
     contact += Address(location='KSC')
 
     print(contact)
-    {'name': 'José', 'addresses': [{'city': 'JPL'}, {'city': 'Houston'}, {'city': 'KSC'}]}
+    # {'name': 'José Jiménez', 'addresses': [
+    #       {'location': 'JPL'},
+    #       {'location': 'Houston'},
+    #       {'location': 'KSC'}
+    # ]}
 
     if Address(location='Bajkonur') in contact:
         print(True)

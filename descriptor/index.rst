@@ -103,6 +103,57 @@ Example
         fahrenheit = Fahrenheit()
 
 
+Accessors
+=========
+
+``__delattr__()``
+-----------------
+.. code-block:: python
+
+    class Point:
+        x = 10
+        y = -5
+        z = 0
+
+    delattr(Point, 'z')
+    del Point.y
+
+``__getattribute__()``
+----------------------
+.. code-block:: python
+
+    class Point:
+        x = 10
+        y = -5
+        z = 0
+
+    x = getattr(Point, 'x')
+    # 10
+
+``__setattr__()``
+-----------------
+.. code-block:: python
+
+    class Kelvin:
+        def __init__(self, initial_temperature):
+            self.temperature = initial_temperature
+
+        def __setattr__(self, name, new_value):
+            if name == 'value' and new_value < 0.0:
+                raise ValueError('Temperature cannot be negative')
+            else:
+                super().__setattr__(name, new_value)
+
+
+    temp = Kelvin(273)
+
+    temp.value = 20
+    print(temp.value)   # 20
+
+    temp.value = -10
+    print(temp.value)   # ValueError: Temperature cannot be negative
+
+
 Assignments
 ===========
 
