@@ -210,6 +210,9 @@ Tworzenie paczek
 ``python setup.py sdist upload``
 --------------------------------
 
+Signing packages
+----------------
+
 
 Przyszłość paczkowania i dystrybucji
 ====================================

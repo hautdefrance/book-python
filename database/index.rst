@@ -52,7 +52,7 @@ Results
 
 Cursor
 ------
-.. literalinclude:: src/db-results-cursor.py
+.. literalinclude:: src/db-cursor.py
     :language: python
     :caption: Results with cursor
 
