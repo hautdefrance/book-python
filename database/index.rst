@@ -44,13 +44,15 @@ Results
     :language: python
     :caption: Results
 
-.. literalinclude:: src/db-results-cursor.py
-    :language: python
-    :caption: Results with cursor
-
 .. literalinclude:: src/db-results-dict.py
     :language: python
     :caption: Results with ``dict``
+
+Cursor
+------
+.. literalinclude:: src/db-results-cursor.py
+    :language: python
+    :caption: Results with cursor
 
 
 ``pyMySQL``
@@ -58,10 +60,6 @@ Results
 .. code-block:: console
 
     $ pip install PyMySQL
-
-.. literalinclude:: src/db-pymysql.sql
-    :language: python
-    :caption: PyMySQL
 
 .. literalinclude:: src/db-pymysql.py
     :language: python
