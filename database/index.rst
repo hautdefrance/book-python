@@ -4,7 +4,7 @@ Bazy Danych
 
 SQL Syntax
 ==========
-.. note:: For SQL Syntax refer to :numref:`SQL`
+.. note:: For SQL Syntax refer to :ref:`SQL`
 
 DB API
 ======
@@ -28,20 +28,12 @@ Connection
     :language: python
     :caption: Connection
 
-Context manager
----------------
-.. literalinclude:: src/db-context-manager.py
+Execute and executemany
+-----------------------
+.. literalinclude:: src/db-execute.py
     :language: python
-    :caption: Context Manager
+    :caption: Execute
 
-Cursor
-------
-.. literalinclude:: src/db-cursor.py
-    :language: python
-    :caption: Cursor
-
-Execute Many
-------------
 .. literalinclude:: src/db-execute-many.py
     :language: python
     :caption: Execute many
@@ -52,11 +44,13 @@ Results
     :language: python
     :caption: Results
 
-Converters
-----------
-.. literalinclude:: src/db-converters.py
+.. literalinclude:: src/db-results-cursor.py
     :language: python
-    :caption: Converters
+    :caption: Results with cursor
+
+.. literalinclude:: src/db-results-dict.py
+    :language: python
+    :caption: Results with ``dict``
 
 
 ``pyMySQL``

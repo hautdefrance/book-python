@@ -24,11 +24,13 @@ with sqlite3.connect(':memory:') as db:
     db.execute(SQL_CREATE_TABLE)
     db.executemany(SQL_INSERT, astronauts)
 
-    for row in db.execute(SQL_SELECT):
-        print(row)
+    db.row_factory = sqlite3.Row
 
-# (1, 61041212345, 'José', 'Jiménez')
-# (2, 61041212346, 'Matt', 'Kowalski')
-# (3, 61041212347, 'Melissa', 'Lewis')
-# (4, 61041212348, 'Alex', 'Vogel')
-# (5, 61041212349, 'Ryan', 'Stone')
+    for row in db.execute(SQL_SELECT):
+        print(dict(row))
+
+# {'id': 1, 'pesel': 61041212345, 'firstname': 'José', 'lastname': 'Jiménez'}
+# {'id': 2, 'pesel': 61041212346, 'firstname': 'Matt', 'lastname': 'Kowalski'}
+# {'id': 3, 'pesel': 61041212347, 'firstname': 'Melissa', 'lastname': 'Lewis'}
+# {'id': 4, 'pesel': 61041212348, 'firstname': 'Alex', 'lastname': 'Vogel'}
+# {'id': 5, 'pesel': 61041212349, 'firstname': 'Ryan', 'lastname': 'Stone'}

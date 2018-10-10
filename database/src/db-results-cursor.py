@@ -7,16 +7,11 @@ SQL_CREATE_TABLE = """
         pesel INTEGER UNIQUE,
         firstname TEXT,
         lastname TEXT)"""
+SQL_INSERT = 'INSERT INTO astronauts VALUES (NULL, :pesel, :firstname, :lastname)'
+SQL_SELECT = 'SELECT * from astronauts'
 
-list_of_tuples = [
-    (61041212345, 'José', 'Jiménez'),
-    (61041212346, 'Matt', 'Kowalski'),
-    (61041212347, 'Melissa', 'Lewis'),
-    (61041212348, 'Alex', 'Vogel'),
-    (61041212349, 'Ryan', 'Stone'),
-]
 
-list_of_dicts = [
+astronauts = [
     {'pesel': '61041212345', 'firstname': 'José', 'lastname': 'Jiménez'},
     {'pesel': '61041212346', 'firstname': 'Matt', 'lastname': 'Kowalski'},
     {'pesel': '61041212347', 'firstname': 'Melissa', 'lastname': 'Lewis'},
@@ -24,11 +19,17 @@ list_of_dicts = [
     {'pesel': '61041212349', 'firstname': 'Ryan', 'lastname': 'Stone'},
 ]
 
+
 with sqlite3.connect(':memory:') as db:
     db.execute(SQL_CREATE_TABLE)
+    db.executemany(SQL_INSERT, astronauts)
+    cursor = db.cursor()
 
-    try:
-        db.executemany('INSERT INTO astronauts VALUES (NULL, ?, ?, ?)', list_of_tuples)
-        db.executemany('INSERT INTO astronauts VALUES (NULL, :pesel, :firstname, :lastname)', list_of_dicts)
-    except sqlite3.IntegrityError:
-        print('Pesel need to be UNIQUE')
+    for row in cursor.execute(SQL_SELECT):
+        print(row)
+
+# (1, 61041212345, 'José', 'Jiménez')
+# (2, 61041212346, 'Matt', 'Kowalski')
+# (3, 61041212347, 'Melissa', 'Lewis')
+# (4, 61041212348, 'Alex', 'Vogel')
+# (5, 61041212349, 'Ryan', 'Stone')
