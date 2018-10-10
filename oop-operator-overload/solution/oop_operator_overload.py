@@ -34,14 +34,16 @@ class Contact:
         return f'{self.__dict__}'
 
 
-
-
-contact = Contact(name='José', addresses=[Address(location='JPL')])
+contact = Contact(name='José Jiménez', addresses=[Address(location='JPL')])
 contact += Address(location='Houston')
 contact += Address(location='KSC')
 
 print(contact)
-# {'name': 'José', 'addresses': [{'city': 'JPL'}, {'city': 'Houston'}, {'city': 'KSC'}]}
+# {'name': 'José Jiménez', 'addresses': [
+#       {'location': 'JPL'},
+#       {'location': 'Houston'},
+#       {'location': 'KSC'}
+# ]}
 
 if Address(location='Bajkonur') in contact:
     print(True)
