@@ -128,6 +128,22 @@ ORM
 --------------
 
 
+Database Schema Migration
+=========================
+
+SQLAlchemy
+----------
+
+Django
+------
+
+FlywayDB
+--------
+
+LiquidBase
+----------
+
+
 Data exploration
 ================
 * https://superset.incubator.apache.org/
@@ -216,7 +232,7 @@ Assignments
 ===========
 
 Iris Database
----------------------
+-------------
 * https://raw.githubusercontent.com/scikit-learn/scikit-learn/master/sklearn/datasets/data/iris.csv
 
 #. Bazę pomiarów Irysów przekonwertuj na tabelę w ``sqlite3``
