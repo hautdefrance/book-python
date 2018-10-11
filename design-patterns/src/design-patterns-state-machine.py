@@ -5,7 +5,10 @@ class Light:
     def __init__(self, previous=None):
         self.previous = previous
 
-    def next(self):
+    def run(self):
+        raise NotImplementedError
+
+    def __next__(self):
         raise NotImplementedError
 
 
@@ -17,7 +20,7 @@ class Red(Light):
         print(self.color)
         sleep(self.wait)
 
-    def next(self):
+    def __next__(self):
         return Amber(previous=self)
 
 
@@ -29,7 +32,7 @@ class Amber(Light):
         print(self.color)
         sleep(self.wait)
 
-    def next(self):
+    def __next__(self):
         if isinstance(self.previous, Red):
             return Green(previous=self)
         else:
@@ -44,13 +47,13 @@ class Green(Light):
         print(self.color)
         sleep(self.wait)
 
-    def next(self):
+    def __next__(self):
         return Amber(previous=self)
 
 
 class TrafficLights:
     def __init__(self, initial_state=Green(), max_changes=10):
-        self.current_state = initial_state
+        self.state = initial_state
         self.max_changes = max_changes
 
     def __iter__(self):
@@ -62,8 +65,8 @@ class TrafficLights:
             raise StopIteration
 
         self.changes += 1
-        self.current_state.run()
-        self.current_state = self.current_state.next()
+        self.state.run()
+        self.state = next(self.state)
         return self
 
 
