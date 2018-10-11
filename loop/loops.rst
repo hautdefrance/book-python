@@ -139,18 +139,19 @@ Iterating over nested ``list`` items
 ---------------
 .. code-block:: python
 
-    DATA = [
-        ('a', 0),
-        ('b', 1),
-        ('c', 2),
-    ]
+    DATA = ['a', 'b', 'c']
+
+    for element in DATA:
+        print(element)
+    # a
+    # b
+    # c
 
     for index, element in enumerate(DATA):
-        print(f'index: "{index}", element: "{element}"')
-
-    # index: "0", element: "('a', 0)"
-    # index: "1", element: "('b', 1)"
-    # index: "2", element: "('c', 2)"
+        print(index, element)
+    # 0 a
+    # 1 b
+    # 2 c
 
 
 Iterating over ``dict`` items
