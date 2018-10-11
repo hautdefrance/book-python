@@ -8,49 +8,58 @@ Introspection
 * Everything in Python is an object and we can examine those objects
 * Python ships with a few built-in functions and modules to help us
 
+
+Introspecting Types
+===================
+
 ``type()``
 ----------
 .. code-block:: python
 
-    type('')
-    # <type 'str'>
-
-    type([])
-    # <type 'list'>
-
-    type({})
-    # <type 'dict'>
-
-    type(dict)
-    # <type 'type'>
-
-    type(3)
-    # <type 'int'>
+    type('')                            # <type 'str'>
+    type([])                            # <type 'list'>
+    type({})                            # <type 'dict'>
+    type(dict)                          # <type 'type'>
+    type(3)                             # <type 'int'>
 
 ``id()``
 --------
 .. code-block:: python
 
-    name = "Yasoob"
-    id(name)
-    # 139972439030304
+    id(int)                             # 4306722176
+    id(int)                             # 4306722176
+
+.. code-block:: python
+
+    id('Jose Jimenez')                  # 4596416368
+    id('Jose Jimenez')                  # 4592969392
+
+.. code-block:: python
+
+    name = 'Jose Jimenez'
+    id(name)                            # 4596353264
+    id(name)                            # 4596353264
 
 ``isinstance()``
 ----------------
 .. code-block:: python
 
     my_data = {}
-    isinstance(my_data, (set, dict))  # True
-    isinstance(my_data, dict)         # True
-    isinstance(my_data, set)          # False
+    isinstance(my_data, (set, dict))    # True
+    isinstance(my_data, dict)           # True
+    isinstance(my_data, set)            # False
+
+.. code-block:: python
 
     my_data = {1}
-    isinstance(my_data, dict)         # False
-    isinstance(my_data, set)          # True
+    isinstance(my_data, dict)           # False
+    isinstance(my_data, set)            # True
+
+.. code-block:: python
 
     my_data = {1: 1}
-    isinstance(my_data, dict)         # True
-    isinstance(my_data, set)          # False
+    isinstance(my_data, dict)           # True
+    isinstance(my_data, set)            # False
 
 ``issubclass()``
 ----------------
@@ -63,10 +72,32 @@ Introspection
         pass
 
 
-    print(issubclass(Cosmonaut, Cosmonaut))     # True
-    print(issubclass(Cosmonaut, GieroyCCCP))    # False
-    print(issubclass(GieroyCCCP, GieroyCCCP))   # True
-    print(issubclass(GieroyCCCP, Cosmonaut))    # True
+    issubclass(Cosmonaut, Cosmonaut)     # True
+    issubclass(Cosmonaut, GieroyCCCP)    # False
+    issubclass(GieroyCCCP, GieroyCCCP)   # True
+    issubclass(GieroyCCCP, Cosmonaut)    # True
+
+``callable()``
+--------------
+.. code-block:: python
+
+    class Car(object):
+        def setName(self, name):
+            self.name = name
+
+    def fun():
+        pass
+
+    c = Car()
+
+    callable(fun)                       # True
+    callable(c.setName)                 # True
+    callable([])                        # False
+    callable(1)                         # False
+
+
+Introspecting Objects
+=====================
 
 ``dir()``
 ---------
@@ -148,6 +179,45 @@ Introspection
     #    '__weakref__': <attribute '__weakref__' of 'Server' objects>
     # }
 
+``hasattr()``, ``getattr()``, ``setattr()``
+-------------------------------------------
+.. code-block:: python
+
+    class Astronaut:
+        def __init__(self, **kwargs):
+            for name, value in kwargs.items():
+                setattr(self, name, value)
+
+        def __str__(self):
+            if hasattr(self, 'first_name'):
+                first_name = getattr(self, 'first_name')
+
+            last_name = getattr(self, 'last_name', 'n/a')
+            return f'My name... {first_name} {last_name}'
+
+
+     jose = Astronaut(first_name='Jose', last_name='Jimenez')
+
+     print(jose)
+     # My name... Jose Jimenez
+
+``inspect`` module
+------------------
+The inspect module also provides several useful functions to get
+information about live objects. For example you can check the members of
+an object by running:
+
+.. code-block:: python
+
+    import inspect
+
+    inspect.getmembers(str)
+    # [('__add__', <slot wrapper '__add__' of ... ...
+
+
+Introspecting Docstrings
+========================
+
 ``help()``
 ----------
 .. code-block:: python
@@ -212,59 +282,6 @@ Introspection
     localhost.login.__doc__
     # 'logs-in to the server'
 
-``callable()``
---------------
-.. code-block:: python
-
-    class Car(object):
-
-        def setName(self, name):
-            self.name = name
-
-    def fun():
-        pass
-
-    c = Car()
-
-    print(callable(fun))        # True
-    print(callable(c.setName))  # True
-    print(callable([]))         # False
-    print(callable(1))          # False
-
-``hasattr()``, ``getattr()``, ``setattr()``
--------------------------------------------
-.. code-block:: python
-
-    class Astronaut:
-        def __init__(self, **kwargs):
-            for name, value in kwargs.items():
-                setattr(self, name, value)
-
-        def __str__(self):
-            if hasattr(self, 'first_name'):
-                first_name = getattr(self, 'first_name')
-
-            last_name = getattr(self, 'last_name', 'n/a')
-            return f'My name... {first_name} {last_name}'
-
-
-     jose = Astronaut(first_name='Jose', last_name='Jimenez')
-
-     print(jose)
-     # My name... Jose Jimenez
-
-``inspect`` module
-------------------
-The inspect module also provides several useful functions to get
-information about live objects. For example you can check the members of
-an object by running:
-
-.. code-block:: python
-
-    import inspect
-
-    inspect.getmembers(str)
-    # [('__add__', <slot wrapper '__add__' of ... ...
 
 Example
 =======
