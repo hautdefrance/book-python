@@ -24,31 +24,31 @@ Foundations
     :caption: Foundations
 
     syntax/index.rst
-    types/numeric.rst
-    types/logic.rst
-    types/string.rst
-    types/slice.rst
-    data-structures/collections.rst
-    data-structures/key-value.rst
-    data-structures/nested.rst
+    data-types/numeric.rst
+    data-types/logic.rst
+    data-types/string.rst
+    data-types/slice.rst
+    data-types/sequences.rst
+    data-types/key-value.rst
+    data-types/nested.rst
     control-flow/index.rst
     operators/index.rst
     loop/loops.rst
     loop/keywords.rst
     loop/comprehensions.rst
-    functions-basic/index.rst
+    functions/basic.rst
     exceptions/index.rst
     quality-and-tests/doctest.rst
-    modularization/install.rst
+    extensions/modules.rst
     builtin/index.rst
     programming-convention/index.rst
-    debugging-basic/index.rst
+    quality-and-tests/debugging-basic.rst
     math/index.rst
     datetime/index.rst
     file/index.rst
-    serialization-csv/index.rst
+    serialization/csv.rst
     object-oriented-programming/basic.rst
-    exam-basic/index.rst
+    exam/basic.rst
 
 
 ************
@@ -63,10 +63,10 @@ Intermediate
     logging/index.rst
     print-formatting/index.rst
     performance/index.rst
-    http/simple.rst
-    serialization-json/index.rst
+    serialization/json.rst
+    network/http-simple.rst
     quality-and-tests/unittest.rst
-    functions-advanced/index.rst
+    functions/advanced.rst
     object-oriented-programming/operator-overload.rst
     regex/index.rst
     database/index.rst
@@ -80,17 +80,18 @@ Advanced
     :numbered:
     :caption: Advanced
 
-    type-annotation/index.rst
-    modularization/venv.rst
-    modularization/create.rst
+    extensions/venv.rst
+    extensions/distributing-packages.rst
+    quality-and-tests/type-annotation.rst
     quality-and-tests/ci-cd-tools.rst
     object-oriented-programming/paradigm.rst
     object-oriented-programming/advanced.rst
-    compiler/index.rst
-    debugging-advanced/index.rst
-    introspection/index.rst
-    serialization-pickle/index.rst
-    serialization-xml/index.rst
+    extensions/compilers.rst
+    extensions/zipapp.rst
+    quality-and-tests/debugging-advanced.rst
+    quality-and-tests/introspection.rst
+    serialization/pickle.rst
+    serialization/xml.rst
     argparse/index.rst
     operating-system/index.rst
     generator/index.rst
@@ -98,18 +99,18 @@ Advanced
     context-manager/index.rst
     descriptor/index.rst
     decorator/index.rst
-    collections/index.rst
-    http/advanced.rst
-    network-socket/index.rst
-    threading-and-multiprocessing/index.rst
-    concurrency/index.rst
-    c-extensions/index.rst
+    data-types/collections.rst
+    network/http-advanced.rst
+    network/socket.rst
+    concurrency/threading.rst
+    concurrency/async.rst
+    extensions/c-extensions.rst
     functional-programming/index.rst
     object-oriented-programming/metaclass.rst
     design-patterns/index.rst
     gui/index.rst
     documentation/index.rst
-    exam-advanced/index.rst
+    exam/advanced.rst
 
 
 ******
