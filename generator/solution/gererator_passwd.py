@@ -36,5 +36,8 @@ if __name__ == '__main__':
     with open(FILENAME, encoding='utf-8') as file:
         lines = file.readlines()
 
-    print('Comprahension:', sys.getsizeof(comprahension(lines)))
-    print('Generator:', sys.getsizeof(generator(lines)))
+    comp = comprahension(lines)
+    gene = generator(lines)
+
+    print(f'Comprahension: {sys.getsizeof(comp)}')
+    print(f'Generator: {sys.getsizeof(gene)}')

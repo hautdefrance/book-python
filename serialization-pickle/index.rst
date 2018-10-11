@@ -1,71 +1,53 @@
-*****************************
-Serializacja i deserializacja
-*****************************
+********************
+Pickle serialization
+********************
+
+* What is ``pickle``?
+* ``pickle`` vs. ``cPickle``
+* Extension ``pkl``
 
 
-Serializacja i deserializacja danych Pythona
-============================================
-Python posiada bibliotekę ``pickle``, która służy do serializacji danych i zmiennych Pythona. Ta biblioteka ma także metody do zapisu i odczytu danych z plików ``pkl``.
+Serializing objects
+===================
 
-Przykład demonstrujący jak działa pickle:
+To string
+---------
+.. literalinclude:: src/pickle-dumps.py
+    :language: python
+    :caption: Serializing objects to string
 
-.. code-block:: python
-
-    PYTHON = [
-         Osoba,
-         make_datetime(now),
-         str(now),
-         now.__str__(),
-         '%s' % now,
-         '{}'.format(now),
-         {'imie': 'Иван', 'nazwisko': 'Иванович'},
-         (10, 20, 30),
-         (1,)
-    ]
-
-    import pickle
-
-    p = pickle.dumps(PYTHON)
-    print('Z Python do Pickle:', p)
-
-    pp = pickle.loads(p)
-    print('Z Pickle do Python:', pp)
-
-    osoba = pp[0]
-    print('Obiekt po konwersji:', osoba.nazwisko)
+To file
+-------
+.. literalinclude:: src/pickle-dump.py
+    :language: python
+    :caption: Serializing objects to file
 
 
-Zapis i odczyt danych z pliku:
+Deserializing objects
+=====================
 
-.. code-block:: python
+From string
+-----------
+.. literalinclude:: src/pickle-loads.py
+    :language: python
+    :caption: Deserializing objects from string
 
-    PYTHON = [
-         Osoba,
-         make_datetime(now),
-         str(now),
-         now.__str__(),
-         '%s' % now,
-         '{}'.format(now),
-         {'imie': 'Иван', 'nazwisko': 'Иванович'},
-         (10, 20, 30),
-         (1,)
-    ]
-
-    import pickle
-
-    with open(FILE, 'wb') as pickle_file:
-        pickle.dump(PYTHON, pickle_file)
-
-    with open(FILE, 'rb') as pickle_file:
-        pp = pickle.load(pickle_file)
-    print('Przeczytany obiekt:', pp)
+From file
+---------
+.. literalinclude:: src/pickle-load.py
+    :language: python
+    :caption: Deserializing objects from file
 
 
 Assignments
 ===========
 
-Serializacja obiektów do Pickle
--------------------------------
-#. Użyj obiektu ``książka_adresowa`` stworzonego w zadaniu z serializacją
+Pickle serialization
+--------------------
+#. Użyj obiektu książki adresowej stworzonego w zadaniu z serializacją
 #. Za pomocą ``pickle`` zapisz kontakty z książki adresowej w pliku
 #. Stwórz obiekty książki adresowej na podstawie danych odczytanych z pliku
+
+.. literalinclude:: assignment/pickle_addressbook.py
+    :language: python
+    :caption: Serializacja obiektów do Pickle

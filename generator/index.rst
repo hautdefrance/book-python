@@ -43,14 +43,6 @@ Getting  values from generator
 Generator expressions vs. Comprehensions
 ========================================
 
-Generator Expressions
----------------------
-* Lazy evaluation
-
-.. code-block:: python
-
-    a = (x*x for x in range(0, 30) if x % 2)
-
 Comprehensions
 --------------
 * Executes instantly
@@ -63,10 +55,18 @@ Comprehensions
 
 .. code-block:: python
 
-    a = list(x for x in range(0, 10))
-    b = tuple(x for x in range(0, 10))
-    c = set(x for x in range(0, 10))
-    d = dict(x: x for x in range(0, 10))
+    d = list(x for x in range(0, 10))
+    e = set(x for x in range(0, 10))
+    f = dict(x: x for x in range(0, 10))
+    g = tuple(x for x in range(0, 10))
+
+Generator Expressions
+---------------------
+* Lazy evaluation
+
+.. code-block:: python
+
+    i = (x*x for x in range(0, 30) if x % 2)
 
 What is the difference?
 -----------------------
@@ -274,8 +274,30 @@ Applying functions
 Assignments
 ===========
 
-Generatory vs. Przetwarzanie Listy
-----------------------------------
+Generators vs. Comprehensions - iris
+------------------------------------
+
+#. Skopiuj dane z https://raw.githubusercontent.com/scikit-learn/scikit-learn/master/sklearn/datasets/data/iris.csv do pliku "iris.csv"
+#. Zaczytaj dane pomijając nagłówek
+#. Napisz funkcję która zwraca wszystkie pomiary dla danego gatunku
+#. Gatunek będzie podawany jako ``str`` do funkcji
+#. Zaimplementuj rozwiązanie wykorzystując zwykłą funkcję
+#. Zaimplementuj rozwiązanie wykorzystując generator i słówko kluczowe ``yield``
+
+:About:
+    * Filename: ``generator_iris.py``
+    * Lines of code to write: 40 lines
+    * Estimated time of completion: 20 min
+
+:The whys and wherefores:
+    * Wykorzystanie generatorów
+    * Odbieranie danych z lazy evaluation
+    * Porównanie wielkości struktur danych
+    * Parsowanie pliku
+    * Filtrowanie treści w locie
+
+Generators vs. Comprehensions - passwd
+--------------------------------------
 #. Napisz program, który wczyta plik :numref:`listing-file-etc-passwd-2`
 #. Przefiltruj linie, tak aby nie zawierały komentarzy (zaczynające się od ``#``) oraz pustych linii
 #. Przefiltruj linie, aby wyciągnąć konta systemowe - użytkowników, którzy mają UID (trzecie pole) mniejsze niż 1000
@@ -287,7 +309,7 @@ Generatory vs. Przetwarzanie Listy
 :About:
     * Filename: ``generator_passwd.py``
     * Lines of code to write: 40 lines
-    * Estimated time of completion: 15 min
+    * Estimated time of completion: 20 min
 
 :The whys and wherefores:
     * Wykorzystanie generatorów
@@ -296,7 +318,7 @@ Generatory vs. Przetwarzanie Listy
     * Parsowanie pliku
     * Filtrowanie treści w locie
 
-.. literalinclude:: src/etc-passwd.txt
+.. literalinclude:: assignment/etc-passwd.txt
     :name: listing-file-etc-passwd-2
     :language: text
     :caption: ``/etc/passwd`` sample file

@@ -143,6 +143,10 @@ Bardzo kuszący jest następujący przykład:
     print(f'a == b returns: {a==b}')    # a == b returns: True
     print(f'a is b returns: {a is b}')  # a is b returns: True
 
+
+    print(id(a))  # 4640833352
+    print(id(b))  # 4640833352
+
 .. code-block:: python
 
     a = 'hello'
@@ -151,6 +155,10 @@ Bardzo kuszący jest następujący przykład:
     print(f'a is {a}, b is {b}')        # a is hello, b is hello
     print(f'a == b returns: {a==b}')    # a == b returns: True
     print(f'a is b returns: {a is b}')  # a is b returns: False
+
+    print(id(a))  # 4640833352
+    print(id(b))  # 4662440600
+
 
 
 Monkey Patching
