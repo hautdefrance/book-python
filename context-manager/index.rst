@@ -2,36 +2,37 @@
 Context Managers
 ****************
 
-Local variables in Python have function scope, and thus the target of a with statement, if any, is still visible after the block has exited, though ``__exit__()`` has already been called on the context manager (the argument of the with statement), and thus is often not useful or valid.
 
+About Context Managers
+======================
+
+How to create
+-------------
 * ``__enter__()``
 * ``__exit__()``
 
+.. literalinclude:: src/context-manager-create.py
+    :language: python
+    :caption: How to create Context Managers
+
 Zastosowanie
 ------------
-* Połączenia do bazy danych
 * Pliki
+* Połączenia do bazy danych
+* Lock
 * Stream siecowe
 
 Przykład
 --------
 .. code-block:: python
 
-    f = open(filename)
+    f = open(FILENAME)
     # ...
     f.close()
 
 .. code-block:: python
 
-    f = open(filename)
-    try:
-        # ...
-    finally:
-        f.close()
-
-.. code-block:: python
-
-    with open(filename) as f:
+    with open(FILENAME) as file:
         # ...
 
 Lock
@@ -39,6 +40,7 @@ Lock
 .. code-block:: python
 
     import threading
+
 
     lock = threading.Lock()
 
@@ -50,6 +52,7 @@ replaces the more verbose:
 .. code-block:: python
 
     import threading
+
 
     lock = threading.Lock()
     lock.acquire()
@@ -65,37 +68,35 @@ Database
 
     import sqlite3
 
+
     SQL_CREATE_TABLE = """
-        CREATE TABLE IF NOT EXISTS kontakty (
+        CREATE TABLE IF NOT EXISTS astronauts (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             pesel INTEGER UNIQUE,
             firstname TEXT,
-            lastname TEXT
-        )
-    """
+            lastname TEXT)"""
+    SQL_INSERT = 'INSERT INTO astronauts VALUES (NULL, :pesel, :firstname, :lastname)'
+    SQL_SELECT = 'SELECT * from astronauts'
 
-    SQL_INSERT = """
-        INSERT INTO kontakty VALUES (
-            NULL,
-            :pesel,
-            :firstname,
-            :lastname
-        )
-    """
 
-    ksiazka_adresowa = [
-        {'pesel': '61041206070', 'firstname': 'José', 'lastname': 'Jiménez'},
-        {'pesel': '69072114561', 'firstname': 'Matt', 'lastname': 'Kowalski'},
-        {'pesel': '69072114562', 'firstname': 'Mark', 'lastname': 'Watney'},
-        {'pesel': '69072114563', 'firstname': 'Melissa', 'lastname': 'Lewis'},
+    astronauts = [
+        {'pesel': '61041212345', 'firstname': 'José', 'lastname': 'Jiménez'},
+        {'pesel': '61041212346', 'firstname': 'Matt', 'lastname': 'Kowalski'},
+        {'pesel': '61041212347', 'firstname': 'Melissa', 'lastname': 'Lewis'},
+        {'pesel': '61041212348', 'firstname': 'Alex', 'lastname': 'Vogel'},
+        {'pesel': '61041212349', 'firstname': 'Ryan', 'lastname': 'Stone'},
     ]
 
-    with sqlite3.connect(':memory:') as connection:
-        connection.execute(SQL_CREATE_TABLE)
-        cursor.executemany(SQL_INSERT, ksiazka_adresowa)
+
+    with sqlite3.connect(':memory:') as db:
+        db.execute(SQL_CREATE_TABLE)
+        db.executemany(SQL_INSERT, astronauts)
+
+        for row in db.execute(SQL_SELECT):
+            print(row)
 
 Contextmanager decorator
-------------------------
+========================
 .. code-block:: python
 
     from contextlib import contextmanager
@@ -147,26 +148,29 @@ timing
 ------
 .. code-block:: python
 
-    import contextlib
+    from contextlib import contextmanager
     import time
-    
-    @contextlib.contextmanager
+
+
+    @contextmanager
     def time_print(task_name):
-        t = time.time()
+        start = time.time()
+
         try:
             yield
         finally:
-            print task_name, "took", time.time() - t, "seconds."
-    
+            duration = time.time() - start
+            print(f'{task_name} took {duration} seconds')
+
+
     with time_print("processes"):
         [doproc() for _ in range(500)]
-    
-    # processes took 15.236166954 seconds.
-    
+    # processes took 15.236166954 seconds
+
+
     with time_print("threads"):
         [dothread() for _ in range(500)]
-    
-    # threads took 0.11357998848 seconds.
+    # threads took 0.11357998848 seconds
 
 
 Assignments
@@ -177,3 +181,18 @@ Buffered file
 #. Stwórz Context Manager dla zapisu do plików
 #. Context Manager buforuje dane (nie zapisuje ich na bieżąco
 #. Gdy program wyjdzie z bloku context managera, to nastąpi zapisanie do pliku
+
+.. code-block:: python
+
+    FILENAME = '/tmp/context-manager.txt'
+
+    class File:
+        pass
+
+
+    with File(FILENAME, encoding='utf-8') as file:
+        file.append_line(...)
+        file.append_line(...)
+        file.append_line(...)
+
+    # after block with exits, save to file
