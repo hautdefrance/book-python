@@ -6,37 +6,38 @@ class ConfigParserInterface:
 
     def read(self):
         with open(self.filename) as file:
-            return file.read()
+            content = file.read()
+            return self.parse(content)
 
-    def parse(self):
+    def parse(self, content):
         return NotImplementedError
 
 
 class ConfigParserINI(ConfigParserInterface):
     extension = '.ini'
 
-    def parse(self):
+    def parse(self, content):
         print('Parsing INI file')
         return dict(...)
 
 class ConfigParserCSV(ConfigParserInterface):
     extension = '.csv'
 
-    def parse(self):
+    def parse(self, content):
        print('Parsing CSV file')
        return dict()
 
 class ConfigParserYAML(ConfigParserInterface):
     extension = '.yaml'
 
-    def parse(self):
+    def parse(self, content):
        print('Parsing YAML file')
        return dict()
 
 class ConfigFileJSON(ConfigParserInterface):
     extension = '.json'
 
-    def parse(self):
+    def parse(self, content):
        print('Parsing JSON file')
        return dict()
 
@@ -44,7 +45,7 @@ class ConfigFileJSON(ConfigParserInterface):
 class ConfigFileXML(ConfigParserInterface):
     extension = '.xml'
 
-    def parse(self):
+    def parse(self, content):
        print('Parsing XML file')
        return dict()
 
@@ -60,6 +61,8 @@ def config_parser_factory(filename):
         raise NotImplementedError
 
 
-filename = input('Type filename: ')  # iris.csv or *.csv, *.json *.yaml...
-parser = config_parser_factory()
-config = parser.display(filename)
+ # iris.csv or *.csv, *.json *.yaml...
+filename = input('Type filename: ')
+
+config_parser = config_parser_factory(filename)
+config_parser.read()

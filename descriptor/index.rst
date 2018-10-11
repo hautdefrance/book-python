@@ -23,25 +23,6 @@ Example
 =======
 .. code-block:: python
 
-    class Quantity(object):
-        __index = 0
-
-        def __init__(self):
-            self.__index = self.__class__.__index
-            self._storage_name = f"quantity: {self.__index}"
-            self.__class__.__index += 1
-
-        def __set__(self, instance, value):
-            if value > 0:
-                setattr(instance, self._storage_name, value)
-            else:
-               raise ValueError('value should be >0')
-
-       def __get__(self, instance, owner):
-            return getattr(instance, self._storage_name)
-
-.. code-block:: python
-
     class Bar:
         def __init__(self):
             self.value = ''
@@ -62,9 +43,10 @@ Example
         bar = Bar()
 
     f = Foo()
-    f.bar = 10
-    print f.bar
-    del f.bar
+
+    f.bar = 10      # will trigger __set__()
+    print(f.bar)    # will trigger __get__()
+    del f.bar       # will trigger __delete__()
 
 .. code-block:: python
 
@@ -88,20 +70,19 @@ Example
 
 
     class Temperature:
-        """
-        >>> oven = Temperature()
-
-        >>> oven.fahrenheit = 450
-        >>> oven.celsius
-        232.22222222222223
-
-        >>> oven.celsius = 175
-        >>> oven.fahrenheit
-        347.0
-        """
         celsius = Celsius()
         fahrenheit = Fahrenheit()
 
+
+    temp = Temperature()
+
+    temp.fahrenheit = 450
+    temp.celsius
+    # 232.22222222222223
+
+    temp.celsius = 175
+    temp.fahrenheit
+    # 347.0
 
 Accessors
 =========
@@ -157,8 +138,40 @@ Accessors
 Assignments
 ===========
 
+Longtitude and Latitude
+-----------------------
+#. Stwórz klasę ``GeographicCoordinate``
+#. Klasa ma mieć pola:
+
+    * ``latitude`` - min: -180.0; max: 180.0
+    * ``longitude`` - min: -90.0; max 90.0
+    * ``elevation`` - min: -10,994; max: 8,848 m
+
+#. Wykorzystując deskryptory dodaj mechanizm sprawdzania wartości
+#. Przy kasowaniu (``del``) wartości, nie usuwaj jej, a ustaw na ``None``
+#. Zablokuj całkowicie modyfikację pola ``elevation``
+
+:About:
+    * Filename: ``descriptor_geographic.py``
+    * Lines of code to write: 25 lines
+    * Estimated time of completion: 15 min
+
+:The whys and wherefores:
+    * Wykorzystanie deskryptorów
+    * Walidacja danych
+
+
 Temperatura
 -----------
 #. Stwórz klasę ``KelvinTemperature``
 #. Temperatura musi być dodatnia, sprawdzaj to przy zapisie do pola ``value``
 #. Usunięcie temperatury nie usunie wartości, ale ustawi ją na ``None``
+
+:About:
+    * Filename: ``descriptor_temperature.py``
+    * Lines of code to write: 25 lines
+    * Estimated time of completion: 15 min
+
+:The whys and wherefores:
+    * Wykorzystanie deskryptorów
+    * Walidacja danych
