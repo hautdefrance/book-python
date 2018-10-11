@@ -147,6 +147,10 @@ Iterating over nested ``list`` items
     # b
     # c
 
+.. code-block:: python
+
+    DATA = ['a', 'b', 'c']
+
     for index, element in enumerate(DATA):
         print(index, element)
     # 0 a
