@@ -1,6 +1,6 @@
 import random
-from oop_dragon_easy import Dragon
-from oop_dragon_easy import STATUS_ALIVE, STATUS_DEAD
+from oop_basic_dragon_easy import Dragon
+from oop_basic_dragon_easy import STATUS_ALIVE, STATUS_DEAD
 
 
 BORDER_LEFT = 0

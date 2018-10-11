@@ -1,7 +1,7 @@
 import sys
 
 
-FILENAME = '../src/etc-passwd.txt'
+FILENAME = '../assignment/etc-passwd.txt'
 
 
 def comprahension(lines):

@@ -1,4 +1,4 @@
-FILENAME = r'../src/etc-hosts.txt'
+FILENAME = r'../assignment/etc-hosts.txt'
 hosts = dict()
 
 

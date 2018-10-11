@@ -4,15 +4,18 @@
 Object Oriented Programming
 ***************************
 
+
 Object Paradigm
 ===============
 * Odwzorowanie świata na obiekty i relacje między nimi
+
 
 Classes and Objects
 ===================
 .. literalinclude:: src/oop-class.py
     :language: python
     :caption: Classes and Objects
+
 
 Fields
 ======
@@ -93,6 +96,7 @@ Methods
 .. literalinclude:: src/oop-str-with.py
     :language: python
     :caption: Stringify object
+
 
 Inheritance
 ===========
@@ -204,7 +208,7 @@ Dragon (Easy)
     * Lines of code to write: 40 lines
     * Estimated time of completion: 75 min
 
-.. literalinclude:: src/oop_dragon.py
+.. literalinclude:: assignment/oop_dragon.py
     :name: listing-oop-dragon
     :language: python
     :caption: Dragon API
@@ -283,7 +287,7 @@ Address Book (Easy)
     * zagnieżdżanie obiektów
     * rzutowanie obiektu na stringa oraz jego reprezentacja (które i kiedy użyć)
 
-.. literalinclude:: src/oop-assignment-addressbook-easy.py
+.. literalinclude:: assignment/addressbook_easy.py
     :name: listing-oop-addressbook-easy
     :language: python
     :caption: Address Book

@@ -127,7 +127,7 @@ Address Book (dataclass)
 ------------------------
 #. Zmień kod książki adresowej z listingu :numref:`listing-oop-dataclass-addressbook` na wykorzystujący mechanizm ``dataclass``
 
-.. literalinclude:: src/assignment_addressbook.py
+.. literalinclude:: assignment/dataclass_addressbook.py
     :name: listing-oop-dataclass-addressbook
     :language: python
     :caption: Easy object implementation of Address Book

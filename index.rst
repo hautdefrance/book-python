@@ -39,7 +39,7 @@ Foundations
     functions-basic/index.rst
     exceptions/index.rst
     quality-and-tests/doctest.rst
-    modules-use/index.rst
+    modularization/install.rst
     builtin/index.rst
     programming-convention/index.rst
     debugging-basic/index.rst
@@ -47,7 +47,7 @@ Foundations
     datetime/index.rst
     file/index.rst
     serialization-csv/index.rst
-    oop-basic/index.rst
+    object-oriented-programming/basic.rst
     exam-basic/index.rst
 
 
@@ -59,7 +59,7 @@ Intermediate
     :numbered:
     :caption: Intermediate
 
-    oop-dataclass/index.rst
+    object-oriented-programming/dataclass.rst
     logging/index.rst
     print-formatting/index.rst
     performance/index.rst
@@ -67,7 +67,7 @@ Intermediate
     serialization-json/index.rst
     quality-and-tests/unittest.rst
     functions-advanced/index.rst
-    oop-operator-overload/index.rst
+    object-oriented-programming/operator-overload.rst
     regex/index.rst
     database/index.rst
 
@@ -81,10 +81,11 @@ Advanced
     :caption: Advanced
 
     type-annotation/index.rst
-    modules-venv/index.rst
-    modules-create/index.rst
+    modularization/venv.rst
+    modularization/create.rst
     quality-and-tests/ci-cd-tools.rst
-    oop-advanced/index.rst
+    object-oriented-programming/paradigm.rst
+    object-oriented-programming/advanced.rst
     compiler/index.rst
     debugging-advanced/index.rst
     introspection/index.rst
@@ -104,7 +105,7 @@ Advanced
     concurrency/index.rst
     c-extensions/index.rst
     functional-programming/index.rst
-    oop-metaclass/index.rst
+    object-oriented-programming/metaclass.rst
     design-patterns/index.rst
     gui/index.rst
     documentation/index.rst

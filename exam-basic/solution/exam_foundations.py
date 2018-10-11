@@ -1,9 +1,9 @@
 from datetime import date
 from pprint import pprint
 
-ETC_SHADOW = '../src/etc-shadow.txt'
-ETC_PASSWD = '../src/etc-passwd.txt'
-ETC_GROUP = '../src/etc-group.txt'
+ETC_SHADOW = '../assignment/etc-shadow.txt'
+ETC_PASSWD = '../assignment/etc-passwd.txt'
+ETC_GROUP = '../assignment/etc-group.txt'
 
 users = list()
 groups = dict()

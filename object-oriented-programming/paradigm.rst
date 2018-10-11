@@ -1,7 +1,5 @@
-.. _Advanced OOP:
-
 ************
-Advanced OOP
+OOP Paradigm
 ************
 
 
@@ -26,27 +24,9 @@ Sam mechanizm dynamicznego typowania jest dość kontrowersyjny, ze względu na 
     :language: python
     :caption: Duck typing
 
-What should be in the class and what not?
-=========================================
-* Jeżeli metoda w swoim ciele ma ``self`` i z niego korzysta to powinna być w klasie
-* Jeżeli metoda nie ma w swoim ciele ``self`` to nie powinna być w klasie
-* Jeżeli metoda nie ma w swoim ciele ``self`` ale wybitnie pasuje do klasy, to można ją tam zamieścić oraz dodać dekorator ``@staticmethod``
 
-.. literalinclude:: src/oop-staticmethod-without.py
-    :language: python
-    :caption: Case Study uzasadnionego użcycia ``@staticmethod``
-
-.. literalinclude:: src/oop-staticmethod-with.py
-    :language: python
-    :caption: Case Study uzasadnionego użcycia ``@staticmethod``
-
-.. literalinclude:: src/oop-staticmethod-decorator.py
-    :language: python
-    :caption: Case Study uzasadnionego użcycia ``@staticmethod``
-
-
-``_`` and ``__`` - Private, protected, public?!
-===============================================
+Private, protected, public?!
+============================
 * Brak pól protected i private
 * Wszystkie pola są public
 * ``_nazwa`` - pola prywatne (tylko konwencja)
@@ -65,99 +45,6 @@ Inheritance vs. Composition (Mixin Classes)
 .. literalinclude:: src/oop-composition.py
     :language: python
     :caption: Composition (Mixin Classes)
-
-
-Dynamically creating fields
-===========================
-.. literalinclude:: src/oop-init-dynamic.py
-    :language: python
-    :caption: Funkcja inicjalizująca, która automatycznie dodaje pola do naszej klasy w zależności od tego co zostanie podane przy tworzeniu obiektu
-
-
-Accessors
-=========
-
-Accessing class fields
-----------------------
-.. literalinclude:: src/oop-accessor-fields.py
-    :language: python
-    :caption: Accessing class fields
-
-.. literalinclude:: src/oop-getter.py
-    :language: python
-    :caption: Case Study uzasadnionego użycia gettera w kodzie
-
-``@property``, ``@x.setter``, ``@x.deleter``
---------------------------------------------
-* ``@propery`` - for defining getters
-* ``@kola.setter`` - for defining setter
-* ``@kola.deleter`` - for defining deleter
-* Blokowanie możliwości edycji pola klasy
-* Dodawanie logowania przy ustawianiu wartości
-
-.. literalinclude:: src/oop-property.py
-    :language: python
-    :caption: ``@property``, ``@x.setter``, ``@x.deleter``
-
-
-``__str__()`` and ``__repr__()``
-================================
-* ``__repr__`` jest dla developerów (być jednoznacznym),
-* ``__str__`` dla użytkowników (być czytelnym).
-
-.. literalinclude:: src/oop-repr.py
-    :language: python
-    :caption: Using ``__repr__()`` on a class
-
-.. code-block:: python
-
-    import datetime
-
-    datetime.datetime.now()  # ``__repr__``
-    # datetime.datetime(2018, 7, 3, 11, 32, 51, 684972)
-
-    print(datetime.datetime.now())  # ``__str__``
-    # 2018-07-03 11:32:58.927387
-
-
-``@staticmethod``
-=================
-* Using class as namespace
-* Will not pass instance as a first argument
-* ``self`` is not required
-
-.. literalinclude:: src/oop-staticmethod.py
-    :language: python
-    :caption: Using ``@staticmethod``
-
-
-Method Resolution Order
-=======================
-.. literalinclude:: src/oop-mro.py
-    :language: python
-    :caption: Method Resolution Order
-
-
-Hash
-====
-* ``set()`` można zrobić z dowolnego hashowalnego obiektu
-* ``dict()`` może mieć klucze, które są dowolnym hashowalnym obiektem
-
-.. literalinclude:: src/oop-hash-dict.py
-    :language: python
-    :caption: ``dict()`` może mieć klucze, które są dowolnym hashowalnym obiektem
-
-.. literalinclude:: src/oop-hash-set.py
-    :language: python
-    :caption: ``set()`` można zrobić z dowolnego hashowalnego obiektu
-
-.. literalinclude:: src/oop-hash-generate-bad.py
-    :language: python
-    :caption: Generating hash and object comparision
-
-.. literalinclude:: src/oop-hash-generate-good.py
-    :language: python
-    :caption: Generating hash and object comparision
 
 
 Polymorphism
@@ -197,49 +84,6 @@ Abstract Classes
     :caption: Abstract Class
 
 
-``is``
-======
-* ``is`` porównuje czy dwa obiekty są tożsame
-* Najczęściej służy do sprawdzania czy coś jest ``None``
-
-.. code-block:: python
-
-    if name is None:
-        print('Name is not set')
-    else:
-        print('You have set your name')
-
-Bardzo kuszący jest następujący przykład:
-
- .. code-block:: python
-
-     if name is 'Mark Watney':
-        print('You are Space Pirate!')
-     else:
-        print('You are not pirate at all!')
-
-**Nie jest on jednak do końca poprawny. Słowo kluczowe ``is`` porównuje czy dwa obiekty są tym samym obiektem, nie czy mają taką samą wartość.**
-* Poniższy przykład ilustruje, że pomimo że dwa obiekty przechowują takiego samego stringa to nie są sobie tożsame, mimo że są sobie równe.
-
- .. code-block:: python
-
-    a = 'hello'
-    b = 'hello'
-
-    print(f'a is {a}, b is {b}')        # a is hello, b is hello
-    print(f'a == b returns: {a==b}')    # a == b returns: True
-    print(f'a is b returns: {a is b}')  # a is b returns: True
-
-.. code-block:: python
-
-    a = 'hello'
-    b = ''.join('hello')
-
-    print(f'a is {a}, b is {b}')        # a is hello, b is hello
-    print(f'a == b returns: {a==b}')    # a == b returns: True
-    print(f'a is b returns: {a is b}')  # a is b returns: False
-
-
 Good Engineering Practises
 ==========================
 
@@ -263,28 +107,6 @@ Do not run methods in ``__init__()``
 .. literalinclude:: src/oop-init-calls.py
     :language: python
     :caption: Do not run methods in ``__init__()``
-
-
-Monkey Patching
-===============
-.. literalinclude:: src/oop-monkey-patching-1.py
-    :language: python
-    :caption: Monkey Patching
-
-.. literalinclude:: src/oop-monkey-patching-2.py
-    :language: python
-    :caption: Monkey Patching
-
-.. literalinclude:: src/oop-monkey-patching-3.py
-    :language: python
-    :caption: Monkey Patching
-
-
-Objects and instances
-=====================
-.. literalinclude:: src/oop-objects-and-instances.py
-    :language: python
-    :caption: Objects and instances
 
 
 S.O.L.I.D.
@@ -325,11 +147,13 @@ In object-oriented design, the dependency inversion principle refers to a specif
 
 By dictating that both high-level and low-level objects must depend on the same abstraction this design principle inverts the way some people may think about object-oriented programming.
 
+
 GRASP
 =====
 **General responsibility assignment software patterns (or principles)**, abbreviated GRASP, consist of guidelines for assigning responsibility to classes and objects in object-oriented design.
 
 The different patterns and principles used in GRASP are controller, creator, indirection, information expert, high cohesion, low coupling, polymorphism, protected variations, and pure fabrication. All these patterns answer some software problem, and these problems are common to almost every software development project. These techniques have not been invented to create new ways of working, but to better document and standardize old, tried-and-tested programming principles in object-oriented design.
+
 
 Dependency injection
 ====================
@@ -347,44 +171,3 @@ Dependency injection, as a software design pattern, has number of advantages tha
 .. literalinclude:: src/oop-dependency-injection.py
     :language: python
     :caption: Dependency injection
-
-
-
-Metaclass
-=========
-* Można zmienić, że obiekt nie dziedziczy po ``object``
-* Każdy obiekt klasy jest instancją tej klasy
-* Każda napisana klasa jest instancją obiektu, który nazywa się metaklasą
-* Na 99% tego nie potrzebujesz
-
-.. warning:: więcej na ten temat w rozdziale :ref:`Metaclass`
-
-.. literalinclude:: src/oop-metaclass.py
-    :language: python
-    :caption: Metaclass
-
-
-Assignments
-===========
-
-Address Book (Medium)
----------------------
-#. API programu powinno być tak jak na :numref:`listing-oop-addressbook-medium`
-#. Zrób tak, aby się ładnie wyświetlało zarówno dla jednego wyniku jak i dla wszystkich w książce
-#. ``Address`` ma mieć zmienną liczbę argumentów
-#. Jeżeli argument jest różny od ``None`` powinien być dynamicznie ustawiony (``setattr()``).
-
-:About:
-    * Filename: ``oop_addressbook_medium.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 20 min
-
-:The whys and wherefores:
-    * Korzystanie z operatorów ``*args`` i ``**kwargs``
-    * Korzystanie i rozróżnianie ``.__repr__()`` od ``.__str__()``
-    * Dynamiczne tworzenie pól w obiekcie
-
-.. literalinclude:: src/oop-assignment-addressbook-medium.py
-    :name: listing-oop-addressbook-medium
-    :language: python
-    :caption: Address Book

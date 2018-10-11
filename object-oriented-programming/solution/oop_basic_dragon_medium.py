@@ -1,5 +1,5 @@
 from random import randint
-from oop_dragon_easy import Dragon, Status
+from oop_basic_dragon_easy import Dragon, Status
 
 
 BORDER_X_MAX = 1024
