@@ -1,32 +1,60 @@
-class Engine(object):
-    """Example engine base class.
-
-    Engine is a heart of every car. Engine is a very common term and could be
-    implemented in very different ways.
-    """
+from datetime import timedelta
 
 
-class GasolineEngine(Engine):
-    """Gasoline engine."""
+class Cache:
+    def __init__(self, expiration=timedelta(days=30), location=None):
+        self.expiration = expiration
+        self.location = location
+
+    def get(self):
+        raise NotImplementedError
+
+    def set(self):
+        raise NotImplementedError
+
+    def is_valid(self):
+        raise NotImplementedError
 
 
-class DieselEngine(Engine):
-    """Diesel engine."""
+class CacheFilesystem(Cache):
+    """Cache using files"""
 
 
-class ElectroEngine(Engine):
-    """Electro engine."""
+class CacheMemory(Cache):
+    """Cache using memory"""
 
 
-class Car(object):
-    """Example car."""
+class CacheDatabase(Cache):
+    """Cache using database"""
 
-    def __init__(self, engine):
-        """Initializer."""
-        self._engine = engine  # Engine is injected
+
+class HTTP:
+    def __init__(self, cache):
+        # Inject Cache object
+        self._cache = cache
+
+    def _fetch(self, url):
+        return ...
+
+    def get(self, url):
+        if self._cache.is_valid():
+            # Use cached data
+            self._cache.get(url)
+        else:
+            data = self._fetch(url)
+            self._cache.set(url, data)
 
 
 if __name__ == '__main__':
-    gasoline_car = Car(engine=GasolineEngine())
-    diesel_car = Car(engine=DieselEngine())
-    electro_car = Car(engine=ElectroEngine())
+    database = CacheDatabase(location='sqlite3://http-cache.sqlite3')
+    filesystem = CacheFilesystem(location='/tmp/http-cache.txt')
+    memory = CacheMemory(expiration=timedelta(hours=2))
+
+    http1 = HTTP(cache=database)
+    http1.get('http://python.astrotech.io')
+
+    http2 = HTTP(cache=filesystem)
+    http2.get('http://python.astrotech.io')
+
+    http3 = HTTP(cache=memory)
+    http3.get('http://python.astrotech.io')
