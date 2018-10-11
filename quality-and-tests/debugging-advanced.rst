@@ -1,58 +1,6 @@
-*********
-Debugging
-*********
-
-
-``help`` and docstring ``__doc__``
-==================================
-.. code-block:: python
-
-    help(str)
-
-.. code-block:: python
-
-    def hello(name='José Jiménez'):
-        """
-        Function displays greeting
-        """
-        print(f'My name... {name}')
-
-    help(hello)
-    print(hello.__doc__)
-
-.. literalinclude:: src/debugging-docstring.py
-    :language: python
-    :caption: Debugging with docstring
-
-
-``object.__dict__``
-===================
-.. code-block:: python
-
-    class Astronaut():
-        def __init__(self):
-            self.first_name = 'José'
-            self.last_name = 'Jiménez'
-
-    jose = Astronaut()
-    jose.__dict__
-    # {'first_name': 'José', 'last_name': 'Jiménez'}
-
-
-``dir()`` i ``object.__dict__``
-===============================
-* Więcej w :ref:`Introspection`.
-
-.. code-block:: python
-
-    class Astronaut():
-        def __init__(self):
-            self.first_name = 'José'
-            self.last_name = 'Jiménez'
-
-    jose = Astronaut()
-    dir(jose)
-    # ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'first_name', 'last_name']
+******************
+Advanced Debugging
+******************
 
 
 ``json.tool``
@@ -250,3 +198,17 @@ Wyciszanie logowania
 
     log.debug('to jest moja debugowa wiadomosc')
 
+
+Assignment
+==========
+
+Own ``doctest``
+---------------
+#. Dla kodu z listingu :numref:`listing-debugging-docstring`
+#. Napisz własną uproszczoną implementację ``doctest``
+#. Dla uproszczenia przyjmij, że zwracana zawsze będzie tylko jedna linia (bezpośrednio poniżej testu)
+
+.. literalinclude:: src/debugging-docstring.py
+    :name: listing-debugging-docstring
+    :language: python
+    :caption: Debugging with docstring

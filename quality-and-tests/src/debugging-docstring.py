@@ -27,6 +27,3 @@ class Astronaut:
 
 
 astronaut = Astronaut(name='José Jiménez')
-
-help(astronaut)
-print(astronaut.say_hello.__doc__)

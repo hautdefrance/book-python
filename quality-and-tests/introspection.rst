@@ -1,144 +1,260 @@
 .. _Introspection:
 
-************
-Introspekcja
-************
+*************
+Introspection
+*************
 
+* Introspection is the ability to determine the type of an object at runtime
+* Everything in Python is an object and we can examine those objects
+* Python ships with a few built-in functions and modules to help us
 
-``eval``
-========
-.. code-block:: python
-
-    x = 1
-    eval('x+1')  # 2
-
-
-
-Pola obiektu
-============
-* ``__dict__``
-
-.. code-block:: python
-
-    from pprint import pprint
-
-    class Server:
-        _connection = None
-
-        def __init__(self, host, port):
-            self.host = host
-            self.port = port
-
-    localhost = Server(host='127.0.0.1', port=1337)
-    output = localhost.__dict__
-    print(f'Listowanie pól za pomocą dict: {output}')
-
-
-    pola = [x for x in dir(Server) if not x.startswith('__')]
-    print(f'Listowanie pól klasy: {pola}')
-
-    zmienne = vars(Server)
-    print(f'Listowanie za pomoca vars(): {zmienne}')
-
-Metody obiektu
-==============
-* ``dir()``
-
-.. code-block:: python
-
-    class Server:
-        _connection = None
-
-        def __init__(self, host, port):
-            self.host = host
-            self.port = port
-
-    localhost = Server(host='127.0.0.1', port=1337)
-    output = dir(localhost)
-    print(output)
-
-
-``help()``
+``type()``
 ----------
-* ``help()``
-
 .. code-block:: python
 
-    class Server:
-        _connection = None
+    type('')
+    # <type 'str'>
 
-        def __init__(self, host, port):
-            self.host = host
-            self.port = port
+    type([])
+    # <type 'list'>
 
-    localhost = Server(host='127.0.0.1', port=1337)
-    output = help(localhost)
-    print(output)
+    type({})
+    # <type 'dict'>
 
-Introspekcja obiektów
-=====================
-In computer programming, introspection is the ability to determine the
-type of an object at runtime. It is one of Python's strengths.
-Everything in Python is an object and we can examine those objects.
-Python ships with a few built-in functions and modules to help us.
+    type(dict)
+    # <type 'type'>
 
-``dir``
--------
-Returns a list of attributes and methods belonging to an object.
+    type(3)
+    # <type 'int'>
 
-.. code-block:: python
-
-    my_list = [1, 2, 3]
-    dir(my_list)
-    # Output: ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__',
-    # '__delslice__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__',
-    # '__getitem__', '__getslice__', '__gt__', '__hash__', '__iadd__', '__imul__',
-    # '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__',
-    # '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__',
-    # '__setattr__', '__setitem__', '__setslice__', '__sizeof__', '__str__',
-    # '__subclasshook__', 'append', 'count', 'extend', 'index', 'insert', 'pop',
-    # 'remove', 'reverse', 'sort']
-
-Our introspection gave us the names of all the methods of a list. This
-can be handy when you are not able to recall a method name. If we run
-``dir()`` without any argument then it returns all names in the current
-scope.
-
-``type`` and ``id``
--------------------
-The ``type`` function returns the type of an object. For example:
-
-.. code-block:: python
-
-    print(type(''))
-    # Output: <type 'str'>
-
-    print(type([]))
-    # Output: <type 'list'>
-
-    print(type({}))
-    # Output: <type 'dict'>
-
-    print(type(dict))
-    # Output: <type 'type'>
-
-    print(type(3))
-    # Output: <type 'int'>
-
-``id`` returns the unique ids of various objects. For instance:
-
+``id()``
+--------
 .. code-block:: python
 
     name = "Yasoob"
-    print(id(name))
-    # Output: 139972439030304
+    id(name)
+    # 139972439030304
 
 ``isinstance()``
 ----------------
+.. code-block:: python
+
+    my_data = {}
+    isinstance(my_data, (set, dict))  # True
+    isinstance(my_data, dict)         # True
+    isinstance(my_data, set)          # False
+
+    my_data = {1}
+    isinstance(my_data, dict)         # False
+    isinstance(my_data, set)          # True
+
+    my_data = {1: 1}
+    isinstance(my_data, dict)         # True
+    isinstance(my_data, set)          # False
+
+``issubclass()``
+----------------
+.. code-block:: python
+
+    class Cosmonaut:
+        pass
+
+    class GieroyCCCP(Cosmonaut):
+        pass
+
+
+    print(issubclass(Cosmonaut, Cosmonaut))     # True
+    print(issubclass(Cosmonaut, GieroyCCCP))    # False
+    print(issubclass(GieroyCCCP, GieroyCCCP))   # True
+    print(issubclass(GieroyCCCP, Cosmonaut))    # True
+
+``dir()``
+---------
+* Returns a list of attributes and methods belonging to an object
+
+.. code-block:: python
+
+    class Server:
+        """Connects to the server"""
+        _connection = None
+
+        def __init__(self, host, port):
+            """Initializes object"""
+            self.host = host
+            self.port = port
+
+        def login():
+            """logs-in to the server"""
+
+    localhost = Server(host='127.0.0.1', port=1337)
+
+    output = dir(localhost)
+    print(output)
+    # ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__',
+    #  '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__',
+    # '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__',
+    # '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__',
+    # '_connection', 'host', 'login', 'port']
+
+``object.__dict__``
+-------------------
+* Returns dynamic fields of an object
+
+.. code-block:: python
+
+    class Server:
+        """Connects to the server"""
+        _connection = None
+
+        def __init__(self, host, port):
+            """Initializes object"""
+            self.host = host
+            self.port = port
+
+        def login():
+            """logs-in to the server"""
+
+    localhost = Server(host='127.0.0.1', port=1337)
+
+    localhost.__dict__
+    # {'host': '127.0.0.1', 'port': 1337}
+
+``vars()``
+----------
+.. code-block:: python
+
+    class Server:
+        """Connects to the server"""
+        _connection = None
+
+        def __init__(self, host, port):
+            """Initializes object"""
+            self.host = host
+            self.port = port
+
+        def login():
+            """logs-in to the server"""
+
+    localhost = Server(host='127.0.0.1', port=1337)
+
+    vars(Server)
+    # {
+    #    '__module__': '__main__',
+    #    '__doc__': 'Connects to the server',
+    #    '_connection': None,
+    #    '__init__': <function Server.__init__ at 0x111f77488>,
+    #    'login': <function Server.login at 0x111f77268>,
+    #    '__dict__': <attribute '__dict__' of 'Server' objects>,
+    #    '__weakref__': <attribute '__weakref__' of 'Server' objects>
+    # }
+
+``help()``
+----------
+.. code-block:: python
+
+    class Server:
+        """Connects to the server"""
+        _connection = None
+
+        def __init__(self, host, port):
+            """Initializes object"""
+            self.host = host
+            self.port = port
+
+        def login():
+            """logs-in to the server"""
+
+    localhost = Server(host='127.0.0.1', port=1337)
+
+    help(localhost)
+    # Help on Server in module __main__ object:
+    #
+    # class Server(builtins.object)
+    #  |  Server(host, port)
+    #  |
+    #  |  Connects to the server
+    #  |
+    #  |  Methods defined here:
+    #  |
+    #  |  __init__(self, host, port)
+    #  |      Initializes object
+    #  |
+    #  |  login()
+    #  |      logs-in to the server
+    #  |
+    #  |  ----------------------------------------------------------------------
+    #  |  Data descriptors defined here:
+    #  |
+    #  |  __dict__
+    #  |      dictionary for instance variables (if defined)
+    #  |
+    #  |  __weakref__
+    #  |      list of weak references to the object (if defined)
+
+``object.__doc__``
+------------------
+.. code-block:: python
+
+    class Server:
+        """Connects to the server"""
+        _connection = None
+
+        def __init__(self, host, port):
+            """Initializes object"""
+            self.host = host
+            self.port = port
+
+        def login():
+            """logs-in to the server"""
+
+    localhost = Server(host='127.0.0.1', port=1337)
+
+    localhost.login.__doc__
+    # 'logs-in to the server'
+
+``callable()``
+--------------
+.. code-block:: python
+
+    class Car(object):
+
+        def setName(self, name):
+            self.name = name
+
+    def fun():
+        pass
+
+    c = Car()
+
+    print(callable(fun))        # True
+    print(callable(c.setName))  # True
+    print(callable([]))         # False
+    print(callable(1))          # False
+
+``hasattr()``, ``getattr()``, ``setattr()``
+-------------------------------------------
+.. code-block:: python
+
+    class Astronaut:
+        def __init__(self, **kwargs):
+            for name, value in kwargs.items():
+                setattr(self, name, value)
+
+        def __str__(self):
+            if hasattr(self, 'first_name'):
+                first_name = getattr(self, 'first_name')
+
+            last_name = getattr(self, 'last_name', 'n/a')
+            return f'My name... {first_name} {last_name}'
+
+
+     jose = Astronaut(first_name='Jose', last_name='Jimenez')
+
+     print(jose)
+     # My name... Jose Jimenez
 
 ``inspect`` module
 ------------------
-
 The inspect module also provides several useful functions to get
 information about live objects. For example you can check the members of
 an object by running:
@@ -146,18 +262,12 @@ an object by running:
 .. code-block:: python
 
     import inspect
-    print(inspect.getmembers(str))
-    # Output: [('__add__', <slot wrapper '__add__' of ... ...
 
-There are a couple of other methods as well which help in introspection.
-You can explore them if you wish.
+    inspect.getmembers(str)
+    # [('__add__', <slot wrapper '__add__' of ... ...
 
-``vars()``
-----------
-
-
-Other
-=====
+Example
+=======
 
 .. code-block:: python
 
