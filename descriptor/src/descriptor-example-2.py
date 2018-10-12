@@ -1,29 +1,29 @@
 class Celsius:
-    def __get__(self, instance, owner):
-        celsius = instance.kelvin - 273.15
+    def __get__(self, parent, owner):
+        celsius = parent.kelvin - 273.15
         return round(celsius, 2)
 
-    def __set__(self, instance, celsius):
+    def __set__(self, parent, celsius):
         kelvin = celsius + 273.15
-        instance.kelvin = round(kelvin, 2)
+        parent.kelvin = round(kelvin, 2)
 
-    def __delete__(self, instance):
-        instance.kelvin = 0
+    def __delete__(self, parent):
+        parent.kelvin = 0
 
 
 class Fahrenheit:
-    def __get__(self, instance, owner):
-        celsius = instance.kelvin - 273.15
+    def __get__(self, parent, owner):
+        celsius = parent.kelvin - 273.15
         fahrenheit = celsius * 9/5 + 32
         return round(fahrenheit, 2)
 
-    def __set__(self, instance, fahrenheit):
+    def __set__(self, parent, fahrenheit):
         celsius = (fahrenheit - 32) * 5/9
         kelvin = celsius + 273.15
-        instance.kelvin = round(kelvin, 2)
+        parent.kelvin = round(kelvin, 2)
 
-    def __delete__(self, instance):
-        instance.kelvin = 0
+    def __delete__(self, parent):
+        parent.kelvin = 0
 
 
 class Temperature:

@@ -3,6 +3,13 @@ Decorator
 *********
 
 
+Example
+=======
+.. literalinclude:: src/decorators-function.py
+    :language: python
+    :caption: Decorator usage
+
+
 Zastosowanie
 ============
 * Modify arguments
@@ -74,7 +81,6 @@ Decorator as class
 Class Decorators
 ================
 .. literalinclude:: src/decorators-class-decorator.py
-    :name: listing-decorators-class-decorator
     :language: python
     :caption: Class Decorator
 

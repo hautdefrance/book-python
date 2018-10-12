@@ -43,7 +43,7 @@ Accessors
     :caption: Example ``__setattr__()``
 
 ``__getattribute__()``
------------------
+----------------------
 .. literalinclude:: src/accessor-getattribute.py
     :language: python
     :caption: Example ``__getattribute__()``
