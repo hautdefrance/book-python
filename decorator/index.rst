@@ -2,6 +2,7 @@
 Decorator
 *********
 
+
 Zastosowanie
 ============
 * Modify arguments
@@ -76,7 +77,6 @@ Class Decorators
     :name: listing-decorators-class-decorator
     :language: python
     :caption: Class Decorator
-
 
 @staticmethod
 -------------
@@ -178,7 +178,6 @@ LRU (least recently used) cache
 
     >>> fib.cache_info()
     CacheInfo(hits=28, misses=16, maxsize=None, currsize=16)
-
 
 ``memoize``
 -----------
