@@ -175,8 +175,8 @@ String immutability
     print(a)    # Python
     print(b)    # Cython
 
-``title()``, ``lower()``, ``upper()``
--------------------------------------
+``str.title()``, ``str.lower()``, ``str.upper()``
+-------------------------------------------------
 * Unify data format before analysis
 
     .. code-block:: python
@@ -187,8 +187,8 @@ String immutability
         name.upper()    # 'JOSÉ JIMÉNEZ III'
         name.lower()    # 'josé jiménez iii'
 
-``replace()``
--------------
+``str.replace()``
+-----------------
 .. code-block:: python
 
     name = 'José Jiménez Iii'
@@ -204,8 +204,8 @@ String immutability
     name.lstrip()       # 'Mark Watney    \n'
     name.strip()        # 'Mark Watney'
 
-``startswith()`` and ``endswith()``
------------------------------------
+``str.startswith()`` and ``str.endswith()``
+-------------------------------------------
 * Understand this as "starts with" and "ends with"
 
 .. code-block:: python
@@ -218,8 +218,8 @@ String immutability
     name.endswith(';')
     # False
 
-``split()``
------------
+``str.split()``
+---------------
 .. code-block:: python
 
     text = 'José Jiménez'
@@ -228,8 +228,8 @@ String immutability
     text = 'root:x:0:0:System Administrator:/root:/bin/bash'
     text.split(':')     # ['root', 'x', '0', '0', 'System Administrator', '/root', '/bin/bash']
 
-``join()``
-----------
+``str.join()``
+--------------
 .. code-block:: python
 
     names = ['root', 'x', '0', '0', 'System Administrator', '/root', '/bin/bash']
@@ -237,6 +237,40 @@ String immutability
     ':'.join(names)
     # 'root:x:0:0:System Administrator:/root:/bin/bash'
 
+``str.isspace()``
+-----------------
+.. code-block:: python
+
+    ''.isspace()    # False
+    ' '.isspace()   # True
+    '\t'.isspace()  # True
+    '\n'.isspace()  # True
+
+``str.isnumeric()``, ``str.isdigit()``, ``str.isdecimal()``
+-----------------------------------------------------------
+.. code-block:: python
+
+    '10'.isnumeric()    # True
+    '10.5'.isnumeric()  # False
+
+    '10'.isdigit()      # True
+    '10.5'.isdigit()    # False
+
+    '10'.isdecimal()    # True
+    '10.5'.isdecimal()  # False
+
+``str.isalpha()``
+-----------------
+.. code-block:: python
+
+    'hello'.isalpha()   # True
+    'hello1'.isalpha()  # False
+
+``str`` in ``str``
+------------------
+.. code-block:: python
+
+    'Py' in 'Python'    # True
 
 Handling user input
 ===================
