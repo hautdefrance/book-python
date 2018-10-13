@@ -308,6 +308,7 @@ Assignments
 String cleaning
 ---------------
 #. Dane poniżej przeczyść, tak aby zmienne miały wartość ``'Jana III Sobieskiego'``
+#. Jak zrobić to rozwiązaniem generycznym pasującym do wszystkich? (dyskusja)
 
 .. code-block:: python
 
