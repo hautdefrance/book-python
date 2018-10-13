@@ -2,5 +2,6 @@ sphinx==1.8.1
 sphinx_rtd_theme
 sphinxcontrib-bibtex
 nbsphinx
+ipython
 
 # sphinxjp.themes.revealjs
