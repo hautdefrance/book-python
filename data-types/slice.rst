@@ -8,6 +8,8 @@ Slicing
 Accessing element with index
 ============================
 
+Accessing element from start
+----------------------------
 .. code-block:: python
 
     text = 'We choose to go to the Moon!'
@@ -15,13 +17,30 @@ Accessing element with index
     text[0]             # 'W'
     text[1]             # 'e'
     text[23]            # 'M'
+
+Accessing element from back
+---------------------------
+.. code-block:: python
+
+    text = 'We choose to go to the Moon!'
+
     text[-1]            # '!'
     text[-5]            # 'M'
+
+Accessing not existing element
+------------------------------
+.. code-block:: python
+
+    text = 'We choose to go to the Moon!'
+
     text[100]           # IndexError: string index out of range
 
 
 Accessing range of elements
 ===========================
+
+Accessing slice from start
+--------------------------
 .. code-block:: python
 
     text = 'We choose to go to the Moon!'
@@ -30,13 +49,36 @@ Accessing range of elements
     text[:2]              # 'We'
     text[3:9]             # 'choose'
     text[23:28]           # 'Moon!'
+
+Accessing slice from back
+-------------------------
+.. code-block:: python
+
+    text = 'We choose to go to the Moon!'
+
     text[-5:]             # 'Moon!'
     text[-5:-1]           # 'Moon'
     text[:-6]             # 'We choose to go to the'
+
+Accessing slice not existing elements
+-------------------------------------
+.. code-block:: python
+
+    text = 'We choose to go to the Moon!'
+
     text[:100]            # 'We choose to go to the Moon!'
     text[100:]            # ''
+
+Accessing slice from all elements
+---------------------------------
+.. code-block:: python
+
+    text = 'We choose to go to the Moon!'
+
     text[:]               # 'We choose to go to the Moon!'
 
+Arithmetic operations on slice indexes
+--------------------------------------
 .. code-block:: python
 
     text = 'We choose to go to the Moon!'
@@ -47,23 +89,33 @@ Accessing range of elements
     text[lower:upper-1]     # 'Moon'
 
 
-Slice
-=====
+Slice function
+==============
 .. code-block:: python
 
     text = 'We choose to go to the Moon!'
-    RANGE = slice(23, 28)
+    range = slice(23, 28)
 
-    text[RANGE]           # 'Moon!'
+    text[range]           # 'Moon!'
 
 
 Reversing and stepping over elements
 ====================================
+
+Every ``n``th element
+---------------------
 .. code-block:: python
 
     text = 'We choose to go to the Moon!'
 
     text[::2]             # 'W hoet ot h on'
+
+Reversing
+---------
+.. code-block:: python
+
+    text = 'We choose to go to the Moon!'
+
     text[::-1]            # '!nooM eht ot og ot esoohc eW'
     text[::-2]            # '!oMeto go soce'
 
@@ -80,14 +132,13 @@ Slicing text
 .. code-block:: python
 
     a = 'UL. Jana III Sobieskiego 1/2'
-    b = 'ulica Jana III Sobieskiego 1/2'
-    c = 'os. Jana III Sobieskiego 1/2'
+    b = 'ulica Jana III Sobieskiego 1 apt 2'
+    c = 'os. Jana III Sobieskiego'
     d = 'plac Jana III Sobieskiego 1/2'
-    e = 'aleja Jana III Sobieskiego 1/2'
+    e = 'aleja Jana III Sobieskiego'
     f = 'alei Jana III Sobieskiego 1/2'
     g = 'Jana III Sobieskiego 1 m. 2'
     h = 'os. Jana III Sobieskiego 1 apt 2'
-
 
 :About:
     * Filename: ``types_slice.py``
