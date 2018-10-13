@@ -65,6 +65,17 @@ Można go użyć do wyświetlania zmiennych liczbowych, ale nie jest to najlepsz
     print('My name... ' + name + ' and I am ' + str(age) + ' years old!')
     # My name... José Jiménez and I am 35 years old!
 
+* f-string formatting are preferred over ``str`` addition
+* How many ``str`` are in the memory?
+
+    .. code-block:: python
+
+        first_name = 'José'
+        last_name = 'Jiménez'
+
+        print(first_name + ' ' + last_name)  # José Jiménez
+        print(f'{first_name} {last_name}')   # José Jiménez
+
 
 Interpolacja zmiennych
 ======================

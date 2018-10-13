@@ -8,6 +8,7 @@ Character Types
 ``str``
 =======
 * ``"`` and ``'`` works the same
+* Unicode characters (UTF-16 or UTF-32, depending on how Python was compiled)
 
 * Defining ``str``:
 
@@ -88,7 +89,7 @@ Escape characters
 Characters before strings
 =========================
 * Format string: since Python 3.6
-* ``str`` = ``u'..'`` = ``'...'`` literals = a sequence of Unicode characters (UTF-16 or UTF-32, depending on how Python was compiled)
+* ``str`` = ``u'..'`` = ``'...'`` literals = a
 * ``bytes`` = ``b'...'`` literals = a sequence of octets (integers between 0 and 255)
 
 .. csv-table:: String modifiers
@@ -123,7 +124,7 @@ Characters before strings
         print('My name... José Jiménez')
         # My name... José Jiménez
 
-* You can substitute variables
+* Variable substitution
 
     .. code-block:: python
 
@@ -132,20 +133,13 @@ Characters before strings
         print(f'My name... {name}')
         # My name... José Jiménez
 
-        print(f'My name...\n\t{name}')
-        # My name...
-        #   José Jiménez
-
-* f-string formatting are preferred over ``str`` addition
-* How many ``str`` are in the memory?
+* Special characters
 
     .. code-block:: python
 
-        first_name = 'José'
-        last_name = 'Jiménez'
-
-        print(first_name + ' ' + last_name)  # José Jiménez
-        print(f'{first_name} {last_name}')   # José Jiménez
+        print(f'My name...\n\t{name}')
+        # My name...
+        #     José Jiménez
 
 .. note:: More in :ref:`Print Formatting`
 
@@ -184,43 +178,14 @@ String immutability
 ``title()``, ``lower()``, ``upper()``
 -------------------------------------
 * Unify data format before analysis
-* Is this the same address?:
 
-    .. code-block:: text
+    .. code-block:: python
 
-        'Jana III Sobieskiego 1/2'
-        'ul Jana III Sobieskiego 1/2'
-        'ul. Jana III Sobieskiego 1/2'
-        'ul.Jana III Sobieskiego 1/2'
-        'ulicaJana III Sobieskiego 1/2'
-        'Ul. Jana III Sobieskiego 1/2'
-        'UL. Jana III Sobieskiego 1/2'
-        'ulica Jana III Sobieskiego 1/2'
-        'Ulica. Jana III Sobieskiego 1/2'
-        'os. Jana III Sobieskiego 1/2'
-        'plac Jana III Sobieskiego 1/2'
-        'pl Jana III Sobieskiego 1/2'
-        'al Jana III Sobieskiego 1/2'
-        'al. Jana III Sobieskiego 1/2'
-        'aleja Jana III Sobieskiego 1/2'
-        'alei Jana III Sobieskiego 1/2'
-        'Jana 3 Sobieskiego 1/2'
-        'Jana 3ego Sobieskiego 1/2'
-        'Jana III Sobieskiego 1 m. 2'
-        'Jana III Sobieskiego 1 apt 2'
-        'Jana Iii Sobieskiego 1/2'
-        'Jana IIi Sobieskiego 1/2'
-        'Jana lll Sobieskiego 1/2'  # three small letters 'L'
-        'Kozia wólka 5'
-        ...
+        name = 'joSé jiMénEz III'
 
-.. code-block:: python
-
-    name = 'joSé jiMénEz III'
-
-    name.title()    # 'José Jiménez Iii'
-    name.upper()    # 'JOSÉ JIMÉNEZ III'
-    name.lower()    # 'josé jiménez iii'
+        name.title()    # 'José Jiménez Iii'
+        name.upper()    # 'JOSÉ JIMÉNEZ III'
+        name.lower()    # 'josé jiménez iii'
 
 ``replace()``
 -------------
@@ -282,6 +247,65 @@ Handling user input
 
     name = input('Type your name: ')
 
+* This is a dump of distinct records of a single address
+* Is this the same address?:
+
+    .. code-block:: text
+
+        'ul. Jana III Sobieskiego'
+        'ul Jana III Sobieskiego'
+        'ul.Jana III Sobieskiego'
+        'ulicaJana III Sobieskiego'
+        'Ul. Jana III Sobieskiego'
+        'UL. Jana III Sobieskiego'
+        'ulica Jana III Sobieskiego'
+        'Ulica. Jana III Sobieskiego'
+        'os. Jana III Sobieskiego'
+        'plac Jana III Sobieskiego'
+        'pl Jana III Sobieskiego'
+        'al Jana III Sobieskiego'
+        'al. Jana III Sobieskiego'
+        'aleja Jana III Sobieskiego'
+        'alei Jana III Sobieskiego'
+        'Jana 3 Sobieskiego'
+        'Jana 3ego Sobieskiego'
+        'Jana III Sobieskiego'
+        'Jana Iii Sobieskiego'
+        'Jana IIi Sobieskiego'
+        'Jana lll Sobieskiego'  # three small letters 'L'
+        'Kozia wólka 5'
+
+    .. code-block:: text
+
+        'ul '
+        'ul. '
+        'ul.'
+        'ulica'
+        'Ul. '
+        'UL. '
+        'ulica '
+        'Ulica. '
+        'os. '
+        'ośedle'
+        'osiedle'
+        'os'
+        'plac '
+        'pl '
+        'al '
+        'al. '
+        'aleja '
+        'alei '
+
+    .. code-block:: text
+
+        '1/2'
+        '1 / 2'
+        '1 m. 2'
+        '1 apt 2'
+        '1 apt. 2'
+
+
+* Which one is a true address?
 
 Assignments
 ===========
@@ -298,7 +322,7 @@ String cleaning
         d = 'ul.Jana III Sobieskiego 1/2'
         e = 'ulicaJana III Sobieskiego 1/2'
         F = 'UL. JANA 3 SOBIESKIEGO 1/2'
-        G = 'UL. JANA III SOBiesKIEGO 1/2'
+        G = 'UL. III SOBiesKIEGO 1/2'
         H = 'ULICA JANA III SOBIESKIEGO 1/2'
         I = 'ULICA. JANA III SOBI'
         j = ' Jana 3 Sobieskiego 1/2 '
