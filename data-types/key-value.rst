@@ -54,6 +54,20 @@ Key-Value Collections
 Accessing ``dict`` values
 =========================
 
+Setting ``dict`` values
+-----------------------
+.. code-block:: python
+
+    data = {
+        'first_name': 'José',
+        'last_name': 'Jiménez',
+    }
+
+    data['agency'] = 'NASA'
+
+    print(data)
+    # {'first_name': 'José', 'last_name': 'Jiménez', 'agency': 'NASA'}
+
 Accessing values with ``[...]``
 -------------------------------
 * ``[...]`` throws ``KeyError`` exception if key not found in ``dict``

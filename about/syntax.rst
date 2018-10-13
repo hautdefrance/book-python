@@ -8,7 +8,7 @@ Syntax
 Indentation instead of braces
 =============================
 * Python uses indentation instead of braces
-* 4 spaces indentation, no tabs
+* `4 spaces indentation, no tabs <https://youtu.be/SsoOG6ZeyUI>`_
 * Python throws ``IndentationError`` exception on problem
 * Code indented on the same level belongs to block:
 

@@ -8,7 +8,6 @@ Character Types
 ``str``
 =======
 * ``"`` and ``'`` works the same
-* Sequence of Unicode characters (UTF-16 or UTF-32, depending on how Python was compiled
 
 * Defining ``str``:
 
@@ -39,12 +38,11 @@ Character Types
 
         names = """
             We choose to go to the Moon!
-            We choose to go to the Moon in this decade and do the other things,
-            not because they are easy, but because they are hard.
+        We choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard.
         """
 
         print(names)
-        # '\n    We choose to go to the Moon!\n    We choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard.'
+        # '\n    We choose to go to the Moon!\nWe choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard.'
 
 
 Single or double quote?
@@ -165,22 +163,23 @@ String immutability
     a = 'Python'
     a.replace('P', 'J')
 
-    print(a)
-    # Python
+    print(a)    # Python
 
 .. code-block:: python
 
     a = 'Python'
     b = a.replace('P', 'J')
-    print(b)
-    # Jython
+
+    print(a)    # Python
+    print(b)    # Jython
 
 .. code-block:: python
 
     a = 'Python'
-    b = b.upper().replace('J', 'Tr')
-    print(b)
-    # TrYTHON
+    b = a.upper().replace('P', 'C').title()
+
+    print(a)    # Python
+    print(b)    # Cython
 
 ``title()``, ``lower()``, ``upper()``
 -------------------------------------
@@ -289,22 +288,22 @@ Assignments
 
 String cleaning
 ---------------
-#. Dane poniżej przeczyść, tak aby zmienne zawierały ciąg znaków ``'Jana III Sobieskiego'``
+#. Dane poniżej przeczyść, tak aby zmienne miały wartość ``'Jana III Sobieskiego'``
 
 .. code-block:: python
 
-        a = ' 1/2'
-        b = 'ul Jana III Sobieskiego 1/2'
-        c = 'ul. Jana III Sobieskiego 1/2'
+        a = 'Jana III Sobieskiego 1 apt 2'
+        b = 'ul Jana III SobIESkiego 1/2'
+        c = 'ul. Jana trzeciego Sobieskiego 1/2'
         d = 'ul.Jana III Sobieskiego 1/2'
         e = 'ulicaJana III Sobieskiego 1/2'
-        f = 'Ul. Jana III Sobieskiego 1/2'
-        g = 'UL. Jana III Sobieskiego 1/2'
-        h = 'ulica Jana III Sobieskiego 1/2'
-        i = 'Ulica. Jana III Sobieskiego 1/2'
-        j = 'Jana 3 Sobieskiego 1/2'
+        F = 'UL. JANA 3 SOBIESKIEGO 1/2'
+        G = 'UL. JANA III SOBiesKIEGO 1/2'
+        H = 'ULICA JANA III SOBIESKIEGO 1/2'
+        I = 'ULICA. JANA III SOBI'
+        j = ' Jana 3 Sobieskiego 1/2 '
         k = 'Jana III Sobieskiego 1 m. 2'
-        l = 'Jana III Sobieskiego 1 apt 2'
+        l = ' 1/2'
 
 Variables and types
 -------------------
