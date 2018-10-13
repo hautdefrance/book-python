@@ -22,16 +22,16 @@ Simple Collections
 
         my_list = [1]
 
-* Can store any type:
+* ``list`` can store elements of any types:
 
     .. code-block:: python
 
-        # ``List`` can store elements of any types
         my_list = [1, 2.0, None, False, 'José']
 
+* You can also add ``list`` to ``list``:
+
     .. code-block:: python
 
-        # You can also add ``list`` to ``list``
         my_list = [1, 2.0, None, False, 'José', [1, 'hello']]
 
 * Slicing, the same as for strings:
@@ -45,24 +45,46 @@ Simple Collections
         my_list[::2]           # [1, None, 'José']
         my_list[-1]            # 'José'
 
-* Can be appended or extended:
+Adding ``list`` to ``list``
+---------------------------
+.. code-block:: python
 
-    .. code-block:: python
+    my_list = [1, 2]
 
-        my_list = [1, 2]
+    my_list + [3, 4]        # [1, 2, 3, 4]
 
-        my_list + [3, 4]        # [1, 2, 3, 4]
-        my_list.append(5)       # [1, 2, 3, 4, 5]
-        my_list.append([6, 7])  # [1, 2, 3, 4, 5, [6, 7]]
-        my_list.extend([8, 9])  # [1, 2, 3, 4, 5, [6, 7], 8, 9]
-        my_list.insert(0, 'a')  # ['a', 1, 2, 3, 4, 5, [6, 7], 8, 9]
+Appending elements
+------------------
+.. code-block:: python
 
-* Length of a ``list``:
+    my_list = [1, 2]
 
-    .. code-block:: python
+    my_list.append(3)       # [1, 2, 3]
+    my_list.append([4, 5])  # [1, 2, 3, [4, 5]]
 
-        my_list = [1, 2, 3]
-        len(my_list)            # 3
+Extending lists
+---------------
+.. code-block:: python
+
+    my_list = [1, 2]
+
+    my_list.extend([3, 4])  # [1, 2, 3, 4]
+
+Inserting elements at specific position
+---------------------------------------
+.. code-block:: python
+
+    my_list = [1, 2]
+
+    my_list.insert(0, 'a')  # ['a', 1, 2]
+
+Length of a ``list``
+--------------------
+.. code-block:: python
+
+    len([1, 2, 3])  # 3
+    len([])         # 0
+
 
 ``set``
 =======

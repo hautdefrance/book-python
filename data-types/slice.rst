@@ -14,9 +14,9 @@ Accessing element with index
 
     text[0]             # 'W'
     text[1]             # 'e'
-    text[2]             # ' '
+    text[23]            # 'M'
     text[-1]            # '!'
-    text[-3]            # 'o'
+    text[-5]            # 'M'
     text[100]           # IndexError: string index out of range
 
 
@@ -35,6 +35,7 @@ Accessing range of elements
     text[:-6]             # 'We choose to go to the'
     text[:100]            # 'We choose to go to the Moon!'
     text[100:]            # ''
+    text[:]               # 'We choose to go to the Moon!'
 
 .. code-block:: python
 
@@ -72,7 +73,8 @@ Assignments
 
 Slicing text
 ------------
-#. Z podanych poniżej ciągów znaków wytnij ``Jana III Sobieskiego``
+#. Z podanych poniżej ciągów znaków
+#. Za pomocą ``[...]`` wydobądź ``Jana III Sobieskiego``
 #. Jakie parametry użyłeś dla każdej z linijek?
 
 .. code-block:: python

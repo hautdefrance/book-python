@@ -225,17 +225,17 @@ String immutability
     text = 'José Jiménez'
     text.split()        # ['José', 'Jiménez']
 
-    text = 'root:x:0:0:System Administrator:/root:/bin/bash'
-    text.split(':')     # ['root', 'x', '0', '0', 'System Administrator', '/root', '/bin/bash']
+    text = 'jimenez:x:0:0:José Jiménez:/home/jimenez:/bin/bash'
+    text.split(':')     # ['jimenez', 'x', '0', '0', 'José Jiménez', '/home/jimenez', '/bin/bash']
 
 ``str.join()``
 --------------
 .. code-block:: python
 
-    names = ['root', 'x', '0', '0', 'System Administrator', '/root', '/bin/bash']
+    names = ['jimenez', 'x', '0', '0', 'José Jiménez', '/home/jimenez', '/bin/bash']
 
     ':'.join(names)
-    # 'root:x:0:0:System Administrator:/root:/bin/bash'
+    # 'jimenez:x:0:0:José Jiménez:/home/jimenez:/bin/bash'
 
 ``str.isspace()``
 -----------------
@@ -270,7 +270,16 @@ String immutability
 ------------------
 .. code-block:: python
 
-    'Py' in 'Python'    # True
+    'Py' in 'Python'     # True
+    'Pyc' in 'Python'    # False
+
+``len()``
+---------
+.. code-block:: python
+
+    len('Python')   # 6
+    len('')         # 0
+    len()           # TypeError: len() takes exactly one argument (0 given)
 
 Handling user input
 ===================

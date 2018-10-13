@@ -45,6 +45,9 @@ Numerical Types
         value = 10.5
         value: float = 10.5
 
+        value = 10.     # 10.0
+        value = .5      # 0.5
+
 * ``float()`` converts argument to ``float``:
 
     .. code-block:: python
