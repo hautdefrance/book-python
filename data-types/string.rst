@@ -260,20 +260,15 @@ Handling user input
         'UL. Jana III Sobieskiego'
         'ulica Jana III Sobieskiego'
         'Ulica. Jana III Sobieskiego'
+
         'os. Jana III Sobieskiego'
-        'plac Jana III Sobieskiego'
-        'pl Jana III Sobieskiego'
-        'al Jana III Sobieskiego'
-        'al. Jana III Sobieskiego'
-        'aleja Jana III Sobieskiego'
-        'alei Jana III Sobieskiego'
+
         'Jana 3 Sobieskiego'
         'Jana 3ego Sobieskiego'
         'Jana III Sobieskiego'
         'Jana Iii Sobieskiego'
         'Jana IIi Sobieskiego'
         'Jana lll Sobieskiego'  # three small letters 'L'
-        'Kozia wólka 5'
 
     .. code-block:: text
 
