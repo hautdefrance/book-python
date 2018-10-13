@@ -10,8 +10,8 @@ Introduction
     :caption: Introduction
 
     about/install.rst
+    appendix/references.rst
     about/language.rst
-    about/references.rst
     about/ide.rst
 
 
@@ -23,7 +23,7 @@ Foundations
     :numbered:
     :caption: Foundations
 
-    syntax/index.rst
+    about/syntax.rst
     data-types/numeric.rst
     data-types/logic.rst
     data-types/string.rst
@@ -243,14 +243,14 @@ Appendixes
     :numbered:
     :caption: Appendixes
 
-    _appendix/sql.rst
-    _appendix/history.rst
-    _appendix/further-reading.rst
-    _appendix/books.rst
-    _appendix/video.rst
-    _appendix/python-2vs3.rst
-    _appendix/python-wat.rst
-    _appendix/opensource.rst
+    appendix/sql.rst
+    appendix/history.rst
+    appendix/further-reading.rst
+    appendix/books.rst
+    appendix/video.rst
+    appendix/python-2vs3.rst
+    appendix/python-wat.rst
+    appendix/opensource.rst
     TODO.rst
     LICENSE.rst
     glossary.rst
