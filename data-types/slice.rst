@@ -16,7 +16,7 @@ Accessing element with index
     text[1]             # 'e'
     text[2]             # ' '
     text[-1]            # '!'
-    text[-3]            # '0'
+    text[-3]            # 'o'
     text[100]           # IndexError: string index out of range
 
 
