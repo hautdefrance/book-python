@@ -7,8 +7,10 @@ Function Basics
 
 Function definition
 ===================
-* Funkcje pozwalają na wielokrotne używanie tego samego kodu.
-* Znacznie poprawiają także czytelność kodu i go porządkują.
+* Wielokrotne używanie tego samego kodu
+* Poprawiają czytelność kodu
+* Porządkują kod
+* Pozwalają na łatwiejszy refactoring
 
 .. code-block:: python
 
@@ -26,23 +28,23 @@ Returning values
 .. code-block:: python
 
     def hello():
-        return 'hello world'
+        return 'ehlo world'
 
     output = hello()
 
     print(output)
-    # 'hello world'
+    # 'ehlo world'
 
 .. code-block:: python
 
     def hello():
-        return 'hello world'
+        return 'ehlo world'
         print('This will not be executed')
 
     output = hello()
 
     print(output)
-    # 'hello world'
+    # 'ehlo world'
 
 Returning simple types
 ----------------------
@@ -79,8 +81,12 @@ Returning simple types
         return None
 
     def function():
-        print('hello')
-        # Python will ``return None`` implicitly, if return is not specified
+        print('ehlo world')
+        # implicit ``return None``
+
+    def function():
+        pass
+        # implicit ``return None``
 
 Returning nested types
 ----------------------
@@ -88,7 +94,8 @@ Returning nested types
 
     def function():
         return [
-            {'astro': 'Watney'},
+            ('Mark', 'Watney'),
+            {'Kowalski', 'Lewis'},
             {'astro': 'Иванович', 'agency': {'name': 'roscosmos'}},
             {'astro': 'Jiménez', 'missions': ('mercury', 'apollo')},
         ]
@@ -96,8 +103,9 @@ Returning nested types
 
 Function arguments
 ==================
-Argumenty funkcji to wartości na których ta funkcja wykonuje operacje. W idealnym przypadku wartość wyjściowa funkcji powinna zależeć jedynie od jej argumentów.
 
+Passing arguments
+-----------------
 .. code-block:: python
 
     def add(a, b):
@@ -157,11 +165,11 @@ Arguments with default value
 .. code-block:: python
 
     def hello(name='José Jiménez'):
-         print(name)
+         print(f'My name... {name}')
 
-    hello('Иван Иванович')        # Иван Иванович
-    hello(name='Иван Иванович')   # Иван Иванович
-    hello()                       # José Jiménez
+    hello('Иван Иванович')        # My name... Иван Иванович
+    hello(name='Иван Иванович')   # My name... Иван Иванович
+    hello()                       # My name... José Jiménez
 
 .. code-block:: python
 
@@ -181,6 +189,12 @@ Arguments with default value
         persistent=True,
     )
 
+.. code-block:: python
+
+    read_csv(filepath_or_buffer, sep=', ', delimiter=None, header='infer', names=None, index_col=None, usecols=None, squeeze=False, prefix=None, mangle_dupe_cols=True, dtype=None, engine=None, converters=None, true_values=None, false_values=None, skipinitialspace=False, skiprows=None, nrows=None, na_values=None, keep_default_na=True, na_filter=True, verbose=False, skip_blank_lines=True, parse_dates=False, infer_datetime_format=False, keep_date_col=False, date_parser=None, dayfirst=False, iterator=False, chunksize=None, compression='infer', thousands=None, decimal=b'.', lineterminator=None, quotechar='"', quoting=0, escapechar=None, comment=None, encoding=None, dialect=None, tupleize_cols=None, error_bad_lines=True, warn_bad_lines=True, skipfooter=0, doublequote=True, delim_whitespace=False, low_memory=True, memory_map=False, float_precision=None)
+
+    data = read_csv('iris.csv', encoding='utf-8', usecols=['Petal lenght', 'Species'])
+
 
 Naming convention
 =================
@@ -197,22 +211,6 @@ Naming convention
 
         def addNumbers(a, b):
             return a + b
-
-* W Pythonie nie ma private/protected/public
-* Funkcje o nazwie zaczynającej się od ``_`` przez konwencję są traktowane jako prywatne
-
-    .. code-block:: python
-
-        from random import _ceil
-
-        _ceil()
-        # good IDE will display information, that you're accessing protected member
-
-* Funkcje i zmienne o nazwie zaczynającej się od ``__`` i kończących się na ``__`` przez konwencję są traktowane jako systemowe
-
-    .. code-block:: python
-
-        print(__file__)
 
 * Nazwy opisowe funkcji zamiast komentarza
 
@@ -239,7 +237,7 @@ Variable scope
 
 .. code-block:: python
 
-    def add(a, b):
+    def add(a, b=2):
         c = 3
         print(locals())
 
@@ -284,13 +282,13 @@ Aviation numbers
 
 .. code-block:: python
 
-    number_to_str(1969)       # 'one niner six niner'
-    number_to_str(31337)      # 'tree one tree tree seven'
-    number_to_str(13.37)      # 'one tree and tree seven'
-    number_to_str(31.337)     # 'tree one and tree tree seven'
-    number_to_str(-1969)      # 'minus one niner six niner'
-    number_to_str(-31.337)    # 'minus tree one and tree tree seven
-    number_to_str(-49.35)     # 'minus fower niner and tree fife'
+    aviation_numbers(1969)       # 'one niner six niner'
+    aviation_numbers(31337)      # 'tree one tree tree seven'
+    aviation_numbers(13.37)      # 'one tree and tree seven'
+    aviation_numbers(31.337)     # 'tree one and tree tree seven'
+    aviation_numbers(-1969)      # 'minus one niner six niner'
+    aviation_numbers(-31.337)    # 'minus tree one and tree tree seven
+    aviation_numbers(-49.35)     # 'minus fower niner and tree fife'
 
 :About:
     * Filename: ``functions_aviation_numbers.py``
