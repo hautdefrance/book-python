@@ -1,4 +1,4 @@
-def is_integer(number):
+def is_integer(num):
     """
     >>> is_integer(0)
     True
@@ -11,7 +11,7 @@ def is_integer(number):
     >>> is_integer(1.1)
     False
     """
-    if number % 1 == 0:
+    if num % 1 == 0:
         return True
     else:
         return False

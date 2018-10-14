@@ -7,6 +7,9 @@ Logical Types
 
 ``bool``
 ========
+
+Defining ``bool`` values
+------------------------
 * First letter capitalized, other are lower cased
 * Positive value - ``True``
 * Negative values - ``False``
@@ -20,40 +23,44 @@ Logical Types
         my_var: bool = True
         my_var: bool = False
 
-* Negative values:
+Type casting to ``bool``
+------------------------
+.. code-block:: python
 
-    * ``False``
-    * ``0``
-    * ``()`` - empty ``tuple``
-    * ``{}`` - empty ``dict``
-    * ``[]`` - empty ``list``
-    * ``''`` - empty ``str``
-    * ``None``
+    bool('José')          # True
+    bool('')              # False
 
-* ``bool()`` converts argument to ``bool``:
+Negative values
+---------------
+* ``False``
+* ``0``
+* ``()`` - empty ``tuple``
+* ``{}`` - empty ``dict``
+* ``[]`` - empty ``list``
+* ``''`` - empty ``str``
+* ``set()`` - empty ``set``
+* ``None``
 
-    .. code-block:: python
+Using ``and``
+-------------
+.. code-block:: python
 
-        bool('José')          # True
-        bool('')              # False
+    'José' and ''         # False
+    'José' and 'Иван'     # True
 
-* Using ``and``:
+Using ``or``
+------------
+.. code-block:: python
 
-    .. code-block:: python
-
-        'José' and ''         # False
-        'José' and 'Иван'     # True
-
-* Using ``or``:
-
-    .. code-block:: python
-
-        'José' or ''          # True
-        'José' or 'Иван'      # True
+    'José' or ''          # True
+    'José' or 'Иван'      # True
 
 
 ``None``
 ========
+
+Defining ``None`` values
+------------------------
 * First letter capitalized, other are lower cased
 * Empty value (null)
 * It is not ``False`` value, although in ``if`` it behaves like ``False``

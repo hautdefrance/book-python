@@ -19,7 +19,7 @@ Loops
     i = 0
 
     while i <= 10:
-        print(x)
+        print(i)
         i += 1
 
 
@@ -298,16 +298,23 @@ Assignments
 
 Text manipulation
 -----------------
-#. Dany jest tekst przemównienia John F. Kennedy'ego "Moon Speech" wygłoszony na Rice Stadium
+#. Dany jest tekst przemównienia John F. Kennedy'ego "Moon Speech" wygłoszony na Rice Stadium (zdania oddzielone są kropkami)
 
     .. code-block:: text
 
         We choose to go to the Moon. We choose to go to the Moon in this decade and do the other things. Not because they are easy, but because they are hard. Because that goal will serve to organize and measure the best of our energies and skills. Because that challenge is one that we are willing to accept. One we are unwilling to postpone. And one we intend to win
 
-#. Dla każdego zdania (zdania oddzielone są kropkami)
-#. Za pomocą funkcji ``len()`` policz ile jest wyrazów
-#. Wypisz na ekranie listę słowników o strukturze: zdanie (klucz) -> ilość wyrazów (wartość)
-#. Na końcu wypisz także ile jest zdań oraz ile słów i znaków naliczyliśmy łącznie
+#. Policz ile jest wyrazów w każdym zdaniu
+#. Wypisz na ekranie listę słowników (``List[Dict[str, int]]``) o strukturze:
+
+    * klucz: zdanie
+    * wartość: ilość wyrazów
+
+#. Na końcu wypisz także ile jest:
+
+    * zdań
+    * słów
+    * znaków
 
 :About:
     * Filename: ``loop_sentences.py``
@@ -355,8 +362,7 @@ Unique keys from schema-less database
 Label encoder
 -------------
 #. Mając do dyspozycji zbiór danych Irysów z :numref:`listing-loops-iris-sample`
-#. Ze zbioru wyodrębnij dane odrzucając nagłówek.
-#. Przemieszaj elementy zbioru danych
+#. Ze zbioru wyodrębnij dane odrzucając nagłówek
 #. Stwórz słownik gatunków ``species``, gdzie kolejnym liczbom naturalnym zaczynając od zera przyporządkuj gatunek irysów.
 #. Klucze muszą być wygenerowane na podstawie kolejności występowania gatunków w przemieszanym zbiorze danych:
 
@@ -380,7 +386,6 @@ Label encoder
 
 :Algorithm:
     #. Wyodrębnij dane odrzucając nagłówek
-    #. Przemieszaj elementy zbioru danych
     #. Stwórz słownik gatunków ``species``
     #. Iteruj po elementach zbioru danych
     #. Gatunek to ostatni element rekordu
@@ -398,9 +403,6 @@ Label encoder
     * Sprawdzanie występowania elementów w słowniku
     * Generowanie słownika i listy na podstawie innych danych
     * Odwracanie słownika
-
-:Hints:
-    * ``from random import shuffle``
 
 .. literalinclude:: src/loops-iris-sample.py
     :name: listing-loops-iris-sample

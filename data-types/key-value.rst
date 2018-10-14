@@ -22,6 +22,15 @@ Key-Value Collections
             'last_name': 'Jiménez'
         }
 
+* Comma after last element is optional:
+
+    .. code-block:: python
+
+        my_dict = {
+            'first_name': 'José',
+            'last_name': 'Jiménez',
+        }
+
 * Duplicating items are overridden by latter:
 
     .. code-block:: python

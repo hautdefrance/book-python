@@ -10,15 +10,32 @@ Conditional Statements
 
 ``if``
 ------
+* Simple syntax:
+
+    .. code-block:: python
+
+        if True:
+            print('First line of the true statement')
+
+* Multiline blocks:
+
+    .. code-block:: python
+
+        if True:
+            print('First line of the true statement')
+            print('Second line of the true statement')
+            print('Third line of the true statement')
+
 * Negative values:
 
-    * ``None``
-    * ``0``
     * ``False``
-    * ``()`` - empty tuple
-    * ``{}`` - empty dict
-    * ``[]`` - empty list
-    * ``''`` - empty str
+    * ``0``
+    * ``()`` - empty ``tuple``
+    * ``{}`` - empty ``dict``
+    * ``[]`` - empty ``list``
+    * ``''`` - empty ``str``
+    * ``set()`` - empty ``set``
+    * ``None``
 
 * Positive values: any other values
 * Checking for simple value
@@ -54,7 +71,20 @@ Conditional Statements
         else:
             print('My name is other')
 
-* Checking if variable is defined
+* Multiline blocks:
+
+    .. code-block:: python
+
+        if True:
+            print('First line of the true statement')
+            print('Second line of the true statement')
+            print('Third line of the true statement')
+        else:
+            print('First line of the false statement')
+            print('Second line of the false statement')
+            print('Third line of the false statement')
+
+* Checking if variable has any value
 
     .. code-block:: python
 
@@ -81,6 +111,16 @@ Conditional Statements
     else:
         print("You're not José nor Alex")
 
+Checking if has value
+---------------------
+.. code-block:: python
+
+    name = None
+
+    if name:
+        print(name)
+    else:
+        print('Name is not defined')
 
 Inline ``if``
 -------------
@@ -182,19 +222,30 @@ Control Statements
     name = None
 
     if not name:
-        print('Name is not set')
-    else:
-        print('Hello my friend')
+        print('Name is not defined')
 
 .. code-block:: python
 
     usernames = {'José', 'Max', 'Иван'}
 
     if 'José' not in usernames:
-        print('I do not know you')
-    else:
-        print('Hello my friend')
+        print('Not found')
 
+``is``
+------
+.. code-block:: python
+
+    name = None
+
+    if name is None:
+        print('Name is not defined')
+
+.. code-block:: python
+
+    name = None
+
+    if name is not None:
+        print(name)
 
 No ``switch`` statement?!
 =========================

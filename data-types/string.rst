@@ -7,66 +7,81 @@ Character Types
 
 ``str``
 =======
+
+Creating empty string
+---------------------
 * ``"`` and ``'`` works the same
 * Unicode characters (UTF-16 or UTF-32, depending on how Python was compiled)
 
-* Defining ``str``:
+.. code-block:: python
 
-    .. code-block:: python
+    name = ''
+    name = ""
 
-        name = 'José'       # 'José'
-        name = "José"       # 'José'
+    name: str = ''
+    name: str = ""
 
-        name: str = 'José'  # 'José'
-        name: str = "José"  # 'José'
+Creating string
+---------------
+.. code-block:: python
 
-* ``str`` multiplication:
+    name = 'José'       # 'José'
+    name = "José"       # 'José'
 
-    .. code-block:: python
+    name: str = 'José'  # 'José'
+    name: str = "José"  # 'José'
 
-        'José' * 3          # JoséJoséJosé
+Multiline ``str``
+-----------------
+.. code-block:: python
 
-* ``str()`` converts argument to ``str``":
+    names = """
+        We choose to go to the Moon!
+    We choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard.
+    """
 
-    .. code-block:: python
+    print(names)
+    # '\n    We choose to go to the Moon!\nWe choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard.'
 
-        str(1969)           # '1969'
-        str(13.37)          # '13.37'
+Type casting to ``str``
+-----------------------
+.. code-block:: python
 
-* Multiline ``str``
-
-    .. code-block:: python
-
-        names = """
-            We choose to go to the Moon!
-        We choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard.
-        """
-
-        print(names)
-        # '\n    We choose to go to the Moon!\nWe choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard.'
+    str(1969)           # '1969'
+    str(13.37)          # '13.37'
 
 
 Single or double quote?
 =======================
 * ``"`` and ``'`` works the same
 * Choose one and keep consistency in code
-* Python console uses ``'``, this is why I use ``'`` in this book
+* Python console uses ``'``
+* I use ``'`` in this book to be consistent with Python
 * ``doctest`` uses single quotes and throws error on double quotes
-* Avoid single quotes, when ``str`` has a lot of contractions:
 
+When use double quotes?
+-----------------------
     .. code-block:: python
 
         my_str = 'it\'s José\'s book'
         my_str = "it's José's book"
 
-* HTML uses double quotes, hence it's convenient to use single ones for ``str``:
 
-    .. code-block:: python
+When use single quotes?
+-----------------------
+* HTML and XML uses double quotes
 
-        my_str = '<a href="http://python.astrotech.io">Python and Machine Learning</a>'
+.. code-block:: python
+
+    my_str = '<a href="http://python.astrotech.io">Python and Machine Learning</a>'
+
 
 Escape characters
 =================
+
+New lines
+---------
+
 .. code-block:: text
 
     \n
@@ -78,19 +93,41 @@ Escape characters
 
     Why we have '\\r\\n' on Windows?
 
+Other escape characters
+-----------------------
+.. csv-table::
+    :header-rows: 1
+
+    "Escape sequence", "Description"
+
+    "``\\``", "Backslash ``\``"
+    "``\'``", "Single quote ``'``"
+    "``\"``", "Double quote ``"``"
+    "``\a``", "ASCII Bell (BEL)"
+    "``\b``", "ASCII Backspace (BS)"
+    "``\f``", "ASCII Formfeed (FF)"
+    "``\n``", "ASCII Linefeed (LF)"
+    "``\r``", "ASCII Carriage Return (CR)"
+    "``\t``", "ASCII Horizontal Tab (TAB)"
+    "``\uxxxx``", "Character with 16-bit hex value XXXX"
+    "``\Uxxxxxxxx``", "Character with 32-bit hex value XXXXXXXX"
+    "``\v``", "ASCII Vertical Tab (VT)"
+    "``\ooo``", "ASCII character with octal value ooo"
+    "``\xhh...``", "ASCII character with hex value hh..."
+
 .. code-block:: text
 
     \x1F680     # after \x goes hexadecimal number
     \U0001F680  # after \u goes four hexadecimal numbers
     🚀
-    \t
-    \'
+
 
 Characters before strings
 =========================
 * Format string: since Python 3.6
-* ``str`` = ``u'..'`` = ``'...'`` literals = a
-* ``bytes`` = ``b'...'`` literals = a sequence of octets (integers between 0 and 255)
+* ``str`` is a unicode
+* In Python3 ``u'..'`` = ``'...'``
+* ``bytes`` is a sequence of octets (integers between 0 and 255)
 
 .. csv-table:: String modifiers
     :header-rows: 1
@@ -110,9 +147,11 @@ Characters before strings
 .. code-block:: python
 
     print('C:\Users\Admin\file.txt')
-    # ``\Users`` (``s`` is invalid hexadecimal for unicode)
     # SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape
 
+    # Problem: ``\Users``
+    #          ``s`` is invalid hexadecimal character
+    #          after ``\U...`` python expects unicode codepoint
 
 ``print()``
 ===========
@@ -157,23 +196,31 @@ String immutability
     a = 'Python'
     a.replace('P', 'J')
 
-    print(a)    # Python
+    print(a)            # Python
 
 .. code-block:: python
 
     a = 'Python'
     b = a.replace('P', 'J')
 
-    print(a)    # Python
-    print(b)    # Jython
+    print(a)            # Python
+    print(b)            # Jython
 
 .. code-block:: python
 
     a = 'Python'
     b = a.upper().replace('P', 'C').title()
 
-    print(a)    # Python
-    print(b)    # Cython
+    print(a)            # Python
+    print(b)            # Cython
+
+
+Multiplication
+--------------
+.. code-block:: python
+
+    'José' * 3          # JoséJoséJosé
+    '-' * 10            # ----------
 
 ``str.title()``, ``str.lower()``, ``str.upper()``
 -------------------------------------------------
@@ -270,8 +317,8 @@ String immutability
 ------------------
 .. code-block:: python
 
-    'Py' in 'Python'     # True
-    'Pyc' in 'Python'    # False
+    'th' in 'Python'     # True
+    'hello' in 'Python'    # False
 
 ``len()``
 ---------

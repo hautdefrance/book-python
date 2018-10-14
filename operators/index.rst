@@ -47,7 +47,7 @@ Bitwise operators
 
 
 Operator precedence
-====================
+===================
 .. csv-table:: Operator precedence
     :header-rows: 1
     :widths: 25, 75
@@ -59,8 +59,10 @@ Assignments
 
 Even and odd numbers
 --------------------
-#. napisz program, który wczyta od użytkownika ciąg znaków
-#. sprawdzi czy jest to liczba parzysta, czy nieparzysta
+#. Napisz program, który wczyta od użytkownika ciąg znaków
+#. Użytkownik poda tylko ``int`` lub ``float`` dowolnej długości
+#. Liczby ``float`` rzutuj na ``int``
+#. Sprawdź czy jest to liczba parzysta, czy nieparzysta
 
 :About:
     * Filename: ``operators_even_odd.py``

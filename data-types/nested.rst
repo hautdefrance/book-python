@@ -69,7 +69,6 @@ Split train/test
 ----------------
 #. Mając do dyspozycji zbiór danych Irysów z :numref:`listing-sequence-iris-sample`
 #. Wyodrębnij nagłówek (pierwsza linia) od danych
-#. Ustaw dane z kolejnych linii w losowej kolejności
 #. Podziel zbiór na dwie listy w proporcji:
 
     - dane do uczenia - 80%
@@ -78,7 +77,6 @@ Split train/test
 :Algorithm:
     #. zapisz nagłówek do zmiennej
     #. zapisz do innej zmiennej dane bez nagłówka
-    #. na danych bez nagłówka zastosuj funkcję ``shuffle()``
     #. wylicz punkt przegięcia: długość danych bez nagłówka razy procent
     #. z danych bez nagłówka zapisz do uczenia rekordy od początku do punktu przegięcia
     #. z danych bez nagłówka zapisz do testów rekordy od punktu przegięcia do końca
@@ -91,13 +89,8 @@ Split train/test
 :The whys and wherefores:
     * Umiejętność przetwarzania złożonych typów danych
     * Korzystanie z przecięć danych
-    * Wykorzystanie funkcji z biblioteki standardowej
     * Konwersja typów
     * Magic Number
-
-:Hints:
-    * ``from random import shuffle``
-    * ``shuffle()`` modyfikuje dane "in place" i zwraca ``None``
 
 .. literalinclude:: assignment/sequence-iris-sample.py
     :name: listing-sequence-iris-sample
