@@ -23,7 +23,7 @@ Comprehensions
 --------------
 .. code-block:: python
 
-    [x for x in range(0, 5)]
+    numbers = [x for x in range(0, 5)]
     # list [10, 11, 12, 13, 14]
 
 
@@ -78,8 +78,11 @@ Comprehensions
 --------------
 .. code-block:: python
 
-    [x for x in range(0, 10) if x % 2 == 0]
+    even_numbers = [x for x in range(0, 10) if x % 2 == 0]
+
+    print(even_numbers)
     # [0, 2, 4, 6, 8]
+
 
 Why?
 ====
