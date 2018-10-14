@@ -365,8 +365,10 @@ Label encoder
 #. Ze zbioru wyodrębnij dane odrzucając nagłówek
 #. Z danych wyodrębnij:
 
-    * ``List[Tuple[float]]`` cech opisujących o nazwie ``features``
-    * ``List[int]`` cech opisywanych o nazwie ``labels``
+    * cechy opisujące: ``features: List[Tuple[float]]``
+    * cechy opisywane: ``labels: List[int]``
+
+#. Przykład danych wyodrębnionych:
 
     .. code-block:: python
 
@@ -380,9 +382,9 @@ Label encoder
 
         labels = [0, 1, 2, 1, 2, 0, ...]
 
-#. Przy tworzeniu ``labels`` stwórz słownik gatunków ``species``, gdzie kolejnym liczbom naturalnym zaczynając od zera przyporządkuj gatunek irysów
-#. ``labels`` muszą być wygenerowane na podstawie kolejności w zbiorze danych
-#. Klucze muszą być wygenerowane na podstawie kolejności występowania gatunków w przemieszanym zbiorze danych:
+#. Aby móc odszyfrować ``labels`` i zamienić wartości na nazwy gatunków, potrzebny jest słownik podmiany "liczba -> nazwa"
+#. Wygeneruj słownik ``species: Dict[int, str]`` na podstawie danych
+#. Przykład słownika ``species``:
 
     .. code-block:: python
 
@@ -392,7 +394,11 @@ Label encoder
             2: 'versicolor'
         }
 
-#. Wyświetl na ekranie ``species`` oraz ``labels``
+#. Wyświetl na ekranie:
+
+    * ``species``
+    * ``labels``
+    * ``features``
 
 :Algorithm:
     #. Wyodrębnij dane odrzucając nagłówek

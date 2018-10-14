@@ -1,5 +1,3 @@
-from random import shuffle
-
 DATABASE = [
     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
     (5.8, 2.7, 5.1, 1.9, 'virginica'),
@@ -27,16 +25,18 @@ DATABASE = [
 
 species = dict()
 labels = list()
+features = list()
 
 header = DATABASE[0]
 data = DATABASE[1:]
-shuffle(data)
 
 
 for record in data:
-    name = record[-1]
+    name = record[4]
+    features.append(record[:4])
 
     if name not in species.keys():
+        # dict[key] = value
         species[name] = len(species)
 
     labels.append(species[name])
@@ -44,12 +44,17 @@ for record in data:
 species = {value: key for key, value in species.items()}
 
 print(species)
-# {0: 'versicolor', 1: 'virginica', 2: 'setosa'}
+# {0: 'virginica', 1: 'setosa', 2: 'versicolor'}
 
 print(labels)
-# [0, 1, 2, 1, 1, 0, ...]
+# [0, 1, 2, 0, 2, 1, 2, 0, 1, 0, 0, 1, 1, 2, 1, 2, 0, 2, 0, 2, 1]
 
-
+print(features)
+# [
+#   (5.8, 2.7, 5.1, 1.9),
+#   (5.1, 3.5, 1.4, 0.2),
+#   (5.7, 2.8, 4.1, 1.3),
+#   (6.3, 2.9, 5.6, 1.8), ...]
 
 
 ## Alternative solution 1
@@ -59,4 +64,4 @@ d = zip(species, indexes)
 d = dict(d)
 
 ## In numerical analysis you can find this
-result = dict(enumerate(set(x[-1] for x in data)))
+species = dict(enumerate(set(x[-1] for x in data)))
