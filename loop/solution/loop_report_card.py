@@ -1,5 +1,4 @@
-ALLOWED_GRADES = (2, 3, 3.5, 4, 4.5, 5)
-ALLOWED_GRADES = [float(grade) for grade in ALLOWED_GRADES]
+ALLOWED_GRADES = [float(x) for x in (2, 3, 3.5, 4, 4.5, 5)]
 report_card = []
 
 
@@ -9,7 +8,8 @@ while True:
     if not grade:
         break
 
-    if float(grade) in ALLOWED_GRADES:
+    grade = float(grade)
+    if grade in ALLOWED_GRADES:
         print(f'Adding {grade}')
         report_card.append(grade)
     else:
