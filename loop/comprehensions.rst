@@ -5,36 +5,64 @@ Comprehensions
 **************
 
 
-* Pętla ``for`` może być także napisana jako jednoliniowy generator
-* More in chapter :numref:`Generators and Comprehensions`
-
 Simple usage
 ============
-.. code-block:: python
 
-    numbers = [x for x in range(0, 10)]
-    # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
+Traditional
+-----------
 .. code-block:: python
 
     numbers = []
 
-    for x in range(0, 10):
-        numbers.append(x)
+    for x in range(0, 5):
+        numbers.append(x+10)
 
-    print(numbers)
-    # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # numbers = [10, 11, 12, 13, 14]
+
+Comprehensions
+--------------
+.. code-block:: python
+
+    [x for x in range(0, 5)]
+    # list [10, 11, 12, 13, 14]
+
+
+Inline ``for`` not only for ``list``
+====================================
+
+``set()``
+---------
+.. code-block:: python
+
+    {x+10 for x in range(0, 5)}
+    # set {10, 11, 12, 13, 14}
+
+``dict()``
+----------
+.. code-block:: python
+
+    {x: x+10 for x in range(0, 5)}
+    # dict {0:10, 1:11, 2:12, 3:13, 4:14}
+
+    {x+10: x for x in range(0, 5)}
+    # dict {10:0, 11:1, 12:2, 13:3, 14:4}
+
+    {x+10: x+10 for x in range(0, 5)}
+    # dict {10:10, 11:11, 12:12, 13:13, 14:14}
+
+``tuple()``
+-----------
+.. code-block:: python
+
+    (x for x in range(0, 10))
+    # <generator object <genexpr> at 0x11eaef570>
 
 
 Conditional loop
 ================
-* Do takiego iteratora można także dodać instrukcję warunkową.
 
-.. code-block:: python
-
-    even_numbers = [x for x in range(0, 10) if x % 2 == 0]
-    # [0, 2, 4, 6, 8]
-
+Traditional
+-----------
 .. code-block:: python
 
     even_numbers = []
@@ -46,35 +74,46 @@ Conditional loop
     print(even_numbers)
     # [0, 2, 4, 6, 8]
 
+Comprehensions
+--------------
+.. code-block:: python
+
+    [x for x in range(0, 10) if x % 2 == 0]
+    # [0, 2, 4, 6, 8]
+
+Why?
+====
+
 Filtering results
 -----------------
 .. code-block:: python
 
-    DATA = [
-        (5.1, 3.5, 1.4, 0.2, 'setosa'),
-        (4.9, 3.0, 1.4, 0.2, 'setosa'),
-        (5.4, 3.9, 1.7, 0.4, 'setosa'),
-        (4.6, 3.4, 1.4, 0.3, 'setosa'),
-        (7.0, 3.2, 4.7, 1.4, 'versicolor'),
-        (6.4, 3.2, 4.5, 1.5, 'versicolor'),
-        (5.7, 2.8, 4.5, 1.3, 'versicolor'),
-        (5.7, 2.8, 4.1, 1.3, 'versicolor'),
-        (6.3, 3.3, 6.0, 2.5, 'virginica'),
+    DATABASE = [
+        ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
         (5.8, 2.7, 5.1, 1.9, 'virginica'),
-        (4.9, 2.5, 4.5, 1.7, 'virginica'),
+        (5.1, 3.5, 1.4, 0.2, 'setosa'),
+        (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+        (6.3, 2.9, 5.6, 1.8, 'virginica'),
+        (6.4, 3.2, 4.5, 1.5, 'versicolor'),
+        (4.7, 3.2, 1.3, 0.2, 'setosa'),
+        (7.0, 3.2, 4.7, 1.4, 'versicolor'),
     ]
 
     setosa = [x for x in DATA if x[4] == 'setosa']
     print(setosa)
-
+    # [
+    #   (5.1, 3.5, 1.4, 0.2, 'setosa'),
+    #   (4.7, 3.2, 1.3, 0.2, 'setosa')
+    # ]
 
 Applying function to element
-============================
-Najczęściej wykorzystuje się tą konstrukcję aby zaaplikować funkcję dla każdego elementu nowej listy
-
+----------------------------
 .. code-block:: python
 
     [float(x) for x in range(0, 10)]
+
+.. code-block:: python
+
     [float(x) for x in range(0, 10) if x % 2 == 0]
 
 .. code-block:: python
@@ -85,18 +124,38 @@ Najczęściej wykorzystuje się tą konstrukcję aby zaaplikować funkcję dla k
         else:
             return False
 
-    parzyste = [float(x) for x in range(0, 10) if is_even(x)]
+    output = [float(x) for x in range(0, 10) if is_even(x)]
+
+    print(output)
     # [0.0, 2.0, 4.0, 6.0, 8.0]
 
 .. code-block:: python
 
-    def describe(number):
+    def get_tuple(number):
+        return (number, number+10)
+
+    output = [get_tuple(x) for x in range(0, 5)]
+
+    print(output)
+    # [
+    #   (0, 10),
+    #   (1, 11),
+    #   (2, 12),
+    #   (3, 13),
+    #   (4, 14)
+    # ]
+
+.. code-block:: python
+
+    def get_dict(number):
         if number % 2 == 0:
             return {'number': number, 'status': 'even'}
         else:
             return {'number': number, 'status': 'odd'}
 
-    [describe(x) for x in range(0, 5)]
+    output = [get_dict(x) for x in range(0, 5)]
+
+    print(output)
     # [
     #    {'number': 0, 'status': 'even'},
     #    {'number': 1, 'status': 'odd'},
@@ -105,10 +164,28 @@ Najczęściej wykorzystuje się tą konstrukcję aby zaaplikować funkcję dla k
     #    {'number': 4, 'status': 'even'},
     # ]
 
-``for`` vs. ``inline for``
-==========================
-Przykład praktyczny z życia
 
+Examples
+========
+
+Reversing ``dict`` keys with values
+-----------------------------------
+.. code-block:: python
+
+    my_dict = {'x': 1, 'y': 2}
+
+    {value: key for key, value in my_dict.items()}
+    # dict {1:'x', 2:'y'}
+
+.. code-block:: python
+
+    my_dict = {'x': 1, 'y': 2}
+
+    {v:k for k,v in my_dict.items()}
+    # dict {1:'x', 2:'y'}
+
+Quick parsing lines
+-------------------
 .. code-block:: python
 
     line = 'jose:x:1000:1000:José Jiménez:/home/jose:/bin/bash'
@@ -123,38 +200,15 @@ Przykład praktyczny z życia
 
 .. code-block:: python
 
-    [record for record in line.split(':') if record.startswith('/')]
+    line = 'jose:x:1000:1000:José Jiménez:/home/jose:/bin/bash'
+    output = [x for x in line.split(':') if x.startswith('/')]
+
+    print(output)
     # ['/home/jose', '/bin/bash']
 
-    [x for x in line.split(':') if x.startswith('/')]
-    # ['/home/jose', '/bin/bash']
-
-
-Inline ``for`` not only for ``list``
-====================================
-.. code-block:: python
-
-    {x**2 for x in range(0, 5)}
-    # set {0, 1, 4, 9, 16}
-
-    {x: x**2 for x in range(0, 5)}
-    # dict {0:0, 1:1, 2:4, 3:9, 4:16}
-
-    {x**2: x for x in range(0, 5)}
-    # dict {0:0, 1:1, 4:2, 9:3, 16:4}
-
-    {x**2: x**3 for x in range(0, 5)}
-    # dict {0:0, 1:1, 4:8, 9:27, 16:64}
-
-.. code-block:: python
-
-    my_dict = {'x': 1, 'y': 2}
-
-    {value: key for key, value in my_dict.items()}
-    # dict {1:'x', 2:'y'}
-
-    {v:k for k,v in my_dict.items()}
-    # dict {1:'x', 2:'y'}
+Advanced usage for Comprehensions and Generators
+------------------------------------------------
+.. note:: More in chapter :ref:`Generators and Comprehensions`
 
 
 Assignments
