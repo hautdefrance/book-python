@@ -264,6 +264,78 @@ YouTube
     from IPython.display import YouTubeVideo
     YouTubeVideo("wupToqz1e2g")
 
+Workflow
+========
+.. code-block:: python
+
+    import pandas as pd
+
+    url = 'https://raw.githubusercontent.com/scikit-learn/scikit-learn/master/sklearn/datasets/data/iris.csv'
+    columns = ['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
+
+    data = pd.read_csv(url, skiprows=1, names=columns)
+
+.. code-block:: python
+
+    head = data.head(5)
+    #   Sepal length  Sepal width  Petal length  Petal width  Species
+    # 0           5.1          3.5           1.4          0.2        0
+    # 1           4.9          3.0           1.4          0.2        0
+    # 2           4.7          3.2           1.3          0.2        0
+    # 3           4.6          3.1           1.5          0.2        0
+    # 4           5.0          3.6           1.4          0.2        0
+
+.. code-block:: python
+
+    data.tail(3)
+    #      Sepal length  Sepal width  Petal length  Petal width  Species
+    # 147           6.5          3.0           5.2          2.0        2
+    # 148           6.2          3.4           5.4          2.3        2
+    # 149           5.9          3.0           5.1          1.8        2
+
+    # data.loc[data.Species == 0, 'Species'] = 'setosa'
+    # data.loc[data.Species == 1, 'Species'] = 'versicolor'
+    # data.loc[data.Species == 2, 'Species'] = 'virginica'
+
+.. code-block:: python
+
+    species = {
+        0: 'setosa',
+        1: 'versicolor',
+        2: 'virginica'
+    }
+
+.. code-block:: python
+
+    # Change column Species values
+    data.Species.replace(to_replace=species, inplace=True)
+
+.. code-block:: python
+
+    # Shuffle columns and reset indexes
+    data.sample(frac=1).reset_index(drop=True, inplace=True)
+    #      Sepal length  Sepal width     ...      Petal width     Species
+    # 0             5.0          2.0     ...              1.0  versicolor
+    # 1             6.4          2.7     ...              1.9   virginica
+    # 2             5.6          3.0     ...              1.5  versicolor
+    # 3             5.7          2.6     ...              1.0  versicolor
+    # 4             6.4          3.1     ...              1.8   virginica
+    # 5             4.6          3.6     ...              0.2      setosa
+    # 6             5.9          3.0     ...              1.5  versicolor
+
+.. code-block:: python
+
+    data.describe()
+    #        Sepal length  Sepal width  Petal length  Petal width
+    # count    150.000000   150.000000    150.000000   150.000000
+    # mean       5.843333     3.057333      3.758000     1.199333
+    # std        0.828066     0.435866      1.765298     0.762238
+    # min        4.300000     2.000000      1.000000     0.100000
+    # 25%        5.100000     2.800000      1.600000     0.300000
+    # 50%        5.800000     3.000000      4.350000     1.300000
+    # 75%        6.400000     3.300000      5.100000     1.800000
+    # max        7.900000     4.400000      6.900000     2.500000
+
 
 Execute terminal commands
 =========================
