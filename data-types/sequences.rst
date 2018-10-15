@@ -223,6 +223,16 @@ Length of a ``list``
         len(my_tuple)           # 5
 
 
+Assigning sequences values to variables
+=======================================
+.. code-block:: python
+
+    a, b, c = 1, 2, 3
+    a, b, c = (1, 2, 3)
+    a, b, c = [1, 2, 3]
+    a, b, c = {1, 2, 3}
+
+
 How Python understands types?
 =============================
 * Result of a ``type(what)`` for each line:

@@ -5,66 +5,82 @@ Key-Value Collections
 
 ``dict``
 ========
-* ``dict()`` items order changes!
-* Declaring with ``dict()`` is more readable, but ``{}`` is used more often:
 
-    .. code-block:: python
+Creating ``dict``
+-----------------
+* ``dict`` items order changes!
+* ``dict`` are key-value storage
+* Comma after last element is optional
 
-        my_dict = {}
-        my_dict = dict()
+.. code-block:: python
 
-* Key - Value storage:
+    my_dict = {}
+    my_dict = dict()
 
-    .. code-block:: python
+.. code-block:: python
 
-        my_dict = {
-            'first_name': 'José',
-            'last_name': 'Jiménez'
-        }
+    my_dict = {
+        'first_name': 'José',
+        'last_name': 'Jiménez'
+    }
 
-* Comma after last element is optional:
+.. code-block:: python
 
-    .. code-block:: python
+    my_dict = {
+        'first_name': 'José',
+        'last_name': 'Jiménez',
+    }
 
-        my_dict = {
-            'first_name': 'José',
-            'last_name': 'Jiménez',
-        }
+Duplicating items are overridden by latter
+------------------------------------------
+.. code-block:: python
 
-* Duplicating items are overridden by latter:
+    my_dict = {
+        'name': 'José',
+        'name': 'Иван',
+    }
+    # {'name': 'Иван'}
 
-    .. code-block:: python
+Key can be any hashable object
+------------------------------
+.. code-block:: python
 
-        my_dict = {
-            'name': 'José',
-            'name': 'Иван',
-        }
-        # {'name': 'Иван'}
+    my_dict = {
+        'first_name': 'José',
+        'last_name': 'Jiménez',
+    }
 
-* Key can be any hashable object:
+.. code-block:: python
 
-    .. code-block:: python
+    my_dict = {
+        1961: 'First Human Space Flight',
+        1969: 'First Step on the Moon',
+    }
 
-        my_dict = {
-            1961: 'First Human Space Flight',
-            1969: 'First Step on the Moon',
-        }
+.. code-block:: python
 
-* Value can be any object:
+    my_dict = {
+        (1, 2): 'hello',
+        (3, 4, 5): 'ehlo',
+    }
 
-    .. code-block:: python
-
-        my_dict = {
-            'astronaut': {'first_name': 'José', 'last_name': 'Jiménez'},
-            'agency': ['NASA', 'Roscosmos', 'ESA'],
-            'age': 42,
-        }
-
-Accessing ``dict`` values
-=========================
-
-Setting ``dict`` values
+Value can be any object
 -----------------------
+.. code-block:: python
+
+    my_dict = {
+        'date': '1969-07-21',
+        'age': 42,
+        'astronaut': {'name': 'José Jiménez', 'medals': ('Medal of Honor', 'Purple Heart')},
+        'agency': ['NASA', 'Roscosmos', 'ESA'],
+        'location': ('Bajkonur', 'KSC Florida'),
+    }
+
+Adding values to ``dict``
+-------------------------
+* Adds if value not exist
+* Updates if value exist
+
 .. code-block:: python
 
     data = {
@@ -75,7 +91,29 @@ Setting ``dict`` values
     data['agency'] = 'NASA'
 
     print(data)
-    # {'first_name': 'José', 'last_name': 'Jiménez', 'agency': 'NASA'}
+    # {
+    #   'first_name': 'José',
+    #   'last_name': 'Jiménez',
+    #   'agency': 'NASA'
+    # }
+
+
+.. code-block:: python
+
+    data = {
+        'name': 'José Jiménez',
+    }
+
+    data.update(age=42, location=['Bajkonur', 'Florida'])
+    data.update({'agency': 'NASA'})
+
+    print(data)
+    # {
+    #   'name': 'José Jiménez',
+    #   'age': 42,
+    #   'location': ['Bajkonur', 'Florida'],
+    #   'agency': 'NASA'
+    # }
 
 Accessing values with ``[...]``
 -------------------------------
@@ -116,8 +154,8 @@ Accessing values with ``.get(...)``
     data.get('agency', 'n/a')  # 'n/a'
 
 
-Accessing ``dict`` values in bulk
-=================================
+Accessing ``dict`` keys, values and key-value pairs
+---------------------------------------------------
 .. code-block:: python
 
     my_dict = {
@@ -133,15 +171,22 @@ Accessing ``dict`` values in bulk
 
 ``dict`` vs. ``set``
 ====================
-* ``set()`` and ``dict()`` both use the same (``{`` and ``}``) braces:
+* both ``set`` and ``dict`` keys mus be hashable
+* both ``set`` and ``dict`` uses the same (``{`` and ``}``) braces:
 
     .. code-block:: python
 
         {}                                # dict
         {1}                               # set
+
         {1, 2}                            # set
         {1: 2}                            # dict
-        {1:1, 2:2}                        # dict
+
+        {1, 2,}                           # set
+        {1: 2,}                           # dict
+
+        {1: 2, 3: 4}                      # dict
+        {1, 2, 3, 4}                      # set
 
 * Despite similar syntax, they are different types:
 
@@ -153,10 +198,12 @@ Accessing ``dict`` values in bulk
         isinstance(my_data, set)          # False
 
         my_data = {1}
+        isinstance(my_data, (set, dict))  # True
         isinstance(my_data, dict)         # False
         isinstance(my_data, set)          # True
 
         my_data = {1: 1}
+        isinstance(my_data, (set, dict))  # True
         isinstance(my_data, dict)         # True
         isinstance(my_data, set)          # False
 
