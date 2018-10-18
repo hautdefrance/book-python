@@ -85,7 +85,7 @@ Basic OOP
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Control Flow
+    :caption: Basic OOP
 
     object-oriented-programming/basic.rst
     object-oriented-programming/dataclass.rst
@@ -96,7 +96,7 @@ Network and HTTP
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Intermediate
+    :caption: Network and HTTP
 
     serialization/json.rst
     network/http-simple.rst
@@ -161,38 +161,6 @@ High Performance
     concurrency/async.rst
     extensions/c-extensions.rst
     functional-programming/index.rst
-
-******
-Django
-******
-.. toctree::
-    :maxdepth: 2
-    :numbered:
-    :caption: Django
-
-    django/http-protocol.rst
-    django/introduction.rst
-    django/architecture.rst
-    django/installation-and-usage.rst
-    django/settings.rst
-    django/apps.rst
-    django/models.rst
-    django/urls.rst
-    django/orm.rst
-    django/views.rst
-    django/rest.rst
-    django/staticfiles.rst
-    django/templates.rst
-    django/admin.rst
-    django/management-commands.rst
-    django/internationalization.rst
-    django/database.rst
-    django/cache.rst
-    django/signals.rst
-    django/standalone-scripts.rst
-    django/tests-and-quality.rst
-    django/ci-cd.rst
-    django/deployment.rst
 
 **************************
 Scientific and Engineering
@@ -263,6 +231,38 @@ Machine Learning
 
     machine-learning/przydatne-odnosniki.rst
     machine-learning/_notes.rst
+
+******
+Django
+******
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Django
+
+    django/http-protocol.rst
+    django/introduction.rst
+    django/architecture.rst
+    django/installation-and-usage.rst
+    django/settings.rst
+    django/apps.rst
+    django/models.rst
+    django/urls.rst
+    django/orm.rst
+    django/views.rst
+    django/rest.rst
+    django/staticfiles.rst
+    django/templates.rst
+    django/admin.rst
+    django/management-commands.rst
+    django/internationalization.rst
+    django/database.rst
+    django/cache.rst
+    django/signals.rst
+    django/standalone-scripts.rst
+    django/tests-and-quality.rst
+    django/ci-cd.rst
+    django/deployment.rst
 
 *********
 Blogposts
