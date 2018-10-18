@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 # Create some mock data
 t = np.arange(0.01, 10.0, 0.01)
 data1 = np.exp(t)

@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 # Random test data
 np.random.seed(19680801)
 all_data = [np.random.normal(0, std, size=100) for std in range(1, 4)]

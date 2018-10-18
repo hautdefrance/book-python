@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 # Make some fake data.
 a = b = np.arange(0, 3, .02)
 c = np.exp(a)

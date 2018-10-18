@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 from collections import namedtuple
 
-
 n_groups = 5
 
 means_men = (20, 35, 30, 35, 27)

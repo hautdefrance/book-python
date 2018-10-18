@@ -1,4 +1,3 @@
-
 import plotly.offline as py
 import plotly.graph_objs as go
 
@@ -84,37 +83,37 @@ annotations = []
 for y_trace, label, color in zip(y_data, labels, colors):
     # labeling the left_side of the plot
     annotations.append(dict(xref='paper', x=0.05, y=y_trace[0],
-                                  xanchor='right', yanchor='middle',
-                                  text=label + ' {}%'.format(y_trace[0]),
-                                  font=dict(family='Arial',
-                                            size=16,
-                                            color=colors,),
-                                  showarrow=False))
+                            xanchor='right', yanchor='middle',
+                            text=label + ' {}%'.format(y_trace[0]),
+                            font=dict(family='Arial',
+                                      size=16,
+                                      color=colors, ),
+                            showarrow=False))
     # labeling the right_side of the plot
     annotations.append(dict(xref='paper', x=0.95, y=y_trace[11],
-                                  xanchor='left', yanchor='middle',
-                                  text='{}%'.format(y_trace[11]),
-                                  font=dict(family='Arial',
-                                            size=16,
-                                            color=colors,),
-                                  showarrow=False))
+                            xanchor='left', yanchor='middle',
+                            text='{}%'.format(y_trace[11]),
+                            font=dict(family='Arial',
+                                      size=16,
+                                      color=colors, ),
+                            showarrow=False))
 # Title
 annotations.append(dict(xref='paper', yref='paper', x=0.0, y=1.05,
-                              xanchor='left', yanchor='bottom',
-                              text='Main Source for News',
-                              font=dict(family='Arial',
-                                        size=30,
-                                        color='rgb(37,37,37)'),
-                              showarrow=False))
+                        xanchor='left', yanchor='bottom',
+                        text='Main Source for News',
+                        font=dict(family='Arial',
+                                  size=30,
+                                  color='rgb(37,37,37)'),
+                        showarrow=False))
 # Source
 annotations.append(dict(xref='paper', yref='paper', x=0.5, y=-0.1,
-                              xanchor='center', yanchor='top',
-                              text='Source: PewResearch Center & ' +
-                                   'Storytelling with data',
-                              font=dict(family='Arial',
-                                        size=12,
-                                        color='rgb(150,150,150)'),
-                              showarrow=False))
+                        xanchor='center', yanchor='top',
+                        text='Source: PewResearch Center & ' +
+                             'Storytelling with data',
+                        font=dict(family='Arial',
+                                  size=12,
+                                  color='rgb(150,150,150)'),
+                        showarrow=False))
 
 layout['annotations'] = annotations
 

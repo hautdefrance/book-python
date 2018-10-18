@@ -46,10 +46,22 @@ Control Flow
     loop/comprehensions.rst
     functions/basic.rst
     exceptions/index.rst
+    file/index.rst
+    exam/basic.rst
+
+****************
+Standard library
+****************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Standard library
+
     extensions/modules.rst
     builtin/index.rst
-    file/index.rst
     serialization/csv.rst
+    datetime/index.rst
+    math/index.rst
 
 *************************
 Good Engineering Practice
@@ -57,17 +69,14 @@ Good Engineering Practice
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Control Flow
+    :caption: Good Engineering Practice
 
     quality-and-tests/doctest.rst
     programming-convention/index.rst
     quality-and-tests/debugging-basic.rst
-    math/index.rst
-    datetime/index.rst
     logging/index.rst
     print-formatting/index.rst
     performance/index.rst
-    exam/basic.rst
     documentation/index.rst
 
 *********
@@ -211,8 +220,9 @@ Data Vizualization
     :numbered:
     :caption: Data Vizualization
 
+    data-vizualization/matplotlib-basic.rst
+    data-vizualization/matplotlib-example.rst
     data-vizualization/charts.rst
-    data-vizualization/matplotlib.rst
     data-vizualization/plotly.rst
     data-vizualization/bokeh.rst
     data-vizualization/graphs.rst

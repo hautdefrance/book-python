@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 x1 = np.linspace(0.0, 5.0)
 x2 = np.linspace(0.0, 2.0)
 
