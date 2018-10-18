@@ -233,19 +233,37 @@ Colors
 * first color name letter (not recommended):
 
     * ``r`` - red
-    * ``c`` - cyan
+    * ``g`` - green
     * ``b`` - blue
+    * ``c`` - cyan
+    * ``m`` - magenta
+    * ``y`` - yellow
+    * ``k`` - karmin
+    * ``w`` - white
 
-* color names:
+* color names (X11/CSS4):
 
-    * ``blue``
-    * ``red``
+    * red
+    * green
+    * blue
+    * cyan
+    * magenta
+    * yellow
+    * karmin
+    * white
+    * https://en.wikipedia.org/wiki/X11_color_names#Color_name_chart
 
-* hexadecimal code (RGB):
+* hexadecimal code (RGB or RGBA):
 
-    * ``FF0000`` - red
-    * ``00FF00`` - green
-    * ``0000FF`` - blue
+    * ``#FF0000`` - red
+    * ``#00FF00`` - green
+    * ``#0000FF`` - blue
+    * ``#FF000033`` - semi-transparent red
+
+* tuple (RGB or RGBA):
+
+    * ``(0.1, 0.2, 0.5)``
+    * ``(0.1, 0.2, 0.5, 0.3)``
 
 .. code-block:: python
 
@@ -312,12 +330,6 @@ Bars
 
     plt.bar(x, y, label='Bars1')
 
-    plt.xlabel('x')
-    plt.ylabel('y')
-    plt.title('This is my chart')
-    plt.legend()
-    plt.show()
-
 .. code-block:: python
 
     x1 = [2,4,6,8,10]
@@ -335,6 +347,12 @@ Bars
     plt.legend()
     plt.show()
 
+.. figure:: img/matplotlib-plt-bars.png
+    :scale: 100%
+    :align: center
+
+    Bars
+
 Histogram
 ---------
 * used to display number of elements in specific groups
@@ -348,7 +366,7 @@ Histogram
 
     plt.hist(ages, bins, histtype='bar', rwidth=0.8)
 
-.. figure:: img/matplotlib-hist.png
+.. figure:: img/matplotlib-plt-hist.png
     :scale: 100%
     :align: center
 
@@ -358,31 +376,51 @@ Scatter plot
 ------------
 * Used to show correlation
 
+.. code-block:: python
+
+    x = [1,2,3,4,5,6,7,8]
+    y = [4,7,6,2,7,4,5,2]
+
+    plt.scatter(x, y)
+
+.. code-block:: python
+
+    x = [1,2,3,4,5,6,7,8]
+    y = [4,7,6,2,7,4,5,2]
+
+    plt.scatter(x, y, marker='*', color='red')
+    plt.scatter(y, x, marker='o', color='blue')
+
+.. figure:: img/matplotlib-plt-scatter.png
+    :scale: 100%
+    :align: center
+
+    Scatter plot
 
 
-Examples
-========
-
-Temperature plot
-----------------
-.. literalinclude:: src/basics-example-plot.py
-    :language: python
-    :caption: Temperature plot
+Additional info
+===============
 
 Trend line
 ----------
-.. literalinclude:: src/basics-line-trendline.py
+.. literalinclude:: src/matplotlib-trendline.py
     :language: python
     :caption: Trend line
 
-.. figure:: img/matplotlib-line-trendline.png
+.. figure:: img/matplotlib-trendline.png
     :scale: 100%
     :align: center
 
     Trend line
 
-Temperature with error bars
----------------------------
-.. literalinclude:: src/basics-example-errorbars.py
+Error bars
+----------
+.. literalinclude:: src/matplotlib-plt-errorbar.py
     :language: python
-    :caption: Temperature with error bars
+    :caption: Error bars
+
+.. figure:: img/matplotlib-plt-errorbar.png
+    :scale: 100%
+    :align: center
+
+    Error bars
