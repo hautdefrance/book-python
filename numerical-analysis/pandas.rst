@@ -2,7 +2,8 @@
 Pandas
 ******
 
-.. todo:: Przepisać tabelki na CSV
+.. todo:: convert tables to CSV
+
 
 Pandas is a Python package providing fast, flexible, and expressive data structures designed to make working with "relational" or "labeled" data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real world data analysis in Python. Additionally, it has the broader goal of becoming the most powerful and flexible open source data analysis / manipulation tool available in any language. It is already well on its way toward this goal. Here are just a few of the things that pandas does well:
 
@@ -191,14 +192,14 @@ DataFrame jest obiektem dwuwymiarowym, który w obsłudze przypomina tabelę. Ka
                          'E' : pd.Categorical(["test", "train", "test", "train"]),
                          'F' : 'foo' })
 
-=== === =========== === === ======= ===
-    A   B           C   D   E       F
-=== === =========== === === ======= ===
-0   1.0 2013-01-02  1.0 3   test    foo
-1   1.0 2013-01-02  1.0 3   train   foo
-2   1.0 2013-01-02  1.0 3   test    foo
-3   1.0 2013-01-02  1.0 3   train   foo
-=== === =========== === === ======= ===
+.. csv-table::
+    :header-rows: 1
+
+    "", "A", "B", "C", "D", "E", "F"
+    "0", "1.0", "2013-01-02", "1.0", "3", "test", "foo"
+    "1", "1.0", "2013-01-02", "1.0", "3", "train", "foo
+    "2", "1.0", "2013-01-02", "1.0", "3", "test", "foo
+    "3", "1.0", "2013-01-02", "1.0", "3", "train", "foo
 
 .. code-block:: python
 
@@ -222,12 +223,12 @@ DataFrame jest obiektem dwuwymiarowym, który w obsłudze przypomina tabelę. Ka
 
     df3 = pd.DataFrame([{'A': 1, 'B': 2}, {'C': 3}])
 
-=== === === ===
-    A   B   C
-=== === === ===
-0   1.0 2.0 NaN
-1   NaN NaN 3.0
-=== === === ===
+.. csv-table::
+    :header-rows: 1
+
+    "", "A", "B", "C"
+    "0", "1.0", "2.0", "NaN"
+    "1", "NaN", "NaN", "3.0"
 
 Istnieje też wiele innych metod tworzenia i czytania DataFrame, które zostały opicane w dokumentacji.
 
@@ -290,12 +291,12 @@ Niemniej zalecane jest używanie zoptymalizowanych funkcji Pandas:
 
     df3[['A', 'B']]
 
-=== === ===
-    A   B
-=== === ===
-0   1.0 2.0
-1   NaN NaN
-=== === ===
+.. csv-table::
+    :header-rows: 1
+
+    "", "A", "B"
+    "0", "1.0", "2.0"
+    "1", "NaN", "NaN"
 
 Można też używać wyrażeń boolowskich do filtrowania wyników:
 
@@ -303,12 +304,12 @@ Można też używać wyrażeń boolowskich do filtrowania wyników:
 
     df[df.B > 0.5]
 
-=========== =========== =========== =========== ========
-            A           B           C           D
-=========== =========== =========== =========== ========
-2017-01-04  -0.974425   1.327082    -0.435516   1.328745
-2017-01-05  0.589973    0.748417    -1.680741   0.510512
-=========== =========== =========== =========== ========
+.. csv-table::
+    :header-rows: 1
+
+    "", "A", "B", "C", "D"
+    "2017-01-04", "-0.974425", "1.327082", "-0.435516", "1.328745"
+    "2017-01-05", "0.589973", "0.748417", "-1.680741", "0.510512"
 
 Jest też dostęp do poszczególnych elementów takich jak:
 
@@ -344,16 +345,16 @@ Dane można też sortować po indeksie:
     df.sort_index(ascending=False) # default axis=0
     df.sort_index(ascending=False, inplace=True)
 
-=========== =========== =========== =========== =========
-            A           B           C           D
-=========== =========== =========== =========== =========
-2017-01-06  1.361922    -0.827940   0.400024    0.047176
-2017-01-05  0.589973    0.748417    -1.680741   0.510512
-2017-01-04  -0.974425   1.327082    -0.435516   1.328745
-2017-01-03  -1.308835   -0.285436   -0.757591   -0.042493
-2017-01-02  0.084471    -0.932586   0.160637    -0.275183
-2017-01-01  0.131926    -1.825204   -1.909562   1.274718
-=========== =========== =========== =========== =========
+.. csv-table::
+    :header-rows: 1
+
+    "", "A", "B", "C", "D"
+    "2017-01-06", "1.361922", "-0.827940", "0.400024", "0.047176"
+    "2017-01-05", "0.589973", "0.748417", "-1.680741", "0.510512"
+    "2017-01-04", "-0.974425", "1.327082", "-0.435516", "1.328745"
+    "2017-01-03", "-1.308835", "-0.285436", "-0.757591", "-0.042493"
+    "2017-01-02", "0.084471", "-0.932586", "0.160637", "-0.275183"
+    "2017-01-01", "0.131926", "-1.825204", "-1.909562", "1.274718"
 
 Po kolumnach:
 
@@ -361,16 +362,16 @@ Po kolumnach:
 
     df.sort_index(axis=1, ascending=False)
 
-=========== =========== =========== =========== =========
-            D           C           B           A
-=========== =========== =========== =========== =========
-2017-01-01  1.274718    -1.909562   -1.825204   0.131926
-2017-01-02  -0.275183   0.160637    -0.932586   0.084471
-2017-01-03  -0.042493   -0.757591   -0.285436   -1.308835
-2017-01-04  1.328745    -0.435516   1.327082    -0.974425
-2017-01-05  0.510512    -1.680741   0.748417    0.589973
-2017-01-06  0.047176    0.400024    -0.827940   1.361922
-=========== =========== =========== =========== =========
+.. csv-table::
+    :header-rows: 1
+
+    "", "D", "C", "B", "A"
+    "2017-01-01", "1.274718 ", "-1.909562", "-1.825204", "0.131926"
+    "2017-01-02", "-0.275183", "0.160637", "-0.932586", "0.084471"
+    "2017-01-03", "-0.042493", "-0.757591", "-0.285436", "-1.308835"
+    "2017-01-04", "1.328745", "-0.435516", "1.327082", "-0.974425"
+    "2017-01-05", "0.510512", "-1.680741", "0.748417", "0.589973"
+    "2017-01-06", "0.047176", "0.400024", "-0.827940", "1.361922"
 
 Lub po wartościach:
 

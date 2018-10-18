@@ -14,14 +14,13 @@ Introduction
     about/language.rst
     about/ide.rst
 
-
-***********
-Foundations
-***********
+*******************************
+Basic Types and Data Structures
+*******************************
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Foundations
+    :caption: Basic Types and Data Structures
 
     about/syntax.rst
     data-types/numeric.rst
@@ -31,6 +30,15 @@ Foundations
     data-types/sequences.rst
     data-types/key-value.rst
     data-types/nested.rst
+
+************
+Control Flow
+************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Control Flow
+
     control-flow/index.rst
     operators/index.rst
     loop/loops.rst
@@ -38,80 +46,112 @@ Foundations
     loop/comprehensions.rst
     functions/basic.rst
     exceptions/index.rst
-    quality-and-tests/doctest.rst
     extensions/modules.rst
     builtin/index.rst
+    file/index.rst
+    serialization/csv.rst
+
+*************************
+Good Engineering Practice
+*************************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Control Flow
+
+    quality-and-tests/doctest.rst
     programming-convention/index.rst
     quality-and-tests/debugging-basic.rst
     math/index.rst
     datetime/index.rst
-    file/index.rst
-    serialization/csv.rst
-    object-oriented-programming/basic.rst
+    logging/index.rst
+    print-formatting/index.rst
+    performance/index.rst
     exam/basic.rst
+    documentation/index.rst
 
+*********
+Basic OOP
+*********
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Control Flow
 
-************
-Intermediate
-************
+    object-oriented-programming/basic.rst
+    object-oriented-programming/dataclass.rst
+
+****************
+Network and HTTP
+****************
 .. toctree::
     :maxdepth: 2
     :numbered:
     :caption: Intermediate
 
-    object-oriented-programming/dataclass.rst
-    logging/index.rst
-    print-formatting/index.rst
-    performance/index.rst
     serialization/json.rst
     network/http-simple.rst
+    regex/index.rst
+    database/index.rst
     quality-and-tests/unittest.rst
     functions/advanced.rst
     object-oriented-programming/operator-overload.rst
-    regex/index.rst
-    database/index.rst
+    serialization/pickle.rst
+    serialization/xml.rst
+    network/http-advanced.rst
+    network/socket.rst
+    exam/advanced.rst
 
-
-********
-Advanced
-********
+**********************************
+CI/CD, versioning and distributing
+**********************************
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Advanced
+    :caption: CI/CD, versioning and distributing
 
     extensions/venv.rst
     extensions/distributing-packages.rst
-    quality-and-tests/type-annotation.rst
     quality-and-tests/ci-cd-tools.rst
-    object-oriented-programming/paradigm.rst
-    object-oriented-programming/advanced.rst
     extensions/compilers.rst
     extensions/zipapp.rst
-    quality-and-tests/debugging-advanced.rst
-    quality-and-tests/introspection.rst
-    serialization/pickle.rst
-    serialization/xml.rst
     argparse/index.rst
     operating-system/index.rst
+
+********************************
+Advanced OOP and Design Patterns
+********************************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Advanced OOP and Design Patterns
+
+    object-oriented-programming/paradigm.rst
+    object-oriented-programming/advanced.rst
+    quality-and-tests/type-annotation.rst
     generator/index.rst
     iterator/index.rst
     context-manager/index.rst
     descriptor/index.rst
     decorator/index.rst
+    object-oriented-programming/metaclass.rst
+    design-patterns/index.rst
+    quality-and-tests/introspection.rst
+
+****************
+High Performance
+****************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: High Performance
+
+    quality-and-tests/debugging-advanced.rst
     data-types/collections.rst
-    network/http-advanced.rst
-    network/socket.rst
     concurrency/threading.rst
     concurrency/async.rst
     extensions/c-extensions.rst
     functional-programming/index.rst
-    object-oriented-programming/metaclass.rst
-    design-patterns/index.rst
-    gui/index.rst
-    documentation/index.rst
-    exam/advanced.rst
-
 
 ******
 Django
@@ -145,7 +185,6 @@ Django
     django/ci-cd.rst
     django/deployment.rst
 
-
 **************************
 Scientific and Engineering
 **************************
@@ -160,14 +199,24 @@ Scientific and Engineering
     numerical-analysis/numpy.ipynb
     numerical-analysis/scipy.rst
     numerical-analysis/pandas.rst
-    numerical-analysis/charts.rst
-    numerical-analysis/matplotlib.rst
-    numerical-analysis/plotly.rst
-    numerical-analysis/bokeh.rst
-    numerical-analysis/graphs.rst
     numerical-analysis/numerical-analysis.rst
     numerical-analysis/machine-learning.rst
 
+******************
+Data Vizualization
+******************
+
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Data Vizualization
+
+    data-vizualization/charts.rst
+    data-vizualization/matplotlib.rst
+    data-vizualization/plotly.rst
+    data-vizualization/bokeh.rst
+    data-vizualization/graphs.rst
+    gui/index.rst
 
 ****************
 Machine Learning
@@ -205,7 +254,6 @@ Machine Learning
     machine-learning/przydatne-odnosniki.rst
     machine-learning/_notes.rst
 
-
 *********
 Blogposts
 *********
@@ -215,7 +263,6 @@ Blogposts
     :caption: Blogposts
 
     _blogpost/ml-introduction.rst
-
 
 ********
 Workshop
@@ -233,7 +280,6 @@ Workshop
     about/workshop-testing.rst
     about/workshop-scientific.rst
     about/workshop-machine-learning.rst
-
 
 **********
 Appendixes
