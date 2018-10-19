@@ -198,6 +198,7 @@ Data Vizualization
     :caption: Data Vizualization
 
     data-vizualization/matplotlib-basic.rst
+    data-vizualization/matplotlib-pandas.rst
     data-vizualization/matplotlib-charts.rst
     data-vizualization/matplotlib-example.rst
     data-vizualization/charts.rst

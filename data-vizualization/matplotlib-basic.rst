@@ -44,12 +44,22 @@ Running matplotlib in standalone scripts
 
     plt.show()
 
+
+.. code-block:: python
+
+    x = [1,2,3]
+    y = [4,5,6]
+
+    plt.plot(x, y)
+
+    plt.savefig('my_file.png')
+
 Charts Gallery
 --------------
 * https://matplotlib.org/gallery/index.html
 
-``pandas`` structures for ``matplotlib``
-----------------------------------------
+``pandas`` and ``matplotlib``
+-----------------------------
 * All of plotting functions expect ``np.array`` or ``np.ma.masked_array`` as input
 * Classes that are 'array-like' such as ``pandas`` data objects and ``np.matrix`` may or may not work as intended
 * It is best to convert these to ``np.array`` objects prior to plotting
@@ -186,6 +196,26 @@ Sin wave
     :align: center
 
     Sin wave
+
+Multiple lines on one chart
+---------------------------
+.. code-block:: python
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    # evenly sampled time at 200ms intervals
+    t = np.arange(0., 5., 0.2)
+
+    # red dashes, blue squares and green triangles
+    plt.plot(t, t, 'r--', t, t**2, 'bs', t, t**3, 'g^')
+    plt.show()
+
+.. figure:: img/matplotlib-multiple.png
+    :scale: 75%
+    :align: center
+
+    Multiple lines on one chart
 
 
 Labels and Legend
@@ -332,6 +362,47 @@ Line styles
     "``|``",  "vline marker"
     "``_``",  "hline marker"
 
+Line2D parameters
+-----------------
+.. code-block:: python
+
+    ======================  ==================================================
+    Property                Value Type
+    ======================  ==================================================
+    alpha                   float
+    animated		        [True | False]
+    antialiased or aa	    [True | False]
+    clip_box		        a matplotlib.transform.Bbox instance
+    clip_on			        [True | False]
+    clip_path		        a Path instance and a Transform instance, a Patch
+    color or c		        any matplotlib color
+    contains		        the hit testing function
+    dash_capstyle		    [``'butt'`` | ``'round'`` | ``'projecting'``]
+    dash_joinstyle		    [``'miter'`` | ``'round'`` | ``'bevel'``]
+    dashes			        sequence of on/off ink in points
+    data			        (np.array xdata, np.array ydata)
+    figure			        a matplotlib.figure.Figure instance
+    label			        any string
+    linestyle or ls		    [ ``'-'`` | ``'--'`` | ``'-.'`` | ``':'`` | ``'steps'`` | ...]
+    linewidth or lw		    float value in points
+    lod			            [True | False]
+    marker			        [ ``'+'`` | ``','`` | ``'.'`` | ``'1'`` | ``'2'`` | ``'3'`` | ``'4'`` ]
+    markeredgecolor or mec	any matplotlib color
+    markeredgewidth or mew	float value in points
+    markerfacecolor or mfc	any matplotlib color
+    markersize or ms	    float
+    markevery               [ None | integer | (startind, stride) ]
+    picker			        used in interactive line selection
+    pickradius		        the line pick selection radius
+    solid_capstyle		    [``'butt'`` | ``'round'`` | ``'projecting'``]
+    solid_joinstyle		    [``'miter'`` | ``'round'`` | ``'bevel'``]
+    transform		        a matplotlib.transforms.Transform instance
+    visible			        [True | False]
+    xdata			        np.array
+    ydata			        np.array
+    zorder			        any number
+    ======================  ==================================================
+
 
 Basic customizations
 ====================
@@ -468,3 +539,201 @@ Colorbar
     :align: center
 
     Colorbar
+
+Changing colors
+---------------
+.. code-block:: python
+
+    ax.spines['bottom'].set_color('#dddddd')
+    ax.spines['top'].set_color('#dddddd')
+    ax.spines['right'].set_color('red')
+    ax.spines['left'].set_color('red')
+
+.. code-block:: python
+
+    ax.tick_params(axis='x', colors='red')
+    ax.tick_params(axis='y', colors='red')
+
+.. code-block:: python
+
+    ax.yaxis.label.set_color('red')
+    ax.xaxis.label.set_color('red')
+
+.. code-block:: python
+
+    ax.title.set_color('red')
+
+
+Working with multiple figures and axes
+======================================
+.. code-block:: python
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    def f(t):
+        return np.exp(-t) * np.cos(2*np.pi*t)
+
+    t1 = np.arange(0.0, 5.0, 0.1)
+    t2 = np.arange(0.0, 5.0, 0.02)
+
+    plt.figure(1)
+    plt.subplot(211)
+    plt.plot(t1, f(t1), 'bo', t2, f(t2), 'k')
+
+    plt.subplot(212)
+    plt.plot(t2, np.cos(2*np.pi*t2), 'r--')
+    plt.show()
+
+.. figure:: img/matplotlib-plt-subplot.png
+    :scale: 100%
+    :align: center
+
+    Working with multiple figures and axes
+
+
+Working with text
+=================
+.. code-block:: python
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    # Fixing random state for reproducibility
+    np.random.seed(19680801)
+
+    mu, sigma = 100, 15
+    x = mu + sigma * np.random.randn(10000)
+
+    # the histogram of the data
+    n, bins, patches = plt.hist(x, 50, normed=1, facecolor='g', alpha=0.75)
+
+
+    plt.xlabel('Smarts')
+    plt.ylabel('Probability')
+    plt.title('Histogram of IQ')
+    plt.text(60, .025, r'$\mu=100,\ \sigma=15$')
+    plt.axis([40, 160, 0, 0.03])
+    plt.grid(True)
+    plt.show()
+
+.. figure:: img/matplotlib-plt-hist-text.png
+    :scale: 100%
+    :align: center
+
+    Working with text
+
+Using mathematical expressions in text
+--------------------------------------
+.. code-block:: python
+
+    plt.title(r'$\sigma_i=15$')
+
+Annotating text
+---------------
+.. code-block:: python
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    ax = plt.subplot(111)
+
+    t = np.arange(0.0, 5.0, 0.01)
+    s = np.cos(2*np.pi*t)
+    line, = plt.plot(t, s, lw=2)
+
+    plt.annotate('local max', xy=(2, 1), xytext=(3, 1.5),
+                arrowprops=dict(facecolor='black', shrink=0.05),
+                )
+
+    plt.ylim(-2,2)
+    plt.show()
+
+.. figure:: img/matplotlib-plt-annotate.png
+    :scale: 100%
+    :align: center
+
+    Annotating text
+
+
+Logarithmic and other nonlinear axes
+====================================
+.. code-block:: python
+
+    plt.xscale('log')
+
+.. code-block:: python
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    from matplotlib.ticker import NullFormatter  # useful for `logit` scale
+
+    # Fixing random state for reproducibility
+    np.random.seed(19680801)
+
+    # make up some data in the interval ]0, 1[
+    y = np.random.normal(loc=0.5, scale=0.4, size=1000)
+    y = y[(y > 0) & (y < 1)]
+    y.sort()
+    x = np.arange(len(y))
+
+    # plot with various axes scales
+    plt.figure(1)
+
+    # linear
+    plt.subplot(221)
+    plt.plot(x, y)
+    plt.yscale('linear')
+    plt.title('linear')
+    plt.grid(True)
+
+
+    # log
+    plt.subplot(222)
+    plt.plot(x, y)
+    plt.yscale('log')
+    plt.title('log')
+    plt.grid(True)
+
+
+    # symmetric log
+    plt.subplot(223)
+    plt.plot(x, y - y.mean())
+    plt.yscale('symlog', linthreshy=0.01)
+    plt.title('symlog')
+    plt.grid(True)
+
+    # logit
+    plt.subplot(224)
+    plt.plot(x, y)
+    plt.yscale('logit')
+    plt.title('logit')
+    plt.grid(True)
+    # Format the minor tick labels of the y-axis into empty strings with
+    # `NullFormatter`, to avoid cumbering the axis with too many labels.
+    plt.gca().yaxis.set_minor_formatter(NullFormatter())
+    # Adjust the subplot layout, because the logit one may take more space
+    # than usual, due to y-tick labels like "1 - 10^{-3}"
+    plt.subplots_adjust(top=0.92, bottom=0.08, left=0.10, right=0.95, hspace=0.25,
+                        wspace=0.35)
+
+    plt.show()
+
+.. figure:: img/matplotlib-plt-scale.png
+    :scale: 100%
+    :align: center
+
+    Logarithmic and other nonlinear axes
+
+
+Assignment
+==========
+
+Iris scatter
+------------
+* https://raw.githubusercontent.com/AstroMatt/book-python/master/data-vizualization/data/iris.csv
+#. Z podanego powyżej adresu URL pobierz dane
+#. Dane stosunku ``sepal_length`` do ``sepal_width`` zwizualizuj w formie ``scatter`` za pomocą ``matplotlib``
+#. Każdy gatunek powinien mieć inny kolor
+#.
