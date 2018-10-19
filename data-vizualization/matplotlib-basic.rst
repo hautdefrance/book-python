@@ -790,7 +790,8 @@ Iris scatter
 Trigonometry
 ------------
 #. Dla x z przedziału od 0.0 do 1.0 z próbkowaniem co 0.01
-#. Na jednym obrazku przedstaw przebiegi funkcji ``sin``, ``cos``
+#. Na jednym obrazku przedstaw przebiegi funkcji ``sin``, ``cos`` dla parametrów ``2 * np.pi * x``
+#. Wykresy mają być jeden nad drugim
 #. Oś x ma nazywać się jak funkcja
 #. Tekst etykiety osi y ("Wartość funkcji") ma być inny dla każdej funkcji
 #. Stwórz dwa osobne wykresy
