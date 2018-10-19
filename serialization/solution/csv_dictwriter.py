@@ -14,6 +14,9 @@ fieldnames = set()
 for row in DATA:
     fieldnames.update(row.keys())
 
+# for row in DATA:
+#    for key in row.keys():
+#        fieldnames.add(key)
 
 with open(FILENAME, mode='w', encoding='utf-8') as file:
     writer = csv.DictWriter(

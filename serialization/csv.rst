@@ -63,7 +63,6 @@ Reading ``csv``
 #. Zapisz jego zawartość na dysku w miejscu gdzie masz skrypty w pliku ``iris-dataset.csv``
 #. Korzystając z ``csv.DictReader`` wczytaj zawartość pliku
 #. Podaj jawnie ``encoding``, ``delimiter`` oraz ``quotechar``
-#. Pierwsza linijka stanowi metadane (nie wyświetlaj jej)
 #. Nazwy poszczególnych kolumn:
 
     * Sepal length
@@ -73,6 +72,7 @@ Reading ``csv``
     * Species
 
 #. Kolumna species ma mieć wartość nazwy gatunku a nie cyfry 0, 1, 2 jak to jest w pliku
+#. Do wygenerowania słownika gatunków użyj pierwszej linijki z pliku (ale nie wyświetlaj jej)
 #. Wypisz wiersze na ekranie
 
 :About:

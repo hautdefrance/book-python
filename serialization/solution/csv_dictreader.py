@@ -10,28 +10,21 @@ FIELDNAMES = [
     'Petal width',
     'Species']
 
-SPECIES = {
-    0: 'setosa',
-    1: 'versicolor',
-    2: 'virginica'}
-
 
 with open(FILENAME, encoding='utf-8') as file:
+    species = file.readline().strip().split(',')[2:]
+    species_dict = {i: element for i, element in enumerate(species)}
+
     data = csv.DictReader(
         file,
         fieldnames=FIELDNAMES,
         delimiter=',',
         quotechar='"')
 
-    # rows, count, *species = list(data)[0]
-    # species_dict = {i: str(element) for i, element in enumerate(species)}
-
     next(data)
-    data.__next__()
-    # data = list(data)[1:]
 
     for row in data:
         row = dict(row)
         index = int(row['Species'])
-        row['Species'] = SPECIES[index]
+        row['Species'] = species_dict[index]
         print(row)
