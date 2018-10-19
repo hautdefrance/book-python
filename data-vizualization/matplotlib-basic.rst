@@ -780,26 +780,34 @@ Logarithmic and other nonlinear axes
 Assignment
 ==========
 
+Trigonometry
+------------
+#. Dla ``x`` z przedziału od 0.0 do 1.0 z próbkowaniem co 0.01 przedstaw przebiegi funkcji ``sin``, ``cos`` dla parametrów ``2 * np.pi * x``
+#. Stwórz dwa osobne obrazki (figure):
+
+    * Każdy z przebiegów na osobnym subplot
+    * Na jednym plot dwa przebiegi funkcji
+
+#. Wykresy (``subplot``) mają być jeden nad drugim
+#. Wykresy podpisz nazwą funkcji trygonometrycznej
+#. Tekst etykiety osi ``y`` ustaw na "Wartość funkcji"
+#. Pokoloruj nazwy thicków ``x`` dla wykresu ``sin`` na czerwono
+#. Pokoloruj nazwę (label) dla ``cos`` na kolor zielony
+#. Na obu wykresach pokaż grid
+#. Narysuj drugi obrazek z nałożonymi na jeden plot wykresami obu funkcji
+
+:Hint:
+    * ``np.sin()``
+    * ``np.cos()``
+
 Iris scatter
 ------------
 * https://raw.githubusercontent.com/AstroMatt/book-python/master/data-vizualization/data/iris.csv
 #. Z podanego powyżej adresu URL pobierz dane
+#. Dla każdego gatunku
 #. Dane stosunku ``sepal_length`` do ``sepal_width`` zwizualizuj w formie ``scatter`` za pomocą ``matplotlib``
 #. Każdy gatunek powinien mieć inny kolor
 
-Trigonometry
-------------
-#. Dla x z przedziału od 0.0 do 1.0 z próbkowaniem co 0.01
-#. Na jednym obrazku przedstaw przebiegi funkcji ``sin``, ``cos`` dla parametrów ``2 * np.pi * x``
-#. Wykresy mają być jeden nad drugim
-#. Oś x ma nazywać się jak funkcja
-#. Tekst etykiety osi y ("Wartość funkcji") ma być inny dla każdej funkcji
-#. Stwórz dwa osobne wykresy
+:Hint:
+    * ``pd.groupby()``
 
-    * Każdy z przebiegów ma być na innym subplot
-    * Na drugim wykresie nałóż wszytkie przebiegi na jeden rysunek
-
-#. Wykresy podpisz nazwą funkcji trygonometrycznej
-#. Pokoloruj nazwy thicków ``x`` dla ``sin`` na czerwono
-#. Pokoloruj nazwę (label) dla ``cos`` na kolor zielony
-#. Na obu wykresach pokaż grid
