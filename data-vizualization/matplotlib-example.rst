@@ -163,7 +163,7 @@ Donut Pie Chart
 
 Grid
 ====
-.. literalinclude:: src/matplotlib-grid.py
+.. literalinclude:: src/matplotlib-grid-extra.py
     :language: python
     :caption: Grid
 

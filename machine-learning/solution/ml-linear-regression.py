@@ -97,6 +97,6 @@ def simple_linear_regression(dataset):
 
 
 if __name__ == "__main__":
-    input_path = '../contrib/input-data.csv'
+    input_path = '../contrib/input-iris.csv'
     house_price_dataset = pd.read_csv(input_path)
     simple_linear_regression(house_price_dataset)

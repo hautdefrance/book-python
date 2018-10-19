@@ -73,6 +73,29 @@ Opening files
 * ``numpy.loadtxt('filename.csv', delimeter=',', unpack=True)``
 * ``csv.DictReader()``
 
+.. code-block:: python
+
+    import pandas as pd
+
+    url = 'https://raw.githubusercontent.com/scikit-learn/scikit-learn/master/sklearn/datasets/data/iris.csv'
+    columns = ['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
+    species = {0: 'setosa', 1: 'versicolor', 2: 'virginica'}
+
+    data = pd.read_csv(url, skiprows=1, names=columns)
+
+    # Change column Species values
+    data.Species.replace(to_replace=species, inplace=True)
+
+    # Shuffle columns and reset indexes
+    data.sample(frac=1).reset_index(drop=True, inplace=True)
+    #      Sepal length  Sepal width     ...      Petal width     Species
+    # 0             5.0          2.0     ...              1.0  versicolor
+    # 1             6.4          2.7     ...              1.9   virginica
+    # 2             5.6          3.0     ...              1.5  versicolor
+    # 3             5.7          2.6     ...              1.0  versicolor
+    # 4             6.4          3.1     ...              1.8   virginica
+    # 5             4.6          3.6     ...              0.2      setosa
+    # 6             5.9          3.0     ...              1.5  versicolor
 
 Backends
 --------
@@ -319,6 +342,49 @@ Basic customizations
 
     fig = plt.figure()
 
+Size
+----
+Local:
+
+    .. code-block:: python
+
+        plt.figure(figsize=(3,4))
+
+Global:
+    .. code-block:: python
+
+        import matplotlib.pyplot as plt
+
+        plt.rcParams["figure.figsize"] = (20,10)
+
+    .. code-block:: python
+
+        import matplotlib
+
+        matplotlib.rc('figure', figsize=(20,10))
+
+Font
+----
+* ``'serif'``
+* ``'sans-serif'``
+* ``'cursive'``
+* ``'fantasy'``
+* ``'monospace'``
+
+.. code-block:: python
+
+    import matplotlib
+    import matplotlib.pyplot as plt
+
+    matplotlib.rc('font', family='Serif', weight='bold', size=8)
+
+    x = [1, 2, 3, 4, 5]
+    y = [1, 2, 3, 4, 5]
+
+    plt.plot(x, y)
+    plt.grid(True)
+    plt.show()
+
 Subplots
 --------
 .. code-block:: python
@@ -327,9 +393,45 @@ Subplots
 
     ax1 = plt.subplot2grid(shape=(1,1), loc=(0,0)) # ``loc`` = Location to place axis within grid.
 
+    plt.subplot_adjust(left=0.9, bottom=0.16)  # set margins
+
 
 Additional info
 ===============
+
+Lablel rotation
+---------------
+.. literalinclude:: src/matplotlib-tick-rotation.py
+    :language: python
+    :caption: Lablel rotation
+
+.. figure:: img/matplotlib-tick-rotation.png
+    :scale: 100%
+    :align: center
+
+    Lablel rotation
+
+Grid
+----
+.. literalinclude:: src/matplotlib-grid-simple.py
+    :language: python
+    :caption: Grid Simple
+
+.. figure:: img/matplotlib-grid-simple.png
+    :scale: 100%
+    :align: center
+
+    Grid Simple
+
+.. literalinclude:: src/matplotlib-grid-extra.py
+    :language: python
+    :caption: Grid Extra
+
+.. figure:: img/matplotlib-grid-extra.png
+    :scale: 100%
+    :align: center
+
+    Grid Extra
 
 Trend line
 ----------
@@ -354,3 +456,15 @@ Error bars
     :align: center
 
     Error bars
+
+Colorbar
+--------
+.. literalinclude:: src/matplotlib-colorbar.py
+    :language: python
+    :caption: Colorbar
+
+.. figure:: img/matplotlib-colorbar.png
+    :scale: 100%
+    :align: center
+
+    Colorbar

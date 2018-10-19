@@ -203,6 +203,7 @@ Data Vizualization
     data-vizualization/charts.rst
     data-vizualization/plotly.rst
     data-vizualization/bokeh.rst
+    data-vizualization/seaborn.rst
     data-vizualization/graphs.rst
     gui/index.rst
 
