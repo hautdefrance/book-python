@@ -202,14 +202,6 @@ Nested Pie Chart
 Assignments
 ===========
 
-Trigonometry
-------------
-#. Na jednym obrazku przedstaw przebiegi funkcji ``sin``, ``cos``, ``tan``
-#. Oś x ma nazywać się jak funkcja
-#. Tekst etykiety osi y ("Wartość funkcji") ma być inny dla każdej funkcji
-#. Każdy z przebiegów ma być na innym subplot
-#. Na drugim wykresie nałóż wszytkie przebiegi na jeden rysunek
-
 Color graph
 -----------
 #. Dokonano pomiarów z urządzeń temperatury

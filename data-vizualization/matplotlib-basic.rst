@@ -786,3 +786,19 @@ Iris scatter
 #. Z podanego powyżej adresu URL pobierz dane
 #. Dane stosunku ``sepal_length`` do ``sepal_width`` zwizualizuj w formie ``scatter`` za pomocą ``matplotlib``
 #. Każdy gatunek powinien mieć inny kolor
+
+Trigonometry
+------------
+#. Dla x z przedziału od 0.0 do 1.0 z próbkowaniem co 0.01
+#. Na jednym obrazku przedstaw przebiegi funkcji ``sin``, ``cos``
+#. Oś x ma nazywać się jak funkcja
+#. Tekst etykiety osi y ("Wartość funkcji") ma być inny dla każdej funkcji
+#. Stwórz dwa osobne wykresy
+
+    * Każdy z przebiegów ma być na innym subplot
+    * Na drugim wykresie nałóż wszytkie przebiegi na jeden rysunek
+
+#. Wykresy podpisz nazwą funkcji trygonometrycznej
+#. Pokoloruj nazwy thicków ``x`` dla ``sin`` na czerwono
+#. Pokoloruj nazwę (label) dla ``cos`` na kolor zielony
+#. Na obu wykresach pokaż grid
