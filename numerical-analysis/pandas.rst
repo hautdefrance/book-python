@@ -584,23 +584,24 @@ Import
     pd.read_html()
     pd.read_json()
     pd.read_sas()
-    pd.read_sql()
-    pd.read_sql_query()
-    pd.read_sql_table()
+    pd.read_sql()        # Read SQL query or database table into a DataFrame
+    pd.read_sql_query()  # Read SQL query into a DataFrame
+    pd.read_sql_table()  # Read SQL database table into a DataFrame
 
 Export
 ======
 - Dane, które są w dataFrame można wyeksportować
-- ``df.to_*``
+- ``DataFrame.to_*``
 
 .. code-block:: python
 
-    df.to_csv()
-    df.to_excel()
-    df.to_html()
-    df.to_json()
-    df.to_latex()
-    df.to_dict()
+    DataFrame.to_csv()
+    DataFrame.to_excel()
+    DataFrame.to_html()
+    DataFrame.to_json()
+    DataFrame.to_latex()
+    DataFrame.to_dict()
+    DataFrame.to_sql()  # Uses SQLAlchemy
 
 Display Output
 ==============
