@@ -198,3 +198,26 @@ Nested Pie Chart
     :language: python
     :caption: 3D Surface
 
+
+Assignments
+===========
+
+Trigonometry
+------------
+#. Na jednym obrazku przedstaw przebiegi funkcji ``sin``, ``cos``, ``tan``
+#. Oś x ma nazywać się jak funkcja
+#. Tekst etykiety osi y ("Wartość funkcji") ma być inny dla każdej funkcji
+#. Każdy z przebiegów ma być na innym subplot
+#. Na drugim wykresie nałóż wszytkie przebiegi na jeden rysunek
+
+Color graph
+-----------
+#. Dokonano pomiarów z urządzeń temperatury
+#. Wygeneruj listę ``dict`` z datami z ostatniego miesiąca oraz wartością pomiarów losowo 10-15 plus szum na poziomie 0.5 stopnia celsiusza (wykrzystaj ``np.gauss()``)
+#. Mając do dyspozycji szereg czasowy, gdzie dla każdego dnia wykonano pomiar temperatury
+#. Przedstaw na wykresie dane szeregu czasowego
+#. Oś z datami przedstaw przekrzywioną o 45 stopni
+#. Na osi y przedstawiaj tylko pełne ``int``
+#. Dodaj Colorbar ze skalą temperatur zimno-ciepło
+#. Użyj kolorów niebieski (zimno), czerwony (ciepło)
+#. Wykres ma mieć grid

@@ -157,7 +157,7 @@ Axis
 
     x = np.linspace(0, 2, 100)
 
-    ax = plt.figure().gca()
+    ax = plt.figure().gca()  # ``gca`` - get current axes
 
     ax.plot(x, x, label='linear')
     ax.plot(x, x**2, label='quadratic')
@@ -786,23 +786,3 @@ Iris scatter
 #. Z podanego powyżej adresu URL pobierz dane
 #. Dane stosunku ``sepal_length`` do ``sepal_width`` zwizualizuj w formie ``scatter`` za pomocą ``matplotlib``
 #. Każdy gatunek powinien mieć inny kolor
-
-Trigonometry
-------------
-#. Na jednym obrazku przedstaw przebiegi funkcji ``sin``, ``cos``, ``tan``
-#. Oś x ma nazywać się jak funkcja
-#. Tekst etykiety osi y ("Wartość funkcji") ma być inny dla każdej funkcji
-#. Każdy z przebiegów ma być na innym subplot
-#. Na drugim wykresie nałóż wszytkie przebiegi na jeden rysunek
-
-Color graph
------------
-#. Dokonano pomiarów z urządzeń temperatury
-#. Wygeneruj listę ``dict`` z datami z ostatniego miesiąca oraz wartością pomiarów losowo 10-15 plus szum na poziomie 0.5 stopnia celsiusza (wykrzystaj ``np.gauss()``)
-#. Mając do dyspozycji szereg czasowy, gdzie dla każdego dnia wykonano pomiar temperatury
-#. Przedstaw na wykresie dane szeregu czasowego
-#. Oś z datami przedstaw przekrzywioną o 45 stopni
-#. Na osi y przedstawiaj tylko pełne ``int``
-#. Dodaj Colorbar ze skalą temperatur zimno-ciepło
-#. Użyj kolorów niebieski (zimno), czerwony (ciepło)
-#. Wykres ma mieć grid
