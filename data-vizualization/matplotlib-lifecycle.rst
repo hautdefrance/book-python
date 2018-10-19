@@ -340,4 +340,7 @@ Iris transformations
 --------------------
 * https://raw.githubusercontent.com/AstroMatt/book-python/master/data-vizualization/data/iris.csv
 #. Opracuj podobny wykres dla danych Irysów
-
+#. Weź pod uwagę jedynie ``sepal_length`` oraz ``species``
+#. Species ma być w osi ``y``
+#. Na osi ``x`` ma być ``sepal_length``
+#. Czerwony marker opisuje średnią długość ``sepal_length`` dla wszystkich gatunków
