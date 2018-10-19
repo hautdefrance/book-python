@@ -153,6 +153,7 @@ Pie chart
 
     Pie chart
 
+
 Nested Pie Chart
 ================
 .. code-block:: python
@@ -180,3 +181,20 @@ Nested Pie Chart
     :align: center
 
     Pie chart
+
+
+3D
+==
+
+3D Sphere
+---------
+.. literalinclude:: src/matplotlib-3d-sphere.py
+    :language: python
+    :caption: 3D Sphere
+
+3D Surface
+----------
+.. literalinclude:: src/matplotlib-3d-surface.py
+    :language: python
+    :caption: 3D Surface
+

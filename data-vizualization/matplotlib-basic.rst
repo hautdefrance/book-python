@@ -109,6 +109,7 @@ Opening files
 
 Backends
 --------
+
 =============   ============   ================================================
 Renderer        Filetypes      Description
 =============   ============   ================================================
@@ -133,7 +134,7 @@ How to understand charts?
 Figure anatomy
 --------------
 .. figure:: img/matplotlib-figure-anatomy.png
-    :scale: 100%
+    :scale: 75%
     :align: center
 
     Figure Anatomy
@@ -148,6 +149,7 @@ Axis
 ----
 * These are the number-line-like objects
 * Axis can be integers
+
 .. code-block:: python
 
     import matplotlib.pyplot as plt
@@ -379,44 +381,43 @@ Line styles
 
 Line2D parameters
 -----------------
-.. code-block:: python
 
-    ======================  ==================================================
-    Property                Value Type
-    ======================  ==================================================
-    alpha                   float
-    animated                [True | False]
-    antialiased or aa       [True | False]
-    clip_box                a matplotlib.transform.Bbox instance
-    clip_on                 [True | False]
-    clip_path               a Path instance and a Transform instance, a Patch
-    color or c              any matplotlib color
-    contains                the hit testing function
-    dash_capstyle           [``'butt'`` | ``'round'`` | ``'projecting'``]
-    dash_joinstyle          [``'miter'`` | ``'round'`` | ``'bevel'``]
-    dashes                  sequence of on/off ink in points
-    data                    (np.array xdata, np.array ydata)
-    figure                  a matplotlib.figure.Figure instance
-    label                   any string
-    linestyle or ls         [ ``'-'`` | ``'--'`` | ``'-.'`` | ``':'`` | ``'steps'`` | ...]
-    linewidth or lw         float value in points
-    lod                     [True | False]
-    marker                  [ ``'+'`` | ``','`` | ``'.'`` | ``'1'`` | ``'2'`` | ``'3'`` | ``'4'`` ]
-    markeredgecolor or mec  any matplotlib color
-    markeredgewidth or mew  float value in points
-    markerfacecolor or mfc  any matplotlib color
-    markersize or ms        float
-    markevery               [ None | integer | (startind, stride) ]
-    picker                  used in interactive line selection
-    pickradius              the line pick selection radius
-    solid_capstyle          [``'butt'`` | ``'round'`` | ``'projecting'``]
-    solid_joinstyle         [``'miter'`` | ``'round'`` | ``'bevel'``]
-    transform               a matplotlib.transforms.Transform instance
-    visible                 [True | False]
-    xdata                   np.array
-    ydata                   np.array
-    zorder                  any number
-    ======================  ==================================================
+======================  ==================================================
+Property                Value Type
+======================  ==================================================
+alpha                   float
+animated                [True | False]
+antialiased or aa       [True | False]
+clip_box                a matplotlib.transform.Bbox instance
+clip_on                 [True | False]
+clip_path               a Path instance and a Transform instance, a Patch
+color or c              any matplotlib color
+contains                the hit testing function
+dash_capstyle           [``'butt'`` | ``'round'`` | ``'projecting'``]
+dash_joinstyle          [``'miter'`` | ``'round'`` | ``'bevel'``]
+dashes                  sequence of on/off ink in points
+data                    (np.array xdata, np.array ydata)
+figure                  a matplotlib.figure.Figure instance
+label                   any string
+linestyle or ls         [ ``'-'`` | ``'--'`` | ``'-.'`` | ``':'`` | ``'steps'`` | ...]
+linewidth or lw         float value in points
+lod                     [True | False]
+marker                  [ ``'+'`` | ``','`` | ``'.'`` | ``'1'`` | ``'2'`` | ``'3'`` | ``'4'`` ]
+markeredgecolor or mec  any matplotlib color
+markeredgewidth or mew  float value in points
+markerfacecolor or mfc  any matplotlib color
+markersize or ms        float
+markevery               [ None | integer | (startind, stride) ]
+picker                  used in interactive line selection
+pickradius              the line pick selection radius
+solid_capstyle          [``'butt'`` | ``'round'`` | ``'projecting'``]
+solid_joinstyle         [``'miter'`` | ``'round'`` | ``'bevel'``]
+transform               a matplotlib.transforms.Transform instance
+visible                 [True | False]
+xdata                   np.array
+ydata                   np.array
+zorder                  any number
+======================  ==================================================
 
 
 Basic customizations
@@ -762,8 +763,8 @@ Logarithmic and other nonlinear axes
 
     .. code-block:: python
 
-    ax = plt.axes()
-    line = ax.plot(data)
+        ax = plt.axes()
+        line = ax.plot(data)
 
 #. This approach of using ``ax.plot(...)`` is a must, if you want to plot into multiple axes (possibly in one figure). For example when using a subplots. Explicitly creates new figure - you will not add anything to previous one. Explicitly creates a new axes with given rectangle shape and the rest is the same as with 2:
 
@@ -779,17 +780,12 @@ Logarithmic and other nonlinear axes
 Assignment
 ==========
 
-Color graph
------------
-#. Dokonano pomiarów z urządzeń temperatury
-#. Mamy do dyspozycji szereg czasowy, gdzie dla każdego dnia wykonano pomiar temperatury
-#. Wygeneruj listę ``dict`` z datami z ostatniego miesiąca oraz wartością pomiarów losowo 10-15 plus szum na poziomie 0.5 stopnia celsiusza
-#. Przedstaw na wykresie dane szeregu czasowego
-#. Oś z datami przedstaw przekrzywioną o 45 stopni
-#. Na osi y przedstawiaj tylko pełne ``int``
-#. Dodaj Colorbar ze skalą temperatur zimno-ciepło
-#. Użyj kolorów niebieski (zimno), czerwony (ciepło)
-#. Wykres ma mieć grid
+Iris scatter
+------------
+* https://raw.githubusercontent.com/AstroMatt/book-python/master/data-vizualization/data/iris.csv
+#. Z podanego powyżej adresu URL pobierz dane
+#. Dane stosunku ``sepal_length`` do ``sepal_width`` zwizualizuj w formie ``scatter`` za pomocą ``matplotlib``
+#. Każdy gatunek powinien mieć inny kolor
 
 Trigonometry
 ------------
@@ -799,10 +795,14 @@ Trigonometry
 #. Każdy z przebiegów ma być na innym subplot
 #. Na drugim wykresie nałóż wszytkie przebiegi na jeden rysunek
 
-Iris scatter
-------------
-* https://raw.githubusercontent.com/AstroMatt/book-python/master/data-vizualization/data/iris.csv
-#. Z podanego powyżej adresu URL pobierz dane
-#. Dane stosunku ``sepal_length`` do ``sepal_width`` zwizualizuj w formie ``scatter`` za pomocą ``matplotlib``
-#. Każdy gatunek powinien mieć inny kolor
-#.
+Color graph
+-----------
+#. Dokonano pomiarów z urządzeń temperatury
+#. Wygeneruj listę ``dict`` z datami z ostatniego miesiąca oraz wartością pomiarów losowo 10-15 plus szum na poziomie 0.5 stopnia celsiusza (wykrzystaj ``np.gauss()``)
+#. Mając do dyspozycji szereg czasowy, gdzie dla każdego dnia wykonano pomiar temperatury
+#. Przedstaw na wykresie dane szeregu czasowego
+#. Oś z datami przedstaw przekrzywioną o 45 stopni
+#. Na osi y przedstawiaj tylko pełne ``int``
+#. Dodaj Colorbar ze skalą temperatur zimno-ciepło
+#. Użyj kolorów niebieski (zimno), czerwony (ciepło)
+#. Wykres ma mieć grid
