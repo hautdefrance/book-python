@@ -1,3 +1,5 @@
+.. _Matplotlib:
+
 **********
 Matplotlib
 **********
@@ -65,23 +67,29 @@ Charts Gallery
         b = np.matrix([[1,2],[3,4]])
         b_asarray = np.asarray(b)
 
+Opening files
+-------------
+* ``with open('filename.csv')`` - context manager
+* ``numpy.loadtxt('filename.csv', delimeter=',', unpack=True)``
+* ``csv.DictReader()``
+
+
 Backends
 --------
-
 =============   ============   ================================================
 Renderer        Filetypes      Description
 =============   ============   ================================================
 :term:`AGG`     :term:`png`    :term:`raster graphics` -- high quality images
-                               using the `Anti-Grain Geometry`_ engine
-PS              :term:`ps`     :term:`vector graphics` -- Postscript_ output
+                               using the Anti-Grain Geometry engine
+PS              :term:`ps`     :term:`vector graphics` -- Postscript output
                 :term:`eps`
 PDF             :term:`pdf`    :term:`vector graphics` --
-                               `Portable Document Format`_
+                               Portable Document Format
 SVG             :term:`svg`    :term:`vector graphics` --
-                               `Scalable Vector Graphics`_
+                               Scalable Vector Graphics
 :term:`Cairo`   :term:`png`    :term:`raster graphics` and
                 :term:`ps`     :term:`vector graphics` -- using the
-                :term:`pdf`    `Cairo graphics`_ library
+                :term:`pdf`    Cairo graphics library
                 :term:`svg`
 =============   ============   ================================================
 
@@ -92,7 +100,7 @@ How to understand charts?
 Figure anatomy
 --------------
 .. figure:: img/matplotlib-figure-anatomy.png
-    :scale: 50%
+    :scale: 100%
     :align: center
 
     Figure Anatomy
@@ -117,18 +125,6 @@ Artist
 Simple examples
 ===============
 
-Simple figures
---------------
-.. code-block:: python
-
-    import matplotlib.pyplot as plt
-
-    fig = plt.figure()  # an empty figure with no axes
-    fig.suptitle('No axes on this figure')  # Add a title so we know which it is
-
-
-    fig, ax_lst = plt.subplots(2, 2)  # a figure with a 2x2 grid of Axes
-
 Exponential functions
 ---------------------
 .. code-block:: python
@@ -139,17 +135,15 @@ Exponential functions
     plt.plot(x, x**2, label='quadratic')
     plt.plot(x, x**3, label='cubic')
 
-    plt.xlabel('x label')
-    plt.ylabel('y label')
-
-    plt.title("Simple Plot")
+    plt.title('Exponential functions')
+    plt.xlabel('x')
+    plt.ylabel('y')
 
     plt.legend()
-
     plt.show()
 
 .. figure:: img/matplotlib-exponentials.png
-    :scale: 50%
+    :scale: 75%
     :align: center
 
     Exponential functions
@@ -165,7 +159,7 @@ Sin wave
     plt.show()
 
 .. figure:: img/matplotlib-sin-wave.png
-    :scale: 50%
+    :scale: 75%
     :align: center
 
     Sin wave
@@ -316,86 +310,22 @@ Line styles
     "``_``",  "hline marker"
 
 
-Charts
-======
-
-Bars
-----
-* used to display single values
+Basic customizations
+====================
+* figure object is implied
+* explicit assignment is needed when customizing
 
 .. code-block:: python
 
-    x = [1,2,3]
-    y = [4,5,6]
+    fig = plt.figure()
 
-    plt.bar(x, y, label='Bars1')
-
+Subplots
+--------
 .. code-block:: python
 
-    x1 = [2,4,6,8,10]
-    y1 = [6,7,8,2,4]
+    fig = plt.figure()
 
-    x2 = [1,3,5,7,9]
-    y2 = [7,8,2,4,2]
-
-    plt.bar(x1, y1, label='Bars 1', color='blue')
-    plt.bar(x2, y2, label='Bars 2', color='red')
-
-    plt.xlabel('x')
-    plt.ylabel('y')
-    plt.title('This is my chart')
-    plt.legend()
-    plt.show()
-
-.. figure:: img/matplotlib-plt-bars.png
-    :scale: 100%
-    :align: center
-
-    Bars
-
-Histogram
----------
-* used to display number of elements in specific groups
-
-.. code-block:: python
-
-    ages = np.random.randint(size=50, low=0, high=130)
-
-    # age groups
-    bins = [0, 10, 20, 30, 40, 50, 60, 70, 80, 100, 110, 120, 130]
-
-    plt.hist(ages, bins, histtype='bar', rwidth=0.8)
-
-.. figure:: img/matplotlib-plt-hist.png
-    :scale: 100%
-    :align: center
-
-    Histogram
-
-Scatter plot
-------------
-* Used to show correlation
-
-.. code-block:: python
-
-    x = [1,2,3,4,5,6,7,8]
-    y = [4,7,6,2,7,4,5,2]
-
-    plt.scatter(x, y)
-
-.. code-block:: python
-
-    x = [1,2,3,4,5,6,7,8]
-    y = [4,7,6,2,7,4,5,2]
-
-    plt.scatter(x, y, marker='*', color='red')
-    plt.scatter(y, x, marker='o', color='blue')
-
-.. figure:: img/matplotlib-plt-scatter.png
-    :scale: 100%
-    :align: center
-
-    Scatter plot
+    ax1 = plt.subplot2grid(shape=(1,1), loc=(0,0)) # ``loc`` = Location to place axis within grid.
 
 
 Additional info

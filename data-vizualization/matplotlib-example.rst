@@ -1,8 +1,6 @@
-.. _Matplotlib:
-
-**********
-Matplotlib
-**********
+*******************
+Matplotlib Examples
+*******************
 
 
 Moduł ``matplotlib`` pozwala na rysowanie wykresów i diagramów. Jest to bardzo rozbudowana biblioteka z setkami opcji konfiguracyjnych. Najczęściej używanym modułem biblioteki ``matplotlib`` jest moduł ``pyplot``, który implementuje szereg funkcji umożliwiających rysowanie wykresów 2d.

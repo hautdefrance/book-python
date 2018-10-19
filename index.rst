@@ -77,7 +77,6 @@ Good Engineering Practice
     logging/index.rst
     print-formatting/index.rst
     performance/index.rst
-    documentation/index.rst
 
 *********
 Basic OOP
@@ -89,6 +88,7 @@ Basic OOP
 
     object-oriented-programming/basic.rst
     object-oriented-programming/dataclass.rst
+    object-oriented-programming/operator-overload.rst
 
 ****************
 Network and HTTP
@@ -104,7 +104,6 @@ Network and HTTP
     database/index.rst
     quality-and-tests/unittest.rst
     functions/advanced.rst
-    object-oriented-programming/operator-overload.rst
     serialization/pickle.rst
     serialization/xml.rst
     network/http-advanced.rst
@@ -119,33 +118,42 @@ CI/CD, versioning and distributing
     :numbered:
     :caption: CI/CD, versioning and distributing
 
-    extensions/venv.rst
-    extensions/distributing-packages.rst
     quality-and-tests/ci-cd-tools.rst
-    extensions/compilers.rst
+    quality-and-tests/type-annotation.rst
+    extensions/venv.rst
     extensions/zipapp.rst
+    extensions/distributing-packages.rst
     argparse/index.rst
     operating-system/index.rst
+    documentation/index.rst
 
-********************************
-Advanced OOP and Design Patterns
-********************************
+************
+Advanced OOP
+************
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Advanced OOP and Design Patterns
+    :caption: Advanced OOP
 
     object-oriented-programming/paradigm.rst
     object-oriented-programming/advanced.rst
-    quality-and-tests/type-annotation.rst
+    object-oriented-programming/metaclass.rst
+    quality-and-tests/introspection.rst
+
+***************
+Design Patterns
+***************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Design Patterns
+
     generator/index.rst
     iterator/index.rst
     context-manager/index.rst
     descriptor/index.rst
     decorator/index.rst
-    object-oriented-programming/metaclass.rst
     design-patterns/index.rst
-    quality-and-tests/introspection.rst
 
 ****************
 High Performance
@@ -155,12 +163,13 @@ High Performance
     :numbered:
     :caption: High Performance
 
-    quality-and-tests/debugging-advanced.rst
+    extensions/compilers.rst
     data-types/collections.rst
     concurrency/threading.rst
     concurrency/async.rst
     extensions/c-extensions.rst
     functional-programming/index.rst
+    quality-and-tests/debugging-advanced.rst
 
 **************************
 Scientific and Engineering
@@ -189,6 +198,7 @@ Data Vizualization
     :caption: Data Vizualization
 
     data-vizualization/matplotlib-basic.rst
+    data-vizualization/matplotlib-charts.rst
     data-vizualization/matplotlib-example.rst
     data-vizualization/charts.rst
     data-vizualization/plotly.rst
