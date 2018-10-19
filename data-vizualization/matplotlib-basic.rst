@@ -681,8 +681,8 @@ Logarithmic and other nonlinear axes
 
     import numpy as np
     import matplotlib.pyplot as plt
-
     from matplotlib.ticker import NullFormatter  # useful for `logit` scale
+
 
     # Fixing random state for reproducibility
     np.random.seed(19680801)
@@ -778,6 +778,26 @@ Logarithmic and other nonlinear axes
 
 Assignment
 ==========
+
+Color graph
+-----------
+#. Dokonano pomiarów z urządzeń temperatury
+#. Mamy do dyspozycji szereg czasowy, gdzie dla każdego dnia wykonano pomiar temperatury
+#. Wygeneruj listę ``dict`` z datami z ostatniego miesiąca oraz wartością pomiarów losowo 10-15 plus szum na poziomie 0.5 stopnia celsiusza
+#. Przedstaw na wykresie dane szeregu czasowego
+#. Oś z datami przedstaw przekrzywioną o 45 stopni
+#. Na osi y przedstawiaj tylko pełne ``int``
+#. Dodaj Colorbar ze skalą temperatur zimno-ciepło
+#. Użyj kolorów niebieski (zimno), czerwony (ciepło)
+#. Wykres ma mieć grid
+
+Trigonometry
+------------
+#. Na jednym obrazku przedstaw przebiegi funkcji ``sin``, ``cos``, ``tan``
+#. Oś x ma nazywać się jak funkcja
+#. Tekst etykiety osi y ("Wartość funkcji") ma być inny dla każdej funkcji
+#. Każdy z przebiegów ma być na innym subplot
+#. Na drugim wykresie nałóż wszytkie przebiegi na jeden rysunek
 
 Iris scatter
 ------------

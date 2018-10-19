@@ -23,7 +23,14 @@ with open(FILENAME, encoding='utf-8') as file:
         delimiter=',',
         quotechar='"')
 
-    for row in list(data)[1:]:
+    # rows, count, *species = list(data)[0]
+    # species_dict = {i: str(element) for i, element in enumerate(species)}
+
+    next(data)
+    data.__next__()
+    # data = list(data)[1:]
+
+    for row in data:
         row = dict(row)
         index = int(row['Species'])
         row['Species'] = SPECIES[index]
