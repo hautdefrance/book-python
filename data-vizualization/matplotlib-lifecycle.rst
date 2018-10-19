@@ -81,7 +81,7 @@ is a part of that canvas on which we will make a particular visualization.
 
     fig, ax = plt.subplots()
 
-.. figure:: src/matplotlib-lifecycle-01.png
+.. figure:: img/matplotlib-lifecycle-01.png
     :scale: 75%
     :align: center
 
@@ -106,7 +106,13 @@ your visualization to your needs. To see a list of styles, we can use
 .. code-block:: python
 
     print(plt.style.available)
-    # ['seaborn-ticks', 'ggplot', 'dark_background', 'bmh', 'seaborn-poster', 'seaborn-notebook', 'fast', 'seaborn', 'classic', 'Solarize_Light2', 'seaborn-dark', 'seaborn-pastel', 'seaborn-muted', '_classic_test', 'seaborn-paper', 'seaborn-colorblind', 'seaborn-bright', 'seaborn-talk', 'seaborn-dark-palette', 'tableau-colorblind10', 'seaborn-darkgrid', 'seaborn-whitegrid', 'fivethirtyeight', 'grayscale', 'seaborn-white', 'seaborn-deep']
+    # ['seaborn-ticks', 'ggplot', 'dark_background', 'bmh', 'seaborn-poster',
+    # 'seaborn-notebook', 'fast', 'seaborn', 'classic', 'Solarize_Light2',
+    # 'seaborn-dark', 'seaborn-pastel', 'seaborn-muted', '_classic_test',
+    # 'seaborn-paper', 'seaborn-colorblind', 'seaborn-bright', 'seaborn-talk',
+    # 'seaborn-dark-palette', 'tableau-colorblind10', 'seaborn-darkgrid',
+    # 'seaborn-whitegrid', 'fivethirtyeight', 'grayscale', 'seaborn-white',
+    # 'seaborn-deep']
 
 You can activate a style with the following:
 
@@ -296,7 +302,6 @@ the plot methods on that axes object.
 
 Saving our plot
 ===============
-
 Now that we're happy with the outcome of our plot, we want to save it to
 disk. There are many file formats we can save to in Matplotlib. To see
 a list of available options, use:
@@ -304,7 +309,19 @@ a list of available options, use:
 .. code-block:: python
 
     print(fig.canvas.get_supported_filetypes())
-    # {'ps': 'Postscript', 'eps': 'Encapsulated Postscript', 'pdf': 'Portable Document Format', 'pgf': 'PGF code for LaTeX', 'png': 'Portable Network Graphics', 'raw': 'Raw RGBA bitmap', 'rgba': 'Raw RGBA bitmap', 'svg': 'Scalable Vector Graphics', 'svgz': 'Scalable Vector Graphics', 'jpg': 'Joint Photographic Experts Group', 'jpeg': 'Joint Photographic Experts Group', 'tif': 'Tagged Image File Format', 'tiff': 'Tagged Image File Format'}
+    # {'ps': 'Postscript',
+    # 'eps': 'Encapsulated Postscript',
+    # 'pdf': 'Portable Document Format',
+    # 'pgf': 'PGF code for LaTeX',
+    # 'png': 'Portable Network Graphics',
+    # 'raw': 'Raw RGBA bitmap',
+    # 'rgba': 'Raw RGBA bitmap',
+    # 'svg': 'Scalable Vector Graphics',
+    # 'svgz': 'Scalable Vector Graphics',
+    # 'jpg': 'Joint Photographic Experts Group',
+    # 'jpeg': 'Joint Photographic Experts Group',
+    # 'tif': 'Tagged Image File Format',
+    # 'tiff': 'Tagged Image File Format'}
 
 We can then use the :meth:`figure.Figure.savefig` in order to save the figure
 to disk. Note that there are several useful flags we'll show below:
@@ -317,3 +334,12 @@ to disk. Note that there are several useful flags we'll show below:
 .. code-block:: python
 
     fig.savefig('sales.png', transparent=False, dpi=80, bbox_inches="tight")
+
+Assignment
+==========
+
+Iris transformations
+--------------------
+* https://raw.githubusercontent.com/AstroMatt/book-python/master/data-vizualization/data/iris.csv
+#. Opracuj podobny wykres dla danych Irysów
+
