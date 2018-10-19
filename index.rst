@@ -200,6 +200,7 @@ Data Vizualization
     data-vizualization/matplotlib-basic.rst
     data-vizualization/matplotlib-pandas.rst
     data-vizualization/matplotlib-charts.rst
+    data-vizualization/matplotlib-lifecycle.rst
     data-vizualization/matplotlib-example.rst
     data-vizualization/charts.rst
     data-vizualization/plotly.rst

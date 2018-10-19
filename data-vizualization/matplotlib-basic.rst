@@ -147,6 +147,21 @@ Axes
 Axis
 ----
 * These are the number-line-like objects
+* Axis can be integers
+.. code-block:: python
+
+    import matplotlib.pyplot as plt
+    from matplotlib.ticker import MaxNLocator
+
+    x = np.linspace(0, 2, 100)
+
+    ax = plt.figure().gca()
+
+    ax.plot(x, x, label='linear')
+    ax.plot(x, x**2, label='quadratic')
+    ax.plot(x, x**3, label='cubic')
+
+    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
 
 Artist
 ------
@@ -176,7 +191,7 @@ Exponential functions
     plt.show()
 
 .. figure:: img/matplotlib-exponentials.png
-    :scale: 75%
+    :scale: 100%
     :align: center
 
     Exponential functions
@@ -725,6 +740,40 @@ Logarithmic and other nonlinear axes
     :align: center
 
     Logarithmic and other nonlinear axes
+
+
+``plt.plot()`` vs ``ax.plot()``
+===============================
+* https://stackoverflow.com/questions/43482191/matplotlib-axes-plot-vs-pyplot-plot
+
+.. code-block:: python
+
+    fig = plt.figure()
+    plt.plot(data)
+    fig.show()
+
+#. Takes the current figure and axes (if none exists it will create a new one) and plot into them:
+
+    .. code-block:: python
+
+        line = plt.plot(data)
+
+#. In your case, the behavior is same as before with explicitly stating the axes for plot:
+
+    .. code-block:: python
+
+    ax = plt.axes()
+    line = ax.plot(data)
+
+#. This approach of using ``ax.plot(...)`` is a must, if you want to plot into multiple axes (possibly in one figure). For example when using a subplots. Explicitly creates new figure - you will not add anything to previous one. Explicitly creates a new axes with given rectangle shape and the rest is the same as with 2:
+
+    .. code-block:: python
+
+        fig = plt.figure()
+        ax = fig.add_axes([0,0,1,1])
+        line = ax.plot(data)
+
+    possible problem using ``figure.add_axes`` is that it may add a new axes object to the figure, which will overlay the first one (or others). This happens if the requested size does not match the existing ones.
 
 
 Assignment
