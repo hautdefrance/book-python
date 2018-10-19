@@ -86,7 +86,7 @@ Clear Output
 Magic commands
 ==============
 * ``%run``
-
+* ``!pip freeze``
 
 Kernels
 =======

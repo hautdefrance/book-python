@@ -638,7 +638,7 @@ Hist
     data = pd.read_csv(url)
 
     data.hist()
-    data.show()
+    plt.show()
 
 .. figure:: img/matplotlib-pd-hist.png
     :scale: 100%
@@ -657,7 +657,7 @@ Density
     data = pd.read_csv(url)
 
     data.plot(kind='density', subplots=True, layout=(3,3), sharex=False)
-    data.show()
+    plt.show()
 
 .. figure:: img/matplotlib-pd-density.png
     :scale: 100%
@@ -676,7 +676,7 @@ Box
     data = pd.read_csv(url)
 
     data.plot(kind='box', subplots=True, layout=(3,3), sharex=False, sharey=False)
-    data.show()
+    plt.show()
 
 .. figure:: img/matplotlib-pd-box.png
     :scale: 100%
@@ -686,6 +686,9 @@ Box
 
 Scatter matrix
 --------------
+* The in ``pandas`` version ``0.22`` plotting module has been moved from ``pandas.tools.plotting`` to ``pandas.plotting``
+* As of version ``0.19``, the ``pandas.plotting`` library did not exist
+
 .. code-block:: python
 
     import matplotlib.pyplot as plt
@@ -703,6 +706,7 @@ Scatter matrix
     :align: center
 
     Vizualization using density
+
 
 Practical Example
 =================
