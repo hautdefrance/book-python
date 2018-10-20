@@ -115,6 +115,7 @@ Variables and constants
 =======================
 * ``NameError`` when using not declared variable
 * ``AttributeError`` when cannot assign to variables
+* Names are case sensitive
 
 Variable declaration
 --------------------
@@ -149,6 +150,13 @@ Variables vs. constants
 -----------------------
 * Python do not distinguish between variables and constants
 * Python allows you to change "constants" but it's a bad practice
+* Names are case sensitive
+
+    .. code-block:: python
+
+        name = 'José Jiménez'
+        NAME = 'Ivan Ivanovich'
+        Name = 'Matt Kowalski'
 
 Type inference
 --------------
@@ -191,10 +199,39 @@ Types
         name: int = 'José Jiménez'
         age: float = 30
 
-
 More advanced topics
-====================
+--------------------
 .. note:: The topic will be continued in chapter: :ref:`Software Engineering Conventions`
+
+
+``print()``
+===========
+* ``print()`` adds ``'\n'`` at the end
+* Prints on the screen
+
+    .. code-block:: python
+
+        print('My name... José Jiménez')
+        # My name... José Jiménez
+
+* Variable substitution
+
+    .. code-block:: python
+
+        name = 'José Jiménez'
+
+        print(f'My name... {name}')
+        # My name... José Jiménez
+
+* Special characters
+
+    .. code-block:: python
+
+        print(f'My name...\n\t{name}')
+        # My name...
+        #     José Jiménez
+
+.. note:: More in :ref:`Print Formatting`
 
 
 Assignments

@@ -153,35 +153,6 @@ Characters before strings
     #          ``s`` is invalid hexadecimal character
     #          after ``\U...`` python expects unicode codepoint
 
-``print()``
-===========
-* ``print()`` adds ``'\n'`` at the end
-* Prints on the screen
-
-    .. code-block:: python
-
-        print('My name... José Jiménez')
-        # My name... José Jiménez
-
-* Variable substitution
-
-    .. code-block:: python
-
-        name = 'José Jiménez'
-
-        print(f'My name... {name}')
-        # My name... José Jiménez
-
-* Special characters
-
-    .. code-block:: python
-
-        print(f'My name...\n\t{name}')
-        # My name...
-        #     José Jiménez
-
-.. note:: More in :ref:`Print Formatting`
-
 
 String methods
 ==============
@@ -398,22 +369,32 @@ Assignments
 String cleaning
 ---------------
 #. Dane poniżej przeczyść, tak aby zmienne miały wartość ``'Jana III Sobieskiego'``
-#. Jak zrobić to rozwiązaniem generycznym pasującym do wszystkich? (dyskusja)
+#. Przeprowadź dyskusję jak zrobić rozwiązanie generyczne pasujące do wszystkich?
 
 .. code-block:: python
 
-        a = 'Jana III Sobieskiego 1 apt 2'
+        a = '  Jana III Sobieskiego 1 apt 2'
         b = 'ul Jana III SobIESkiego 1/2'
-        c = 'ul. Jana trzeciego Sobieskiego 1/2'
-        d = 'ul.Jana III Sobieskiego 1/2'
+        c = '\tul. Jana trzeciego Sobieskiego 1/2'
+        d = 'ul.Jana III Sob\n\nieskiego 1/2'
         e = 'ulicaJana III Sobieskiego 1/2'
-        F = 'UL. JANA 3 SOBIESKIEGO 1/2'
-        G = 'UL. III SOBiesKIEGO 1/2'
-        H = 'ULICA JANA III SOBIESKIEGO 1/2'
-        I = 'ULICA. JANA III SOBI'
+        f = 'UL. JA\tNA 3 SOBIES\tKIEGO 1/2'
+        g = 'UL. III SOBiesKIEGO 1/2'
+        h = 'ULICA JANA III SOBIESKIEGO 1 /2  '
+        i = 'ULICA. JANA III SOBI'
         j = ' Jana 3 Sobieskiego 1/2 '
         k = 'Jana III Sobieskiego 1 m. 2'
         l = ' 1/2'
+
+:About:
+    * Filename: ``types_cleaning.py``
+    * Lines of code to write: 15 lines
+    * Estimated time of completion: 10 min
+
+:The whys and wherefores:
+    * Definiowanie zmiennych
+    * Korzystanie z print formatting
+    * Wczytywanie tekstu od użytkownika
 
 Variables and types
 -------------------
