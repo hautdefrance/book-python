@@ -8,8 +8,8 @@ Character Types
 ``str``
 =======
 
-Creating empty string
----------------------
+Defining ``str``
+----------------
 * ``"`` and ``'`` works the same
 * Unicode characters (UTF-16 or UTF-32, depending on how Python was compiled)
 
@@ -18,30 +18,29 @@ Creating empty string
     name = ''
     name = ""
 
-    name: str = ''
-    name: str = ""
-
-Creating string
----------------
 .. code-block:: python
 
     name = 'José'       # 'José'
     name = "José"       # 'José'
 
-    name: str = 'José'  # 'José'
-    name: str = "José"  # 'José'
-
 Multiline ``str``
 -----------------
 .. code-block:: python
 
-    names = """
-        We choose to go to the Moon!
-    We choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard.
+    text = """First line
+    Second line
+    Third line
     """
+    # 'First line\n    Second line\n    Third line\n    '
 
-    print(names)
-    # '\n    We choose to go to the Moon!\nWe choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard.'
+.. code-block:: python
+
+    text = """
+        We choose to go to the Moon!
+        We choose to go to the Moon in this decade and do the other things,
+        not because they are easy, but because they are hard.
+    """
+    # '\n        We choose to go to the Moon!\n        We choose to go to the Moon in this decade and do the other things,\n        not because they are easy, but because they are hard.\n    '
 
 Type casting to ``str``
 -----------------------
@@ -81,7 +80,6 @@ Escape characters
 
 New lines
 ---------
-
 .. code-block:: text
 
     \n
@@ -95,25 +93,9 @@ New lines
 
 Other escape characters
 -----------------------
-.. csv-table::
+.. csv-table:: Escape characters
     :header-rows: 1
-
-    "Escape sequence", "Description"
-
-    "``\\``", "Backslash ``\``"
-    "``\'``", "Single quote ``'``"
-    "``\"``", "Double quote ``"``"
-    "``\a``", "ASCII Bell (BEL)"
-    "``\b``", "ASCII Backspace (BS)"
-    "``\f``", "ASCII Formfeed (FF)"
-    "``\n``", "ASCII Linefeed (LF)"
-    "``\r``", "ASCII Carriage Return (CR)"
-    "``\t``", "ASCII Horizontal Tab (TAB)"
-    "``\uxxxx``", "Character with 16-bit hex value XXXX"
-    "``\Uxxxxxxxx``", "Character with 32-bit hex value XXXXXXXX"
-    "``\v``", "ASCII Vertical Tab (VT)"
-    "``\ooo``", "ASCII character with octal value ooo"
-    "``\xhh...``", "ASCII character with hex value hh..."
+    :file: data/str-escape-characters.csv
 
 .. code-block:: text
 
@@ -185,7 +167,6 @@ String immutability
     print(a)            # Python
     print(b)            # Cython
 
-
 Multiplication
 --------------
 .. code-block:: python
@@ -201,9 +182,9 @@ Multiplication
 
         name = 'joSé jiMénEz III'
 
-        name.title()    # 'José Jiménez Iii'
         name.upper()    # 'JOSÉ JIMÉNEZ III'
         name.lower()    # 'josé jiménez iii'
+        name.title()    # 'José Jiménez Iii'
 
 ``str.replace()``
 -----------------
@@ -241,10 +222,16 @@ Multiplication
 .. code-block:: python
 
     text = 'José Jiménez'
-    text.split()        # ['José', 'Jiménez']
+
+    text.split()
+    # ['José', 'Jiménez']
+
+.. code-block:: python
 
     text = 'jimenez:x:0:0:José Jiménez:/home/jimenez:/bin/bash'
-    text.split(':')     # ['jimenez', 'x', '0', '0', 'José Jiménez', '/home/jimenez', '/bin/bash']
+
+    text.split(':')
+    # ['jimenez', 'x', '0', '0', 'José Jiménez', '/home/jimenez', '/bin/bash']
 
 ``str.join()``
 --------------
@@ -297,10 +284,13 @@ Multiplication
 
     len('Python')   # 6
     len('')         # 0
-    len()           # TypeError: len() takes exactly one argument (0 given)
+
 
 Handling user input
 ===================
+
+Getting user input
+------------------
 * ``input()`` returns ``str``
 * Space at the end of prompt
 
@@ -308,6 +298,9 @@ Handling user input
 
     name = input('Type your name: ')
 
+Cleaning data
+-------------
+* 80% of machine learning and data science is cleaning data
 * This is a dump of distinct records of a single address
 * Is this the same address?:
 
@@ -331,6 +324,9 @@ Handling user input
         'Jana IIi Sobieskiego'
         'Jana lll Sobieskiego'  # three small letters 'L'
 
+* Which one of the above is a true address?
+* Other examples:
+
     .. code-block:: text
 
         'ul '
@@ -351,6 +347,9 @@ Handling user input
         'al. '
         'aleja '
         'alei '
+        'aleia'
+        'aleii'
+        'aleji'
 
     .. code-block:: text
 
@@ -360,8 +359,6 @@ Handling user input
         '1 apt 2'
         '1 apt. 2'
 
-
-* Which one is a true address?
 
 Assignments
 ===========
@@ -384,12 +381,11 @@ String cleaning
         i = 'ULICA. JANA III SOBI'
         j = ' Jana 3 Sobieskiego 1/2 '
         k = 'Jana III Sobieskiego 1 m. 2'
-        l = ' 1/2'
 
 :About:
-    * Filename: ``types_cleaning.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 10 min
+    * Filename: ``types_str_cleaning.py``
+    * Lines of code to write: 11 lines
+    * Estimated time of completion: 15 min
 
 :The whys and wherefores:
     * Definiowanie zmiennych
@@ -421,7 +417,7 @@ Variables and types
         _I'M_AN_"""ASTRONAUT!"""'''
 
 :About:
-    * Filename: ``types_input.py``
+    * Filename: ``types_str_input.py``
     * Lines of code to write: 4 lines
     * Estimated time of completion: 10 min
 

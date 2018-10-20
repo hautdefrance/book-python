@@ -37,25 +37,6 @@ Dates and timezones
 Main Characters
 ===============
 
-Crews
------
-
-National Geographic's Mars
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. figure:: img/crew-mars-natgeo.jpg
-    :scale: 50%
-    :align: center
-
-    Crew from National Geographic's Mars: Robert Foucault (top left), Javier Delgado (top center), Amelie Durand (top right), Hana Seung (bottom left), Ben Sawyer (bottom center), Marta Kamen (bottom right)
-
-Martian Movie
-^^^^^^^^^^^^^
-.. figure:: img/crew-martian.jpg
-    :scale: 40%
-    :align: center
-
-    Crew from Martian Movie: Melissa Lewis (top left), Alex Vogel (top center), Mark Watney (top right), Chris Beck (bottom left), Beth Johanssen (bottom center), Rick Martinez (bottom right)
-
 Astronauts
 ----------
 
@@ -121,3 +102,22 @@ Alex Vogel
     :align: center
 
     Alex Vogel
+
+Crews
+-----
+
+National Geographic's Mars
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. figure:: img/crew-mars-natgeo.jpg
+    :scale: 50%
+    :align: center
+
+    Crew from National Geographic's Mars: Robert Foucault (top left), Javier Delgado (top center), Amelie Durand (top right), Hana Seung (bottom left), Ben Sawyer (bottom center), Marta Kamen (bottom right)
+
+Martian Movie
+^^^^^^^^^^^^^
+.. figure:: img/crew-martian.jpg
+    :scale: 40%
+    :align: center
+
+    Crew from Martian Movie: Melissa Lewis (top left), Alex Vogel (top center), Mark Watney (top right), Chris Beck (bottom left), Beth Johanssen (bottom center), Rick Martinez (bottom right)

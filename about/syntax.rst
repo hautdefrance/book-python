@@ -155,7 +155,7 @@ Variables vs. constants
     .. code-block:: python
 
         name = 'José Jiménez'
-        NAME = 'Ivan Ivanovich'
+        NAME = 'Иван Иванович'
         Name = 'Matt Kowalski'
 
 Type inference
@@ -226,6 +226,8 @@ More advanced topics
 * Special characters
 
     .. code-block:: python
+
+        name = 'José Jiménez'
 
         print(f'My name...\n\t{name}')
         # My name...

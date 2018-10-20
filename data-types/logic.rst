@@ -7,24 +7,35 @@ Logical Types
 
 ``bool``
 ========
-
-Defining ``bool`` values
-------------------------
+* ``True`` - Positive value
+* ``False`` - Negative value
 * First letter capitalized, other are lower cased
-* Positive value - ``True``
-* Negative values - ``False``
-* Defining ``bool``:
 
-    .. code-block:: python
+Defining ``bool``
+-----------------
+.. code-block:: python
 
-        my_var = True
-        my_var = False
+    my_var = True
+    my_var = False
 
-        my_var: bool = True
-        my_var: bool = False
+    my_var: bool = True
+    my_var: bool = False
 
-Type casting to ``bool``
-------------------------
+Converting to ``bool``
+----------------------
+* Also known as "type casting"
+* ``float()`` converts argument to ``float``
+
+.. code-block:: python
+
+    bool(1)               # True
+    bool(0)               # False
+
+.. code-block:: python
+
+    bool(1.0)             # True
+    bool(0.0)             # False
+
 .. code-block:: python
 
     bool('José')          # True
@@ -34,6 +45,7 @@ Negative values
 ---------------
 * ``False``
 * ``0``
+* ``0.0``
 * ``()`` - empty ``tuple``
 * ``{}`` - empty ``dict``
 * ``[]`` - empty ``list``
@@ -45,31 +57,44 @@ Using ``and``
 -------------
 .. code-block:: python
 
-    'José' and ''         # False
+    1 and 1               # True
+    1 and 0               # False
+    0 and 0               # False
+
+.. code-block:: python
+
     'José' and 'Иван'     # True
+    'José' and ''         # False
+    '' and ''             # False
 
 Using ``or``
 ------------
 .. code-block:: python
 
-    'José' or ''          # True
+    1 or 1                # True
+    1 or 0                # True
+    0 or 0                # False
+
+.. code-block:: python
+
     'José' or 'Иван'      # True
+    'José' or ''          # True
+    '' or ''              # False
 
 
 ``None``
 ========
-
-Defining ``None`` values
-------------------------
 * First letter capitalized, other are lower cased
 * Empty value (null)
-* It is not ``False`` value, although in ``if`` it behaves like ``False``
+* It is not ``False`` value
 * With ``if`` statements behaves like negative values
-* Used for unknown (unset) values:
+* Used for unknown (unset) values
 
-    .. code-block:: python
+Defining ``None``
+-----------------
+.. code-block:: python
 
-        my_var = None
+    my_var = None
 
 
 Assignments
