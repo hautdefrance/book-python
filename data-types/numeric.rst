@@ -7,88 +7,119 @@ Numerical Types
 
 ``int``
 =======
+
+Defining ``int``
+----------------
 * Python 3 dynamically extends ``int``, when it's too big
 * In Python 3 there is not maximal ``int`` value
-* Defining ``int``:
 
-    .. code-block:: python
+.. code-block:: python
 
-        value = 30
-        value: int = 30
+    value = 30
 
-* For large numbers you can use ``_`` as thousands separator, or engineering notation:
+* You can use ``_`` for easier read especially with big numbers:
 
     .. code-block:: python
 
         million = 1000000
         million = 1_000_000
-        million = 1e6
-        million = 1E6
 
-* ``int()`` converts argument to ``int``:
+* Engineering notation:
 
     .. code-block:: python
 
-        int(10)                 # 10
-        int(10.0)               # 10
-        int(10.9)               # 10
-        int('10')               # 10
-        int('10.5')             # ValueError: invalid literal for int() with base 10: ' 10.5'
+        million = 1e6
+        million = 1E6
+
+Converting to ``int``
+---------------------
+* Also known as "type casting"
+* ``int()`` converts argument to ``int``
+
+.. code-block:: python
+
+    int(10)          # 10
+    int(10.0)        # 10
+    int(10.9)        # 10
+    int('10')        # 10
+    int('10.5')      # ValueError: invalid literal for int() with base 10: ' 10.5'
 
 
 ``float``
 =========
-* Defining ``float``:
+
+Defining ``float``
+------------------
+.. code-block:: python
+
+    value = 10.5
+
+* Notation without leading or trailing zero (used by ``numpy``):
 
     .. code-block:: python
-
-        value = 10.5
-        value: float = 10.5
 
         value = 10.     # 10.0
         value = .5      # 0.5
 
-* ``float()`` converts argument to ``float``:
+Converting to ``float``
+-----------------------
+* Also known as "type casting"
+* ``float()`` converts argument to ``float``
 
-    .. code-block:: python
+.. code-block:: python
 
-        float(10)              # 10.0
+    float(10.5)            # 10.5
+    float(10)              # 10.0
 
-        float('+1.23')         # 1.23
-        float('-1.23')         # -1.23
+.. code-block:: python
 
-        float('1E-003')        # 0.001
-        float('1e-003')        # 0.001
-        float('+1E6')          # 1000000.0
+    float('+1E6')          # 1000000.0
+    float('-1E3')          # -1000.0
 
-* Min i max ``float``:
+    float('+1.23')         # 1.23
+    float('-1.23')         # -1.23
 
-    .. code-block:: python
+.. code-block:: python
 
-        import sys
+    float('+1E6')          # 1000000.0
+    float('-1E3')          # -1000.0
 
-        sys.float_info.min
-        # 2.2250738585072014e-308
+.. code-block:: python
 
-        sys.float_info.max
-        # 1.7976931348623157e+308
+    float('1e-4')          # 0.0001
+    float('1E-3')          # 0.0001
 
-    .. code-block:: python
+    float('1e-5')          # 1e-05
+    float('1E-5')          # 1E-05
 
-        1e308
-        # 1e+308
+Maximal and minimal ``float`` values
+------------------------------------
+.. code-block:: python
 
-        1e309
-        # inf
+    import sys
 
-* Infinity representation in Python:
+    sys.float_info.min
+    # 2.2250738585072014e-308
 
-    .. code-block:: python
+    sys.float_info.max
+    # 1.7976931348623157e+308
 
-        float('-inf')          # -inf
-        float('-Infinity')     # -inf
-        float('inf')           # inf
-        float('Infinity')      # inf
+Infinity representation
+-----------------------
+.. code-block:: python
+
+    1e308
+    # 1e+308
+
+    1e309
+    # inf
+
+.. code-block:: python
+
+    float('-inf')          # -inf
+    float('-Infinity')     # -inf
+    float('inf')           # inf
+    float('Infinity')      # inf
 
 
 ``complex``
@@ -96,22 +127,29 @@ Numerical Types
 * Complex number with real and imaginary parts
 * Engineering notation ``j`` not mathematical ``i``
 * No space inside the expression
-* Defining ``complex``:
 
-    .. code-block:: python
+Defining ``complex``
+--------------------
+.. code-block:: python
 
-        complex()               # 0j
+    complex()               # 0j
 
-        complex(1)              # (1+0j)
-        complex(1, 2)           # (1+2j)
-        complex(1.12, 2.34)     # (1.12+2.34j)
-        complex(1, 2.34)        # (1+2.34j)
+.. code-block:: python
 
-        complex(1+2j)           # (1+2j)
-        complex(1+2j, 3+4j)     # (-3+5j)
+    complex(1)              # (1+0j)
+    complex(1, 2)           # (1+2j)
+    complex(1.12, 2.34)     # (1.12+2.34j)
+    complex(1, 2.34)        # (1+2.34j)
 
-        complex('1+2j')         # (1+2j)
-        complex('1 + 2j')       # ValueError: complex() arg is a malformed string
+.. code-block:: python
+
+    complex(1+2j)           # (1+2j)
+    complex(1+2j, 3+4j)     # (-3+5j)
+
+.. code-block:: python
+
+    complex('1+2j')         # (1+2j)
+    complex('1 + 2j')       # ValueError: complex() arg is a malformed string
 
 
 Assignments
@@ -140,9 +178,11 @@ Handling user input and type casting
 
 :The whys and wherefores:
     * Definiowanie zmiennych
+    * Nazewnictwo zmiennych
     * Korzystanie z print formatting
     * Konwersja typów
     * Operacje matematyczne na zmiennych
+    * Oddzielenie logiki biznesowej od warstwy widoku
 
 :Hints:
     * Aby podzielić liczbę użyj ``/``, np: ``10 / 2``

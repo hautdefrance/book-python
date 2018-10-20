@@ -2,6 +2,7 @@ requests
 pycodestyle
 mypy
 # line_profiler
+plotly
 
 
 ##########
@@ -21,4 +22,3 @@ scikit-learn
 scipy
 jupyter
 pandas
-plotly

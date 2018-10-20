@@ -113,7 +113,6 @@ Commented out code
 
 Variables and constants
 =======================
-
 * ``NameError`` when using not declared variable
 * ``AttributeError`` when cannot assign to variables
 
@@ -151,6 +150,22 @@ Variables vs. constants
 * Python do not distinguish between variables and constants
 * Python allows you to change "constants" but it's a bad practice
 
+Type inference
+--------------
+* Static Typing (Java, C++, Swift)
+
+    .. code-block:: java
+
+        String name = new String("José Jiménez")
+
+* Dynamic Typing (Python, PHP, Ruby)
+
+    .. code-block:: python
+
+        # Type inference
+        name = 'José Jiménez'
+        name = str('José Jiménez')
+
 Types
 -----
 * Since Python 3.5
@@ -176,28 +191,6 @@ Types
         name: int = 'José Jiménez'
         age: float = 30
 
-Type inference
---------------
-* Static Typing (Java, C++, Swift)
-
-    .. code-block:: java
-
-        String name = new String("José Jiménez")
-
-* Dynamic Typing (Python, PHP, Ruby)
-
-    .. code-block:: python
-
-        # Type inference
-        name = 'José Jiménez'
-        name = str('José Jiménez')
-
-    .. code-block:: python
-
-        # Using type annotations,
-        # although types are still inferred
-        name: str = 'José Jiménez'
-        name: str = str('José Jiménez')
 
 More advanced topics
 ====================

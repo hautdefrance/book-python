@@ -66,25 +66,53 @@ Keyboard shortcuts
 Assignments
 ===========
 
-Create Project
---------------
+Create Project in Pure Python
+-----------------------------
 #. Stwórz projekt w Twoim IDE
-#. Jeżeli prowadzący podał Ci link do repozytorium GIT, to:
-
-    * wykorzystaj opcję 'Create from VCS'
-    * stwórz plik ``.gitignore``
-    * wpisz linię ``.idea/`` do pliku
-
-#. Jeżeli nie było podanego linku do repozytorium, to:
-
-    * to stwórz projekt w języku Python
-
-#. Po stworzeniu projektu, załóż katalog o nazwie jak twoje nazwisko i imie (np. ``nazwisko_imie``)
+#. Wybierz "Pure Python"
+#. Ustaw aby korzystać z "Virtualenv"
+#. Upewnij się, że masz Python 3.6 lub nowszy
+#. Po stworzeniu projektu, załóż katalog o nazwie jak twoje nazwisko i imie ``nazwisko_imie``
 #. WAŻNE: Już do końca książki w nim będą tworzone rozwiązania do wszystkich zadań
 
-Check Environment
------------------
-#. Stwórz skrypt o nazwie wypisanej w sekcji "About"
+Create Project from GIT
+-----------------------
+#. Stwórz projekt w Twoim IDE
+#. Wykorzystaj opcję 'Create from VCS'
+#. Stwórz plik ``.gitignore``
+#. Wpisz linię ``.idea/`` do pliku
+#. Po stworzeniu projektu, załóż katalog o nazwie jak twoje nazwisko i imie ``nazwisko_imie``
+#. WAŻNE: Już do końca książki w nim będą tworzone rozwiązania do wszystkich zadań
+
+Check Python Version
+--------------------
+#. Stwórz skrypt o nazwie ``python_version.py`` (nazwa skryptu będzie zawsze wpisana w sekcji "About")
+#. Plik ma mieć zawartość:
+
+    .. code-block:: python
+
+        import sys
+
+        print(sys.version)
+
+#. Uruchom go w swoim IDE (menu ``Run -> Run... -> nazwa Twojego skryptu``)
+#. Jaka wersja Python jest zainstalowana?
+
+:About:
+    * Filename: ``python_version.py``
+    * Lines of code to write: 0 lines
+    * Estimated time of completion: 5 min
+
+:The whys and wherefores:
+    * Czy Python działa
+    * Jaka jest wersja Python
+    * Korzystanie z print
+    * Umiejętność uruchamiania skryptów
+    * Szukanie rozwiązań zadań z książki
+
+Check Python Environment
+------------------------
+#. Stwórz plik o nazwie ``python_env.py``
 #. Plik ma mieć zawartość:
 
     .. code-block:: python
@@ -92,18 +120,16 @@ Check Environment
         import sys
         import os
 
-        print(f'Version: {sys.version}')
         print(f'Installation: {sys.executable}')
         print(f'Virtualenv: {os.getenv("VIRTUAL_ENV")}')
 
 #. Uruchom go w swoim IDE (menu ``Run -> Run... -> nazwa Twojego skryptu``)
-#. Jaka wersja Python jest zainstalowana?
 #. Gdzie Python jest zainstalowany?
 #. Czy korzystasz z "Virtualenv"?
 #. Upewnij się, że w linijce z "Virtualenv" nie masz ``None``
 
 :About:
-    * Filename: ``python_version.py``
+    * Filename: ``python_env.py``
     * Lines of code to write: 0 lines
     * Estimated time of completion: 5 min
 
