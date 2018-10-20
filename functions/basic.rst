@@ -303,6 +303,35 @@ Aviation numbers
     * Przypadek zaawansowany: argumenty pozycyjne i domyślne
     * Rzutowanie i konwersja typów
 
+Cleaning text input
+-------------------
+#. Napisz funkcję oczyszczającą, która podane niżej zmienne zamieni na ciąg "Jana III Sobieskiego"
+
+.. code-block:: python
+
+    a = '  Jana III Sobieskiego 1 apt 2'
+    b = 'ul Jana III SobIESkiego 1/2'
+    c = '\tul. Jana trzeciego Sobieskiego 1/2'
+    d = 'ul.Jana III Sob\n\nieskiego 1/2'
+    e = 'ulicaJana III Sobieskiego 1/2'
+    f = 'UL. JA\tNA 3 SOBIES\tKIEGO 1/2'
+    g = 'UL. III SOBiesKIEGO 1/2'
+    h = 'ULICA JANA III SOBIESKIEGO 1 /2  '
+    i = 'ULICA. JANA III SOBI'
+    j = ' Jana 3 Sobieskiego 1/2 '
+    k = 'Jana III Sobieskiego 1 m. 2'
+
+:About:
+    * Filename: ``functions_str_clean.py``
+    * Lines of code to write: 15 lines
+    * Estimated time of completion: 15 min
+
+:The whys and wherefores:
+    * Definiowanie i uruchamianie funkcji
+    * Sprawdzanie przypadków brzegowych (niekompatybilne argumenty)
+    * Parsowanie argumentów funkcji
+    * Czyszczenie danych od użytkownika
+
 Number to human readable
 ------------------------
 #. Napisz funkcję ``number_to_str``

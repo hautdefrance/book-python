@@ -60,6 +60,13 @@ Accessing slice from back
     text[-5:-1]           # 'Moon'
     text[:-6]             # 'We choose to go to the'
 
+.. code-block:: python
+
+    text = 'We choose to go to the Moon!'
+
+    text[4:-2]            # 'hoose to go to the Moo'
+    text[-5:5]            # ''
+
 Accessing slice not existing elements
 -------------------------------------
 .. code-block:: python
@@ -82,11 +89,11 @@ Arithmetic operations on slice indexes
 .. code-block:: python
 
     text = 'We choose to go to the Moon!'
-    lower = 23
-    upper = 28
+    first = 23
+    last = 28
 
-    text[lower:upper]       # 'Moon!'
-    text[lower:upper-1]     # 'Moon'
+    text[first:last]       # 'Moon!'
+    text[first:last-1]     # 'Moon'
 
 
 Slice function
@@ -102,8 +109,8 @@ Slice function
 Reversing and stepping over elements
 ====================================
 
-Every ``n``th element
----------------------
+Every n element
+---------------
 .. code-block:: python
 
     text = 'We choose to go to the Moon!'
