@@ -82,8 +82,8 @@ Length of a ``list``
 --------------------
 .. code-block:: python
 
-    len([1, 2, 3])  # 3
-    len([])         # 0
+    my_list = [1, 2, 3]
+    len(my_list)    # 3
 
 
 ``set``
@@ -200,21 +200,6 @@ Length of a ``list``
         my_tuple[::2]           # (1, 3, 5)
         my_tuple[1:4]           # (2, 3, 4)
 
-    .. code-block:: python
-
-        my_tuple = (1, 2, 3, 4, 5)
-
-        MIN = 1
-        MAX = 4
-        my_tuple[MIN:MAX]       # (2, 3, 4)
-
-    .. code-block:: python
-
-        my_tuple = (1, 2, 3, 4, 5)
-
-        BETWEEN = slice(1, 4)
-        my_tuple[BETWEEN]       # (2, 3, 4)
-
 * Length of a ``tuple``:
 
     .. code-block:: python
@@ -223,8 +208,8 @@ Length of a ``list``
         len(my_tuple)           # 5
 
 
-Assigning sequences values to variables
-=======================================
+Unpacking sequences to variables
+================================
 .. code-block:: python
 
     a, b, c = 1, 2, 3
@@ -235,67 +220,67 @@ Assigning sequences values to variables
 
 How Python understands types?
 =============================
-* Result of a ``type(what)`` for each line:
+.. code-block:: python
 
-    .. code-block:: python
+    what = 1.2        # float
+    what = 1,2        # tuple
 
-        what = 1.2        # <class 'float'>
-        what = 1,2        # <class 'tuple'>
+    what = (1.2)      # float
+    what = (1,2)      # tuple
 
-    .. code-block:: python
+.. code-block:: python
 
-        what = 1, 2       # <class 'tuple'>
-        what = (1, 2)     # <class 'tuple'>
+    what = 1.2,       # tuple with float
+    what = 1,2.3      # tuple with int and float
 
-    .. code-block:: python
+    what = (1.2,)     # tuple with float
+    what = (1,2.3)    # tuple with int and float
 
-        what = (1,2)      # <class 'tuple'>
-        what = (1.2)      # <class 'float'>
-        what = (1.2,)     # <class 'tuple'>
+.. code-block:: python
 
-    .. code-block:: python
+    what = 'foo'      # str
+    what = 'foo',     # tuple with str
+    what = 'foo'.     # SyntaxError: invalid syntax
 
-        what = 'foo'      # <class 'str'>
-        what = ('foo')    # <class 'str'>
+    what = ('foo')    # str
+    what = ('foo',)   # tuple with str
+    what = ('foo'.)   # SyntaxError: invalid syntax
 
-        what = 'foo',     # <class 'tuple'>
-        what = ('foo',)   # <class 'tuple'>
+.. code-block:: python
 
-    .. code-block:: python
+    what = 1.        # float
+    what = .5        # float
+    what = 1.0       # float
+    what = 1         # int
 
-        what = 1.        # <class 'float'>
-        what = (1.)      # <class 'float'>
+    what = (1.)      # float
+    what = (.5)      # float
+    what = (1.0)     # float
+    what = (1)       # int
 
-        what = .5        # <class 'float'>
-        what = (.5)      # <class 'float'>
+.. code-block:: python
 
-        what = 1.0       # <class 'float'>
-        what = 1         # <class 'int'>
+    what = 10.5      # float
+    what = 10,5      # tuple with two ints
+    what = 10.       # float
+    what = 10,       # tuple with int
+    what = 10        # int
 
-    .. code-block:: python
+    what = (10.5)    # float
+    what = (10,5)    # tuple with two ints
+    what = (10.)     # float
+    what = (10,)     # tuple with int
+    what = (10)      # int
 
-        what = 10.5      # <class 'float'>
-        what = (10.5)    # <class 'float'>
+.. code-block:: python
 
-        what = 10,5      # <class 'tuple'>
-        what = (10,5)    # <class 'tuple'>
+    what = 1.,1.     # tuple with two floats
+    what = .5,.5     # tuple with two floats
+    what = 1.,.5     # tuple with two floats
 
-        what = 10.       # <class 'float'>
-        what = (10.)     # <class 'float'>
-
-        what = 10,       # <class 'tuple'>
-        what = (10,)     # <class 'tuple'>
-
-        what = 10        # <class 'int'>
-        what = (10)      # <class 'int'>
-
-    .. code-block:: python
-
-        what = (1.,1.)   # <class 'tuple'>
-        what = (.5,.5)   # <class 'tuple'>
-        what = (1.,.5)   # <class 'tuple'>
-
-        what = 1.,.5     # <class 'tuple'>
+    what = (1.,1.)   # tuple with two floats
+    what = (.5,.5)   # tuple with two floats
+    what = (1.,.5)   # tuple with two floats
 
 
 More advanced topics
@@ -308,7 +293,7 @@ Assignments
 
 Simple collections
 ------------------
-#. Stwórz ``tuple`` z cyframi od 0-9
+#. Stwórz ``tuple`` z cyframi 0, 1, 2, 3
 #. Przekonwertuj ją do ``list``
 #. Na pierwsze miejsce w liście dodaj całą oryginalną ``tuple``
 #. Przekonwertuj wszystko na płaski ``set`` unikalnych wartości wykorzystując ``slice``

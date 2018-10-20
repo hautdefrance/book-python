@@ -221,7 +221,7 @@ Aviation Language
 #. Wypisz na ekranie nazwę fonetyczną litery
 #. Jeżeli użytkownik podał więcej niż jedną literę, to wybierz z ciągu tylko pierwszą
 #. Słownik ma wyświetlić kod bez względu na to czy użytkownik podał dużą czy małą literę
-#. Jeżeli wpisał znak, k†óry nie jest w alfabecie, to wypisz "Pilots don't say that"
+#. Jeżeli wpisał znak, który nie jest w alfabecie, to wypisz "Pilots don't say that"
 #. Nie używaj konstrukcji ``if``, ani ``try`` i ``except``
 
 .. csv-table:: Aviation Alphabet
