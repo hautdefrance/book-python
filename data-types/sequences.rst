@@ -7,46 +7,59 @@ Simple Collections
 
 ``list``
 ========
-* Mutable - can add, remove, and modify values
-* Defining with ``list()`` is more readable, but ``[]`` is used more often:
-
-    .. code-block:: python
-
-        my_list = []
-        my_list = list()
-
+* Mutable - can add, remove, and modify items
 * Brackets are required
-* No need for comma for one element ``list``:
+* Comma after last element is optional
+* Can store elements of any types
 
-    .. code-block:: python
+Defining ``list``
+-----------------
+* ``list()`` is more readable
+* ``[]`` is used more often
 
-        my_list = [1]
+.. code-block:: python
 
-* ``list`` can store elements of any types:
+    my_list = []
+    my_list = list()
 
-    .. code-block:: python
+.. code-block:: python
 
-        my_list = [1, 2.0, None, False, 'José']
+    my_list = [1]
+    my_list = [1,]
 
-* You can also add ``list`` to ``list``:
+.. code-block:: python
 
-    .. code-block:: python
+    my_list = [1, 2.0, None, False, 'José']
 
-        my_list = [1, 2.0, None, False, 'José', [1, 'hello']]
+Nested ``list``
+---------------
+.. code-block:: python
 
-* Slicing, the same as for strings:
+    my_list = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+    ]
 
-    .. code-block:: python
+.. code-block:: python
 
-        my_list = [1, 2.0, None, False, 'José']
+    my_list = [1, 2.0, [1, 'hello'], None, [2, 1]]
 
-        my_list[1]             # 2.0
-        my_list[2:4]           # [None, False]
-        my_list[::2]           # [1, None, 'José']
-        my_list[-1]            # 'José'
+Slicing ``list``
+----------------
+* Slicing works the same as for ``str``
 
-Adding ``list`` to ``list``
----------------------------
+.. code-block:: python
+
+    my_list = [1, 2.0, None, False, 'José']
+
+    my_list[1]             # 2.0
+    my_list[2:4]           # [None, False]
+    my_list[::2]           # [1, None, 'José']
+    my_list[-1]            # 'José'
+
+Adding elements
+---------------
 .. code-block:: python
 
     my_list = [1, 2]
@@ -83,129 +96,157 @@ Length of a ``list``
 .. code-block:: python
 
     my_list = [1, 2, 3]
+
     len(my_list)    # 3
 
 
 ``set``
 =======
-* Defining only with ``set()``:
+* Only unique values
+* Mutable - can add, remove, and modify items
+* Brackets are required
+* Comma after last element is optional
+* Can store elements of any **hashable** types
 
-    .. code-block:: python
+Defining ``set``
+----------------
+* Defining only with ``set()``
 
-        my_set = set()
+.. code-block:: python
 
-* No need for comma for one element ``set``:
+    my_set = set()
 
-    .. code-block:: python
+.. code-block:: python
 
-        my_set = {1}
+    my_set = {1}
+    my_set = {1,}
 
-* Only unique values:
+.. code-block:: python
 
-    .. code-block:: python
+    my_set = {1, 3, 1}          # {1, 3}
 
-        my_set = {1, 3, 1}          # {1, 3}
+.. code-block:: python
 
-* Can store any hashable elements:
+    my_set = {1, 2.0, 'Jose'}   # {1, 2.0, 'Jose'}
+    my_set = {1, 2.0, [3, 4]}   # TypeError: unhashable type: 'list'
+    my_set = {1, 2.0, {3, 4}}   # TypeError: unhashable type: 'set'
 
-    .. code-block:: python
+Adding items
+------------
+.. code-block:: python
 
-        my_set = {1, 2.0, 'Jose'}   # {1, 2.0, 'Jose'}
-        my_set = {1, 2.0, [3, 4]}   # TypeError: unhashable type: 'list'
-        my_set = {1, 2.0, {3, 4}}   # TypeError: unhashable type: 'set'
+    my_set = {1, 2, 3}          # {1, 2, 3}
 
-* Mutable - can add, remove, and modify values:
+    my_set.add(4)               # {1, 2, 3, 4}
+    my_set.add(4)               # {1, 2, 3, 4}
+    my_set.add(3)               # {1, 2, 3, 4}
 
-    .. code-block:: python
+Adding many items
+-----------------
+.. code-block:: python
 
-        my_set = {1, 2, 3}          # {1, 2, 3}
+    my_set = {1, 2, 3}          # {1, 2, 3}
 
-        my_set.add(4)               # {1, 2, 3, 4}
-        my_set.add(4)               # {1, 2, 3, 4}
-        my_set.add(3)               # {1, 2, 3, 4}
+    my_set.update([4, 5])       # {1, 2, 3, 4, 5}
 
-        my_set.update([4, 5])       # {1, 2, 3, 4, 5}
-        my_set.update({4, 5})       # {1, 2, 3, 4, 5}
+.. code-block:: python
 
-* Use of ``set`` operations with special syntax:
+    my_set = {1, 2, 3}          # {1, 2, 3}
 
-    .. code-block:: python
+    my_set.update({4, 5})       # {1, 2, 3, 4, 5}
 
-        {1,2} - {2,3}               # {1}        # Subtract
-        {1,2} | {2,3}               # {1, 2, 3}  # Sum
-        {1,2} & {2,3}               # {2}        # Union
-        {1,2} ^ {2,3}               # {1, 3}     # Symmetrical difference
-        {1,2} + {3,4}               # TypeError: unsupported operand type(s) for +: 'set' and 'set'
+Mathematical ``set`` operations
+-------------------------------
+.. code-block:: python
 
-* Slicing ``set`` is not possible:
+    {1,2} - {2,3}    # {1}        # Subtract
+    {1,2} | {2,3}    # {1, 2, 3}  # Sum
+    {1,2} & {2,3}    # {2}        # Union
+    {1,2} ^ {2,3}    # {1, 3}     # Symmetrical difference
+    {1,2} + {3,4}    # TypeError: unsupported operand type(s) for +: 'set' and 'set'
 
-    .. code-block:: python
+Slicing ``set``
+---------------
+* Slicing ``set`` is not possible
 
-        my_set = {1, 2.0, None, False, 'José'}
+.. code-block:: python
 
-        my_set[1]                   # TypeError: 'set' object does not support indexing
-        my_set[2:4]                 # TypeError: 'set' object does not support indexing
+    my_set = {1, 2.0, None, False, 'José'}
 
-* Length of a ``set``:
+    my_set[1]                   # TypeError: 'set' object does not support indexing
+    my_set[2:4]                 # TypeError: 'set' object does not support indexing
 
-    .. code-block:: python
+Length of a ``set``
+-------------------
+.. code-block:: python
 
-        my_set = {1, 2, 3}
-        len(my_set)                 # 3
+    my_set = {1, 2, 3}
 
-* Converting ``list`` to ``set`` deduplicate items:
+    len(my_set)                 # 3
 
-    .. code-block:: python
+Converting ``list`` to ``set`` deduplicate items
+------------------------------------------------
+.. code-block:: python
 
-        names = ['Matt', 'Иван', 'José', 'Matt']
+    names = ['Matt', 'Иван', 'José', 'Matt']
 
-        unique_names = set(names)
-        # {'Matt', 'Иван', 'José'}
+    unique_names = set(names)
+    # {'Matt', 'Иван', 'José'}
+
 
 ``tuple``
 =========
-* Immutable - cannot add, modify or remove elements
-* Defining with ``tuple()`` is more readable, but ``()`` is used more often:
-
-    .. code-block:: python
-
-        my_tuple = ()
-        my_tuple = tuple()
-
+* Immutable - cannot add, modify or remove items
+* Brackets are optional
+* Comma after last element is optional
+* Can store elements of any types
 * Single element ``tuple`` require comma at the end (**important!**)
-* Braces are optional:
 
-    .. code-block:: python
+Defining ``tuple``
+------------------
+* ``tuple()`` is more readable
+* ``()`` is used more often
 
-        my_tuple = 1,
-        my_tuple = (1,)
+.. code-block:: python
 
-* Can store any type:
+    my_tuple = ()
+    my_tuple = tuple()
 
-    .. code-block:: python
+.. code-block:: python
 
-        my_tuple = 1, 2.0, None, False, 'José'
-        my_tuple = (1, 2.0, None, False, 'José')
+    my_tuple = 1,
+    my_tuple = (1,)
 
-* Slicing tuple:
+.. code-block:: python
 
-    .. code-block:: python
+    my_tuple = 1, 2
+    my_tuple = (1, 2)
 
-        my_tuple = (1, 2, 3, 4, 5)
+.. code-block:: python
 
-        my_tuple[2]             # 3
-        my_tuple[-1]            # 5
-        my_tuple[:3]            # (1, 2, 3)
-        my_tuple[3:]            # (4, 5)
-        my_tuple[::2]           # (1, 3, 5)
-        my_tuple[1:4]           # (2, 3, 4)
+    my_tuple = 1, 2.0, None, False, 'José'
+    my_tuple = (1, 2.0, None, False, 'José')
 
-* Length of a ``tuple``:
+Slicing ``tuple``
+-----------------
+.. code-block:: python
 
-    .. code-block:: python
+    my_tuple = (1, 2, 3, 4, 5)
 
-        my_tuple = (1, 2, 3, 4, 5)
-        len(my_tuple)           # 5
+    my_tuple[2]             # 3
+    my_tuple[-1]            # 5
+    my_tuple[:3]            # (1, 2, 3)
+    my_tuple[3:]            # (4, 5)
+    my_tuple[::2]           # (1, 3, 5)
+    my_tuple[1:4]           # (2, 3, 4)
+
+Length of a ``tuple``
+---------------------
+.. code-block:: python
+
+    my_tuple = (1, 2, 3)
+
+    len(my_tuple)           # 3
 
 
 Unpacking sequences to variables
