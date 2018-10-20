@@ -55,10 +55,9 @@ Inline comments
 
 Multiline comments
 ------------------
-* Both single and double are good
 * Triple single quotes ``'''``
-* Triple double quotes ``"""``
-* Triple double quotes are more common:
+* Triple double quotes ``"""`` (more common)
+* Both ``'''`` and ``"""`` quotes works the same
 
     .. code-block:: python
 
