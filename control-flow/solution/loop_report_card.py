@@ -9,6 +9,7 @@ while True:
         break
 
     grade = float(grade)
+
     if grade in ALLOWED_GRADES:
         print(f'Adding {grade}')
         report_card.append(grade)
@@ -16,5 +17,8 @@ while True:
         print('Grade is not allowed')
 
 
-average = sum(report_card) / len(report_card)
-print(f'Average: {average}')
+if report_card:
+    average = sum(report_card) / len(report_card)
+    print(f'Average: {average}')
+else:
+    print('Empty report card')
