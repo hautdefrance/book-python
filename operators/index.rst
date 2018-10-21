@@ -59,9 +59,8 @@ Assignments
 
 Even and odd numbers
 --------------------
-#. Napisz program, który wczyta od użytkownika ciąg znaków
-#. Użytkownik poda tylko ``int`` lub ``float`` dowolnej długości
-#. Liczby ``float`` rzutuj na ``int``
+#. Wczytaj od użytkownika ciąg znaków dowolnej długości
+#. Użytkownik poda wyłącznie ciągi znaków parsujące się do ``int`` lub ``float`` bez błędów
 #. Sprawdź czy jest to liczba parzysta, czy nieparzysta
 
 :About:
@@ -78,7 +77,6 @@ Even and odd numbers
 :Hints:
     * Zero jest parzyste: https://en.wikipedia.org/wiki/Parity_of_zero
     * Liczba parzysta, to taka, która po podzieleniu przez dwa nie ma reszty
-    * Użyj dzielenia modulo ``%``
     * Zwróć uwagę, że operator ``%`` działa modulo tylko na ``int`` oraz na ``float``. Przy ``str`` ma zupełnie inne znaczenie.
 
 Integers and floats
