@@ -1,4 +1,4 @@
-SPEAK = {
+ALPHABET = {
     '0': 'zero',
     '1': 'one',
     '2': 'two',
@@ -18,7 +18,7 @@ def aviation_numbers(number):
     output = []
 
     for char in str(number):
-        output.append(SPEAK[char])
+        output.append(ALPHABET[char])
 
     return ' '.join(output)
 
@@ -30,7 +30,7 @@ def aviation_numbers(number):
     >>> aviation_numbers(31337)
     'tree one tree tree seven'
     """
-    return ' '.join(SPEAK[x] for x in str(number))
+    return ' '.join(ALPHABET[x] for x in str(number))
 
 
 if __name__ == '__main__':

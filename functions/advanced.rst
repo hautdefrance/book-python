@@ -5,6 +5,50 @@ Advanced Functions
 ******************
 
 
+Type annotations
+================
+* Od Python 3.5
+* Kod w języku python wykona się nawet jeśli typ nie zgadza się z adnotacją!
+* Twoje IDE porówna typy oraz poinformuje cię jeżeli wykryje niezgodność
+* Użyj ``mypy`` lub ``pyre-check`` do sprawdzania typów
+
+.. code-block:: python
+
+    def add(a: int, b: float) -> float:
+        return a + b
+
+    add(1, 2.5)
+    # 3.5
+
+.. code-block:: python
+
+    def add(a: int, b: float) -> float:
+        return a + b
+
+    add('José', 'Jiménez')
+    # 'JoséJiménez'
+
+.. note:: więcej na ten temat w rozdziale dotyczącym :ref:`Type Annotation`
+
+
+Recurrence
+==========
+* Aby zrozumieć rekurencję – musisz najpierw zrozumieć rekurencję
+* Maksymalny limit rekurencji = 1000
+* Zmiana limitu ``sys.setrecursionlimit(limit)``
+* CPython implementation doesn't optimize tail recursion, and unbridled recursion causes stack overflows.
+* Python isn't a functional language and tail recursion is not a particularly efficient technique
+* Rewriting the algorithm iteratively, if possible, is generally a better idea.
+
+.. code-block:: python
+
+    def factorial(n: int) -> int:
+        if n == 0:
+            return 1
+        else:
+            return n * factorial(n-1)
+
+
 Callable
 ========
 .. code-block:: python

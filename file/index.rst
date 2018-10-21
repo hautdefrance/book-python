@@ -7,6 +7,15 @@ Files
 Read, Write, Append
 ===================
 
+Path
+----
+* Relative and absolute path
+* ``FILENAME`` as a raw string ``r'...'`` constant
+
+Good Engineering Practises
+--------------------------
+* ``encoding='utf-8'``
+
 Access modes
 ------------
 .. csv-table::
@@ -16,10 +25,8 @@ Access modes
 
 Reading file
 ------------
-* ``FILENAME`` as a raw string ``r'...'`` constant
-* ``encoding='utf-8'``
-* Fails when file cannot be accessed
 * Fails when directory with file cannot be accessed
+* Fails when file cannot be accessed
 
 .. literalinclude:: src/file-read.py
     :language: python
@@ -39,10 +46,8 @@ Reading file
 
 Writing to file
 ---------------
-* ``FILENAME`` as a raw string ``r'...'`` constant
-* ``encoding='utf-8'``
-* If file doesn't exist it will be created
 * Fails when directory with file cannot be accessed
+* Creates file if not exists
 * Overwrite old content
 
 .. literalinclude:: src/file-write.py
@@ -51,10 +56,8 @@ Writing to file
 
 Appending to file
 -----------------
-* ``FILENAME`` as a raw string ``r'...'`` constant
-* ``encoding='utf-8'``
-* If file doesn't exist it will be created
 * Fails when directory with file cannot be accessed
+* Creates file if not exists
 * Append to the end of file
 
 .. literalinclude:: src/file-append.py
@@ -116,6 +119,7 @@ Parsing ``/etc/hosts``
 
 :Hints:
     * ``str.isspace()``
+    * ``value = True if ... else False``
 
 .. literalinclude:: src/etc-hosts.txt
     :name: listing-file-etc-hosts

@@ -17,13 +17,14 @@ Function definition
     def hello():
         print('My name... José Jiménez')
 
-    hello()
-    # My name... José Jiménez
+    hello()     # My name... José Jiménez
+    hello()     # My name... José Jiménez
+    hello()     # My name... José Jiménez
 
 Returning values
 ================
-* Słowo kluczowe ``return`` wskazuje funkcji jaką wartość ma dana funkcja zwrócić.
-* Wykonanie linii ze słowem kluczowym ``return`` kończy wykonywanie funkcji.
+* ``return`` wskazuje funkcji jaką wartość ma zwrócić
+* Kod po słowie kluczowym ``return`` się nie wykona
 
 .. code-block:: python
 
@@ -82,11 +83,11 @@ Returning simple types
 
     def function():
         print('ehlo world')
-        # implicit ``return None``
+        # Python will ``return None`` if not specified
 
     def function():
         pass
-        # implicit ``return None``
+        # Python will ``return None`` if not specified
 
 Returning nested types
 ----------------------
@@ -114,36 +115,8 @@ Passing arguments
     add(1, 2)
     # 3
 
-Type annotations
-----------------
-* Od Python 3.5
-* Kod w języku python wykona się nawet jeśli typ nie zgadza się z adnotacją!
-* Twoje IDE porówna typy oraz poinformuje cię jeżeli wykryje niezgodność
-* Użyj ``mypy`` lub ``pyre-check`` do sprawdzania typów
-
-.. code-block:: python
-
-    def add(a: int, b: float) -> float:
-        return a + b
-
-    add(1, 2.5)
-    # 3.5
-
-.. code-block:: python
-
-    def add(a: int, b: float) -> float:
-        return a + b
-
-    add('José', 'Jiménez')
-    # 'JoséJiménez'
-
-.. note:: więcej na ten temat w rozdziale dotyczącym :ref:`Type Annotation`
-
 Named arguments
 ---------------
-* Każdy argument ma swoją nazwę przez którą uzyskujemy dostęp do wartości argumentu w ciele funkcji.
-* Ta nazwa może też być używana do przypisania wartości przy wywołaniu funkcji.
-
 .. code-block:: python
 
     def minus(a, b):
@@ -158,14 +131,17 @@ Named arguments
 
 Arguments with default value
 ----------------------------
-* Argument funkcji może mieć wartość domyślną.
-* Funkcja przyjmie tą wartość jeżeli użytkownik nie zdefiniuje tego argumentu.
-* Argumenty z wartością domyślną muszą być skrajnie po prawej stronie.
+* Funkcja przyjmie wartość domyślną dla argumentu jeżeli użytkownik nie nadpisze
+* Argumenty z wartością domyślną muszą być skrajnie po prawej stronie
+* Kolejność podawania argumentów nazwanych nie ma znaczenia
+* Argumenty z wartościami domyślnymi nie muszą być podane
+* Arguemnty bez wartości domyślnych są wymagane
 
 .. code-block:: python
 
     def hello(name='José Jiménez'):
          print(f'My name... {name}')
+
 
     hello('Иван Иванович')        # My name... Иван Иванович
     hello(name='Иван Иванович')   # My name... Иван Иванович
@@ -173,8 +149,11 @@ Arguments with default value
 
 .. code-block:: python
 
-    def server(username, password, host='127.0.0.1', port=80, ssl=False, keep_alive=1, persistent=False):
+    def server(username, password, host='127.0.0.1',
+               port=80, ssl=False, keep_alive=1,
+               persistent=False):
         print('Connecting...')
+
 
     server('admin', 'admin', 'localhost', 80, False, 1, True)
 
@@ -191,9 +170,31 @@ Arguments with default value
 
 .. code-block:: python
 
-    read_csv(filepath_or_buffer, sep=', ', delimiter=None, header='infer', names=None, index_col=None, usecols=None, squeeze=False, prefix=None, mangle_dupe_cols=True, dtype=None, engine=None, converters=None, true_values=None, false_values=None, skipinitialspace=False, skiprows=None, nrows=None, na_values=None, keep_default_na=True, na_filter=True, verbose=False, skip_blank_lines=True, parse_dates=False, infer_datetime_format=False, keep_date_col=False, date_parser=None, dayfirst=False, iterator=False, chunksize=None, compression='infer', thousands=None, decimal=b'.', lineterminator=None, quotechar='"', quoting=0, escapechar=None, comment=None, encoding=None, dialect=None, tupleize_cols=None, error_bad_lines=True, warn_bad_lines=True, skipfooter=0, doublequote=True, delim_whitespace=False, low_memory=True, memory_map=False, float_precision=None)
+    # ``read_csv`` is a function from ``pandas`` library
+    read_csv(filepath_or_buffer, sep=', ', delimiter=None,
+             header='infer', names=None, index_col=None,
+             usecols=None, squeeze=False, prefix=None,
+             mangle_dupe_cols=True, dtype=None, engine=None,
+             converters=None, true_values=None, false_values=None,
+             skipinitialspace=False, skiprows=None, nrows=None,
+             na_values=None, keep_default_na=True, na_filter=True,
+             verbose=False, skip_blank_lines=True, parse_dates=False,
+             infer_datetime_format=False, keep_date_col=False,
+             date_parser=None, dayfirst=False, iterator=False,
+             chunksize=None, compression='infer', thousands=None,
+             decimal=b'.', lineterminator=None, quotechar='"',
+             quoting=0, escapechar=None, comment=None, encoding=None,
+             dialect=None, tupleize_cols=None, error_bad_lines=True,
+             warn_bad_lines=True, skipfooter=0, doublequote=True,
+             delim_whitespace=False, low_memory=True, memory_map=False,
+             float_precision=None)
 
-    data = read_csv('iris.csv', encoding='utf-8', usecols=['Petal lenght', 'Species'])
+
+    data = read_csv(
+        filepath_or_buffer='iris.csv',
+        encoding='utf-8',
+        usecols=['Petal lenght', 'Species']
+    )
 
 
 Naming convention
@@ -216,24 +217,26 @@ Naming convention
 
     .. code-block:: python
 
-        def fabs(a, b):
-            return float(abs(a + b))
+        def cal_var(results):
+            """Calculate variance"""
+            return sum((Xi-m) ** 2 for Xi in results) / len(results)
 
-        def float_absolute_value(a, b) -> float:
-            return float(abs(a + b))
+        def calculate_variance(results):
+            return sum((Xi-m) ** 2 for Xi in results) / len(results)
 
 * ``_`` at the end of name when name collision
 
     .. code-block:: python
 
-        def print_(text1, text2):
-            print(values, sep=';', end='\n')
+        def print_(text):
+            print(f'<strong>{text}</strong>')
 
 
 Variable scope
 ==============
-* ``globals()``
-* ``locals()``
+* function arguemnts and variables live only inside function scope
+* ``globals()`` - all variables in program (outside functions)
+* ``locals()`` - variables inside function
 
 .. code-block:: python
 
@@ -241,26 +244,8 @@ Variable scope
         c = 3
         print(locals())
 
-    add(1, 2)
+    add(1)
     # {'a': 1, 'b': 2, 'c': 3}
-
-
-Recurrence
-==========
-* Aby zrozumieć rekurencję – musisz najpierw zrozumieć rekurencję
-* Maksymalny limit rekurencji = 1000
-* Zmiana limitu ``sys.setrecursionlimit(limit)``
-* CPython implementation doesn't optimize tail recursion, and unbridled recursion causes stack overflows.
-* Python isn't a functional language and tail recursion is not a particularly efficient technique
-* Rewriting the algorithm iteratively, if possible, is generally a better idea.
-
-.. code-block:: python
-
-    def factorial(n: int) -> int:
-        if n == 0:
-            return 1
-        else:
-            return n * factorial(n-1)
 
 
 More advanced topics
@@ -270,6 +255,35 @@ More advanced topics
 
 Assignments
 ===========
+
+Cleaning text input
+-------------------
+#. Napisz funkcję oczyszczającą, która podane niżej zmienne zamieni na ciąg "Jana III Sobieskiego"
+
+.. code-block:: python
+
+    a = '  Jana III Sobieskiego 1 apt 2'
+    b = 'ul Jana III SobIESkiego 1/2'
+    c = '\tul. Jana trzeciego Sobieskiego 1/2'
+    d = 'ul.Jana III Sob\n\nieskiego 1/2'
+    e = 'ulicaJana III Sobieskiego 1/2'
+    f = 'UL. JA\tNA 3 SOBIES\tKIEGO 1/2'
+    g = 'UL. III SOBiesKIEGO 1/2'
+    h = 'ULICA JANA III SOBIESKIEGO 1 /2  '
+    i = 'ULICA. JANA III SOBI'
+    j = ' Jana 3 Sobieskiego 1/2 '
+    k = 'Jana III Sobieskiego 1 m. 2'
+
+:About:
+    * Filename: ``functions_str_clean.py``
+    * Lines of code to write: 15 lines
+    * Estimated time of completion: 15 min
+
+:The whys and wherefores:
+    * Definiowanie i uruchamianie funkcji
+    * Sprawdzanie przypadków brzegowych (niekompatybilne argumenty)
+    * Parsowanie argumentów funkcji
+    * Czyszczenie danych od użytkownika
 
 Aviation numbers
 ----------------
@@ -302,35 +316,6 @@ Aviation numbers
     * Definiowanie i korzystanie z ``dict`` z wartościami
     * Przypadek zaawansowany: argumenty pozycyjne i domyślne
     * Rzutowanie i konwersja typów
-
-Cleaning text input
--------------------
-#. Napisz funkcję oczyszczającą, która podane niżej zmienne zamieni na ciąg "Jana III Sobieskiego"
-
-.. code-block:: python
-
-    a = '  Jana III Sobieskiego 1 apt 2'
-    b = 'ul Jana III SobIESkiego 1/2'
-    c = '\tul. Jana trzeciego Sobieskiego 1/2'
-    d = 'ul.Jana III Sob\n\nieskiego 1/2'
-    e = 'ulicaJana III Sobieskiego 1/2'
-    f = 'UL. JA\tNA 3 SOBIES\tKIEGO 1/2'
-    g = 'UL. III SOBiesKIEGO 1/2'
-    h = 'ULICA JANA III SOBIESKIEGO 1 /2  '
-    i = 'ULICA. JANA III SOBI'
-    j = ' Jana 3 Sobieskiego 1/2 '
-    k = 'Jana III Sobieskiego 1 m. 2'
-
-:About:
-    * Filename: ``functions_str_clean.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 15 min
-
-:The whys and wherefores:
-    * Definiowanie i uruchamianie funkcji
-    * Sprawdzanie przypadków brzegowych (niekompatybilne argumenty)
-    * Parsowanie argumentów funkcji
-    * Czyszczenie danych od użytkownika
 
 Number to human readable
 ------------------------
