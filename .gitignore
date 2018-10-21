@@ -1,7 +1,8 @@
 ## Private
 _config/
 _database/
-__notepad__*
+__notepad__.py
+__notepad__.ipynb
 
 ## Compiled and environmental
 __pycache__/

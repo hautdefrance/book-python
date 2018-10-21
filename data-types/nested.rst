@@ -26,11 +26,19 @@ Multidimensional lists
 
     .. code-block:: python
 
-        array = [[1,2,3],[4,5,6],[7,8,9]]
-        array = [[1,2,3], [4,5,6], [7,8,9]]
-        array = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        a = [[1,2,3],[4,5,6],[7,8,9]]
 
-        array = [
+    .. code-block:: python
+
+        b = [[1,2,3], [4,5,6], [7,8,9]]
+
+    .. code-block:: python
+
+        c = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+    .. code-block:: python
+
+        d = [
             [1, 2, 3],
             [4, 5, 6],
             [7, 8, 9],
@@ -68,18 +76,16 @@ Assignments
 Split train/test
 ----------------
 #. Mając do dyspozycji zbiór danych Irysów z :numref:`listing-sequence-iris-sample`
-#. Wyodrębnij nagłówek (pierwsza linia) od danych
+#. Zapisz nagłówek (pierwsza linia) do zmiennej
+#. Zapisz do innej zmiennej dane bez nagłówka
+#. Wylicz punkt podziału: ilość rekordów danych bez nagłówka razy procent
 #. Podziel zbiór na dwie listy w proporcji:
 
-    - dane do uczenia - 80%
-    - dane testowe - 20%
+    - ``X_train`` - dane do uczenia - 60%
+    - ``X_test`` - dane testowe - 40%
 
-:Algorithm:
-    #. zapisz nagłówek do zmiennej
-    #. zapisz do innej zmiennej dane bez nagłówka
-    #. wylicz punkt przegięcia: długość danych bez nagłówka razy procent
-    #. z danych bez nagłówka zapisz do uczenia rekordy od początku do punktu przegięcia
-    #. z danych bez nagłówka zapisz do testów rekordy od punktu przegięcia do końca
+#. Z danych bez nagłówka zapisz do uczenia rekordy od początku do punktu podziału
+#. Z danych bez nagłówka zapisz do testów rekordy od punktu podziału do końca
 
 :About:
     * Filename: ``sequences_split_train_test.py``

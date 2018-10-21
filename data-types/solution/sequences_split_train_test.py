@@ -1,6 +1,3 @@
-from random import shuffle
-
-
 DATABASE = [
     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
     (5.8, 2.7, 5.1, 1.9, 'virginica'),
@@ -26,18 +23,17 @@ DATABASE = [
     (4.6, 3.1, 1.5, 0.2, 'setosa'),
 ]
 
-TRAINING_SIZE = 80 / 100  # 80%
+TRAINING_SIZE = 60 / 100  # 60%
 
 header = DATABASE[0]
 data = DATABASE[1:]
 
-shuffle(data)
-
 pivot = int(len(data) * TRAINING_SIZE)
 
-data_training = data[:pivot]
-data_test = data[pivot:]
+X_train = data[:pivot+1]
+X_test = data[pivot:]
+
 
 print(f'Header: {header}')
-print(f'Training data: {data_training}')
-print(f'Test data: {data_test}')
+print(f'Training data: {X_train}')
+print(f'Test data: {X_test}')
