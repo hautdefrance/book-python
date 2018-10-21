@@ -300,7 +300,7 @@ Conditioning on user input
 #. Następnie sprawdzi pełnoletność i wyświetli informację czy osoba jest "dorosła" czy "niepełnoletnia"
 
 :About:
-    * Filename: ``control_input.py``
+    * Filename: ``ifelse_input.py``
     * Lines of code to write: 6 lines
     * Estimated time of completion: 5 min
 

@@ -32,14 +32,15 @@ Iterating over ``str``
 
     .. code-block:: python
 
-        for character in 'Hello':
+        for character in 'setosa':
             print(character)
 
-        # H
+        # s
         # e
-        # l
-        # l
+        # t
         # o
+        # s
+        # a
 
 Iterating simple collections
 ----------------------------
@@ -47,57 +48,76 @@ Iterating simple collections
 
     .. code-block:: python
 
-        DATA = [1, 2.5, 'Jose Jimenez']
+        DATA = [5.1, 3.5, 1.4, 0.2, 'setosa']
 
         for element in DATA:
             print(element)
 
-        # 1
-        # 2.5
-        # 'Jose Jimenez'
+        # 5.1
+        # 3.5
+        # 1.4
+        # 0.2
+        # 'setosa'
 
 * Iterating over ``tuple``:
 
     .. code-block:: python
 
-        DATA = (1, 2.5, 'Jose Jimenez')
+        DATA = (5.1, 3.5, 1.4, 0.2, 'setosa')
 
         for element in DATA:
             print(element)
 
-        # 1
-        # 2.5
-        # 'Jose Jimenez'
+        # 5.1
+        # 3.5
+        # 1.4
+        # 0.2
+        # 'setosa'
+
+* Iterating over ``set``:
+
+    .. code-block:: python
+
+        DATA = {5.1, 3.5, 1.4, 0.2, 'setosa'}
+
+        for element in DATA:
+            print(element)
+
+        # 5.1
+        # 3.5
+        # 1.4
+        # 0.2
+        # 'setosa'
 
 * ``range(0, 5)`` will generate ``(0, 1, 2, 3, 4)``
 
     .. code-block:: python
 
         for number in range(0, 5):
-            print(f'Value is: {number}')
+            print(number)
 
-        # Value is: 0
-        # Value is: 1
-        # Value is: 2
-        # Value is: 3
-        # Value is: 4
+        # 0
+        # 1
+        # 2
+        # 3
+        # 4
 
 Iterating over nested ``list`` items
 ------------------------------------
 .. code-block:: python
 
     DATA = [
-        ('a', 0),
-        ('b', 1),
-        ('c', 2),
+        (5.1, 3.5, 1.4, 0.2, 'setosa'),
+        (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+        (6.3, 2.9, 5.6, 1.8, 'virginica'),
     ]
 
     for element in DATA:
         print(element)
 
-    # ('a', 0)
-    # ('b', 1)
-    # ('c', 2)
+    # (5.1, 3.5, 1.4, 0.2, 'setosa')
+    # (5.7, 2.8, 4.1, 1.3, 'versicolor')
+    # (6.3, 2.9, 5.6, 1.8, 'virginica')
 
 .. code-block:: python
 
@@ -139,23 +159,33 @@ Iterating over nested ``list`` items
 ---------------
 .. code-block:: python
 
-    DATA = ['a', 'b', 'c']
+    DATA = [
+        (5.1, 3.5, 1.4, 0.2, 'setosa'),
+        (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+        (6.3, 2.9, 5.6, 1.8, 'virginica'),
+    ]
 
     for element in DATA:
         print(element)
-    # a
-    # b
-    # c
+
+    # (5.1, 3.5, 1.4, 0.2, 'setosa')
+    # (5.7, 2.8, 4.1, 1.3, 'versicolor')
+    # (6.3, 2.9, 5.6, 1.8, 'virginica')
 
 .. code-block:: python
 
-    DATA = ['a', 'b', 'c']
+    DATA = [
+        (5.1, 3.5, 1.4, 0.2, 'setosa'),
+        (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+        (6.3, 2.9, 5.6, 1.8, 'virginica'),
+    ]
 
-    for index, element in enumerate(DATA):
-        print(index, element)
-    # 0 a
-    # 1 b
-    # 2 c
+    for i, element in enumerate(DATA):
+        print(i, element)
+
+    # 0 (5.1, 3.5, 1.4, 0.2, 'setosa')
+    # 1 (5.7, 2.8, 4.1, 1.3, 'versicolor')
+    # 2 (6.3, 2.9, 5.6, 1.8, 'virginica')
 
 
 Iterating over ``dict`` items
@@ -166,82 +196,106 @@ Iterating over ``dict`` items
     .. code-block:: python
 
         DATA = {
-            'first_name': 'José',
-            'last_name': 'Jiménez',
-            'age': 42,
+            'Sepal length': 5.1,
+            'Sepal width': 3.5,
+            'Petal length': 1.4,
+            'Petal width': 0.2,
+            'Species': 'setosa',
         }
 
         DATA.values()
-        # ['José', 'Jiménez', 42]
+        # [5.1, 3.5, 1.4, 0.2, 'setosa']
 
         for element in DATA.values():
             print(element)
 
-        # 'José'
-        # 'Jiménez'
-        # 42
+        # 5.1
+        # 3.5
+        # 1.4
+        # 0.2
+        # 'setosa'
 
 * Iterating over ``dict`` keys:
 
     .. code-block:: python
 
         DATA = {
-            'first_name': 'José',
-            'last_name': 'Jiménez',
-            'age': 42,
+            'Sepal length': 5.1,
+            'Sepal width': 3.5,
+            'Petal length': 1.4,
+            'Petal width': 0.2,
+            'Species': 'setosa',
         }
 
-        my_dict.keys()
-        # ['first_name', 'last_name', 'age']
+        DATA.keys()
+        # ['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
 
         for element in DATA.keys():
             print(element)
 
-        # 'first_name'
-        # 'last_name'
-        # 'age'
+        # 'Sepal length'
+        # 'Sepal width'
+        # 'Petal length'
+        # 'Petal width'
+        # 'Species'
 
 * By default ``dict`` iterates over keys:
 
     .. code-block:: python
 
         DATA = {
-            'first_name': 'José',
-            'last_name': 'Jiménez',
-            'age': 42,
+            'Sepal length': 5.1,
+            'Sepal width': 3.5,
+            'Petal length': 1.4,
+            'Petal width': 0.2,
+            'Species': 'setosa',
         }
 
-        for element in DATA:
+        DATA.keys()
+        # ['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
+
+        for element in DATA.keys():
             print(element)
 
-        # 'first_name'
-        # 'last_name'
-        # 'age'
+        # 'Sepal length'
+        # 'Sepal width'
+        # 'Petal length'
+        # 'Petal width'
+        # 'Species'
 
 * Getting pair: ``key``, ``value`` from ``dict`` items:
 
     .. code-block:: python
 
         DATA = {
-            'first_name': 'José',
-            'last_name': 'Jiménez',
-            'age': 42,
+            'Sepal length': 5.1,
+            'Sepal width': 3.5,
+            'Petal length': 1.4,
+            'Petal width': 0.2,
+            'Species': 'setosa',
         }
 
         DATA.items()
-        # [('first_name', 'José'), ('last_name', 'Jiménez'), ('age', 42)]
+        # [
+        #   ('Sepal length', 5.1),
+        #   ('Sepal width', 3.5),
+        #   ('Petal length', 1.4),
+        #   ('Petal width', 0.2),
+        #   ('Species', 'setosa')
+        # ]
+
 
         for key, value in DATA.items():
-            print(f'key: "{key}", value: "{value}"')
+            print(f'{key} -> {value}')
 
-        # key: "first_name", value: "José"
-        # key: "last_name",  value: "Jiménez"
-        # key: "age",        value: "42"
+        # Sepal length -> 5.1
+        # Sepal width -> 3.5
+        # Petal length -> 1.4
+        # Petal width -> 0.2
+        # Species -> setosa
 
 Iterating complex types
 -----------------------
-* flatmap
-
 .. code-block:: python
 
     DATA = ['Max', ('1.0', 'José'), 3, 2.8, {True, None, False}]
@@ -316,7 +370,7 @@ Text manipulation
 
     * zdań
     * słów
-    * znaków (łącznie ze spacjami wewnątrz zdań)
+    * znaków (łącznie ze spacjami wewnątrz zdań, ale bez kropek)
 
 :About:
     * Filename: ``loop_sentences.py``
@@ -327,6 +381,7 @@ Text manipulation
     * Dzielenie stringów
     * Sprawdzanie długości ciągów znaków
     * Iterowanie po elementach listy
+    * Nazywanie zmiennych
 
 Unique keys from schema-less database
 -------------------------------------

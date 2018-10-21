@@ -151,7 +151,7 @@ Design Patterns
     generator/index.rst
     iterator/index.rst
     context-manager/index.rst
-    descriptor/index.rst
+    object-oriented-programming/descriptor.rst
     decorator/index.rst
     design-patterns/index.rst
 
