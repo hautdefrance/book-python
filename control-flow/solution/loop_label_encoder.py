@@ -32,13 +32,14 @@ data = DATABASE[1:]
 
 
 for record in data:
+    measurements = record[:4]
     name = record[4]
-    features.append(record[:4])
 
     if name not in species.keys():
         # dict[key] = value
         species[name] = len(species)
 
+    features.append(measurements)
     labels.append(species[name])
 
 species = {value: key for key, value in species.items()}
@@ -58,10 +59,8 @@ print(features)
 
 
 ## Alternative solution 1
-species = set(x[-1] for x in data)
-indexes = range(0, len(species))
-d = zip(species, indexes)
-d = dict(d)
+s = set(x[-1] for x in DATABASE[1:])
+species = dict(zip(s, range(0, len(s))))
 
 ## In numerical analysis you can find this
-species = dict(enumerate(set(x[-1] for x in data)))
+species = dict(enumerate(set(x[-1] for x in DATABASE[1:])))

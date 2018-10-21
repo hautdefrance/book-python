@@ -19,47 +19,50 @@ Traditional
 
     # numbers = [10, 11, 12, 13, 14]
 
-Comprehensions
---------------
+List Comprehension
+------------------
 .. code-block:: python
 
-    numbers = [x for x in range(0, 5)]
-    # list [10, 11, 12, 13, 14]
+    numbers = [x+10 for x in range(0, 5)]
+    # [10, 11, 12, 13, 14]
 
-
-Inline ``for`` not only for ``list``
-====================================
-
-``set()``
----------
+Set Comprahension
+-----------------
 .. code-block:: python
 
-    {x+10 for x in range(0, 5)}
-    # set {10, 11, 12, 13, 14}
+    numbers = {x+10 for x in range(0, 5)}
+    # {10, 11, 12, 13, 14}
 
-``dict()``
-----------
+Dict Comprahension
+------------------
 .. code-block:: python
 
     {x: x+10 for x in range(0, 5)}
-    # dict {0:10, 1:11, 2:12, 3:13, 4:14}
+    # {0:10, 1:11, 2:12, 3:13, 4:14}
 
-    {x+10: x for x in range(0, 5)}
-    # dict {10:0, 11:1, 12:2, 13:3, 14:4}
-
-    {x+10: x+10 for x in range(0, 5)}
-    # dict {10:10, 11:11, 12:12, 13:13, 14:14}
-
-``tuple()``
------------
 .. code-block:: python
 
-    (x for x in range(0, 10))
+    {x+10: x for x in range(0, 5)}
+    # {10:0, 11:1, 12:2, 13:3, 14:4}
+
+.. code-block:: python
+
+    {x+10: x+10 for x in range(0, 5)}
+    # {10:10, 11:11, 12:12, 13:13, 14:14}
+
+Tuple comprahension?!
+---------------------
+* It is a generator
+* More in chapter :ref:`Generators and Comprehensions`
+
+.. code-block:: python
+
+    (x+10 for x in range(0, 5))
     # <generator object <genexpr> at 0x11eaef570>
 
 
-Conditional loop
-================
+Conditional Comprehension
+=========================
 
 Traditional
 -----------
@@ -91,7 +94,7 @@ Filtering results
 -----------------
 .. code-block:: python
 
-    DATABASE = [
+    DATA = [
         ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
         (5.8, 2.7, 5.1, 1.9, 'virginica'),
         (5.1, 3.5, 1.4, 0.2, 'setosa'),
@@ -109,8 +112,39 @@ Filtering results
     #   (4.7, 3.2, 1.3, 0.2, 'setosa')
     # ]
 
-Applying function to element
-----------------------------
+Filtering with complex expressions
+----------------------------------
+.. code-block:: python
+
+    DATA = [
+        ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+        (5.8, 2.7, 5.1, 1.9, 'virginica'),
+        (5.1, 3.5, 1.4, 0.2, 'setosa'),
+        (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+        (6.3, 2.9, 5.6, 1.8, 'virginica'),
+        (6.4, 3.2, 4.5, 1.5, 'versicolor'),
+        (4.7, 3.2, 1.3, 0.2, 'setosa'),
+        (7.0, 3.2, 4.7, 1.4, 'versicolor'),
+    ]
+
+
+    def is_setosa(record):
+        if record[-1] == 'setosa':
+            return True
+        else:
+            return False
+
+
+    output = [x for x in DATA if is_setosa(x)]
+
+    print(output)
+    # [
+    #   (5.1, 3.5, 1.4, 0.2, 'setosa'),
+    #   (4.7, 3.2, 1.3, 0.2, 'setosa')
+    # ]
+
+Applying function to each output element
+----------------------------------------
 .. code-block:: python
 
     [float(x) for x in range(0, 10)]
@@ -119,23 +153,12 @@ Applying function to element
 
     [float(x) for x in range(0, 10) if x % 2 == 0]
 
-.. code-block:: python
-
-    def is_even(number):
-        if number % 2 == 0:
-            return True
-        else:
-            return False
-
-    output = [float(x) for x in range(0, 10) if is_even(x)]
-
-    print(output)
-    # [0.0, 2.0, 4.0, 6.0, 8.0]
-
+Returning nested objects
+------------------------
 .. code-block:: python
 
     def get_tuple(number):
-        return (number, number+10)
+        return number, number+10
 
     output = [get_tuple(x) for x in range(0, 5)]
 
@@ -167,25 +190,31 @@ Applying function to element
     #    {'number': 4, 'status': 'even'},
     # ]
 
-
-Examples
-========
-
 Reversing ``dict`` keys with values
 -----------------------------------
 .. code-block:: python
 
     my_dict = {'x': 1, 'y': 2}
 
+    my_dict.items()
+    # [
+    #    ('x', 1),
+    #    ('y', 2),
+    # ]
+
+.. code-block:: python
+
+    my_dict = {'x': 1, 'y': 2}
+
     {value: key for key, value in my_dict.items()}
-    # dict {1:'x', 2:'y'}
+    # {1:'x', 2:'y'}
 
 .. code-block:: python
 
     my_dict = {'x': 1, 'y': 2}
 
     {v:k for k,v in my_dict.items()}
-    # dict {1:'x', 2:'y'}
+    # {1:'x', 2:'y'}
 
 Quick parsing lines
 -------------------
@@ -204,13 +233,14 @@ Quick parsing lines
 .. code-block:: python
 
     line = 'jose:x:1000:1000:José Jiménez:/home/jose:/bin/bash'
-    output = [x for x in line.split(':') if x.startswith('/')]
+    paths = [x for x in line.split(':') if x.startswith('/')]
 
-    print(output)
+    print(paths)
     # ['/home/jose', '/bin/bash']
 
+
 Advanced usage for Comprehensions and Generators
-------------------------------------------------
+================================================
 .. note:: More in chapter :ref:`Generators and Comprehensions`
 
 

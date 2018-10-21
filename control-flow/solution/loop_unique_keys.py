@@ -11,4 +11,30 @@ unique_keys = set()
 for row in DATABASE:
     unique_keys.update(row.keys())
 
-print(unique_keys)
+
+
+unique_keys = set()
+
+for row in DATABASE:
+    for key in row.keys():
+        unique_keys.add(key)
+
+
+
+all_keys = list()
+
+for row in DATABASE:
+    for key in row.keys():
+        all_keys.append(key)
+
+unique_keys = set(all_keys)
+
+
+
+unique_keys = list()
+
+for row in DATABASE:
+    for key in row.keys():
+        if key not in unique_keys:
+            unique_keys.append(key)
+
