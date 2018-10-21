@@ -2,7 +2,7 @@ TEXT = 'We choose to go to the Moon. We choose to go to the Moon in this decade 
 
 SENTENCES = TEXT.split('.')
 
-result = list()
+result = dict()
 total_words = 0
 total_sentences = 0
 total_chars = 0
@@ -13,10 +13,7 @@ for sentence in SENTENCES:
     words_in_sentence = sentence.split(' ')
     word_count = len(words_in_sentence)
 
-    # {key: value}
-    # {sentence: word_count}
-    result.append({sentence: word_count})
-
+    result[sentence] = word_count
     total_words += word_count
     total_sentences += 1
     total_chars += len(sentence)

@@ -39,13 +39,13 @@ Control Flow
     :numbered:
     :caption: Control Flow
 
-    control-flow/index.rst
-    operators/index.rst
-    loop/loops.rst
-    loop/keywords.rst
-    loop/comprehensions.rst
+    control-flow/if-else.rst
+    control-flow/operators.rst
+    control-flow/loops.rst
+    control-flow/keywords.rst
+    control-flow/comprehensions.rst
     functions/basic.rst
-    exceptions/index.rst
+    control-flow/exceptions.rst
     file/index.rst
     exam/basic.rst
 
