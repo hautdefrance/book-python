@@ -1,6 +1,7 @@
 ## Private
 _config/
 _database/
+_tmp/
 __notepad__.py
 __notepad__.ipynb
 

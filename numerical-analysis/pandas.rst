@@ -3,6 +3,7 @@ Pandas
 ******
 
 .. todo:: convert tables to CSV
+.. todo:: https://www.shanelynn.ie/summarising-aggregation-and-grouping-data-in-python-pandas/
 
 
 Pandas is a Python package providing fast, flexible, and expressive data structures designed to make working with "relational" or "labeled" data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real world data analysis in Python. Additionally, it has the broader goal of becoming the most powerful and flexible open source data analysis / manipulation tool available in any language. It is already well on its way toward this goal. Here are just a few of the things that pandas does well:
@@ -707,6 +708,33 @@ Scatter matrix
     :align: center
 
     Vizualization using density
+
+Descriptive statistics
+======================
+.. csv-table:: Descriptive statistics
+    :header-rows: 1
+
+    Function, Description
+    count, Number of non-null observations
+    sum, Sum of values
+    mean, Mean of values
+    mad, Mean absolute deviation
+    median, Arithmetic median of values
+    min, Minimum
+    max, Maximum
+    mode, Mode
+    abs, Absolute Value
+    prod, Product of values
+    std, Unbiased standard deviation
+    var, Unbiased variance
+    sem, Unbiased standard error of the mean
+    skew, Unbiased skewness (3rd moment)
+    kurt, Unbiased kurtosis (4th moment)
+    quantile, Sample quantile (value at %)
+    cumsum, Cumulative sum
+    cumprod, Cumulative product
+    cummax, Cumulative maximum
+    cummin, Cumulative minimum
 
 
 Practical Example
