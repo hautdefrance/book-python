@@ -228,6 +228,14 @@ Return the population standard deviation (the square root of the population vari
 
 Moduł ``matplotlib`` pozwala na rysowanie wykresów i diagramów. Jest to bardzo rozbudowana biblioteka z setkami opcji konfiguracyjnych. Najczęściej używanym modułem biblioteki ``matplotlib`` jest moduł ``pyplot``, który implementuje szereg funkcji umożliwiających rysowanie wykresów 2d.
 
+``Matplotlib`` and ``Jupyter``
+------------------------------
+* To display ``matplotlib`` figures inline, you have run at least once per kernel run:
+
+    .. code-block:: text
+
+        %matplotlib inline
+
 Points
 ------
 .. figure:: img/matplotlib-01.png

@@ -15,13 +15,13 @@ def matrix_multiplication(A, B):
     B_rows = len(B)
     B_columns = len(B[0])
 
-    for i in range(0, A_rows):
+    for i in range(A_rows):
         row = []
 
-        for j in range(0, B_columns):
+        for j in range(B_columns):
             total = 0
 
-            for k in range(0, B_rows):
+            for k in range(B_rows):
                 total += A[i][k] * B[k][j]
 
             row.append(total)
