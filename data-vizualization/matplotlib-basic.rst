@@ -802,7 +802,7 @@ Trigonometry
 
 Iris scatter
 ------------
-* https://raw.githubusercontent.com/AstroMatt/book-python/master/data-vizualization/data/iris.csv
+#. https://raw.githubusercontent.com/AstroMatt/book-python/master/data-vizualization/data/iris.csv
 #. Z podanego powyżej adresu URL pobierz dane
 #. Dla każdego gatunku
 #. Dane stosunku ``sepal_length`` do ``sepal_width`` zwizualizuj w formie ``scatter`` za pomocą ``matplotlib``

@@ -9,7 +9,7 @@ General operators
 =================
 .. csv-table:: Universal operators
     :header-rows: 1
-    :widths: 25, 75
+    :widths: 15, 25, 60
     :file: data/operators-general.csv
 
 

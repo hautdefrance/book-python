@@ -131,8 +131,7 @@ Now let's remake the above plot to see how it looks:
     :scale: 75%
     :align: center
 
-    The style controls many things, such as color, linewidths, backgrounds,
-etc.
+    The style controls many things, such as color, linewidths, backgrounds, etc.
 
 
 Customizing the plot
@@ -338,7 +337,7 @@ Assignment
 
 Iris transformations
 --------------------
-* https://raw.githubusercontent.com/AstroMatt/book-python/master/data-vizualization/data/iris.csv
+#. https://raw.githubusercontent.com/AstroMatt/book-python/master/data-vizualization/data/iris.csv
 #. Opracuj podobny wykres dla danych Irysów
 #. Weź pod uwagę jedynie ``sepal_length`` oraz ``species``
 #. Species ma być w osi ``y``

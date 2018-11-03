@@ -87,6 +87,7 @@ Basic OOP
     :caption: Basic OOP
 
     object-oriented-programming/basic.rst
+    object-oriented-programming/medium.rst
     object-oriented-programming/dataclass.rst
     object-oriented-programming/operator-overload.rst
 
@@ -202,7 +203,6 @@ Data Vizualization
     data-vizualization/matplotlib-charts.rst
     data-vizualization/matplotlib-lifecycle.rst
     data-vizualization/matplotlib-example.rst
-    data-vizualization/charts.rst
     data-vizualization/plotly.rst
     data-vizualization/bokeh.rst
     data-vizualization/seaborn.rst

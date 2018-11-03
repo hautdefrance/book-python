@@ -193,14 +193,14 @@ DataFrame jest obiektem dwuwymiarowym, który w obsłudze przypomina tabelę. Ka
                          'E' : pd.Categorical(["test", "train", "test", "train"]),
                          'F' : 'foo' })
 
-.. csv-table::
+.. csv-table:: DataFrame
     :header-rows: 1
 
     "", "A", "B", "C", "D", "E", "F"
     "0", "1.0", "2013-01-02", "1.0", "3", "test", "foo"
-    "1", "1.0", "2013-01-02", "1.0", "3", "train", "foo
-    "2", "1.0", "2013-01-02", "1.0", "3", "test", "foo
-    "3", "1.0", "2013-01-02", "1.0", "3", "train", "foo
+    "1", "1.0", "2013-01-02", "1.0", "3", "train", "foo"
+    "2", "1.0", "2013-01-02", "1.0", "3", "test", "foo"
+    "3", "1.0", "2013-01-02", "1.0", "3", "train", "foo"
 
 .. code-block:: python
 
