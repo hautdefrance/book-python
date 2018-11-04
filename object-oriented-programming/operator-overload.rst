@@ -28,18 +28,20 @@ Example usage of operator Overload
 
     vector1 = Vector(x=1, y=2)
     vector2 = Vector(x=3, y=4)
-    suma = vector1 + vector2
+    vector3 = Vector(x=5, y=6)
 
+    suma = vector1 + vector2
     print(suma)
     # Vector(x=4, y=6)
 
 
-    vector3 = Vector(x=5, y=6)
-    vector4 = Vector(x=7, y=8)
-    suma = vector1 + vector2 + vector3 + vector4
-
+    suma = vector1 + vector2 + vector3
     print(suma)
-    # Vector(x=16, y=20)
+    # Vector(x=9, y=12)
+
+
+    suma = vector1 - vector2
+    # TypeError: unsupported operand type(s) for +=: 'NoneType' and 'Address'
 
 
 .. code-block:: python
@@ -194,8 +196,8 @@ Address Book
     #       {'location': 'KSC'}
     # ]}
 
-    if Address(location='Bajkonur') in contact:
+    if Address(location='Houston') in contact:
         print(True)
     else:
         print(False)
-    # False
+    # True
