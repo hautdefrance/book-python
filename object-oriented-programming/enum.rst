@@ -28,3 +28,7 @@ Case Study
 .. literalinclude:: src/enum-example.py
     :language: python
     :caption: ``enum`` - Example usage
+
+
+Assignments
+===========
