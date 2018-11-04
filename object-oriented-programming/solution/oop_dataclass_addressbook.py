@@ -1,4 +1,3 @@
-from pprint import pprint
 from dataclasses import dataclass
 
 
@@ -19,9 +18,6 @@ class Contact:
 class AddressBook:
     contacts: list
 
-    def __str__(self):
-        return str(self.contacts)
-
 
 addresses = AddressBook(contacts=[
     Contact(first_name='José', last_name='Jiménez'),
@@ -33,6 +29,3 @@ addresses = AddressBook(contacts=[
         Address(street='2825 E Ave P', city='Palmdale'),
     ])
 ])
-
-
-pprint(addresses)

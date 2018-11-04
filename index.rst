@@ -87,9 +87,9 @@ Object Oriented Programming
     :caption: Object Oriented Programming
 
     object-oriented-programming/basic.rst
-    object-oriented-programming/enum.rst
     object-oriented-programming/intermediate.rst
     object-oriented-programming/dataclass.rst
+    object-oriented-programming/enum.rst
     object-oriented-programming/operator-overload.rst
 
 *******************

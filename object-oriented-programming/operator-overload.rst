@@ -66,6 +66,18 @@ Numerical Operator Overload
     "``__pow__()``", "``pow(a)``"
     "``__round__()``", "``round(a)``, or ``round(a, x)``, where ``x`` is ndigits presision"
 
+Example
+-------
+.. code-block:: python
+
+    7 % 2               # 1
+    'My number' % 2     # TypeError: not all arguments converted during string formatting
+    'My number %s' % 2  # My number 2
+    'My number %d' % 2  # My number 2
+    'My number %f' % 2  # My number 2.0
+
+.. warning:: ``%s``, ``%d``, ``%f`` is currently deprecated in favor of ``f'...'`` string formatting
+.. note:: The topic will be continued in :ref:`Print Formatting` chapter
 
 Logical Operator Overload
 =========================
@@ -125,6 +137,17 @@ Accessors Overload
     "``__contains__()``", "``a in b``"
     "``__missing__()``", "``a[b]`` when ``b`` is not in ``a``"
 
+Example
+-------
+.. code-block:: python
+
+    import numpy as np
+
+    a = np.array([[1, 2, 3],
+                  [4, 5, 6]])
+
+    a[1][2]  # 6
+    a[1,2]   # 6
 
 Assignment
 ==========
