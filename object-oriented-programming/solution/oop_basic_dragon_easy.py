@@ -1,8 +1,7 @@
-from enum import Enum
 from random import randint
 
 
-class Status(Enum):
+class Status:
     DEAD = 'dead'
     ALIVE = 'alive'
 
@@ -38,7 +37,10 @@ class Dragon:
         return self.position_x, self.position_y
 
     def make_damage(self):
-        return randint(self.DMG_MIN, self.DMG_MAX)
+        if self.is_dead():
+            return None
+        else:
+            return randint(self.DMG_MIN, self.DMG_MAX)
 
     def _make_drop(self):
         print(f'Dropped {self.gold}')
@@ -50,6 +52,12 @@ class Dragon:
         self._make_drop()
         print('Dragon is dead')
         print(f'Position: {self.get_position()}')
+
+    def set_status(self):
+        if self.hit_points <= 0:
+            self.status = Status.DEAD
+        else:
+            self.status = Status.ALIVE
 
     def is_alive(self):
         if self.status != Status.DEAD:
@@ -66,13 +74,14 @@ class Dragon:
     def take_damage(self, damage):
         if self.is_dead():
             return None
-        else:
-            self.hit_points -= damage
 
-            if self.hit_points > 0:
-                print(f'{self.name}, DMG: {damage}, HP: {self.hit_points}')
-            else:
-                self._make_dead()
+        self.hit_points -= damage
+        self.set_status()
+
+        if self.is_alive():
+            print(f'{self.name}, took DMG: {damage}, current HP: {self.hit_points}')
+        else:
+            self._make_dead()
 
 
 # Do not modify anything below!

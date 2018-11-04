@@ -1,12 +1,12 @@
 from enum import Enum
-
 from oop_basic_dragon_easy import Dragon, Status
 
 
-Status.FULL_HEALTH = 'Pełnia życia'
-Status.LIGHT_WOUNDED = 'Lekko Ranny'
-Status.SERIOUSLY_WOUNDED = 'Poważnie ranny'
-Status.NEAR_DEAD = 'Na skraju śmierci'
+class Status(Status):
+    FULL_HEALTH = 'Pełnia życia'
+    LIGHT_WOUNDED = 'Lekko Ranny'
+    SERIOUSLY_WOUNDED = 'Poważnie ranny'
+    NEAR_DEAD = 'Na skraju śmierci'
 
 
 class Config:
@@ -41,29 +41,11 @@ class Character(Dragon):
         else:
             self.status = Status.DEAD
 
-    def make_damage(self):
-        if self.is_dead():
-            return 0
-        else:
-            return super().make_damage()
-
     def _make_dead(self):
         self.texture = self.TEXTURE_DEAD
         self._make_drop()
         print(f'{self.name} is dead')
         print(f'Position: {self.get_position()}')
-
-    def take_damage(self, damage):
-        if self.is_dead():
-            return None
-
-        self.hit_points -= damage
-        self.set_status()
-
-        if self.is_alive():
-            print(f'{self.name}, DMG: {damage}, HP: {self.hit_points}')
-        else:
-            self._make_dead()
 
     def within_boundaries(self, value, min, max):
         if value > max:
@@ -128,8 +110,9 @@ while wawelski.is_alive() and jose.is_alive():
     dmg = wawelski.make_damage()
     jose.take_damage(dmg)
 
-    dmg = jose.make_damage()
-    wawelski.take_damage(dmg)
+    if jose.is_alive():
+        dmg = jose.make_damage()
+        wawelski.take_damage(dmg)
 
     if wawelski.is_dead():
         jose.gold += wawelski.gold
