@@ -33,6 +33,15 @@ Example usage of operator Overload
     print(suma)
     # Vector(x=4, y=6)
 
+
+    vector3 = Vector(x=5, y=6)
+    vector4 = Vector(x=7, y=8)
+    suma = vector1 + vector2 + vector3 + vector4
+
+    print(suma)
+    # Vector(x=16, y=20)
+
+
 .. code-block:: python
 
     import math
@@ -148,6 +157,7 @@ Example
 
     a[1][2]  # 6
     a[1,2]   # 6
+
 
 Assignment
 ==========
