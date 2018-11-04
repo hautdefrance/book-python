@@ -47,21 +47,22 @@ species = {
     2: 'versicolor'
 }
 
+data = []
+
+for line in DATA:
+    record = line.split(',')
+    data.append({
+        'datetime': datetime.now(tz=timezone.utc),
+        'sepal_length': record[0],
+        'sepal_width': record[1],
+        'petal_length': record[2],
+        'petal_width': record[3],
+        'species': species[int(record[4])],
+    })
+
+
 with sqlite3.connect(':memory:') as db:
     db.execute(SQL_CREATE_TABLE)
-    data = []
-
-    for line in DATA:
-        record = line.split(',')
-        data.append({
-            'datetime': datetime.now(tz=timezone.utc),
-            'sepal_length': record[0],
-            'sepal_width': record[1],
-            'petal_length': record[2],
-            'petal_width': record[3],
-            'species': species[int(record[4])],
-        })
-
     db.executemany(SQL_INSERT, data)
 
     db.row_factory = sqlite3.Row

@@ -260,7 +260,7 @@ Assignments
 
 Iris Database
 -------------
-#. Pobierz dane z https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
+#. Pobierz dane z listingu :numref:`listing-db-iris-csv`
 #. Bazę pomiarów Irysów przekonwertuj na tabelę w ``sqlite3``
 #. Nazwy poszczególnych kolumn:
 
@@ -279,6 +279,11 @@ Iris Database
 #. Załóż index na ``datetime``
 #. Wyniki wypisz z bazy danych (``SELECT * FROM iris ORDER BY datetime DESC``)
 #. Zwracaj dane jako ``sqlite3.Row``
+
+.. literalinclude:: src/db-iris.csv
+    :name: listing-db-iris-csv
+    :language: python
+    :caption: Iris Database
 
 :About:
     * Filename: ``db_iris.py``
