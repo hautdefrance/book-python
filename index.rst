@@ -50,12 +50,12 @@ Control Flow
     exam/basic.rst
 
 ****************
-Standard library
+Standard Library
 ****************
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Standard library
+    :caption: Standard Library
 
     extensions/modules.rst
     builtin/index.rst
@@ -84,13 +84,26 @@ Object Oriented Programming
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Basic OOP
+    :caption: Object Oriented Programming
 
     object-oriented-programming/basic.rst
     object-oriented-programming/enum.rst
     object-oriented-programming/intermediate.rst
     object-oriented-programming/dataclass.rst
     object-oriented-programming/operator-overload.rst
+
+*******************
+Intermediate Topics
+*******************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Intermediate Topics
+
+    database/index.rst
+    regex/index.rst
+    quality-and-tests/unittest.rst
+    functions/advanced.rst
 
 ****************
 Network and HTTP
@@ -102,10 +115,6 @@ Network and HTTP
 
     serialization/json.rst
     network/http-simple.rst
-    regex/index.rst
-    database/index.rst
-    quality-and-tests/unittest.rst
-    functions/advanced.rst
     serialization/pickle.rst
     serialization/xml.rst
     network/http-advanced.rst
@@ -113,12 +122,12 @@ Network and HTTP
     exam/advanced.rst
 
 **********************************
-CI/CD, versioning and distributing
+CI/CD, Versioning and Distributing
 **********************************
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: CI/CD, versioning and distributing
+    :caption: CI/CD, Versioning and Distributing
 
     quality-and-tests/ci-cd-tools.rst
     quality-and-tests/type-annotation.rst
