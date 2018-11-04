@@ -7,10 +7,10 @@ class Status:
 
 
 class Dragon:
-    LIFE_MAX = 100
-    LIFE_MIN = 50
-    DMG_MIN = 5
-    DMG_MAX = 20
+    HIT_POINTS_MAX = 100
+    HIT_POINTS_MIN = 50
+    DAMAGE_MIN = 5
+    DAMAGE_MAX = 20
     GOLD_MIN = 1
     GOLD_MAX = 100
     TEXTURE_LIVE = 'dragon.png'
@@ -18,7 +18,7 @@ class Dragon:
 
     def __init__(self, name, position_x=0, position_y=0, texture=TEXTURE_LIVE):
         self.name = name
-        self.hit_points = randint(self.LIFE_MIN, self.LIFE_MAX)
+        self.hit_points = randint(self.HIT_POINTS_MIN, self.HIT_POINTS_MAX)
         self.status = Status.ALIVE
         self.texture = texture
         self.gold = randint(self.GOLD_MIN, self.GOLD_MAX)
@@ -40,7 +40,7 @@ class Dragon:
         if self.is_dead():
             return None
         else:
-            return randint(self.DMG_MIN, self.DMG_MAX)
+            return randint(self.DAMAGE_MIN, self.DAMAGE_MAX)
 
     def _make_drop(self):
         print(f'Dropped {self.gold} gold')

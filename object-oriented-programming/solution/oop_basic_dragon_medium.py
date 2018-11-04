@@ -73,15 +73,15 @@ class CharacterClass(Enum):
 
 
 class MediumDragon(Character):
-    LIFE_MIN = 100
-    LIFE_MAX = 150
+    HIT_POINTS_MIN = 100
+    HIT_POINTS_MAX = 150
 
 
 class Hero(Character):
-    LIFE_MIN = 200
-    LIFE_MAX = 250
-    DMG_MIN = 1
-    DMG_MAX = 15
+    HIT_POINTS_MIN = 200
+    HIT_POINTS_MAX = 250
+    DAMAGE_MIN = 1
+    DAMAGE_MAX = 15
     GOLD_MIN = 0
     GOLD_MAX = 0
     CHARACTER_CLASS = CharacterClass.WARRIOR
