@@ -124,11 +124,19 @@ INNER JOIN
     :align: center
     :scale: 100%
 
+.. literalinclude:: src/sql-join-inner.sql
+    :language: sql
+    :caption: INNER JOIN
+
 LEFT JOIN
 ---------
 .. figure:: img/sql-leftjoin.gif
     :align: center
     :scale: 100%
+
+.. literalinclude:: src/sql-join-left.sql
+    :language: sql
+    :caption: LEFT JOIN
 
 RIGHT JOIN
 ----------
@@ -136,17 +144,25 @@ RIGHT JOIN
     :align: center
     :scale: 100%
 
-FULL JOIN
----------
+.. literalinclude:: src/sql-join-right.sql
+    :language: sql
+    :caption: RIGHT JOIN
+
+FULL OUTER JOIN
+---------------
 .. figure:: img/sql-fulljoin.gif
     :align: center
     :scale: 100%
 
-JOIN
-----
-.. literalinclude:: src/sql-join.sql
+.. literalinclude:: src/sql-join-full.sql
     :language: sql
-    :caption: JOIN
+    :caption: FULL OUTER JOIN
+
+SELF JOIN
+---------
+.. literalinclude:: src/sql-join-self.sql
+    :language: sql
+    :caption: SELF JOIN
 
 TRUNCATE
 ========
