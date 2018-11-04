@@ -8,8 +8,9 @@ class Astronaut:
 ivan = Astronaut(first_name='Иван', last_name='Иванович', agency='Roscosmos')
 jose = Astronaut(first_name='José', last_name='Jiménez')
 
-print(ivan.first_name)  # Иван
-print(jose.last_name)   # Jiménez
 
-print(jose.__dict__)    # {'first_name': 'José', 'last_name': 'Jiménez', 'agency': 'NASA'}
-print(ivan.__dict__)    # {'first_name': 'Иван', 'last_name': 'Иванович', 'agency': 'Roscosmos'}
+print(ivan.first_name)  # Иван
+print(ivan.last_name)   # Иванович
+
+print(jose.first_name)  # José
+print(jose.last_name)   # Jiménez

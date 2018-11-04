@@ -233,8 +233,7 @@ Assignments
 
 Iris Database
 -------------
-* https://raw.githubusercontent.com/scikit-learn/scikit-learn/master/sklearn/datasets/data/iris.csv
-
+#. Pobierz dane z https://raw.githubusercontent.com/scikit-learn/scikit-learn/master/sklearn/datasets/data/iris.csv
 #. Bazę pomiarów Irysów przekonwertuj na tabelę w ``sqlite3``
 #. Nazwy poszczególnych kolumn:
 
@@ -271,7 +270,7 @@ Iris Database
 
 Tworzenie bazy danych i proste zapytania
 ----------------------------------------
-#. Wykorzystaj kod z listingu :numref:`listing-db-assignment-addressbook-sql` oraz :numref:`listing-db-assignment-addressbook-py`
+#. Wykorzystaj kod z listingu :numref:`listing-db-addressbook-sql` oraz :numref:`listing-db-addressbook-txt`
 #. Nie wykorzystuj relacji, a dane adresowe zapisz zserializowane i rozdzielone średnikami ``;``
 #. Wykorzystaj ``cursor`` oraz połączenia jako context manager (``with``)
 #. Dane powinny być zwracane w postaci listy ``dict``
@@ -286,12 +285,12 @@ Tworzenie bazy danych i proste zapytania
     * Dodaj obsługę wielu adresów
     * Dodaj obsługę relacji w aplikacji
 
-.. literalinclude:: src/db-assignment-addressbook.sql
-    :name: listing-db-assignment-addressbook-sql
+.. literalinclude:: src/db-addressbook.sql
+    :name: listing-db-addressbook-sql
     :language: python
     :caption: Address Book SQL queries
 
-.. literalinclude:: src/db-assignment-addressbook.py
-    :name: listing-db-assignment-addressbook-py
-    :language: python
-    :caption: Address Book
+.. literalinclude:: src/db-addressbook.txt
+    :name: listing-db-assignment-addressbook-txt
+    :language: text
+    :caption: Address Book data

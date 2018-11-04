@@ -8,6 +8,10 @@ Object Oriented Programming
 Object Paradigm
 ===============
 * Odwzorowanie świata na obiekty i relacje między nimi
+* Class
+* Objects, Instances
+* Fields, Properties, Attributes
+* Methods
 
 
 Classes
@@ -21,6 +25,7 @@ Classes
 
 Classes vs Objects
 ==================
+* Objects, Instances
 * ``snake_case`` names
 
 .. literalinclude:: src/oop-objects.py
@@ -30,6 +35,7 @@ Classes vs Objects
 
 Fields
 ======
+* Fields, Properties, Attributes
 * ``snake_case`` names
 * Require ``__init__()``
 
@@ -40,6 +46,7 @@ Fields
 
 Methods
 =======
+* Functions in the class
 
 ``__init__()`` - Initializer Method
 -----------------------------------
@@ -85,9 +92,8 @@ Assignments
 Basic Address Book
 ------------------
 #. Dla danych z :numref:`listing-oop-addressbook-data` napisz książkę adresową
-#. Wszystkie dane w książce muszą być reprezentowane przez klasy.
-#. Klasy powinny wykorzystywać domyślne argumenty w ``__init__``.
-#. Użytkownik może mieć wiele adresów.
+#. Wszystkie dane w książce muszą być reprezentowane przez klasy
+#. Użytkownik może mieć wiele adresów
 #. Użytkownik może nie mieć żadnego adresu
 
 :About:
@@ -109,7 +115,7 @@ Basic Address Book
 Address Book from API
 ---------------------
 #. Dla danych z listingu
-#. API programu powinno być tak jak na :numref:`listing-oop-addressbook-code`
+#. API programu powinno być tak jak na :numref:`listing-oop-addressbook-py`
 #. Zrób tak, aby się ładnie wyświetlało zarówno dla jednego wyniku jak i dla wszystkich w książce
 #. ``Address`` ma mieć zmienną liczbę argumentów
 #. Jeżeli argument jest różny od ``None`` powinien być dynamicznie ustawiony (``setattr()``).
@@ -125,7 +131,7 @@ Address Book from API
     * Dynamiczne tworzenie pól w obiekcie
 
 .. literalinclude:: src/oop_addressbook.py
-    :name: listing-oop-addressbook-code
+    :name: listing-oop-addressbook-py
     :language: python
     :caption: Address Book
 

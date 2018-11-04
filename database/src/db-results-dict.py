@@ -8,7 +8,7 @@ SQL_CREATE_TABLE = """
         firstname TEXT,
         lastname TEXT)"""
 SQL_INSERT = 'INSERT INTO astronauts VALUES (NULL, :pesel, :firstname, :lastname)'
-SQL_SELECT = 'SELECT * from astronauts'
+SQL_SELECT = 'SELECT * FROM astronauts'
 
 
 astronauts = [
