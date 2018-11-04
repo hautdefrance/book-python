@@ -4,8 +4,10 @@ CREATE TABLE astronauts (
     last_name TEXT
 );
 
+
 INSERT INTO astronauts VALUES ("José", "Jiménez");
 INSERT INTO astronauts (first_name, last_name) VALUES ("Max", "Peck");
+
 
 SELECT * FROM astronauts;
 

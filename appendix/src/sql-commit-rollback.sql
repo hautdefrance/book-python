@@ -12,6 +12,7 @@ INSERT INTO customer VALUES (3, 'Ivan Ivanovich');
 DELETE FROM customer WHERE name='Jose Jimenez';
 ROLLBACK;  -- Now we undo those last 2 inserts and the delete.
 
+
 SELECT * FROM customer;
 -- +------+--------------+
 -- | id   | name         |

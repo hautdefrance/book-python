@@ -54,6 +54,12 @@ INSERT
     :language: sql
     :caption: INSERT
 
+AUTOINCREMENT
+=============
+.. literalinclude:: src/sql-autoincrement.sql
+    :language: sql
+    :caption: Auto Increment
+
 COMMIT and ROLLBACK
 ===================
 .. literalinclude:: src/sql-commit-rollback.sql
@@ -65,12 +71,6 @@ SELECT
 .. literalinclude:: src/sql-select.sql
     :language: sql
     :caption: SELECT
-
-AUTOINCREMENT
-=============
-.. literalinclude:: src/sql-autoincrement.sql
-    :language: sql
-    :caption: Auto Increment
 
 UPDATE
 ======
