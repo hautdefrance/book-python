@@ -1,8 +1,8 @@
-.. _Object Oriented Programming:
+.. _OOP Basic:
 
-***************************
-Object Oriented Programming
-***************************
+*********
+OOP Basic
+*********
 
 
 Object Paradigm
@@ -18,10 +18,13 @@ Classes
 =======
 * ``CamelCase`` names
 
-.. literalinclude:: src/oop-class.py
+.. literalinclude:: src/oop-class-1.py
     :language: python
     :caption: Classes
 
+.. literalinclude:: src/oop-class-2.py
+    :language: python
+    :caption: Classes
 
 Classes vs Objects
 ==================

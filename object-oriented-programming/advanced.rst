@@ -1,7 +1,7 @@
-.. _Advanced OOP:
+.. _OOP Advanced:
 
 ************
-Advanced OOP
+OOP Advanced
 ************
 
 

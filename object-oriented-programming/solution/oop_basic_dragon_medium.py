@@ -34,17 +34,11 @@ class SuperDragon(Dragon):
         self.position_x = x
         self.position_y = y
 
-    def is_alive(self):
-        if self.status == Status.ALIVE:
-            return True
-        else:
-            return False
-
     def make_damage(self):
-        if self.is_dead():
-            return 0
-        else:
+        if self.is_alive():
             return super().make_damage()
+        else:
+            return 0
 
 
 class Hero:

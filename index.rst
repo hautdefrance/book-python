@@ -78,16 +78,17 @@ Good Engineering Practice
     print-formatting/index.rst
     performance/index.rst
 
-*********
-Basic OOP
-*********
+***************************
+Object Oriented Programming
+***************************
 .. toctree::
     :maxdepth: 2
     :numbered:
     :caption: Basic OOP
 
     object-oriented-programming/basic.rst
-    object-oriented-programming/medium.rst
+    object-oriented-programming/enum.rst
+    object-oriented-programming/intermediate.rst
     object-oriented-programming/dataclass.rst
     object-oriented-programming/operator-overload.rst
 

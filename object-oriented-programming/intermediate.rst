@@ -1,6 +1,7 @@
-**********
-OOP Medium
-**********
+****************
+OOP Intermediate
+****************
+
 
 Fields
 ======
@@ -54,28 +55,16 @@ Multiple Inheritance
     :language: python
     :caption: Multiple Inheritance
 
-.. note:: The topic will be continued in :ref:`Advanced OOP` chapter
-
 ``super()`` - Calling object parent
 -----------------------------------
 .. literalinclude:: src/oop-super.py
     :language: python
     :caption: Using ``super()`` on a class
 
-``Enum``
---------
-.. literalinclude:: src/oop-enum.py
-    :language: python
-    :caption: ``enum`` - Support for enumerations
-
-.. literalinclude:: src/oop-enum-example.py
-    :language: python
-    :caption: ``enum`` - Example usage
-
 
 More advanced topics
 ====================
-.. note:: The topic will be continued in :ref:`Advanced OOP` chapter
+.. note:: The topic will be continued in :ref:`OOP Advanced` chapter
 
 
 Assignments
