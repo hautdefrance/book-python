@@ -3,10 +3,10 @@ from oop_basic_dragon_easy import Dragon, Status
 
 
 class Status(Status):
-    FULL_HEALTH = 'Pełnia życia'
-    LIGHT_WOUNDED = 'Lekko Ranny'
-    SERIOUSLY_WOUNDED = 'Poważnie ranny'
-    NEAR_DEAD = 'Na skraju śmierci'
+    FULL_HEALTH = 'Full Health'
+    INJURED = 'Injured'
+    BADLY_WOUNDED = 'Badly Wounded'
+    NEAR_DEAD = 'Near Death'
 
 
 class Config:
@@ -14,10 +14,6 @@ class Config:
     BORDER_X_MIN = 0
     BORDER_Y_MAX = 768
     BORDER_Y_MIN = 0
-
-
-class CharacterClass(Enum):
-    WARRIOR = 'wojownik'
 
 
 class Character(Dragon):
@@ -33,9 +29,9 @@ class Character(Dragon):
         if procent == 100:
             self.status = Status.FULL_HEALTH
         elif 75 <= procent < 100:
-            self.status = Status.LIGHT_WOUNDED
+            self.status = Status.INJURED
         elif 25 <= procent < 75:
-            self.status = Status.SERIOUSLY_WOUNDED
+            self.status = Status.BADLY_WOUNDED
         elif 0 < procent < 25:
             self.status = Status.NEAR_DEAD
         else:
@@ -72,14 +68,18 @@ class Character(Dragon):
         super().set_position(x, y)
 
 
+class CharacterClass(Enum):
+    WARRIOR = 'Warrior'
+
+
 class MediumDragon(Character):
     LIFE_MIN = 100
     LIFE_MAX = 150
 
 
 class Hero(Character):
-    LIFE_MIN = 100
-    LIFE_MAX = 150
+    LIFE_MIN = 200
+    LIFE_MAX = 250
     DMG_MIN = 1
     DMG_MAX = 15
     GOLD_MIN = 0
@@ -87,21 +87,28 @@ class Hero(Character):
     CHARACTER_CLASS = CharacterClass.WARRIOR
 
 
-wawelski = MediumDragon(name='Wawelski')
-jose = Hero(name='Jose Jimenez')
+def run():
+    wawelski = MediumDragon(name='Wawelski')
+    jose = Hero(name='Jose Jimenez')
 
-turn = 0
+    turn = 1
 
-while wawelski.is_alive() and jose.is_alive():
-    turn += 1
-    print(f'\nTurn: {turn}')
+    while wawelski.is_alive() and jose.is_alive():
+        print(f'\nTurn: {turn}')
 
-    dmg = wawelski.make_damage()
-    jose.take_damage(dmg)
+        dmg = wawelski.make_damage()
+        jose.take_damage(dmg)
 
-    if jose.is_alive():
-        dmg = jose.make_damage()
-        wawelski.take_damage(dmg)
+        if jose.is_alive():
+            dmg = jose.make_damage()
+            wawelski.take_damage(dmg)
 
-    if wawelski.is_dead():
-        jose.gold += wawelski.gold
+        if wawelski.is_dead():
+            jose.gold += wawelski.gold
+            print(f'{jose.name} now has: {jose.gold} gold')
+
+        turn += 1
+
+
+if __name__ == '__main__':
+    run()

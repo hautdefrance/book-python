@@ -43,14 +43,14 @@ class Dragon:
             return randint(self.DMG_MIN, self.DMG_MAX)
 
     def _make_drop(self):
-        print(f'Dropped {self.gold}')
+        print(f'Dropped {self.gold} gold')
         return self.gold
 
     def _make_dead(self):
-        self.texture = self.TEXTURE_DEAD
-        self._make_drop()
         print(f'{self.name} is dead')
+        self.texture = self.TEXTURE_DEAD
         print(f'Position: {self.get_position()}')
+        self._make_drop()
 
     def set_status(self):
         if self.hit_points <= 0:
@@ -82,8 +82,6 @@ class Dragon:
         else:
             self._make_dead()
 
-
-# Do not modify anything below!
 
 def run():
     wawelski = Dragon(name='Wawelski', position_x=50, position_y=120)

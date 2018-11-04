@@ -125,7 +125,7 @@ Dragon (Easy)
 
 :About:
     * Filename: ``oop_dragon_easy.py``
-    * Lines of code to write: 40 lines
+    * Lines of code to write: 100 lines
     * Estimated time of completion: 75 min
 
 .. literalinclude:: assignment/oop_dragon.py
@@ -143,23 +143,23 @@ Dragon (Medium)
 #. Zmień smokowi punkty życia na losowy ``int`` z zakresu 100 do 150
 #. Stwórz bohatera (José Jiménez):
 
-    * losowe punkty życia (100-150)
+    * losowe punkty życia (200-250)
     * zadaje losowe obrażenia (1-15)
-    * klasa postaci (domyślnie "wojownik")
+    * klasa postaci (domyślnie "Warrior")
 
 #. Wszystkie istoty mają statusy:
 
-    * "Pełnia życia" (zastąp status "alive") - gdy punkty życia 100%
-    * "Lekko Ranny" - gdy punkty życia 99% - 75%
-    * "Poważnie ranny" - gdy punkty życia 75% - 25%
-    * "Na skraju śmierci" - gdy punkty życia poniżej 25%
+    * "Full Health" - gdy punkty życia 100% (zastąp status "alive")
+    * "Injured" - gdy punkty życia 99% - 75%
+    * "Badly Wounded" - gdy punkty życia 75% - 25%
+    * "Near Death" - gdy punkty życia poniżej 25%
 
 #. Bohater przejmuje złoto smoka, jeżeli go zabije
 #. Przeprowadź symulację walki. Kto zginie pierwszy?
 
 :About:
     * Filename: ``oop_dragon_medium.py``
-    * Lines of code to write: 100 lines
+    * Lines of code to write: 120 lines
     * Estimated time of completion: 60 min
 
 :Hint:

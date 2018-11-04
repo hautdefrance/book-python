@@ -22,3 +22,4 @@ for color in Color:
 
 my_color = Color('#00FF00')     # <Color.GREEN: '#00FF00'>
 my_color is Color.RED           # False
+my_color is Color.GREEN         # True

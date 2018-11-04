@@ -25,7 +25,15 @@ Usage
 
 Case Study
 ==========
-.. literalinclude:: src/enum-example.py
+.. literalinclude:: src/enum-example-1.py
+    :language: python
+    :caption: ``enum`` - Example usage
+
+.. literalinclude:: src/enum-example-2.py
+    :language: python
+    :caption: ``enum`` - Example usage
+
+.. literalinclude:: src/enum-example-3.py
     :language: python
     :caption: ``enum`` - Example usage
 
