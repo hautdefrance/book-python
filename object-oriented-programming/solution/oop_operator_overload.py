@@ -11,10 +11,10 @@ class Contact:
         return self
 
     def __contains__(self, item):
-        if item in self.addresses:
-            return True
-        else:
-            return False
+        for adres in self.addresses:
+            if adres == item:
+                return True
+        return False
 
 
 class Address:
