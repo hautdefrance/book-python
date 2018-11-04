@@ -11,7 +11,7 @@ ALTER TABLE table_name MODIFY COLUMN column_name datatype;
 ALTER TABLE table_name MODIFY column_name datatype;
 
 -- MySQL / SQL Server / Oracle / MS Access:
-ALTER TABLE Persons ADD PRIMARY KEY (ID);
+ALTER TABLE table_name ADD PRIMARY KEY (id);
 
 -- MySQL / SQL Server / Oracle / MS Access:
-ALTER TABLE Persons ADD CONSTRAINT PK_Person PRIMARY KEY (ID,LastName);
+ALTER TABLE table_name ADD CONSTRAINT PK_contacts PRIMARY KEY (id, last_name);

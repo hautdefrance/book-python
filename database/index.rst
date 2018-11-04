@@ -271,7 +271,6 @@ Iris Database
 Tworzenie bazy danych i proste zapytania
 ----------------------------------------
 #. Wykorzystaj kod z listingu :numref:`listing-db-addressbook-sql` oraz :numref:`listing-db-addressbook-txt`
-#. Nie wykorzystuj relacji, a dane adresowe zapisz zserializowane i rozdzielone średnikami ``;``
 #. Wykorzystaj ``cursor`` oraz połączenia jako context manager (``with``)
 #. Dane powinny być zwracane w postaci listy ``dict``
 #. Do wpisywania danych wykorzystaj konstrukcję ``execute`` wykorzystując ``dict`` jako argument
@@ -294,3 +293,16 @@ Tworzenie bazy danych i proste zapytania
     :name: listing-db-assignment-addressbook-txt
     :language: text
     :caption: Address Book data
+
+Dane w jednej tabeli
+--------------------
+#. Dane z listingu :numref:`listing-db-addressbook-txt`
+#. Jak zapisać w jednej tabeli bez wykorzystania relacji?
+#. Przeprowadź dyskusję na temat zalet i wad podejść:
+
+    - jedno pole adresy i dane rozdzielone separatorem (``;``)
+    - wiele adresów i dane rozdzielone separatorem (``;``)
+    - wiele kolumn dla każdego pola
+
+#. Które podejście jest najepsze?
+#. Które podejście jest zgodne z ACID?

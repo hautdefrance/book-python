@@ -1,27 +1,13 @@
-CREATE DATABASE databasename;
-
-
-CREATE TABLE IF NOT EXISTS kontakty (
+-- SQLite3
+CREATE TABLE contacts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name VARCHAR(20),
+    last_name VARCHAR(50),
     pesel INTEGER UNIQUE,
-    firstname TEXT,
-    lastname TEXT
-)
-
-CREATE TABLE Persons (
-    ID int NOT NULL,
-    LastName varchar(255) NOT NULL,
-    FirstName varchar(255),
-    Age int,
-    UNIQUE (ID)
+    age INTEGER
 );
 
-CREATE TABLE people (
-    id integer primary key auto increment,
-    first_name varchar(20),
-    last_name varchar(20)
-);
-
+-- SQLite3
 CREATE TABLE IF NOT EXISTS sensor_data (
     datetime DATETIME PRIMARY KEY,
     sync_datetime DATETIME DEFAULT NULL,
@@ -31,6 +17,10 @@ CREATE TABLE IF NOT EXISTS sensor_data (
     unit VARCHAR(255)
 );
 
+-- MySQL
+CREATE DATABASE astronauts;
+
+-- MySQL
 CREATE TABLE `users` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `email` varchar(255) COLLATE utf8_bin NOT NULL,
