@@ -47,10 +47,9 @@ class Dragon:
         return self.gold
 
     def _make_dead(self):
-        self.status = Status.DEAD
         self.texture = self.TEXTURE_DEAD
         self._make_drop()
-        print('Dragon is dead')
+        print(f'{self.name} is dead')
         print(f'Position: {self.get_position()}')
 
     def set_status(self):

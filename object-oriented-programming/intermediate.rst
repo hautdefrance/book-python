@@ -101,7 +101,7 @@ Dragon (Easy)
 #. Kiedy punkty życia smoka spadną do, lub poniżej zera:
 
     * ustaw status obiektu na ``dead``
-    * na ekranie ma pojawić się napis 'Dragon is dead'
+    * na ekranie ma pojawić się napis 'XXX is dead' gdzie XXX to nazwa smoka
     * zmień teksturę smoka na ``dragon-dead.png``
     * na ekranie pojawi się informacja ile złota smok wyrzucił (losowa 1-100)
     * na ekranie pojawi się informacja o pozycji gdzie smok zginął

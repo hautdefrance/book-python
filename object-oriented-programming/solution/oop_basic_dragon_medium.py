@@ -41,21 +41,6 @@ class Character(Dragon):
         else:
             self.status = Status.DEAD
 
-    def _make_dead(self):
-        self.texture = self.TEXTURE_DEAD
-        self._make_drop()
-        print(f'{self.name} is dead')
-        print(f'Position: {self.get_position()}')
-
-    def within_boundaries(self, value, min, max):
-        if value > max:
-            return max
-
-        if value < min:
-            return min
-
-        return value
-
     def set_position(self, x, y):
         """
         >>> wawelski = MediumDragon(name='Red', position_x=0, position_y=0)
@@ -72,15 +57,19 @@ class Character(Dragon):
         >>> wawelski.get_position()
         (0, 0)
         """
-        self.position_x = self.within_boundaries(
-            value=x,
-            min=Config.BORDER_X_MIN,
-            max=Config.BORDER_X_MAX)
+        if x > Config.BORDER_X_MAX:
+            x = Config.BORDER_X_MAX
 
-        self.position_y = self.within_boundaries(
-            value=y,
-            min=Config.BORDER_Y_MIN,
-            max=Config.BORDER_Y_MAX)
+        if x < Config.BORDER_X_MIN:
+            x = Config.BORDER_X_MIN
+
+        if y > Config.BORDER_Y_MAX:
+            y = Config.BORDER_Y_MAX
+
+        if y < Config.BORDER_Y_MIN:
+            y = Config.BORDER_Y_MIN
+
+        super().set_position(x, y)
 
 
 class MediumDragon(Character):
