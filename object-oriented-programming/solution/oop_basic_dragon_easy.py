@@ -40,11 +40,15 @@ class Dragon:
     def make_damage(self):
         return randint(self.DMG_MIN, self.DMG_MAX)
 
+    def _make_drop(self):
+        print(f'Dropped {self.gold}')
+        return self.gold
+
     def _make_dead(self):
         self.status = Status.DEAD
         self.texture = self.TEXTURE_DEAD
+        self._make_drop()
         print('Dragon is dead')
-        print(f'Dropped {self.gold}')
         print(f'Position: {self.get_position()}')
 
     def is_alive(self):

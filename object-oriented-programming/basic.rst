@@ -49,10 +49,17 @@ Fields
 
 Methods
 =======
-* Functions in the class
+* Methods are functions in the class
+* ``self`` - Instance as an argument
+* przy uruchomieniu funkcji nie podajemy jawnie argumentu ``self``
 
-``__init__()`` - Initializer Method
------------------------------------
+.. literalinclude:: src/oop-methods.py
+    :language: python
+    :caption: Methods
+
+
+Initializer Method
+==================
 * ``__init__()`` to nie konstruktor
 * Domyślny ``__init__()`` gdy niezdefiniowaliśmy własnego
 * Inicjalizacja pól klasy tylko w ``__init__``
@@ -61,17 +68,9 @@ Methods
     :language: python
     :caption: ``__init__()`` - Initializer Method
 
-``self`` - Instance as an argument
-----------------------------------
-* ``self`` - pierwszy argument do metody
-* przy uruchomieniu funkcji nie podajemy jawnie argumentu ``self``
 
-.. literalinclude:: src/oop-methods.py
-    :language: python
-    :caption: Methods
-
-``__str__()`` - Stringify object
---------------------------------
+Stringify object
+================
 * print converts it's arguments to ``str()`` automatically before printing
 
 .. literalinclude:: src/oop-str-without.py
