@@ -1,17 +1,82 @@
-from random import randint
+from enum import Enum
+
 from oop_basic_dragon_easy import Dragon, Status
 
 
-BORDER_X_MAX = 1024
-BORDER_X_MIN = 0
-BORDER_Y_MAX = 768
-BORDER_Y_MIN = 0
+Status.FULL_HEALTH = 'Pełnia życia'
+Status.LIGHT_WOUNDED = 'Lekko Ranny'
+Status.SERIOUSLY_WOUNDED = 'Poważnie ranny'
+Status.NEAR_DEAD = 'Na skraju śmierci'
 
 
-class SuperDragon(Dragon):
-    def set_position(self, x: int, y: int) -> None:
+class Config:
+    BORDER_X_MAX = 1024
+    BORDER_X_MIN = 0
+    BORDER_Y_MAX = 768
+    BORDER_Y_MIN = 0
+
+
+class CharacterClass(Enum):
+    WARRIOR = 'wojownik'
+
+
+class Character(Dragon):
+
+    def __init__(self, name, position_x=0, position_y=0):
+        super().__init__(name, position_x, position_y)
+        self.hit_points_full = self.hit_points
+        self.status = Status.FULL_HEALTH
+
+    def set_status(self):
+        procent = self.hit_points / self.hit_points_full * 100
+
+        if procent == 100:
+            self.status = Status.FULL_HEALTH
+        elif 75 <= procent < 100:
+            self.status = Status.LIGHT_WOUNDED
+        elif 25 <= procent < 75:
+            self.status = Status.SERIOUSLY_WOUNDED
+        elif 0 < procent < 25:
+            self.status = Status.NEAR_DEAD
+        else:
+            self.status = Status.DEAD
+
+    def make_damage(self):
+        if self.is_dead():
+            return 0
+        else:
+            return super().make_damage()
+
+    def _make_dead(self):
+        self.texture = self.TEXTURE_DEAD
+        self._make_drop()
+        print(f'{self.name} is dead')
+        print(f'Position: {self.get_position()}')
+
+    def take_damage(self, damage):
+        if self.is_dead():
+            return None
+
+        self.hit_points -= damage
+        self.set_status()
+
+        if self.is_alive():
+            print(f'{self.name}, DMG: {damage}, HP: {self.hit_points}')
+        else:
+            self._make_dead()
+
+    def within_boundaries(self, value, min, max):
+        if value > max:
+            return max
+
+        if value < min:
+            return min
+
+        return value
+
+    def set_position(self, x, y):
         """
-        >>> wawelski = SuperDragon(name='Red', position_x=0, position_y=0)
+        >>> wawelski = MediumDragon(name='Red', position_x=0, position_y=0)
         >>> wawelski.move(right=1)
         >>> wawelski.get_position()
         (1, 0)
@@ -25,67 +90,46 @@ class SuperDragon(Dragon):
         >>> wawelski.get_position()
         (0, 0)
         """
-        x = max(x, BORDER_X_MIN)
-        x = min(x, BORDER_X_MAX)
+        self.position_x = self.within_boundaries(
+            value=x,
+            min=Config.BORDER_X_MIN,
+            max=Config.BORDER_X_MAX)
 
-        y = max(y, BORDER_X_MIN)
-        y = min(y, BORDER_Y_MAX)
-
-        self.position_x = x
-        self.position_y = y
-
-    def make_damage(self):
-        if self.is_alive():
-            return super().make_damage()
-        else:
-            return 0
+        self.position_y = self.within_boundaries(
+            value=y,
+            min=Config.BORDER_Y_MIN,
+            max=Config.BORDER_Y_MAX)
 
 
-class Hero:
-    def _set_initial_hitpoints(self):
-        randint(100, 150)
-
-    def __init__(self, name):
-        self.name = name
-        self.hit_points = self._set_initial_hitpoints()
-
-    def make_damage(self):
-        if self.is_dead():
-            return 0
-        else:
-            return randint(1, 15)
-
-    def is_alive(self):
-        if self.status == Status.ALIVE:
-            return True
-        else:
-            return False
-
-    def take_damage(self, damage):
-        if self.is_dead():
-            return None
-
-        self.hit_points -= damage
-
-        if self.hit_points <= 0:
-            self.make_dead()
-
-    def make_dead(self):
-        print('Dragon is dead')
-        self.texture = 'dragon-dead.png'
-        self.status = Status.DEAD
-        print('Gold: ', randint(1, 100))
-        print('Position: ', self.get_position())
+class MediumDragon(Character):
+    LIFE_MIN = 100
+    LIFE_MAX = 150
 
 
+class Hero(Character):
+    LIFE_MIN = 100
+    LIFE_MAX = 150
+    DMG_MIN = 1
+    DMG_MAX = 15
+    GOLD_MIN = 0
+    GOLD_MAX = 0
+    CHARACTER_CLASS = CharacterClass.WARRIOR
 
-if __name__ == '__main__':
-    jose = Hero(name='Jose Jimenez')
-    wawelski = SuperDragon(name='Wawelski')
 
-    while jose.is_alive() and wawelski.is_alive():
-        dmg = jose.make_damage()
-        wawelski.take_damage(dmg)
+wawelski = MediumDragon(name='Wawelski')
+jose = Hero(name='Jose Jimenez')
 
-        dmg = wawelski.make_damage()
-        jose.take_damage(dmg)
+turn = 0
+
+while wawelski.is_alive() and jose.is_alive():
+    turn += 1
+    print(f'\nTurn: {turn}')
+
+    dmg = wawelski.make_damage()
+    jose.take_damage(dmg)
+
+    dmg = jose.make_damage()
+    wawelski.take_damage(dmg)
+
+    if wawelski.is_dead():
+        jose.gold += wawelski.gold

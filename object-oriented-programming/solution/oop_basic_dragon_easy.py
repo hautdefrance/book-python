@@ -19,7 +19,7 @@ class Dragon:
 
     def __init__(self, name, position_x=0, position_y=0, texture=TEXTURE_LIVE):
         self.name = name
-        self.hit_points = randint(self.MAX_LIFE, self.MIN_LIFE)
+        self.hit_points = randint(self.LIFE_MIN, self.LIFE_MAX)
         self.status = Status.ALIVE
         self.texture = texture
         self.gold = randint(self.GOLD_MIN, self.GOLD_MAX)
