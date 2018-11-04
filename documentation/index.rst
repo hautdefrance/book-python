@@ -134,7 +134,7 @@ Dokumentacja
 #. Stwórz nagłówek pierwszego poziomu "Obrazki i tesksy" i w nim osadź obrazek jako figure, wraz tekstem opisującym, obrazek ma być połowy wielkości i wycentrowany, nazwany
 #. Stwórz nagłówek pierwszego poziomu "Lorem Ipsum" i wklej tekst lorem ipsum do dokumentacji.
 #. W tekście lorem ipsum wstaw numref do obrazka
-#. Stwórz nagłówek pierwszego poziomu i zamieść tabelę Irysów na podstawie danych Iris Dataset https://raw.githubusercontent.com/scikit-learn/scikit-learn/master/sklearn/datasets/data/iris.csv
+#. Stwórz nagłówek pierwszego poziomu i zamieść tabelę Irysów na podstawie danych Iris Dataset https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
 #. Stwórz nagłówek pierwszego poziomu "Listingi kodu" i osadź dwa swoje skrypty z poprzednich zadań:
 
     - książka adresowa jako ``literalinclude`` w nagłówku drugiego poziomu "Książka Adresowa"
@@ -143,5 +143,3 @@ Dokumentacja
 
 #. Tekst lorem ipsum oznacz jako cytowanie cycerona wykorzystując bibtext
 
-:Hints:
-    - ``sphinxcontrib-bibtex==0.3.6``

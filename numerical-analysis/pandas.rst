@@ -780,7 +780,7 @@ Assignments
 
 Iris
 ----
-* https://raw.githubusercontent.com/scikit-learn/scikit-learn/master/sklearn/datasets/data/iris.csv
+* https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
 
 #. Mając dane Irysów przekonwertuj je na dataframe
 #. Podaj jawnie ``encoding``

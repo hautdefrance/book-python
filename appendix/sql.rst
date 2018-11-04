@@ -178,3 +178,9 @@ SQL Injection
 .. literalinclude:: src/sql-injection.py
     :language: python
     :caption: SQL Injection
+
+.. figure:: img/sql-injection.jpg
+    :scale: 50%
+    :align: center
+
+    SQL Injection

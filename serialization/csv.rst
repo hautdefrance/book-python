@@ -57,10 +57,10 @@ Assignments
 
 Reading ``csv``
 ---------------
-* https://raw.githubusercontent.com/scikit-learn/scikit-learn/master/sklearn/datasets/data/iris.csv
+* https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
 
 #. Otwórz w przeglądarce podany powyżej URL
-#. Zapisz jego zawartość na dysku w miejscu gdzie masz skrypty w pliku ``iris-dataset.csv``
+#. Zapisz jego zawartość na dysku w miejscu gdzie masz skrypty w pliku ``iris.csv``
 #. Korzystając z ``csv.DictReader`` wczytaj zawartość pliku
 #. Podaj jawnie ``encoding``, ``delimiter`` oraz ``quotechar``
 #. Nazwy poszczególnych kolumn:

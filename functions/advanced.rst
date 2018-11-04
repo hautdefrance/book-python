@@ -387,7 +387,7 @@ Assignments
 
 Iris
 ----
-#. Otwórz link w przeglądarce https://raw.githubusercontent.com/scikit-learn/scikit-learn/master/sklearn/datasets/data/iris.csv i skopiuj jego zawartość do pliku ``dataset-iris.csv`` na dysku
+#. Otwórz link w przeglądarce https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv i skopiuj jego zawartość do pliku ``dataset-iris.csv`` na dysku
 #. Sparsuj zawartość odrzucając nagłówek
 #. Stwórz funkcję ``print_iris(*args, **kwargs)``, która wyświetli zawartość ``args`` i ``kwargs``
 #. Dla każdego rekordu odpalaj funkcję, podając wartości korzystając z operatora ``*``

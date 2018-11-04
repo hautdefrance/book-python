@@ -1,17 +1,15 @@
-username = "' OR 1=1; DROP TABLE users -- "
-password = '132'
+username = input('Username: ')  # User type: ' OR 1=1; DROP TABLE users --
+password = input('Password: ')  # User type: whatever
 
-sql_query = f"""
+query = f"""
 
-    SELECT *
+    SELECT id, username, email
     FROM users
-    WHERE 'username'='{username}'
-    AND 'password'='{password}'
+    WHERE username='{username}' AND password='{password}'
 
 """
 
-print(sql_query)
+print(query)
 # SELECT id, username, email
 # FROM users
-# WHERE 'username'='' OR 1=1; DROP TABLE users -- '
-# AND 'password'='132'
+# WHERE username='' OR 1=1; DROP TABLE users -- ' AND password='132'

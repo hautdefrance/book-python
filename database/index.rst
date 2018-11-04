@@ -118,6 +118,33 @@ Cursor
         print(post)
 
 
+SQL Injection
+=============
+.. code-block:: python
+
+    username = input('Username: ')  # User type: ' OR 1=1; DROP TABLE users --
+    password = input('Password: ')  # User type: whatever
+
+    query = f"""
+
+        SELECT id, username, email
+        FROM users
+        WHERE username='{username}' AND password='{password}'
+
+    """
+
+    print(query)
+    # SELECT id, username, email
+    # FROM users
+    # WHERE username='' OR 1=1; DROP TABLE users -- ' AND password='132'
+
+.. figure:: img/sql-injection.jpg
+    :scale: 50%
+    :align: center
+
+    SQL Injection
+
+
 ORM
 ===
 
@@ -233,7 +260,7 @@ Assignments
 
 Iris Database
 -------------
-#. Pobierz dane z https://raw.githubusercontent.com/scikit-learn/scikit-learn/master/sklearn/datasets/data/iris.csv
+#. Pobierz dane z https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
 #. Bazę pomiarów Irysów przekonwertuj na tabelę w ``sqlite3``
 #. Nazwy poszczególnych kolumn:
 
