@@ -212,25 +212,3 @@ Metaclass
 
 Assignments
 ===========
-
-Address Book (Medium)
----------------------
-#. API programu powinno być tak jak na :numref:`listing-oop-addressbook-medium`
-#. Zrób tak, aby się ładnie wyświetlało zarówno dla jednego wyniku jak i dla wszystkich w książce
-#. ``Address`` ma mieć zmienną liczbę argumentów
-#. Jeżeli argument jest różny od ``None`` powinien być dynamicznie ustawiony (``setattr()``).
-
-:About:
-    * Filename: ``oop_advanced_addressbook.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 20 min
-
-:The whys and wherefores:
-    * Korzystanie z operatorów ``*args`` i ``**kwargs``
-    * Korzystanie i rozróżnianie ``.__repr__()`` od ``.__str__()``
-    * Dynamiczne tworzenie pól w obiekcie
-
-.. literalinclude:: src/oop-assignment-addressbook-medium.py
-    :name: listing-oop-addressbook-medium
-    :language: python
-    :caption: Address Book

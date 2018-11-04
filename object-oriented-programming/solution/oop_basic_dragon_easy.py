@@ -32,8 +32,7 @@ class Dragon:
     def move(self, left=0, right=0, up=0, down=0):
         self.set_position(
             x=self.position_x + right - left,
-            y=self.position_y + down - up,
-        )
+            y=self.position_y + down - up)
 
     def get_position(self):
         return self.position_x, self.position_y

@@ -1,15 +1,15 @@
-class Server:
-    def __init__(self, host, user, password=None):
-        self.host = host
-        self.user = user
-        self.password = password
+class Astronaut:
+    def __init__(self, first_name, last_name, agency='NASA'):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.agency = agency
 
 
-connection = Server(
-    host='localhost',
-    user='admin',
-    password='admin'
-)
+ivan = Astronaut(first_name='Иван', last_name='Иванович', agency='Roscosmos')
+jose = Astronaut(first_name='José', last_name='Jiménez')
 
-connection.__dict__
-# {'host': 'localhost', 'user': 'admin', 'password': 'admin'}
+print(ivan.first_name)  # Иван
+print(jose.last_name)   # Jiménez
+
+print(jose.__dict__)    # {'first_name': 'José', 'last_name': 'Jiménez', 'agency': 'NASA'}
+print(ivan.__dict__)    # {'first_name': 'Иван', 'last_name': 'Иванович', 'agency': 'Roscosmos'}

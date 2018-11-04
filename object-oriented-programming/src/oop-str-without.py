@@ -1,11 +1,9 @@
 class Astronaut:
-    name = 'José Jiménez'
+    def __init__(self, name):
+        self.name = name
 
 
-jose = Astronaut()
+jose = Astronaut(name='José Jiménez')
 
-str(jose)
-# <__main__.Astronaut object at 0x01E3FDF0>
-
-print(jose)
-# <__main__.Astronaut object at 0x01E3FDF0>
+str(jose)       # <__main__.Astronaut object at 0x01E3FDF0>
+print(jose)     # <__main__.Astronaut object at 0x01E3FDF0>

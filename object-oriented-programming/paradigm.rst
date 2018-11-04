@@ -99,10 +99,8 @@ Tell - don't ask
 
 Do not run methods in ``__init__()``
 ------------------------------------
-* Nie powinniśmy uruchamiać innych metod na obiekcie.
-* Obiekt nie jest jeszcze w pełni zainicjalizowany!
-* Konstruktor się nie wykonał do końca.
-* Dopiero jak się skończy ``__init__`` to możemy uruchamiać metody obiektu
+* Nie powinniśmy uruchamiać innych metod na obiekcie
+* Lepiej aby użytkownik sam wykonał metodę jawnie
 
 .. literalinclude:: src/oop-init-calls.py
     :language: python

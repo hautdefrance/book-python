@@ -1,20 +1,20 @@
 class Server:
 
-    def __init__(self, host, user, password=None):
+    def __init__(self, host, username, password=None):
         self.host = host
-        self.user = user
+        self.username = username
         self.password = password
-        self.login()  # You should not do this way
+        self.connect()    # Better ask user to ``connect()`` explicitly
 
-    def login(self):
-        print('Logging...')
+    def connect(self):
+        print(f'Logging to {self.host} using: {self.username}:{self.password}')
 
 
 localhost = Server(
     host='localhost',
-    user='admin',
+    username='admin',
     password='admin'
 )
 
-# to jest poprawne wywołanie
-localhost.login()
+# This is better
+localhost.connect()

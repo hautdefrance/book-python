@@ -40,18 +40,6 @@ Fields
 
 Methods
 =======
-.. literalinclude:: src/oop-methods.py
-    :language: python
-    :caption: Methods
-
-``self`` - Instance as an argument
-----------------------------------
-* ``self`` - pierwszy argument do metody
-* przy uruchomieniu funkcji nie podajemy jawnie argumentu ``self``
-
-.. literalinclude:: src/oop-methods-self.py
-    :language: python
-    :caption: Methods argument ``self``
 
 ``__init__()`` - Initializer Method
 -----------------------------------
@@ -59,13 +47,18 @@ Methods
 * Domyślny ``__init__()`` gdy niezdefiniowaliśmy własnego
 * Inicjalizacja pól klasy tylko w ``__init__``
 
-.. literalinclude:: src/oop-fields-dynamic.py
-    :language: python
-    :caption: Fields added dynamically
-
 .. literalinclude:: src/oop-init.py
     :language: python
     :caption: ``__init__()`` - Initializer Method
+
+``self`` - Instance as an argument
+----------------------------------
+* ``self`` - pierwszy argument do metody
+* przy uruchomieniu funkcji nie podajemy jawnie argumentu ``self``
+
+.. literalinclude:: src/oop-methods.py
+    :language: python
+    :caption: Methods
 
 ``__str__()`` - Stringify object
 --------------------------------
@@ -86,24 +79,19 @@ One class per file?
 * Osobne pliki - gdy klasy są duże
 
 
-More advanced topics
-====================
-.. note:: The topic will be continued in :ref:`Advanced OOP` chapter
-
-
 Assignments
 ===========
 
-Address Book (Easy)
--------------------
-#. Dla danych z :numref:`listing-oop-addressbook-easy` napisz książkę adresową
+Basic Address Book
+------------------
+#. Dla danych z :numref:`listing-oop-addressbook-data` napisz książkę adresową
 #. Wszystkie dane w książce muszą być reprezentowane przez klasy.
 #. Klasy powinny wykorzystywać domyślne argumenty w ``__init__``.
 #. Użytkownik może mieć wiele adresów.
 #. Użytkownik może nie mieć żadnego adresu
 
 :About:
-    * Filename: ``oop_addressbook_easy.py``
+    * Filename: ``oop_addressbook_basic.py``
     * Lines of code to write: 10 lines
     * Estimated time of completion: 20 min
 
@@ -113,8 +101,31 @@ Address Book (Easy)
     * zagnieżdżanie obiektów
     * rzutowanie obiektu na stringa oraz jego reprezentacja (które i kiedy użyć)
 
-.. literalinclude:: assignment/addressbook_easy.py
-    :name: listing-oop-addressbook-easy
+.. literalinclude:: assignment/oop_addressbook.txt
+    :name: listing-oop-addressbook-data
+    :language: python
+    :caption: Address Book
+
+Address Book from API
+---------------------
+#. Dla danych z listingu
+#. API programu powinno być tak jak na :numref:`listing-oop-addressbook-code`
+#. Zrób tak, aby się ładnie wyświetlało zarówno dla jednego wyniku jak i dla wszystkich w książce
+#. ``Address`` ma mieć zmienną liczbę argumentów
+#. Jeżeli argument jest różny od ``None`` powinien być dynamicznie ustawiony (``setattr()``).
+
+:About:
+    * Filename: ``oop_addressbook_api.py``
+    * Lines of code to write: 15 lines
+    * Estimated time of completion: 20 min
+
+:The whys and wherefores:
+    * Korzystanie z operatorów ``*args`` i ``**kwargs``
+    * Korzystanie i rozróżnianie ``.__repr__()`` od ``.__str__()``
+    * Dynamiczne tworzenie pól w obiekcie
+
+.. literalinclude:: src/oop_addressbook.py
+    :name: listing-oop-addressbook-code
     :language: python
     :caption: Address Book
 

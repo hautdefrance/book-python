@@ -1,3 +1,6 @@
+class AddressBook:
+    pass
+
 class Contact:
     pass
 
@@ -13,7 +16,7 @@ mark = Contact(imie='Mark', nazwisko='Watney', adresy=[Address(miasto='Houston')
 print(mark)
 # Mark Watney [Houston, Cocoa Beach]
 
-addressbook = [
+addressbook = AddressBook([
     Contact(imie='Matt', nazwisko='Kowalski', adresy=[
         Address(ulica='2101 E NASA Pkwy', miasto='Houston', stan='Texas', kod='77058', panstwo='USA'),
         Address(ulica=None, miasto='Kennedy Space Center', kod='32899', panstwo='USA'),
@@ -22,7 +25,7 @@ addressbook = [
     ]),
     Contact(imie='José', nazwisko='Jiménez'),
     Contact(imie='Иван', nazwisko='Иванович', adresy=[]),
-]
+])
 
 
 print(addressbook)
