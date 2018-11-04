@@ -126,8 +126,7 @@ Address Book from API
     * Estimated time of completion: 20 min
 
 :The whys and wherefores:
-    * Korzystanie z operatorów ``*args`` i ``**kwargs``
-    * Korzystanie i rozróżnianie ``.__repr__()`` od ``.__str__()``
+    * Korzystanie z ``.__str__()``
     * Dynamiczne tworzenie pól w obiekcie
 
 .. literalinclude:: src/oop_addressbook.py

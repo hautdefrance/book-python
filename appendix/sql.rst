@@ -92,6 +92,9 @@ HAVING
 
 ALTER
 =====
+* write your statement starting with ``--``
+* after you're sure, remove comments
+
 .. literalinclude:: src/sql-alter.sql
     :language: sql
     :caption: ALTER

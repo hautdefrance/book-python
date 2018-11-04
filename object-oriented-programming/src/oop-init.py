@@ -14,3 +14,4 @@ print(ivan.last_name)   # Иванович
 
 print(jose.first_name)  # José
 print(jose.last_name)   # Jiménez
+

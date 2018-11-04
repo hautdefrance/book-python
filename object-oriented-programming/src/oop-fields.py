@@ -1,12 +1,12 @@
 class Astronaut:
-    def __init__(self):
-        self.name = 'José Jiménez'
-        self.agency = 'NASA'
-        self.age = 30
+    pass
 
 
 jose = Astronaut()
 ivan = Astronaut()
 
-jose.name     # 'José Jiménez'
-ivan.name     # 'José Jiménez'
+jose.name = 'José Jiménez'
+ivan.name = 'Иван Иванович'
+
+print(jose.name)    # 'José Jiménez'
+print(ivan.name)    # 'Иван Иванович'

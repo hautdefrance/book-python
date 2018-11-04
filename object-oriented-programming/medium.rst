@@ -101,7 +101,6 @@ Dragon (Easy)
     * być ustawiony w dowolne miejsce ekranu
     * być przesuwany o zadaną liczbę punktów w którymś z kierunków
 
-#. Przesuwając smoka, można podać tylko niektóre kierunki, np: ``right=30, down=50`` lub ``up=20``
 #. Przyjmij górny lewy róg ekranu za punkt (0, 0)
 
     * idąc w prawo dodajesz ``x``
@@ -119,6 +118,21 @@ Dragon (Easy)
     * na ekranie pojawi się informacja o pozycji gdzie smok zginął
 
 #. Nie można zadawać smokowi obrażeń, jeżeli już nie żyje
+#. Przeprowadź grę:
+
+    * Stwórz smoka w pozycji x=50, y=120 i nazwij go Wawelski
+    * Ustaw nową pozycję na x=10, y=20
+    * Przesuń smoka o 10 w lewo i 20 w dół
+    * Przesuń smoka o 10 w lewo i 15 w prawo
+    * Przesuń smoka o 15 w prawo i 5 w górę
+    * Przesuń smoka o 5 w dół
+    * Zadaj 10 obrażeń smokowi
+    * Zadaj 5 obrażeń smokowi
+    * Zadaj 3 obrażeń smokowi
+    * Zadaj 2 obrażeń smokowi
+    * Zadaj 15 obrażeń smokowi
+    * Zadaj 25 obrażeń smokowi
+    * Zadaj 75 obrażeń smokowi
 
 :About:
     * Filename: ``oop_dragon_easy.py``
@@ -137,6 +151,7 @@ Dragon (Medium)
 #. Zaimportuj smoka z zadania podstawowego rozszerz go przez dziedziczenie
 #. Smok nie może wyjść poza obszar ekranu (1024x768) + ``napis doctest``
 #. Jeżeli dojdzie do granicy ekranu, to przesuwając dalej, pozycja będzie ustawiona na maks
+#. Zmień smokowi punkty życia na losowy ``int`` z zakresu 100 do 150
 #. Stwórz bohatera (José Jiménez):
 
     * losowe punkty życia (100-150)
