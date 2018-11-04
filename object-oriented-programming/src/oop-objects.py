@@ -3,4 +3,4 @@ class Astronaut:
 
 
 jose = Astronaut()
-ivan = Astronaut()
+ivan_ivanovich = Astronaut()

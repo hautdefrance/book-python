@@ -137,7 +137,8 @@ Dragon (Medium)
 -----------------
 .. note:: Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
 
-#. Zaimportuj smoka z zadania podstawowego rozszerz go przez dziedziczenie
+#. Zaimportuj smoka z zadania podstawowego
+#. Wykorzystaj mechanizm dziedziczenia dla Smoka
 #. Smok nie może wyjść poza obszar ekranu (1024x768) + ``napis doctest``
 #. Jeżeli dojdzie do granicy ekranu, to przesuwając dalej, pozycja będzie ustawiona na maks
 #. Zmień smokowi punkty życia na losowy ``int`` z zakresu 100 do 150
@@ -155,7 +156,7 @@ Dragon (Medium)
     * "Near Death" - gdy punkty życia poniżej 25%
 
 #. Bohater przejmuje złoto smoka, jeżeli go zabije
-#. Przeprowadź symulację walki. Kto zginie pierwszy?
+#. Przeprowadź walkę, tak długo aż ktoś pierwszy nie zginie
 
 :About:
     * Filename: ``oop_dragon_medium.py``

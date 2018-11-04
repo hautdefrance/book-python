@@ -20,11 +20,11 @@ Classes
 
 .. literalinclude:: src/oop-class-1.py
     :language: python
-    :caption: Classes
+    :caption: Defining and naming classes with single word names
 
 .. literalinclude:: src/oop-class-2.py
     :language: python
-    :caption: Classes
+    :caption: Defining and naming classes with ``CamelCase`` names
 
 Classes vs Objects
 ==================
@@ -40,7 +40,6 @@ Fields
 ======
 * Fields, Properties, Attributes
 * ``snake_case`` names
-* Require ``__init__()``
 
 .. literalinclude:: src/oop-fields.py
     :language: python
