@@ -2,6 +2,7 @@
 HTTP Simple
 ***********
 
+
 ``requests``
 ------------
 .. code-block:: python

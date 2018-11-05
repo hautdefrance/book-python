@@ -1,18 +1,23 @@
-FILENAME = r'../assignment/etc-hosts.txt'
-hosts = dict()
+FILE = 'hosts.txt'
 
 
-with open(FILENAME, encoding='utf-8') as file:
+hosts = {}
+
+with open(FILE, encoding='utf-8') as file:
+
     for line in file:
-        if line.isspace() or line.startswith('#'):
+
+        if line.startswith('#'):
+            continue
+
+        if line.isspace():
             continue
 
         ip, *hostnames = line.split()
 
-        if hosts.get(ip) in hosts:
-            hosts[ip].extend(hostnames)
+        if ip in hosts:
+            hosts[ip] += hostnames
         else:
             hosts[ip] = hostnames
-
 
 print(hosts)

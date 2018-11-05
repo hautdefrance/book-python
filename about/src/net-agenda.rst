@@ -7,14 +7,15 @@
         3. Daty
         4. JSON
         5. Pickle
-        6. Parsowanie dokumentów XML i (X)HTML
-        7. Bazy Danych
-        8. Podstawy debuggingu i introspekcji
-        9. Doctest & Unittest
-        10. Logging
-        11. Performance Optimization
-        12. Regex
-        13. Gateway Pattern (dzień 1 lub 2)
+        6. *args, **kwargs
+        7. Podstawy debuggingu i introspekcji
+        8. Parsowanie dokumentów XML i (X)HTML
+        9. Bazy Danych
+        10. Doctest & Unittest
+        11. Logging
+        12. Performance Optimization
+        13. Regex
+        14. Gateway Pattern (dzień 1 lub 2)
 
     Dzień 2 (web):
         1. Serwisy Web
