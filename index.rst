@@ -105,19 +105,32 @@ Intermediate Topics
     quality-and-tests/unittest.rst
     functions/advanced.rst
 
-****************
-Network and HTTP
-****************
+************
+HTTP and Web
+************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: HTTP and Web
+
+    serialization/json.rst
+    http/protocol.rst
+    http/introduction.rst
+    http/requests.rst
+    http/advanced.rst
+    http/framework.rst
+    serialization/xml.rst
+    http/wsdl.rst
+
+*******
+Network
+*******
 .. toctree::
     :maxdepth: 2
     :numbered:
     :caption: Network and HTTP
 
-    serialization/json.rst
-    network/http-simple.rst
     serialization/pickle.rst
-    serialization/xml.rst
-    network/http-advanced.rst
     network/socket.rst
     exam/network.rst
 
