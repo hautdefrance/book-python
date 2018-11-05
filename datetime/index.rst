@@ -131,17 +131,23 @@ List of Timezones
     :language: python
     :caption: ``pytz`` brings the Olson tz database into Python.
 
+From naive to local
+-------------------
+.. literalinclude:: src/pytz-naive-to-local.py
+    :language: python
+    :caption: From naive to local time
+
+From naive to UTC
+-----------------
+.. literalinclude:: src/pytz-naive-to-utc.py
+    :language: python
+    :caption: From naive to local time
+
 From UTC to local time
 ----------------------
 .. literalinclude:: src/pytz-utc-to-local.py
     :language: python
     :caption: From UTC to local time
-
-From local to UTC
------------------
-.. literalinclude:: src/pytz-local-to-utc.py
-    :language: python
-    :caption: From local to UTC
 
 Between timezones
 -----------------
