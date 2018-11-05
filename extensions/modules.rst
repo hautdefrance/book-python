@@ -38,6 +38,7 @@ Searching
 
 Installing
 ==========
+- ``Alt+Enter`` on not existing ``import`` -> Install Package
 - ``pip install ...``
 - ``requirements.txt``
 - ``pip install -r requirements.txt``

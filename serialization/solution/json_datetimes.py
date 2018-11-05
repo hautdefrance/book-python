@@ -1,22 +1,20 @@
-import datetime
+from datetime import datetime, date
 import json
 
 FILENAME = '../tmp/json-datetimes.json'
 DATA = {
-    "datetime": datetime.datetime(1961, 4, 12, 2, 7, 0, 123456),
     "astronaut": {
-        "date": datetime.date(1923, 11, 18),
+        "date": date(1961, 4, 12),
         "person": "jose.jimenez@nasa.gov"
     },
     "flight": [
-        {"datetime": datetime.datetime(1961, 5, 5, 14, 34, 13), "action": "launch"},
-        {"datetime": datetime.datetime(1961, 5, 5, 14, 49, 35), "action": "landing"}
+        {"datetime": datetime(1969, 7, 21, 14, 56, 15), "action": "landing"}
     ]
 }
 
 
 def encoder(self, obj):
-    if isinstance(obj, datetime.datetime):
+    if isinstance(obj, datetime):
         return f'{obj:%Y-%m-%dT%H:%M:%S.%fZ}'
     elif isinstance(obj, datetime.date):
         return f'{obj:%Y-%m-%d}'
@@ -25,9 +23,9 @@ def encoder(self, obj):
 def decoder(obj):
     for key, value in obj.items():
         if key == 'datetime':
-            obj['datetime'] = datetime.datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%fZ')
+            obj['datetime'] = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%fZ')
         elif key == 'date':
-            obj['date'] = datetime.datetime.strptime(value, '%Y-%m-%d').date()
+            obj['date'] = datetime.strptime(value, '%Y-%m-%d').date()
     return obj
 
 

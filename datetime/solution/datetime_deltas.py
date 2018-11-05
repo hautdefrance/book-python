@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta, timezone
+from pytz import utc, timezone as tz
 
 
 SECOND = 1
@@ -21,6 +22,12 @@ armstrong = datetime.strptime(input2, '"%x %X %p %Z"')
 
 armstrong = datetime.strptime(input2, '"%m/%d/%y %I:%M:%S %p %Z"')
 # datetime.datetime(1969, 7, 21, 2, 56, 15)
+
+in_utc = tz('Asia/Almaty').localize(gagarin, is_dst=None).astimezone(utc)
+print(f'{in_utc:%Y-%m-%d %H:%M:%S %z}')
+# 1961-04-11 20:07:00 +0000
+
+
 
 diff = armstrong - gagarin
 # datetime.timedelta(days=3022, seconds=2955)
