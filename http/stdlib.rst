@@ -120,15 +120,52 @@ All statuses
 
 * https://docs.python.org/3.7/library/http.server.html#module-http.server
 
+Threaded server
+---------------
+* ``http.server.ThreadingHTTPServer`` since Python 3.7
+
 .. code-block:: python
 
-    def run(server_class=HTTPServer, handler_class=BaseHTTPRequestHandler):
-        server_address = ('', 8000)
-        httpd = server_class(server_address, handler_class)
+    import json
+    from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
+
+
+    class RequestHandler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            data = {
+                'first_name': 'Jose',
+                'last_name': 'Jimenez'
+            }
+            response = bytes(json.dumps(data), 'UTF-8')
+
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json; charset=utf-8')
+            self.end_headers()
+            self.wfile.write(response)
+            self.server.path = self.path
+
+
+    def run(host='127.0.0.1', port=8080):
+        print(f'Starting server on {host}:{port}, use <Ctrl-C> to stop')
+        httpd = ThreadingHTTPServer((host, port), RequestHandler)
         httpd.serve_forever()
+
+
+    if __name__ == '__main__':
+        run()
+
 
 ``http.client``
 ===============
+
+Connecting
+----------
+.. code-block:: python
+
+    h1 = http.client.HTTPConnection('www.python.org')
+    h2 = http.client.HTTPConnection('www.python.org:80')
+    h3 = http.client.HTTPConnection('www.python.org', 80)
+    h4 = http.client.HTTPConnection('www.python.org', 80, timeout=10)
 
 GET Request
 -----------
