@@ -1,6 +1,6 @@
-***********************
-Programowanie funkcyjne
-***********************
+**********************
+Functional Programming
+**********************
 
 Rekurencja
 ==========

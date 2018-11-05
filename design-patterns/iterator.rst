@@ -1,10 +1,9 @@
 *********
-Iteratory
+Iterators
 *********
 
-Czym jest iterator?
-===================
-
+What is iterator?
+=================
 * ``__iter__()``
 * ``__next__()``
 * ``raise StopIteration``

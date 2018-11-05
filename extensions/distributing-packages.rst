@@ -1,6 +1,6 @@
-******************************************
-Modularyzacja, wersjonowanie i dystrybucja
-******************************************
+*********************
+Distributing Packages
+*********************
 
 .. _Instalacja i korzystanie z zewnętrznych bibliotek:
 

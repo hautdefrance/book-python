@@ -1,6 +1,7 @@
-*****************
-System Operacyjny
-*****************
+****************
+Operating System
+****************
+
 
 Accessing Environmental Variables
 =================================
@@ -9,6 +10,7 @@ Accessing Environmental Variables
     import os
 
     os.getenv('HOME')  # /home/jose
+
 
 Getting filenames and extensions
 ================================
@@ -47,8 +49,8 @@ Filenames
     pathlib.Path('my/library').stem             # 'library'
 
 
-Sprawdzanie systemu operacyjnego
-================================
+Checking OS version
+===================
 * Linux: Linux
 * Mac: Darwin
 * Windows: Windows
@@ -251,6 +253,7 @@ Permissions
     os.access(r'C:\Python\notREADME.rst', os.W_OK)  # False
     os.access(r'C:\Python\notREADME.rst', os.X_OK)  # False
 
+
 ``subprocess``
 ==============
 
@@ -263,26 +266,6 @@ Most commonly used methods
     subprocess.call('clear')
     subprocess.run()    # preferred over ``Popen()`` for Python >= 3.5
     subprocess.Popen()
-
-``subprocess.Popen()``
-----------------------
-* Used in Python < 3.5
-* In Python >= 3.5 use ``subprocess.run()``
-
-.. code-block:: python
-
-    subprocess.Popen(
-        args,
-        stdin=None,
-        stdout=None,
-        stderr=None,
-        shell=False,
-        cwd=None,
-        env=None,
-        encoding=None,
-        errors=None,
-        # ... there are other, less commonly used parameters
-    )
 
 ``subprocess.run()``
 --------------------
@@ -366,8 +349,8 @@ Execute command in OS
     # CompletedProcess(args=['ls', '-l', '/dev/null'], returncode=0,
     #                  stdout='crw-rw-rw- 1 root root 1, 3 Jan 23 16:23 /dev/null\n')
 
-Timeout dla wykonywania poleceń
--------------------------------
+Timeout for subprocesses
+------------------------
 .. code-block:: python
 
     import subprocess
@@ -378,8 +361,8 @@ Timeout dla wykonywania poleceń
     except subprocess.TimeoutExpired:
         print('process ran too long')
 
-Przechwytywanie outputu
------------------------
+Stdout and Stderr
+-----------------
 .. code-block:: python
 
     import logging
@@ -513,7 +496,6 @@ Creating temporary directories
     view = b.getbuffer()
     view[2:4] = b"56"
     b.getvalue()  # b'ab56ef'
-
 
 
 ``configparser``

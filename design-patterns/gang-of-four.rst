@@ -1,6 +1,6 @@
-***************
-Design Patterns
-***************
+************
+Gang of Four
+************
 
 
 Examples

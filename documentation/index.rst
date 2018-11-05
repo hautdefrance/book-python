@@ -1,6 +1,6 @@
-**********************
-Tworzenie dokumentacji
-**********************
+*****************************
+ReST and Sphinx documentation
+*****************************
 
 reStructuredText vs. Markdown
 =============================

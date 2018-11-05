@@ -1,6 +1,7 @@
-************************
-Kolejki, wątki i procesy
-************************
+*****************************
+Queues, Threads and Processes
+*****************************
+
 
 Kolejki - Queue
 ===============
@@ -21,8 +22,9 @@ Priority Queue
 * Priorytetyzacja
 * Wywłaszczenie
 
-Wątki a procesy
-===============
+
+Threads vs processes
+====================
 * Czym się różnią wątki od procesów?
 * Ile wątków może być w ramach procesów?
 * Jak komunikować się między wątkami?
@@ -31,8 +33,9 @@ Wątki a procesy
 * Ile może być procesów na procesorze czterordzeniowym (z i bez Hyper Threading)?
 * Czy współdzielenie pamięci przez wątki jest dobre czy złe?
 
-Wątki
-=====
+
+Threads
+=======
 
 Problemy z wątkami
 --------------------
@@ -79,8 +82,8 @@ Workery
     :caption: Model Workerów
 
 
-Procesy
-=======
+Processes
+=========
 
 Problemy z procesami
 --------------------
