@@ -47,7 +47,7 @@ ISO 8601 Standard
 -----------------
 * Dates:
 
-    .. code-block: text
+    .. code-block:: text
 
        1961-04-12
 
