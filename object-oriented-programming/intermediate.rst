@@ -1,3 +1,5 @@
+.. _OOP Intermediate:
+
 ****************
 OOP Intermediate
 ****************
@@ -72,9 +74,6 @@ Assignments
 
 Dragon (Easy)
 -------------
-.. note:: Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
-
-#. Skopiuj kod gry z listingu :numref:`listing-oop-dragon`
 #. Smok ma mieć:
 
     * nazwę smoka
@@ -123,15 +122,12 @@ Dragon (Easy)
     * Zadaj 25 obrażeń smokowi
     * Zadaj 75 obrażeń smokowi
 
+#. Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
+
 :About:
     * Filename: ``oop_dragon_easy.py``
     * Lines of code to write: 100 lines
     * Estimated time of completion: 75 min
-
-.. literalinclude:: assignment/oop_dragon.py
-    :name: listing-oop-dragon
-    :language: python
-    :caption: Dragon API
 
 Dragon (Medium)
 -----------------

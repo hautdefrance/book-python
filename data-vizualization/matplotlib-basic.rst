@@ -5,6 +5,21 @@ Matplotlib
 **********
 
 
+Glossary
+========
+.. glossary::
+
+    agg
+    cairo
+    eps
+    pdf
+    png
+    ps
+    svg
+    raster graphics
+    vector graphics
+
+
 What is matplotlib
 ==================
 Pyplot's state-machine environment behaves similarly to MATLAB and should be most familiar to users with MATLAB experience.

@@ -260,7 +260,7 @@ Assignments
 
 Iris Database
 -------------
-#. Pobierz dane z listingu :numref:`listing-db-iris-csv`
+#. Pobierz dane z listingu :numref:`listing-db-iris.csv`
 #. Bazę pomiarów Irysów przekonwertuj na tabelę w ``sqlite3``
 #. Nazwy poszczególnych kolumn:
 
@@ -280,8 +280,8 @@ Iris Database
 #. Wyniki wypisz z bazy danych (``SELECT * FROM iris ORDER BY datetime DESC``)
 #. Zwracaj dane jako ``sqlite3.Row``
 
-.. literalinclude:: src/db-iris.csv
-    :name: listing-db-iris-csv
+.. literalinclude:: assignment/db-iris.csv
+    :name: listing-db-iris.csv
     :language: python
     :caption: Iris Database
 
@@ -302,7 +302,7 @@ Iris Database
 
 Tworzenie bazy danych i proste zapytania
 ----------------------------------------
-#. Wykorzystaj kod z listingu :numref:`listing-db-addressbook-sql` oraz :numref:`listing-db-addressbook-txt`
+#. Wykorzystaj kod z listingu :numref:`listing-db-addressbook.sql` oraz :numref:`listing-db-addressbook.txt`
 #. Wykorzystaj ``cursor`` oraz połączenia jako context manager (``with``)
 #. Dane powinny być zwracane w postaci listy ``dict``
 #. Do wpisywania danych wykorzystaj konstrukcję ``execute`` wykorzystując ``dict`` jako argument
@@ -316,19 +316,19 @@ Tworzenie bazy danych i proste zapytania
     * Dodaj obsługę wielu adresów
     * Dodaj obsługę relacji w aplikacji
 
-.. literalinclude:: src/db-addressbook.sql
-    :name: listing-db-addressbook-sql
+.. literalinclude:: assignment/db-addressbook.sql
+    :name: listing-db-addressbook.sql
     :language: python
     :caption: Address Book SQL queries
 
-.. literalinclude:: src/db-addressbook.txt
-    :name: listing-db-assignment-addressbook-txt
+.. literalinclude:: assignment/db-addressbook.txt
+    :name: listing-db-addressbook.txt
     :language: text
     :caption: Address Book data
 
 Dane w jednej tabeli
 --------------------
-#. Dane z listingu :numref:`listing-db-addressbook-txt`
+#. Dane z listingu :numref:`listing-db-addressbook.txt`
 #. Jak zapisać w jednej tabeli bez wykorzystania relacji?
 #. Przeprowadź dyskusję na temat zalet i wad podejść:
 

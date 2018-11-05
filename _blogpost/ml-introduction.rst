@@ -63,7 +63,8 @@ Elementy języka Python i biblioteki standardowej
 * :ref:`Mathematics`
 * :ref:`Files`
 * :ref:`CSV Serialization`
-* :ref:`Object Oriented Programming`
+* :ref:`OOP Basic`
+* :ref:`OOP Intermediate`
 * :ref:`Installing Packages`
 * :ref:`Software Engineering Conventions`
 * :ref:`Performance Optimization`

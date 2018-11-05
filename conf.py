@@ -64,6 +64,8 @@ copyright = '{year}, {author} <{email}>'.format(
 exclude_patterns = [
     'about/assignment/*.rst',
     '_build', '.build',
+    '_tmp',
+    '**/contrib',
     '_themes',
     '**.ipynb_checkpoints',
     '_static',

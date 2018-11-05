@@ -157,7 +157,7 @@ FULL OUTER JOIN
     :align: center
     :scale: 100%
 
-.. literalinclude:: src/sql-join-full.sql
+.. literalinclude:: src/sql-join-outer.sql
     :language: sql
     :caption: FULL OUTER JOIN
 

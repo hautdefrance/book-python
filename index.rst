@@ -118,7 +118,7 @@ HTTP and Web
     http/introduction.rst
     http/requests.rst
     http/advanced.rst
-    http/framework.rst
+    http/frameworks.rst
     serialization/xml.rst
     http/wsdl.rst
 
@@ -131,6 +131,7 @@ Network
     :caption: Network and HTTP
 
     serialization/pickle.rst
+    network/tcp-udp.rst
     network/socket.rst
     exam/network.rst
 
@@ -209,6 +210,7 @@ Scientific and Engineering
     numerical-analysis/numpy.ipynb
     numerical-analysis/scipy.rst
     numerical-analysis/pandas.rst
+    numerical-analysis/charts.rst
     numerical-analysis/numerical-analysis.rst
     numerical-analysis/machine-learning.rst
 
@@ -322,6 +324,7 @@ Workshop
     about/workshop-foundations.rst
     about/workshop-intermediate.rst
     about/workshop-advanced.rst
+    about/workshop-network.rst
     about/workshop-django.rst
     about/workshop-testing.rst
     about/workshop-scientific.rst

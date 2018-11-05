@@ -223,12 +223,12 @@ Assignments
 
 Address Book (dataclass)
 ------------------------
-#. Dla danych :numref:`listing-oop-dataclass-addressbook`
+#. Dla danych :numref:`listing-dataclass_addressbook.txt`
 #. Stwórz klasy wykorzystujące mechanizm ``dataclass``
 
 .. literalinclude:: assignment/dataclass_addressbook.txt
-    :name: listing-oop-dataclass-addressbook
-    :language: python
+    :name: listing-dataclass_addressbook.txt
+    :language: text
     :caption: Data for AddressBook
 
 :About:

@@ -25,7 +25,7 @@ HTTP Methods
     "HEAD", "Show Headers", "The HEAD method asks for a response identical to that of a GET request, but without the response body."
     "CONNECT", "Connect", "The CONNECT method converts the request connection to a transparent TCP/IP tunnel, usually to facilitate SSL-encrypted communication (HTTPS) through an unencrypted HTTP proxy."
     "OPTIONS", "Show HTTP Methods", "The OPTIONS method returns the HTTP methods that the server supports for the specified URL."
-    "TRACE", "Show Trace" "The TRACE method echoes the received request so that a client can see what (if any) changes or additions have been made by intermediate servers."
+    "TRACE", "Show Trace", "The TRACE method echoes the received request so that a client can see what (if any) changes or additions have been made by intermediate servers."
 
 
 HTTP Statuses
@@ -45,7 +45,7 @@ HTTP Statuses
 ------------------------------
 .. csv-table:: HTTP Statuses ``1xx`` Informational response
     :header-rows: 1
-    :widths: 15, 85
+    :widths: 15, 25, 60
 
     "Code", "Status", "Description"
     "100", "Continue", ""
@@ -57,7 +57,7 @@ HTTP Statuses
 ---------------
 .. csv-table:: HTTP Statuses ``2xx`` Success
     :header-rows: 1
-    :widths: 15, 85
+    :widths: 15, 25, 60
 
     "Code", "Status", "Description"
     "200", "OK", ""
@@ -75,12 +75,12 @@ HTTP Statuses
 -------------------
 .. csv-table:: HTTP Statuses ``3xx`` Redirection
     :header-rows: 1
-    :widths: 15, 85
+    :widths: 15, 25, 60
 
     "Code", "Status", "Description"
     "300", "Multiple Choices", ""
     "301", "Moved Permanently", ""
-    "302", "Found (Previously "Moved temporarily")", ""
+    "302", "Found (Previously 'Moved temporarily')", ""
     "303", "See Other", ""
     "304", "Not Modified", ""
     "305", "Use Proxy", ""
@@ -92,7 +92,7 @@ HTTP Statuses
 ---------------------
 .. csv-table:: HTTP Statuses ``3xx`` Redirection
     :header-rows: 1
-    :widths: 15, 85
+    :widths: 15, 25, 60
 
     "Code", "Status", "Description"
     "400", "Bad Request", ""
@@ -128,7 +128,7 @@ HTTP Statuses
 ---------------------
 .. csv-table:: HTTP Statuses ``3xx`` Redirection
     :header-rows: 1
-    :widths: 15, 85
+    :widths: 15, 25, 60
 
     "Code", "Status", "Description"
     "500", "Internal Server Error", ""

@@ -110,7 +110,7 @@ Basic Address Book
 
 .. literalinclude:: assignment/oop_addressbook.txt
     :name: listing-oop-addressbook-data
-    :language: python
+    :language: text
     :caption: Address Book
 
 Address Book from API
@@ -130,7 +130,7 @@ Address Book from API
     * Korzystanie z ``.__str__()``
     * Dynamiczne tworzenie pól w obiekcie
 
-.. literalinclude:: src/oop_addressbook.py
+.. literalinclude:: assignment/oop_addressbook.py
     :name: listing-oop-addressbook-py
     :language: python
     :caption: Address Book
