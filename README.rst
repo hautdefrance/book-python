@@ -22,6 +22,7 @@ Python 3: from None to Machine Learning
     * :ref:`Python Intermediate`
     * :ref:`Python Advanced`
     * :ref:`Django Framework`
+    * :ref:`Python in Networking`
     * :ref:`Python in Testing`
     * :ref:`Python in Science and Engineering`
     * :ref:`Python in Machine Learning`

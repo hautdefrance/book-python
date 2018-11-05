@@ -1,9 +1,12 @@
-************************
-Exam from network topics
-************************
+***********
+Mini Botnet
+***********
+
+Assignment
+==========
 
 Mini Botnet
-===========
+-----------
 #. Do pliku ``botnet-commands.xml`` skopiuj zawartość :numref:`listing-botnet-commands`.
 #. Stwórz mini botnet o architekturz podanej :numref:`figure-botnet`. Mini botnet składa się z trzech części:
 
