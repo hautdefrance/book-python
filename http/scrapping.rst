@@ -1,23 +1,22 @@
-******************
-Programowanie HTTP
-******************
-
-Biblioteki standardowe
-======================
-
-
+**************
 HTML Scrapping
-==============
+**************
+
+
 * BeautifulSoup https://www.crummy.com/software/BeautifulSoup/bs4/doc/#
 * Scrapy https://scrapy.org/
 
-HTML Scrapping i ``BeautifulSoup``
-----------------------------------
+``BeautifulSoup``
+=================
 
+Install
+-------
 .. code-block:: console
 
     $ pip install beautifulsoup4
 
+Basic Usage
+-----------
 .. code-block:: python
 
     html_doc = """
@@ -52,7 +51,8 @@ HTML Scrapping i ``BeautifulSoup``
     soup.find(id="link3")
     # <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>
 
-
+Iterating over items
+--------------------
 .. code-block:: python
 
     for link in soup.find_all('a'):
@@ -62,6 +62,8 @@ HTML Scrapping i ``BeautifulSoup``
     # http://example.com/lacie
     # http://example.com/tillie
 
+Getting Page Text
+-----------------
 .. code-block:: python
 
     soup.get_text()
@@ -78,8 +80,6 @@ HTML Scrapping i ``BeautifulSoup``
     # ...
 
 
-Standard WSGI
-=============
 
 Utils
 =====
@@ -196,64 +196,3 @@ Wersjonowanie API
     Accept-Encoding:gzip, deflate, sdch
     Accept-Language:en-US,en;q=0.8,pl;q=0.6
 
-
-Assignments
-===========
-
-REST API
---------
-#. Używając biblioteki standardowej w Pythonie zaciągnij informacje o repozytoriach użytkownika Django na https://github.com
-#. w przeglądarce internetowej wygeneruj w swoim profilu token https://github.com/settings/tokens
-#. Następnie z przeglądnij listę z poziomu Pythona i znajdź URL dla repozytorium ``django``.
-
-    .. code-block:: python
-
-        "name": "django",
-        "full_name": "django/django",
-
-        # wyszukaj "commits_url": ???
-
-#. Przeglądnij to repozytorium i jego listę commitów.
-#. Podaj datę i opis ostatniego commita
-#. Znajdź numery ID ticketów (``Fixed #...``) z issue trackera, które zostały rozwiązane w ostatnim miesiącu
-
-:About:
-    * Filename: ``http_advanced.py``
-    * Lines of code to write: 50 lines
-    * Estimated time of completion: 30 min
-
-:The whys and wherefores:
-    * Komunikacja HTTP (request, response)
-    * Parsowanie odpowiedzi HTTP
-    * Sprawdzanie stanu połączenia
-    * Serializacja i parsowanie *JSON*
-    * Korzystanie z API i dokumentacji
-    * Regexpy
-    * Używanie biblioteki standardowej i bibliotek zewnętrznych
-
-:Hints:
-    .. code-block:: rest
-
-        https://api.github.com/
-
-        GET /orgs/django/repos
-        GET /repos/django/django/commits
-
-    .. code-block:: console
-
-        $ curl https://api.github.com/orgs/django/repos
-        $ curl https://api.github.com/repos/django/django/commits
-
-    .. code-block:: python
-
-        auth = b'username:token'
-        key = base64.b64encode(auth).decode("ascii")
-        headers={
-            'Authorization': 'Basic {key}',
-            'User-Agent': 'Python HTTP',
-        }
-
-        # ...
-
-        body = resp.read().decode()
-        data = json.loads(body)

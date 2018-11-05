@@ -117,10 +117,11 @@ HTTP and Web
     database/sqlite.rst
     database/sql.rst
     http/protocol.rst
-    http/introduction.rst
+    http/stdlib.rst
     http/requests.rst
-    http/advanced.rst
+    http/scrapping.rst
     http/frameworks.rst
+    http/paas.rst
     serialization/xml.rst
     http/soap-wsdl.rst
 

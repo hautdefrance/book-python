@@ -3,24 +3,13 @@ HTTP Frameworks
 ***************
 
 
-Google App Engine
-=================
+Standard WSGI
+=============
+* Web Server Gateway Interface
 
-* https://cloud.google.com/appengine/
-
-A powerful platform to build apps and scale automatically
-
-- **Popular Languages** - Build your application in Node.js, Java, Ruby, C#, Go, Python, or PHPâ€”or bring your own language runtime
-- **Open & Flexible** - Custom runtimes allow you to bring any library and framework to App Engine by supplying a Docker container
-- **Fully Managed** - A fully managed environment lets you focus on code while App Engine manages infrastructure concerns
-- **Monitoring, Logging & Diagnostics** - Google Stackdriver gives you powerful application diagnostics to debug and monitor the health and performance of your app
-- **Application Versioning** - Easily host different versions of your app, easily create development, test, staging, and production environments
-- **Traffic Splitting** - Route incoming requests to different app versions, A/B test and do incremental feature rollouts
-- **Services Ecosystem** - Tap a growing ecosystem of GCP services from your app including an excellent suite of cloud developer tools
 
 ``django``
 ==========
-
 * https://www.djangoproject.com/
 * https://github.com/django/django
 
@@ -34,9 +23,9 @@ Django is a high-level Python Web framework that encourages rapid development an
 
     $ pip install django
 
+
 ``flask``
 =========
-
 * http://flask.pocoo.org/
 
 Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions. And before you ask: It's BSD licensed!
@@ -66,9 +55,9 @@ Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intenti
     :language: python
     :caption: Flask using templates and data from user
 
+
 ``webapp2``
 ===========
-
 * https://webapp2.readthedocs.io/en/latest/
 * https://github.com/GoogleCloudPlatform/webapp2
 
@@ -102,9 +91,9 @@ webapp2 is a lightweight Python web framework compatible with Google App Engineâ
         ('/', HelloWebapp2),
     ], debug=True)
 
+
 ``tornado``
 ===========
-
 * http://www.tornadoweb.org/en/stable/
 * https://github.com/tornadoweb/tornado
 
