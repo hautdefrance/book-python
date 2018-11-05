@@ -1,10 +1,13 @@
-****
-WSDL
-****
+*************
+SOAP and WSDL
+*************
 
+
+WSDL
+====
 
 Main Structure
-==============
+--------------
 
 .. code-block:: xml
 
@@ -30,7 +33,7 @@ Main Structure
 
 
 Example
-=======
+-------
 * In this example the <portType> element defines "glossaryTerms" as the name of a port, and "getTerm" as the name of an operation.
 * The "getTerm" operation has an input message called "getTermRequest" and an output message called "getTermResponse".
 * The <message> elements define the parts of each message and the associated data types.
@@ -53,7 +56,7 @@ Example
     </portType>
 
 The <portType> Element
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 * The <portType> element defines a web service, the operations that can be performed, and the messages that are involved.
 * The request-response type is the most common operation type, but WSDL defines four types:
 
@@ -66,8 +69,9 @@ The <portType> Element
     "Solicit-response", "The operation can send a request and will wait for a response"
     "Notification", "The operation can send a message but will not wait for a response"
 
+
 WSDL One-Way Operation
-======================
+----------------------
 .. code-block:: xml
 
     <message name="newTermValues">
@@ -83,7 +87,7 @@ WSDL One-Way Operation
 
 
 WSDL Request-Response Operation
-===============================
+-------------------------------
 .. code-block:: xml
 
     <message name="getTermRequest">
@@ -103,7 +107,7 @@ WSDL Request-Response Operation
 
 
 WSDL Binding to SOAP
-====================
+--------------------
 .. code-block:: xml
 
     <message name="getTermRequest">
@@ -130,3 +134,8 @@ WSDL Binding to SOAP
          <output><soap:body use="literal"/></output>
       </operation>
     </binding>
+
+
+``suds``
+========
+

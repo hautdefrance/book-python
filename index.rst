@@ -10,9 +10,10 @@ Introduction
     :caption: Introduction
 
     about/install.rst
-    appendix/references.rst
+    about/references.rst
     about/language.rst
     about/ide.rst
+    about/syntax.rst
 
 *******************************
 Basic Types and Data Structures
@@ -22,7 +23,6 @@ Basic Types and Data Structures
     :numbered:
     :caption: Basic Types and Data Structures
 
-    about/syntax.rst
     data-types/numeric.rst
     data-types/logic.rst
     data-types/string.rst
@@ -46,8 +46,8 @@ Control Flow
     control-flow/comprehensions.rst
     functions/basic.rst
     control-flow/exceptions.rst
-    file/index.rst
-    exam/basic.rst
+    control-flow/file.rst
+    control-flow/exam.rst
 
 ****************
 Standard Library
@@ -62,6 +62,7 @@ Standard Library
     serialization/csv.rst
     datetime/index.rst
     math/index.rst
+    print-formatting/index.rst
 
 *************************
 Good Engineering Practice
@@ -71,12 +72,13 @@ Good Engineering Practice
     :numbered:
     :caption: Good Engineering Practice
 
-    quality-and-tests/doctest.rst
-    programming-convention/index.rst
-    quality-and-tests/debugging-basic.rst
-    logging/index.rst
-    print-formatting/index.rst
-    performance/index.rst
+    good-engineering-practice/pep8.rst
+    good-engineering-practice/logging.rst
+    good-engineering-practice/warnings.rst
+    good-engineering-practice/debugging-basic.rst
+    good-engineering-practice/doctest.rst
+    good-engineering-practice/unittest.rst
+    good-engineering-practice/introspection.rst
 
 ***************************
 Object Oriented Programming
@@ -100,9 +102,7 @@ Intermediate Topics
     :numbered:
     :caption: Intermediate Topics
 
-    database/index.rst
     regex/index.rst
-    quality-and-tests/unittest.rst
     functions/advanced.rst
 
 ************
@@ -114,13 +114,15 @@ HTTP and Web
     :caption: HTTP and Web
 
     serialization/json.rst
+    database/sqlite.rst
+    database/sql.rst
     http/protocol.rst
     http/introduction.rst
     http/requests.rst
     http/advanced.rst
     http/frameworks.rst
     serialization/xml.rst
-    http/wsdl.rst
+    http/soap-wsdl.rst
 
 *******
 Network
@@ -133,7 +135,7 @@ Network
     serialization/pickle.rst
     network/tcp-udp.rst
     network/socket.rst
-    exam/network.rst
+    network/botnet.rst
 
 **********************************
 CI/CD, Versioning and Distributing
@@ -143,8 +145,8 @@ CI/CD, Versioning and Distributing
     :numbered:
     :caption: CI/CD, Versioning and Distributing
 
-    quality-and-tests/ci-cd-tools.rst
-    quality-and-tests/type-annotation.rst
+    good-engineering-practice/ci-cd-tools.rst
+    good-engineering-practice/type-annotation.rst
     extensions/venv.rst
     extensions/zipapp.rst
     extensions/distributing-packages.rst
@@ -163,7 +165,6 @@ Advanced OOP
     object-oriented-programming/paradigm.rst
     object-oriented-programming/advanced.rst
     object-oriented-programming/metaclass.rst
-    quality-and-tests/introspection.rst
 
 ***************
 Design Patterns
@@ -173,12 +174,12 @@ Design Patterns
     :numbered:
     :caption: Design Patterns
 
-    generator/index.rst
-    iterator/index.rst
-    context-manager/index.rst
-    object-oriented-programming/descriptor.rst
-    decorator/index.rst
-    design-patterns/index.rst
+    design-patterns/generator.rst
+    design-patterns/iterator.rst
+    design-patterns/context-manager.rst
+    design-patterns/descriptor.rst
+    design-patterns/decorator.rst
+    design-patterns/gang-of-four.rst
 
 ****************
 High Performance
@@ -188,13 +189,14 @@ High Performance
     :numbered:
     :caption: High Performance
 
+    performance/index.rst
     extensions/compilers.rst
     data-types/collections.rst
     concurrency/threading.rst
     concurrency/async.rst
     extensions/c-extensions.rst
     functional-programming/index.rst
-    quality-and-tests/debugging-advanced.rst
+    good-engineering-practice/debugging-advanced.rst
 
 **************************
 Scientific and Engineering
@@ -338,7 +340,6 @@ Appendixes
     :numbered:
     :caption: Appendixes
 
-    appendix/sql.rst
     appendix/history.rst
     appendix/further-reading.rst
     appendix/books.rst

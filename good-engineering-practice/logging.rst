@@ -1,6 +1,6 @@
-*****************
-Logowanie zdarzeń
-*****************
+*******
+Logging
+*******
 
 
 Korzystanie z ``logging``
@@ -204,29 +204,6 @@ Konfiguracja formatowania logów
     "level", "Set the root logger level to the specified level"
     "stream", "Use the specified stream to initialize the StreamHandler. Note that this argument is incompatible with filename - if both are present, a ValueError is raised"
     "handlers", "If specified, this should be an iterable of already created handlers to add to the root logger. Any handlers which don’t already have a formatter set will be assigned the default formatter created in this function. Note that this argument is incompatible with filename or stream - if both are present, a ValueError is raised"
-
-``warnings``
-============
-.. code-block:: python
-
-    import warnings
-
-    warnings.warn('Wersja API jest już nieaktualna', PendingDeprecationWarning)
-
-.. code-block:: python
-
-    import warnings
-
-    def sumuj(a, b):
-        warnings.warn('You should english name ``sum()``.', PendingDeprecationWarning)
-        return a + b
-
-    def sum(a, b):
-        return a + b
-
-
-    sumuj(1, 2)
-    sum(1, 2)
 
 Further Reading
 ===============

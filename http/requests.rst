@@ -273,6 +273,20 @@ Basic Auth
         print(data)
 
 
+Requests OAuth
+==============
+* http://requests-oauthlib.readthedocs.io/en/latest/index.html
+
+.. code-block:: console
+
+    pip install requests_oauthlib
+
+.. literalinclude:: src/requests-oauthlib.py
+    :name: listing-requests-oauthlib
+    :language: python
+    :caption: Requests OAuth
+
+
 Assignments
 ===========
 
