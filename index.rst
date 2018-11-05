@@ -119,7 +119,7 @@ Network and HTTP
     serialization/xml.rst
     network/http-advanced.rst
     network/socket.rst
-    exam/advanced.rst
+    exam/network.rst
 
 **********************************
 CI/CD, Versioning and Distributing
