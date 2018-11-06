@@ -346,8 +346,8 @@ REST API
 
 :About:
     * Filename: ``http_github.py``
-    * Lines of code to write: 50 lines
-    * Estimated time of completion: 30 min
+    * Lines of code to write: 60 lines
+    * Estimated time of completion: 60 min
 
 :The whys and wherefores:
     * Komunikacja HTTP (request, response)
