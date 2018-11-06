@@ -9,8 +9,8 @@ from datetime import datetime
 import logging
 
 
-USERNAME = 'astromatt'
-TOKEN = '45f9bb3f0ac5efb53e62ee9792fce7842f6dcd47'
+USERNAME = 'my_username'
+TOKEN = 'my_token'
 
 
 auth = bytes(f'{USERNAME}:{TOKEN}', 'utf-8')
