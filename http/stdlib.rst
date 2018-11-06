@@ -311,7 +311,7 @@ Basic Auth
 
     headers = {
         'Authorization': f'Basic {auth}',
-        'User-Agent': 'Python HTTP',
+        'User-Agent': 'Python http.client',
         'Accept': 'application/json'
     }
 

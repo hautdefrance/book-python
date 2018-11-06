@@ -1,52 +1,59 @@
 #!/usr/bin/env python3
 
-import json
-import base64
 import re
 import http.client
+import json
+from http import HTTPStatus
+from base64 import b64encode
+from datetime import datetime
+import logging
 
 
-client = http.client.HTTPSConnection('api.github.com')
+USERNAME = 'astromatt'
+TOKEN = '45f9bb3f0ac5efb53e62ee9792fce7842f6dcd47'
 
-auth = b'username:token'
-auth = base64.b64encode(auth).decode('ascii')
+
+auth = bytes(f'{USERNAME}:{TOKEN}', 'utf-8')
+auth = b64encode(auth).decode('ascii')
+
 headers = {
-        'Authorization': f'Basic {auth}',
-        'User-Agent': 'Python http.client',
+    'Authorization': f'Basic {auth}',
+    'User-Agent': 'Python http.client',
+    'Accept': 'application/json'
 }
+
+conn = http.client.HTTPSConnection(host="api.github.com", port=443)
 
 
 def GET(url):
-    client.request('GET', url, headers=headers)
-    resp = client.getresponse()
-    body = resp.read().decode()
-    return json.loads(body)
+    logging.warning(f'URL: {url}')
+    conn.request('GET', url, headers=headers)
+    response = conn.getresponse()
+
+    if response.status == HTTPStatus.OK:
+        body = response.read().decode()
+        return json.loads(body)
+    else:
+        raise ConnectionError(response.reason)
 
 
-repositories = GET('/orgs/django/repos')
-
-repo = [repo for repo in repositories if repo['full_name'] == 'django/django'][0]
-
+repo = [repo for repo in GET('/orgs/django/repos') if repo['full_name'] == 'django/django'][0]
 url = repo['commits_url'].replace('{/sha}', '').replace('https://api.github.com', '')
 
 commits = GET(url)
-
-data = commits[0]['commit']['author']['date']
+date = commits[0]['commit']['author']['date']
 name = commits[0]['commit']['author']['name']
-
-print('Ostatni commit:', data, name)
+date = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S%z')
+print(f'Ostatni commit: {date} by {name}')
 
 messages = [commit['commit']['message'] for commit in commits]
 
-issues = []
+issues = set()
 
 for msg in messages:
-    issue = re.findall(r'#([0-9]+)', msg, flags=re.MULTILINE)
+    tickets = re.findall(r'#([0-9]+)', msg, flags=re.MULTILINE)
+    issues.update(tickets)
 
-    if issue:
-        issues.extend(issue)
+print(issues)
 
-unique = set(issues)
-
-print(unique)
-
+conn.close()
