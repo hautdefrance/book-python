@@ -9,17 +9,19 @@ import http.client
 client = http.client.HTTPSConnection('api.github.com')
 
 auth = b'username:token'
-hash = base64.b64encode(auth).decode('ascii')
-headers={
-        'Autorization': 'Basic {}'.format(hash),
+auth = base64.b64encode(auth).decode('ascii')
+headers = {
+        'Authorization': f'Basic {auth}',
         'User-Agent': 'Python http.client',
 }
+
 
 def GET(url):
     client.request('GET', url, headers=headers)
     resp = client.getresponse()
     body = resp.read().decode()
     return json.loads(body)
+
 
 repositories = GET('/orgs/django/repos')
 

@@ -203,3 +203,102 @@ HTTP Response Headers
     "Refresh", ""
     "Status", ""
 
+
+MIME types
+==========
+
+General structure
+-----------------
+.. code-block:: text
+
+    type/subtype
+
+.. csv-table:: Types
+    :header-rows: 1
+
+    "MIME type", "Description"
+    "text", "Represents any document that contains text and is theoretically human readable"
+    "image", "Represents any kind of images. Videos are not included, though animated images (like animated gif) are described with an image type"
+    "audio", "Represents any kind of audio files"
+    "video", "Represents any kind of video files"
+    "application", "Represents any kind of binary data"
+
+Text Types
+----------
+.. csv-table:: Text Types
+    :header-rows: 1
+
+    "MIME type", "Description"
+    "text/plain", ""
+    "text/html", ""
+    "text/css", ""
+
+Application Types
+-----------------
+.. csv-table:: Application Types
+    :header-rows: 1
+
+    "MIME type", "Description"
+    "application/json", ""
+    "application/javascript", ""
+    "application/ecmascript", ""
+    "application/octet-stream", "As it really means unknown binary"
+    "application/pkcs12", ""
+    "application/vnd.mspowerpoint", ""
+    "application/xhtml+xml", ""
+    "application/xml", ""
+    "application/pdf", ""
+    "application/ogg", "An audio or video file using the OGG container format. Theora is the usual video codec used within it; Vorbis is the usual audio codec"
+    "application/*", ""
+
+Multipart Types
+---------------
+.. csv-table:: Multipart Types
+    :header-rows: 1
+
+    "MIME type", "Description"
+    "multipart/form-data", ""
+    "multipart/byteranges", ""
+
+Image Types
+-----------
+.. csv-table:: Image types
+    :header-rows: 1
+
+    "MIME type", "Description"
+    "image/gif", "GIF images (lossless compression, superseded by PNG)"
+    "image/jpeg", "JPEG images"
+    "image/png", "PNG images"
+    "image/svg+xml", "SVG images (vector images)"
+    "image/x-icon", "Windows icons"
+    "image/bmp", ""
+    "image/webp", ""
+    "image/vnd.microsoft.icon", ""
+
+Audio Types
+-----------
+.. csv-table:: Audio Types
+    :header-rows: 1
+
+    "MIME type", "Description"
+    "audio/wave", ""
+    "audio/wav", ""
+    "audio/x-wav", ""
+    "audio/x-pn-wav", "An audio file in the WAVE container format. The PCM audio codec (WAVE codec '1') is often supported, but other codecs have more limited support (if any)"
+    "audio/webm", "An audio file in the WebM container format. Vorbis and Opus are the most common audio codecs"
+    "audio/ogg", "An audio file in the OGG container format. Vorbis is the most common audio codec used in such a container"
+    "audio/midi", ""
+    "audio/mpeg", ""
+    "audio/*", ""
+
+Video Types
+-----------
+.. csv-table:: Video Types
+    :header-rows: 1
+
+    "MIME type", "Description"
+    "video/mp4", ""
+    "video/webm", ""
+    "video/ogg", ""
+    "video/webm", "A video file, possibly with audio, in the WebM container format. VP8 and VP9 are the most common video codecs used within it; Vorbis and Opus the most common audio codecs"
+    "video/ogg", "A video file, possibly with audio, in the OGG container format. Theora is the usual video codec used within it; Vorbis is the usual audio codec"
