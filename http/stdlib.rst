@@ -120,14 +120,71 @@ All statuses
 
 * https://docs.python.org/3.7/library/http.server.html#module-http.server
 
-Threaded server
----------------
+
+Simple HTTP Server
+------------------
+.. code-block:: console
+
+    $ python -m http.server 8000 --bind 127.0.0.1
+
+Own HTTP Sever
+--------------
+.. code-block:: python
+
+    import re
+    from http import HTTPStatus
+    from http.server import BaseHTTPRequestHandler
+    from http.server import HTTPServer
+
+    SERVER = ('localhost', 8080)
+
+
+    class RequestHandler(BaseHTTPRequestHandler):
+        def do_HEAD(self):
+            self.send_response(HTTPStatus.OK)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+
+        def do_GET(self):
+            self.send_response(HTTPStatus.OK)
+            self.send_header('Content-type','text/html')
+            self.end_headers()
+            self.wfile.write('<html>')
+            self.wfile.write('<body>Hello World!</body>')
+            self.wfile.write('</html>')
+
+        def do_POST(self):
+            if re.search('/api/v1/*', self.path):
+                content_length = int(self.headers['Content-Length'])
+                post_data = self.rfile.read(content_length)
+
+                self.send_response(HTTPStatus.OK)
+                self.send_header('Content-type','text/html')
+                self.end_headers()
+                self.wfile.write('<html>')
+                self.wfile.write('<body>Hello World!</body>')
+                self.wfile.write('</html>')
+
+
+    try:
+        print('Starting server {SERVER}, use <Ctrl-C> to stop')
+        httpd = HTTPServer(SERVER, RequestHandler)
+        httpd.serve_forever()
+
+    except KeyboardInterrupt:
+        print ('^C received, shutting down the web server...')
+        httpd.socket.close()
+
+Threaded server with JSON response
+----------------------------------
 * ``http.server.ThreadingHTTPServer`` since Python 3.7
 
 .. code-block:: python
 
     import json
-    from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
+    from http import HTTPStatus
+    from http.server import ThreadingHTTPServer
+    from http.server import BaseHTTPRequestHandler
 
 
     class RequestHandler(BaseHTTPRequestHandler):
@@ -138,7 +195,7 @@ Threaded server
             }
             response = bytes(json.dumps(data), 'UTF-8')
 
-            self.send_response(200)
+            self.send_response(HTTPStatus.OK)
             self.send_header('Content-Type', 'application/json; charset=utf-8')
             self.end_headers()
             self.wfile.write(response)
