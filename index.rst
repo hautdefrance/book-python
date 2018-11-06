@@ -143,6 +143,9 @@ Network
     :numbered:
     :caption: Network and HTTP
 
+    network/ftp.rst
+    network/imap.rst
+    network/smtp.rst
     network/tcp-udp.rst
     network/socket.rst
     network/botnet.rst

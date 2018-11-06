@@ -157,60 +157,6 @@ Getting Page Text
     # ...
 
 
-
-Utils
-=====
-
-``atlassian-python-api``
-------------------------
-
-* https://github.com/atlassian-api/atlassian-python-api
-
-.. code-block:: python
-
-    from atlassian import Confluence
-    from atlassian import Jira
-
-
-    jira = Jira(
-        url='http://localhost:8080',
-        username='admin',
-        password='admin')
-
-    confluence = Confluence(
-        url='http://localhost:8090',
-        username='admin',
-        password='admin')
-
-
-    JQL = 'project = DEMO AND status NOT IN (Closed, Resolved) ORDER BY issuekey'
-    data = jira.jql(JQL)
-
-    status = confluence.create_page(
-        space='DEMO',
-        title='This is the title',
-        body=f'This is the body. You can use <strong>HTML tags</strong>!<div>{data}</div>')
-
-    print(status)
-
-
-Template
-========
-
-``Jinja2``
-----------
-
-.. code-block:: html
-
-    <title>{% block title %}{% endblock %}</title>
-    <ul>
-    {% for user in users %}
-      <li><a href="{{ user.url }}">{{ user.username }}</a></li>
-    {% endfor %}
-    </ul>
-
-
-
 Assignments
 ===========
 
