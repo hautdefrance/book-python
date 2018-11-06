@@ -1,6 +1,6 @@
-************************
-Python HTTP using stdlib
-************************
+*****************
+HTTP using stdlib
+*****************
 
 
 ``http.HTTPStatus``
@@ -208,14 +208,16 @@ GET Request to Not Existing Resource
 
     conn = http.client.HTTPSConnection("www.python.org")
 
-    # Example of an invalid request
     conn.request("GET", "/parrot.spam")
     response = conn.getresponse()
 
-    response.status         # 404
-    response.reason         # Not Found
+    response.status  # 404
+    response.reason  # Not Found
 
-    data = response.read()  # This will return entire content.
+    data = response.read()
+    print(data)
+    # b'<!doctype html> ... </body>\n</html>\n'
+
     conn.close()
 
 HEAD Request
@@ -231,6 +233,28 @@ HEAD Request
 
     response.status         # 200
     response.reason         # OK
+
+    print(response.headers)
+    # Server: nginx
+    # Content-Type: text/html; charset=utf-8
+    # X-Frame-Options: SAMEORIGIN
+    # x-xss-protection: 1; mode=block
+    # X-Clacks-Overhead: GNU Terry Pratchett
+    # Via: 1.1 varnish
+    # Content-Length: 48925
+    # Accept-Ranges: bytes
+    # Date: Tue, 06 Nov 2018 11:06:52 GMT
+    # Via: 1.1 varnish
+    # Age: 599
+    # Connection: keep-alive
+    # X-Served-By: cache-iad2142-IAD, cache-fra19148-FRA
+    # X-Cache: HIT, HIT
+    # X-Cache-Hits: 1, 2
+    # X-Timer: S1541502413.680933,VS0,VE0
+    # Vary: Cookie
+    # Strict-Transport-Security: max-age=63072000; includeSubDomains
+
+    conn.close()
 
 POST Request
 ------------
@@ -251,16 +275,55 @@ POST Request
         "Accept": "text/plain"
     }
 
-    conn = http.client.HTTPConnection("bugs.python.org")
-    conn.request("POST", "", params, headers)
+    conn = http.client.HTTPSConnection("bugs.python.org")
+    conn.request("POST", "/", params, headers)
 
     response = conn.getresponse()
 
-    response.status     # 301
-    response.reason     # 'Moved Permanently'
+    response.status  # 302
+    response.reason  # 'Found'
 
     data = response.read()
-    # b'<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\n<html><head>\n<title>301 Moved Permanently</title>\n</head><body>\n<h1>Moved Permanently</h1>\n<p>The document has moved <a href="https://bugs.python.org/">here</a>.</p>\n<hr>\n<address>Apache/2.2.16 (Debian) Server at bugs.python.org Port 80</address>\n</body></html>\n'
+    print(data)
+    # b'Redirecting to <a href="https://bugs.python.org/issue12524">https://bugs.python.org/issue12524</a>'
+
+    conn.close()
+
+
+Basic Auth
+----------
+* https://github.com/settings/tokens
+
+.. code-block:: python
+
+    import http.client
+    import json
+    from http import HTTPStatus
+    from base64 import b64encode
+
+
+    USERNAME = 'my_username'
+    TOKEN = 'my_token'
+
+
+    auth = bytes(f'{USERNAME}:{TOKEN}', 'utf-8')
+    auth = b64encode(auth).decode('ascii')
+
+    headers = {
+        'Authorization': f'Basic {auth}',
+        'User-Agent': 'Python HTTP',
+        'Accept': 'application/json'
+    }
+
+    conn = http.client.HTTPSConnection(host="api.github.com", port=443)
+    conn.request("GET", "/users", headers=headers)
+
+    response = conn.getresponse()
+
+    if response.status == HTTPStatus.OK:
+        body = response.read().decode()
+        data = json.loads(body)
+        print(data)
 
     conn.close()
 
@@ -270,23 +333,19 @@ Assignments
 
 REST API
 --------
-#. Używając biblioteki standardowej w Pythonie zaciągnij informacje o repozytoriach użytkownika Django na https://github.com
-#. w przeglądarce internetowej wygeneruj w swoim profilu token https://github.com/settings/tokens
-#. Następnie z przeglądnij listę z poziomu Pythona i znajdź URL dla repozytorium ``django``.
-
-    .. code-block:: python
-
-        "name": "django",
-        "full_name": "django/django",
-
-        # wyszukaj "commits_url": ???
-
-#. Przeglądnij to repozytorium i jego listę commitów.
+#. Załóż darmowe konto na Github i potwierdź email
+#. W przeglądarce internetowej wygeneruj w swoim profilu token https://github.com/settings/tokens
+#. Używając biblioteki standardowej w Pythonie
+#. Zaciągnij informacje o repozytoriach użytkownika Django na https://github.com
+#. Każdy request uwierzytelnij za pomocą Basic Auth i swojego Access Tokena
+#. Następnie z przeglądnij listę z poziomu Pythona i znajdź URL dla repozytorium ``django``
+#. Przeglądnij to repozytorium i jego listę commitów
 #. Podaj datę i opis ostatniego commita
 #. Znajdź numery ID ticketów (``Fixed #...``) z issue trackera, które zostały rozwiązane w ostatnim miesiącu
 
+
 :About:
-    * Filename: ``http_advanced.py``
+    * Filename: ``http_github.py``
     * Lines of code to write: 50 lines
     * Estimated time of completion: 30 min
 
@@ -300,6 +359,13 @@ REST API
     * Używanie biblioteki standardowej i bibliotek zewnętrznych
 
 :Hints:
+    .. code-block:: python
+
+        "name": "django",
+        "full_name": "django/django",
+
+        # wyszukaj "commits_url": ???
+
     .. code-block:: rest
 
         https://api.github.com/
@@ -311,17 +377,3 @@ REST API
 
         $ curl https://api.github.com/orgs/django/repos
         $ curl https://api.github.com/repos/django/django/commits
-
-    .. code-block:: python
-
-        auth = b'username:token'
-        key = base64.b64encode(auth).decode("ascii")
-        headers={
-            'Authorization': 'Basic {key}',
-            'User-Agent': 'Python HTTP',
-        }
-
-        # ...
-
-        body = resp.read().decode()
-        data = json.loads(body)

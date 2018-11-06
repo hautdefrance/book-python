@@ -2,12 +2,13 @@
 HTTP Protocol
 *************
 
+* Request vs Response
+* URI vs URL
 * HTTP vs HTTPS
+* HTTP/1.1 vs HTTP/2.0
 * Methods
 * Statuses
 * Headers
-* URI vs URL
-* HTTP/1.1 vs HTTP/2.0
 
 
 HTTP Methods
@@ -90,7 +91,7 @@ HTTP Statuses
 
 ``4xx`` Client errors
 ---------------------
-.. csv-table:: HTTP Statuses ``3xx`` Redirection
+.. csv-table:: HTTP Statuses ``4xx`` Client errors
     :header-rows: 1
     :widths: 15, 25, 60
 
@@ -126,7 +127,7 @@ HTTP Statuses
 
 ``5xx`` Server errors
 ---------------------
-.. csv-table:: HTTP Statuses ``3xx`` Redirection
+.. csv-table:: HTTP Statuses ``5xx`` Server errors
     :header-rows: 1
     :widths: 15, 25, 60
 
@@ -142,6 +143,7 @@ HTTP Statuses
     "508", "Loop Detected (WebDAV)", ""
     "510", "Not Extended", ""
     "511", "Network Authentication Required", ""
+
 
 HTTP Headers
 ============

@@ -1,10 +1,10 @@
-******************************
-Python HTTP using ``requests``
-******************************
+***********************
+HTTP using ``requests``
+***********************
 
 
-``requests`` API
-================
+Basic API
+=========
 .. code-block:: python
 
     import requests
@@ -258,20 +258,6 @@ Basic Auth
         data = response.json()
         print(data)
 
-.. code-block:: python
-
-    import requests
-    from requests.auth import HTTPBasicAuth
-    from http import HTTPStatus
-
-
-    response = requests.get('https://api.github.com/user', auth=HTTPBasicAuth('user', 'pass'))
-    # <Response [200]>
-
-    if response.status_code == HTTPStatus.OK:
-        data = response.json()
-        print(data)
-
 
 Requests OAuth
 ==============
@@ -292,24 +278,18 @@ Assignments
 
 REST API
 --------
+#. Załóż darmowe konto na Github i potwierdź email
+#. W przeglądarce internetowej wygeneruj w swoim profilu token https://github.com/settings/tokens
 #. Używając biblioteki ``requests``
 #. Zaciągnij informacje o repozytoriach użytkownika Django na https://github.com
-#. W przeglądarce internetowej wygeneruj w swoim profilu token https://github.com/settings/tokens
-#. Następnie z przeglądnij listę z poziomu Pythona i znajdź URL dla repozytorium ``django``.
-
-    .. code-block:: python
-
-        "name": "django",
-        "full_name": "django/django",
-
-        # wyszukaj "commits_url": ???
-
-#. Przeglądnij to repozytorium i jego listę commitów.
+#. Każdy request uwierzytelnij za pomocą Basic Auth i swojego Access Tokena
+#. Następnie z przeglądnij listę z poziomu Pythona i znajdź URL dla repozytorium ``django``
+#. Przeglądnij to repozytorium i jego listę commitów
 #. Podaj datę i opis ostatniego commita
 #. Znajdź numery ID ticketów (``Fixed #...``) z issue trackera, które zostały rozwiązane w ostatnim miesiącu
 
 :About:
-    * Filename: ``http_simple.py``
+    * Filename: ``requests_github.py``
     * Lines of code to write: 35 lines
     * Estimated time of completion: 30 min
 
@@ -323,6 +303,13 @@ REST API
     * Używanie biblioteki standardowej i bibliotek zewnętrznych
 
 :Hints:
+    .. code-block:: python
+
+        "name": "django",
+        "full_name": "django/django",
+
+        # wyszukaj "commits_url": ???
+
     .. code-block:: rest
 
         https://api.github.com/
@@ -334,17 +321,3 @@ REST API
 
         $ curl https://api.github.com/orgs/django/repos
         $ curl https://api.github.com/repos/django/django/commits
-
-    .. code-block:: python
-
-        auth = b'username:token'
-        key = base64.b64encode(auth).decode("ascii")
-        headers={
-            'Authorization': 'Basic {key}',
-            'User-Agent': 'Python HTTP',
-        }
-
-        # ...
-
-        body = resp.read().decode()
-        data = json.loads(body)
