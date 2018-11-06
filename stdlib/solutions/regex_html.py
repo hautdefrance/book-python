@@ -11,6 +11,7 @@ for p in paragraphs:
         print(p)
 
 
+# Alternative solution
 paragraphs = re.findall(r'<p>(\w.*?)</p>', TEXT)
 
 for p in paragraphs:
@@ -18,6 +19,7 @@ for p in paragraphs:
         print(p)
 
 
+# Alternative solution
 output = re.search(r'<p>(We choose .*?)</p>', TEXT)
 output = re.sub('</?p>', '', output.group())
 print(output)
