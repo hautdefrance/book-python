@@ -58,6 +58,7 @@ Method Calls
 Filters
 =======
 * http://jinja.pocoo.org/docs/2.10/templates/#list-of-builtin-filters
+
 .. code-block:: jinja
 
     {{ items|join(', ') }}
@@ -172,7 +173,7 @@ Loops
     "``loop.depth0``", "Indicates how deep in a recursive loop the rendering currently is. Starts at level 0"
     "``loop.previtem``", "The item from the previous iteration of the loop. Undefined during the first iteration"
     "``loop.nextitem``", "The item from the following iteration of the loop. Undefined during the last iteration"
-    "``loop.change``", "(*val)	True if previously called with a different value (or not called at all)"
+    "``loop.change``", "True if previously called with a different value (or not called at all)"
 
 Blocks
 ======
