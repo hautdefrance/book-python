@@ -44,10 +44,20 @@ Control Flow
     control-flow/loops.rst
     control-flow/keywords.rst
     control-flow/comprehensions.rst
-    functions/basic.rst
     control-flow/exceptions.rst
     control-flow/file.rst
     control-flow/exam.rst
+
+*********
+Functions
+*********
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Functions
+
+    functions/basic.rst
+    functions/advanced.rst
 
 ****************
 Standard Library
@@ -57,12 +67,25 @@ Standard Library
     :numbered:
     :caption: Standard Library
 
-    extensions/modules.rst
-    builtin/index.rst
+    stdlib/import.rst
+    stdlib/builtin.rst
+    stdlib/datetime.rst
+    stdlib/math.rst
+    stdlib/print.rst
+    stdlib/regex.rst
+
+*************
+Serialization
+*************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Serialization
+
     serialization/csv.rst
-    datetime/index.rst
-    math/index.rst
-    print-formatting/index.rst
+    serialization/json.rst
+    serialization/xml.rst
+    serialization/pickle.rst
 
 *************************
 Good Engineering Practice
@@ -94,17 +117,6 @@ Object Oriented Programming
     object-oriented-programming/enum.rst
     object-oriented-programming/operator-overload.rst
 
-*******************
-Intermediate Topics
-*******************
-.. toctree::
-    :maxdepth: 2
-    :numbered:
-    :caption: Intermediate Topics
-
-    regex/index.rst
-    functions/advanced.rst
-
 ************
 HTTP and Web
 ************
@@ -113,7 +125,6 @@ HTTP and Web
     :numbered:
     :caption: HTTP and Web
 
-    serialization/json.rst
     database/sqlite.rst
     database/sql.rst
     http/protocol.rst
@@ -122,7 +133,6 @@ HTTP and Web
     http/scrapping.rst
     http/frameworks.rst
     http/paas.rst
-    serialization/xml.rst
     http/soap-wsdl.rst
 
 *******
@@ -133,7 +143,6 @@ Network
     :numbered:
     :caption: Network and HTTP
 
-    serialization/pickle.rst
     network/tcp-udp.rst
     network/socket.rst
     network/botnet.rst
@@ -151,8 +160,8 @@ CI/CD, Versioning and Distributing
     extensions/venv.rst
     extensions/zipapp.rst
     extensions/distributing-packages.rst
-    argparse/index.rst
-    operating-system/index.rst
+    operating-system/argparse.rst
+    operating-system/os.rst
     documentation/index.rst
 
 ************

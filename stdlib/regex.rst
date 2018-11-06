@@ -166,7 +166,8 @@ PESEL Validation
 
 Parsing text from webpage
 -------------------------
-#. Dla listingu poniżej
+#. Ze strony https://er.jsc.nasa.gov/seh/ricetalk.htm pobrano tekst przemówienia John F. Kennedy'ego "Moon Speech" i zamieszczono w listingu poniżej
+#. Skopiuj zawartość listingu do pliku ``moon-speech.html``
 #. Za pomocą regexpów wytnij tekst fragmentu przemówienia JFK
 #. Zwróć pierwszy paragraf tekstu przemówienia zaczynający się od słów "We choose to go to the moon"
 
