@@ -188,11 +188,18 @@ Prosty serwer HTTP
         httpd.socket.close()
 
 
-Wersjonowanie API
-=================
-.. code-block:: text
+Assignments
+===========
 
-    Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
-    Accept-Encoding:gzip, deflate, sdch
-    Accept-Language:en-US,en;q=0.8,pl;q=0.6
+EVA
+---
+#. Na podstawie podanych URL:
 
+    * https://www.worldspaceflight.com/bios/eva/eva.php
+    * https://www.worldspaceflight.com/bios/eva/eva2.php
+    * https://www.worldspaceflight.com/bios/eva/eva3.php
+    * https://www.worldspaceflight.com/bios/eva/eva4.php
+
+#. Scrappuj stronę wykorzystując ``beautifulsoup4``
+#. Przygotuj plik CSV z danymi dotyczącymi spacerów kosmicznych
+#. Spróbuj to samo zrobić za pomocą ``pandas.read_html()``

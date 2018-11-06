@@ -22,16 +22,52 @@ Run in the console
         # c
         # [1, 2, 3]
 
-.. code-block:: python
 
-    USERNAMES = ('José')
+Case Study
+----------
 
-    for user in USERNAMES:
-        print(user)
-        # J
+Good
+^^^^
+:settings.py:
+    .. code-block:: python
+
+        ADMIINSTRATORS = 'jose.jimenez@nasa.gov',
+
+:main.py:
+    .. code-block:: python
+
+        from settings import ADMIINSTRATORS
+
+        for config in MY_CONFIGURATION:
+            print(config)
+
+        # jose.jimenez@nasa.gov
+
+Bad
+^^^
+:settings.py:
+    .. code-block:: python
+
+        ADMIINSTRATORS = 'jose.jimenez@nasa.gov'
+
+:main.py:
+    .. code-block:: python
+
+        from settings import ADMIINSTRATORS
+
+        for config in MY_CONFIGURATION:
+            print(config)
+
+        # j
         # o
         # s
-        # é
+        # e
+        # .
+        # j
+        # ...
+        # g
+        # o
+        # v
 
 
 ``pprint``

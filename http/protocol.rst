@@ -302,3 +302,29 @@ Video Types
     "video/ogg", ""
     "video/webm", "A video file, possibly with audio, in the WebM container format. VP8 and VP9 are the most common video codecs used within it; Vorbis and Opus the most common audio codecs"
     "video/ogg", "A video file, possibly with audio, in the OGG container format. Theora is the usual video codec used within it; Vorbis is the usual audio codec"
+
+
+API Versioning
+==============
+
+Good Engineering Practices
+--------------------------
+* Always version API
+* Have stable API!
+* Have deprication policy
+* Use semantic versioning
+* Do not use plural in resources
+* Use HTTP Statuses
+* Use HTTP Methods
+
+How to version API?
+-------------------
+.. csv-table:: How to version API?
+    :header-rows: 1
+
+    "Example", "Description"
+    "``/api/v2/user/10``", "API version as a part of URL"
+    "``X-API-VERSION: 2``", "Version as a custom header with ``X-...`` prefix"
+    "``/user/10?api=v2``", "Version as a parameter to URL"
+    "``Accept: application/vnd.api.v2``", "API version as a custom vendor prefix for ``Accept`` header"
+    "``Accept: application/vnd.api.v2;q=0.9,application/vnd.api.v1;q=0.8``", "API version negotiation with weights using ``Accept`` header"

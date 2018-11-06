@@ -799,6 +799,18 @@ Iris
 #. Pozostaw tylko kolumny 'Sepal length', 'Sepal width' oraz 'Species'
 #. Wykreśl podstawowe statystyki opisowe
 
+EVA
+---
+#. Na podstawie podanych URL:
+
+    * https://www.worldspaceflight.com/bios/eva/eva.php
+    * https://www.worldspaceflight.com/bios/eva/eva2.php
+    * https://www.worldspaceflight.com/bios/eva/eva3.php
+    * https://www.worldspaceflight.com/bios/eva/eva4.php
+
+#. Scrappuj stronę wykorzystując ``pandas.read_html()``
+#. Przygotuj plik CSV z danymi dotyczącymi spacerów kosmicznych
+
 Cars
 ----
 Należy stworzyć DataFrame samochody z losową kolumną liczb całkowitych przebieg z przedziału [0, 200 000] oraz spalanie z przedziału [2, 20].
