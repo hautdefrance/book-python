@@ -183,7 +183,7 @@ DELETE Requests
     from http import HTTPStatus
 
 
-    response = requests.post('https://api.github.com/delete')
+    response = requests.delete('https://httpbin.org/delete')
     # <Response [200]>
 
     if response.status_code == HTTPStatus.OK:
@@ -198,10 +198,11 @@ Custom Headers
     from http import HTTPStatus
 
 
-    url = 'https://api.github.com/some/endpoint'
-    headers = {'user-agent': 'my-app/0.0.1'}
+    headers = {
+        'User-Agent': 'Python requests'
+    }
 
-    response = requests.get(url, headers=headers)
+    response = requests.get('https://httpbin.org/post', headers=headers)
     # <Response [200]>
 
     if response.status_code == HTTPStatus.OK:
@@ -237,10 +238,10 @@ Timeout
     import requests
 
 
-    requests.get('https://github.com/', timeout=0.001)
+    requests.get('https://httpbin.org/get', timeout=0.001)
     # Traceback (most recent call last):
     #   File "<stdin>", line 1, in <module>
-    # requests.exceptions.Timeout: HTTPConnectionPool(host='github.com', port=80): Request timed out. (timeout=0.001)
+    # requests.exceptions.Timeout: HTTPConnectionPool(host='httpbin.org', port=80): Request timed out. (timeout=0.001)
 
 
 Basic Auth
