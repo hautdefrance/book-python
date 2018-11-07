@@ -148,6 +148,10 @@ Network
     network/imap.rst
     network/smtp.rst
     network/pop3.rst
+    network/ip.rst
+    network/ssh.rst
+    network/dns.rst
+    network/interfaces.rst
     network/tcp-udp.rst
     network/socket.rst
     network/botnet.rst
