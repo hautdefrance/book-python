@@ -14,9 +14,9 @@ FILENAME_CSV = 'eva.csv'
 # It saves bandwidth, and speeds you development
 # Then comment following ``with`` context manager
 
-# with open(FILENAME_HTML, mode='w', encoding='utf-8') as file:
-#     response = requests.get(URL)
-#     file.write(response.text)
+with open(FILENAME_HTML, mode='w', encoding='utf-8') as file:
+    response = requests.get(URL)
+    file.write(response.text)
 
 
 # Parser content below
@@ -105,4 +105,3 @@ with open(FILENAME_CSV, mode='w', encoding='utf-8') as file:
 
 
 pprint(records)
-

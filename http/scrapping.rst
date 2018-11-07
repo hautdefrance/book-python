@@ -178,7 +178,7 @@ EVA
 
 :About:
     * Filename: ``scrapping_eva.py``
-    * Lines of code to write: 35 lines
+    * Lines of code to write: 100 lines
     * Estimated time of completion: 45 min
 
 :The whys and wherefores:
