@@ -96,7 +96,9 @@ Client
 
 Asynchronous
 ------------
-.. code-block:: python
+.. literalinclude:: src/socketserver-tcp-asynchronous.py
+    :language: python
+    :caption: ``socketserver`` TCP Asynchronous Client
 
 
 References

@@ -12,6 +12,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
 
     while True:
         received, addr = sock.recvfrom(1024)
-        received = str(received, encoding='utf-8')
-
-        print(f'From: {addr}, received: "{received}"')
+        print(f'From: {addr}, received: "{received.decode()}"')

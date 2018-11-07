@@ -11,7 +11,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
     sock.connect((HOST, PORT))
 
     print(f'Sending: "{DATA}"')
-    sock.sendall(bytes(DATA, encoding='utf-8'))
+    sock.sendall(DATA.encode())
 
-    received = str(sock.recv(1024), encoding='utf-8')
+    received = sock.recv(1024).decode()
     print(f'Received: {received}')
