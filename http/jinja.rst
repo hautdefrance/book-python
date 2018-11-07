@@ -15,35 +15,44 @@ Syntax
     :header-rows: 1
 
     "Syntax", "Description"
-    ``{% ... %}``", "Statements"
-    ``{{ ... }}``", "Expressions to print to the template output"
-    ``{# ... #}``", "Comments not included in the template output"
-    ``#  ... ##``", "Line Statements"
+    "``{% ... %}``", "Statements"
+    "``{{ ... }}``", "Expressions to print to the template output"
+    "``{# ... #}``", "Comments not included in the template output"
+    "``#  ... ##``", "Line Statements"
 
 
 Example usage
 =============
 .. code-block:: jinja
 
-    <title>{% block title %}{% endblock %}</title>
+    <h1>List of users</h1>
 
-    <ul>
-    {% for user in users %}
-      <li><a href="{{ user.url }}">{{ user.username }}</a></li>
-    {% endfor %}
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Role</th>
+            </tr>
+        </thead>
 
-.. code-block:: jinja
+        <tbody>
 
-    {% extends "layout.html" %}
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.last_name }}</td>
 
-    {% block body %}
-      <ul>
-      {% for user in users %}
-        <li><a href="{{ user.url }}">{{ user.username }}</a></li>
-      {% endfor %}
-      </ul>
-    {% endblock %}
+                    {% if user.role == 'admin' %}
+                        <td>Administrator</td>
+                    {% else %}
+                        <td>User</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+
+        <tbody>
+    </table>
 
 
 Method Calls
