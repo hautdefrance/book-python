@@ -171,4 +171,20 @@ EVA
 
 #. Scrappuj stronę wykorzystując ``beautifulsoup4``
 #. Przygotuj plik CSV z danymi dotyczącymi spacerów kosmicznych
-#. Spróbuj to samo zrobić za pomocą ``pandas.read_html()``
+#. Spróbuj to samo zrobić za pomocą ``pandas.read_html()``:
+
+    * Podając jako parametr czwarty URL
+    * Dla częściowo sparsowanej strony, np. wyciągniętej tabelki
+
+:About:
+    * Filename: ``scrapping_eva.py``
+    * Lines of code to write: 35 lines
+    * Estimated time of completion: 45 min
+
+:The whys and wherefores:
+    * Komunikacja HTTP (request, response)
+    * Parsowanie odpowiedzi HTTP
+    * Sprawdzanie stanu połączenia
+    * Serializacja i parsowanie *HTML*
+    * Korzystanie z Web Inspectora w przeglądarce
+    * Używanie bibliotek zewnętrznych

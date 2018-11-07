@@ -9,11 +9,16 @@ FILENAME_HTML = 'eva.html'
 FILENAME_CSV = 'eva.csv'
 
 
-# response = requests.get(URL)
-#
-# with open(FILENAME_HTML, mode='w', encoding='utf-8') as file:
-#     file.write(response.text)
+# When you dump page for the first time, you can test parsing on local file
+# It saves bandwidth, and speeds you development
+# Then comment following ``with`` context manager
 
+with open(FILENAME_HTML, mode='w', encoding='utf-8') as file:
+    response = requests.get(URL)
+    file.write(response.text)
+
+
+# Parser content below
 
 with open(FILENAME_HTML, mode='r', encoding='utf-8') as file:
     content = file.read()
