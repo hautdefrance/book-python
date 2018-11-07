@@ -12,6 +12,7 @@ Connection
 Methods
 =======
 .. csv-table:: ``poplib`` Methods
+    :header-rows: 1
 
     "Method", "Arguments", "Description"
     "``poplib.POP3()``", "``host``, ``port=POP3_PORT``, ``timeout=None``", "This class implements the actual POP3 protocol"
