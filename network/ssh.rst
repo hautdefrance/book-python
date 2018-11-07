@@ -61,8 +61,11 @@ Running commands
             stderr.close()
     client.close
 
+
 ``fabric``
 ==========
+* http://www.fabfile.org/
+* https://pypi.python.org/pypi/Fabric3
 
 Local
 -----
@@ -184,6 +187,17 @@ Executing on remote host
         with settings(sudo_user='mysql'):
             sudo("whoami")
             # 'mysql'
+
+Host
+----
+.. code-block:: python
+
+    from fabric.api import hosts
+
+    @hosts(['127.0.0.1', 'localhost'])
+    def whoami():
+        sudo('whoami')
+
 
 ``pssh``
 ========

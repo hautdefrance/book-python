@@ -1,6 +1,6 @@
-*************
-POP3 Protocol
-*************
+****
+POP3
+****
 
 
 Connection

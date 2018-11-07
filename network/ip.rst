@@ -1,6 +1,6 @@
-******************
-IPv4/IPv6 Protocol
-******************
+*********
+IPv4/IPv6
+*********
 
 
 * https://yamakira.github.io/python-network-programming/libraries/netaddr/index.html

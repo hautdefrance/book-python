@@ -148,10 +148,11 @@ Network
     network/imap.rst
     network/smtp.rst
     network/pop3.rst
-    network/ip.rst
-    network/ssh.rst
+    network/ldap.rst
     network/dns.rst
+    network/ssh.rst
     network/interfaces.rst
+    network/ip.rst
     network/tcp-udp.rst
     network/socket.rst
     network/botnet.rst
@@ -365,7 +366,6 @@ Appendixes
     appendix/video.rst
     appendix/python-2vs3.rst
     appendix/python-wat.rst
-    appendix/opensource.rst
     TODO.rst
     LICENSE.rst
     glossary.rst

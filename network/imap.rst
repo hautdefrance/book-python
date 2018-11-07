@@ -1,6 +1,6 @@
-*************
-IMAP Protocol
-*************
+****
+IMAP
+****
 
 
 Connection
