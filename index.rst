@@ -155,6 +155,8 @@ Network
     network/ip.rst
     network/tcp-udp.rst
     network/socket.rst
+    network/ssl.rst
+    network/libraries.rst
     network/botnet.rst
 
 **********************************

@@ -77,17 +77,17 @@ class CacheFilesystem(Cache):
 
 @dataclass
 class HTTPGateway:
-    cache: Cache
+    _cache: Cache
 
     def get(self, url):
 
-        if not self.cache.is_valid(url):
+        if not self._cache.is_valid(url):
             log.info('Downloading...')
             html = requests.get(url).text
-            self.cache.set(url, html)
+            self._cache.set(url, html)
             log.info('Done.')
 
-        return self.cache.get(url)
+        return self._cache.get(url)
 
 
 if __name__ == '__main__':
@@ -95,7 +95,7 @@ if __name__ == '__main__':
     # cache = CacheDatabase(expiration=timedelta(minutes=2), location='database.sqlite')
     # cache = CacheMemory(expiration=timedelta(minutes=2))
 
-    http = HTTPGateway(cache=cache)
+    http = HTTPGateway(cache)
     html = http.get('http://python.astrotech.io')
 
     print(html)
