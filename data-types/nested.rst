@@ -5,6 +5,25 @@ Nested Collections
 
 ``list`` of ``dict``
 ====================
+
+Appending elements
+------------------
+.. code-block:: python
+
+    results = []
+
+    for i in range(0, 10):
+        results.append({
+            'number': i,
+            'square': i ** 2,
+            'qube': i ** 3,
+        })
+
+    print(results)
+
+
+Getting items
+-------------
 .. code-block:: python
 
     DATA = [
