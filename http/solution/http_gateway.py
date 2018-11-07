@@ -1,109 +1,101 @@
-import datetime
-import json
 import logging
 import os
-import re
+from dataclasses import dataclass
+from datetime import timedelta, datetime
 import requests
 
 
 logging.basicConfig(
-    level=logging.WARNING,
+    level=logging.INFO,
     format='"%(asctime).19s", "%(levelname)s", "%(message)s"'
 )
-
 log = logging.getLogger(__name__)
 
+
 class Cache:
-    def set(self): pass
-    def get(self): pass
-    def clear(self): pass
+    def __init__(self, expiration: timedelta = timedelta(days=1), location: str = '') -> None:
+        self.location = location
+        self.expiration = expiration
+
+    def get(self, key: str) -> str:
+        raise NotImplementedError
+
+    def set(self, key: str, value: str) -> None:
+        raise NotImplementedError
+
+    def is_valid(self, key: str) -> bool:
+        raise NotImplementedError
 
 
-class HTTPGateway:
-    def __init__(self, username=None, password=None, cache_expiry_days=30, cache_directory='.'):
-        self.username = username
-        self.password = password
-        self.cache_expiry_days = cache_expiry_days
-        self.cache_directory = cache_directory
+class CacheFilesystem(Cache):
+    def __init__(self, location: str = 'tmp', *args, **kwargs) -> None:
+        self.location = location
+        super().__init__(*args, **kwargs)
 
-    @staticmethod
-    def _get_cache_name_from_url(url):
-        return url.replace('/', '-').replace(':', '-')
+        if not os.path.isdir(self.location):
+            if os.path.isfile(self.location):
+                os.remove(self.location)
+            os.mkdir(self.location)
 
-    def _fetch_from_url(self, url):
-        connection = requests.get(url, auth=(self.username, self.password))
+    def _get_cache_path(self, key: str) -> str:
+        filename = key.replace('/', '-').replace(':', '').replace('--', '-')
+        return os.path.join(self.location, filename)
 
-        if connection.status_code != 200:
-            log.error(f'Cannot fetch from URL: {url}')
-            raise ConnectionError
-        else:
-            log.debug(f'Fetched from {url}')
-            return connection.text
+    def get(self, key: str) -> str:
+        filename = self._get_cache_path(key)
 
-    def _fetch_from_cache(self, url):
-        cache_name = self._get_cache_name_from_url(url)
-        path = os.path.join(self.cache_directory, cache_name)
+        if not os.path.isfile(filename):
+            raise FileNotFoundError
 
-        with open(path) as file:
-            log.debug(f'Reading from cache file {path}')
+        with open(filename, mode='r', encoding='utf-8') as file:
             return file.read()
 
-    def _set_cache(self, url, data):
-        cache_name = self._get_cache_name_from_url(url)
-        path = os.path.join(self.cache_directory, cache_name)
+    def set(self, key: str, value: str) -> None:
+        filename = self._get_cache_path(key)
 
-        with open(path, 'w') as file:
-            log.debug(f'Writing to cache file {path}')
-            file.write(data)
+        if value is None:
+            raise ValueError('Value cannot be None')
 
-    def _cache_invalid(self, url):
-        def last_modified_less_than_month_ago(path):
-            modification_timestamp = os.path.getmtime(path)
-            modification_datetime = datetime.datetime.fromtimestamp(modification_timestamp)
-            now = datetime.datetime.now()
-            return (now - modification_datetime).days < self.cache_expiry_days
+        with open(filename, mode='w', encoding='utf-8') as file:
+            file.write(value)
 
-        cache_name = self._get_cache_name_from_url(url)
-        path = os.path.join(self.cache_directory, cache_name)
+    def is_valid(self, key):
+        filename = self._get_cache_path(key)
 
-        if os.path.isfile(path) and last_modified_less_than_month_ago(path):
+        if not os.path.isfile(filename):
+            return False
+
+        last_modification = os.path.getmtime(filename)
+        last_modification = datetime.fromtimestamp(last_modification)
+        now = datetime.now()
+
+        if (now - last_modification) > self.expiration:
             return False
         else:
             return True
 
+
+@dataclass
+class HTTPGateway:
+    cache: Cache
+
     def get(self, url):
-        if self._cache_invalid(url):
-            log.info(f'Will read from URL {url}')
-            data = self._fetch_from_url(url)
-            self._set_cache(url, data)
-        else:
-            log.info(f'Will read from cache')
-            data = self._fetch_from_cache(url)
 
-        return json.loads(data)
+        if not self.cache.is_valid(url):
+            log.info('Downloading...')
+            html = requests.get(url).text
+            self.cache.set(url, html)
+            log.info('Done.')
+
+        return self.cache.get(url)
 
 
-http = HTTPGateway(
-    username='username',
-    password='password',
-    cache_directory='tmp'
-)
+if __name__ == '__main__':
+    cache = CacheFilesystem(expiration=timedelta(seconds=2), location='tmp')
+    # cache = CacheDatabase(expiration=timedelta(minutes=2), location='database.sqlite')
+    # cache = CacheMemory(expiration=timedelta(minutes=2))
 
-month_ago = datetime.datetime.now() - datetime.timedelta(days=30)
-issue_number = re.compile(r'#[0-9]+')
-issue_list = set()
+    http = HTTPGateway(cache=cache)
+    html = http.get('http://python.astrotech.io')
 
-for repository in http.get('https://api.github.com/orgs/django/repos'):
-    if repository['name'] == 'django':
-        repository_url = repository['commits_url'].replace('{/sha}', '')
-
-        for history in http.get(repository_url):
-            commit_date = history['commit']['committer']['date']
-            commit_date = datetime.datetime.strptime(commit_date, '%Y-%m-%dT%H:%M:%SZ')
-            message = history['commit']['message']
-
-            if commit_date > month_ago:
-                for issue in issue_number.findall(message):
-                    issue_list.add(issue)
-
-print(issue_list)
+    print(html)
