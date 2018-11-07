@@ -12,7 +12,7 @@ class MyHandler(BaseRequestHandler):
     def handle(self):
         data = self.request.recv(1024).decode()
         thread = threading.current_thread()
-        response = f"{thread.name}: {data}"
+        response = f'{thread.name}: {data}'
         self.request.sendall(response.encode())
 
 
@@ -24,7 +24,8 @@ def client(ip, port, message):
         print(f'Received: {response}')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
+    
     with ThreadingTCPServer((HOST, PORT), MyHandler) as server:
         ip, port = server.server_address
 
@@ -35,11 +36,11 @@ if __name__ == "__main__":
         # Exit the server thread when the main thread terminates
         server_thread.daemon = True
         server_thread.start()
-        print(f"Server loop running in thread: {server_thread.name}")
+        print(f'Server loop running in thread: {server_thread.name}')
 
-        client(ip, port, "Hello World 1")
-        client(ip, port, "Hello World 2")
-        client(ip, port, "Hello World 3")
+        client(ip, port, 'Hello World 1')
+        client(ip, port, 'Hello World 2')
+        client(ip, port, 'Hello World 3')
 
         server.shutdown()
 

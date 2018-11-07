@@ -5,8 +5,242 @@ IPv4/IPv6
 
 * https://yamakira.github.io/python-network-programming/libraries/netaddr/index.html
 
-``netaddr``
-===========
+``ipaddress`` (stdlib)
+======================
+
+IP Addresses
+------------
+.. code-block:: python
+
+    import ipaddress
+
+    ipaddress.ip_address('192.168.0.1')
+    # IPv4Address('192.168.0.1')
+
+    ipaddress.ip_address('2001:db8::')
+    # IPv6Address('2001:db8::')
+
+.. code-block:: python
+
+    import ipaddress
+
+    ipaddress.IPv4Address('192.168.0.1')
+    # IPv4Address('192.168.0.1')
+
+    ipaddress.IPv4Address(3232235521)
+    # IPv4Address('192.168.0.1')
+
+    ipaddress.IPv4Address(b'\xC0\xA8\x00\x01')
+    # IPv4Address('192.168.0.1')
+
+Comparision
+^^^^^^^^^^^
+.. code-block:: python
+
+    IPv4Address('127.0.0.2') > IPv4Address('127.0.0.1')
+    # True
+
+    IPv4Address('127.0.0.2') == IPv4Address('127.0.0.1')
+    # False
+
+    IPv4Address('127.0.0.2') != IPv4Address('127.0.0.1')
+    # True
+
+.. code-block:: python
+
+    IPv4Address('127.0.0.2') + 3
+    # IPv4Address('127.0.0.5')
+
+    IPv4Address('127.0.0.2') - 3
+    # IPv4Address('126.255.255.255')
+
+    IPv4Address('255.255.255.255') + 1
+    # Traceback (most recent call last):
+    #  File "<stdin>", line 1, in <module>
+    # ipaddress.AddressValueError: 4294967296 (>= 2**32) is not permitted as an IPv4 address
+
+The name of the reverse DNS PTR record for the IP address
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: python
+
+    ipaddress.ip_address("127.0.0.1").reverse_pointer
+    # '1.0.0.127.in-addr.arpa'
+
+    ipaddress.ip_address("2001:db8::1").reverse_pointer
+    # '1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa'
+
+IP Network
+----------
+.. code-block:: python
+
+    import ipaddress
+
+    ipaddress.ip_network('192.168.0.0/28')
+    # IPv4Network('192.168.0.0/28')
+
+.. code-block:: python
+
+    list(ip_network('192.0.2.0/29').hosts())  #doctest: +NORMALIZE_WHITESPACE
+    # [IPv4Address('192.0.2.1'), IPv4Address('192.0.2.2'),
+    #  IPv4Address('192.0.2.3'), IPv4Address('192.0.2.4'),
+    #  IPv4Address('192.0.2.5'), IPv4Address('192.0.2.6')]
+
+    list(ip_network('192.0.2.0/31').hosts())
+    # [IPv4Address('192.0.2.0'), IPv4Address('192.0.2.1')]
+
+.. code-block:: python
+
+    n1 = ip_network('192.0.2.0/28')
+    n2 = ip_network('192.0.2.1/32')
+
+    list(n1.address_exclude(n2))
+    # [IPv4Network('192.0.2.8/29'), IPv4Network('192.0.2.4/30'),
+    #  IPv4Network('192.0.2.2/31'), IPv4Network('192.0.2.0/32')]
+
+Subnet
+^^^^^^
+.. code-block:: python
+
+    list(ip_network('192.0.2.0/24').subnets())
+    # [IPv4Network('192.0.2.0/25'), IPv4Network('192.0.2.128/25')]
+
+    list(ip_network('192.0.2.0/24').subnets(prefixlen_diff=2))
+    # [
+    #   IPv4Network('192.0.2.0/26'),
+    #   IPv4Network('192.0.2.64/26'),
+    #   IPv4Network('192.0.2.128/26'),
+    #   IPv4Network('192.0.2.192/26')
+    # ]
+
+    list(ip_network('192.0.2.0/24').subnets(new_prefix=26))
+    # [
+    #   IPv4Network('192.0.2.0/26'),
+    #   IPv4Network('192.0.2.64/26'),
+    #   IPv4Network('192.0.2.128/26'),
+    #   IPv4Network('192.0.2.192/26')
+    # ]
+
+    list(ip_network('192.0.2.0/24').subnets(new_prefix=23))
+    # Traceback (most recent call last):
+    #  File "<stdin>", line 1, in <module>
+    #    raise ValueError('new prefix must be longer')
+    # ValueError: new prefix must be longer
+
+    list(ip_network('192.0.2.0/24').subnets(new_prefix=25))
+    # [
+    #    IPv4Network('192.0.2.0/25'),
+    #    IPv4Network('192.0.2.128/25')
+    # ]
+
+Supernet
+^^^^^^^^
+.. code-block:: python
+
+    ip_network('192.0.2.0/24').supernet()
+    # IPv4Network('192.0.2.0/23')
+
+    ip_network('192.0.2.0/24').supernet(prefixlen_diff=2)
+    # IPv4Network('192.0.0.0/22')
+
+    ip_network('192.0.2.0/24').supernet(new_prefix=20)
+    # IPv4Network('192.0.0.0/20')
+
+Comparision
+^^^^^^^^^^^
+.. code-block:: python
+
+    a = ip_network('192.168.1.0/24')
+    b = ip_network('192.168.1.128/30')
+    b.subnet_of(a)
+    # True
+
+.. code-block:: python
+
+    ip_network('192.0.2.1/32').compare_networks(ip_network('192.0.2.2/32'))
+    # -1
+
+    ip_network('192.0.2.1/32').compare_networks(ip_network('192.0.2.0/32'))
+    # 1
+
+    ip_network('192.0.2.1/32').compare_networks(ip_network('192.0.2.1/32'))
+    # 0
+
+Iteration
+^^^^^^^^^
+.. code-block:: python
+
+    for addr in IPv4Network('192.0.2.0/28'):
+         addr
+
+    # IPv4Address('192.0.2.0')
+    # IPv4Address('192.0.2.1')
+    # IPv4Address('192.0.2.2')
+    # IPv4Address('192.0.2.3')
+    # IPv4Address('192.0.2.4')
+    # IPv4Address('192.0.2.5')
+    # IPv4Address('192.0.2.6')
+    # IPv4Address('192.0.2.7')
+    # IPv4Address('192.0.2.8')
+    # IPv4Address('192.0.2.9')
+    # IPv4Address('192.0.2.10')
+    # IPv4Address('192.0.2.11')
+    # IPv4Address('192.0.2.12')
+    # IPv4Address('192.0.2.13')
+    # IPv4Address('192.0.2.14')
+    # IPv4Address('192.0.2.15')
+
+.. code-block:: python
+
+    IPv4Network('192.0.2.0/28')[0]
+    # IPv4Address('192.0.2.0')
+
+    IPv4Network('192.0.2.0/28')[15]
+    # IPv4Address('192.0.2.15')
+
+    IPv4Address('192.0.2.6') in IPv4Network('192.0.2.0/28')
+    # True
+
+    IPv4Address('192.0.3.6') in IPv4Network('192.0.2.0/28')
+    # False
+
+Interface
+---------
+* ``ipaddress.IPv4Interface``
+* ``ipaddress.IPv6Interface``
+
+.. code-block:: python
+
+    interface = IPv4Interface('192.0.2.5/24')
+    interface.ip
+    # IPv4Address('192.0.2.5')
+
+.. code-block:: python
+
+    interface = IPv4Interface('192.0.2.5/24')
+    interface.network
+    # IPv4Network('192.0.2.0/24')
+
+.. code-block:: python
+
+    interface = IPv4Interface('192.0.2.5/24')
+    interface.with_prefixlen
+    # '192.0.2.5/24'
+
+.. code-block:: python
+
+    interface = IPv4Interface('192.0.2.5/24')
+    interface.with_netmask
+    # '192.0.2.5/255.255.255.0'
+
+.. code-block:: python
+
+    interface = IPv4Interface('192.0.2.5/24')
+    interface.with_hostmask
+    # '192.0.2.5/0.0.0.255'
+
+
+``netaddr`` (3rd party)
+=======================
 
 Installation
 ------------

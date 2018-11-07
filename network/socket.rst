@@ -96,9 +96,24 @@ Client
 
 Asynchronous
 ------------
-.. literalinclude:: src/socketserver-tcp-asynchronous.py
+
+Threaded
+^^^^^^^^
+* ``class socketserver.ThreadingTCPServer``
+* ``class socketserver.ThreadingUDPServer``
+
+.. literalinclude:: src/socketserver-tcp-threaded.py
     :language: python
-    :caption: ``socketserver`` TCP Asynchronous Client
+    :caption: ``socketserver`` TCP Threaded Client
+
+Forking
+^^^^^^^
+* ``socketserver.ForkingTCPServer``
+* ``class socketserver.ForkingUDPServer``
+
+.. literalinclude:: src/socketserver-tcp-forking.py
+    :language: python
+    :caption: ``socketserver`` TCP Forking Client
 
 
 References

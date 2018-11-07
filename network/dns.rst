@@ -21,24 +21,77 @@ Basic DNS queries
     import dns.resolver
 
 
-    name = 'iana.org'
+    name = 'python.astrotech.io'
 
-    for qtype in 'A', 'AAAA', 'MX', 'NS', 'TXT', 'SOA':
-        answer = dns.resolver.query(name,qtype, raise_on_no_answer=False)
+    answer = dns.resolver.query(name, 'MX')
+    print(answer.rrset)
+
+.. code-block:: python
+
+    import dns.resolver
+
+    name = 'python.astrotech.io'
+    answer = dns.resolver.query(name, 'MX')
+
+    print(answer.canonical_name)
+    # readthedocs.io.
+
+    print(answer.expiration)
+    # 1541631181.7326112
+
+    print(answer.response.answer)
+    # [<DNS python.astrotech.io. IN CNAME RRset>, <DNS readthedocs.io. IN MX RRset>]
+
+    print(answer.rrset)
+    # readthedocs.io. 71 IN MX 10 aspmx3.googlemail.com.
+    # readthedocs.io. 71 IN MX 10 aspmx2.googlemail.com.
+    # readthedocs.io. 71 IN MX 5 alt1.aspmx.l.google.com.
+    # readthedocs.io. 71 IN MX 1 aspmx.l.google.com.
+    # readthedocs.io. 71 IN MX 5 alt2.aspmx.l.google.com.
+
+    print(answer.rrset.items)
+    # [
+    #   <DNS IN MX rdata: 10 aspmx3.googlemail.com.>,
+    #   <DNS IN MX rdata: 10 aspmx2.googlemail.com.>,
+    #   <DNS IN MX rdata: 5 alt1.aspmx.l.google.com.>,
+    #   <DNS IN MX rdata: 1 aspmx.l.google.com.>,
+    #   <DNS IN MX rdata: 5 alt2.aspmx.l.google.com.>
+    # ]
+
+
+
+.. code-block:: python
+
+    import dns.resolver
+
+
+    name = 'python.astrotech.io'
+    records = ['A', 'AAAA', 'MX', 'NS', 'TXT', 'SOA']
+
+
+    for record in records:
+        answer = dns.resolver.query(name, record, raise_on_no_answer=False)
 
         if answer.rrset is not None:
             print(answer.rrset)
 
+
 Zone transfer
 -------------
+* DNS Zone transfer is the process where a DNS server passes a copy of part of it's database (which is called a "zone") to another DNS server.
+* DNS zone transfer, also sometimes known by the inducing DNS query type AXFR, is a type of DNS transaction.
+* It is one of the many mechanisms available for administrators to replicate DNS databases across a set of DNS servers.
+
 .. code-block:: python
 
     import dns.query
     import dns.zone
 
+
     z = dns.zone.from_xfr(dns.query.xfr('nsztm1.digi.ninja', 'zonetransfer.me'))
     names = z.nodes.keys()
     names.sort()
+
     for n in names:
         print z[n].to_text(n)
 
@@ -58,6 +111,7 @@ Reverse DNS lookup (PTR record)
     # 4.4.8.8.in-addr.arpa.
 
     ip_address = reversename.to_address(domain_address)
+
     print(ip_address)
     # 8.8.4.4
 
@@ -65,6 +119,8 @@ Reverse DNS lookup (PTR record)
 
     from dns import resolver
 
+
     domain_name = str(resolver.query(domain_address,"PTR")[0])
+
     print(domain_name)
     # google-public-dns-b.google.com.
