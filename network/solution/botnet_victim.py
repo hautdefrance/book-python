@@ -7,7 +7,7 @@ import io
 import socket
 import threading
 import datetime
-
+from dataclasses import dataclass
 
 logging.basicConfig(
     level=logging.INFO,
@@ -39,7 +39,7 @@ class Executor(socketserver.BaseRequestHandler):
             timeout = float(command.get('timeout', 1))
             stdout = self.execute(cmd, timeout)
             output.append({
-                'datetime': datetime.datetime.utcnow(),
+                'datetime': datetime.datetime.utcnow(tz=datetime.timezone.utc),
                 'command': cmd,
                 'timeout': timeout,
                 'stdout': stdout,
@@ -49,6 +49,7 @@ class Executor(socketserver.BaseRequestHandler):
 
     def execute(self, command, timeout):
         log.debug('Executing command: %s with timeout: %s', command, timeout)
+
         with subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True) as proc:
 
             try:
@@ -71,24 +72,22 @@ class Executor(socketserver.BaseRequestHandler):
                 return message
 
 
+@dataclass
 class Heartbeat:
-
-    def __init__(self, host='localhost', port=31337, frequency=1.0):
-        log.debug('Starting ping hearthbeat')
-        self.host = host
-        self.port = port
-        self.frequency = frequency
+    host: str = '127.0.0.1'
+    port: int = 31337
+    frequency: float = 1.0
 
     def start(self):
         threading.Timer(self.frequency, self.ping).start()
 
     def ping(self):
-        log.debug(f'Ping sent to {self.host}:{self.port}')
-
         with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
-            data = {'host': self.host, 'port': self.port}
-            message = bytes(json.dumps(data), 'utf-8')
-            sock.sendto(message, (self.host, self.port))
+            data = json.dumps({
+                'host': self.host,
+                'port': '%27'
+            })
+            sock.sendto(data.encode(), (self.host, self.port))
 
         self.start()
 

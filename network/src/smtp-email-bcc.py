@@ -7,7 +7,6 @@ SMTP_PORT = 465
 SMTP_USER = 'firstname.lastname@gmail.com'
 SMTP_PASS = 'mypassword'
 
-
 EMAIL_FROM = "user63503@gmail.com"
 EMAIL_TO = "someone@gmail.com"
 EMAIL_CC = "anotherperson@gmail.com,someone@yahoo.com"
