@@ -64,25 +64,39 @@ Server socket example listening on localhost IPv4
 
 SSLSocket
 =========
-accept()
-bind()
-close()
-connect()
-detach()
-fileno()
-getpeername(), getsockname()
-getsockopt(), setsockopt()
-gettimeout(), settimeout(), setblocking()
-listen()
-makefile()
-recv(), recv_into() (but passing a non-zero flags argument is not allowed)
-send(), sendall() (with the same limitation)
-sendfile() (but os.sendfile will be used for plain-text sockets only, else send() will be used)
-shutdown()
+* Passing a non-zero flags argument is not allowed
+* but os.sendfile will be used for plain-text sockets only, else send() will be used
+
+.. csv-table:: SSLSocket API
+    :header-rows: 1
+
+    "Method", "Description"
+    "``accept()``", ""
+    "``bind()``", ""
+    "``close()``", ""
+    "``connect()``", ""
+    "``detach()``", ""
+    "``fileno()``", ""
+    "``getpeername()``", ""
+    "``getsockname()``", ""
+    "``getsockopt()``", ""
+    "``setsockopt()``", ""
+    "``gettimeout()``", ""
+    "``settimeout()``", ""
+    "``setblocking()``", ""
+    "``listen()``", ""
+    "``makefile()``", ""
+    "``recv()``", ""
+    "``recv_into()``", ""
+    "``send()``", ""
+    "``sendall()``", ""
+    "``sendfile()``", ""
+    "``shutdown()``", ""
 
 .. code-block:: python
 
-    import socket, ssl
+    import socket
+    import ssl
 
     context = ssl.SSLContext()
     context.verify_mode = ssl.CERT_REQUIRED

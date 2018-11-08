@@ -29,8 +29,8 @@ class Cache:
 
 class CacheFilesystem(Cache):
     def __init__(self, location: str = 'tmp', *args, **kwargs) -> None:
-        self.location = location
         super().__init__(*args, **kwargs)
+        self.location = location
 
         if not os.path.isdir(self.location):
             if os.path.isfile(self.location):
