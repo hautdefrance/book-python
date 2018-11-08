@@ -99,8 +99,8 @@ Asynchronous
 
 Threaded
 ^^^^^^^^
-* ``class socketserver.ThreadingTCPServer``
-* ``class socketserver.ThreadingUDPServer``
+* ``socketserver.ThreadingTCPServer``
+* ``socketserver.ThreadingUDPServer``
 
 .. literalinclude:: src/socketserver-tcp-threaded.py
     :language: python
@@ -109,7 +109,7 @@ Threaded
 Forking
 ^^^^^^^
 * ``socketserver.ForkingTCPServer``
-* ``class socketserver.ForkingUDPServer``
+* ``socketserver.ForkingUDPServer``
 
 .. literalinclude:: src/socketserver-tcp-forking.py
     :language: python
