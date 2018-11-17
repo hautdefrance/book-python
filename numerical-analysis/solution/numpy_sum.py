@@ -1,17 +1,14 @@
 import numpy as np
 
 
-A = np.random.randint(low=10, high=100, size=(16, 16)).astype(float)
-print('Matrix:')
-print(A)
+A = np.random.randint(low=10, high=101, size=(16, 16)).astype(float)
+print(f'Matrix:\n{A}')
 
 B = A.transpose()
-print('Transposed:')
-print(B)
+print(f'Transposed:\n{B}')
 
 inner = B[6:10, 6:10]
-print('Inner:')
-print(inner)
+print(f'Inner:\n{inner}')
 
 # total = sum(inner.flatten())
 total = inner.sum()
