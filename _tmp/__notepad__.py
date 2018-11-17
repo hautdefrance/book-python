@@ -1,20 +1,19 @@
-import sqlite3
+DANE = """4.3,3.0,1.1,0.1,0
+5.8,4.0,1.2,0.2,0
+5.7,4.4,1.5,0.4,1
+5.4,3.9,1.3,0.4,2
+5.1,3.5,1.4,0.3,1
+5.7,3.8,1.7,0.3,0
+5.1,3.8,1.5,0.3,0
+5.4,3.4,1.7,0.2,1
+5.1,3.7,1.5,0.4,0
+4.6,3.6,1.0,0.2,0
+5.1,3.3,1.7,0.5,2
+4.8,3.4,1.9,0.2,0
+5.0,3.0,1.6,0.2,1
+5.0,3.4,1.6,0.4,2
+5.2,3.5,1.5,0.2,1
+5.2,3.4,1.4,0.2,2
+4.7,3.2,1.6,0.2,0"""
 
 
-SQL_CREATE_TABLE = """
-    CREATE TABLE IF NOT EXISTS ping (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        datetime DATETIME,
-        host TEXT,
-        port INTEGER)"""
-
-SQL_INSERT = 'INSERT INTO ping VALUES (NULL, :datetime, :host, :port)'
-
-
-with sqlite3.connect('injection.sqlite3') as db:
-    db.execute(SQL_CREATE_TABLE)
-    db.execute(SQL_INSERT, {
-        'datetime': '2018-11-08T13:37:00Z',
-        'host': '127.0.0.1',
-        'port': 8080,
-    })

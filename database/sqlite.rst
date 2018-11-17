@@ -275,6 +275,11 @@ Iris Database
 #. Do połączenia wykorzystaj context manager (``with``)
 #. Dane wrzuć do bazy za pomocą ``.executemany()`` podając ``dict``
 #. Do bazy danych zapisz ``species`` jako nazwę gatunku (``str``), a nie jego id (``int``) (wersja z gwiazdką: nie korzystaj z if-ów do tego)
+
+    * 0 - setosa
+    * 1 - versicolor
+    * 2 - virginica
+
 #. Dodaj kolumnę ``datetime`` z datą i czasem dodania (UTC)
 #. Załóż index na ``datetime``
 #. Wyniki wypisz z bazy danych (``SELECT * FROM iris ORDER BY datetime DESC``)
