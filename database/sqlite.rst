@@ -323,7 +323,7 @@ Tworzenie bazy danych i proste zapytania
 
 .. literalinclude:: assignment/db-addressbook.sql
     :name: listing-db-addressbook.sql
-    :language: python
+    :language: sql
     :caption: Address Book SQL queries
 
 .. literalinclude:: assignment/db-addressbook.txt
