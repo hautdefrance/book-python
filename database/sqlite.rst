@@ -18,41 +18,41 @@ DB API
 
 Connection
 ----------
-.. literalinclude:: src/db-connect-memory.py
+.. literalinclude:: src/database-connect-memory.py
     :language: python
     :caption: Connection to in-memory database
 
-.. literalinclude:: src/db-connect-file.py
+.. literalinclude:: src/database-connect-file.py
     :language: python
     :caption: Connection to database file
 
-.. literalinclude:: src/db-connect-context-manager.py
+.. literalinclude:: src/database-connect-context-manager.py
     :language: python
     :caption: Connection
 
 Execute and executemany
 -----------------------
-.. literalinclude:: src/db-execute.py
+.. literalinclude:: src/database-execute.py
     :language: python
     :caption: Execute
 
-.. literalinclude:: src/db-execute-many.py
+.. literalinclude:: src/database-execute-many.py
     :language: python
     :caption: Execute many
 
 Results
 -------
-.. literalinclude:: src/db-results.py
+.. literalinclude:: src/database-results.py
     :language: python
     :caption: Results
 
-.. literalinclude:: src/db-results-dict.py
+.. literalinclude:: src/database-results-dict.py
     :language: python
     :caption: Results with ``dict``
 
 Cursor
 ------
-.. literalinclude:: src/db-cursor.py
+.. literalinclude:: src/database-cursor.py
     :language: python
     :caption: Results with cursor
 
@@ -63,7 +63,7 @@ Cursor
 
     $ pip install PyMySQL
 
-.. literalinclude:: src/db-pymysql.py
+.. literalinclude:: src/database-pymysql.py
     :language: python
     :caption: PyMySQL
 
@@ -77,7 +77,7 @@ Cursor
 
     $ pip install psycopg2
 
-.. literalinclude:: src/db-psycopg2.py
+.. literalinclude:: src/database-psycopg2.py
     :language: python
     :caption: Psycopg2
 
@@ -260,7 +260,7 @@ Assignments
 
 Iris Database
 -------------
-#. Pobierz dane z listingu :numref:`listing-db-iris.csv`
+#. Pobierz dane z listingu :numref:`listing-database-iris.csv`
 #. Bazę pomiarów Irysów przekonwertuj na tabelę w ``sqlite3``
 #. Nazwy poszczególnych kolumn:
 
@@ -285,13 +285,13 @@ Iris Database
 #. Wyniki wypisz z bazy danych (``SELECT * FROM iris ORDER BY datetime DESC``)
 #. Zwracaj dane jako ``sqlite3.Row``
 
-.. literalinclude:: assignment/db-iris.csv
-    :name: listing-db-iris.csv
+.. literalinclude:: assignment/database-iris.csv
+    :name: listing-database-iris.csv
     :language: python
     :caption: Iris Database
 
 :About:
-    * Filename: ``db_iris.py``
+    * Filename: ``database_iris.py``
     * Lines of code to write: 30 lines
     * Estimated time of completion: 30 min
 
@@ -307,13 +307,13 @@ Iris Database
 
 Tworzenie bazy danych i proste zapytania
 ----------------------------------------
-#. Wykorzystaj kod z listingu :numref:`listing-db-addressbook.sql` oraz :numref:`listing-db-addressbook.txt`
+#. Wykorzystaj kod z listingu :numref:`listing-database-addressbook.sql` oraz :numref:`listing-database-addressbook.txt`
 #. Wykorzystaj ``cursor`` oraz połączenia jako context manager (``with``)
 #. Dane powinny być zwracane w postaci listy ``dict``
 #. Do wpisywania danych wykorzystaj konstrukcję ``execute`` wykorzystując ``dict`` jako argument
 
 :About:
-    * Filename: ``db_addressbook.py``
+    * Filename: ``database_addressbook.py``
     * Lines of code to write: 15 lines
     * Estimated time of completion: 20 min
 
@@ -321,19 +321,19 @@ Tworzenie bazy danych i proste zapytania
     * Dodaj obsługę wielu adresów
     * Dodaj obsługę relacji w aplikacji
 
-.. literalinclude:: assignment/db-addressbook.sql
-    :name: listing-db-addressbook.sql
+.. literalinclude:: assignment/database-addressbook.sql
+    :name: listing-database-addressbook.sql
     :language: sql
     :caption: Address Book SQL queries
 
-.. literalinclude:: assignment/db-addressbook.txt
-    :name: listing-db-addressbook.txt
+.. literalinclude:: assignment/database-addressbook.txt
+    :name: listing-database-addressbook.txt
     :language: text
     :caption: Address Book data
 
 Dane w jednej tabeli
 --------------------
-#. Dane z listingu :numref:`listing-db-addressbook.txt`
+#. Dane z listingu :numref:`listing-database-addressbook.txt`
 #. Jak zapisać w jednej tabeli bez wykorzystania relacji?
 #. Przeprowadź dyskusję na temat zalet i wad podejść:
 
