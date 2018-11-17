@@ -264,20 +264,40 @@ YouTube
     from IPython.display import YouTubeVideo
     YouTubeVideo("wupToqz1e2g")
 
+
 Workflow
 ========
+
+Import
+------
 .. code-block:: python
 
     import pandas as pd
 
-    url = 'https://raw.githubusercontent.com/scikit-learn/scikit-learn/master/sklearn/datasets/data/iris.csv'
-    columns = ['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
-
-    data = pd.read_csv(url, skiprows=1, names=columns)
-
+Set Variables
+-------------
 .. code-block:: python
 
-    head = data.head(5)
+    url = 'https://raw.githubusercontent.com/scikit-learn/scikit-learn/master/sklearn/datasets/data/iris.csv'
+    columns = [
+        'Sepal length',
+        'Sepal width',
+        'Petal length',
+        'Petal width',
+        'Species'
+    ]
+
+Read data
+---------
+.. code-block:: python
+
+    df = pd.read_csv(url, skiprows=1, names=columns)
+
+First ``n`` records
+-------------------
+.. code-block:: python
+
+    head = df.head(5)
     #   Sepal length  Sepal width  Petal length  Petal width  Species
     # 0           5.1          3.5           1.4          0.2        0
     # 1           4.9          3.0           1.4          0.2        0
@@ -285,35 +305,31 @@ Workflow
     # 3           4.6          3.1           1.5          0.2        0
     # 4           5.0          3.6           1.4          0.2        0
 
+Last ``n`` records
+------------------
 .. code-block:: python
 
-    data.tail(3)
+    df.tail(3)
     #      Sepal length  Sepal width  Petal length  Petal width  Species
     # 147           6.5          3.0           5.2          2.0        2
     # 148           6.2          3.4           5.4          2.3        2
     # 149           5.9          3.0           5.1          1.8        2
 
-    # data.loc[data.Species == 0, 'Species'] = 'setosa'
-    # data.loc[data.Species == 1, 'Species'] = 'versicolor'
-    # data.loc[data.Species == 2, 'Species'] = 'virginica'
-
+Change column Species values
+----------------------------
 .. code-block:: python
 
-    species = {
+    df.Species.replace(to_replace={
         0: 'setosa',
         1: 'versicolor',
         2: 'virginica'
-    }
+    }, inplace=True)
 
+Shuffle columns and reset indexes
+---------------------------------
 .. code-block:: python
 
-    # Change column Species values
-    data.Species.replace(to_replace=species, inplace=True)
-
-.. code-block:: python
-
-    # Shuffle columns and reset indexes
-    data.sample(frac=1).reset_index(drop=True, inplace=True)
+    df = df.sample(frac=1.0).reset_index(drop=True)
     #      Sepal length  Sepal width     ...      Petal width     Species
     # 0             5.0          2.0     ...              1.0  versicolor
     # 1             6.4          2.7     ...              1.9   virginica
@@ -323,9 +339,11 @@ Workflow
     # 5             4.6          3.6     ...              0.2      setosa
     # 6             5.9          3.0     ...              1.5  versicolor
 
+Descriptive Statistics
+----------------------
 .. code-block:: python
 
-    data.describe()
+    df.describe()
     #        Sepal length  Sepal width  Petal length  Petal width
     # count    150.000000   150.000000    150.000000   150.000000
     # mean       5.843333     3.057333      3.758000     1.199333
