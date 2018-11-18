@@ -92,13 +92,17 @@ Dragon (Part 2)
     * losowe punkty życia (200-250)
     * zadaje losowe obrażenia (1-15)
     * klasa postaci (domyślnie "Warrior")
+    * Bohater może przyjmować obrażenia
+    * Bohater może zginąć
+    * Bohater może poruszać się po planszy
 
 #. Wszystkie istoty mają statusy:
 
     * "Full Health" - gdy punkty życia 100% (zastąp status "alive")
     * "Injured" - gdy punkty życia 99% - 75%
     * "Badly Wounded" - gdy punkty życia 75% - 25%
-    * "Near Death" - gdy punkty życia poniżej 25%
+    * "Near Death" - gdy punkty życia 25% - 1%
+    * "Dead" - gdy punkty życia poniżej lub równe 0%
 
 #. Bohater przejmuje złoto smoka, jeżeli go zabije
 #. Przeprowadź walkę, tak długo aż ktoś pierwszy nie zginie

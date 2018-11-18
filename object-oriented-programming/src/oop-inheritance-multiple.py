@@ -1,20 +1,23 @@
 class Cosmonaut:
+    job = 'Cosmonaut'
     agency = 'Roscosmos'
 
 
+class Pilot:
+    job = 'Pilot'
+
+
 class Gieroy:
-    status = 'gieroy'
+    status = 'Gieroy'
 
 
-class GeroySovietskogoSoyuza(Cosmonaut, Gieroy):
+class GeroySovietskogoSoyuza(Gieroy, Cosmonaut, Pilot):
     def __init__(self, name):
         self.name = name
 
-    def say_hallo(self):
-        print(f'Здравствуйте... {self.name}')
-
 
 ivan = GeroySovietskogoSoyuza(name='Иван Иванович')
-ivan.say_hallo()        # Здравствуйте... Иван Иванович
-ivan.status             # gieroy
-ivan.agency             # Roscosmos
+
+ivan.job        # 'Cosmonaut'
+ivan.status     # 'Gieroy'
+ivan.agency     # 'Roscosmos'

@@ -4,7 +4,7 @@ class Spaceman:
     def __init__(self, name):
         self.name = name
 
-    def what_is_your_agency(self):
+    def get_agency(self):
         return self.agency
 
 
@@ -16,9 +16,9 @@ class Cosmonaut(Spaceman):
     agency = 'Roscosmos'
 
 
-
 jose = Astronaut(name='José Jiménez')
-jose.what_is_your_agency()       # NASA
-
 ivan = Cosmonaut(name='Иван Иванович')
-ivan.what_is_your_agency()       # Roscosmos
+
+
+jose.get_agency()       # NASA
+ivan.get_agency()       # Roscosmos

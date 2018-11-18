@@ -1,4 +1,6 @@
-class Astronaut:
+class Pilot:
+    current_job = 'Pilot'
+
     def __init__(self, name):
         self.name = name
 
@@ -6,15 +8,18 @@ class Astronaut:
         print(f'My name... {self.name}')
 
 
-class MaleAstronaut(Astronaut):
-    gender = 'male'
+class CosmonautPilot(Pilot):
+    current_job = 'Cosmonaut'
+    previous_job = 'Pilot'
 
 
-class Gieroj(MaleAstronaut):
-    status = 'hero'
+class GieroyCosmonautPilot(CosmonautPilot):
+    status = 'Gieroy'
 
 
-ivan = Gieroj(name='Иван Иванович')
-ivan.say_hallo()        # My name... Иван Иванович
-ivan.status             # hero
-ivan.gender             # male
+ivan = GieroyCosmonautPilot(name='Иван Иванович')
+
+ivan.say_hallo()        # Здравствуйте... Иван Иванович
+ivan.current_job        # Cosmonaut
+ivan.previous_job       # Pilot
+ivan.status             # Gieroy
