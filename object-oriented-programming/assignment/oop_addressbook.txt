@@ -9,8 +9,8 @@ Mark, Watney
 Иван, Иванович
     Kosmodrom Bajkonur, Bajkonur, Kazachstan
 
-Melissa Lewis,
-    <NO ADDRESS>
+Melissa, Lewis,
+    # NO ADDRESS
 
-Alex Vogel
+Alex, Vogel
     Linder Hoehe, 51147, Köln, Germany

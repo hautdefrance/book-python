@@ -31,7 +31,11 @@ Classes vs Objects
 * Objects, Instances
 * ``snake_case`` names
 
-.. literalinclude:: src/oop-objects.py
+.. literalinclude:: src/oop-objects-1.py
+    :language: python
+    :caption: Classes and Objects
+
+.. literalinclude:: src/oop-objects-2.py
     :language: python
     :caption: Classes and Objects
 
@@ -52,9 +56,23 @@ Methods
 * ``self`` - Instance as an argument
 * przy uruchomieniu funkcji nie podajemy jawnie argumentu ``self``
 
-.. literalinclude:: src/oop-methods.py
+Methods accessing fields
+------------------------
+.. literalinclude:: src/oop-methods-1.py
     :language: python
-    :caption: Methods
+    :caption: Methods accessing fields
+
+Methods with default arguments
+------------------------------
+.. literalinclude:: src/oop-methods-2.py
+    :language: python
+    :caption: Methods with default arguments
+
+Methods accessing other methods
+-------------------------------
+.. literalinclude:: src/oop-methods-3.py
+    :language: python
+    :caption: Methods accessing other methods
 
 
 Initializer Method

@@ -2,5 +2,9 @@ class Astronaut:
     pass
 
 
+class Cosmonaut:
+    pass
+
+
 jose = Astronaut()
-ivan_ivanovich = Astronaut()
+ivan = Cosmonaut()
