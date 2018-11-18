@@ -115,11 +115,9 @@ Basic Address Book
 
 Address Book from API
 ---------------------
-#. Dla danych z listingu
 #. API programu powinno być tak jak na :numref:`listing-oop-addressbook-py`
 #. Zrób tak, aby się ładnie wyświetlało zarówno dla jednego wyniku jak i dla wszystkich w książce
 #. ``Address`` ma mieć zmienną liczbę argumentów
-#. Jeżeli argument jest różny od ``None`` powinien być dynamicznie ustawiony (``setattr()``).
 
 :About:
     * Filename: ``oop_addressbook_api.py``
@@ -128,23 +126,66 @@ Address Book from API
 
 :The whys and wherefores:
     * Korzystanie z ``.__str__()``
-    * Dynamiczne tworzenie pól w obiekcie
 
 .. literalinclude:: assignment/oop_addressbook.py
     :name: listing-oop-addressbook-py
     :language: python
     :caption: Address Book
 
-Bank i Bankomaty
-----------------
-#. Klient może otworzyć konto w banku
-#. Bank może mieć wiele kont dla różnych klientów
-#. Każde konto ma unikalny numer, który jest generowany przy zakładaniu
-#. Klient może odpytać o swój numer
-#. Klient może wpłacić pieniądze na swoje konto
-#. Klient może wybrać pieniądze z bankomatu
+Dragon (Part 1)
+---------------
+#. Smok ma mieć:
+
+    * nazwę smoka
+    * pozycja ``x`` na ekranie
+    * pozycja ``y`` na ekranie
+    * teksturę, domyślnie ``dragon.png``
+    * punkty życia, domyślnie losowy ``int`` z zakresu od 50 do 100
+
+#. Smok może:
+
+    * otrzymywać obrażenia
+    * zadawać komuś losowe obrażenia z przedziału od 5 do 20
+    * być ustawiony w dowolne miejsce ekranu
+    * być przesuwany o zadaną liczbę punktów w którymś z kierunków
+
+#. Przyjmij górny lewy róg ekranu za punkt (0, 0)
+
+    * idąc w prawo dodajesz ``x``
+    * idąc w lewo odejmujesz ``x``
+    * idąc w górę odejmujesz ``y``
+    * idąc w dół dodajesz ``y``
+
+#. Przy każdym obrażeniu wypisz na ekranie nazwę smoka, ilość obrażeń i pozostałe punkty życia
+#. Kiedy punkty życia smoka spadną do, lub poniżej zera:
+
+    * ustaw status obiektu na ``dead``
+    * na ekranie ma pojawić się napis 'XXX is dead' gdzie XXX to nazwa smoka
+    * zmień teksturę smoka na ``dragon-dead.png``
+    * na ekranie pojawi się informacja ile złota smok wyrzucił (losowa 1-100)
+    * na ekranie pojawi się informacja o pozycji gdzie smok zginął
+
+#. Nie można zadawać smokowi obrażeń, jeżeli już nie żyje
+#. Przeprowadź grę:
+
+    * Stwórz smoka w pozycji x=50, y=120 i nazwij go Wawelski
+    * Ustaw nową pozycję na x=10, y=20
+    * Przesuń smoka o 10 w lewo i 20 w dół
+    * Przesuń smoka o 10 w lewo i 15 w prawo
+    * Przesuń smoka o 15 w prawo i 5 w górę
+    * Przesuń smoka o 5 w dół
+    * Zadaj 10 obrażeń smokowi
+    * Zadaj 5 obrażeń smokowi
+    * Zadaj 3 obrażeń smokowi
+    * Zadaj 2 obrażeń smokowi
+    * Zadaj 15 obrażeń smokowi
+    * Zadaj 25 obrażeń smokowi
+    * Zadaj 75 obrażeń smokowi
+
+#. Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
 
 :About:
-    * Filename: ``oop_bank.py``
-    * Lines of code to write: 60 lines
-    * Estimated time of completion: 20 min
+    * Filename: ``oop_dragon_1.py``
+    * Lines of code to write: 100 lines
+    * Estimated time of completion: 75 min
+    * Don't delete code, assignment will be continued

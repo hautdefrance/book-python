@@ -72,70 +72,11 @@ More advanced topics
 Assignments
 ===========
 
-Dragon (Easy)
--------------
-#. Smok ma mieć:
-
-    * nazwę smoka
-    * pozycja ``x`` na ekranie
-    * pozycja ``y`` na ekranie
-    * teksturę, domyślnie ``dragon.png``
-    * punkty życia, domyślnie losowy ``int`` z zakresu od 50 do 100
-
-#. Smok może:
-
-    * otrzymywać obrażenia
-    * zadawać komuś losowe obrażenia z przedziału od 5 do 20
-    * być ustawiony w dowolne miejsce ekranu
-    * być przesuwany o zadaną liczbę punktów w którymś z kierunków
-
-#. Przyjmij górny lewy róg ekranu za punkt (0, 0)
-
-    * idąc w prawo dodajesz ``x``
-    * idąc w lewo odejmujesz ``x``
-    * idąc w górę odejmujesz ``y``
-    * idąc w dół dodajesz ``y``
-
-#. Przy każdym obrażeniu wypisz na ekranie nazwę smoka, ilość obrażeń i pozostałe punkty życia
-#. Kiedy punkty życia smoka spadną do, lub poniżej zera:
-
-    * ustaw status obiektu na ``dead``
-    * na ekranie ma pojawić się napis 'XXX is dead' gdzie XXX to nazwa smoka
-    * zmień teksturę smoka na ``dragon-dead.png``
-    * na ekranie pojawi się informacja ile złota smok wyrzucił (losowa 1-100)
-    * na ekranie pojawi się informacja o pozycji gdzie smok zginął
-
-#. Nie można zadawać smokowi obrażeń, jeżeli już nie żyje
-#. Przeprowadź grę:
-
-    * Stwórz smoka w pozycji x=50, y=120 i nazwij go Wawelski
-    * Ustaw nową pozycję na x=10, y=20
-    * Przesuń smoka o 10 w lewo i 20 w dół
-    * Przesuń smoka o 10 w lewo i 15 w prawo
-    * Przesuń smoka o 15 w prawo i 5 w górę
-    * Przesuń smoka o 5 w dół
-    * Zadaj 10 obrażeń smokowi
-    * Zadaj 5 obrażeń smokowi
-    * Zadaj 3 obrażeń smokowi
-    * Zadaj 2 obrażeń smokowi
-    * Zadaj 15 obrażeń smokowi
-    * Zadaj 25 obrażeń smokowi
-    * Zadaj 75 obrażeń smokowi
-
-#. Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
-
-:About:
-    * Filename: ``oop_dragon_easy.py``
-    * Lines of code to write: 100 lines
-    * Estimated time of completion: 75 min
-
-Dragon (Medium)
------------------
-.. note:: Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
-
-#. Zaimportuj smoka z zadania podstawowego
+Dragon (Part 2)
+---------------
+#. Zaimportuj smoka z poprzedniej części zadania ("Part 1")
 #. Wykorzystaj mechanizm dziedziczenia dla Smoka
-#. Smok nie może wyjść poza obszar ekranu (1024x768) + ``napis doctest``
+#. Smok nie może wyjść poza obszar ekranu (1024x768) + napisz ``doctest``
 #. Jeżeli dojdzie do granicy ekranu, to przesuwając dalej, pozycja będzie ustawiona na maks
 #. Zmień smokowi punkty życia na losowy ``int`` z zakresu 100 do 150
 #. Stwórz bohatera (José Jiménez):
@@ -153,35 +94,27 @@ Dragon (Medium)
 
 #. Bohater przejmuje złoto smoka, jeżeli go zabije
 #. Przeprowadź walkę, tak długo aż ktoś pierwszy nie zginie
+#. Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
 
 :About:
-    * Filename: ``oop_dragon_medium.py``
+    * Filename: ``oop_dragon_2.py``
     * Lines of code to write: 120 lines
     * Estimated time of completion: 60 min
+    * Don't delete code, assignment will be continued
 
 :Hint:
     * Aby zaimportować trzeba najpierw w katalogu stworzyć pusty plik ``__init__.py``
 
-Dragon (Advanced)
------------------
-#. Dodaj możliwość poruszania się smoka i bohatera w 3 wymiarach
-#. Bohater może należeć do drużyny, który może składać się maks z 6 postaci (różnych klas)
-#. Żadna z istot na planszy nie może wyjść poza zakres ekranu
-#. Bohater może dodatkowo założyć ekwipunek i może być to wiele obiektów na raz
-#. Każdy z przedmiotów ma swoją nazwę, typ oraz modyfikator
-
-    * zbroję (dodatkowe punkty obrony, np. +10%)
-    * tarczę (dodatkowe punkty obrony, np. +5%)
-    * miecz (dodatkowe punkty ataku, np. +5%)
-
-#. Zbroja i tarcza chroni przed uderzeniami obniżając ilość obrażeń o wartość obrony
-#. Miecz zwiększa ilość zadawanych obrażeń
-#. Obrażenia smoka maleją z sześcianem odległości (zianie ogniem)
-#. Bohater nie może zadawać obrażeń jak jest dalej niż 50 punktów od przeciwnika
-#. Wszystkie istoty mogą lewelować a bazowe punty życia i obrażeń się zmieniają z poziomem
-#. Przeprowadź symulację walki. Kto zginie pierwszy?
+Bank i Bankomaty
+----------------
+#. Klient może otworzyć konto w banku
+#. Bank może mieć wiele kont dla różnych klientów
+#. Każde konto ma unikalny numer, który jest generowany przy zakładaniu
+#. Klient może odpytać o swój numer
+#. Klient może wpłacić pieniądze na swoje konto
+#. Klient może wybrać pieniądze z bankomatu
 
 :About:
-    * Filename: ``oop_dragon_advanced.py``
-    * Lines of code to write: 50 lines
-    * Estimated time of completion: 30 min
+    * Filename: ``oop_bank.py``
+    * Lines of code to write: 60 lines
+    * Estimated time of completion: 20 min
