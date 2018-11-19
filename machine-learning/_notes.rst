@@ -2,6 +2,83 @@
 Notes
 *****
 
+Program
+=======
+
+Wprowadzenie do Machine Learning
+--------------------------------
+#. Czym jest uczenie maszynowe?
+#. Typy problemów dla Machine Learning
+#. Miary jakości modelu
+#. Znajdowanie najlepszego modelu
+#. Dokładność i precyzja
+#. Bias
+
+Biblioteki numeryczne
+---------------------
+#. Podstawy NumPy
+#. Podstawy Scikit-learn
+
+Tensorflow
+----------
+#. Budowa i podstawy
+
+    - Core (Python)
+    - Estimators
+    - Experiments
+    - Keras
+
+#. Budowa modeli podstawy
+
+    - Feature Engineering
+    - Regularyzacja
+    - Embeddings
+
+#. Optymalizacje
+
+    - Głębokie sieci neuronowe
+    - Funkcje aktywacji
+    - Learning Rate
+    - Dropout
+    - Overfitting
+
+#. Convolutional Neural Networks
+#. Recurrent Neural Networks
+#. Image recognition
+
+Program 2
+=========
+
+Cele zajęć
+----------
+1. Poznanie metod selekcji zmiennych
+2. Ćwiczenie przeprowadzania analiz
+3. Ćwiczenie obróbki danych
+4. Zrozumienie problemu niezbalansowanych klas i podstwowych metod radzenia sobie z nim
+5. Poznanie kolejnych klasyfikatorów
+6. Omówienie jak mają wyglądać projekty
+
+Dzień 1
+-------
+1. Selekcja: regularyzacja l1, wielkość współczynników, ważność cech (drzewa) , selekcja rekursywana, metoda losowych podzbiorów, filtorwanie zmiennych. Wszystko (oprócz metody losowych podzbiorów) przerobić w sklearnie
+2. Kolejne miary oceny klasyfikatorów: krzywa ROC i AUC
+3. Kolejne klasyfikatory: LDA, QDA oraz KNN
+4. Problem niezbalansowanych klas. Podejście zwykłe jako do klasyfikacji (a nie detekcja obserwacji odstających czy cos innego) - omówienie zabiegów typu, over/undersampling i innych
+5. Zarówno na selekcję zmiennych jaki i niezbalansowane klasy jakieś większe zadania. Podział czasowy: pierwsza połowa dnia selekcja, druga połowa dnia niezbalansowane klasy, reszta pomiędzy tymi dwoma tematami
+
+Dzień 2
+-------
+1 Łączenie klasyfikatorów - pobieżna opowiasta o różnych sposobach. Pokazać w sklearnie VotingClassifier i Bagging
+1. XGBoost (przed zajęciami trzeba dać uczestnikom instrukcję instalacji!)
+2. Problem optymalizacji bardzo wielu barametrów na przykładzie XGBoost: optymalizacja iteracyjna po parametrach /podzbiorach parametrów, randomizowany gridsearch, schematy kombinowane, ewentualnie optymalizacja bayesowaska
+3. Problem braków danych - jak obsługwać braki.
+4. Zarówno na optymalizację parametrów jak i braki danych większe zadania. Podział czasowy: pierwsza połowa dnia xgboost i optymalizacja parametrów, druga: braki danych
+5. W obu zagadnieniach uwzględnić jako element zadania obróbkę danych
+6. Na koniec dnia (ok 30 minut) trzeba opowiedzieć o tym jak mają wyglądać projekty
+
+
+Notatki
+=======
 .. todo::
     - Luźne notatki
     - tensorFlow
