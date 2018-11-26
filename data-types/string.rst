@@ -87,6 +87,13 @@ When use single quotes?
 
     my_str = '<a href="http://python.astrotech.io">Python and Machine Learning</a>'
 
+When use multiline?
+-------------------
+.. code-block:: python
+
+    my_str = """My name's "José Jiménez""""
+    my_str = '''My name's "José Jiménez"'''
+
 
 Escape characters
 =================
@@ -430,17 +437,17 @@ String cleaning
 
 
     expected = 'Jana III Sobieskiego'
-    print(f'a: {a == expected}')
-    print(f'b: {b == expected}')
-    print(f'c: {c == expected}')
-    print(f'd: {d == expected}')
-    print(f'e: {e == expected}')
-    print(f'f: {f == expected}')
-    print(f'g: {g == expected}')
-    print(f'h: {h == expected}')
-    print(f'i: {i == expected}')
-    print(f'j: {j == expected}')
-    print(f'k: {k == expected}')
+    print(f'{a == expected}\t a: "{a}"')
+    print(f'{b == expected}\t b: "{b}"')
+    print(f'{c == expected}\t c: "{c}"')
+    print(f'{d == expected}\t d: "{d}"')
+    print(f'{e == expected}\t e: "{e}"')
+    print(f'{f == expected}\t f: "{f}"')
+    print(f'{g == expected}\t g: "{g}"')
+    print(f'{h == expected}\t h: "{h}"')
+    print(f'{i == expected}\t i: "{i}"')
+    print(f'{j == expected}\t j: "{j}"')
+    print(f'{k == expected}\t k: "{k}"')
 
 :About:
     * Filename: ``types_str_cleaning.py``
