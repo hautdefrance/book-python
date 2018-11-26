@@ -7,10 +7,10 @@ Simple Collections
 
 ``list``
 ========
+* Can store elements of any types
 * Mutable - can add, remove, and modify items
 * Brackets are required
 * Comma after last element is optional
-* Can store elements of any types
 
 Defining ``list``
 -----------------
@@ -102,11 +102,11 @@ Length of a ``list``
 
 ``set``
 =======
+* Can store elements of any **hashable** types
 * Only unique values
 * Mutable - can add, remove, and modify items
 * Brackets are required
 * Comma after last element is optional
-* Can store elements of any **hashable** types
 
 Defining ``set``
 ----------------
@@ -196,10 +196,10 @@ Converting ``list`` to ``set`` deduplicate items
 
 ``tuple``
 =========
+* Can store elements of any types
 * Immutable - cannot add, modify or remove items
 * Brackets are optional
 * Comma after last element is optional
-* Can store elements of any types
 * Single element ``tuple`` require comma at the end (**important!**)
 
 Defining ``tuple``

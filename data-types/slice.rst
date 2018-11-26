@@ -147,6 +147,16 @@ Slicing text
     g = 'Jana III Sobieskiego 1 m. 2'
     h = 'os. Jana III Sobieskiego 1 apt 2'
 
+    expected = 'Jana III Sobieskiego'
+    print(f'{a == expected}\t a: "{a}"')
+    print(f'{b == expected}\t b: "{b}"')
+    print(f'{c == expected}\t c: "{c}"')
+    print(f'{d == expected}\t d: "{d}"')
+    print(f'{e == expected}\t e: "{e}"')
+    print(f'{f == expected}\t f: "{f}"')
+    print(f'{g == expected}\t g: "{g}"')
+    print(f'{h == expected}\t h: "{h}"')
+
 :About:
     * Filename: ``types_slice.py``
     * Lines of code to write: 8 lines

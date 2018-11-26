@@ -71,7 +71,7 @@ Value can be any object
     my_dict = {
         'date': '1969-07-21',
         'age': 42,
-        'astronaut': {'name': 'José Jiménez', 'medals': ('Medal of Honor', 'Purple Heart')},
+        'astronaut': {'name': 'José Jiménez', 'medals': {'Medal of Honor', 'Purple Heart'}},
         'agency': ['NASA', 'Roscosmos', 'ESA'],
         'location': ('Bajkonur', 'KSC Florida'),
     }
@@ -171,7 +171,7 @@ Accessing ``dict`` keys, values and key-value pairs
 
 ``dict`` vs. ``set``
 ====================
-* both ``set`` and ``dict`` keys mus be hashable
+* both ``set`` and ``dict`` keys must be hashable
 * both ``set`` and ``dict`` uses the same (``{`` and ``}``) braces:
 
     .. code-block:: python

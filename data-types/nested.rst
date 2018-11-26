@@ -10,17 +10,14 @@ Appending elements
 ------------------
 .. code-block:: python
 
-    results = []
+    DATA = [
+        (4.7, 3.2, 1.3, 0.2, 'setosa'),
+        (7.0, 3.2, 4.7, 1.4, 'versicolor'),
+        (7.6, 3.0, 6.6, 2.1, 'virginica'),
+    ]
 
-    for i in range(0, 10):
-        results.append({
-            'number': i,
-            'square': i ** 2,
-            'qube': i ** 3,
-        })
-
-    print(results)
-
+    DATA.append((4.9, 2.5, 4.5, 1.7, 'virginica'))
+    DATA.append((4.9, 3.0, 1.4, 0.2, 'setosa'))
 
 Getting items
 -------------

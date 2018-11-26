@@ -17,6 +17,27 @@ print(g[:-7])
 print(h[4:-8])
 
 # alternatively
-offset = len('Jana III Sobieskiego')
-print(a[4:offset+4])
-print(b[6:offset+6])
+length = len('Jana III Sobieskiego')
+print(a[4:length+4])
+print(b[6:length+6])
+
+
+text = 'Jana III Sobieskiego'
+length = len(text)
+
+b = b[b.find(text):length+b.find(text)]
+c = c[c.find(text):length+c.find(text)]
+d = d[d.find(text):length+d.find(text)]
+e = e[e.find(text):length+e.find(text)]
+f = f[f.find(text):length+f.find(text)]
+g = g[g.find(text):length+g.find(text)]
+h = h[h.find(text):length+h.find(text)]
+
+print(f'a: {a}')
+print(f'b: {b}')
+print(f'c: {c}')
+print(f'd: {d}')
+print(f'e: {e}')
+print(f'f: {f}')
+print(f'g: {g}')
+print(f'h: {h}')
