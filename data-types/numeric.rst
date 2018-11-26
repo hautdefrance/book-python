@@ -39,8 +39,17 @@ Converting to ``int``
 .. code-block:: python
 
     int(10)          # 10
+
+.. code-block:: python
+
     int(10.0)        # 10
     int(10.9)        # 10
+
+    int(1.23)            # 1
+    int(-1.23)           # -1
+
+.. code-block:: python
+
     int('10')        # 10
     int('10.5')      # ValueError: invalid literal for int() with base 10: ' 10.5'
 
@@ -59,7 +68,7 @@ Defining ``float``
     .. code-block:: python
 
         value = 10.     # 10.0
-        value = .5      # 0.5
+        value = .44     # 0.44
 
 Converting to ``float``
 -----------------------
@@ -73,24 +82,26 @@ Converting to ``float``
 
 .. code-block:: python
 
-    float('+1E6')          # 1000000.0
-    float('-1E3')          # -1000.0
+    float(1.23)            # 1.23
+    float(-1.23)           # -1.23
+
+.. code-block:: python
 
     float('+1.23')         # 1.23
     float('-1.23')         # -1.23
 
 .. code-block:: python
 
-    float('+1E6')          # 1000000.0
-    float('-1E3')          # -1000.0
+    float(+1E6)            # 1000000.0
+    float(-1E3)            # -1000.0
 
 .. code-block:: python
 
-    float('1e-4')          # 0.0001
-    float('1E-3')          # 0.0001
+    float(1e-4)            # 0.0001
+    float(1E-3)            # 0.001
 
-    float('1e-5')          # 1e-05
-    float('1E-5')          # 1E-05
+    float(1e-5)            # 1e-05
+    float(1E-5)            # 1E-05
 
 Maximal and minimal ``float`` values
 ------------------------------------

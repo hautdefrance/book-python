@@ -31,23 +31,36 @@ Multiline ``str``
     Second line
     Third line
     """
-    # 'First line\n    Second line\n    Third line\n    '
+    # 'First line\nSecond line\nThird line\n'
 
 .. code-block:: python
 
     text = """
-        We choose to go to the Moon!
-        We choose to go to the Moon in this decade and do the other things,
-        not because they are easy, but because they are hard.
+        First line
+        Second line
+        Third line
     """
-    # '\n        We choose to go to the Moon!\n        We choose to go to the Moon in this decade and do the other things,\n        not because they are easy, but because they are hard.\n    '
+    # '\n        First line\n        Second line\n        Third line\n    '
 
 Type casting to ``str``
 -----------------------
 .. code-block:: python
 
+    str('hello')        # 'hello'
     str(1969)           # '1969'
     str(13.37)          # '13.37'
+
+Print converts argument to ``str`` before printing
+--------------------------------------------------
+.. code-block:: python
+
+    print('hello')      # str('hello') -> 'hello'
+    # 'hello'
+
+.. code-block:: python
+
+    print(10)           # str(10) -> '10'
+    # '10'
 
 
 Single or double quote?
@@ -107,8 +120,10 @@ Other escape characters
 Characters before strings
 =========================
 * Format string: since Python 3.6
-* ``str`` is a unicode
-* In Python3 ``u'..'`` = ``'...'``
+* In Python 3 ``str`` is Unicode
+* In Python 2 ``str`` is Bytes
+* In Python 2 to make unicode ``str``, you need to use ``u'...'`` prefix
+* In Python 3 ``u'...'`` is only for compatibility with Python 2
 * ``bytes`` is a sequence of octets (integers between 0 and 255)
 
 .. csv-table:: String modifiers
@@ -129,11 +144,12 @@ Characters before strings
 .. code-block:: python
 
     print('C:\Users\Admin\file.txt')
-    # SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape
+    # SyntaxError: (unicode error) 'unicodeescape'
+    #   codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape
 
-    # Problem: ``\Users``
-    #          ``s`` is invalid hexadecimal character
-    #          after ``\U...`` python expects unicode codepoint
+* Problem: ``\Users``
+* after ``\U...`` python expects Unicode codepoint in hex
+* ``s`` is invalid hexadecimal character
 
 
 String methods
@@ -158,14 +174,6 @@ String immutability
 
     print(a)            # Python
     print(b)            # Jython
-
-.. code-block:: python
-
-    a = 'Python'
-    b = a.upper().replace('P', 'C').title()
-
-    print(a)            # Python
-    print(b)            # Cython
 
 Multiplication
 --------------
@@ -199,9 +207,9 @@ Multiplication
 
     name = '\tMark Watney    \n'
 
+    name.strip()        # 'Mark Watney'
     name.rstrip()       # '\tMark Watney'
     name.lstrip()       # 'Mark Watney    \n'
-    name.strip()        # 'Mark Watney'
 
 ``str.startswith()`` and ``str.endswith()``
 -------------------------------------------
@@ -253,6 +261,9 @@ Multiplication
 
 ``str.isnumeric()``, ``str.isdigit()``, ``str.isdecimal()``
 -----------------------------------------------------------
+* Only numbers are numeric, digit or decimal
+* Dot ``.`` is not!
+
 .. code-block:: python
 
     '10'.isnumeric()    # True
@@ -285,6 +296,23 @@ Multiplication
     len('Python')   # 6
     len('')         # 0
 
+Multiple statements in one line
+-------------------------------
+.. code-block:: python
+
+    a = 'Python'
+    b = a.upper().replace('P', 'C').title()
+
+    print(a)            # Python
+    print(b)            # Cython
+
+.. code-block:: python
+
+    a = 'Python'
+
+    b = a.upper().startswith('P').replace('P', 'C')
+    # AttributeError: 'bool' object has no attribute 'replace'
+
 
 Handling user input
 ===================
@@ -296,7 +324,17 @@ Getting user input
 
 .. code-block:: python
 
-    name = input('Type your name: ')
+    name = input('Type your name: ')    # User inputs: Jose
+
+    type(name)
+    # <class 'str'>
+
+.. code-block:: python
+
+    age = input('Type your age: ')      # User inputs: 42
+
+    type(age)
+    # <class 'str'>
 
 Cleaning data
 -------------
@@ -355,9 +393,17 @@ Cleaning data
 
         '1/2'
         '1 / 2'
+        '1/ 2'
+        '1 /2'
+
         '1 m. 2'
+        '1 m 2'
         '1 apt 2'
         '1 apt. 2'
+
+        '1f/108f'
+        '1f/108'
+        '1/108f'
 
 
 Assignments
@@ -370,17 +416,31 @@ String cleaning
 
 .. code-block:: python
 
-        a = '  Jana III Sobieskiego 1 apt 2'
-        b = 'ul Jana III SobIESkiego 1/2'
-        c = '\tul. Jana trzeciego Sobieskiego 1/2'
-        d = 'ul.Jana III Sob\n\nieskiego 1/2'
-        e = 'ulicaJana III Sobieskiego 1/2'
-        f = 'UL. JA\tNA 3 SOBIES\tKIEGO 1/2'
-        g = 'UL. III SOBiesKIEGO 1/2'
-        h = 'ULICA JANA III SOBIESKIEGO 1 /2  '
-        i = 'ULICA. JANA III SOBI'
-        j = ' Jana 3 Sobieskiego 1/2 '
-        k = 'Jana III Sobieskiego 1 m. 2'
+    a = '  Jana III Sobieskiego 1 apt 2'
+    b = 'ul Jana III SobIESkiego 1/2'
+    c = '\tul. Jana trzeciego Sobieskiego 1/2'
+    d = 'ul.Jana III Sob\n\nieskiego 1/2'
+    e = 'ulicaJana III Sobieskiego 1/2'
+    f = 'UL. JA\tNA 3 SOBIES\tKIEGO 1/2'
+    g = 'UL. III SOBiesKIEGO 1/2'
+    h = 'ULICA JANA III SOBIESKIEGO 1 /2  '
+    i = 'ULICA. JANA III SOBI'
+    j = ' Jana 3 Sobieskiego 1/2 '
+    k = 'Jana III Sobieskiego 1 m. 2'
+
+
+    expected = 'Jana III Sobieskiego'
+    print(f'a: {a == expected}')
+    print(f'b: {b == expected}')
+    print(f'c: {c == expected}')
+    print(f'd: {d == expected}')
+    print(f'e: {e == expected}')
+    print(f'f: {f == expected}')
+    print(f'g: {g == expected}')
+    print(f'h: {h == expected}')
+    print(f'i: {i == expected}')
+    print(f'j: {j == expected}')
+    print(f'k: {k == expected}')
 
 :About:
     * Filename: ``types_str_cleaning.py``

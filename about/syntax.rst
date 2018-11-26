@@ -116,6 +116,12 @@ Variables and constants
 * ``AttributeError`` when cannot assign to variables
 * Names are case sensitive
 
+    .. code-block:: python
+
+        name = 'José Jiménez'
+        NAME = 'Иван Иванович'
+        Name = 'Matt Kowalski'
+
 Variable declaration
 --------------------
 * Lowercase letters for variable names
@@ -147,8 +153,6 @@ Constant declaration
 
 Variables vs. constants
 -----------------------
-* Python do not distinguish between variables and constants
-* Python allows you to change "constants" but it's a bad practice
 * Names are case sensitive
 
     .. code-block:: python
@@ -156,6 +160,14 @@ Variables vs. constants
         name = 'José Jiménez'
         NAME = 'Иван Иванович'
         Name = 'Matt Kowalski'
+
+* Python do not distinguish between variables and constants
+* Python allows you to change "constants" but it's a bad practice (good IDE will tell you)
+
+    .. code-block:: python
+
+        NAME = 'José Jiménez'
+        NAME = 'Иван Иванович'
 
 Type inference
 --------------

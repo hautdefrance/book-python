@@ -110,6 +110,13 @@ Python Console (REPL)
 
 .. warning:: In documentation and books you may find ``>>>`` and ``...`` at the beginning of code listing lines
 
+    .. code-block:: python
+
+        if True:
+            print(True)
+        else:
+            print(False)
+
 
 Jupyter
 =======
