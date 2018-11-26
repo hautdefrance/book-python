@@ -332,6 +332,61 @@ More advanced topics
 Assignments
 ===========
 
+Iris dataset
+------------
+#. Mając dane z listingu poniżej, za pomocą slice wyodrębnij...
+#. Zmienną ``features: List[Tuple[float]]`` z wynikami pomiarów
+#. Zmienną ``labels: List[str]``, która będzie zawierała w kolejności wszystkie nazwy gatunków
+#. Zmienną ``species: Set[str]``, która jest unikalnym zbiorem gatunków (na podstawie ``labels``)
+
+.. code-block:: python
+
+    DATABASE = (
+        5.8, 2.7, 5.1, 1.9, 'virginica',
+        5.1, 3.5, 1.4, 0.2, 'setosa',
+        5.7, 2.8, 4.1, 1.3, 'versicolor',
+        6.3, 2.9, 5.6, 1.8, 'virginica',
+        6.4, 3.2, 4.5, 1.5, 'versicolor',
+        4.7, 3.2, 1.3, 0.2, 'setosa',
+    )
+
+.. code-block:: python
+
+    features = [
+        (5.8, 2.7, 5.1, 1.9),
+        (5.1, 3.5, 1.4, 0.2),
+        (5.7, 2.8, 4.1, 1.3),
+        (6.3, 2.9, 5.6, 1.8),
+        (6.4, 3.2, 4.5, 1.5),
+        (4.7, 3.2, 1.3, 0.2),
+    ]
+
+    labels = [
+        'virginica',
+        'setosa',
+        'versicolor',
+        'virginica',
+        'versicolor',
+        'setosa',
+    ]
+
+    species = {
+        'versicolor',
+        'setosa',
+        'virginica',
+    }
+
+:About:
+    * Filename: ``sequences_iris.py``
+    * Lines of code to write: 30 lines
+    * Estimated time of completion: 20 min
+
+:The whys and wherefores:
+    * Definiowanie i korzystanie z ``list``, ``tuple``, ``set``
+    * Slice zbiorów danych
+    * Rzutowanie i konwersja typów
+
+
 Simple collections
 ------------------
 #. Stwórz ``tuple`` z cyframi 0, 1, 2, 3
@@ -346,4 +401,5 @@ Simple collections
 
 :The whys and wherefores:
     * Definiowanie i korzystanie z ``list``, ``tuple``, ``set``
+    * Slice zbiorów danych
     * Rzutowanie i konwersja typów

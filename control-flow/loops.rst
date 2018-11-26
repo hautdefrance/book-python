@@ -251,10 +251,7 @@ Iterating over ``dict`` items
             'Species': 'setosa',
         }
 
-        DATA.keys()
-        # ['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
-
-        for element in DATA.keys():
+        for element in DATA:
             print(element)
 
         # 'Sepal length'
