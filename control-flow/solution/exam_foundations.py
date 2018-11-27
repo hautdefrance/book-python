@@ -1,14 +1,10 @@
 from datetime import date
 from pprint import pprint
 
-ETC_SHADOW = '../assignment/etc-shadow.txt'
-ETC_PASSWD = '../assignment/etc-passwd.txt'
-ETC_GROUP = '../assignment/etc-group.txt'
 
-users = list()
-groups = dict()
-passwords = dict()
-
+ETC_GROUPS = r'../src/etc-group.txt'
+ETC_SHADOW = r'../src/etc-shadow.txt'
+ETC_PASSWD = r'../src/etc-passwd.txt'
 ALGORITHMS = {
     '1': 'MD5',
     '2a': 'Blowfish',
@@ -17,77 +13,135 @@ ALGORITHMS = {
     '6': 'SHA-512',
 }
 
+output_groups = {}
+output_shadow = {}
+output_passwd = {}
+output = []
 
-def is_clean(line):
-    if line.isspace() or line.startswith('#'):
-        return False
+try:
+    with open(ETC_GROUPS, encoding='utf-8') as file:
+        etc_groups = file.readlines()
+
+except FileNotFoundError:
+    print('File does not exist')
+
+except PermissionError:
+    print('Permission denied')
+
+
+try:
+    with open(ETC_SHADOW, encoding='utf-8') as file:
+        etc_shadow = file.readlines()
+
+except FileNotFoundError:
+    print('File does not exist')
+
+except PermissionError:
+    print('Permission denied')
+
+
+try:
+    with open(ETC_PASSWD, encoding='utf-8') as file:
+        etc_passwd = file.readlines()
+
+except FileNotFoundError:
+    print('File does not exist')
+
+except PermissionError:
+    print('Permission denied')
+
+
+for line in etc_groups:
+    line = line.strip()
+
+    if not line or line.startswith('#'):
+        continue
+
+    record = line.split(':')
+    groupname = record[0]
+    members = record[3].split(',')
+
+    if members == ['']:
+        continue
+
+    for member in members:
+        if member not in output_groups.keys():
+            output_groups[member] = set()
+
+        output_groups[member].add(groupname)
+
+
+for line in etc_shadow:
+    line = line.strip()
+
+    if not line or line.startswith('#'):
+        continue
+
+    record = line.split(':')
+    username = record[0]
+    password = record[1]
+    last_change = date.fromtimestamp(int(record[2]))
+
+    if password.startswith('$'):
+        locked = False
+        password = password.split('$')
+        password_algorithm = ALGORITHMS[password[1]]
+        password_salt = password[2]
+        password_password = password[3]
     else:
-        return True
+        locked = True
+        password_algorithm = None
+        password_salt = None
+        password_password = None
+
+    output_shadow[username] = {
+        'password': password_password,
+        'salt': password_salt,
+        'algorithm': password_algorithm,
+        'last_change': last_change,
+        'locked': locked,
+    }
 
 
-with open(ETC_GROUP) as group:
-    for line in group:
-        if is_clean(line):
-            groupname, password, gid, members = line.split(':')
+for line in etc_passwd:
+    line = line.strip()
 
-            for user in members.split(','):
-                user = user.strip()
+    if not line or line.startswith('#'):
+        continue
 
-                if not user:
-                    continue
+    record = line.split(':')
+    username = record[0]
 
-                if user not in groups.keys():
-                    groups[user] = [groupname]
-                else:
-                    groups[user].append(groupname)
-
-
-with open(ETC_SHADOW) as shadow:
-    for line in shadow:
-        if is_clean(line):
-            username, password, lastchanged, *_ = line.split(':')
-            lastchanged = date.fromtimestamp(int(lastchanged))
-
-            if password in ('*', '!', '!!'):
-                locked = True
-                algorithm = None
-                salt = None
-                password = None
-            else:
-                locked = False
-                _, algorithm, salt, password = password.split('$')
-                algorithm = ALGORITHMS[algorithm]
-
-            passwords[username] = {
-                'algorithm': algorithm,
-                'password': password,
-                'locked': locked,
-                'salt': salt,
-                'lastchanged': lastchanged,
-            }
+    output_passwd[username] = {
+        'password': record[1],
+        'uid': int(record[2]),
+        'gid': int(record[3]),
+        'gecos': record[4],
+        'home': record[5],
+        'shell': record[6],
+    }
 
 
-with open(ETC_PASSWD, encoding='utf-8') as passwd:
-    for line in passwd:
-        if is_clean(line):
-            username, _, uid, gid, fullname, home, shell = line.split(':')
+for user in output_passwd:
+    passwd = output_passwd.get(user)
+    groups = output_groups.get(user)
+    shadow = output_shadow.get(user)
 
-            if int(uid) >= 1000:
-                p = passwords.get(username, dict())
-                g = groups.get(username, list())
-                users.append({
-                    'login': username,
-                    'uid': uid,
-                    'gid': gid,
-                    'home': home,
-                    'shell': shell,
-                    'password': p.get('password'),
-                    'algorithm': p.get('algorithm'),
-                    'locked': p.get('locked'),
-                    'salt': p.get('salt'),
-                    'lastchanged': p.get('lastchanged'),
-                    'groups': g,
-                })
+    if passwd['uid'] < 1000:
+        continue
+
+    output.append({
+        'username': user,
+        'uid': passwd['uid'],
+        'gid': passwd['gid'],
+        'home': passwd['home'],
+        'shell': passwd['shell'],
+        'algorithm': shadow['algorithm'],
+        'password': shadow['password'],
+        'groups': groups,
+        'last_changed': shadow['last_change'],
+        'locked': shadow['locked'],
+    })
 
 
-pprint(users)
+pprint(output)
