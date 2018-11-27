@@ -324,6 +324,14 @@ How Python understands types?
     what = (1.,.5)   # tuple with two floats
 
 
+Membership Operators
+====================
+.. csv-table:: Membership operators
+    :header-rows: 1
+    :widths: 15, 25, 60
+    :file: data/operators-membership.csv
+
+
 More advanced topics
 ====================
 .. note:: The topic will be continued in Intermediate and Advanced part of the book

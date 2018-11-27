@@ -97,11 +97,82 @@ Defining ``None``
     my_var = None
 
 
+Logic operators
+===============
+.. csv-table:: Logic operators
+    :header-rows: 1
+    :widths: 15, 25, 60
+    :file: data/operators-logic.csv
+
+
 Assignments
 ===========
 
-Bool
-----
+``True`` of ``False``
+---------------------
+#. Co należy podstawić do zmiennych aby wyrażenia poniżej zgadzały się z wartością oczekiwaną?
+
+.. code-block:: python
+
+    a = ...
+
+    bool(a) == True
+    # True
+
+.. code-block:: python
+
+    b = ...
+
+    bool(b) == False
+    # True
+
+.. code-block:: python
+
+    c = ...
+
+    bool(bool(c) == False) or False
+    # True
+
+.. code-block:: python
+
+    d = ...
+
+    d or d
+    # True
+
+.. code-block:: python
+
+    e = ...
+
+    e and e
+    # False
+
+.. code-block:: python
+
+    f = ...
+
+    f is None
+    # True
+
+.. code-block:: python
+
+    g = ...
+
+    (bool(bool(g) is not bool(g)) == False and bool(g)) and g is not None
+    # False
+
+:About:
+    * Filename: ``types_bool_or_none.py``
+    * Lines of code to write: 10 lines
+    * Estimated time of completion: 5 min
+
+:The whys and wherefores:
+    * Definiowanie zmiennych
+    * Konwersja typów
+    * Typy logiczne
+
+To ``bool`` or not to ``bool``
+------------------------------
 #. Wprowadzono zmienne:
 
     .. code-block:: python
@@ -109,18 +180,21 @@ Bool
         a = False
         b = True
         c = None
-        d = ''
-        e = ' '
-        f = 'a'
-        g = '.'
-        h = 0
-        i = 0.0
-        j = '0'
-        k = '0.0'
+
+        c = 'a'
+        d = '.'
+        e = '0'
+        f = '0.0'
+        g = ''
+        h = ' '
+
+        j = 0
+        k = 0.0
         l = -0
         m = -0.0+0.0j
+
         n = int('0')
-        o = float('0')
+        o = float('-0')
 
 #. Które zmienne mają wartość ``True``, ``None``, ``False``?
 #. Czym się różni ``None`` od ``False``?

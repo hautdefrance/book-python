@@ -5,12 +5,12 @@ Operators
 *********
 
 
-General operators
+Logical operators
 =================
-.. csv-table:: Universal operators
+.. csv-table:: Logical operators
     :header-rows: 1
     :widths: 15, 25, 60
-    :file: data/operators-general.csv
+    :file: data/operators-logical.csv
 
 
 Numerical types operators

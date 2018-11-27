@@ -23,17 +23,17 @@ List Comprehension
 ------------------
 .. code-block:: python
 
-    numbers = [x+10 for x in range(0, 5)]
+    [x+10 for x in range(0, 5)]
     # [10, 11, 12, 13, 14]
 
-Set Comprahension
+Set Comprehension
 -----------------
 .. code-block:: python
 
-    numbers = {x+10 for x in range(0, 5)}
+    {x+10 for x in range(0, 5)}
     # {10, 11, 12, 13, 14}
 
-Dict Comprahension
+Dict Comprehension
 ------------------
 .. code-block:: python
 
@@ -50,7 +50,7 @@ Dict Comprahension
     {x+10: x+10 for x in range(0, 5)}
     # {10:10, 11:11, 12:12, 13:13, 14:14}
 
-Tuple comprahension?!
+Tuple Comprehension?!
 ---------------------
 * It is a generator
 * More in chapter :ref:`Generators and Comprehensions`
@@ -105,8 +105,7 @@ Filtering results
         (7.0, 3.2, 4.7, 1.4, 'versicolor'),
     ]
 
-    setosa = [x for x in DATA if x[4] == 'setosa']
-    print(setosa)
+    [record for record in DATA if record[4] == 'setosa']
     # [
     #   (5.1, 3.5, 1.4, 0.2, 'setosa'),
     #   (4.7, 3.2, 1.3, 0.2, 'setosa')
@@ -129,15 +128,13 @@ Filtering with complex expressions
 
 
     def is_setosa(record):
-        if record[-1] == 'setosa':
+        if record[4] == 'setosa':
             return True
         else:
             return False
 
 
-    output = [x for x in DATA if is_setosa(x)]
-
-    print(output)
+    [record for record in DATA if is_setosa(record)]
     # [
     #   (5.1, 3.5, 1.4, 0.2, 'setosa'),
     #   (4.7, 3.2, 1.3, 0.2, 'setosa')
@@ -160,9 +157,7 @@ Returning nested objects
     def get_tuple(number):
         return number, number+10
 
-    output = [get_tuple(x) for x in range(0, 5)]
-
-    print(output)
+    [get_tuple(x) for x in range(0, 5)]
     # [
     #   (0, 10),
     #   (1, 11),
@@ -179,9 +174,8 @@ Returning nested objects
         else:
             return {'number': number, 'status': 'odd'}
 
-    output = [get_dict(x) for x in range(0, 5)]
 
-    print(output)
+    [get_dict(x) for x in range(0, 5)]
     # [
     #    {'number': 0, 'status': 'even'},
     #    {'number': 1, 'status': 'odd'},
@@ -194,27 +188,36 @@ Reversing ``dict`` keys with values
 -----------------------------------
 .. code-block:: python
 
-    my_dict = {'x': 1, 'y': 2}
+    DATA = {'a': 1, 'b': 2}
 
-    my_dict.items()
+    DATA.items()
     # [
-    #    ('x', 1),
-    #    ('y', 2),
+    #    ('a', 1),
+    #    ('b', 2),
     # ]
 
 .. code-block:: python
 
-    my_dict = {'x': 1, 'y': 2}
+    DATA = {'a': 1, 'b': 2}
 
-    {value: key for key, value in my_dict.items()}
-    # {1:'x', 2:'y'}
+    {value: key for key, value in DATA.items()}
+    # {1:'a', 2:'b'}
 
 .. code-block:: python
 
-    my_dict = {'x': 1, 'y': 2}
+    DATA = {'a': 1, 'b': 2}
 
-    {v:k for k,v in my_dict.items()}
-    # {1:'x', 2:'y'}
+    {v:k for k,v in DATA.items()}
+    # {1:'a', 2:'b'}
+
+Value collision while reversing ``dict``
+----------------------------------------
+.. code-block:: python
+
+    DATA = {'a': 1, 'b': 2, 'c': 2}
+
+    {v:k for k,v in DATA.items()}
+    # {1:'a', 2:'c'}
 
 Quick parsing lines
 -------------------
@@ -249,10 +252,11 @@ Assignments
 
 Report card
 -----------
-#. Przekonwertuj skalę ocen ``(2, 3, 3.5, 4, 4.5, 5)`` na listę ``float`` za pomocą inline ``for``
-#. Użytkownik podaje oceny jako ``int`` lub ``float``
-#. Jeżeli ocena jest na liście dopuszczalnych ocen, dodaje ją do dzienniczka
-#. Jeżeli wciśnięto sam Enter, oznacza to koniec wpisywania do dzienniczka
+#. Do zmiennej zapisz skalę ocen ``(2, 3, 3.5, 4, 4.5, 5)``
+#. Przekonwertuj skalę na ``List[float]`` za pomocą inline List Comprehension
+#. Użytkownik podaje oceny jako ``int`` lub ``float`` (nie będzie próbował psuć)
+#. Jeżeli ocena jest na liście dopuszczalnych ocen, dodaj ją do dzienniczka
+#. Jeżeli wciśnięto sam Enter, zakończ wpisywanie do dzienniczka
 #. Jeżeli wpisano cyfrę nie znajdującą się na liście dopuszczalnych ocen, wyświetl informację "Grade is not allowed" i dalej kontynuuj wpisywanie
 #. Na zakończenie wyświetl wyliczoną dla dzienniczka średnią arytmetyczną z ocen
 

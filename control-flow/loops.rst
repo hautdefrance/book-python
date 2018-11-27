@@ -106,6 +106,28 @@ Iterating over nested ``list`` items
 ------------------------------------
 .. code-block:: python
 
+    DATA = [1, 2, 3]
+
+    for element in DATA:
+        print(element)
+
+    # 1
+    # 2
+    # 3
+
+.. code-block:: python
+
+    DATA = [(...), (...), (...)]
+
+    for element in DATA:
+        print(element)
+
+    # (...)
+    # (...)
+    # (...)
+
+.. code-block:: python
+
     DATA = [
         (5.1, 3.5, 1.4, 0.2, 'setosa'),
         (5.7, 2.8, 4.1, 1.3, 'versicolor'),

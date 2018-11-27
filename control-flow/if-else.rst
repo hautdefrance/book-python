@@ -30,6 +30,7 @@ Conditional Statements
 
     * ``False``
     * ``0``
+    * ``0.0``
     * ``()`` - empty ``tuple``
     * ``{}`` - empty ``dict``
     * ``[]`` - empty ``list``

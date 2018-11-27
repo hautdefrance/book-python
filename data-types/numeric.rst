@@ -163,6 +163,54 @@ Defining ``complex``
     complex('1 + 2j')       # ValueError: complex() arg is a malformed string
 
 
+Numeric Operators
+=================
+
+Numeric types operators
+-----------------------
+.. csv-table:: Numeric types operators
+    :header-rows: 1
+    :widths: 25, 75
+    :file: data/operators-numeric.csv
+
+``round()``
+-----------
+.. code-block:: python
+
+    pi = 3.14159265359
+
+    round(pi)       # 3
+    round(pi, 2)    # 3.14
+    round(pi, 4)    # 3.1416
+
+``abs()``
+---------
+.. code-block:: python
+
+    abs(1.5)        # 1.5
+    abs(1)          # 1
+    abs(-1)         # 1
+    abs(-1.5)       # 1.5
+
+``pow()``
+---------
+.. code-block:: python
+
+    pow(2, 2)       # 4
+    pow(3, 4)       # 81
+    pow(-1, 2)      # 1
+    pow(2, -1)      # 0.5
+    pow(2.888, 3)   # 24.087491072
+
+.. code-block:: python
+
+    2 ** 2          # 4
+    3 ** 4          # 81
+    -1 ** 2         # 1
+    2 ** -1         # 0.5
+    2.888 ** 3      # 24.087491072
+
+
 Assignments
 ===========
 
