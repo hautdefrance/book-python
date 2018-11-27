@@ -1,7 +1,7 @@
 ##
-# Host Database
-#   - Unix: /etc/hosts
-#   - Windows: C:/Windows/System32/drivers/etc/hosts
+# ```/etc/hosts`` structure:
+#   - IPv4 or IPv6
+#   - Hostnames
 ##
 
 127.0.0.1       localhost

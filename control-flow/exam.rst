@@ -4,32 +4,34 @@ Exam from basic topics
 
 Parsowanie ``/etc/passwd``
 --------------------------
-#. Poniższe listingi prezentują przykładową zawartość plików:
+#. Poniższe listingi prezentują zawartość plików:
 
     - ``/etc/passwd`` - :numref:`code-file-etc-passwd`
     - ``/etc/shadow`` - :numref:`code-file-etc-shadow`
     - ``/etc/group`` - :numref:`code-file-etc-group`
 
-#. Skopuj ich zawartość do plików (shadow, passwd, group) na dysku w katalogu gdzie masz kod programu (uwaga: komentarze i puste mają również być skopiowane)
-#. Sparsuj plik i przedstaw go w formacie listy dictów
+#. Skopuj ich zawartość każdego z tych plików na dysk (uwaga: komentarze i puste mają również być skopiowane)
+#. Sparsuj plik i przedstaw go w formacie ``List[dict]``
+#. Zwróć listę użytkowników, których UID jest większy niż 1000
 #. W ramach dicta połącz dane, tak aby uzyskać wynik:
 
     .. code-block:: python
 
-        users = [{
-            'login': 'jimenez',
-            'uid': 1001,
-            'gid': 1001,
-            'home': '/home/jimenez',
-            'shell': '/bin/bash',
-            'algorithm': 'SHA-512',
-            'password': 'P9zn0KwR...k4kijuhE50',
-            'groups': ['staff', 'sysadmin'],
-            'lastchanged': datetime.date(2015, 7, 16),
-            'locked': False,
-        }, ...]
-
-#. Zwróć listę użytkowników (UID >= 1000)
+        [
+            {
+                'login': 'jimenez',
+                'uid': 1001,
+                'gid': 1001,
+                'home': '/home/jimenez',
+                'shell': '/bin/bash',
+                'algorithm': 'SHA-512',
+                'password': 'P9zn0KwR...k4kijuhE50',
+                'groups': ['staff', 'sysadmin'],
+                'last_changed': datetime.date(2015, 7, 16),
+                'locked': False,
+            },
+            ...
+        ]
 
 :About:
     * Filename: ``exam-foundations.py``

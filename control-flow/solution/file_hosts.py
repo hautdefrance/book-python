@@ -1,26 +1,36 @@
-from pprint import pprint
+FILE = r'../src/etc-hosts.txt'
+hostnames = []
 
 
-FILENAME = r'hosts.txt'
-hosts = []
+try:
+    with open(FILE, encoding='utf-8') as file:
+        content = file.readlines()
+
+except FileNotFoundError:
+    print('File does not exist')
+
+except PermissionError:
+    print('Permission denied')
 
 
-with open(FILENAME, encoding='utf-8') as file:
-    for line in file:
+for line in content:
+    line = line.strip()
 
-        if line.startswith('#') or line.isspace():
-            continue
+    if not line or line.startswith('#'):
+        continue
 
-        record = line.split()
-        ip = record[0]
-        hostnames = record[1:]
-        protocol = 'ipv4' if '.' in ip else 'ipv6'
+    ip = line.split()[0]
+    hosts = line.split()[1:]
 
-        hosts.append({
+    for record in hostnames:
+        if record['ip'] == ip:
+            record['hostnames'].update(hosts)
+            break
+    else:
+        hostnames.append({
+            'hostnames': set(hosts),
+            'protocol': 'IPv4' if '.' in ip else 'IPv6',
             'ip': ip,
-            'hostnames': hostnames,
-            'protocol': protocol,
         })
 
-
-pprint(hosts)
+print(hostnames)

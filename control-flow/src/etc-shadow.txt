@@ -1,28 +1,37 @@
-# Username field: Username, up to 8 characters. Case-sensitive, usually all lowercase. A direct match to the username in the /etc/passwd file.
-# Password field: Password, 13 character encrypted. A blank entry (eg. ::) indicates a password is not required to log in (usually a bad idea), and a ``*'' entry (eg. :*:) indicates the account has been disabled. This field stores the password in encrypted format:
+##
+# ``/etc/shadow`` structure
+#   - Username: from ```/etc/passwd``
+#   - Password
+#   - Last Password Change: Days since 1970-01-01
+#   - Minimum days between password changes: 0 - changed at any time
+#   - Password validity: Days after which password must be changed, 99999 - many, many years
+#   - Warning threshold: (Days to warn user of an expiring password, 7 - full week
+#   - Account inactive: Days after password expires and account is disabled
+#   - Time since account is disabled: Days since 1970-01-01 that an account has been disabled
+#   - A reserved field for possible future use
 #
-#        $1$ is MD5
-#        $2a$ is Blowfish
-#        $2y$ is Blowfish
-#        $5$ is SHA-256
-#        $6$ is SHA-512
+# Password field (split by ``$``):
+#   - algorithm
+#   - salt
+#   - password hash
 #
-#        A password field which starts with a exclamation mark means that the password is locked.
-#        Both "!" and "!!" being present in the password field mean an account is locked.
-#        By default, * is used on accounts where no password has ever been set.
-#        By default, !<password_hash> is used when you lock an account.
-#        "!!" in an account entry in shadow means the account of an user has been created, but not yet given a password. Until being given an initial password by a sysadmin, it is locked by default.
+# Password algorithms:
+#   - ``$1$`` - MD5
+#   - ``$2a$`` - Blowfish
+#   - ``$2y$`` - Blowfish
+#   - ``$5$`` - SHA-256
+#   - ``$6$`` - SHA-512
 #
-# Last Password Change: The number of days (since January 1, 1970) since the password was last changed.
-# Minimum days between password changes: The number of days before password may be changed (0 indicates it may be changed at any time)
-# Password validity: The number of days after which password must be changed (99999 indicates user can keep his or her password unchanged for many, many years)
-# Warning threshold: The number of days to warn user of an expiring password (7 for a full week)
-# Account inactive: The number of days after password expires that account is disabled
-# Time since account is disabled: The number of days since January 1, 1970 that an account has been disabled
-# A reserved field for possible future use
+# Password special chars:
+#   - `` `` (blank entry) password is not required to log in
+#   - ``*`` (asterisk) - account is disabled, no password has ever been set
+#   - ``!`` (exclamation mark) - account is locked, no password has ever been set
+#   - ``!<password_hash>`` - password is locked, but password is set
+#   - ``!!`` (two exclamation marks) - account has been created, waiting for initial password to be set by admin
+##
 
 root:$6$Ke02nYgo.9v0SF4p$hjztYvo/M4buqO4oBX8KZTftjCn6fE4cV5o/I95QPekeQpITwFTRbDUBYBLIUx2mhorQoj9bLN8v.w6btE9xy1:16431:0:99999:7:::
 adm:$6$5H0QpwprRiJQR19Y$bXGOh7dIfOWpUb/Tuqr7yQVCqL3UkrJns9.7msfvMg4ZO/PsFC5Tbt32PXAw9qRFEBs1254aLimFeNM8YsYOv.:16431:0:99999:7:::
-peck:!!:16550::::::
+watney:!!:16550::::::
 jimenez:$6$P9zn0KwR$tgfvvFWJJ5FKmoXiP5rXWOjwoEBOEoAuBi3EphRbJqqjWYvhEM2wa67L9XgQ7W591FxUNklkDIQsk4kijuhE50:16632:0:99999:7:::
 ivanovic:$1$.QKDPc5E$SWlkjRWexrXYgc98F.:12825:0:90:5:30:13096:

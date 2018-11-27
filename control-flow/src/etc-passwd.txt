@@ -1,11 +1,11 @@
 ##
-# User Database
-#   - User name
-#   - Encrypted password
-#   - User ID number (UID)
-#   - User's group ID number (GID)
-#   - Full name of the user (GECOS)
-#   - User home directory
+# ```/etc/passwd`` structure:
+#   - Username
+#   - Password: ``x`` indicates that shadow passwords are used
+#   - UID: User ID number
+#   - GID: User's group ID number
+#   - GECOS: Full name of the user
+#   - Home directory
 #   - Login shell
 ##
 
@@ -17,6 +17,6 @@ shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
 halt:x:7:0:halt:/sbin:/sbin/halt
 nobody:x:99:99:Nobody:/:/sbin/nologin
 sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
-peck:x:1000:1000:Max Peck:/home/peck:/bin/bash
+watney:x:1000:1000:Max Peck:/home/peck:/bin/bash
 jimenez:x:1001:1001:Jose Jimenez:/home/jimenez:/bin/bash
 ivanovic:x:1002:1002:Ivan Ivanovic:/home/ivanovic:/bin/bash
