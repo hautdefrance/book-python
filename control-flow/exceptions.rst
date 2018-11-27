@@ -23,6 +23,74 @@ Most common exceptions
     :widths: 25, 75
     :file: data/exception-most-common.csv
 
+AttributeError
+--------------
+.. code-block:: python
+
+    name = 'Jose'
+
+    name.append('Jimenez')
+    # AttributeError: 'str' object has no attribute 'append'
+
+ImportError
+-----------
+.. code-block:: python
+
+    import nasa
+    # ModuleNotFoundError
+
+IndexError
+----------
+.. code-block:: python
+
+    DATA = ['a', 'b', 'c']
+
+    DATA[3]
+    # IndexError: list index out of range
+
+KeyError
+--------
+.. code-block:: python
+
+    DATA = {'a': 1, 'b': 2, 'c': 3}
+
+    DATA['d']
+    # KeyError: 'd'
+
+NameError
+---------
+.. code-block:: python
+
+    print(astronaut)
+    # NameError: name 'astronaut' is not defined
+
+SyntaxError
+-----------
+.. code-block:: python
+
+    name = 'Jose Jimenez'
+
+    if name == 'Jose'
+        print('My name... Jose Jimenez')
+
+    # SyntaxError: invalid syntax
+
+IndentationError
+----------------
+.. code-block:: python
+
+
+    name = 'Jose Jimenez'
+
+    if name == 'Jose':
+            print('Hello!')
+        print('My name... Jose Jimenez')
+
+    # IndentationError: unindent does not match any outer indentation level
+
+TypeError
+---------
+
 
 Raising exceptions
 ==================
