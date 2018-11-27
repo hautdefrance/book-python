@@ -19,7 +19,7 @@ Parsowanie ``/etc/passwd``
 
         [
             {
-                'login': 'jimenez',
+                'username': 'jimenez',
                 'uid': 1001,
                 'gid': 1001,
                 'home': '/home/jimenez',
