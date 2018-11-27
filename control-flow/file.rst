@@ -87,27 +87,34 @@ Content of a requested file
 
 Parsing ``/etc/hosts``
 ----------------------
-#. Do pliku ``hosts.txt`` w katalogu gdzie będzie Twój skrypt zapisz kod z szablonu: :numref:`listing-file-etc-hosts`
+#. Utwórz plik tekstowy ``hosts.txt``
+#. Do pliku skopiuj kod z listingu:
+
+    .. literalinclude:: src/etc-hosts.txt
+        :language: text
+        :caption: Zawartość pliku ``hosts.txt``
+
 #. Ważne, żeby przepisać zawartość zawierającą komentarze, białe spacje i linie przerwy
-#. Przeglądając plik linijka po linijce sparsuj go i przedstaw w formie listy dictów jak w przykładzie poniżej: :numref:`listing-file-hosts`
-#. Zwróć uwagę na uprawnienia do odczytu pliku
-#. Wykorzystaj inline if do sprawdzenia: jeżeli jest kropka w adresie IP to IPv4 w przeciwnym przypadku IPv6
+#. Sparsuj plik i dla każdej linii:
+
+    #. Pomiń linię jeżeli jest pusta, jest białym znakiem lub zaczyna się od komentarza
+    #. Podziel linię po dowolnej ilości białych znaków (spacja, taby, itp)
+    #. Wydziel ip i hosty
+    #. Wykorzystaj jednolinikowego ``if`` do sprawdzenia czy jest kropka w adresie IP (to IPv4) w przeciwnym przypadku IPv6
+    #. Do listy wynikowej dopisz słownik z ip, hostami i protokołem
+
+#. Po zakończeniu parsowania przedstaw listę wynikową w formie ``List[Dict[str, Union[str, List[str]]]`` jak poniżej:
+
+    .. literalinclude:: src/file-hosts.py
+        :language: python
+        :caption: ``/etc/hosts`` example
+
+#. Dla zaawansowanych: scal listy hostname'ów dla wpisów o tym samym IP
 
 :About:
     * Filename: ``file_hosts.py``
     * Lines of code to write: 10 lines
     * Estimated time of completion: 20 min
-
-:Algorithm:
-    #. Utwórz plik i skopiuj zawartość
-    #. Otwórz plik
-    #. Dla każdej linii:
-    #. Jeżeli linia jest pusta, lub jest białym znakiem lub zaczyna się od komentarza, przeskocz do kolejnej linii
-    #. Podziel linię po białych znakach
-    #. Wydziel ip i hosty
-    #. Jeżeli jest kropka w adresie IP to IPv4 w przeciwnym przypadku IPv6
-    #. Do listy dopisz słownik z ip, hostami i protokołem
-    #. Po zakończeniu parsowania wyświetl na ekranie
 
 :The whys and wherefores:
     * czytanie i parsowanie pliku
@@ -120,13 +127,3 @@ Parsing ``/etc/hosts``
 :Hints:
     * ``str.isspace()``
     * ``value = True if ... else False``
-
-.. literalinclude:: src/etc-hosts.txt
-    :name: listing-file-etc-hosts
-    :language: text
-    :caption: Przykładowa zawartość pliku ``hosts.txt``
-
-.. literalinclude:: src/file-hosts.py
-    :name: listing-file-hosts
-    :language: python
-    :caption: ``/etc/hosts`` example

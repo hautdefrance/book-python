@@ -1,6 +1,6 @@
 "Exception", "Raised when..."
 "``AttributeError``", "Attribute reference or assignment fails"
-"``ImportError``", "Import statement fails"
+"``ModuleNotFoundError``", "Module could not be located"
 "``IndexError``", "Sequence subscript is out of range"
 "``KeyError``", "Dictionary key is not found"
 "``KeyboardInterrupt``", "User hits the interrupt key (Control-C)"
@@ -9,4 +9,5 @@
 "``SyntaxError``", "Parser encounters a syntax error"
 "``IndentationError``", "Syntax errors related to incorrect indentation"
 "``TypeError``", "Operation or function is applied to an object of inappropriate type"
+"``ValueError``", "Argument is right type but an inappropriate value"
 "``RuntimeError``", "Error is detected that doesn't fall in any of the other categories"

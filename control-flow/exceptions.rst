@@ -32,8 +32,8 @@ AttributeError
     name.append('Jimenez')
     # AttributeError: 'str' object has no attribute 'append'
 
-ImportError
------------
+ImportError, ModuleNotFoundError
+--------------------------------
 .. code-block:: python
 
     import nasa
@@ -45,17 +45,17 @@ IndexError
 
     DATA = ['a', 'b', 'c']
 
-    DATA[3]
+    DATA[100]
     # IndexError: list index out of range
 
 KeyError
 --------
 .. code-block:: python
 
-    DATA = {'a': 1, 'b': 2, 'c': 3}
+    DATA = {'a': 1, 'b': 2}
 
-    DATA['d']
-    # KeyError: 'd'
+    DATA['x']
+    # KeyError: 'x'
 
 NameError
 ---------
@@ -68,10 +68,8 @@ SyntaxError
 -----------
 .. code-block:: python
 
-    name = 'Jose Jimenez'
-
-    if name == 'Jose'
-        print('My name... Jose Jimenez')
+    if True
+        print('Yes')
 
     # SyntaxError: invalid syntax
 
@@ -79,18 +77,26 @@ IndentationError
 ----------------
 .. code-block:: python
 
+    if True:
+       print('Hello!')
+        print('My name...')
+       print('Jose Jimenez')
 
-    name = 'Jose Jimenez'
-
-    if name == 'Jose':
-            print('Hello!')
-        print('My name... Jose Jimenez')
-
-    # IndentationError: unindent does not match any outer indentation level
+    # IndentationError: unexpected indent
 
 TypeError
 ---------
+.. code-block:: python
 
+    42 + 'Jose'
+    # TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+ValueError
+----------
+.. code-block:: python
+
+    float('hello')
+    # ValueError: could not convert string to float: 'hello'
 
 Raising exceptions
 ==================
