@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 gagarin = datetime(1961, 4, 12, 6, 7)
 armstrong = datetime(1969, 7, 21, 14, 56, 15)
 

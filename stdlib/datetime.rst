@@ -67,17 +67,35 @@ ISO 8601 Standard
 ``datetime``
 ============
 
-Creating ``date`` and ``datetime`` objects
-------------------------------------------
+Creating ``date`` objects
+-------------------------
+.. literalinclude:: src/date-new.py
+    :language: python
+    :caption: Creating ``date`` objects
+
+.. literalinclude:: src/date-today.py
+    :language: python
+    :caption: Creating ``date`` objects
+
+Creating ``datetime`` objects
+-----------------------------
 .. literalinclude:: src/datetime-new.py
     :language: python
-    :caption: Creating ``date`` and ``datetime`` objects
+    :caption: Creating ``datetime`` objects
+
+.. literalinclude:: src/datetime-now.py
+    :language: python
+    :caption: Creating ``datetime`` objects
 
 Date formatting
 ----------------
 .. literalinclude:: src/datetime-format.py
     :language: python
-    :caption: Datetime formatting as string
+    :caption: Datetime formatting as string with ``f'...'``
+
+.. literalinclude:: src/datetime-strftime.py
+    :language: python
+    :caption: Datetime formatting as string with ``.strftime()``
 
 Parsing dates
 -------------
@@ -95,16 +113,24 @@ Table of date and time parsing and formatting parameters
     :header-rows: 1
     :file: data/datetime-formatting.csv
 
-Time shifts and time deltas
----------------------------
+Time shifts
+-----------
 .. literalinclude:: src/datetime-shift.py
     :language: python
     :caption: Shifting datetimes
 
+``timedelta``
+-------------
 .. literalinclude:: src/datetime-timedelta.py
     :language: python
-    :caption: Substract time from datetimes
+    :caption: Substract ``timedelta`` from ``datetime``
 
+.. literalinclude:: src/datetime-timedelta-month.py
+    :language: python
+    :caption: Substract month from ``datetime``
+
+Time diff
+---------
 .. literalinclude:: src/datetime-diff.py
     :language: python
     :caption: Diff between datetimes
@@ -259,6 +285,8 @@ Date manipulation
 
 :Hint:
     * Wpisz "local time" jako zwykły tekst do ``strptime``
+    * ``datetime.now(tz=timezone.utc)``
+    * ``datetime(1961, 04, 12, 6, 7).replace(tz=timezone.utc)``
     * Standard ISO:
 
         * '1961-04-12'
