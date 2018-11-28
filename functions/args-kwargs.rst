@@ -22,19 +22,30 @@ Przypomnienie wiadomości o parametrach
     add(1, 2)       # pozycyjne
     add(a=1, b=2)   # nazwane, kolejność nie ma znaczenia
     add(b=2, a=1)   # nazwane, kolejność nie ma znaczenia
+    add(1, b=2)     # pozycyjne i nazwane
 
 .. code-block:: python
 
     a, b = 1, 2
+    # a == 1
+    # b == 2
+
     a, b = (1, 2)
+    # a == 1
+    # b == 2
+
     a, b = [1, 2]
+    # a == 1
+    # b == 2
 
 .. code-block:: python
 
     def numbers():
-        return 1, 2
+        return [1, 2]
 
     a, b = numbers()
+    # a == 1
+    # b == 2
 
 
 Przyjmowanie z funkcji zmiennej ilości argumentów (Rozpakowywanie)
@@ -298,8 +309,15 @@ Iris
 #. Dane dostępne są pod adresem: https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
 #. Otwórz link w przeglądarce i skopiuj zawartość do pliku ``kwargs_iris.csv`` na dysku
 #. Sparsuj zawartość odrzucając nagłówek
-#. Stwórz funkcję ``print_iris(*args, **kwargs)``, która wyświetli zawartość ``args`` i ``kwargs``
-#. Dla każdego rekordu odpalaj funkcję, podając wartości korzystając z operatora ``*``
+#. Dla każdego rekordu, usuń białe spacje i podziel go po przecinku ``,``
+#. Wyniki podziału odbierz do dwóch zmiennych:
+
+    * ``features: Tuple[float]`` - pomiary
+    * ``labels: str`` - nazwa gatunku
+
+#. Stwórz funkcję ``print_iris(sepal_length, sepal_width, *args, **kwargs)``, która wyświetli zawartość wszystkich argumentów
+#. Odpalaj funkcję ``print_iris()``, podając wartości ``features`` i ``labels``
+#. Pomiary mają być podane pozycyjnie (``*``), a gatunek nazwanie (``**``)
 
 :About:
     * Filename: ``kwargs_iris.py``

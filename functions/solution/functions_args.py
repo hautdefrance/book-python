@@ -24,15 +24,13 @@ DATABASE = [
     (4.9, 2.5, 4.5, 1.7, 'I. virginica'),
 ]
 
-data = DATABASE[1:]
 
-
-# def iris(sepal_lenght, sepal_width, petal_length, petal_width, species):
-#    print(locals())
-
-def iris(*args):
+def print_iris(sepal_lenght, sepal_width, *args, **kwargs):
     print(locals())
 
 
-for record in data:
-    iris(*record)
+for record in DATABASE[1:]:
+    *pomiary, gatunek = record
+    data = {'species': gatunek}
+
+    print_iris(*pomiary, **data)
