@@ -58,7 +58,6 @@ Functions
 
     /functions/basic.rst
     /functions/args-kwargs.rst
-    /functions/advanced.rst
     /functions/recurrence.rst
     /functions/advanced.rst
 

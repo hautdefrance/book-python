@@ -1,4 +1,4 @@
-FILE = r'../src/etc-hosts.txt'
+FILE = r'../assignment/etc-hosts.txt'
 hostnames = []
 
 

@@ -208,8 +208,8 @@ Multiplication
     name = 'José Jiménez Iii'
     name.replace('Iii', 'III')  # 'José Jiménez III'
 
-``strip()``, ``lstrip()``, ``rstrip()``
----------------------------------------
+``str.strip()``, ``str.lstrip()``, ``str.rstrip()``
+---------------------------------------------------
 .. code-block:: python
 
     name = '\tMark Watney    \n'

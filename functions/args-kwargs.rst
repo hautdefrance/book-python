@@ -1,6 +1,8 @@
-***************
-Args and KWargs
-***************
+.. _Function Args and KWargs:
+
+**************************
+``*args`` and ``**kwargs``
+**************************
 
 
 Operator ``*`` i ``**``
@@ -293,26 +295,31 @@ Assignments
 
 Iris
 ----
-#. Otwórz link w przeglądarce https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv i skopiuj jego zawartość do pliku ``dataset-iris.csv`` na dysku
+#. Dane dostępne są pod adresem: https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
+#. Otwórz link w przeglądarce i skopiuj zawartość do pliku ``kwargs_iris.csv`` na dysku
 #. Sparsuj zawartość odrzucając nagłówek
 #. Stwórz funkcję ``print_iris(*args, **kwargs)``, która wyświetli zawartość ``args`` i ``kwargs``
 #. Dla każdego rekordu odpalaj funkcję, podając wartości korzystając z operatora ``*``
 
+:About:
+    * Filename: ``kwargs_iris.py``
+    * Lines of code to write: 15 lines
+    * Estimated time of completion: 15 min
 
 Hosts
 -----
-#. Skopiuj zawartość listingu :numref:`listing-etc-hosts` do pliku ``hosts.txt``
+#. Skopiuj zawartość listingu poniżej do pliku ``hosts.txt``
+
+    .. literalinclude:: assignment/etc-hosts.txt
+        :language: python
+        :caption: Listing pliku ``/etc/hosts``
+
 #. Stwórz pusty ``dict`` o nazwie ``hosts``
 #. Czytając plik pomiń puste linie lub zaczynające się od komentarza ``#``
 #. Do ``hosts`` dla klucza IP dodaj listę hostname
 #. Przy parsowaniu linii skorzystaj z konstrukcji z gwiazdką ``*``
 
 :About:
-    * Filename: ``functions_hosts.py``
+    * Filename: ``kwargs_hosts.py``
     * Lines of code to write: 15 lines
     * Estimated time of completion: 15 min
-
-.. literalinclude:: src/etc-hosts.txt
-    :name: listing-etc-hosts
-    :language: python
-    :caption: Listing pliku ``/etc/hosts``
