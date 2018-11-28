@@ -57,6 +57,9 @@ Functions
     :caption: Functions
 
     /functions/basic.rst
+    /functions/args-kwargs.rst
+    /functions/advanced.rst
+    /functions/recurrence.rst
     /functions/advanced.rst
 
 ****************
@@ -74,18 +77,19 @@ Standard Library
     /stdlib/print.rst
     /stdlib/regex.rst
 
-*************
-Serialization
-*************
+***************************
+Object Oriented Programming
+***************************
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Serialization
+    :caption: Object Oriented Programming
 
-    /serialization/csv.rst
-    /serialization/json.rst
-    /serialization/xml.rst
-    /serialization/pickle.rst
+    /object-oriented-programming/basic.rst
+    /object-oriented-programming/intermediate.rst
+    /object-oriented-programming/dataclass.rst
+    /object-oriented-programming/enum.rst
+    /object-oriented-programming/operator-overload.rst
 
 *************************
 Good Engineering Practice
@@ -103,19 +107,18 @@ Good Engineering Practice
     /good-engineering-practice/unittest.rst
     /good-engineering-practice/introspection.rst
 
-***************************
-Object Oriented Programming
-***************************
+*************
+Serialization
+*************
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Object Oriented Programming
+    :caption: Serialization
 
-    /object-oriented-programming/basic.rst
-    /object-oriented-programming/intermediate.rst
-    /object-oriented-programming/dataclass.rst
-    /object-oriented-programming/enum.rst
-    /object-oriented-programming/operator-overload.rst
+    /serialization/csv.rst
+    /serialization/json.rst
+    /serialization/xml.rst
+    /serialization/pickle.rst
 
 ************
 HTTP and Web

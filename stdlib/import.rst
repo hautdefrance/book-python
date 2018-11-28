@@ -51,6 +51,40 @@ Using
 
 Importing
 =========
+* Imports module:
+
+    .. code-block:: python
+
+        import module
+
+* From module imports function:
+
+    .. code-block:: python
+
+        from module import function
+        from module.submodule import function
+
+* Aliases
+
+    .. code-block:: python
+
+        import module as alias
+        from module import function as alias
+
+* Relative imports:
+
+    .. code-block:: python
+
+        from . import module
+        from .. import module
+
+    .. code-block:: python
+
+        from .module import function
+        from ..module import function
+
+Example
+-------
 .. code-block:: python
 
     import sys

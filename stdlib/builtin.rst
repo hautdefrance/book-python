@@ -8,40 +8,6 @@ Builtin and Keywords
 Keywords
 ========
 
-``import``
-----------
-* Imports module:
-
-    .. code-block:: python
-
-        import module
-
-* From module imports function:
-
-    .. code-block:: python
-
-        from module import function
-        from module.submodule import function
-
-* Aliases
-
-    .. code-block:: python
-
-        import module as alias
-        from module import function as alias
-
-* Relative imports:
-
-    .. code-block:: python
-
-        from . import module
-        from .. import module
-
-    .. code-block:: python
-
-        from .module import function
-        from ..module import function
-
 ``pass``
 --------
 Python domyślnie oczekuje wcięcia po dwukropku. Jeżeli chcemy zostawić klasę czy funkcję pustą, korzystamy wtedy ze słowa kluczowego ``pass``.
@@ -58,70 +24,6 @@ Python domyślnie oczekuje wcięcia po dwukropku. Jeżeli chcemy zostawić klas�
 
     my_var = my_function()
     # None
-
-``continue``
-------------
-Słowo kluczowe ``continue`` powoduje przerwanie aktualnie wykonywanej pętli i przejście do kolejnej iteracji.
-
-.. code-block:: python
-
-    ETC_PASSWD = """
-    # User Database
-    root:x:0:0:root:/root:/bin/bash
-    watney:x:1000:1000:Mark Watney:/home/watney:/bin/bash
-    jimenez:x:1001:1001:Jose Jimenez:/home/jimenez:/bin/bash
-    ivanovic:x:1002:1002:Иван Иванович:/home/ivanovic:/bin/bash
-    """
-
-    for line in ETC_PASSWD:
-        if line.startswith('#'):
-            continue
-
-        name = line.split(':')[4]
-        print(name)
-
-
-.. code-block:: python
-
-    ETC_PASSWD = """
-    # User Database
-    root:x:0:0:root:/root:/bin/bash
-    watney:x:1000:1000:Mark Watney:/home/watney:/bin/bash
-    jimenez:x:1001:1001:Jose Jimenez:/home/jimenez:/bin/bash
-    ivanovic:x:1002:1002:Иван Иванович:/home/ivanovic:/bin/bash
-    """
-
-    for line in ETC_PASSWD:
-        print(line)
-        continue
-
-        # ten kod się nie wywoła
-        # przydatne do zrozumienia działania funkcji i zobaczenia jaki jest aktualny element
-        if line.startswith('#'):
-            continue
-
-        name = line.split(':')[4]
-        print(name)
-
-``break``
----------
-Słowo kluczowe ``break`` przerywa aktualnie wykonywaną pętlę.
-
-.. code-block:: python
-
-    while True:
-        number = input('Type number: ')
-
-        if number:
-            break
-
-``eval()``
-----------
-.. code-block:: python
-
-    eval('name="José Jiménez"; print(name)')
-    # José Jiménez
-
 
 ``__file__``
 ------------
@@ -171,27 +73,6 @@ Przykład z życia:
 Builtin functions
 =================
 
-``sorted()`` and ``sort()``
----------------------------
-* Sortują elementy listy.
-* ``sorted()`` zwraca posortowaną listę, ale nie zapisuje zmienionej kolejności
-* ``.sort()`` zmienia listę na stałe
-
-.. code-block:: python
-
-    numbers = [3, 1, 2]
-    sorted(numbers)
-    # [1, 2, 3]
-    print(numbers)
-    # [3, 1, 2]
-
-.. code-block:: python
-
-    numbers = [3, 1, 2]
-    numbers.sort()  # returns None
-    print(numbers)
-    # [1, 2, 3]
-
 ``range()``
 -----------
 * Tworzy **iterator**, który zwraca liczby w sekwencji.
@@ -211,7 +92,6 @@ Builtin functions
     print(numbers_generator)
     # range(0, 5)
 
-
 .. code-block:: python
 
     numbers_generator = range(0, 5)
@@ -229,41 +109,6 @@ Builtin functions
     isinstance(10, int)           # True
     isinstance(10, float)         # False
     isinstance(10, (int, float))  # True
-
-``min()``
----------
-Wartość minimalna z listy.
-
-.. code-block:: python
-
-    numbers = [1, 2, 3, 4, 5]
-
-    min(numbers)  # 1
-    min(3, 1, 5)  # 1
-
-``max()``
----------
-Wartość maksymalna z listy.
-
-.. code-block:: python
-
-    numbers = [1, 2, 3, 4, 5]
-
-    max(numbers)  # 5
-    max(3, 1, 5)  # 5
-
-``len()``
----------
-Długość listy, tuple, stringa itp.
-
-.. code-block:: python
-
-    numbers = [1, 2, 3, 4, 5]
-
-    len(numbers)                   # 5
-    len('Max')                     # 3
-    len({'id': 3, 'name': 'Max'})  # 2
-
 
 ``bin()``
 ---------
@@ -313,6 +158,13 @@ Z pozycji w tablicy ASCII konwertuje kod na znak Unicode.
 .. code-block:: python
 
     chr(97)  # 'a'
+
+``eval()``
+----------
+.. code-block:: python
+
+    eval('name="José Jiménez"; print(name)')
+    # José Jiménez
 
 
 Other builtin functions
