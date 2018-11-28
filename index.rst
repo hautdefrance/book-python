@@ -71,10 +71,22 @@ Standard Library
 
     /stdlib/import.rst
     /stdlib/builtin.rst
-    /stdlib/datetime.rst
     /stdlib/math.rst
     /stdlib/print.rst
     /stdlib/regex.rst
+
+*************
+Date and Time
+*************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Date and Time
+
+    /time/datetime.rst
+    /time/timezones.rst
+    /time/timeit.rst
+    /time/calendar.rst
 
 ***************************
 Object Oriented Programming

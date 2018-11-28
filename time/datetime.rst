@@ -145,50 +145,6 @@ Time zones in ``datetime`` library
     :caption: Make timezone aware object from naive datetime
 
 
-``pytz``
-========
-
-List of Timezones
------------------
-* https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
-* https://www.iana.org/time-zones
-
-.. literalinclude:: src/pytz-tzlist.py
-    :language: python
-    :caption: ``pytz`` brings the Olson tz database into Python.
-
-From naive to local
--------------------
-.. literalinclude:: src/pytz-naive-to-local.py
-    :language: python
-    :caption: From naive to local time
-
-From naive to UTC
------------------
-.. literalinclude:: src/pytz-naive-to-utc.py
-    :language: python
-    :caption: From naive to local time
-
-From UTC to local time
-----------------------
-.. literalinclude:: src/pytz-utc-to-local.py
-    :language: python
-    :caption: From UTC to local time
-
-Between timezones
------------------
-.. literalinclude:: src/pytz-between-timezones.py
-    :language: python
-    :caption: Between timezones
-
-
-``calendar``
-============
-.. literalinclude:: src/calendar-html.py
-    :language: python
-    :caption: HTML Calendar
-
-
 ``time``
 ========
 .. literalinclude:: src/time-sleep.py
@@ -198,55 +154,6 @@ Between timezones
 .. literalinclude:: src/time-timestamp.py
     :language: python
     :caption: Get timestamp
-
-
-.. _timeit:
-
-``timeit``
-==========
-
-``timeit`` from Python script
------------------------------
-.. literalinclude:: src/timeit_simple.py
-    :language: python
-    :caption: Timeit simple statement
-
-.. literalinclude:: src/timeit_multiple.py
-    :language: python
-    :caption: Timeit multiple statements with setup code
-
-.. literalinclude:: src/timeit_globals.py
-    :language: python
-    :caption: Timeit with ``globals()``
-
-``timeit`` from terminal
-------------------------
-.. literalinclude:: src/timeit.sh
-    :language: console
-    :caption: Timeit
-
-.. code-block:: text
-
-    -n N, --number=N
-    how many times to execute ‘statement’
-
-    -r N, --repeat=N
-    how many times to repeat the timer (default 5)
-
-    -s S, --setup=S
-    statement to be executed once initially (default pass)
-
-    -p, --process
-    measure process time, not wallclock time, using time.process_time() instead of time.perf_counter(), which is the default
-
-    -u, --unit=U
-    specify a time unit for timer output; can select nsec, usec, msec, or sec
-
-    -v, --verbose
-    print raw timing results; repeat for more digits precision
-
-    -h, --help
-    print a short usage message and exit
 
 
 Assignments
