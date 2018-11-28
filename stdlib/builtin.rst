@@ -179,21 +179,41 @@ Assignments
 
 Average
 -------
-#. Dane są pomiary Irysów z :numref:`listing-builtin-iris-sample`
+#. Dane są pomiary Irysów:
+
+    .. literalinclude:: assignments/builtin-iris-sample.py
+        :language: python
+        :caption: Sample Iris databases
+
 #. Stwórz ``dict``, który będzie przechowywał ``list`` pomiarów dla każdego parametru:
 
-    * Sepal length
-    * Sepal width
-    * Petal length
-    * Petal width
+    .. code-block:: python
 
-#. Policz średnią dla każdego z elementów tego ``dict`` i zapisz je w ``dict``, o strukturze: nazwa parametru -> średnia
+        iris = {
+            'sepal_length': [...],
+            'sepal_width': [...],
+            'petal_length': [...],
+            'petal_width': [...],
+        }
+
+#. Stwórz funkcję ``average(*args)``, która będzie liczyła średnią dla dowolnej ilości argumentów
+
+    .. code-block:: python
+
+        def average(*args):
+            pass
+
+#. Do wyliczenia średniej, wykorzystaj wbudowane funkcje
 #. Wypisz na ekranie oba ``dict``
 
-.. literalinclude:: src/builtin-iris-sample.py
-    :name: listing-builtin-iris-sample
-    :language: python
-    :caption: Sample Iris databases
+    .. code-block:: python
+
+        averages = {
+            'sepal_length': average(...),
+            'sepal_width': average(...),
+            'petal_length': average(...),
+            'petal_width': average(...),
+        }
 
 :About:
     * Filename: ``builtin_average.py``
