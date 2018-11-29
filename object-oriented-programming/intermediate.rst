@@ -81,6 +81,12 @@ Assignments
 
 Dragon (Part 2)
 ---------------
+.. figure:: img/dragon.gif
+    :scale: 100%
+    :align: center
+
+    Firkraag dragon from game Baldur's Gate II: Shadows of Amn
+
 #. Zaimportuj smoka z poprzedniej części zadania ("Part 1")
 #. Wykorzystaj mechanizm dziedziczenia dla Smoka
 #. Nie modyfikuj klasy smoka z poprzedniej części

@@ -215,6 +215,12 @@ Assignments
 
 Dragon (Part 3)
 ---------------
+.. figure:: img/dragon.gif
+    :scale: 100%
+    :align: center
+
+    Firkraag dragon from game Baldur's Gate II: Shadows of Amn
+
 #. Dodaj możliwość poruszania się smoka i bohatera w 3 wymiarach
 #. Bohater może należeć do drużyny, który może składać się maks z 6 postaci (różnych klas)
 #. Żadna z istot na planszy nie może wyjść poza zakres ekranu

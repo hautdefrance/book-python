@@ -171,6 +171,12 @@ Address Book from API
 
 Dragon (Part 1)
 ---------------
+.. figure:: img/dragon.gif
+    :scale: 100%
+    :align: center
+
+    Firkraag dragon from game Baldur's Gate II: Shadows of Amn
+
 #. Smok ma mieć:
 
     * nazwę smoka
@@ -186,6 +192,7 @@ Dragon (Part 1)
     * być ustawiony w dowolne miejsce ekranu
     * być przesuwany o zadaną liczbę punktów w którymś z kierunków
 
+#. Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
 #. Przyjmij górny lewy róg ekranu za punkt (0, 0)
 
     * idąc w prawo dodajesz ``x``
@@ -194,6 +201,7 @@ Dragon (Part 1)
     * idąc w dół dodajesz ``y``
 
 #. Przy każdym obrażeniu wypisz na ekranie nazwę smoka, ilość obrażeń i pozostałe punkty życia
+#. Nie można zadawać smokowi obrażeń, jeżeli już nie żyje
 #. Kiedy punkty życia smoka spadną do, lub poniżej zera:
 
     * ustaw status obiektu na ``dead``
@@ -202,7 +210,6 @@ Dragon (Part 1)
     * na ekranie pojawi się informacja ile złota smok wyrzucił (losowa 1-100)
     * na ekranie pojawi się informacja o pozycji gdzie smok zginął
 
-#. Nie można zadawać smokowi obrażeń, jeżeli już nie żyje
 #. Przeprowadź grę:
 
     * Stwórz smoka w pozycji x=50, y=120 i nazwij go Wawelski
@@ -218,8 +225,6 @@ Dragon (Part 1)
     * Zadaj 15 obrażeń smokowi
     * Zadaj 25 obrażeń smokowi
     * Zadaj 75 obrażeń smokowi
-
-#. Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
 
 :About:
     * Filename: ``oop_dragon_1.py``
