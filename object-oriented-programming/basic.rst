@@ -176,7 +176,7 @@ Dragon (Part 1)
     * nazwę smoka
     * pozycja ``x`` na ekranie
     * pozycja ``y`` na ekranie
-    * teksturę, domyślnie ``dragon.png``
+    * teksturę, domyślnie ``img/dragon/alive.png``
     * punkty życia, domyślnie losowy ``int`` z zakresu od 50 do 100
 
 #. Smok może:
@@ -198,7 +198,7 @@ Dragon (Part 1)
 
     * ustaw status obiektu na ``dead``
     * na ekranie ma pojawić się napis 'XXX is dead' gdzie XXX to nazwa smoka
-    * zmień teksturę smoka na ``dragon-dead.png``
+    * zmień teksturę smoka na ``img/dragon/dead.png``
     * na ekranie pojawi się informacja ile złota smok wyrzucił (losowa 1-100)
     * na ekranie pojawi się informacja o pozycji gdzie smok zginął
 
