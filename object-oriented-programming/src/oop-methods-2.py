@@ -1,10 +1,9 @@
 class Astronaut:
-
-    def say_text(self, text='Ehlo World!'):
-        print(text)
+    def say_hello(self):
+        print(f'My name... {self.name}')
 
 
 jose = Astronaut()
+jose.name = 'José Jiménez'
 
-jose.say_text()         # Ehlo World!
-jose.say_text('Hello')  # Hello
+jose.say_hello()         # My name... José Jiménez!

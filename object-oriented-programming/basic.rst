@@ -56,23 +56,35 @@ Methods
 * ``self`` - Instance as an argument
 * przy uruchomieniu funkcji nie podajemy jawnie argumentu ``self``
 
+Simple Methods
+--------------
+.. literalinclude:: src/oop-methods-1.py
+    :language: python
+    :caption: Simple Methods
+
 Methods accessing fields
 ------------------------
-.. literalinclude:: src/oop-methods-1.py
+.. literalinclude:: src/oop-methods-2.py
     :language: python
     :caption: Methods accessing fields
 
 Methods with default arguments
 ------------------------------
-.. literalinclude:: src/oop-methods-2.py
+.. literalinclude:: src/oop-methods-args.py
+    :language: python
+    :caption: Methods with arguments
+
+Methods with default arguments
+------------------------------
+.. literalinclude:: src/oop-methods-args-default.py
     :language: python
     :caption: Methods with default arguments
 
-Methods accessing other methods
--------------------------------
-.. literalinclude:: src/oop-methods-3.py
+Methods call other methods
+--------------------------
+.. literalinclude:: src/oop-methods-call-another.py
     :language: python
-    :caption: Methods accessing other methods
+    :caption: Methods call other methods
 
 
 Initializer Method
@@ -101,8 +113,12 @@ Stringify object
 
 One class per file?
 ===================
-* Jeden plik - gdy klasy są małe i czytelne
 * Osobne pliki - gdy klasy są duże
+* Jeden plik - gdy klasy są małe i czytelne
+
+    .. literalinclude:: src/oop-objects-2.py
+        :language: python
+        :caption: Classes and Objects
 
 
 Assignments
@@ -110,8 +126,15 @@ Assignments
 
 Basic Address Book
 ------------------
-#. Dla danych z :numref:`listing-oop-addressbook-data` napisz książkę adresową
-#. Wszystkie dane w książce muszą być reprezentowane przez klasy
+#. Dla danych z listingu poniżej napisz książkę adresową
+
+    .. literalinclude:: assignment/oop_addressbook.txt
+        :name: listing-oop-addressbook-data
+        :language: text
+        :caption: Address Book
+
+#. W zadaniu mamy doczynienia z trzema klasami, wymień je.
+#. Zamodeluj problem wykorzystując trzy klasy i relacje między nimi
 #. Użytkownik może mieć wiele adresów
 #. Użytkownik może nie mieć żadnego adresu
 
@@ -126,10 +149,6 @@ Basic Address Book
     * zagnieżdżanie obiektów
     * rzutowanie obiektu na stringa oraz jego reprezentacja (które i kiedy użyć)
 
-.. literalinclude:: assignment/oop_addressbook.txt
-    :name: listing-oop-addressbook-data
-    :language: text
-    :caption: Address Book
 
 Address Book from API
 ---------------------

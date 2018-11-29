@@ -11,10 +11,8 @@ ivan = Astronaut(first_name='Иван', last_name='Иванович', agency='Ro
 
 print(jose.first_name)  # José
 print(jose.last_name)   # Jiménez
-print(ivan.agency)      # NASA
+print(jose.agency)      # NASA
 
 print(ivan.first_name)  # Иван
 print(ivan.last_name)   # Иванович
 print(ivan.agency)      # Roscosmos
-
-
