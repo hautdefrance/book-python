@@ -106,8 +106,8 @@ Dragon (Part 2)
 
     * "Full Health" - gdy punkty życia 100% (zastąp status "alive")
     * "Injured" - gdy punkty życia 99% - 75%
-    * "Badly Wounded" - gdy punkty życia 75% - 25%
-    * "Near Death" - gdy punkty życia 25% - 1%
+    * "Badly Wounded" - gdy punkty życia 74% - 25%
+    * "Near Death" - gdy punkty życia 24% - 1%
     * "Dead" - gdy punkty życia poniżej lub równe 0%
 
 #. Bohater przejmuje złoto smoka, jeżeli go zabije

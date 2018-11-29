@@ -16,12 +16,19 @@ class Smok:
     def __init__(self, name, x=0, y=0, texture=TEXTURE_ALIVE):
         self.name = name
         self.texture = texture
-        self.hit_points = randint(self.HP_INITIAL_MIN, self.HP_INITIAL_MAX)
-        self.ustaw_pozycje(x, y)
         self.status = self.STATUS_ALIVE
+        self.set_initial_hitpoints()
+        self.ustaw_pozycje(x, y)
+
+    def set_initial_hitpoints(self):
+        self.hit_points = randint(self.HP_INITIAL_MIN, self.HP_INITIAL_MAX)
 
     def zadaj_obrazenia(self):
         return randint(self.DMG_MIN, self.DMG_MAX)
+
+    def _make_drop(self):
+        gold = randint(self.GOLD_MIN, self.GOLD_MAX)
+        print(f'Gold dropped {gold}')
 
     def przyjmij_obrazenia(self, ile_obrazen):
         if self.status == self.STATUS_DEAD:
@@ -32,8 +39,7 @@ class Smok:
 
         if self.hit_points <= 0:
             print(f'{self.name} is dead')
-            gold = randint(self.GOLD_MIN, self.GOLD_MAX)
-            print(f'Gold dropped {gold}')
+            self._make_drop()
             print(f'Pozycja {self.position_x}, {self.position_y}')
             self.texture = self.TEXTURE_DEAD
             self.status = self.STATUS_DEAD
@@ -65,3 +71,34 @@ wawelski.przyjmij_obrazenia(15)
 wawelski.przyjmij_obrazenia(25)
 wawelski.przyjmij_obrazenia(75)
 
+
+class NPC(Smok):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.gold = 100
+
+
+class Dragon(NPC):
+    TEXTURE_ALIVE = 'dragon.png'
+    TEXTURE_DEAD = 'dragon-dead.png'
+    HP_INITIAL_MIN = 50
+    HP_INITIAL_MAX = 100
+    DMG_MIN = 5
+    DMG_MAX = 20
+    GOLD_MIN = 1
+    GOLD_MAX = 100
+    STATUS_DEAD = 'dead'
+    STATUS_ALIVE = 'alive'
+
+
+class Hero(NPC):
+    TEXTURE_ALIVE = 'hero.png'
+    TEXTURE_DEAD = 'hero-dead.png'
+    HP_INITIAL_MIN = 100
+    HP_INITIAL_MAX = 150
+    DMG_MIN = 5
+    DMG_MAX = 20
+    GOLD_MIN = 1
+    GOLD_MAX = 100
+    STATUS_DEAD = 'dead'
+    STATUS_ALIVE = 'alive'
