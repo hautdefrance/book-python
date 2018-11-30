@@ -11,8 +11,8 @@ class Contact:
         return self
 
     def __contains__(self, item):
-        for adres in self.addresses:
-            if adres == item:
+        for address in self.addresses:
+            if address == item:
                 return True
         return False
 
