@@ -76,11 +76,11 @@ Reading ``csv``
 :About:
     * Filename: ``csv_dictreader.py``
     * Lines of code to write: 20 lines
-    * Estimated time of completion: 15 min
+    * Estimated time of completion: 10 min
 
 Writing ``csv``
 ---------------
-#. Za pomocą ``csv.DictWriter()`` zapisz do pliku dane o zmiennej strukturze
+#. Za pomocą ``csv.DictWriter()`` zapisz do pliku CSV dane o zmiennej strukturze
 #. Podaj jawnie ``encoding``, ``delimiter``, ``quotechar`` ``quoting``, ``lineterminator``
 #. ``fieldnames`` nie może być wymienione wprost w skrypcie (zahardkodowane)
 
@@ -97,7 +97,7 @@ Writing ``csv``
 :About:
     * Filename: ``csv_dictwriter.py``
     * Lines of code to write: 8 lines
-    * Estimated time of completion: 15 min
+    * Estimated time of completion: 10 min
 
 :Hints:
     * To jest bardzo często występujący i użyteczny przykład

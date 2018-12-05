@@ -1,9 +1,5 @@
 from dataclasses import dataclass
-
 import requests
-
-
-data = requests.get('https://api.github.com/users').json()
 
 
 @dataclass
@@ -28,7 +24,7 @@ class User:
     site_admin: bool
 
 
-for user in data:
+for user in requests.get('https://api.github.com/users').json():
     u = User(**user)
     print(u)
 

@@ -1,6 +1,6 @@
 import csv
 
-FILENAME = '../tmp/csv_dictwriter.csv'
+FILENAME = '../data/iris.csv'
 DATA = [
     {'first_name': 'José'},
     {'last_name': 'Jiménez'},
