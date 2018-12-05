@@ -91,7 +91,12 @@ Assignments
 
 Split train/test
 ----------------
-#. Mając do dyspozycji zbiór danych Irysów z :numref:`listing-sequence-iris-sample`
+#. Mając do dyspozycji zbiór danych Irysów z listingu poniżej:
+
+    .. literalinclude:: assignment/sequence-iris-sample.py
+        :language: python
+        :caption: Sample Iris databases
+
 #. Zapisz nagłówek (pierwsza linia) do zmiennej
 #. Zapisz do innej zmiennej dane bez nagłówka
 #. Wylicz punkt podziału: ilość rekordów danych bez nagłówka razy procent
@@ -113,8 +118,3 @@ Split train/test
     * Korzystanie z przecięć danych
     * Konwersja typów
     * Magic Number
-
-.. literalinclude:: assignment/sequence-iris-sample.py
-    :name: listing-sequence-iris-sample
-    :language: python
-    :caption: Sample Iris databases

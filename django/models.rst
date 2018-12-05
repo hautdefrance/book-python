@@ -116,3 +116,48 @@ Example Model
 .. literalinclude:: src/django-models-exmaple.py
     :language: python
     :caption: Example Model
+
+
+Assignments
+===========
+
+Address Book
+------------
+#. Stwórz projekt ``addressbook``
+#. Stwórz apkę ``contact``
+#. Stwórz model ``Address`` z polami:
+
+    - Typ (do wyboru typ: domowy, praca, komórka)
+    - Ulica
+    - Numer bloku
+    - Numer mieszkania
+    - Kod pocztowy
+    - Miasto
+    - Region
+    - Kraj
+
+#. Stwórz model ``Person`` z polami:
+
+    - Imię
+    - Nazwisko
+    - Data Urodzenia
+    - Zdjęcie
+    - Telefon (do wyboru typ: domowy, praca, komórka)
+    - Email (do wyboru typ: domowy, praca, komórka)
+    - Adres
+
+#. Osoba może mieć wiele adresów, telefonów i emaili
+#. Wygeneruj panel administracyjny
+#. Moża wylistować kontakty i na głównym ekranie widoczne są podstawowe pola osoby
+#. Dodaj wyszukiwarkę po nazwisku
+#. Dodaj filtrowanie po dacie urodzenia
+
+:About:
+    * Lines of code to write: 50 lines
+    * Estimated time of completion: 30 min
+
+:The whys and wherefores:
+    * Umiejętność modelowania obiektów świata rzeczywistego
+    * Umiejętność obsługi plików i obrazków
+    * Umiejętność generowania paneli administracyjnych w Django
+
