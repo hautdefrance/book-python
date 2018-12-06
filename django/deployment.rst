@@ -10,6 +10,67 @@ Apache + mod_wsgi
 
 Nginx + uwsgi
 -------------
+.. code-block:: lua
+
+    # mysite_nginx.conf
+
+    # the upstream component nginx needs to connect to
+    upstream django {
+        # server unix:///path/to/your/mysite/mysite.sock; # for a file socket
+        server 127.0.0.1:8001; # for a web port socket (we'll use this first)
+    }
+
+    # configuration of the server
+    server {
+        # the port your site will be served on
+        listen      8000;
+        # the domain name it will serve for
+        server_name example.com; # substitute your machine's IP address or FQDN
+        charset     utf-8;
+
+        # max upload size
+        client_max_body_size 75M;   # adjust to taste
+
+        # Django media
+        location /media  {
+            alias /path/to/your/mysite/media;  # your Django project's media files - amend as required
+        }
+
+        location /static {
+            alias /path/to/your/mysite/static; # your Django project's static files - amend as required
+        }
+
+        # Finally, send all non-media requests to the Django server.
+        location / {
+            uwsgi_pass  django;
+            include     /path/to/your/mysite/uwsgi_params; # the uwsgi_params file you installed
+        }
+    }
+
+.. code-block:: ini
+
+    # mysite_uwsgi.ini file
+    [uwsgi]
+
+    # Django-related settings
+    # the base directory (full path)
+    chdir           = /path/to/your/project
+    # Django's wsgi file
+    module          = project.wsgi
+    # the virtualenv (full path)
+    home            = /path/to/virtualenv
+
+    # process-related settings
+    # master
+    master          = true
+    # maximum number of worker processes
+    processes       = 10
+    # the socket (use the full path to be safe
+    socket          = /path/to/your/project/mysite.sock
+    # ... with appropriate permissions - may be needed
+    # chmod-socket    = 664
+    # clear environment on exit
+    vacuum          = true
 
 Gunicorn
 --------
@@ -17,8 +78,75 @@ Gunicorn
 Vagrant + Puppet
 ----------------
 
-Docker
-------
+Docker + Gunicorn
+-----------------
+:entrypoint.sh:
+    .. code-block:: sh
+
+        #!/bin/bash
+
+        # Prepare log files and start outputting logs to stdout
+        touch ./logs/gunicorn.log
+        touch ./logs/gunicorn-access.log
+        tail -n 0 -f ./logs/gunicorn*.log &
+
+        export DJANGO_SETTINGS_MODULE=projectx.settings
+
+        exec gunicorn projectx.wsgi:application \
+            --name projectx_django \
+            --bind 0.0.0.0:8000 \
+            --workers 5 \
+            --log-level=info \
+            --log-file=./logs/gunicorn.log \
+            --access-logfile=./logs/gunicorn-access.log \
+        "$@"
+
+:Dockerfile:
+
+    # Set the base image to Ubuntu
+    FROM ubuntu:lts
+
+    # File Author / Maintainer
+    MAINTAINER Matt Harasymczuk
+
+    # Update the default application repository sources list
+    RUN apt-get update && apt-get install -y \
+        python-dev \
+        python \
+        python-pip \
+        python-setuptools \
+        build-essential \
+        python-dev \
+        git
+
+    # Set variables for project name, and where to place files in container.
+    ENV PROJECT=projectx
+    ENV CONTAINER_HOME=/opt
+    ENV CONTAINER_PROJECT=$CONTAINER_HOME/$PROJECT
+
+    # Create application subdirectories
+    WORKDIR $CONTAINER_HOME
+    RUN mkdir logs
+
+    # Copy application source code to $CONTAINER_PROJECT
+    COPY . $CONTAINER_PROJECT
+
+    # Install Python dependencies
+    RUN pip install -r $CONTAINER_PROJECT/requirements.txt
+    RUN pip install gunicorn
+
+    # Copy and set entrypoint
+    WORKDIR $CONTAINER_PROJECT
+    COPY ./entrypoint.sh /
+    ENTRYPOINT ["/entrypoint.sh"]
+
+.. code-block:: console
+
+    docker build -t django_gunicorn:v1 .
+
+.. code-block:: console
+
+    docker run --restart=always -p 8000:8000 -i -t django_gunicorn:v1
 
 Heroku
 ------

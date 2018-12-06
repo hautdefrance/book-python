@@ -328,6 +328,7 @@ Django
     /django/urls.rst
     /django/orm.rst
     /django/views.rst
+    /django/forms.rst
     /django/rest.rst
     /django/staticfiles.rst
     /django/templates.rst
@@ -338,8 +339,10 @@ Django
     /django/database.rst
     /django/cache.rst
     /django/signals.rst
+    /django/auth-and-permissions.rst
     /django/standalone-scripts.rst
     /django/tests-and-quality.rst
+    /django/tests.rst
     /django/ci-cd.rst
     /django/deployment.rst
 
