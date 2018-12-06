@@ -4,8 +4,6 @@ now = datetime.now()
 now.timestamp()
 
 
-
-
 # JavaScript has timestamp in miliseconds you have to divide by 1e3 = 1000
 timestamp = 1331856000000
 MILISECODS = 1e3

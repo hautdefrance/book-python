@@ -1,11 +1,26 @@
-***************
-Microbenchmarks
-***************
+**********
+Time Utils
+**********
+
+
+Sleep
+=====
+.. literalinclude:: src/time-sleep.py
+    :language: python
+    :caption: Time sleep function
+
+
+``calendar``
+============
+.. literalinclude:: src/calendar-html.py
+    :language: python
+    :caption: HTML Calendar
+
 
 .. _timeit:
 
-``timeit``
-==========
+``timeit`` - Microbenchmarks
+============================
 
 ``timeit`` from Python script
 -----------------------------

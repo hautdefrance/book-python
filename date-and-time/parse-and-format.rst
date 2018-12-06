@@ -1,8 +1,6 @@
-**************
-Dates and Time
-**************
-
-.. warning:: If you're thinking about implementing your own time calculator or system, watch Computerophile Time & Time Zones https://www.youtube.com/watch?v=-5wpm-gesOY
+**********************
+Parsing and Formatting
+**********************
 
 
 Date and time formats
@@ -68,63 +66,31 @@ ISO 8601 Standard
         1961-04-12T06:07:00.123456
 
 
-Creating ``date`` objects
-=========================
-
-Create ``date``
----------------
-.. literalinclude:: src/date-new.py
-    :language: python
-    :caption: Creating ``date`` objects
-
-Current ``date``
-----------------
-.. literalinclude:: src/date-today.py
-    :language: python
-    :caption: Creating ``date`` objects
-
-
-Creating ``datetime`` objects
-=============================
-
-Create ``datetime``
--------------------
-.. literalinclude:: src/datetime-new.py
-    :language: python
-    :caption: Creating ``datetime`` objects
-
-Current ``datetime``
---------------------
-.. literalinclude:: src/datetime-now.py
-    :language: python
-    :caption: Creating ``datetime`` objects
-
-
-Parsing and formatting dates and time
-=====================================
-
 Table of date and time parsing and formatting parameters
---------------------------------------------------------
+========================================================
 .. note:: Prawie wszystkie parametry są podobne różnych językach programowania. Od czasu do czasu występują małe zmiany, np. w JavaScript minuty to ``i`` a nie ``M``
 
 .. csv-table:: Tabelka parametrów formatowania i parsowania dat i czasu
     :header-rows: 1
     :file: data/datetime-formatting.csv
 
-``f-string formatting``
------------------------
+
+``f-string`` formatting
+=======================
 .. literalinclude:: src/datetime-format.py
     :language: python
     :caption: Datetime formatting as string with ``f'...'``
 
+
 Format to string
-----------------
+================
 .. literalinclude:: src/datetime-strftime.py
     :language: python
     :caption: Datetime formatting as string with ``.strftime()``
 
+
 Parsing dates
--------------
+=============
 * Parsing - analyze (a sentence) into its parts and describe their syntactic roles.
 
 .. literalinclude:: src/datetime-parse.py

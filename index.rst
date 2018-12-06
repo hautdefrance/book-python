@@ -83,12 +83,12 @@ Date and Time
     :numbered:
     :caption: Date and Time
 
-    /time/datetime.rst
-    /time/timedelta.rst
-    /time/timezones.rst
-    /time/timeit.rst
-    /time/time.rst
-    /time/calendar.rst
+    /date-and-time/datetime.rst
+    /date-and-time/parse-and-format.rst
+    /date-and-time/timedelta.rst
+    /date-and-time/timezones.rst
+    /date-and-time/timestamp.rst
+    /date-and-time/utils.rst
 
 ***************************
 Object Oriented Programming
