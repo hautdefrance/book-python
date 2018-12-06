@@ -7,5 +7,3 @@ MILISECONDS = 1e3
 
 datetime.fromtimestamp(timestamp / MILISECONDS)
 # datetime.datetime(1978, 6, 27, 17, 27)
-
-
