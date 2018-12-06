@@ -41,6 +41,14 @@ Main Characters
 Astronauts
 ----------
 
+Pan Twardowski
+^^^^^^^^^^^^^^
+.. figure:: img/pan-twardowski.jpg
+    :scale: 50%
+    :align: center
+
+    Pan Twardowski
+
 José Jiménez
 ^^^^^^^^^^^^
 .. figure:: img/jose-jimenez.jpg
