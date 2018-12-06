@@ -4,7 +4,6 @@ from datetime import datetime
 sputnik = datetime(1957, 10, 4)
 # datetime.datetime(1957, 10, 4, 0, 0)
 
-
 sputnik.year          # 1957
 sputnik.month         # 10
 sputnik.day           # 4
