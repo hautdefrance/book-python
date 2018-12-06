@@ -331,6 +331,7 @@ Django
     /django/rest.rst
     /django/staticfiles.rst
     /django/templates.rst
+    /django/templatetags.rst
     /django/admin.rst
     /django/management-commands.rst
     /django/internationalization.rst
