@@ -1,0 +1,17 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+
+    <head>
+        <title>{% trans "Addressbook" %} | {% block title %}{% endblock %}</title>
+        <meta charset="utf-8">
+
+        {% block css %}
+        {% endblock %}
+    </head>
+
+    <body>
+        {% block content %}{% endblock %}
+    </body>
+
+</html>

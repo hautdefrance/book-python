@@ -3,6 +3,16 @@ Timezones
 *********
 
 
+Time zones in ``datetime`` library
+==================================
+* Always keep dates and times only in UTC (**important!**)
+* Datetimes should be converted to localtime only when displaying to user
+
+.. literalinclude:: src/datetime-tzinfo.py
+    :language: python
+    :caption: Make timezone aware object from naive datetime
+
+
 ``pytz``
 ========
 

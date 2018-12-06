@@ -3,14 +3,16 @@ from django.contrib import admin
 from django.urls import path
 
 from mna.views import RedirectAPIv1, RedirectAPIv2
-from ksiazkaadresowa.views import ContactView
+from ksiazkaadresowa.views import ContactHTML, ContactCSV, ContactJSON
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('contact/<str:last_name>/', ContactView.as_view()),
-    path('contact/', ContactView.as_view()),
+    # path('contact/<str:last_name>/', ContactHTML.as_view()),
+    path('contact.csv', ContactCSV.as_view()),
+    path('contact.json', ContactJSON.as_view()),
+    path('contact.html', ContactHTML.as_view()),
 
     path('api/v1/redirect/', RedirectAPIv1.as_view()),
     path('api/v2/redirect/', RedirectAPIv2.as_view()),

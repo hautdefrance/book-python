@@ -84,8 +84,10 @@ Date and Time
     :caption: Date and Time
 
     /time/datetime.rst
+    /time/timedelta.rst
     /time/timezones.rst
     /time/timeit.rst
+    /time/time.rst
     /time/calendar.rst
 
 ***************************

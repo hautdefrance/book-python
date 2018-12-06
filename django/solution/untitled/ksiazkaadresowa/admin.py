@@ -1,5 +1,42 @@
+import csv
+from datetime import date
 from django.contrib import admin
+from django.http import HttpResponse
+from django.utils.translation import ugettext_lazy as _
 from .models import Person, Address
+
+
+class ExportCsvMixin:
+
+    def get_actions(self, request):
+        actions = super().get_actions(request)
+        actions['export_as_csv'] = (self.export_as_csv, 'export_as_csv', self.export_as_csv.short_description)
+        return actions
+
+    def export_as_csv(self, modeladmin, request, queryset):
+        model = self.model._meta
+        field_names = [field.name for field in model.fields]
+        filename = f'{date.today():%Y-%m-%d}_{model}.csv'
+
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = f'attachment; filename={filename}'
+
+        writer = csv.writer(
+            response,
+            delimiter=',',
+            quotechar='"',
+            quoting=csv.QUOTE_ALL,
+            lineterminator='\n')
+
+        writer.writerow(field_names)
+
+        for obj in queryset.order_by('id'):
+            writer.writerow([getattr(obj, field) for field in field_names])
+
+        return response
+
+    export_as_csv.short_description = _('Export selected as CSV')
+    export_as_csv.allowed_permissions = ['view']
 
 
 class AddressInline(admin.TabularInline):
@@ -10,7 +47,7 @@ class AddressInline(admin.TabularInline):
 
 
 @admin.register(Person)
-class PersonAdmin(admin.ModelAdmin):
+class PersonAdmin(admin.ModelAdmin, ExportCsvMixin):
     list_display = ['first_name', 'last_name', 'phone', 'date_of_birth']
     search_fields = ['^last_name']
     ordering = ['last_name']

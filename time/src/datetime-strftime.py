@@ -1,7 +1,7 @@
 from datetime import datetime
 
 
-gagarin = datetime(1961, 4, 12)
+gagarin = datetime(1961, 4, 12, 6, 7)
 formatted = gagarin.strftime('%Y-%m-%d %H:%M')
 
 
