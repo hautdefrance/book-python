@@ -5,7 +5,7 @@ Time Deltas
 
 Time shifts
 ===========
-.. literalinclude:: src/datetime-shift.py
+.. literalinclude:: src/timedelta-shift.py
     :language: python
     :caption: Shifting datetimes
 
@@ -15,7 +15,7 @@ Time shifts
 
 Simple ``timedelta`` shifts
 ---------------------------
-.. literalinclude:: src/datetime-timedelta-simple.py
+.. literalinclude:: src/timedelta-simple.py
     :language: python
     :caption: Simple ``timedelta`` shifts
 
@@ -27,14 +27,14 @@ Complex ``timedelta`` shifts
 
 ``timedelta`` month shifts
 --------------------------
-.. literalinclude:: src/datetime-timedelta-month.py
+.. literalinclude:: src/timedelta-month.py
     :language: python
     :caption: Substract month from ``datetime``
 
 
 Time diff
 =========
-.. literalinclude:: src/datetime-diff.py
+.. literalinclude:: src/timedelta-diff.py
     :language: python
     :caption: Diff between datetimes
 

@@ -5,14 +5,14 @@ Time Utils
 
 Sleep
 =====
-.. literalinclude:: src/time-sleep.py
+.. literalinclude:: src/utils-sleep.py
     :language: python
     :caption: Time sleep function
 
 
 ``calendar``
 ============
-.. literalinclude:: src/calendar-html.py
+.. literalinclude:: src/utils-calendar-html.py
     :language: python
     :caption: HTML Calendar
 
@@ -24,21 +24,21 @@ Sleep
 
 ``timeit`` from Python script
 -----------------------------
-.. literalinclude:: src/timeit_simple.py
+.. literalinclude:: src/utils-timeit-simple.py
     :language: python
     :caption: Timeit simple statement
 
-.. literalinclude:: src/timeit_multiple.py
+.. literalinclude:: src/utils-timeit-multiple.py
     :language: python
     :caption: Timeit multiple statements with setup code
 
-.. literalinclude:: src/timeit_globals.py
+.. literalinclude:: src/utils-timeit-globals.py
     :language: python
     :caption: Timeit with ``globals()``
 
 ``timeit`` from terminal
 ------------------------
-.. literalinclude:: src/timeit.sh
+.. literalinclude:: src/utils-timeit.sh
     :language: console
     :caption: Timeit
 
