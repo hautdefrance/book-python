@@ -57,9 +57,9 @@ ISO 8601 Standard
 
 * Date and time
 
-.. code-block:: text
+    .. code-block:: text
 
-    1961-04-12T06:07:00
+        1961-04-12T06:07:00
 
 * Date and time with microseconds
 
