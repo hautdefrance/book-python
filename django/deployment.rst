@@ -10,7 +10,7 @@ Apache + mod_wsgi
 
 Nginx + uwsgi
 -------------
-.. code-block:: lua
+.. code-block:: nginx
 
     # mysite_nginx.conf
 
@@ -103,42 +103,44 @@ Docker + Gunicorn
 
 :Dockerfile:
 
-    # Set the base image to Ubuntu
-    FROM ubuntu:lts
+    .. code-block:: dockerfile
 
-    # File Author / Maintainer
-    MAINTAINER Matt Harasymczuk
+        # Set the base image to Ubuntu
+        FROM ubuntu:lts
 
-    # Update the default application repository sources list
-    RUN apt-get update && apt-get install -y \
-        python-dev \
-        python \
-        python-pip \
-        python-setuptools \
-        build-essential \
-        python-dev \
-        git
+        # File Author / Maintainer
+        MAINTAINER Matt Harasymczuk
 
-    # Set variables for project name, and where to place files in container.
-    ENV PROJECT=projectx
-    ENV CONTAINER_HOME=/opt
-    ENV CONTAINER_PROJECT=$CONTAINER_HOME/$PROJECT
+        # Update the default application repository sources list
+        RUN apt-get update && apt-get install -y \
+            python-dev \
+            python \
+            python-pip \
+            python-setuptools \
+            build-essential \
+            python-dev \
+            git
 
-    # Create application subdirectories
-    WORKDIR $CONTAINER_HOME
-    RUN mkdir logs
+        # Set variables for project name, and where to place files in container.
+        ENV PROJECT=projectx
+        ENV CONTAINER_HOME=/opt
+        ENV CONTAINER_PROJECT=$CONTAINER_HOME/$PROJECT
 
-    # Copy application source code to $CONTAINER_PROJECT
-    COPY . $CONTAINER_PROJECT
+        # Create application subdirectories
+        WORKDIR $CONTAINER_HOME
+        RUN mkdir logs
 
-    # Install Python dependencies
-    RUN pip install -r $CONTAINER_PROJECT/requirements.txt
-    RUN pip install gunicorn
+        # Copy application source code to $CONTAINER_PROJECT
+        COPY . $CONTAINER_PROJECT
 
-    # Copy and set entrypoint
-    WORKDIR $CONTAINER_PROJECT
-    COPY ./entrypoint.sh /
-    ENTRYPOINT ["/entrypoint.sh"]
+        # Install Python dependencies
+        RUN pip install -r $CONTAINER_PROJECT/requirements.txt
+        RUN pip install gunicorn
+
+        # Copy and set entrypoint
+        WORKDIR $CONTAINER_PROJECT
+        COPY ./entrypoint.sh /
+        ENTRYPOINT ["/entrypoint.sh"]
 
 .. code-block:: console
 
