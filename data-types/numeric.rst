@@ -133,36 +133,6 @@ Infinity representation
     float('Infinity')      # inf
 
 
-``complex``
-===========
-* Complex number with real and imaginary parts
-* Engineering notation ``j`` not mathematical ``i``
-* No space inside the expression
-
-Defining ``complex``
---------------------
-.. code-block:: python
-
-    complex()               # 0j
-
-.. code-block:: python
-
-    complex(1)              # (1+0j)
-    complex(1, 2)           # (1+2j)
-    complex(1.12, 2.34)     # (1.12+2.34j)
-    complex(1, 2.34)        # (1+2.34j)
-
-.. code-block:: python
-
-    complex(1+2j)           # (1+2j)
-    complex(1+2j, 3+4j)     # (-3+5j)
-
-.. code-block:: python
-
-    complex('1+2j')         # (1+2j)
-    complex('1 + 2j')       # ValueError: complex() arg is a malformed string
-
-
 Numeric Operators
 =================
 
