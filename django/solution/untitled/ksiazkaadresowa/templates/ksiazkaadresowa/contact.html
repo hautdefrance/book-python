@@ -1,0 +1,30 @@
+{% load i18n %}
+
+<style>
+    th.last_name {color: blue}
+    td.last_name {color: green}
+</style>
+
+
+<h1>{% trans "Hello" %}</h1>
+
+
+<table>
+    <thead>
+        <tr>
+            <th class="first_name">{% trans "First Name" %}</th>
+            <th class="last_name">{% trans "Last Name" %}</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for contact in contacts %}
+
+        <tr>
+            <td class="first_name">{{ contact.first_name }}</td>
+            <td class="last_name">{{ contact.last_name }}</td>
+        </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
