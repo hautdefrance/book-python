@@ -17,9 +17,9 @@ class ContactCSV(TemplateView):
     template_name = 'ksiazkaadresowa/contact.csv'
 
     def get_context_data(self, **kwargs):
-        return {
-            'contacts': Person.objects.all()
-        }
+        contacts = Person.objects.all()
+        contacts = contacts.filter(last_name__startswith='T')
+        return locals()
 
 
 class ContactJSON(View):
