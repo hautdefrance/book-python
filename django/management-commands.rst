@@ -51,6 +51,9 @@ Built-in
 
 Writing own management commands
 ===============================
+
+Structure
+---------
 .. code-block:: text
 
     app
@@ -60,17 +63,21 @@ Writing own management commands
             __init__.py
             my_command.py
 
+Minimal command boilerplate code
+--------------------------------
 .. code-block:: python
 
     from django.core.management.base import BaseCommand
 
 
     class Command(BaseCommand):
-        help = 'Moj tekst pomocy'
+        help = 'What my command does?'
 
         def handle(self, *args, **options):
             pass
 
+Cleaning data in database
+-------------------------
 .. code-block:: python
 
     from django.core.management.base import BaseCommand
@@ -78,7 +85,7 @@ Writing own management commands
 
 
     class Command(BaseCommand):
-        help = 'Moj tekst pomocy'
+        help = 'Clean data in database'
 
         def handle(self, *args, **options):
             for p in Person.objects.all():
@@ -86,6 +93,8 @@ Writing own management commands
                 p.last_name = p.last_name.title()
                 p.save()
 
+Parse file line by line
+-----------------------
 .. code-block:: python
 
     from django.core.management.base import BaseCommand
@@ -126,9 +135,8 @@ Writing own management commands
 
             print('\n'.join(content))
 
-
-
+Case Study
+----------
 .. literalinclude:: src/django-management-commands.py
     :language: python
-    :name: listing-django-management-commands
     :caption: Writing own management commands
