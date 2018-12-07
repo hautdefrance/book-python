@@ -130,6 +130,33 @@ Comparing objects
     some_obj == other_obj
     some_obj.name == other_obj.name
 
+``Q()`` expressions
+===================
+.. code-block:: python
+
+    from django.db.models import Q
+
+
+    Q(question__startswith='What')
+
+    Q(question__startswith='Who') | Q(question__startswith='What')
+    Q(question__startswith='Who') | ~Q(pub_date__year=2005)     # negated query
+
+.. code-block:: python
+
+    Poll.objects.get(
+        Q(question__startswith='Who'),
+        Q(pub_date=date(2005, 5, 2)) | Q(pub_date=date(2005, 5, 6))
+    )
+
+``F()`` expressions
+===================
+An F() object represents the value of a model field or annotated column. It makes it possible to refer to model field values and perform database operations using them without actually having to pull them out of the database into Python memory.
+
+.. code-block:: python
+
+    Iris.objects.all().update(petal_length=F('petal_length') + 1)
+
 Aggregations
 ============
 .. literalinclude:: src/django-orm-cheatsheet.py

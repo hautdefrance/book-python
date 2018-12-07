@@ -20,6 +20,10 @@
 
 {% block content %}
     <h1>{% trans "Hello" %}</h1>
+    <h2><a href="{% url "contact-csv" %}">{% trans "Show in CSV" %}</a></h2>
+    <h2><a href="{% url "contact-json" %}">{% trans "Show in JSON" %}</a></h2>
+
+
     <img src="{% static "ksiazkaadresowa/img/logo.jpg" %}">
 
 
