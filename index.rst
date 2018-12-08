@@ -246,16 +246,23 @@ Scientific and Engineering
     :numbered:
     :caption: Scientific and Engineering
 
-    /numerical-analysis/code-quality.rst
     /numerical-analysis/libraries.rst
+    /numerical-analysis/scipy.rst
+
+******************
+Numerical Analysis
+******************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Numerical Analysis
+
     /numerical-analysis/jupyter.rst
     /numerical-analysis/numpy.ipynb
     /numerical-analysis/numpy-new.rst
-    /numerical-analysis/scipy.rst
-    /numerical-analysis/pandas.rst
-    /numerical-analysis/charts.rst
-    /numerical-analysis/numerical-analysis.rst
-    /numerical-analysis/machine-learning.rst
+    /numerical-analysis/pandas-intro.rst
+    /numerical-analysis/pandas-series.rst
+    /numerical-analysis/pandas-dataframe.rst
 
 ******************
 Data Vizualization

@@ -2,6 +2,7 @@
 Biblioteki w zastosowaniach naukowych i inżynieryjnych
 ******************************************************
 
+
 Środowisko
 ==========
 * Python 3.6+

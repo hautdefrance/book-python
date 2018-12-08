@@ -297,7 +297,7 @@ First ``n`` records
 -------------------
 .. code-block:: python
 
-    head = df.head(5)
+    df.head(5)
     #   Sepal length  Sepal width  Petal length  Petal width  Species
     # 0           5.1          3.5           1.4          0.2        0
     # 1           4.9          3.0           1.4          0.2        0

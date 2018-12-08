@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 
-FILENAME = 'https://raw.githubusercontent.com/scikit-learn/scikit-learn/master/sklearn/datasets/data/iris.csv'
+FILENAME = 'https://raw.githubusercontent.com/AstroMatt/book-python/master/numerical-analysis/data/iris-dirty.csv'
 
 iris = pd.read_csv(FILENAME, encoding='utf-8')
 iris.columns = [
