@@ -35,6 +35,25 @@ Podstawowymi strukturami danych w Pandas jest Series (seria) i DataFrame (obiekt
     import numpy as np
 
 
+TL;DR
+=====
+.. csv-table:: Pandas most commonly used functions
+    :header-rows: 1
+
+    "``DataFrame.at()``", "Access a single value for a row/column label pair"
+    "``DataFrame.iat()``", "Access a single value for a row/column pair by integer position"
+    "``DataFrame.loc()``", "Access a group of rows and columns by label(s)"
+    "``DataFrame.iloc()``", "Access a group of rows and columns by integer position(s)"
+    "", ""
+    "", ""
+    "", ""
+    "", ""
+    "", ""
+    "", ""
+
+
+
+
 Import and Export
 =================
 
@@ -312,15 +331,12 @@ Creating ``DataFrame``
 
 Slicing by index
 ----------------
-
-
 .. code-block:: python
 
     df[1:3]
     #                    A         B         C         D
     # 2017-01-02  0.084471 -0.932586  0.160637 -0.275183
     # 2017-01-03 -1.308835 -0.285436 -0.757591 -0.042493
-
 
 Slicing by columns
 ------------------
@@ -395,37 +411,157 @@ Locating values
 * Zalecane jest używanie zoptymalizowanych funkcji Pandas
 * ``iloc`` integer locate (bez where i innych bajerów)
 
-.. code-block:: python
-
-    df.loc[:,'A']
-    # 2017-01-01    0.131926
-    # 2017-01-02    0.084471
-    # 2017-01-03   -1.308835
-    # 2017-01-04   -0.974425
-    # 2017-01-05    0.589973
-    # 2017-01-06    1.361922
-    # Freq: D, Name: A, dtype: float64
+.. warning:: Start and the stop are included (different than slices)!
 
 .. code-block:: python
 
-    df.loc[daty[0],'A']
-    # 0.13192554022073613
+    values = [[1, 2], [4, 5], [7, 8]]
+    indexes = ['cobra', 'viper', 'sidewinder']
+    columns = ['max_speed', 'shield']
 
-.. code-block:: python
+    df = pd.DataFrame(values, index=indexes, columns=columns)
+    #             max_speed  shield
+    # cobra               1       2
+    # viper               4       5
+    # sidewinder          7       8
 
-    df.iloc[:,0]  # integer locate (bez where i innych bajerów)
-    # 2017-01-01    0.131926
-    # 2017-01-02    0.084471
-    # 2017-01-03   -1.308835
-    # 2017-01-04   -0.974425
-    # 2017-01-05    0.589973
-    # 2017-01-06    1.361922
-    # Freq: D, Name: A, dtype: float64
+Single label:
 
-.. code-block:: python
+    .. code-block:: python
 
-    df.iloc[0,0]
-    # 0.13192554022073613
+        # Note this returns the row as a Series
+
+        df.loc['viper']
+        # max_speed    4
+        # shield       5
+        # Name: viper, dtype: int64
+
+List of labels:
+
+    .. code-block:: python
+
+        # Note using ``[[]]`` returns a DataFrame
+
+        df.loc[['viper', 'sidewinder']]
+        #             max_speed  shield
+        # viper               4       5
+        # sidewinder          7       8
+
+Single label for row and column:
+
+    .. code-block:: python
+
+        df.loc['cobra', 'shield']
+        # 2
+
+Slice with labels for row and single label for column:
+
+    .. code-block:: python
+
+        # Note that both the start and stop of the slice are included
+
+        df.loc['cobra':'viper', 'max_speed']
+        # cobra    1
+        # viper    4
+        # Name: max_speed, dtype: int64
+
+Boolean list with the same length as the row axis:
+
+    .. code-block:: python
+
+        df.loc[[False, False, True]]
+        #             max_speed  shield
+        # sidewinder          7       8
+
+Conditional that returns a boolean Series:
+
+    .. code-block:: python
+
+        df.loc[df['shield'] > 6]
+        #             max_speed  shield
+        # sidewinder          7       8
+
+Conditional that returns a boolean Series with column labels specified:
+
+    .. code-block:: python
+
+        df.loc[df['shield'] > 6, ['max_speed']]
+        #             max_speed
+        # sidewinder          7
+
+Callable that returns a boolean Series:
+
+    .. code-block:: python
+
+        df.loc[lambda df: df['shield'] == 8]
+        #             max_speed  shield
+        # sidewinder          7       8
+
+Set value for all items matching the list of labels:
+
+    .. code-block:: python
+
+        df.loc[['viper', 'sidewinder'], ['shield']] = 50
+        #             max_speed  shield
+        # cobra               1       2
+        # viper               4      50
+        # sidewinder          7      50
+
+Set value for an entire row:
+
+    .. code-block:: python
+
+        df.loc['cobra'] = 10
+        #             max_speed  shield
+        # cobra              10      10
+        # viper               4      50
+        # sidewinder          7      50
+
+Set value for an entire column:
+
+    .. code-block:: python
+
+        df.loc[:, 'max_speed'] = 30
+        #             max_speed  shield
+        # cobra              30      10
+        # viper              30      50
+        # sidewinder         30      50
+
+Set value for rows matching callable condition:
+
+    .. code-block:: python
+
+        df.loc[df['shield'] > 35] = 0
+        #             max_speed  shield
+        # cobra              30      10
+        # viper               0       0
+        # sidewinder          0       0
+
+Getting values on a DataFrame with an index that has integer labels:
+
+    .. code-block:: python
+
+        values = [[1, 2], [4, 5], [7, 8]]
+        indexes = [7, 8, 9]
+        columns = ['max_speed', 'shield']
+
+        df = pd.DataFrame(values, index=indexes, columns=)
+        #    max_speed  shield
+        # 7          1       2
+        # 8          4       5
+        # 9          7       8
+
+Slice with integer labels for rows:
+
+    .. code-block:: python
+
+        # Note that both the start and stop of the slice are included
+
+        df.loc[7:9]
+        #    max_speed  shield
+        # 7          1       2
+        # 8          4       5
+        # 9          7       8
 
 Accessing values
 ----------------
@@ -435,13 +571,35 @@ Accessing values
 
 .. code-block:: python
 
-    df.at[daty[0], 'A']
-    # 0.13192554022073613
+    df = pd.DataFrame([[0, 2, 3],
+                       [0, 4, 1],
+                       [10, 20, 30]], columns=['A', 'B', 'C'])
+    #     A   B   C
+    # 0   0   2   3
+    # 1   0   4   1
+    # 2  10  20  30
 
-.. code-block:: python
+Get value at specified row/column pair:
 
-    df.iat[0,0]
-    # 0.13192554022073613
+    .. code-block:: python
+
+        df.iat[1, 2]
+        # 1
+
+Set value at specified row/column pair:
+
+    .. code-block:: python
+
+        df.iat[1, 2] = 10
+        df.iat[1, 2]
+        # 10
+
+Get value within a series:
+
+    .. code-block:: python
+
+        df.loc[0].iat[1]
+        # 2
 
 Show ``DataFrame`` index
 ------------------------
