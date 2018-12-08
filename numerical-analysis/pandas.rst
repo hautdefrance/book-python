@@ -34,15 +34,75 @@ Podstawowymi strukturami danych w Pandas jest Series (seria) i DataFrame (obiekt
     import pandas as pd
     import numpy as np
 
+
+Import and Export
+=================
+
+Import data to ``DataFrame``
+----------------------------
+.. code-block:: python
+
+    pd.read_csv()
+    pd.read_excel()
+    pd.read_html()
+    pd.read_json()
+    pd.read_sas()
+    pd.read_sql()        # Read SQL query or database table into a DataFrame
+    pd.read_sql_query()  # Read SQL query into a DataFrame
+    pd.read_sql_table()  # Read SQL database table into a DataFrame
+
+
+Export ``DataFrame``
+--------------------
+.. code-block:: python
+
+    DataFrame.to_csv()
+    DataFrame.to_excel()
+    DataFrame.to_html()
+    DataFrame.to_json()
+    DataFrame.to_latex()
+    DataFrame.to_dict()
+    DataFrame.to_sql()  # Uses SQLAlchemy
+
+
+Display Output
+==============
+* Set options for whole script:
+
+    .. code-block:: python
+
+        pd.set_option('display.height',1000)
+        pd.set_option('display.max_rows',500)
+        pd.set_option('display.max_columns',500)
+        pd.set_option('display.width',1000)
+
+* Unlimited for whole script:
+
+    .. code-block:: python
+
+        pd.set_option('display.max_columns', None)
+        pd.set_option('display.max_rows', None)
+
+* Use config only with context:
+
+    .. code-block:: python
+
+        with pd.option_context('display.max_rows', None, 'display.max_columns', 3):
+            print(df)
+
+
 Series
 ======
-Series jest to jednowymiarowa struktura danych podobna do ``ndarray``. Serię tworzymy za pomocą polecenia ``Series``; jako dane możemy przekazać wiele kolekcji:
+
+Creating ``Series``
+-------------------
+* 1-dimentional data structure similar to ``ndarray``
 
 .. code-block:: python
 
-    my_list = [1,3,5,np.nan,6,8]
+    values = [1, 3, 5, np.nan, 6, 8]
 
-    pd.Series(my_list)
+    pd.Series(values)
     # 0    1.0
     # 1    3.0
     # 2    5.0
@@ -51,15 +111,20 @@ Series jest to jednowymiarowa struktura danych podobna do ``ndarray``. Serię tw
     # 5    8.0
     # dtype: float64
 
-Series posiada indeks, który będzie stworzony automatycznie jeżeli nie został przekazany lub można go stworzyć:
-
+Indexes in ``Series``
+---------------------
 .. code-block:: python
 
-    daty = pd.date_range('20170101', periods=6)
-    # DatetimeIndex(['2017-01-01', '2017-01-02', '2017-01-03', '2017-01-04', '2017-01-05', '2017-01-06'],
-    #               dtype='datetime64[ns]', freq='D')
+    values = [1, 3, 5, np.nan, 6, 8]
+    indexes = pd.date_range('20170101', periods=6)
+    # DatetimeIndex(['2017-01-01',
+    #                '2017-01-02',
+    #                '2017-01-03',
+    #                '2017-01-04',
+    #                '2017-01-05',
+    #                '2017-01-06'], dtype='datetime64[ns]', freq='D')
 
-    s = pd.Series(l, index=daty)
+    s = pd.Series(values, index=indexes)
     # 2017-01-01    1.0
     # 2017-01-02    3.0
     # 2017-01-03    5.0
@@ -68,11 +133,12 @@ Series posiada indeks, który będzie stworzony automatycznie jeżeli nie zosta�
     # 2017-01-06    8.0
     # Freq: D, dtype: float64
 
-Niemniej, może to być każda seria która jest przynajmniej tak długa jak dane:
-
 .. code-block:: python
 
-    s = pd.Series(np.random.randn(5), index=list('abcde'))
+    values = np.random.randn(5)
+    indexes = ['a', 'b', 'c', 'd', 'e']
+
+    s = pd.Series(values, index=indexes)
     # a    1.016521
     # b   -0.441865
     # c    0.519119
@@ -80,18 +146,22 @@ Niemniej, może to być każda seria która jest przynajmniej tak długa jak dan
     # e    0.207670
     # dtype: float64
 
-Pobierać dane z Series możemy jak w Numpy:
-
+Slicing
+-------
 .. code-block:: python
 
     s[1]
     # -0.4418648443118965
+
+.. code-block:: python
 
     s[2:]
     # c    0.519119
     # d    0.948774
     # e    0.207670
     # dtype: float64
+
+.. code-block:: python
 
     s[1:-2]
     # b   -0.441865
@@ -105,19 +175,23 @@ Możemy też robić to jak w słowniku (lub lepiej), jeżeli indeks na to pozwal
     s["b"]
     # -0.4418648443118965
 
+.. code-block:: python
+
     s["c":]
     # c    0.519119
     # d    0.948774
     # e    0.207670
     # dtype: float64
 
+.. code-block:: python
+
     s["b":"c"]
     # b   -0.441865
     # c    0.519119
     # dtype: float64
 
-Można też wykonywać operacje na serii:
-
+Arithmetic operations
+---------------------
 .. code-block:: python
 
     s * 5
@@ -128,6 +202,8 @@ Można też wykonywać operacje na serii:
     # e    1.038348
     # dtype: float64
 
+.. code-block:: python
+
     s ** 3
     # a    1.050387
     # b   -0.086272
@@ -136,6 +212,8 @@ Można też wykonywać operacje na serii:
     # e    0.008956
     # dtype: float64
 
+.. code-block:: python
+
     s * s
     # a    1.033315
     # b    0.195245
@@ -143,6 +221,8 @@ Można też wykonywać operacje na serii:
     # d    0.900172
     # e    0.043127
     # dtype: float64
+
+.. code-block:: python
 
     s + s
     # a    2.033042
@@ -155,14 +235,27 @@ Można też wykonywać operacje na serii:
 
 DataFrame
 =========
-DataFrame to zbiór serii.
+* DataFrame jest obiektem dwuwymiarowym, który w obsłudze przypomina tabelę.
+* Każda kolumna ma nazwę i jest serią danych (Series).
+* Wszystkie kolumny mają wspólny indeks.
+* Operacje można wykonywać na całych kolumnach lub wierszach.
 
-DataFrame jest obiektem dwuwymiarowym, który w obsłudze przypomina tabelę. Każda kolumna ma nazwę i jest serią danych (Series). Wszystkie kolumny mają wspólny indeks. Operacje można wykonywać na całych kolumnach lub wierszach. DataFrame tworzymy operacją ``DataFrame``:
 
-
+Creating ``DataFrame``
+----------------------
 .. code-block:: python
 
-    df = pd.DataFrame(np.random.randn(6,4), index=daty, columns=list('ABCD'))
+    values = np.random.randn(6, 4)
+    columns = ['A', 'B', 'C', 'D']
+    indexes = pd.date_range('20170101', periods=6)
+    # DatetimeIndex(['2017-01-01',
+    #                '2017-01-02',
+    #                '2017-01-03',
+    #                '2017-01-04',
+    #                '2017-01-05',
+    #                '2017-01-06'], dtype='datetime64[ns]', freq='D')
+
+    df = pd.DataFrame(values, index=indexes, columns=columns)
 
 .. csv-table::
     :header-rows: 1
@@ -188,8 +281,8 @@ DataFrame jest obiektem dwuwymiarowym, który w obsłudze przypomina tabelę. Ka
 
     df2 = pd.DataFrame({ 'A' : 1.,
                          'B' : pd.Timestamp('20130102'),
-                         'C' : pd.Series(1,index=list(range(4)),dtype='float32'),
-                         'D' : np.array([3] * 4,dtype='int32'),
+                         'C' : pd.Series(1, index=list(range(4)), dtype='float32'),
+                         'D' : np.array([3] * 4, dtype='int32'),
                          'E' : pd.Categorical(["test", "train", "test", "train"]),
                          'F' : 'foo' })
 
@@ -204,24 +297,6 @@ DataFrame jest obiektem dwuwymiarowym, który w obsłudze przypomina tabelę. Ka
 
 .. code-block:: python
 
-    df2.E
-    # 0     test
-    # 1    train
-    # 2     test
-    # 3    train
-    # Name: E, dtype: category
-    # Categories (2, object): [test, train]
-
-    df2['E']
-    # 0     test
-    # 1    train
-    # 2     test
-    # 3    train
-    # Name: E, dtype: category
-    # Categories (2, object): [test, train]
-
-.. code-block:: python
-
     df3 = pd.DataFrame([{'A': 1, 'B': 2}, {'C': 3}])
 
 .. csv-table::
@@ -231,31 +306,53 @@ DataFrame jest obiektem dwuwymiarowym, który w obsłudze przypomina tabelę. Ka
     "0", "1.0", "2.0", "NaN"
     "1", "NaN", "NaN", "3.0"
 
-Istnieje też wiele innych metod tworzenia i czytania DataFrame, które zostały opicane w dokumentacji.
+Slicing by index
+----------------
 
-Pobierać dane można jak w serii i innych kolekcjach Pythonowych:
 
 .. code-block:: python
-
-    df['A'] =
-    # 2017-01-01    0.131926
-    # 2017-01-02    0.084471
-    # 2017-01-03   -1.308835
-    # 2017-01-04   -0.974425
-    # 2017-01-05    0.589973
-    # 2017-01-06    1.361922
-    # Freq: D, Name: A, dtype: float64
 
     df[1:3]
     #                    A         B         C         D
     # 2017-01-02  0.084471 -0.932586  0.160637 -0.275183
     # 2017-01-03 -1.308835 -0.285436 -0.757591 -0.042493
 
-Niemniej zalecane jest używanie zoptymalizowanych funkcji Pandas:
+
+Slicing by columns
+------------------
+.. code-block:: python
+
+    df2 = pd.DataFrame({ 'A' : 1.,
+                         'B' : pd.Timestamp('20130102'),
+                         'C' : pd.Series(1, index=list(range(4)), dtype='float32'),
+                         'D' : np.array([3] * 4, dtype='int32'),
+                         'E' : pd.Categorical(["test", "train", "test", "train"]),
+                         'F' : 'foo' })
 
 .. code-block:: python
 
-    df.loc[:,'A']
+    df2.E
+    # 0     test
+    # 1    train
+    # 2     test
+    # 3    train
+    # Name: E, dtype: category
+    # Categories (2, object): [test, train]
+
+.. code-block:: python
+
+    df2['E']
+    # 0     test
+    # 1    train
+    # 2     test
+    # 3    train
+    # Name: E, dtype: category
+    # Categories (2, object): [test, train]
+
+
+.. code-block:: python
+
+    df['A']
     # 2017-01-01    0.131926
     # 2017-01-02    0.084471
     # 2017-01-03   -1.308835
@@ -264,29 +361,6 @@ Niemniej zalecane jest używanie zoptymalizowanych funkcji Pandas:
     # 2017-01-06    1.361922
     # Freq: D, Name: A, dtype: float64
 
-    df.loc[daty[0],'A']
-    # 0.13192554022073613
-
-    df.at[daty[0],'A']
-    # 0.13192554022073613
-
-    df.iloc[:,0]  # integer locate (bez where i innych bajerów)
-    # 2017-01-01    0.131926
-    # 2017-01-02    0.084471
-    # 2017-01-03   -1.308835
-    # 2017-01-04   -0.974425
-    # 2017-01-05    0.589973
-    # 2017-01-06    1.361922
-    # Freq: D, Name: A, dtype: float64
-
-    df.iloc[0,0]
-    # 0.13192554022073613
-
-    df.iat[0,0]
-    # 0.13192554022073613
-
-    df.ix[0,0] # Deprecated in favor of df.iloc and df.loc
-    # 0.13192554022073613
 
 .. code-block:: python
 
@@ -299,8 +373,8 @@ Niemniej zalecane jest używanie zoptymalizowanych funkcji Pandas:
     "0", "1.0", "2.0"
     "1", "NaN", "NaN"
 
-Można też używać wyrażeń boolowskich do filtrowania wyników:
-
+Filtering results
+-----------------
 .. code-block:: python
 
     df[df.B > 0.5]
@@ -312,26 +386,86 @@ Można też używać wyrażeń boolowskich do filtrowania wyników:
     "2017-01-04", "-0.974425", "1.327082", "-0.435516", "1.328745"
     "2017-01-05", "0.589973", "0.748417", "-1.680741", "0.510512"
 
-Jest też dostęp do poszczególnych elementów takich jak:
+Locating values
+---------------
+* Zalecane jest używanie zoptymalizowanych funkcji Pandas
+* ``iloc`` integer locate (bez where i innych bajerów)
 
 .. code-block:: python
 
-    print('Indeks:\n{}'.format())
-    print('Kolumny:\n{}'.format())
-    print('Początek:\n{}'.format())
-    print('Koniec:\n{}'.format())
+    df.loc[:,'A']
+    # 2017-01-01    0.131926
+    # 2017-01-02    0.084471
+    # 2017-01-03   -1.308835
+    # 2017-01-04   -0.974425
+    # 2017-01-05    0.589973
+    # 2017-01-06    1.361922
+    # Freq: D, Name: A, dtype: float64
+
+.. code-block:: python
+
+    df.loc[daty[0],'A']
+    # 0.13192554022073613
+
+.. code-block:: python
+
+    df.iloc[:,0]  # integer locate (bez where i innych bajerów)
+    # 2017-01-01    0.131926
+    # 2017-01-02    0.084471
+    # 2017-01-03   -1.308835
+    # 2017-01-04   -0.974425
+    # 2017-01-05    0.589973
+    # 2017-01-06    1.361922
+    # Freq: D, Name: A, dtype: float64
+
+.. code-block:: python
+
+    df.iloc[0,0]
+    # 0.13192554022073613
+
+Accessing values
+----------------
+* Access a single value for a row/column pair by integer position
+* Use iat if you only need to get or set a single value in a DataFrame or Series
+* ``iat`` integer at (bez where i innych bajerów)
+
+.. code-block:: python
+
+    df.at[daty[0], 'A']
+    # 0.13192554022073613
+
+.. code-block:: python
+
+    df.iat[0,0]
+    # 0.13192554022073613
+
+Show ``DataFrame`` index
+------------------------
+.. code-block:: python
 
     df.index
     # DatetimeIndex(['2017-01-01', '2017-01-02', '2017-01-03', '2017-01-04', '2017-01-05', '2017-01-06'],
     #               dtype='datetime64[ns]', freq='D')
 
+Show ``DataFrame`` columns
+--------------------------
+.. code-block:: python
+
     df.columns
     # Index(['A', 'B', 'C', 'D'], dtype='object')
+
+First ``n`` records in ``DataFrame``
+-----------------------------------
+.. code-block:: python
 
     df.head(2)
     #                    A         B         C         D
     # 2017-01-01  0.131926 -1.825204 -1.909562  1.274718
     # 2017-01-02  0.084471 -0.932586  0.160637 -0.275183
+
+Last ``n`` records in ``DataFrame``
+-----------------------------------
+.. code-block:: python
 
     df.tail(3)
     #                    A         B         C         D
@@ -339,8 +473,8 @@ Jest też dostęp do poszczególnych elementów takich jak:
     # 2017-01-05  0.589973  0.748417 -1.680741  0.510512
     # 2017-01-06  1.361922 -0.827940  0.400024  0.047176
 
-Dane można też sortować po indeksie:
-
+Sort by index
+-------------
 .. code-block:: python
 
     df.sort_index(ascending=False) # default axis=0
@@ -357,8 +491,8 @@ Dane można też sortować po indeksie:
     "2017-01-02", "0.084471", "-0.932586", "0.160637", "-0.275183"
     "2017-01-01", "0.131926", "-1.825204", "-1.909562", "1.274718"
 
-Po kolumnach:
-
+Sort by columns
+---------------
 .. code-block:: python
 
     df.sort_index(axis=1, ascending=False)
@@ -374,8 +508,8 @@ Po kolumnach:
     "2017-01-05", "0.510512", "-1.680741", "0.748417", "0.589973"
     "2017-01-06", "0.047176", "0.400024", "-0.827940", "1.361922"
 
-Lub po wartościach:
-
+Sort by values
+--------------
 .. code-block:: python
 
     df.sort_values('B')
@@ -396,11 +530,12 @@ Lub po wartościach:
 2017-01-04  -0.974425   1.327082    -0.435516   1.328745
 =========== =========== =========== =========== =========
 
-Można też tabelę transponować:
-
+Transpose ``DataFrame``
+-----------------------
 .. code-block:: python
 
     df.T
+    df.transpose()
 
 === ========== =========== ========== ========== ========== ==========
     2017-01-01  2017-01-02 2017-01-03 2017-01-04 2017-01-05 2017-01-06
@@ -411,8 +546,8 @@ C   -1.909562   0.160637   -0.757591  -0.435516  -1.680741  0.400024
 D   1.274718    -0.275183  -0.042493  1.328745   0.510512   0.047176
 === ========== =========== ========== ========== ========== ==========
 
-Nową kolumnę dodajemy przez przypisanie:
-
+Adding columns
+--------------
 .. code-block:: python
 
     df3['Z'] = ['aa', 'bb']
@@ -426,8 +561,8 @@ Nową kolumnę dodajemy przez przypisanie:
 
 Zmiana pojedynczej wartości może być również zrobiona przez przypisanie; używamy wtedy komend lokalizacyjnych, np:
 
-Removing DataFrame None values
-------------------------------
+Removing ``NaN`` values
+-----------------------
 .. code-block:: python
 
     df3 = pd.DataFrame([{'A': 1, 'B': 2}, {'B': 2, 'C': 3}])
@@ -469,6 +604,8 @@ Removing DataFrame None values
 1   2.0
 === ===
 
+Substituting ``NaN`` values
+---------------------------
 .. code-block:: python
 
     df3.fillna(0.0)
@@ -514,7 +651,6 @@ Removing DataFrame None values
 1   NaN 2.0 3.0
 === === === ===
 
-
 Descriptive Statistics
 ----------------------
 .. code-block:: python
@@ -537,11 +673,15 @@ max     1.361922    1.327082    0.400024    1.328745
 
 Dodatkowo, można używać funkcji znanych z baz danych jak grupowanie czy złączenie (join):
 
+Grouping
+--------
 .. code-block:: python
 
     df2.groupby('E').size()
     df2.groupby('E').mean()
 
+Joins
+-----
 .. code-block:: python
 
     df2.join(df3, how='left', rsuffix='_3')  # gdyby była kolizja nazw kolumn, to dodaj suffix '_3'
@@ -556,7 +696,7 @@ Dodatkowo, można używać funkcji znanych z baz danych jak grupowanie czy złą
 
 .. code-block:: python
 
-    df2.append(df3)  # jak robi appenda, to nie zmienia indeksów (uwaga na indeksy powtórzone)
+    df2.append(df3)                     # jak robi appenda, to nie zmienia indeksów (uwaga na indeksy powtórzone)
     df2.append(df3, ignore_index=True)  # nowy dataframe będzie miał kolejne indeksy
 
 .. code-block:: python
@@ -566,7 +706,6 @@ Dodatkowo, można używać funkcji znanych z baz danych jak grupowanie czy złą
     pd.concat([df2, df3], ignore_index=True)
     pd.concat([df2, df3], join='inner')
 
-
 Percentiles
 -----------
 .. code-block:: python
@@ -574,57 +713,6 @@ Percentiles
     df.qualtile(0.33)
     df.qualtile(0.33, 0.1, 0.99)
 
-Import
-======
-- ``pd.read_*``
-
-.. code-block:: python
-
-    pd.read_csv()
-    pd.read_excel()
-    pd.read_html()
-    pd.read_json()
-    pd.read_sas()
-    pd.read_sql()        # Read SQL query or database table into a DataFrame
-    pd.read_sql_query()  # Read SQL query into a DataFrame
-    pd.read_sql_table()  # Read SQL database table into a DataFrame
-
-Export
-======
-- Dane, które są w dataFrame można wyeksportować
-- ``DataFrame.to_*``
-
-.. code-block:: python
-
-    DataFrame.to_csv()
-    DataFrame.to_excel()
-    DataFrame.to_html()
-    DataFrame.to_json()
-    DataFrame.to_latex()
-    DataFrame.to_dict()
-    DataFrame.to_sql()  # Uses SQLAlchemy
-
-Display Output
-==============
-.. code-block:: python
-
-    # Set options for whole script
-    pd.set_option('display.height',1000)
-    pd.set_option('display.max_rows',500)
-    pd.set_option('display.max_columns',500)
-    pd.set_option('display.width',1000)
-
-.. code-block:: python
-
-    # Unlimited for whole script
-    pd.set_option('display.max_columns', None)
-    pd.set_option('display.max_rows', None)
-
-.. code-block:: python
-
-    # Use config only with context
-    with pd.option_context('display.max_rows', None, 'display.max_columns', 3):
-        print(df)
 
 Vizualization
 =============
