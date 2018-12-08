@@ -40,6 +40,8 @@ Import and Export
 
 Import data to ``DataFrame``
 ----------------------------
+* Uses SQLAlchemy for SQL functions
+
 .. code-block:: python
 
     pd.read_csv()
@@ -54,6 +56,8 @@ Import data to ``DataFrame``
 
 Export ``DataFrame``
 --------------------
+* Uses SQLAlchemy for SQL functions
+
 .. code-block:: python
 
     DataFrame.to_csv()
@@ -62,7 +66,7 @@ Export ``DataFrame``
     DataFrame.to_json()
     DataFrame.to_latex()
     DataFrame.to_dict()
-    DataFrame.to_sql()  # Uses SQLAlchemy
+    DataFrame.to_sql()
 
 
 Display Output
