@@ -71,6 +71,15 @@ Conversion
     math.ceil(x)
     math.fabs(x)
 
+.. code-block:: python
+
+    import math
+
+    math.floor(3.14)                # 3
+    math.ceil(3.14)                 # 4
+    math.ceil(3.00000000000001)     # 4
+    math.ceil(3.00000000000000)     # 3
+
 Linear Algebra
 --------------
 .. code-block:: python
@@ -105,13 +114,30 @@ Trigonometry
 ===========
 .. code-block:: python
 
+    0.1 + 0.2
+    # 0.30000000000000004
+
+.. code-block:: python
+
     from decimal import Decimal
 
-    a = Decimal('0.625')
-    b = Decimal('0.81421313')
+
+    a = Decimal('0.1')
+    b = Decimal('0.2')
 
     a + b
-    # Decimal('1.43921313')
+    # Decimal('0.3')
+
+.. code-block:: python
+
+    from decimal import Decimal
+
+
+    a = Decimal('0.3')
+
+    float(a)
+    # 0.3
+
 
 ``fractions``
 =============

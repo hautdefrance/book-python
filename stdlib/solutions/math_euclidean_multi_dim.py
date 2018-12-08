@@ -25,7 +25,14 @@ def euclidean_distance_n_dimensions(A, B):
 
     pod_pierwiastkiem = 0
 
-    for i, _ in enumerate(A):
-        pod_pierwiastkiem += (B[i]-A[i]) ** 2
+    # for index, value in enumerate(A):
+    #     n1 = A[index]
+    #     n2 = B[index]
+    #     pod_pierwiastkiem += (n2-n1) ** 2
+
+    for index in range(len(A)):
+        n1 = A[index]
+        n2 = B[index]
+        pod_pierwiastkiem += (n2-n1) ** 2
 
     return math.sqrt(pod_pierwiastkiem)

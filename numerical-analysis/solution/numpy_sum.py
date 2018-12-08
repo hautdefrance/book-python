@@ -1,15 +1,9 @@
 import numpy as np
 
 
-A = np.random.randint(low=10, high=101, size=(16, 16)).astype(float)
-print(f'Matrix:\n{A}')
-
+A = np.random.randint(10, 100, size=(16, 16)).astype(float)
 B = A.transpose()
-print(f'Transposed:\n{B}')
+C = B[6:10, 6:10]
+total = C.sum()
 
-inner = B[6:10, 6:10]
-print(f'Inner:\n{inner}')
-
-# total = sum(inner.flatten())
-total = inner.sum()
-print(f'Sum: {total}')
+print(total)
