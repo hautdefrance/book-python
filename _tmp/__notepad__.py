@@ -1,25 +1,4 @@
 
-FILENAME = r'hosts.txt'
-hosts = dict()
-
-
-with open(FILENAME) as file:
-    for line in file:
-        if line.isspace():
-            continue
-
-        if line.startswith('#'):
-            continue
-
-        ip, *hostnames = line.split()
-
-        if ip not in hosts:
-            hosts[ip] = hostnames
-        else:
-            hosts[ip] += hostnames
-
-print(hosts)
-
 
 
 

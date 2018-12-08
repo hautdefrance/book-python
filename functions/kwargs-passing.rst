@@ -1,163 +1,39 @@
-.. _Function Args and KWargs:
-
-**************************
-``*args`` and ``**kwargs``
-**************************
+**********************
+Passing many arguments
+**********************
 
 
-.. note:: TL;DR: ``*args`` unpack ``tuple`` or ``list``, ``**kwargs`` unpack ``dict``
+.. note:: TL;DR:
+
+    * ``*args`` unpack ``tuple`` or ``list``
+    * ``**kwargs`` unpack ``dict``
 
 
-Operator ``*`` i ``**``
+``*`` unpacks ``list`` or ``tuple``
+===================================
+.. code-block:: python
+
+    complex(3, 5)
+
+.. code-block:: python
+
+    args = (3, 5)
+    complex(*args)
+
+
+``**`` unpacks ``dict``
 =======================
-- To nie jest mnożenie i potęgowanie!
-- ``*`` zwykle nazywa się ``*args`` (arguments) - argumenty pozycyjne (anonimowe)
-- ``**`` zwykle nazywa się ``**kwargs`` (keyword arguments) - argumenty nazwane
-
-
-Przypomnienie wiadomości o parametrach
-======================================
 .. code-block:: python
 
-    def add(a, b):
-        return a + b
-
-
-    add(1, 2)       # pozycyjne
-    add(a=1, b=2)   # nazwane, kolejność nie ma znaczenia
-    add(b=2, a=1)   # nazwane, kolejność nie ma znaczenia
-    add(1, b=2)     # pozycyjne i nazwane
+    complex(real=3, imag=5)
 
 .. code-block:: python
 
-    a, b = 1, 2
-    # a == 1
-    # b == 2
-
-    a, b = (1, 2)
-    # a == 1
-    # b == 2
-
-    a, b = [1, 2]
-    # a == 1
-    # b == 2
-
-.. code-block:: python
-
-    def numbers():
-        return [1, 2]
-
-    a, b = numbers()
-    # a == 1
-    # b == 2
+    kwargs = {'real': 3, 'imag': 5}
+    complex(**number)
 
 
-Przyjmowanie z funkcji zmiennej ilości argumentów (Rozpakowywanie)
-==================================================================
-.. code-block:: python
 
-    line = '4.9,3.1,1.5,0.1,setosa'
-
-    line.split(',')
-    # ['4.9', '3.1', '1.5', '0.1', 'setosa']
-
-.. code-block:: python
-
-    sepal_length, sepal_width, petal_length, petal_width, species = line.split(',')
-
-    sepal_length    # '4.9'
-    sepal_width     # '3.1'
-    petal_length    # '1.5'
-    petal_width     # '0.1'
-    species         # 'setosa'
-
-.. code-block:: python
-
-    sepal_length, sepal_width, *others = line.split(',')
-
-    sepal_length    # '4.9'
-    sepal_width     # '3.1'
-    others          # ['1.5', '0.1', 'setosa']
-
-.. code-block:: python
-
-    *measurements, species = line.split(',')
-
-    measurements    # ['4.9', '3.1', '1.5', '0.1']
-    species         # 'setosa'
-
-.. code-block:: python
-
-    *a, b, *c = [1, 2, 3, 4, 5, 6, 7]
-    # SyntaxError: two starred expressions in assignment
-
-.. code-block:: python
-
-    # if you're not using ``measurements`` later in your code
-    *_, species = line.split(',')
-
-.. code-block:: python
-
-    def get_iris():
-        """
-        Would be nice, if you can get ``dict``...
-        but most programmers will return ``tuple``
-        because it's a bit faster
-
-        return {
-            'sepal_length': 4.9,
-            'sepal_width': 3.1,
-            'petal_length': 1.5,
-            'petal_width': 0.1,
-            'species': 'setosa'
-        }
-        """
-        return 4.9, 3.1, 1.5, 0.1, 'setosa'
-
-    *measurements, species = get_iris()
-
-
-Definiowanie funkcji ze zmienną ilością parametrów
-==================================================
-- ``args`` - pozycyjne
-- ``kwargs``- nazwane
-
-.. code-block:: python
-
-    def wyswietl_argumenty(a, b, c=0, *pozycyjne, **nazwane):
-        print(f'argument a: {a}')                   # 1
-        print(f'argument b: {b}')                   # 2
-        print(f'argument c: {c}')                   # 3
-        print(f'argumenty pozycyjne: {pozycyjne}')  # (4, 5, 6)
-        print(f'argumenty nazwane: {nazwane}')      # {'d':7, 'e': 8}
-
-
-    wyswietl_argumenty(1, 2, 3, 4, 5, 6, d=7, e=8)
-
-.. code-block:: python
-
-    def wyswietl_argumenty(a, b, c=0, *args, **kwargs):
-        print(f'argument a: {a}')                   # 1
-        print(f'argument b: {b}')                   # 2
-        print(f'argument c: {c}')                   # 3
-        print(f'argumenty args: {args}')            # (4, 5, 6)
-        print(f'argumenty kwargs: {kwargs}')        # {'d':7, 'e': 8}
-
-
-    wyswietl_argumenty(1, 2, 3, 4, 5, 6, d=7, e=8)
-
-Kiedy to się przydaje
----------------------
-.. code-block:: python
-
-    def celsius_to_fahrenheit(*degrees):
-        return [degree*1.8+32 for degree in degrees]
-
-    celsius_to_fahrenheit(1)
-    # [33.8]
-
-    celsius_to_fahrenheit(1, 2, 3, 4, 5)
-    # [33.8, 35.6, 37.4, 39.2, 41.0]
 
 
 Przekazywanie do funkcji zmiennej ilości parametrów

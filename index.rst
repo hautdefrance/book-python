@@ -57,7 +57,9 @@ Functions
     :caption: Functions
 
     /functions/basic.rst
-    /functions/args-kwargs.rst
+    /functions/kwargs-return.rst
+    /functions/kwargs-define.rst
+    /functions/kwargs-passing.rst
     /functions/recurrence.rst
     /functions/advanced.rst
 
