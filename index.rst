@@ -248,6 +248,7 @@ Scientific and Engineering
     /numerical-analysis/libraries.rst
     /numerical-analysis/jupyter.rst
     /numerical-analysis/numpy.ipynb
+    /numerical-analysis/numpy-new.rst
     /numerical-analysis/scipy.rst
     /numerical-analysis/pandas.rst
     /numerical-analysis/charts.rst
