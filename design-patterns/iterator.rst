@@ -97,6 +97,38 @@ Własny iterator
     for figura in figury:
         print(figura)
 
+.. code-block:: python
+
+    class Parking:
+        def __init__(self):
+            self.zaparkowane_samochody = []
+            self.index = 0
+
+        def zaparkuj(self, samochod):
+            self.zaparkowane_samochody.append(samochod)
+
+        def __iter__(self):
+            self.index = 0
+            return self
+
+        def __next__(self):
+            if self.index >= len(self.zaparkowane_samochody):
+                raise StopIteration
+
+            samochod = self.zaparkowane_samochody[self.index]
+            self.index += 1
+            return samochod
+
+
+    parking = Parking()
+    parking.zaparkuj('Mercedes')
+    parking.zaparkuj('Maluch')
+    parking.zaparkuj('Toyota')
+
+
+    for samochod in parking:
+        print(samochod)
+
 
 ``itertools``
 =============

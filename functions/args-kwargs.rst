@@ -5,8 +5,12 @@
 **************************
 
 
+.. note:: TL;DR: ``*args`` unpack ``tuple`` or ``list``, ``**kwargs`` unpack ``dict``
+
+
 Operator ``*`` i ``**``
 =======================
+- To nie jest mnożenie i potęgowanie!
 - ``*`` zwykle nazywa się ``*args`` (arguments) - argumenty pozycyjne (anonimowe)
 - ``**`` zwykle nazywa się ``**kwargs`` (keyword arguments) - argumenty nazwane
 
@@ -52,29 +56,35 @@ Przyjmowanie z funkcji zmiennej ilości argumentów (Rozpakowywanie)
 ==================================================================
 .. code-block:: python
 
-    line = 'jimenez:x:1001:1001:José Jiménez:/home/jimenez:/bin/bash'
-    line.split(':')
-    # ['jimenez', 'x', '1001', '1001', 'José Jiménez', '/home/jimenez', '/bin/bash']
+    line = '4.9,3.1,1.5,0.1,setosa'
+
+    line.split(',')
+    # ['4.9', '3.1', '1.5', '0.1', 'setosa']
 
 .. code-block:: python
 
-    username, password, uid, gid, name, home, shell = line.split(':')
-    username    # jimenez
-    password    # x
+    sepal_length, sepal_width, petal_length, petal_width, species = line.split(',')
+
+    sepal_length    # '4.9'
+    sepal_width     # '3.1'
+    petal_length    # '1.5'
+    petal_width     # '0.1'
+    species         # 'setosa'
 
 .. code-block:: python
 
-    username, password, *others = line.split(':')
-    username    # jimenez
-    password    # x
-    others      # ['1001', '1001', 'José Jiménez', '/home/jimenez', '/bin/bash']
+    sepal_length, sepal_width, *others = line.split(',')
+
+    sepal_length    # '4.9'
+    sepal_width     # '3.1'
+    others          # ['1.5', '0.1', 'setosa']
 
 .. code-block:: python
 
-    *others, home, shell = line.split(':')
-    others      # ['jimenez', 'x', '1001', '1001', 'José Jiménez']
-    home        # '/home/jimenez'
-    shell       # '/bin/bash'
+    *measurements, species = line.split(',')
+
+    measurements    # ['4.9', '3.1', '1.5', '0.1']
+    species         # 'setosa'
 
 .. code-block:: python
 
@@ -83,34 +93,28 @@ Przyjmowanie z funkcji zmiennej ilości argumentów (Rozpakowywanie)
 
 .. code-block:: python
 
-    # if you're not using ``others`` later in your code
-    username, *_ = line.split(':')
+    # if you're not using ``measurements`` later in your code
+    *_, species = line.split(',')
 
 .. code-block:: python
 
-    class Point:
-        def __init__(self, x, y, z):
-            self.x = x
-            self.y = y
-            self.z = z
+    def get_iris():
+        """
+        Would be nice, if you can get ``dict``...
+        but most programmers will return ``tuple``
+        because it's a bit faster
 
-        def get_position(self):
-            return self.x, self.y, self.z
+        return {
+            'sepal_length': 4.9,
+            'sepal_width': 3.1,
+            'petal_length': 1.5,
+            'petal_width': 0.1,
+            'species': 'setosa'
+        }
+        """
+        return 4.9, 3.1, 1.5, 0.1, 'setosa'
 
-    p = Point(10, 20)
-    p.get_position()    # 10, 20
-    x, y, z = p.get_position()
-    x, *_ = p.get_position()
-
-.. code-block:: python
-
-    def sensor_temperatury():
-        # ładniej byłoby gdyby programista napisał
-        # {'napiecie': 10, 'natezenie': 20, 'rezystancja': 30, 'czas': 5, 'location': 'laboratorium'}
-        # ale programiści niskopoziomowi zwykle zwracają jako list...
-        return (10, 20.6, 30, 5, 'laboratorium')
-
-    napiecie, natezenie, *_ = sensor_temperatury()
+    *measurements, species = get_iris()
 
 
 Definiowanie funkcji ze zmienną ilością parametrów
@@ -304,26 +308,6 @@ Przykładowe zastosowanie
 Assignments
 ===========
 
-Iris
-----
-#. Dane dostępne są pod adresem: https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
-#. Otwórz link w przeglądarce i skopiuj zawartość do pliku ``kwargs_iris.csv`` na dysku
-#. Sparsuj zawartość odrzucając nagłówek
-#. Dla każdego rekordu, usuń białe spacje i podziel go po przecinku ``,``
-#. Wyniki podziału odbierz do dwóch zmiennych:
-
-    * ``features: Tuple[float]`` - pomiary
-    * ``labels: str`` - nazwa gatunku
-
-#. Stwórz funkcję ``print_iris(sepal_length, sepal_width, *args, **kwargs)``, która wyświetli zawartość wszystkich argumentów
-#. Odpalaj funkcję ``print_iris()``, podając wartości ``features`` i ``labels``
-#. Pomiary mają być podane pozycyjnie (``*``), a gatunek nazwanie (``**``)
-
-:About:
-    * Filename: ``kwargs_iris.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 15 min
-
 Hosts
 -----
 #. Skopiuj zawartość listingu poniżej do pliku ``hosts.txt``
@@ -341,3 +325,23 @@ Hosts
     * Filename: ``kwargs_hosts.py``
     * Lines of code to write: 15 lines
     * Estimated time of completion: 15 min
+
+Iris
+----
+#. Dane dostępne są pod adresem: https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
+#. Otwórz link w przeglądarce i skopiuj zawartość do pliku ``iris.csv`` na dysku
+#. Sparsuj zawartość odrzucając nagłówek
+#. Dla każdego rekordu, usuń białe spacje i podziel go po przecinku ``,``
+#. Wyniki podziału odbierz do dwóch zmiennych:
+
+    * ``features: Tuple[float]`` - pomiary
+    * ``labels: str`` - nazwa gatunku
+
+#. Stwórz funkcję ``print_iris(sepal_length, sepal_width, *args, **kwargs)``, która wyświetli zawartość wszystkich argumentów
+#. Odpalaj funkcję ``print_iris()``, podając wartości ``features`` i ``labels``
+#. Pomiary mają być podane pozycyjnie (``*``), a gatunek nazwanie (``**``)
+
+:About:
+    * Filename: ``kwargs_iris.py``
+    * Lines of code to write: 15 lines
+    * Estimated time of completion: 20 min
