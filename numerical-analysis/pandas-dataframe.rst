@@ -781,7 +781,16 @@ Other methods
 
 Grouping
 ========
-* Group series using mapper (dict or key function, apply given function to group, return result as series) or by a series of columns.
+* Group series using mapper (dict or key function, apply given function to group, return result as series) or by a series of columns
+* Check:
+
+    - ``.value_counts()``
+    - ``.nunique()``
+    - ``.sum()``
+    - ``.count()``
+    - ``.max()``
+    - ``.first()``
+    - ``df.groupby('month', as_index=False).agg({"duration": "sum"})``
 
 .. code-block:: python
 
