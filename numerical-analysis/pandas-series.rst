@@ -183,6 +183,61 @@ Multiply by itself
 
 Add values
 ----------
+* Uses inner join
+* ``fill_value``: If data in both corresponding Series locations is missing the result will be missing
+
+.. code-block:: python
+
+    import numpy as np
+
+    a = pd.Series([1, 1, 1, np.nan], index=['a', 'b', 'c', 'd'])
+    # a    1.0
+    # b    1.0
+    # c    1.0
+    # d    NaN
+    # dtype: float64
+
+    b = pd.Series([1, np.nan, 1, np.nan], index=['a', 'b', 'x', 'y'])
+    # a    1.0
+    # b    NaN
+    # x    1.0
+    # y    NaN
+    # dtype: float64
+
+    a + b
+    # a    2.0
+    # b    NaN
+    # c    NaN
+    # x    NaN
+    # y    NaN
+    # dtype: float64
+
+.. code-block:: python
+
+    import numpy as np
+
+    a = pd.Series([1, 1, 1, np.nan], index=['a', 'b', 'c', 'd'])
+    # a    1.0
+    # b    1.0
+    # c    1.0
+    # d    NaN
+    # dtype: float64
+
+    b = pd.Series([1, np.nan, 1, np.nan], index=['a', 'b', 'x', 'y'])
+    # a    1.0
+    # b    NaN
+    # x    1.0
+    # y    NaN
+    # dtype: float64
+
+    a.add(b, fill_value=0)
+    # a    2.0
+    # b    1.0
+    # c    1.0
+    # x    1.0
+    # y    NaN
+    # dtype: float64
+
 .. code-block:: python
 
     s + s
@@ -199,7 +254,7 @@ Assignments
 
 Even Numbers
 ------------
-#. Stwórz ``pd.Series`` z liczbami parzystymi
+#. Stwórz ``pd.Series`` z 10 liczbami parzystymi
 #. Podnieś wszystkie elementy do kwadratu
 #. Dodaj 5 do każdego z elementów
 
@@ -210,8 +265,8 @@ Even Numbers
 
 Slicing
 -------
-#. Stwórz ``pd.Series`` z 24 losowymi liczbami z przedziału ``(10, 100]``
-#. Nazwij kolumny jak kolejne litery alfabetu łacińskieego (bez polskich znaków)
+#. Stwórz ``pd.Series`` z 24 losowymi liczbami z przedziału ``[10, 100)``
+#. Nazwij indeksy jak kolejne litery alfabetu łacińskiego (bez polskich znaków)
 #. Za pomocą funkcji statystycznych znajdź medianę alfabetu
 #. Wytnij z serii po 3 elementy w prawo i w lewo od mediany
 
