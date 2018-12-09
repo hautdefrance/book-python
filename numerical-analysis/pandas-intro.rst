@@ -1,6 +1,6 @@
-******
-Pandas
-******
+*******************
+Pandas Introduction
+*******************
 
 .. todo:: convert tables to CSV
 .. todo:: https://www.shanelynn.ie/summarising-aggregation-and-grouping-data-in-python-pandas/
