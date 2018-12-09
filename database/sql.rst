@@ -120,6 +120,11 @@ DELETE
 
 JOIN
 ====
+.. figure:: img/sql-joins.png
+    :scale: 50%
+    :align: center
+
+    Joins
 
 INNER JOIN
 ----------

@@ -1036,6 +1036,13 @@ Aggregations
 
 Joins
 =====
+
+.. figure:: img/sql-joins.png
+    :scale: 50%
+    :align: center
+
+    Joins
+
 .. code-block:: python
 
     values = np.random.randn(6, 4)
