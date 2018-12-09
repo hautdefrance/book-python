@@ -61,9 +61,26 @@ Slicing by index numbers
 ========================
 .. code-block:: python
 
+    values = np.random.randn(5)
+    indexes = ['a', 'b', 'c', 'd', 'e']
+
+    s = pd.Series(values, index=indexes)
+    # a    1.016521
+    # b   -0.441865
+    # c    0.519119
+    # d    0.948774
+    # e    0.207670
+    # dtype: float64
+
+Select single element
+---------------------
+.. code-block:: python
+
     s[1]
     # -0.4418648443118965
 
+Slice range
+-----------
 .. code-block:: python
 
     s[2:]
@@ -72,6 +89,8 @@ Slicing by index numbers
     # e    0.207670
     # dtype: float64
 
+Slice arguments can also be negative
+------------------------------------
 .. code-block:: python
 
     s[1:-2]
@@ -84,9 +103,27 @@ Slicing by index names
 ======================
 .. code-block:: python
 
+    values = np.random.randn(5)
+    indexes = ['a', 'b', 'c', 'd', 'e']
+
+    s = pd.Series(values, index=indexes)
+    # a    1.016521
+    # b   -0.441865
+    # c    0.519119
+    # d    0.948774
+    # e    0.207670
+    # dtype: float64
+
+
+Select single element
+---------------------
+.. code-block:: python
+
     s['b']
     # -0.4418648443118965
 
+Slice range
+-----------
 .. code-block:: python
 
     s['c':]
@@ -107,12 +144,39 @@ Arithmetic operations
 =====================
 .. code-block:: python
 
+    values = np.random.randn(5)
+    indexes = ['a', 'b', 'c', 'd', 'e']
+
+    s = pd.Series(values, index=indexes)
+    # a    1.016521
+    # b   -0.441865
+    # c    0.519119
+    # d    0.948774
+    # e    0.207670
+    # dtype: float64
+
+Multiply by scalar
+------------------
+.. code-block:: python
+
     s * 5
     # a    5.082606
     # b   -2.209324
     # c    2.595593
     # d    4.743869
     # e    1.038348
+    # dtype: float64
+
+Multiply by itself
+------------------
+.. code-block:: python
+
+    s * s
+    # a    1.033315
+    # b    0.195245
+    # c    0.269484
+    # d    0.900172
+    # e    0.043127
     # dtype: float64
 
 .. code-block:: python
@@ -125,16 +189,8 @@ Arithmetic operations
     # e    0.008956
     # dtype: float64
 
-.. code-block:: python
-
-    s * s
-    # a    1.033315
-    # b    0.195245
-    # c    0.269484
-    # d    0.900172
-    # e    0.043127
-    # dtype: float64
-
+Add values
+----------
 .. code-block:: python
 
     s + s

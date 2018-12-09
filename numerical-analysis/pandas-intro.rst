@@ -40,16 +40,11 @@ TL;DR
 .. csv-table:: Pandas most commonly used functions
     :header-rows: 1
 
+    "Method", "Description"
     "``DataFrame.at()``", "Access a single value for a row/column label pair"
     "``DataFrame.iat()``", "Access a single value for a row/column pair by integer position"
     "``DataFrame.loc()``", "Access a group of rows and columns by label(s)"
     "``DataFrame.iloc()``", "Access a group of rows and columns by integer position(s)"
-    "", ""
-    "", ""
-    "", ""
-    "", ""
-    "", ""
-    "", ""
 
 
 Import and Export
@@ -57,7 +52,7 @@ Import and Export
 
 Import data to ``DataFrame``
 ----------------------------
-* Also works with URLs!!
+* File paths works also with URLs
 * SQL functions uses SQLAlchemy, which supports many RDBMS
 
 .. code-block:: python
@@ -74,7 +69,7 @@ Import data to ``DataFrame``
 
 Export ``DataFrame``
 --------------------
-* Also works with URLs!!
+* File paths works also with URLs
 * SQL functions uses SQLAlchemy, which supports many RDBMS
 
 .. code-block:: python

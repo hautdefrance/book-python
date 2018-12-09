@@ -88,6 +88,39 @@ With multiple rows
     "0", "1.0", "2.0", "NaN"
     "1", "NaN", "NaN", "3.0"
 
+
+Properties
+==========
+.. code-block:: python
+
+    values = np.random.randn(6, 4)
+    columns = ['A', 'B', 'C', 'D']
+    indexes = pd.date_range('1970-01-01', periods=6)
+    # DatetimeIndex(['1970-01-01',
+    #                '1970-01-02',
+    #                '1970-01-03',
+    #                '1970-01-04',
+    #                '1970-01-05',
+    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
+
+    df = pd.DataFrame(values, index=indexes, columns=columns)
+
+Indexes
+-------
+.. code-block:: python
+
+    df.index
+    # DatetimeIndex(['1970-01-01', '1970-01-02', '1970-01-03', '1970-01-04', '1970-01-05', '1970-01-06'],
+    #               dtype='datetime64[ns]', freq='D')
+
+Columns
+-------
+.. code-block:: python
+
+    df.columns
+    # Index(['A', 'B', 'C', 'D'], dtype='object')
+
+
 Slicing
 =======
 
@@ -160,8 +193,8 @@ Slicing by columns
     "3", "1.0", "1961-04-12"
 
 
-Filtering results
-=================
+Filtering
+=========
 .. code-block:: python
 
     values = np.random.randn(6, 4)
@@ -193,7 +226,9 @@ Locating values
 * Zalecane jest używanie zoptymalizowanych funkcji Pandas
 * ``iloc`` integer locate (bez where i innych bajerów)
 
-.. warning:: Start and the stop are included (different than slices)!
+.. warning::
+    * Start and the stop are included.
+    * This is different behavior than Python slices!
 
 .. code-block:: python
 
@@ -381,150 +416,9 @@ Get value within a series
     df.loc[0].iat[1]
     # 2
 
-``pd.DataFrame`` properties
-===========================
-.. code-block:: python
 
-    values = np.random.randn(6, 4)
-    columns = ['A', 'B', 'C', 'D']
-    indexes = pd.date_range('1970-01-01', periods=6)
-    # DatetimeIndex(['1970-01-01',
-    #                '1970-01-02',
-    #                '1970-01-03',
-    #                '1970-01-04',
-    #                '1970-01-05',
-    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
-
-    df = pd.DataFrame(values, index=indexes, columns=columns)
-
-Indexes
--------
-.. code-block:: python
-
-    df.index
-    # DatetimeIndex(['1970-01-01', '1970-01-02', '1970-01-03', '1970-01-04', '1970-01-05', '1970-01-06'],
-    #               dtype='datetime64[ns]', freq='D')
-
-Columns
--------
-.. code-block:: python
-
-    df.columns
-    # Index(['A', 'B', 'C', 'D'], dtype='object')
-
-
-Show data
-=========
-.. code-block:: python
-
-    values = np.random.randn(6, 4)
-    columns = ['A', 'B', 'C', 'D']
-    indexes = pd.date_range('1970-01-01', periods=6)
-    # DatetimeIndex(['1970-01-01',
-    #                '1970-01-02',
-    #                '1970-01-03',
-    #                '1970-01-04',
-    #                '1970-01-05',
-    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
-
-    df = pd.DataFrame(values, index=indexes, columns=columns)
-
-First ``n`` records
--------------------
-.. code-block:: python
-
-    df.head(2)
-    #                    A         B         C         D
-    # 1970-01-01  0.131926 -1.825204 -1.909562  1.274718
-    # 1970-01-02  0.084471 -0.932586  0.160637 -0.275183
-
-Last ``n`` records
-------------------
-.. code-block:: python
-
-    df.tail(3)
-    #                    A         B         C         D
-    # 1970-01-04 -0.974425  1.327082 -0.435516  1.328745
-    # 1970-01-05  0.589973  0.748417 -1.680741  0.510512
-    # 1970-01-06  1.361922 -0.827940  0.400024  0.047176
-
-
-Sorting
-=======
-.. code-block:: python
-
-    values = np.random.randn(6, 4)
-    columns = ['A', 'B', 'C', 'D']
-    indexes = pd.date_range('1970-01-01', periods=6)
-    # DatetimeIndex(['1970-01-01',
-    #                '1970-01-02',
-    #                '1970-01-03',
-    #                '1970-01-04',
-    #                '1970-01-05',
-    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
-
-    df = pd.DataFrame(values, index=indexes, columns=columns)
-
-Sort by index
--------------
-.. code-block:: python
-
-    df.sort_index(ascending=False) # default axis=0
-    df.sort_index(ascending=False, inplace=True)
-
-.. csv-table::
-    :header-rows: 1
-
-    "", "A", "B", "C", "D"
-    "1970-01-06", "1.361922", "-0.827940", "0.400024", "0.047176"
-    "1970-01-05", "0.589973", "0.748417", "-1.680741", "0.510512"
-    "1970-01-04", "-0.974425", "1.327082", "-0.435516", "1.328745"
-    "1970-01-03", "-1.308835", "-0.285436", "-0.757591", "-0.042493"
-    "1970-01-02", "0.084471", "-0.932586", "0.160637", "-0.275183"
-    "1970-01-01", "0.131926", "-1.825204", "-1.909562", "1.274718"
-
-Sort by columns
----------------
-.. code-block:: python
-
-    df.sort_index(axis=1, ascending=False)
-
-.. csv-table::
-    :header-rows: 1
-
-    "", "D", "C", "B", "A"
-    "1970-01-01", "1.274718 ", "-1.909562", "-1.825204", "0.131926"
-    "1970-01-02", "-0.275183", "0.160637", "-0.932586", "0.084471"
-    "1970-01-03", "-0.042493", "-0.757591", "-0.285436", "-1.308835"
-    "1970-01-04", "1.328745", "-0.435516", "1.327082", "-0.974425"
-    "1970-01-05", "0.510512", "-1.680741", "0.748417", "0.589973"
-    "1970-01-06", "0.047176", "0.400024", "-0.827940", "1.361922"
-
-Sort by values
---------------
-.. code-block:: python
-
-    df.sort_values('B')
-    df.sort_values('B', inplace=True)
-
-    # można sortować po wielu kolumnach (jeżeli wartości w pierwszej będą równe)
-    df.sort_values(['B', 'C'])
-    df.sort_values(['B', 'C'])
-
-=========== =========== =========== =========== =========
-            A           B           C           D
-=========== =========== =========== =========== =========
-1970-01-01  0.131926    -1.825204   -1.909562   1.274718
-1970-01-02  0.084471    -0.932586   0.160637    -0.275183
-1970-01-06  1.361922    -0.827940   0.400024    0.047176
-1970-01-03  -1.308835   -0.285436   -0.757591   -0.042493
-1970-01-05  0.589973    0.748417    -1.680741   0.510512
-1970-01-04  -0.974425   1.327082    -0.435516   1.328745
-=========== =========== =========== =========== =========
-
-
-Modifying ``pd.DataFrame``
-==========================
+Modifying values
+================
 .. code-block:: python
 
     df = pd.DataFrame([ {'A': 1, 'B': 2},
@@ -677,6 +571,116 @@ D   1.274718    -0.275183  -0.042493  1.328745   0.510512   0.047176
 === ========== =========== ========== ========== ========== ==========
 
 
+Displaying values
+=================
+.. code-block:: python
+
+    values = np.random.randn(6, 4)
+    columns = ['A', 'B', 'C', 'D']
+    indexes = pd.date_range('1970-01-01', periods=6)
+    # DatetimeIndex(['1970-01-01',
+    #                '1970-01-02',
+    #                '1970-01-03',
+    #                '1970-01-04',
+    #                '1970-01-05',
+    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
+
+    df = pd.DataFrame(values, index=indexes, columns=columns)
+
+First ``n`` records
+-------------------
+.. code-block:: python
+
+    df.head(2)
+    #                    A         B         C         D
+    # 1970-01-01  0.131926 -1.825204 -1.909562  1.274718
+    # 1970-01-02  0.084471 -0.932586  0.160637 -0.275183
+
+Last ``n`` records
+------------------
+.. code-block:: python
+
+    df.tail(3)
+    #                    A         B         C         D
+    # 1970-01-04 -0.974425  1.327082 -0.435516  1.328745
+    # 1970-01-05  0.589973  0.748417 -1.680741  0.510512
+    # 1970-01-06  1.361922 -0.827940  0.400024  0.047176
+
+
+Sorting
+=======
+.. code-block:: python
+
+    values = np.random.randn(6, 4)
+    columns = ['A', 'B', 'C', 'D']
+    indexes = pd.date_range('1970-01-01', periods=6)
+    # DatetimeIndex(['1970-01-01',
+    #                '1970-01-02',
+    #                '1970-01-03',
+    #                '1970-01-04',
+    #                '1970-01-05',
+    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
+
+    df = pd.DataFrame(values, index=indexes, columns=columns)
+
+Sort by index
+-------------
+.. code-block:: python
+
+    df.sort_index(ascending=False) # default axis=0
+    df.sort_index(ascending=False, inplace=True)
+
+.. csv-table::
+    :header-rows: 1
+
+    "", "A", "B", "C", "D"
+    "1970-01-06", "1.361922", "-0.827940", "0.400024", "0.047176"
+    "1970-01-05", "0.589973", "0.748417", "-1.680741", "0.510512"
+    "1970-01-04", "-0.974425", "1.327082", "-0.435516", "1.328745"
+    "1970-01-03", "-1.308835", "-0.285436", "-0.757591", "-0.042493"
+    "1970-01-02", "0.084471", "-0.932586", "0.160637", "-0.275183"
+    "1970-01-01", "0.131926", "-1.825204", "-1.909562", "1.274718"
+
+Sort by columns
+---------------
+.. code-block:: python
+
+    df.sort_index(axis=1, ascending=False)
+
+.. csv-table::
+    :header-rows: 1
+
+    "", "D", "C", "B", "A"
+    "1970-01-01", "1.274718 ", "-1.909562", "-1.825204", "0.131926"
+    "1970-01-02", "-0.275183", "0.160637", "-0.932586", "0.084471"
+    "1970-01-03", "-0.042493", "-0.757591", "-0.285436", "-1.308835"
+    "1970-01-04", "1.328745", "-0.435516", "1.327082", "-0.974425"
+    "1970-01-05", "0.510512", "-1.680741", "0.748417", "0.589973"
+    "1970-01-06", "0.047176", "0.400024", "-0.827940", "1.361922"
+
+Sort by values
+--------------
+.. code-block:: python
+
+    df.sort_values('B')
+    df.sort_values('B', inplace=True)
+
+    # można sortować po wielu kolumnach (jeżeli wartości w pierwszej będą równe)
+    df.sort_values(['B', 'C'])
+    df.sort_values(['B', 'C'])
+
+=========== =========== =========== =========== =========
+            A           B           C           D
+=========== =========== =========== =========== =========
+1970-01-01  0.131926    -1.825204   -1.909562   1.274718
+1970-01-02  0.084471    -0.932586   0.160637    -0.275183
+1970-01-06  1.361922    -0.827940   0.400024    0.047176
+1970-01-03  -1.308835   -0.285436   -0.757591   -0.042493
+1970-01-05  0.589973    0.748417    -1.680741   0.510512
+1970-01-04  -0.974425   1.327082    -0.435516   1.328745
+=========== =========== =========== =========== =========
+
+
 Statistics
 ==========
 .. code-block:: python
@@ -746,6 +750,33 @@ Percentiles
     #        a     b
     # 0.1  1.3   3.7
     # 0.5  2.5  55.0
+
+Other methods
+-------------
+.. csv-table:: Descriptive statistics
+    :header-rows: 1
+
+    "Function", "Description"
+    "``count``", "Number of non-null observations"
+    "``sum``", "Sum of values"
+    "``mean``", "Mean of values"
+    "``mad``", "Mean absolute deviation"
+    "``median``", "Arithmetic median of values"
+    "``min``", "Minimum"
+    "``max``", "Maximum"
+    "``mode``", "Mode"
+    "``abs``", "Absolute Value"
+    "``prod``", "Product of values"
+    "``std``", "Unbiased standard deviation"
+    "``var``", "Unbiased variance"
+    "``sem``", "Unbiased standard error of the mean"
+    "``skew``", "Unbiased skewness (3rd moment)"
+    "``kurt``", "Unbiased kurtosis (4th moment)"
+    "``quantile``", "Sample quantile (value at %)"
+    "``cumsum``", "Cumulative sum"
+    "``cumprod``", "Cumulative product"
+    "``cummax``", "Cumulative maximum"
+    "``cummin``", "Cumulative minimum"
 
 
 Grouping
