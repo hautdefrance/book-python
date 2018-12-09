@@ -57,8 +57,11 @@ Indexes
     # dtype: float64
 
 
+Slicing
+=======
+
 Slicing by index numbers
-========================
+------------------------
 .. code-block:: python
 
     values = np.random.randn(5)
@@ -72,15 +75,11 @@ Slicing by index numbers
     # e    0.207670
     # dtype: float64
 
-Select single element
----------------------
 .. code-block:: python
 
     s[1]
     # -0.4418648443118965
 
-Slice range
------------
 .. code-block:: python
 
     s[2:]
@@ -89,8 +88,6 @@ Slice range
     # e    0.207670
     # dtype: float64
 
-Slice arguments can also be negative
-------------------------------------
 .. code-block:: python
 
     s[1:-2]
@@ -100,7 +97,7 @@ Slice arguments can also be negative
 
 
 Slicing by index names
-======================
+----------------------
 .. code-block:: python
 
     values = np.random.randn(5)
@@ -114,16 +111,11 @@ Slicing by index names
     # e    0.207670
     # dtype: float64
 
-
-Select single element
----------------------
 .. code-block:: python
 
     s['b']
     # -0.4418648443118965
 
-Slice range
------------
 .. code-block:: python
 
     s['c':]
