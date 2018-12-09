@@ -1,6 +1,42 @@
+a = list(range(0, 3))
+b = list(range(3, 6))
+c = list(range(6, 9))
 
-class Series:
-    indexes = ['a', 'b', 'c', 'd', 'e']
+wynik = [a, b, c]
+
+
+wynik = [list(range(x*3, x*3+3)) for x in range(3)]
+
+
+
+wiersz = wynik[0]
+    element = wiersz[0]
+    element = wiersz[1]
+    element = wiersz[2]
+
+wiersz = wynik[1]
+    element = wiersz[0]
+    element = wiersz[1]
+    element = wiersz[2]
+
+wiersz = wynik[2]
+    element = wiersz[0]
+    element = wiersz[1]
+    element = wiersz[2]
+
+
+for wiersz in wynik:
+
+    for element in wiersz:
+
+        if element % 2 != 0:
+            print(element)
+
+
+
+
+
+
 
 
 
