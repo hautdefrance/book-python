@@ -3,8 +3,8 @@ Pandas ``Series``
 *****************
 
 
-Creating ``Series``
-===================
+Creating
+========
 * 1-dimentional data structure similar to ``ndarray``
 
 .. code-block:: python
@@ -21,8 +21,8 @@ Creating ``Series``
     # dtype: float64
 
 
-Indexes in ``Series``
-=====================
+Indexes
+=======
 .. code-block:: python
 
     values = [1, 3, 5, np.nan, 6, 8]
@@ -84,12 +84,12 @@ Slicing by index names
 ======================
 .. code-block:: python
 
-    s["b"]
+    s['b']
     # -0.4418648443118965
 
 .. code-block:: python
 
-    s["c":]
+    s['c':]
     # c    0.519119
     # d    0.948774
     # e    0.207670
@@ -97,7 +97,7 @@ Slicing by index names
 
 .. code-block:: python
 
-    s["b":"c"]
+    s['b':'c']
     # b   -0.441865
     # c    0.519119
     # dtype: float64
@@ -148,3 +148,26 @@ Arithmetic operations
 
 Assignments
 ===========
+
+Even Numbers
+------------
+#. Stwórz ``pd.Series`` z liczbami parzystymi
+#. Podnieś wszystkie elementy do kwadratu
+#. Dodaj 5 do każdego z elementów
+
+:About:
+    * Filename: ``pandas_even_numbers.py``
+    * Lines of code to write: 5 lines
+    * Estimated time of completion: 10 min
+
+Slicing
+-------
+#. Stwórz ``pd.Series`` z 24 losowymi liczbami z przedziału ``(10, 100]``
+#. Nazwij kolumny jak kolejne litery alfabetu łacińskieego (bez polskich znaków)
+#. Za pomocą funkcji statystycznych znajdź medianę alfabetu
+#. Wytnij z serii po 3 elementy w prawo i w lewo od mediany
+
+:About:
+    * Filename: ``pandas_even_numbers.py``
+    * Lines of code to write: 10 lines
+    * Estimated time of completion: 20 min

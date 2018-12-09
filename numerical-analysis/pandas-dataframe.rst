@@ -9,8 +9,11 @@ Pandas ``DataFrame``
 * Operations can be executed on columns or rows
 
 
-Creating ``DataFrame``
-======================
+Creating
+========
+
+Simple ``pd.DataFrame``
+-----------------------
 .. code-block:: python
 
     values = np.arange(16).reshape(4, 4)
@@ -24,6 +27,8 @@ Creating ``DataFrame``
     # 2   8   9  10  11
     # 3  12  13  14  15
 
+With ``date`` indexes
+---------------------
 .. code-block:: python
 
     values = np.random.randn(6, 4)
@@ -49,27 +54,32 @@ Creating ``DataFrame``
     "1970-01-05", "0.589973", "0.748417", "-1.680741", "0.510512"
     "1970-01-06", "1.361922", "-0.827940", "0.400024", "0.047176"
 
+With custom values in columns
+-----------------------------
 .. code-block:: python
 
-    df2 = pd.DataFrame({ 'A' : 1.,
-                         'B' : pd.Timestamp('20130102'),
-                         'C' : pd.Series(1, index=list(range(4)), dtype='float32'),
-                         'D' : np.array([3] * 4, dtype='int32'),
-                         'E' : pd.Categorical(["test", "train", "test", "train"]),
-                         'F' : 'foo' })
+    df = pd.DataFrame({ 'A' : 1.,
+                        'B' : pd.Timestamp('1961-04-12'),
+                        'C' : pd.Series(1, index=list(range(4)), dtype='float32'),
+                        'D' : np.array([3] * 4, dtype='int32'),
+                        'E' : pd.Categorical(["test", "train", "test", "train"]),
+                        'F' : 'foo' })
 
 .. csv-table:: DataFrame
     :header-rows: 1
 
     "", "A", "B", "C", "D", "E", "F"
-    "0", "1.0", "2013-01-02", "1.0", "3", "test", "foo"
-    "1", "1.0", "2013-01-02", "1.0", "3", "train", "foo"
-    "2", "1.0", "2013-01-02", "1.0", "3", "test", "foo"
-    "3", "1.0", "2013-01-02", "1.0", "3", "train", "foo"
+    "0", "1.0", "1961-04-12", "1.0", "3", "test", "foo"
+    "1", "1.0", "1961-04-12", "1.0", "3", "train", "foo"
+    "2", "1.0", "1961-04-12", "1.0", "3", "test", "foo"
+    "3", "1.0", "1961-04-12", "1.0", "3", "train", "foo"
 
+With multiple rows
+------------------
 .. code-block:: python
 
-    df3 = pd.DataFrame([{'A': 1, 'B': 2}, {'C': 3}])
+    df = pd.DataFrame([ {'A': 1, 'B': 2},
+                        {'C': 3}])
 
 .. csv-table::
     :header-rows: 1
@@ -78,9 +88,25 @@ Creating ``DataFrame``
     "0", "1.0", "2.0", "NaN"
     "1", "NaN", "NaN", "3.0"
 
+Slicing
+=======
 
 Slicing by index
-================
+----------------
+.. code-block:: python
+
+    values = np.random.randn(6, 4)
+    columns = ['A', 'B', 'C', 'D']
+    indexes = pd.date_range('1970-01-01', periods=6)
+    # DatetimeIndex(['1970-01-01',
+    #                '1970-01-02',
+    #                '1970-01-03',
+    #                '1970-01-04',
+    #                '1970-01-05',
+    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
+
+    df = pd.DataFrame(values, index=indexes, columns=columns)
+
 .. code-block:: python
 
     df[1:3]
@@ -90,11 +116,11 @@ Slicing by index
 
 
 Slicing by columns
-==================
+------------------
 .. code-block:: python
 
     df2 = pd.DataFrame({ 'A' : 1.,
-                         'B' : pd.Timestamp('20130102'),
+                         'B' : pd.Timestamp('1961-04-12'),
                          'C' : pd.Series(1, index=list(range(4)), dtype='float32'),
                          'D' : np.array([3] * 4, dtype='int32'),
                          'E' : pd.Categorical(["test", "train", "test", "train"]),
@@ -102,7 +128,7 @@ Slicing by columns
 
 .. code-block:: python
 
-    df2.E
+    df.E
     # 0     test
     # 1    train
     # 2     test
@@ -112,7 +138,7 @@ Slicing by columns
 
 .. code-block:: python
 
-    df2['E']
+    df['E']
     # 0     test
     # 1    train
     # 2     test
@@ -120,33 +146,36 @@ Slicing by columns
     # Name: E, dtype: category
     # Categories (2, object): [test, train]
 
-
 .. code-block:: python
 
-    df['A']
-    # 1970-01-01    0.131926
-    # 1970-01-02    0.084471
-    # 1970-01-03   -1.308835
-    # 1970-01-04   -0.974425
-    # 1970-01-05    0.589973
-    # 1970-01-06    1.361922
-    # Freq: D, Name: A, dtype: float64
-
-
-.. code-block:: python
-
-    df3[['A', 'B']]
+    df[['A', 'B']]
 
 .. csv-table::
     :header-rows: 1
 
     "", "A", "B"
-    "0", "1.0", "2.0"
-    "1", "NaN", "NaN"
+    "0", "1.0", "1961-04-12"
+    "1", "1.0", "1961-04-12"
+    "2", "1.0", "1961-04-12"
+    "3", "1.0", "1961-04-12"
 
 
 Filtering results
 =================
+.. code-block:: python
+
+    values = np.random.randn(6, 4)
+    columns = ['A', 'B', 'C', 'D']
+    indexes = pd.date_range('1970-01-01', periods=6)
+    # DatetimeIndex(['1970-01-01',
+    #                '1970-01-02',
+    #                '1970-01-03',
+    #                '1970-01-04',
+    #                '1970-01-05',
+    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
+
+    df = pd.DataFrame(values, index=indexes, columns=columns)
+
 .. code-block:: python
 
     df[df.B > 0.5]
@@ -178,143 +207,140 @@ Locating values
     # viper               4       5
     # sidewinder          7       8
 
-Single label:
+Single label
+------------
+* Note this returns the row as a Series
 
-    .. code-block:: python
+.. code-block:: python
 
-        # Note this returns the row as a Series
+    df.loc['viper']
+    # max_speed    4
+    # shield       5
+    # Name: viper, dtype: int64
 
-        df.loc['viper']
-        # max_speed    4
-        # shield       5
-        # Name: viper, dtype: int64
+List of labels
+--------------
+* Note using ``[[]]`` returns a DataFrame
 
-List of labels:
+.. code-block:: python
 
-    .. code-block:: python
+    df.loc[['viper', 'sidewinder']]
+    #             max_speed  shield
+    # viper               4       5
+    # sidewinder          7       8
 
-        # Note using ``[[]]`` returns a DataFrame
+Single label for row and column
+-------------------------------
+.. code-block:: python
 
-        df.loc[['viper', 'sidewinder']]
-        #             max_speed  shield
-        # viper               4       5
-        # sidewinder          7       8
+    df.loc['cobra', 'shield']
+    # 2
 
-Single label for row and column:
+Slice with labels for row and single label for column
+-----------------------------------------------------
+* Note that both the start and stop of the slice are included
 
-    .. code-block:: python
+.. code-block:: python
 
-        df.loc['cobra', 'shield']
-        # 2
+    df.loc['cobra':'viper', 'max_speed']
+    # cobra    1
+    # viper    4
+    # Name: max_speed, dtype: int64
 
-Slice with labels for row and single label for column:
+Boolean list with the same length as the row axis
+-------------------------------------------------
+.. code-block:: python
 
-    .. code-block:: python
+    df.loc[[False, False, True]]
+    #             max_speed  shield
+    # sidewinder          7       8
 
-        # Note that both the start and stop of the slice are included
+Conditional that returns a boolean Series
+-----------------------------------------
+.. code-block:: python
 
-        df.loc['cobra':'viper', 'max_speed']
-        # cobra    1
-        # viper    4
-        # Name: max_speed, dtype: int64
+    df.loc[df['shield'] > 6]
+    #             max_speed  shield
+    # sidewinder          7       8
 
-Boolean list with the same length as the row axis:
+Conditional that returns a boolean Series with column labels specified
+----------------------------------------------------------------------
+.. code-block:: python
 
-    .. code-block:: python
+    df.loc[df['shield'] > 6, ['max_speed']]
+    #             max_speed
+    # sidewinder          7
 
-        df.loc[[False, False, True]]
-        #             max_speed  shield
-        # sidewinder          7       8
+Callable that returns a boolean Series
+--------------------------------------
+.. code-block:: python
 
-Conditional that returns a boolean Series:
+    df.loc[lambda df: df['shield'] == 8]
+    #             max_speed  shield
+    # sidewinder          7       8
 
-    .. code-block:: python
+Set value for all items matching the list of labels
+---------------------------------------------------
+.. code-block:: python
 
-        df.loc[df['shield'] > 6]
-        #             max_speed  shield
-        # sidewinder          7       8
+    df.loc[['viper', 'sidewinder'], ['shield']] = 50
+    #             max_speed  shield
+    # cobra               1       2
+    # viper               4      50
+    # sidewinder          7      50
 
-Conditional that returns a boolean Series with column labels specified:
+Set value for an entire row
+---------------------------
+.. code-block:: python
 
-    .. code-block:: python
+    df.loc['cobra'] = 10
+    #             max_speed  shield
+    # cobra              10      10
+    # viper               4      50
+    # sidewinder          7      50
 
-        df.loc[df['shield'] > 6, ['max_speed']]
-        #             max_speed
-        # sidewinder          7
+Set value for an entire column
+------------------------------
+.. code-block:: python
 
-Callable that returns a boolean Series:
+    df.loc[:, 'max_speed'] = 30
+    #             max_speed  shield
+    # cobra              30      10
+    # viper              30      50
+    # sidewinder         30      50
 
-    .. code-block:: python
+Set value for rows matching callable condition
+----------------------------------------------
+* Important!
 
-        df.loc[lambda df: df['shield'] == 8]
-        #             max_speed  shield
-        # sidewinder          7       8
+.. code-block:: python
 
-Set value for all items matching the list of labels:
+    df.loc[df['shield'] > 35] = 0
+    #             max_speed  shield
+    # cobra              30      10
+    # viper               0       0
+    # sidewinder          0       0
 
-    .. code-block:: python
+Slice with integer labels for rows
+----------------------------------
+* Note that both the start and stop of the slice are included
 
-        df.loc[['viper', 'sidewinder'], ['shield']] = 50
-        #             max_speed  shield
-        # cobra               1       2
-        # viper               4      50
-        # sidewinder          7      50
+.. code-block:: python
 
-Set value for an entire row:
+    values = [[1, 2], [4, 5], [7, 8]]
+    indexes = [1, 2, 3]
+    columns = ['max_speed', 'shield']
 
-    .. code-block:: python
+    df = pd.DataFrame(values, index=indexes, columns=)
+    #    max_speed  shield
+    # 1          1       2
+    # 2          4       5
+    # 3          7       8
 
-        df.loc['cobra'] = 10
-        #             max_speed  shield
-        # cobra              10      10
-        # viper               4      50
-        # sidewinder          7      50
-
-Set value for an entire column:
-
-    .. code-block:: python
-
-        df.loc[:, 'max_speed'] = 30
-        #             max_speed  shield
-        # cobra              30      10
-        # viper              30      50
-        # sidewinder         30      50
-
-Set value for rows matching callable condition:
-
-    .. code-block:: python
-
-        df.loc[df['shield'] > 35] = 0
-        #             max_speed  shield
-        # cobra              30      10
-        # viper               0       0
-        # sidewinder          0       0
-
-Getting values on a DataFrame with an index that has integer labels:
-
-    .. code-block:: python
-
-        values = [[1, 2], [4, 5], [7, 8]]
-        indexes = [7, 8, 9]
-        columns = ['max_speed', 'shield']
-
-        df = pd.DataFrame(values, index=indexes, columns=)
-        #    max_speed  shield
-        # 7          1       2
-        # 8          4       5
-        # 9          7       8
-
-Slice with integer labels for rows:
-
-    .. code-block:: python
-
-        # Note that both the start and stop of the slice are included
-
-        df.loc[7:9]
-        #    max_speed  shield
-        # 7          1       2
-        # 8          4       5
-        # 9          7       8
+    df.loc[1:2]
+    #    max_speed  shield
+    # 2          1       2
+    # 3          4       5
 
 
 Accessing values
@@ -333,48 +359,78 @@ Accessing values
     # 1   0   4   1
     # 2  10  20  30
 
-Get value at specified row/column pair:
+Get value at specified row/column pair
+--------------------------------------
+.. code-block:: python
 
-    .. code-block:: python
+    df.iat[1, 2]
+    # 1
 
-        df.iat[1, 2]
-        # 1
+Set value at specified row/column pair
+--------------------------------------
+.. code-block:: python
 
-Set value at specified row/column pair:
+    df.iat[1, 2] = 10
+    df.iat[1, 2]
+    # 10
 
-    .. code-block:: python
+Get value within a series
+-------------------------
+.. code-block:: python
 
-        df.iat[1, 2] = 10
-        df.iat[1, 2]
-        # 10
+    df.loc[0].iat[1]
+    # 2
 
-Get value within a series:
+``pd.DataFrame`` properties
+===========================
+.. code-block:: python
 
-    .. code-block:: python
+    values = np.random.randn(6, 4)
+    columns = ['A', 'B', 'C', 'D']
+    indexes = pd.date_range('1970-01-01', periods=6)
+    # DatetimeIndex(['1970-01-01',
+    #                '1970-01-02',
+    #                '1970-01-03',
+    #                '1970-01-04',
+    #                '1970-01-05',
+    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
 
-        df.loc[0].iat[1]
-        # 2
+    df = pd.DataFrame(values, index=indexes, columns=columns)
 
-
-Show ``DataFrame`` index
-========================
+Indexes
+-------
 .. code-block:: python
 
     df.index
     # DatetimeIndex(['1970-01-01', '1970-01-02', '1970-01-03', '1970-01-04', '1970-01-05', '1970-01-06'],
     #               dtype='datetime64[ns]', freq='D')
 
-
-Show ``DataFrame`` columns
-==========================
+Columns
+-------
 .. code-block:: python
 
     df.columns
     # Index(['A', 'B', 'C', 'D'], dtype='object')
 
 
-First ``n`` records in ``DataFrame``
-====================================
+Show data
+=========
+.. code-block:: python
+
+    values = np.random.randn(6, 4)
+    columns = ['A', 'B', 'C', 'D']
+    indexes = pd.date_range('1970-01-01', periods=6)
+    # DatetimeIndex(['1970-01-01',
+    #                '1970-01-02',
+    #                '1970-01-03',
+    #                '1970-01-04',
+    #                '1970-01-05',
+    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
+
+    df = pd.DataFrame(values, index=indexes, columns=columns)
+
+First ``n`` records
+-------------------
 .. code-block:: python
 
     df.head(2)
@@ -382,9 +438,8 @@ First ``n`` records in ``DataFrame``
     # 1970-01-01  0.131926 -1.825204 -1.909562  1.274718
     # 1970-01-02  0.084471 -0.932586  0.160637 -0.275183
 
-
-Last ``n`` records in ``DataFrame``
-===================================
+Last ``n`` records
+------------------
 .. code-block:: python
 
     df.tail(3)
@@ -396,6 +451,19 @@ Last ``n`` records in ``DataFrame``
 
 Sorting
 =======
+.. code-block:: python
+
+    values = np.random.randn(6, 4)
+    columns = ['A', 'B', 'C', 'D']
+    indexes = pd.date_range('1970-01-01', periods=6)
+    # DatetimeIndex(['1970-01-01',
+    #                '1970-01-02',
+    #                '1970-01-03',
+    #                '1970-01-04',
+    #                '1970-01-05',
+    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
+
+    df = pd.DataFrame(values, index=indexes, columns=columns)
 
 Sort by index
 -------------
@@ -455,8 +523,145 @@ Sort by values
 =========== =========== =========== =========== =========
 
 
-Transpose ``DataFrame``
-=======================
+Modifying ``pd.DataFrame``
+==========================
+.. code-block:: python
+
+    df = pd.DataFrame([ {'A': 1, 'B': 2},
+                        {'C': 3}])
+
+.. csv-table::
+    :header-rows: 1
+
+    "", "A", "B", "C"
+    "0", "1.0", "2.0", "NaN"
+    "1", "NaN", "NaN", "3.0"
+
+Adding column
+-------------
+.. code-block:: python
+
+    df['Z'] = ['aa', 'bb']
+
+=== === === === ==
+    A   B   C   Z
+=== === === === ==
+0   1.0 2.0 NaN aa
+1   NaN NaN 3.0 bb
+=== === === === ==
+
+Remove missing values
+---------------------
+* ``any`` : If any ``NA`` values are present, drop that row or column
+* ``all`` : If all values are ``NA``, drop that row or column
+
+.. code-block:: python
+
+    df = pd.DataFrame([{'A': 1, 'B': 2}, {'B': 2, 'C': 3}])
+
+=== === === ===
+    A   B   C
+=== === === ===
+0   1.0 2.0 NaN
+1   NaN 2.0 3.0
+=== === === ===
+
+.. code-block:: python
+
+    df.dropna(how='all')
+
+=== === === ===
+    A   B   C
+=== === === ===
+0   1.0 2.0 NaN
+1   NaN 2.0 3.0
+=== === === ===
+
+.. code-block:: python
+
+    df.dropna(how='any')
+
+=== === === ===
+    A   B   C
+=== === === ===
+
+.. code-block:: python
+
+    df.dropna(how='any', axis=1)
+
+=== ===
+    B
+=== ===
+0   2.0
+1   2.0
+=== ===
+
+Fill ``NA``/``NaN`` values using the specified method
+-----------------------------------------------------
+* ``ffill``: propagate last valid observation forward to next valid backfill
+* ``bfill``: use NEXT valid observation to fill gap
+
+.. code-block:: python
+
+    df.fillna(0.0)
+
+=== === === ===
+    A   B   C
+=== === === ===
+0   1.0 2.0 NaN
+1   NaN 2.0 3.0
+=== === === ===
+
+.. code-block:: python
+
+    values = {'A': 5, 'B': 7, 'C': 9}
+    df.fillna(values)
+
+=== === === ===
+    A   B   C
+=== === === ===
+0   1.0 2.0 9.0
+1   5.0 2.0 3.0
+=== === === ===
+
+.. code-block:: python
+
+    df.fillna(method='ffill')
+
+=== === === ===
+    A   B   C
+=== === === ===
+0   1.0 2.0 NaN
+1   1.0 2.0 3.0
+=== === === ===
+
+.. code-block:: python
+
+    df.fillna(method='bfill')
+
+=== === === ===
+    A   B   C
+=== === === ===
+0   1.0 2.0 3.0
+1   NaN 2.0 3.0
+=== === === ===
+
+Transpose
+---------
+.. code-block:: python
+
+    values = np.random.randn(6, 4)
+    columns = ['A', 'B', 'C', 'D']
+    indexes = pd.date_range('1970-01-01', periods=6)
+    # DatetimeIndex(['1970-01-01',
+    #                '1970-01-02',
+    #                '1970-01-03',
+    #                '1970-01-04',
+    #                '1970-01-05',
+    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
+
+    df = pd.DataFrame(values, index=indexes, columns=columns)
+
 .. code-block:: python
 
     df.T
@@ -472,178 +677,175 @@ D   1.274718    -0.275183  -0.042493  1.328745   0.510512   0.047176
 === ========== =========== ========== ========== ========== ==========
 
 
-Adding columns
-==============
+Statistics
+==========
 .. code-block:: python
 
-    df3['Z'] = ['aa', 'bb']
+    values = np.random.randn(6, 4)
+    columns = ['A', 'B', 'C', 'D']
+    indexes = pd.date_range('1970-01-01', periods=6)
+    # DatetimeIndex(['1970-01-01',
+    #                '1970-01-02',
+    #                '1970-01-03',
+    #                '1970-01-04',
+    #                '1970-01-05',
+    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
 
-=== === === === ==
-    A   B   C   Z
-=== === === === ==
-0   1.0 2.0 NaN aa
-1   NaN NaN 3.0 bb
-=== === === === ==
+    df = pd.DataFrame(values, index=indexes, columns=columns)
 
-Zmiana pojedynczej wartości może być również zrobiona przez przypisanie; używamy wtedy komend lokalizacyjnych, np:
-
-
-Removing ``NaN`` values
-=======================
-.. code-block:: python
-
-    df3 = pd.DataFrame([{'A': 1, 'B': 2}, {'B': 2, 'C': 3}])
-
-=== === === ===
-    A   B   C
-=== === === ===
-0   1.0 2.0 NaN
-1   NaN 2.0 3.0
-=== === === ===
-
-.. code-block:: python
-
-    df3.dropna(how='all')
-
-=== === === ===
-    A   B   C
-=== === === ===
-0   1.0 2.0 NaN
-1   NaN 2.0 3.0
-=== === === ===
-
-.. code-block:: python
-
-    df3.dropna(how='any')
-
-=== === === ===
-    A   B   C
-=== === === ===
-
-.. code-block:: python
-
-    df3.dropna(how='any', axis=1)
-
-=== ===
-    B
-=== ===
-0   2.0
-1   2.0
-=== ===
-
-
-Substituting ``NaN`` values
-===========================
-.. code-block:: python
-
-    df3.fillna(0.0)
-
-=== === === ===
-    A   B   C
-=== === === ===
-0   1.0 2.0 NaN
-1   NaN 2.0 3.0
-=== === === ===
-
-.. code-block:: python
-
-    values={'A': 5, 'B': 7, 'C': 9}
-    df3.fillna(values)
-
-=== === === ===
-    A   B   C
-=== === === ===
-0   1.0 2.0 9.0
-1   5.0 2.0 3.0
-=== === === ===
-
-.. code-block:: python
-
-    df3.fillna(method='ffill')
-
-=== === === ===
-    A   B   C
-=== === === ===
-0   1.0 2.0 NaN
-1   1.0 2.0 3.0
-=== === === ===
-
-.. code-block:: python
-
-    df3.fillna(method='bfill')
-
-=== === === ===
-    A   B   C
-=== === === ===
-0   1.0 2.0 3.0
-1   NaN 2.0 3.0
-=== === === ===
-
-
-Descriptive Statistics
-======================
+Arithmetic mean
+---------------
 .. code-block:: python
 
     df.mean()
+    # A   -0.078742
+    # B    0.241929
+    # C    0.110231
+    # D   -0.092946
+    # dtype: float64
+
+Descriptive stats
+-----------------
+.. code-block:: python
+
     df.describe()
+    #               A          B          C          D
+    # count  6.000000   6.000000   6.000000   6.000000
+    # mean  -0.078742   0.241929   0.110231  -0.092946
+    # std    0.690269   0.845521   0.746167   1.207483
+    # min   -0.928127  -0.931601  -0.812575  -1.789321
+    # 25%   -0.442016  -0.275899  -0.359650  -0.638282
+    # 50%   -0.202288   0.287667  -0.045933  -0.332729
+    # 75%    0.189195   0.882916   0.733453   0.902115
+    # max    1.062487   1.190259   1.036800   1.323504
 
-======= =========== =========== =========== =========
-        A           B           C           D
-======= =========== =========== =========== =========
-count   6.000000    6.000000    6.000000    6.000000
-mean    -0.019161   -0.299278   -0.703791   0.473913
-std     0.988715    1.162060    0.943273    0.690404
-min     -1.308835   -1.825204   -1.909562   -0.275183
-25%     -0.709701   -0.906424   -1.449953   -0.020076
-50%     0.108199    -0.556688   -0.596554   0.278844
-75%     0.475461    0.489954    0.011598    1.083666
-max     1.361922    1.327082    0.400024    1.328745
-======= =========== =========== =========== =========
+Percentiles
+-----------
+.. code-block:: python
 
-Dodatkowo, można używać funkcji znanych z baz danych jak grupowanie czy złączenie (join):
+    values = np.array([[1, 1], [2, 10], [3, 100], [4, 100]])
+    columns = ['a', 'b']
+
+    df = pd.DataFrame(values, columns=columns)
+    #    a    b
+    # 0  1    1
+    # 1  2   10
+    # 2  3  100
+    # 3  4  100
+
+.. code-block:: python
+
+    df.quantile(.1)
+    # a    1.3
+    # b    3.7
+    # dtype: float64
+
+.. code-block:: python
+
+    df.quantile([.1, .5])
+    #        a     b
+    # 0.1  1.3   3.7
+    # 0.5  2.5  55.0
 
 
 Grouping
 ========
 .. code-block:: python
 
-    df2.groupby('E').size()
-    df2.groupby('E').mean()
+    values = np.random.randn(6, 4)
+    columns = ['A', 'B', 'C', 'D']
+    indexes = pd.date_range('1970-01-01', periods=6)
+    # DatetimeIndex(['1970-01-01',
+    #                '1970-01-02',
+    #                '1970-01-03',
+    #                '1970-01-04',
+    #                '1970-01-05',
+    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
+
+    df = pd.DataFrame(values, index=indexes, columns=columns)
+
+By count of elements
+--------------------
+.. code-block:: python
+
+    df.groupby('D').size()
+    # D
+    # -1.789321    1
+    # -0.709686    1
+    # -0.424071    1
+    # -0.241387    1
+    #  1.283282    1
+    #  1.323504    1
+    # dtype: int64
+
+By mean of elements
+-------------------
+.. code-block:: python
+
+    df.groupby('D').mean()
+    #                   A           B    C
+    #         D
+    # -1.789321   0.257330   1.190259   0.074459
+    # -0.709686  -0.459565   0.827296   0.953118
+    # -0.424071   1.062487  -0.251961  -0.424092
+    # -0.241387  -0.928127  -0.931601   1.036800
+    # 1.283282   -0.015208   0.901456  -0.812575
+    # 1.323504   -0.389369  -0.283878  -0.166324
 
 
 Joins
 =====
 .. code-block:: python
 
-    df2.join(df3, how='left', rsuffix='_3')  # gdyby była kolizja nazw kolumn, to dodaj suffix '_3'
-    df2.merge(df3)
-    df2.merge(df3, how='outer')
+    values = np.random.randn(6, 4)
+    columns = ['A', 'B', 'C', 'D']
+    indexes = pd.date_range('1970-01-01', periods=6)
+    # DatetimeIndex(['1970-01-01',
+    #                '1970-01-02',
+    #                '1970-01-03',
+    #                '1970-01-04',
+    #                '1970-01-05',
+    #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
+
+    df1 = pd.DataFrame(values, index=indexes, columns=columns)
+    df2 = pd.DataFrame([ {'A': 1, 'B': 2},
+                         {'C': 3}])
+
+Left Join
+---------
+.. code-block:: python
+
+    df1.join(df2, how='left', rsuffix='_2')  # gdyby była kolizja nazw kolumn, to dodaj suffix '_2'
 
 .. code-block:: python
 
-    # Odpowiednik:
-    # df2.join(df3, how='left', rsuffix='_3')
-    df2.merge(df3, right_index=True, left_index=True, how='left', suffixes=('', '_3'))
+    df1.merge(df2, right_index=True, left_index=True, how='left', suffixes=('', '_2'))
+
+Outer Join
+----------
+.. code-block:: python
+
+    df1.merge(df2)
+    df1.merge(df2, how='outer')
+
+Append
+------
+* jak robi appenda, to nie zmienia indeksów (uwaga na indeksy powtórzone)
+* nowy dataframe będzie miał kolejne indeksy
 
 .. code-block:: python
 
-    df2.append(df3)                     # jak robi appenda, to nie zmienia indeksów (uwaga na indeksy powtórzone)
-    df2.append(df3, ignore_index=True)  # nowy dataframe będzie miał kolejne indeksy
+    df1.append(df2)
+    df1.append(df2, ignore_index=True)
 
+Concat
+------
+* Przydatne przy łączeniu dataframe wczytanych z wielu plików
 .. code-block:: python
 
-    # Przydatne przy łączeniu dataframe wczytanych z wielu plików
-    pd.concat([df2, df3])
-    pd.concat([df2, df3], ignore_index=True)
-    pd.concat([df2, df3], join='inner')
-
-
-Percentiles
-===========
-.. code-block:: python
-
-    df.qualtile(0.33)
-    df.qualtile(0.33, 0.1, 0.99)
+    pd.concat([df1, df2])
+    pd.concat([df1, df2], ignore_index=True)
+    pd.concat([df1, df2], join='inner')
 
 
 Practical Example
@@ -742,24 +944,6 @@ Iris Clean
     * Lines of code to write: 25 lines
     * Estimated time of completion: 25 min
 
-EVA
----
-#. Na podstawie podanych URL:
-
-    * https://www.worldspaceflight.com/bios/eva/eva.php
-    * https://www.worldspaceflight.com/bios/eva/eva2.php
-    * https://www.worldspaceflight.com/bios/eva/eva3.php
-    * https://www.worldspaceflight.com/bios/eva/eva4.php
-
-#. Scrappuj stronę wykorzystując ``pandas.read_html()``
-#. Połącz dane wykorzystując ``pd.concat``
-#. Przygotuj plik ``CSV`` z danymi dotyczącymi spacerów kosmicznych
-
-:About:
-    * Filename: ``pandas_eva.py``
-    * Lines of code to write: 25 lines
-    * Estimated time of completion: 30 min
-
 Cars
 ----
 #. Stwórz ``DataFrame`` samochody z:
@@ -790,3 +974,21 @@ Cars
     * Filename: ``pandas_cars.py``
     * Lines of code to write: 15 lines
     * Estimated time of completion: 45 min
+
+EVA
+---
+#. Na podstawie podanych URL:
+
+    * https://www.worldspaceflight.com/bios/eva/eva.php
+    * https://www.worldspaceflight.com/bios/eva/eva2.php
+    * https://www.worldspaceflight.com/bios/eva/eva3.php
+    * https://www.worldspaceflight.com/bios/eva/eva4.php
+
+#. Scrappuj stronę wykorzystując ``pandas.read_html()``
+#. Połącz dane wykorzystując ``pd.concat``
+#. Przygotuj plik ``CSV`` z danymi dotyczącymi spacerów kosmicznych
+
+:About:
+    * Filename: ``pandas_eva.py``
+    * Lines of code to write: 25 lines
+    * Estimated time of completion: 30 min
