@@ -20,5 +20,6 @@ iris.dropna(how='all', inplace=True)
 iris['datetime'] = datetime.now(tz=timezone.utc)
 iris['big_enough'] = np.where(iris['Petal width'] > 1.0, True, False)
 
-iris = iris[['Sepal length', 'Sepal width', 'Species']]
+columns = ['Sepal length', 'Sepal width', 'Species']
+iris = iris[columns]
 iris.describe()
