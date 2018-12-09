@@ -265,7 +265,7 @@ Even Numbers
 
 Slicing
 -------
-#. Stwórz ``pd.Series`` z 24 losowymi liczbami z przedziału ``[10, 100)``
+#. Stwórz ``pd.Series`` z 24 losowymi liczbami całkowitymi z przedziału ``[10, 100)``
 #. Nazwij indeksy jak kolejne litery alfabetu łacińskiego (bez polskich znaków)
 #. Za pomocą funkcji statystycznych znajdź medianę alfabetu
 #. Wytnij z serii po 3 elementy w prawo i w lewo od mediany
