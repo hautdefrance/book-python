@@ -16,15 +16,7 @@ features = [
     DATABASE[25:29],
 ]
 
-labels = [
-    DATABASE[4],
-    DATABASE[9],
-    DATABASE[14],
-    DATABASE[19],
-    DATABASE[24],
-    DATABASE[29],
-]
-
+labels = list(DATABASE[4::5])
 species = set(labels)
 
 print(f'Features:\n{features}\n')

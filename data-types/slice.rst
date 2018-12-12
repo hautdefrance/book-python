@@ -14,9 +14,9 @@ Accessing element from start
 
     text = 'We choose to go to the Moon!'
 
-    text[0]             # 'W'
-    text[1]             # 'e'
-    text[23]            # 'M'
+    text[0]   # 'W'
+    text[1]   # 'e'
+    text[23]  # 'M'
 
 Accessing element from back
 ---------------------------
@@ -24,8 +24,8 @@ Accessing element from back
 
     text = 'We choose to go to the Moon!'
 
-    text[-1]            # '!'
-    text[-5]            # 'M'
+    text[-1]  # '!'
+    text[-5]  # 'M'
 
 Accessing not existing element
 ------------------------------
@@ -33,7 +33,8 @@ Accessing not existing element
 
     text = 'We choose to go to the Moon!'
 
-    text[100]           # IndexError: string index out of range
+    text[100]
+    # IndexError: string index out of range
 
 
 Accessing range of elements
@@ -45,10 +46,10 @@ Accessing slice from start
 
     text = 'We choose to go to the Moon!'
 
-    text[0:2]             # 'We'
-    text[:2]              # 'We'
-    text[3:9]             # 'choose'
-    text[23:28]           # 'Moon!'
+    text[0:2]    # 'We'
+    text[:2]     # 'We'
+    text[3:9]    # 'choose'
+    text[23:28]  # 'Moon!'
 
 Accessing slice from back
 -------------------------
@@ -56,16 +57,16 @@ Accessing slice from back
 
     text = 'We choose to go to the Moon!'
 
-    text[-5:]             # 'Moon!'
-    text[-5:-1]           # 'Moon'
-    text[:-6]             # 'We choose to go to the'
+    text[-5:]    # 'Moon!'
+    text[-5:-1]  # 'Moon'
+    text[:-6]    # 'We choose to go to the'
 
 .. code-block:: python
 
     text = 'We choose to go to the Moon!'
 
-    text[4:-2]            # 'hoose to go to the Moo'
-    text[-5:5]            # ''
+    text[4:-2]  # 'hoose to go to the Moo'
+    text[-5:5]  # ''
 
 Accessing slice not existing elements
 -------------------------------------
@@ -73,8 +74,8 @@ Accessing slice not existing elements
 
     text = 'We choose to go to the Moon!'
 
-    text[:100]            # 'We choose to go to the Moon!'
-    text[100:]            # ''
+    text[:100]  # 'We choose to go to the Moon!'
+    text[100:]  # ''
 
 Accessing slice from all elements
 ---------------------------------

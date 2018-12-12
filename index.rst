@@ -30,6 +30,7 @@ Basic Types and Data Structures
     /data-types/sequences.rst
     /data-types/key-value.rst
     /data-types/nested.rst
+    /data-types/types.rst
 
 ************
 Control Flow

@@ -276,3 +276,38 @@ Report card
 
 :Hints:
     * ``average = sum(...) / len(...)``
+
+Split train/test
+----------------
+#. Mając do dyspozycji zbiór danych Irysów z listingu poniżej:
+
+    .. literalinclude:: assignment/sequence-iris-sample.py
+        :language: python
+        :caption: Sample Iris databases
+
+#. Zapisz nagłówek (pierwsza linia) do zmiennej
+#. Zapisz do innej zmiennej dane bez nagłówka
+#. Wylicz punkt podziału: ilość rekordów danych bez nagłówka razy procent
+#. Podziel zbiór na listy w proporcji:
+
+    - ``X_train: List[Tuple[float]]`` - features do uczenia - 60%
+    - ``X_test: List[Tuple[float]]`` - features do testów - 40%
+    - ``y_train: List[str]`` - labels do uczenia - 60%
+    - ``y_test: List[str]`` - labels do testów - 40%
+
+#. Z danych bez nagłówka zapisz do uczenia rekordy od początku do punktu podziału
+#. Z danych bez nagłówka zapisz do testów rekordy od punktu podziału do końca
+#. Dane ``X_train, X_test, y_train, y_test`` wygeneruj za pomocą List Comprehensions
+#. Stwórz ``result: tuple`` z ``X_train, X_test, y_train, y_test``
+#. Wypisz na ekranie ``result``
+
+:About:
+    * Filename: ``sequences_split_train_test.py``
+    * Lines of code to write: 6 lines
+    * Estimated time of completion: 15 min
+
+:The whys and wherefores:
+    * Umiejętność przetwarzania złożonych typów danych
+    * Korzystanie z przecięć danych
+    * Konwersja typów
+    * Magic Number

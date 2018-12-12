@@ -120,7 +120,7 @@ Variables and constants
 
         name = 'José Jiménez'
         NAME = 'Иван Иванович'
-        Name = 'Matt Kowalski'
+        Name = 'Pan Twardowski'
 
 Variable declaration
 --------------------
@@ -159,7 +159,7 @@ Variables vs. constants
 
         name = 'José Jiménez'
         NAME = 'Иван Иванович'
-        Name = 'Matt Kowalski'
+        Name = 'Pan Twardowski'
 
 * Python do not distinguish between variables and constants
 * Python allows you to change "constants" but it's a bad practice (good IDE will tell you)
@@ -168,51 +168,6 @@ Variables vs. constants
 
         NAME = 'José Jiménez'
         NAME = 'Иван Иванович'
-
-Type inference
---------------
-* Static Typing (Java, C++, Swift)
-
-    .. code-block:: java
-
-        String name = new String("José Jiménez")
-
-* Dynamic Typing (Python, PHP, Ruby)
-
-    .. code-block:: python
-
-        # Type inference
-        name = 'José Jiménez'
-        name = str('José Jiménez')
-
-Types
------
-* Since Python 3.5
-* ``SyntaxError`` in Python before 3.5
-* Two names: type hints and type annotations
-* Types are not required, and never will be (quote from Guido van Rossum, Python BDFL)
-* To check types you have to use IDE or modules like ``mypy`` or ``pyre-check``
-* Types are used extensively in system libraries
-* More and more books and documentations use types
-* Declaring objects with types:
-
-    .. code-block:: python
-
-        name: str = 'José Jiménez'
-        age: int = 30
-
-* Types do not enforce checking:
-
-    .. code-block:: python
-
-        # This code will run without any problems
-        # Although ``mypy`` or ``pyre-check`` will throw error
-        name: int = 'José Jiménez'
-        age: float = 30
-
-More advanced topics
---------------------
-.. note:: The topic will be continued in chapter: :ref:`Software Engineering Conventions`
 
 
 ``print()``

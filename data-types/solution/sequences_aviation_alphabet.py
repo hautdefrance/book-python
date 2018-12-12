@@ -27,7 +27,7 @@ ALPHABET = {
 }
 
 letter = input('Type letter: ')
-letter = letter[0].upper()
+letter = letter.upper()
 output = ALPHABET.get(letter, "Pilots don't say that")
 
 print(output)

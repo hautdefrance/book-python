@@ -1,28 +1,45 @@
-a = '  Jana III Sobieskiego 1 apt 2'.replace('1', '').replace('2', '')
-b = 'ul Jana III SobIESkiego 1/2'
-c = '\tul. Jana trzeciego Sobieskiego 1/2'
-d = 'ulicaJana III Sobieskiego 1/2'
-e = 'UL. JA\tNA 3 SOBIES\tKIEGO 1/2'
-f = 'UL. III SOBiesKIEGO 1/2'
-g = 'ULICA JANA III SOBIESKIEGO 1 /2  '
-h = 'ULICA. JANA III SOBI'
-i = ' Jana 3 Sobieskiego 1/2 '
-j = 'Jana III Sobieskiego 1 m. 2'
-k = 'ul.Jana III Sob\n\nieskiego 1/2'
+PROCENT = 0.6
+DATABASE = [
+    ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+    (5.8, 2.7, 5.1, 1.9, 'virginica'),
+    (5.1, 3.5, 1.4, 0.2, 'setosa'),
+    (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+    (6.3, 2.9, 5.6, 1.8, 'virginica'),
+    (6.4, 3.2, 4.5, 1.5, 'versicolor'),
+    (4.7, 3.2, 1.3, 0.2, 'setosa'),
+    (7.0, 3.2, 4.7, 1.4, 'versicolor'),
+    (7.6, 3.0, 6.6, 2.1, 'virginica'),
+    (4.9, 3.0, 1.4, 0.2, 'setosa'),
+    (4.9, 2.5, 4.5, 1.7, 'virginica'),
+    (7.1, 3.0, 5.9, 2.1, 'virginica'),
+    (4.6, 3.4, 1.4, 0.3, 'setosa'),
+    (5.4, 3.9, 1.7, 0.4, 'setosa'),
+    (5.7, 2.8, 4.5, 1.3, 'versicolor'),
+    (5.0, 3.6, 1.4, 0.3, 'setosa'),
+    (5.5, 2.3, 4.0, 1.3, 'versicolor'),
+    (6.5, 3.0, 5.8, 2.2, 'virginica'),
+    (6.5, 2.8, 4.6, 1.5, 'versicolor'),
+    (6.3, 3.3, 6.0, 2.5, 'virginica'),
+    (6.9, 3.1, 4.9, 1.5, 'versicolor'),
+    (4.6, 3.1, 1.5, 0.2, 'setosa'),
+]
+
+data = DATABASE[1:]
+
+punkt_podzialu = int(len(data) * PROCENT)
+
+X_train = data[:punkt_podzialu]
+X_test = data[punkt_podzialu:]
 
 
-expected = 'Jana III Sobieskiego'
-print(f'{a == expected}\t a: "{a}"')
-print(f'{b == expected}\t b: "{b}"')
-print(f'{c == expected}\t c: "{c}"')
-print(f'{d == expected}\t d: "{d}"')
-print(f'{e == expected}\t e: "{e}"')
-print(f'{f == expected}\t f: "{f}"')
-print(f'{g == expected}\t g: "{g}"')
-print(f'{h == expected}\t h: "{h}"')
-print(f'{i == expected}\t i: "{i}"')
-print(f'{j == expected}\t j: "{j}"')
-print(f'{k == expected}\t k: "{k}"')
+
+
+
+
+
+
+
+
 
 
 

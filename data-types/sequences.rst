@@ -354,8 +354,28 @@ Built-in functions on sequences
     max(numbers)  # 5
     max(3, 1, 5)  # 5
 
-``sorted()`` and ``sort()``
----------------------------
+``sorted()``
+------------
+.. code-block:: python
+
+    numbers = [3, 1, 2]
+
+    numbers = sorted(numbers)
+    print(numbers)  # [1, 2, 3]
+
+
+ ``list.sort()``
+----------------
+.. code-block:: python
+
+    numbers = [3, 1, 2]
+
+    numbers.sort()
+    print(numbers)
+
+
+
+
 * ``sorted()`` zwraca posortowaną listę, ale nie zapisuje zmienionej kolejności
 * ``.sort()`` zmienia listę na stałe
 
@@ -390,72 +410,80 @@ More advanced topics
 Assignments
 ===========
 
-Iris dataset
-------------
-#. Mając dane z listingu poniżej, za pomocą slice wyodrębnij...
-#. Zmienną ``features: List[Tuple[float]]`` z wynikami pomiarów
-#. Zmienną ``labels: List[str]``, która będzie zawierała w kolejności wszystkie nazwy gatunków
-#. Zmienną ``species: Set[str]``, która jest unikalnym zbiorem gatunków (na podstawie ``labels``)
-
-.. code-block:: python
-
-    DATABASE = (
-        5.8, 2.7, 5.1, 1.9, 'virginica',
-        5.1, 3.5, 1.4, 0.2, 'setosa',
-        5.7, 2.8, 4.1, 1.3, 'versicolor',
-        6.3, 2.9, 5.6, 1.8, 'virginica',
-        6.4, 3.2, 4.5, 1.5, 'versicolor',
-        4.7, 3.2, 1.3, 0.2, 'setosa',
-    )
-
-.. code-block:: python
-
-    features = [
-        (5.8, 2.7, 5.1, 1.9),
-        (5.1, 3.5, 1.4, 0.2),
-        (5.7, 2.8, 4.1, 1.3),
-        (6.3, 2.9, 5.6, 1.8),
-        (6.4, 3.2, 4.5, 1.5),
-        (4.7, 3.2, 1.3, 0.2),
-    ]
-
-    labels = [
-        'virginica',
-        'setosa',
-        'versicolor',
-        'virginica',
-        'versicolor',
-        'setosa',
-    ]
-
-    species = {
-        'versicolor',
-        'setosa',
-        'virginica',
-    }
+Simple collections
+------------------
+#. Stwórz ``a: tuple`` z cyframi 0, 1, 2, 3
+#. Stwórz ``b: list`` z cyframi 2, 3, 4, 5
+#. Stwórz ``c: set``, który będzie zawierał co drugie elementy z ``a`` i ``b``
+#. Wyświetl ``c`` na ekranie
 
 :About:
-    * Filename: ``sequences_iris.py``
-    * Lines of code to write: 30 lines
-    * Estimated time of completion: 20 min
+    * Filename: ``sequences_simple.py``
+    * Lines of code to write: 5 lines
+    * Estimated time of completion: 10 min
 
 :The whys and wherefores:
     * Definiowanie i korzystanie z ``list``, ``tuple``, ``set``
     * Slice zbiorów danych
     * Rzutowanie i konwersja typów
 
+Iris dataset
+------------
+#. Mając dane z listingu poniżej
 
-Simple collections
-------------------
-#. Stwórz ``tuple`` z cyframi 0, 1, 2, 3
-#. Przekonwertuj ją do ``list``
-#. Na pierwsze miejsce w liście dodaj całą oryginalną ``tuple``
-#. Przekonwertuj wszystko na płaski ``set`` unikalnych wartości wykorzystując ``slice``
+    .. code-block:: python
+
+        DATA = (
+            5.8, 2.7, 5.1, 1.9, 'virginica',
+            5.1, 3.5, 1.4, 0.2, 'setosa',
+            5.7, 2.8, 4.1, 1.3, 'versicolor',
+            6.3, 2.9, 5.6, 1.8, 'virginica',
+            6.4, 3.2, 4.5, 1.5, 'versicolor',
+            4.7, 3.2, 1.3, 0.2, 'setosa',
+        )
+
+# Za pomocą slice wyodrębnij zmienną...
+
+    #. ``features: List[Tuple[float]]`` z wynikami pomiarów
+
+        .. code-block:: python
+
+            features = [
+                (5.8, 2.7, 5.1, 1.9),
+                (5.1, 3.5, 1.4, 0.2),
+                (5.7, 2.8, 4.1, 1.3),
+                (6.3, 2.9, 5.6, 1.8),
+                (6.4, 3.2, 4.5, 1.5),
+                (4.7, 3.2, 1.3, 0.2),
+            ]
+
+    #. ``labels: List[str]``, która będzie zawierała w kolejności wszystkie nazwy gatunków
+
+        .. code-block:: python
+
+            labels = [
+                'virginica',
+                'setosa',
+                'versicolor',
+                'virginica',
+                'versicolor',
+                'setosa',
+            ]
+
+    #. ``species: Set[str]``, która jest unikalnym zbiorem gatunków (na podstawie ``labels``)
+
+        .. code-block:: python
+
+            species = {
+                'versicolor',
+                'setosa',
+                'virginica',
+            }
 
 :About:
-    * Filename: ``sequences_conversions.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 10 min
+    * Filename: ``sequences_iris.py``
+    * Lines of code to write: 30 lines
+    * Estimated time of completion: 20 min
 
 :The whys and wherefores:
     * Definiowanie i korzystanie z ``list``, ``tuple``, ``set``
