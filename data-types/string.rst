@@ -20,8 +20,8 @@ Defining ``str``
 
 .. code-block:: python
 
-    name = 'José'       # 'José'
-    name = "José"       # 'José'
+    name = 'Pan Twardowski'       # 'Pan Twardowski'
+    name = "Pan Twardowski"       # 'Pan Twardowski'
 
 Multiline ``str``
 -----------------
@@ -75,8 +75,8 @@ When use double quotes?
 -----------------------
     .. code-block:: python
 
-        my_str = 'it\'s José\'s book'
-        my_str = "it's José's book"
+        my_str = 'It\'s Twardowski\'s Moon.'
+        my_str = "It's Twardowski's Moon."
 
 
 When use single quotes?
@@ -121,36 +121,69 @@ Other escape characters
 
     \x1F680     # after \x goes hexadecimal number
     \U0001F680  # after \u goes four hexadecimal numbers
-    🚀
+
+.. code-block:: python
+
+    print('\U0001F680')     # 🚀
 
 
 Characters before strings
 =========================
-* Format string: since Python 3.6
-* In Python 3 ``str`` is Unicode
-* In Python 2 ``str`` is Bytes
-* In Python 2 to make unicode ``str``, you need to use ``u'...'`` prefix
-* In Python 3 ``u'...'`` is only for compatibility with Python 2
-* ``bytes`` is a sequence of octets (integers between 0 and 255)
-
 .. csv-table:: String modifiers
     :header-rows: 1
     :widths: 15, 30, 55
     :file: data/str-modifiers.csv
 
+Format String
+-------------
+* Format string: since Python 3.6
+
 .. code-block:: python
 
     name = 'José Jiménez'
 
-    f'My name... {name}'
+    print(f'My name... {name}')
+    # My name... José Jiménez
+
+Unicode string
+--------------
+* In Python 3 ``str`` is Unicode
+* In Python 2 ``str`` is Bytes
+* In Python 3 ``u'...'`` is only for compatibility with Python 2
+
+.. code-block:: python
+
     u'zażółć gęślą jaźń'
+
+Bytes sequence
+--------------
+* Used while reading from low level devices and drivers
+* Used in sockets and HTTP connections
+* ``bytes`` is a sequence of octets (integers between 0 and 255)
+
+.. code-block:: python
+
     b'this is bytes literals'
+
+Raw String
+----------
+.. code-block:: python
+
     r'(?P<foo>)\n'
     r'C:\Users\Admin\file.txt'
 
 .. code-block:: python
 
-    print('C:\Users\Admin\file.txt')
+    path = r'C:\Users\Admin\file.txt'
+
+    print(path)
+    # C:\Users\Admin\file.txt
+
+.. code-block:: python
+
+    path = 'C:\Users\Admin\file.txt'
+
+    print(path)
     # SyntaxError: (unicode error) 'unicodeescape'
     #   codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape
 
@@ -426,14 +459,14 @@ String cleaning
     a = '  Jana III Sobieskiego 1 apt 2'
     b = 'ul Jana III SobIESkiego 1/2'
     c = '\tul. Jana trzeciego Sobieskiego 1/2'
-    d = 'ul.Jana III Sob\n\nieskiego 1/2'
-    e = 'ulicaJana III Sobieskiego 1/2'
-    f = 'UL. JA\tNA 3 SOBIES\tKIEGO 1/2'
-    g = 'UL. III SOBiesKIEGO 1/2'
-    h = 'ULICA JANA III SOBIESKIEGO 1 /2  '
-    i = 'ULICA. JANA III SOBI'
-    j = ' Jana 3 Sobieskiego 1/2 '
-    k = 'Jana III Sobieskiego 1 m. 2'
+    d = 'ulicaJana III Sobieskiego 1/2'
+    e = 'UL. JA\tNA 3 SOBIES\tKIEGO 1/2'
+    f = 'UL. III SOBiesKIEGO 1/2'
+    g = 'ULICA JANA III SOBIESKIEGO 1 /2  '
+    h = 'ULICA. JANA III SOBI'
+    i = ' Jana 3 Sobieskiego 1/2 '
+    j = 'Jana III Sobieskiego 1 m. 2'
+    k = 'ul.Jana III Sob\n\nieskiego 1/2'
 
 
     expected = 'Jana III Sobieskiego'
