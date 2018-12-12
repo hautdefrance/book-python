@@ -105,38 +105,6 @@ Logic operators
 Assignments
 ===========
 
-``True`` of ``False``
----------------------
-#. Co należy podstawić do zmiennych aby wyrażenia poniżej zgadzały się z wartością oczekiwaną?
-
-.. code-block:: python
-
-    a = bool(...) == True                       # True
-    b = bool(...) == False                      # True
-    c = bool(bool(...) == False) or False       # True
-    d = ... or ...                              # True
-    e = ... and ...                             # False
-    f = ... is None                             # True
-    g = (bool(bool(...) is not bool(...)) == False and bool(...)) and g is not None   # False
-
-    print(a)  # True
-    print(b)  # True
-    print(c)  # True
-    print(d)  # True
-    print(e)  # False
-    print(f)  # True
-    print(g)  # False
-
-:About:
-    * Filename: ``types_bool_or_none.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 5 min
-
-:The whys and wherefores:
-    * Definiowanie zmiennych
-    * Konwersja typów
-    * Typy logiczne
-
 To ``bool`` or not to ``bool``
 ------------------------------
 #. Wprowadzono zmienne:
@@ -174,3 +142,50 @@ To ``bool`` or not to ``bool``
     * Definiowanie zmiennych
     * Konwersja typów
     * Typy logiczne
+
+``True`` of ``False``
+---------------------
+#. Co należy podstawić do zmiennych aby wyrażenia poniżej zgadzały się z wartością oczekiwaną?
+
+.. code-block:: python
+
+    a = bool(...) == True                          # True
+    b = bool(...) == False                         # True
+    c = ... == True                                # True
+    d = ... != False                               # True
+    e = ... or ...                                 # True
+    f = ... and ...                                # False
+    g = bool(bool(...) == False) or False          # True
+    h = ... is None                                # True
+    i = ... is not None                            # False
+    j = bool(...) is not bool(...)                 # False
+    l = bool(bool(...) is not bool(...))           # False
+    k = bool(bool(...) is not bool(...)) == False  # True
+    l = (bool(bool(...) is not bool(...)) == False and bool(...))   # False
+    m = (bool(bool(...) is not bool(...)) == False and bool(...)) and (... is not None)   # False
+
+    print(a)  # True
+    print(b)  # True
+    print(c)  # True
+    print(d)  # True
+    print(e)  # True
+    print(f)  # False
+    print(g)  # True
+    print(h)  # True
+    print(i)  # False
+    print(j)  # False
+    print(l)  # False
+    print(k)  # True
+    print(l)  # False
+    print(m)  # False
+
+:About:
+    * Filename: ``types_bool_or_none.py``
+    * Lines of code to write: 10 lines
+    * Estimated time of completion: 5 min
+
+:The whys and wherefores:
+    * Definiowanie zmiennych
+    * Konwersja typów
+    * Typy logiczne
+
