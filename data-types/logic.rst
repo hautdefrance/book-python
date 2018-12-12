@@ -18,9 +18,6 @@ Defining ``bool``
     my_var = True
     my_var = False
 
-    my_var: bool = True
-    my_var: bool = False
-
 Converting to ``bool``
 ----------------------
 * Also known as "type casting"
@@ -114,52 +111,21 @@ Assignments
 
 .. code-block:: python
 
-    a = ...
+    a = bool(...) == True                       # True
+    b = bool(...) == False                      # True
+    c = bool(bool(...) == False) or False       # True
+    d = ... or ...                              # True
+    e = ... and ...                             # False
+    f = ... is None                             # True
+    g = (bool(bool(...) is not bool(...)) == False and bool(...)) and g is not None   # False
 
-    bool(a) == True
-    # True
-
-.. code-block:: python
-
-    b = ...
-
-    bool(b) == False
-    # True
-
-.. code-block:: python
-
-    c = ...
-
-    bool(bool(c) == False) or False
-    # True
-
-.. code-block:: python
-
-    d = ...
-
-    d or d
-    # True
-
-.. code-block:: python
-
-    e = ...
-
-    e and e
-    # False
-
-.. code-block:: python
-
-    f = ...
-
-    f is None
-    # True
-
-.. code-block:: python
-
-    g = ...
-
-    (bool(bool(g) is not bool(g)) == False and bool(g)) and g is not None
-    # False
+    print(a)  # True
+    print(b)  # True
+    print(c)  # True
+    print(d)  # True
+    print(e)  # False
+    print(f)  # True
+    print(g)  # False
 
 :About:
     * Filename: ``types_bool_or_none.py``
