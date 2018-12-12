@@ -69,9 +69,9 @@ Assignments
 Create Project in Pure Python
 -----------------------------
 #. Stwórz projekt w Twoim IDE
-#. Wybierz "Pure Python"
-#. Ustaw aby korzystać z "Virtualenv"
-#. Upewnij się, że masz Python 3.6 lub nowszy
+#. Wybierz "Pure Python" (opcja dostępna tylko w Pycharm Professional)
+#. Rozwiń listę Project Interpreter i ustaw aby korzystać z "Virtualenv"
+#. WAŻNE: Upewnij się, że masz Python 3.7 lub nowszy
 #. Po stworzeniu projektu, załóż katalog o nazwie jak twoje nazwisko i imie ``nazwisko_imie``
 #. WAŻNE: Już do końca książki w nim będą tworzone rozwiązania do wszystkich zadań
 
@@ -79,6 +79,7 @@ Create Project from GIT
 -----------------------
 #. Stwórz projekt w Twoim IDE
 #. Wykorzystaj opcję 'Create from VCS'
+#. WAŻNE: Upewnij się, że masz Python 3.7 lub nowszy
 #. Stwórz plik ``.gitignore``
 #. Wpisz linię ``.idea/`` do pliku
 #. Po stworzeniu projektu, załóż katalog o nazwie jak twoje nazwisko i imie ``nazwisko_imie``
@@ -156,7 +157,7 @@ Know thou IDE
     * Scope
 
 #. Jakie są skróty klawiszowe do poszczególnych opcji?
-#. Czym się różni ``Run...`` od ``Debug...```?
+#. Czym się różni ``Run...`` od ``Debug...``?
 #. Czym się różni ``Python Console`` od ``Terminal``
 #. Czym się różni ``Distraction Free Mode`` od ``Full Screen``
 #. Ustaw Scope tak, aby ukryć katalog z Virtualenv

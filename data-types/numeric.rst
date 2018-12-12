@@ -24,13 +24,6 @@ Defining ``int``
         million = 1000000
         million = 1_000_000
 
-* Engineering notation:
-
-    .. code-block:: python
-
-        million = 1e6
-        million = 1E6
-
 Converting to ``int``
 ---------------------
 * Also known as "type casting"
@@ -90,6 +83,13 @@ Converting to ``float``
     float('+1.23')         # 1.23
     float('-1.23')         # -1.23
 
+Engineering notation
+--------------------
+.. code-block:: python
+
+    million = 1e6
+    million = 1E6
+
 .. code-block:: python
 
     float(+1E6)            # 1000000.0
@@ -143,8 +143,8 @@ Numeric types operators
     :widths: 25, 75
     :file: data/operators-numeric.csv
 
-``round()``
------------
+Rounding numbers
+----------------
 .. code-block:: python
 
     pi = 3.14159265359
@@ -153,8 +153,8 @@ Numeric types operators
     round(pi, 2)    # 3.14
     round(pi, 4)    # 3.1416
 
-``abs()``
----------
+Absolute value
+--------------
 .. code-block:: python
 
     abs(1.5)        # 1.5
@@ -162,8 +162,8 @@ Numeric types operators
     abs(-1)         # 1
     abs(-1.5)       # 1.5
 
-``pow()``
----------
+Number to the ``n-th`` power
+----------------------------
 .. code-block:: python
 
     pow(2, 2)       # 4
@@ -194,11 +194,11 @@ Handling user input and type casting
 
 .. code-block:: python
 
-    print(f'Meters: {...}')                    # int
-    print(f'Kilometers: {...}')                # int
-    print(f'Miles: {...}')                     # float
-    print(f'Nautical Miles: {...}')            # float
-    print(f'All: {...}, {...}, {...}, {...}')  # int, int, float, float
+    print(f'Meters: {...}')                              # int
+    print(f'Kilometers: {...}')                          # int
+    print(f'Miles: {...}')                               # float
+    print(f'Nautical Miles: {...}')                      # float
+    print(f'm: {...}, km: {...}, mi: {...}, nm: {...}')  # int, int, float, float
 
 :About:
     * Filename: ``types_casting.py``

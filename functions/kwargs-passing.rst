@@ -130,6 +130,9 @@ Przykładowe zastosownaie operatorów ``*`` i ``**`` polega na wykorzystaniu ich
 
 Przykładowe zastosowanie
 ========================
+
+Konwersja Temperatury
+---------------------
 .. code-block:: python
 
     from typing import List
@@ -144,6 +147,36 @@ Przykładowe zastosowanie
     celsius_to_fahrenheit(1, 2, 3, 4, 5)
     # [33.8, 35.6, 37.4, 39.2, 41.0]
 
+Podawanie parametrów do funkcji
+-------------------------------
+.. code-block:: python
+
+    def rysuj_wykres(a, b, color, linia):
+        print(locals())
+
+
+    rysuj_wykres(1, 2, color='czerwony', linia='przerywana')
+    rysuj_wykres(3, 4, color='czerwony', linia='przerywana')
+    rysuj_wykres(5, 6, color='czerwony', linia='przerywana')
+
+.. code-block:: python
+
+    def rysuj_wykres(a, b, color, linia):
+        print(locals())
+
+
+    parametry = {
+        'color': 'czerwony',
+        'linia': 'przerywana',
+    }
+
+    rysuj_wykres(1, 2, **parametry)
+    rysuj_wykres(3, 4, **parametry)
+    rysuj_wykres(5, 6, **parametry)
+
+
+Placeholder class
+-----------------
 .. code-block:: python
 
     class Kontakt:
@@ -153,6 +186,8 @@ Przykładowe zastosowanie
 
     Kontakt(imie='Matt', nazwisko='Kowalski')
 
+Print formatting in classes
+---------------------------
 .. code-block:: python
 
     class Osoba:
@@ -164,6 +199,9 @@ Przykładowe zastosowanie
             return '{first_name} {last_name}'.format(first_name='Matt', last_name='Kowalski')
             return f'{self.first_name} {self.last_name}'
 
+
+Calling function with all variables from higher order function
+--------------------------------------------------------------
 .. code-block:: python
 
     def wyswietl(*args, **kwargs):
