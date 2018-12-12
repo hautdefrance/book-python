@@ -121,6 +121,18 @@ Getting elements
     array[0][2]  # 3
     array[2][1]  # 8
 
+Length
+------
+.. code-block:: python
+
+    DATA = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+    ]
+
+    len(DATA)     # 3
+    len(DATA[2])  # 3
 
 Mixed types
 ===========
@@ -136,6 +148,19 @@ Mixed types
     DATA[1][2]                # 6
     DATA[3]['last_name']      # 'Twardowski'
     DATA[3].get('last_name')  # 'Twardowski'
+
+.. code-block:: python
+
+    DATA = [
+        [1, 2, 3],
+        (4, 5, 6),
+        {7, 8, 9},
+        {'first_name': 'Pan', 'last_name': 'Twardowski'}
+    ]
+
+    len(DATA)     # 4
+    len(DATA[2])  # 3
+    len(DATA[3])  # 2
 
 
 Assignments
