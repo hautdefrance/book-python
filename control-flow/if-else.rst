@@ -57,6 +57,17 @@ Conditional Statements
         if 0 <= age < 18:
             print('Age is between [0, 18)')
 
+* Checking if has value
+
+    .. code-block:: python
+
+        name = None
+
+        if name:
+            print(f'My name... {name}')
+        else:
+            print('Name is not defined')
+
 ``else``
 --------
 * Optional
@@ -70,7 +81,7 @@ Conditional Statements
         if name == 'José Jiménez':
             print('My name... José Jiménez')
         else:
-            print('My name is other')
+            print('Your name is different')
 
 * Multiline blocks:
 
@@ -85,17 +96,6 @@ Conditional Statements
             print('Second line of the false statement')
             print('Third line of the false statement')
 
-* Checking if variable has any value
-
-    .. code-block:: python
-
-        name = 'José Jiménez'
-
-        if name:
-            print('Name is defined')
-        else:
-            print('Name is not defined')
-
 ``elif``
 --------
 * Used to check for additional condition if first is not met
@@ -103,25 +103,16 @@ Conditional Statements
 
 .. code-block:: python
 
-    name = 'José Jiménez'
+    country = 'Poland'
 
-    if name == 'José Jiménez':
-        print('My name... José Jiménez')
-    elif name == 'Alex Vogel':
+    if country == 'USA':
+        print('Howdy!')
+    elif country == 'Germany':
         print('Guten tag!')
+    elif country == 'Poland':
+        print('Witaj!')
     else:
-        print("You're not José nor Alex")
-
-Checking if has value
----------------------
-.. code-block:: python
-
-    name = None
-
-    if name:
-        print(name)
-    else:
-        print('Name is not defined')
+        print('...')
 
 Inline ``if``
 -------------
@@ -180,8 +171,8 @@ mixed
         last_name = 'Jiménez'
 
         if (first_name == 'José' and last_name == 'Jiménez')
-                or (first_name == 'Matt' and last_name == 'Kowalski'):
-            print('Your name is José Jiménez or Matt Kowalski')
+                or (first_name == 'Mark' and last_name == 'Watney'):
+            print('Your name is José Jiménez or Mark Watney')
         else:
             print('Your name is different')
 
@@ -196,7 +187,7 @@ Control Statements
 
     .. code-block:: python
 
-        usernames = {'José Jiménez', 'Matt Kowalski', 'Mark Watney'}
+        usernames = {'José Jiménez', 'Pan Twardowski', 'Mark Watney'}
 
         if 'José Jiménez' in usernames:
             print(True)

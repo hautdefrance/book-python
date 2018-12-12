@@ -17,7 +17,7 @@ Numerical types operators
 =========================
 .. csv-table:: Numerical types operators
     :header-rows: 1
-    :widths: 25, 75
+    :widths: 15, 25, 60
     :file: data/operators-numerical.csv
 
 

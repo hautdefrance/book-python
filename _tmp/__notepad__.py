@@ -35,7 +35,15 @@ X_test = data[punkt_podzialu:]
 
 
 
+x = 0
 
+x += 1
+x += 1
+x += 1
+
+
+
+print(x)
 
 
 
