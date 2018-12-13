@@ -223,23 +223,42 @@ Quick parsing lines
 -------------------
 .. code-block:: python
 
-    line = 'jose:x:1000:1000:José Jiménez:/home/jose:/bin/bash'
-    paths = []
+    FILE = [
+        '5.8,2.7,5.1,1.9,virginica',
+        '5.1,3.5,1.4,0.2,setosa',
+        '5.7,2.8,4.1,1.3,versicolor',
+    ]
 
-    for record in line.split(':'):
-        if record.startswith('/'):
-            paths.append(record)
+    output = []
 
-    print(paths)
-    # ['/home/jose', '/bin/bash']
+    for line in FILE:
+        line = line.split(',')
+        output.append(line)
+
+
+    print(output)
+    # [
+    #   ['5.8', '2.7', '5.1', '1.9', 'virginica'],
+    #   ['5.1', '3.5', '1.4', '0.2', 'setosa'],
+    #   ['5.7', '2.8', '4.1', '1.3', 'versicolor']
+    # ]
 
 .. code-block:: python
 
-    line = 'jose:x:1000:1000:José Jiménez:/home/jose:/bin/bash'
-    paths = [x for x in line.split(':') if x.startswith('/')]
+    FILE = [
+        '5.8,2.7,5.1,1.9,virginica',
+        '5.1,3.5,1.4,0.2,setosa',
+        '5.7,2.8,4.1,1.3,versicolor',
+    ]
 
-    print(paths)
-    # ['/home/jose', '/bin/bash']
+    output = [line.split(',') for line in FILE]
+
+    print(output)
+    # [
+    #   ['5.8', '2.7', '5.1', '1.9', 'virginica'],
+    #   ['5.1', '3.5', '1.4', '0.2', 'setosa'],
+    #   ['5.7', '2.8', '4.1', '1.3', 'versicolor']
+    # ]
 
 
 Advanced usage for Comprehensions and Generators
@@ -254,13 +273,41 @@ Split train/test
 ----------------
 #. Mając do dyspozycji zbiór danych Irysów z listingu poniżej:
 
-    .. literalinclude:: assignment/sequence-iris-sample.py
-        :language: python
-        :caption: Sample Iris databases
+    .. code-block:: python
+
+        DATA = [
+            ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+            (5.8, 2.7, 5.1, 1.9, 'virginica'),
+            (5.1, 3.5, 1.4, 0.2, 'setosa'),
+            (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+            (6.3, 2.9, 5.6, 1.8, 'virginica'),
+            (6.4, 3.2, 4.5, 1.5, 'versicolor'),
+            (4.7, 3.2, 1.3, 0.2, 'setosa'),
+            (7.0, 3.2, 4.7, 1.4, 'versicolor'),
+            (7.6, 3.0, 6.6, 2.1, 'virginica'),
+            (4.9, 3.0, 1.4, 0.2, 'setosa'),
+            (4.9, 2.5, 4.5, 1.7, 'virginica'),
+            (7.1, 3.0, 5.9, 2.1, 'virginica'),
+            (4.6, 3.4, 1.4, 0.3, 'setosa'),
+            (5.4, 3.9, 1.7, 0.4, 'setosa'),
+            (5.7, 2.8, 4.5, 1.3, 'versicolor'),
+            (5.0, 3.6, 1.4, 0.3, 'setosa'),
+            (5.5, 2.3, 4.0, 1.3, 'versicolor'),
+            (6.5, 3.0, 5.8, 2.2, 'virginica'),
+            (6.5, 2.8, 4.6, 1.5, 'versicolor'),
+            (6.3, 3.3, 6.0, 2.5, 'virginica'),
+            (6.9, 3.1, 4.9, 1.5, 'versicolor'),
+            (4.6, 3.1, 1.5, 0.2, 'setosa'),
+        ]
 
 #. Zapisz nagłówek (pierwsza linia) do zmiennej
 #. Zapisz do innej zmiennej dane bez nagłówka
 #. Wylicz punkt podziału: ilość rekordów danych bez nagłówka razy procent
+#. Za pomocą List Comprehension podziel dane na:
+
+    - ``X: List[Tuple[float]]`` - features
+    - ``y: List[str]`` - labels
+
 #. Podziel zbiór na listy w proporcji:
 
     - ``X_train: List[Tuple[float]]`` - features do uczenia - 60%
@@ -268,10 +315,7 @@ Split train/test
     - ``y_train: List[str]`` - labels do uczenia - 60%
     - ``y_test: List[str]`` - labels do testów - 40%
 
-#. Z danych bez nagłówka zapisz do uczenia rekordy od początku do punktu podziału
-#. Z danych bez nagłówka zapisz do testów rekordy od punktu podziału do końca
-#. Dane ``X_train, X_test, y_train, y_test`` wygeneruj za pomocą List Comprehensions
-#. Stwórz ``result: tuple`` z ``X_train, X_test, y_train, y_test``
+#. Stwórz ``result: Tuple[list, list, list, list]`` z wszystkimi cechami i labelkami
 #. Wypisz na ekranie ``result``
 
 :About:

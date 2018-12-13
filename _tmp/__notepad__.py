@@ -1,9 +1,6 @@
-STARA_SKALA_OCEN = (2, 3, 3.5, 4, 4.5, 5)
-SKALA_OCEN = []
-dzienniczek = []
+SKALA_OCEN = [float(x) for x in (2, 3, 3.5, 4, 4.5, 5)]
 
-for ocena in STARA_SKALA_OCEN:
-    SKALA_OCEN.append(float(ocena))
+dzienniczek = []
 
 
 while True:
