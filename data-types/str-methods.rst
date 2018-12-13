@@ -13,15 +13,15 @@ String immutability
     a = 'Python'
     a.replace('P', 'J')
 
-    print(a)            # Python
+    print(a)  # Python
 
 .. code-block:: python
 
     a = 'Python'
     b = a.replace('P', 'J')
 
-    print(a)            # Python
-    print(b)            # Jython
+    print(a)  # Python
+    print(b)  # Jython
 
 String Arithmetic
 -----------------
@@ -55,7 +55,9 @@ String Arithmetic
 .. code-block:: python
 
     name = 'Pan Twardowski Iii'
-    name.replace('Iii', 'III')  # 'Pan Twardowski III'
+
+    name.replace('Iii', 'III')
+    # 'Pan Twardowski III'
 
 ``str.strip()``, ``str.lstrip()``, ``str.rstrip()``
 ---------------------------------------------------
@@ -75,20 +77,17 @@ String Arithmetic
 
     name = 'Pan Twardowski'
 
-    name.startswith('Pan')
-    # True
-
-    name.endswith(';')
-    # False
+    name.startswith('Pan')  # True
+    name.endswith(';')      # False
 
 ``str.split()``
 ---------------
 .. code-block:: python
 
-    text = 'Pan Twardowski'
+    text = 'We choose to go to the Moon'
 
     text.split()
-    # ['Pan', 'Twardowski']
+    # ['We', 'choose', 'to', 'go', 'to', 'the', 'Moon']
 
 .. code-block:: python
 
@@ -101,6 +100,13 @@ String Arithmetic
 --------------
 .. code-block:: python
 
+    text = ['We', 'choose', 'to', 'go', 'to', 'the', 'Moon']
+
+    ' '.join(setosa)
+    # 'We choose to go to the Moon'
+
+.. code-block:: python
+
     setosa = [5.1, 3.5, 1.4, 0.2, 'setosa']
 
     ','.join(setosa)
@@ -110,10 +116,10 @@ String Arithmetic
 -----------------
 .. code-block:: python
 
-    ''.isspace()    # False
-    ' '.isspace()   # True
-    '\t'.isspace()  # True
-    '\n'.isspace()  # True
+    ''.isspace()        # False
+    ' '.isspace()       # True
+    '\t'.isspace()      # True
+    '\n'.isspace()      # True
 
 ``str.isnumeric()``, ``str.isdigit()``, ``str.isdecimal()``
 -----------------------------------------------------------
@@ -156,7 +162,7 @@ String Arithmetic
 .. code-block:: python
 
     'th' in 'Python'     # True
-    'hello' in 'Python'    # False
+    'hello' in 'Python'  # False
 
 ``len()``
 ---------
@@ -193,14 +199,16 @@ Getting user input
 
 .. code-block:: python
 
-    name = input('Type your name: ')    # User inputs: Jose
+    name = input('Type your name: ')
+    # User inputs: Jose
 
     type(name)
     # <class 'str'>
 
 .. code-block:: python
 
-    age = input('Type your age: ')      # User inputs: 42
+    age = input('Type your age: ')
+    # User inputs: 42
 
     type(age)
     # <class 'str'>

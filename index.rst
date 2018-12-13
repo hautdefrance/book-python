@@ -25,7 +25,7 @@ Basic Types and Data Structures
 
     /data-types/numeric.rst
     /data-types/logic.rst
-    /data-types/string.rst
+    /data-types/str.rst
     /data-types/str-methods.rst
     /data-types/slice.rst
     /data-types/sequences.rst
