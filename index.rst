@@ -26,6 +26,7 @@ Basic Types and Data Structures
     /data-types/numeric.rst
     /data-types/logic.rst
     /data-types/string.rst
+    /data-types/str-methods.rst
     /data-types/slice.rst
     /data-types/sequences.rst
     /data-types/key-value.rst
@@ -42,7 +43,9 @@ Control Flow
 
     /control-flow/if-else.rst
     /control-flow/operators.rst
-    /control-flow/loops.rst
+    /control-flow/loops-while.rst
+    /control-flow/loops-for.rst
+    /control-flow/loops-nested.rst
     /control-flow/keywords.rst
     /control-flow/comprehensions.rst
     /control-flow/exceptions.rst

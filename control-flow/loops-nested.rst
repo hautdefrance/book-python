@@ -1,109 +1,10 @@
-.. _Loops:
+************************
+Loops and nested objects
+************************
 
-*****
-Loops
-*****
-
-
-``while``
-=========
-* Continue execution when argument is ``True``
-
-.. code-block:: python
-
-    while True:
-        pass
-
-.. code-block:: python
-
-    i = 0
-
-    while i <= 10:
-        print(i)
-        i += 1
-
-
-``for``
-=======
-
-Iterating over ``str``
-----------------------
-* Iterating ``str`` will get character on each iteration:
-
-    .. code-block:: python
-
-        for character in 'setosa':
-            print(character)
-
-        # s
-        # e
-        # t
-        # o
-        # s
-        # a
-
-Iterating simple collections
-----------------------------
-* Iterating over ``list``:
-
-    .. code-block:: python
-
-        DATA = [5.1, 3.5, 1.4, 0.2, 'setosa']
-
-        for element in DATA:
-            print(element)
-
-        # 5.1
-        # 3.5
-        # 1.4
-        # 0.2
-        # 'setosa'
-
-* Iterating over ``tuple``:
-
-    .. code-block:: python
-
-        DATA = (5.1, 3.5, 1.4, 0.2, 'setosa')
-
-        for element in DATA:
-            print(element)
-
-        # 5.1
-        # 3.5
-        # 1.4
-        # 0.2
-        # 'setosa'
-
-* Iterating over ``set``:
-
-    .. code-block:: python
-
-        DATA = {5.1, 3.5, 1.4, 0.2, 'setosa'}
-
-        for element in DATA:
-            print(element)
-
-        # 5.1
-        # 3.5
-        # 1.4
-        # 0.2
-        # 'setosa'
-
-* ``range(0, 5)`` will generate ``(0, 1, 2, 3, 4)``
-
-    .. code-block:: python
-
-        for number in range(0, 5):
-            print(number)
-
-        # 0
-        # 1
-        # 2
-        # 3
-        # 4
 
 Iterating over nested ``list`` items
-------------------------------------
+====================================
 .. code-block:: python
 
     DATA = [1, 2, 3]
@@ -145,6 +46,7 @@ Iterating over nested ``list`` items
 
     a, b = 'a', 0
     a, b = ('a', 0)
+    k, v = ('a', 0)
     key, value = ('a', 0)
 
 .. code-block:: python
@@ -158,9 +60,9 @@ Iterating over nested ``list`` items
     for key, value in DATA:
         print(f'key: "{key}", value: "{value}"')
 
-    # key: "a", value: "0"
-    # key: "b", value: "1"
-    # key: "c", value: "2"
+    # a -> 0
+    # b -> 1
+    # c -> 2
 
 .. code-block:: python
 
@@ -171,11 +73,30 @@ Iterating over nested ``list`` items
     ]
 
     for key, value in DATA:
-        print(f'key: "{key}", value: "{value}"')
+        print(f'{key} -> {value}')
 
-    # key: "0",         value: "1"
-    # key: "name",      value: "José"
-    # key: "locations", value: "['CapeCanaveral', 'Houston']"
+    # 0 -> 1
+    # name -> José
+    # locations -> ['CapeCanaveral', 'Houston']
+
+
+.. code-block:: python
+
+    DATA = [
+        (5.1, 3.5, 1.4, 0.2, 'setosa'),
+        (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+        (6.3, 2.9, 5.6, 1.8, 'virginica'),
+    ]
+
+    # sepal_len, sepal_wid, petal_len, petal_wid, species = (5.1, 3.5, 1.4, 0.2, 'setosa')
+
+    for sepal_len, sepal_wid, petal_len, petal_wid, species in DATA:
+        print(species)
+
+    # setosa
+    # versicolor
+    # virginica
+
 
 ``enumerate()``
 ---------------
@@ -211,110 +132,112 @@ Iterating over nested ``list`` items
 
 
 Iterating over ``dict`` items
------------------------------
+=============================
 * ``dict`` elements order changes!
-* Iterating over ``dict`` values:
 
-    .. code-block:: python
+Iterating over ``dict`` values
+------------------------------
+.. code-block:: python
 
-        DATA = {
-            'Sepal length': 5.1,
-            'Sepal width': 3.5,
-            'Petal length': 1.4,
-            'Petal width': 0.2,
-            'Species': 'setosa',
-        }
+    DATA = {
+        'Sepal length': 5.1,
+        'Sepal width': 3.5,
+        'Petal length': 1.4,
+        'Petal width': 0.2,
+        'Species': 'setosa',
+    }
 
-        DATA.values()
-        # [5.1, 3.5, 1.4, 0.2, 'setosa']
+    DATA.values()
+    # [5.1, 3.5, 1.4, 0.2, 'setosa']
 
-        for element in DATA.values():
-            print(element)
+    for element in DATA.values():
+        print(element)
 
-        # 5.1
-        # 3.5
-        # 1.4
-        # 0.2
-        # 'setosa'
+    # 5.1
+    # 3.5
+    # 1.4
+    # 0.2
+    # 'setosa'
 
-* Iterating over ``dict`` keys:
+Iterating over ``dict`` keys
+----------------------------
+.. code-block:: python
 
-    .. code-block:: python
+    DATA = {
+        'Sepal length': 5.1,
+        'Sepal width': 3.5,
+        'Petal length': 1.4,
+        'Petal width': 0.2,
+        'Species': 'setosa',
+    }
 
-        DATA = {
-            'Sepal length': 5.1,
-            'Sepal width': 3.5,
-            'Petal length': 1.4,
-            'Petal width': 0.2,
-            'Species': 'setosa',
-        }
+    DATA.keys()
+    # ['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
 
-        DATA.keys()
-        # ['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
+    for element in DATA.keys():
+        print(element)
 
-        for element in DATA.keys():
-            print(element)
+    # 'Sepal length'
+    # 'Sepal width'
+    # 'Petal length'
+    # 'Petal width'
+    # 'Species'
 
-        # 'Sepal length'
-        # 'Sepal width'
-        # 'Petal length'
-        # 'Petal width'
-        # 'Species'
+By default ``dict`` iterates over keys
+--------------------------------------
+.. code-block:: python
 
-* By default ``dict`` iterates over keys:
+    DATA = {
+        'Sepal length': 5.1,
+        'Sepal width': 3.5,
+        'Petal length': 1.4,
+        'Petal width': 0.2,
+        'Species': 'setosa',
+    }
 
-    .. code-block:: python
+    for element in DATA:
+        print(element)
 
-        DATA = {
-            'Sepal length': 5.1,
-            'Sepal width': 3.5,
-            'Petal length': 1.4,
-            'Petal width': 0.2,
-            'Species': 'setosa',
-        }
+    # 'Sepal length'
+    # 'Sepal width'
+    # 'Petal length'
+    # 'Petal width'
+    # 'Species'
 
-        for element in DATA:
-            print(element)
+Getting pair: ``key``, ``value`` from ``dict`` items
+----------------------------------------------------
+.. code-block:: python
 
-        # 'Sepal length'
-        # 'Sepal width'
-        # 'Petal length'
-        # 'Petal width'
-        # 'Species'
+    DATA = {
+        'Sepal length': 5.1,
+        'Sepal width': 3.5,
+        'Petal length': 1.4,
+        'Petal width': 0.2,
+        'Species': 'setosa',
+    }
 
-* Getting pair: ``key``, ``value`` from ``dict`` items:
-
-    .. code-block:: python
-
-        DATA = {
-            'Sepal length': 5.1,
-            'Sepal width': 3.5,
-            'Petal length': 1.4,
-            'Petal width': 0.2,
-            'Species': 'setosa',
-        }
-
-        DATA.items()
-        # [
-        #   ('Sepal length', 5.1),
-        #   ('Sepal width', 3.5),
-        #   ('Petal length', 1.4),
-        #   ('Petal width', 0.2),
-        #   ('Species', 'setosa')
-        # ]
+    DATA.items()
+    # [
+    #   ('Sepal length', 5.1),
+    #   ('Sepal width', 3.5),
+    #   ('Petal length', 1.4),
+    #   ('Petal width', 0.2),
+    #   ('Species', 'setosa')
+    # ]
 
 
-        for key, value in DATA.items():
-            print(f'{key} -> {value}')
+    for key, value in DATA.items():
+        print(f'{key} -> {value}')
 
-        # Sepal length -> 5.1
-        # Sepal width -> 3.5
-        # Petal length -> 1.4
-        # Petal width -> 0.2
-        # Species -> setosa
+    # Sepal length -> 5.1
+    # Sepal width -> 3.5
+    # Petal length -> 1.4
+    # Petal width -> 0.2
+    # Species -> setosa
+
 
 Iterating complex types
------------------------
+=======================
 .. code-block:: python
 
     DATA = ['Max', ('1.0', 'José'), 3, 2.8, {True, None, False}]
@@ -368,39 +291,6 @@ Iterating complex types
 
 Assignments
 ===========
-
-Text manipulation
------------------
-#. Dany jest tekst przemównienia John F. Kennedy'ego "Moon Speech" wygłoszony na Rice Stadium (zdania oddzielone są kropkami)
-
-    .. code-block:: text
-
-        We choose to go to the Moon. We choose to go to the Moon in this decade and do the other things. Not because they are easy, but because they are hard. Because that goal will serve to organize and measure the best of our energies and skills. Because that challenge is one that we are willing to accept. One we are unwilling to postpone. And one we intend to win
-
-#. Każde zdanie oczyść z białych znaków na początku i końcu
-#. Policz ile jest wyrazów w każdym zdaniu
-#. Wypisz na ekranie słownik o strukturze:
-
-    * ``Dict[str, int]``
-    * klucz: zdanie
-    * wartość: ilość wyrazów
-
-#. Na końcu wypisz także ile jest:
-
-    * zdań
-    * słów
-    * znaków (łącznie ze spacjami wewnątrz zdań, ale bez kropek)
-
-:About:
-    * Filename: ``loop_sentences.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 10 min
-
-:Co zadanie sprawdza:
-    * Dzielenie stringów
-    * Sprawdzanie długości ciągów znaków
-    * Iterowanie po elementach listy
-    * Nazywanie zmiennych
 
 Unique keys from schema-less database
 -------------------------------------
