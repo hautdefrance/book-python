@@ -42,6 +42,8 @@ Iterating over nested ``list`` items
     # (5.7, 2.8, 4.1, 1.3, 'versicolor')
     # (6.3, 2.9, 5.6, 1.8, 'virginica')
 
+Unpacking values in loop
+========================
 .. code-block:: python
 
     a, b = 'a', 0
@@ -80,7 +82,6 @@ Iterating over nested ``list`` items
     # name -> José
     # locations -> ['CapeCanaveral', 'Houston']
 
-
 .. code-block:: python
 
     DATA = [
@@ -98,9 +99,8 @@ Iterating over nested ``list`` items
     # versicolor
     # virginica
 
-
-``enumerate()``
----------------
+Enumerating and item index
+==========================
 .. code-block:: python
 
     DATA = [
@@ -109,12 +109,16 @@ Iterating over nested ``list`` items
         (6.3, 2.9, 5.6, 1.8, 'virginica'),
     ]
 
-    for element in DATA:
-        print(element)
+    i = 0
 
-    # (5.1, 3.5, 1.4, 0.2, 'setosa')
-    # (5.7, 2.8, 4.1, 1.3, 'versicolor')
-    # (6.3, 2.9, 5.6, 1.8, 'virginica')
+    for element in DATA:
+        print(f'{i} -> {element}')
+        i += 1
+
+    # 0 -> (5.1, 3.5, 1.4, 0.2, 'setosa')
+    # 1 -> (5.7, 2.8, 4.1, 1.3, 'versicolor')
+    # 2 -> (6.3, 2.9, 5.6, 1.8, 'virginica')
+
 
 .. code-block:: python
 
@@ -125,11 +129,11 @@ Iterating over nested ``list`` items
     ]
 
     for i, element in enumerate(DATA):
-        print(i, element)
+        print(f'{i} -> {element}')
 
-    # 0 (5.1, 3.5, 1.4, 0.2, 'setosa')
-    # 1 (5.7, 2.8, 4.1, 1.3, 'versicolor')
-    # 2 (6.3, 2.9, 5.6, 1.8, 'virginica')
+    # 0 -> (5.1, 3.5, 1.4, 0.2, 'setosa')
+    # 1 -> (5.7, 2.8, 4.1, 1.3, 'versicolor')
+    # 2 -> (6.3, 2.9, 5.6, 1.8, 'virginica')
 
 
 Iterating over ``dict`` items
@@ -283,7 +287,6 @@ Iterating complex types
     # value: "1.0"
     # value: "José"
     # TypeError: 'int' object is not iterable
-
 
 .. code-block:: python
 
