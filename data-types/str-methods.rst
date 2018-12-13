@@ -304,6 +304,8 @@ String cleaning
 
 .. code-block:: python
 
+    expected = 'Jana III Sobieskiego'
+
     a = '  Jana III Sobieskiego 1 apt 2'
     b = 'ul Jana III SobIESkiego 1/2'
     c = '\tul. Jana trzeciego Sobieskiego 1/2'
@@ -317,7 +319,6 @@ String cleaning
     k = 'ul.Jana III Sob\n\nieskiego 1/2'
 
 
-    expected = 'Jana III Sobieskiego'
     print(f'{a == expected}\t a: "{a}"')
     print(f'{b == expected}\t b: "{b}"')
     print(f'{c == expected}\t c: "{c}"')

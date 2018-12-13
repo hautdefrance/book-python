@@ -1,15 +1,9 @@
 
-FILENAME = r'C:\Temp\bootfilure.txt'
 
+for a in [1, 2, 3]:
+    pass
 
-with open(FILENAME, encoding='utf-8') as file:
-    lines = [line for line in file if not line.startswith('#')]
-    print(lines)
-
-
-    for line in file:
-        if not line.startswith('#'):
-            print(line)
+print('asd')
 
 
 
