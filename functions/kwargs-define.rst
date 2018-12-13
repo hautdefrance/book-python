@@ -3,47 +3,135 @@ Functions with many arguments
 *****************************
 
 
-.. note:: TL;DR:
-
-    * ``*args`` unpack ``tuple`` or ``list``
-    * ``**kwargs`` unpack ``dict``
-
-
 Operators ``*`` i ``**``
 ========================
 - To nie jest mnożenie i potęgowanie!
 - ``*`` zwykle nazywa się ``*args`` (arguments) - argumenty pozycyjne (anonimowe)
 - ``**`` zwykle nazywa się ``**kwargs`` (keyword arguments) - argumenty nazwane
+- ``*args`` unpack ``tuple`` or ``list``
+- ``**kwargs`` unpack ``dict``
 
 
-Defining function with variable number of arguments
-===================================================
-- ``args`` - pozycyjne
-- ``kwargs``- nazwane
+Przypomnienie wiadomości o parametrach
+======================================
+.. code-block:: python
+
+    def add(a, b):
+        return a + b
+
+
+    add(1, 2)       # pozycyjne
+    add(a=1, b=2)   # nazwane, kolejność nie ma znaczenia
+    add(b=2, a=1)   # nazwane, kolejność nie ma znaczenia
+    add(1, b=2)     # pozycyjne i nazwane
 
 .. code-block:: python
 
-    def wyswietl_argumenty(a, b, c=0, *pozycyjne, **nazwane):
-        print(f'argument a: {a}')                   # 1
-        print(f'argument b: {b}')                   # 2
-        print(f'argument c: {c}')                   # 3
-        print(f'argumenty pozycyjne: {pozycyjne}')  # (4, 5, 6)
-        print(f'argumenty nazwane: {nazwane}')      # {'d':7, 'e': 8}
+    a, b = 1, 2
+    # a == 1
+    # b == 2
 
+    a, b = (1, 2)
+    # a == 1
+    # b == 2
 
-    wyswietl_argumenty(1, 2, 3, 4, 5, 6, d=7, e=8)
+    a, b = [1, 2]
+    # a == 1
+    # b == 2
 
 .. code-block:: python
 
-    def wyswietl_argumenty(a, b, c=0, *args, **kwargs):
-        print(f'argument a: {a}')                   # 1
-        print(f'argument b: {b}')                   # 2
-        print(f'argument c: {c}')                   # 3
-        print(f'argumenty args: {args}')            # (4, 5, 6)
-        print(f'argumenty kwargs: {kwargs}')        # {'d':7, 'e': 8}
+    def numbers():
+        return [1, 2]
+
+    a, b = numbers()
+    # a == 1
+    # b == 2
 
 
-    wyswietl_argumenty(1, 2, 3, 4, 5, 6, d=7, e=8)
+Defining function with many arguments
+=====================================
+
+Many positional arguments
+-------------------------
+.. code-block:: python
+
+    def show(*args):
+        print(args)
+
+
+    show()                        # ()
+    show(1)                       # (1,)
+    show(2, 3)                    # (2, 3)
+    show('red', 2)                # ('red', 2)
+    show('red', 'green', 'blue')  # ('red', 'green', 'blue')
+
+.. code-block:: python
+
+    def add(*args):
+        total = 0
+
+        for arg in args:
+            total += arg
+
+        return arg
+
+
+    add()            # 0
+    add(1)           # 1
+    add(1, 4)        # 5
+    add(3, 1)        # 4
+    add(1, 2, 3, 4)  # 10
+
+Many named arguments
+--------------------
+.. code-block:: python
+
+    def show(**kwargs):
+        print(kwargs)
+
+
+    show(a=10)                                      # {'a': 10}
+    show(color='red')                               # {'color': 'red'}
+    show(first_name='Pan', last_name='Twardowski')  # {'first_name': 'Pan', 'last_name': Twardowski}
+
+Many named and positional arguments
+-----------------------------------
+.. code-block:: python
+
+    def show(a, b, c=0, *args, **kwargs):
+        print(a)       # 1
+        print(b)       # 2
+        print(c)       # 3
+        print(args)    # (4, 5, 6)
+        print(kwargs)  # {}
+
+
+    show(1, 2, 3, 4, 5, 6)
+
+.. code-block:: python
+
+    def show(a, b, c=0, *args, **kwargs):
+        print(a)       # 1
+        print(b)       # 2
+        print(c)       # 0
+        print(args)    # ()
+        print(kwargs)  # {'d':7, 'e': 8}
+
+
+    show(1, 2, d=7, e=8)
+
+.. code-block:: python
+
+    def show(a, b, c=0, *args, **kwargs):
+        print(a)       # 1
+        print(b)       # 2
+        print(c)       # 3
+        print(args)    # (4, 5, 6)
+        print(kwargs)  # {'d':7, 'e': 8}
+
+
+    show(1, 2, 3, 4, 5, 6, d=7, e=8)
 
 
 Case Study
@@ -67,8 +155,8 @@ Numeric Values
 --------------
 #. Stwórz funkcję ``is_numeric``
 #. Funkcja może przyjmować dowolną ilość argumentów
-#. Funkcja ma sprawdzać czy jej argumenty to tylko ``int`` albo ``float``
 #. Jeżeli, któryś z argumentów nie jest ``int`` albo ``float`` to zwróć ``False``
+#. Jeżeli, wszystkie argumenty to ``int`` albo ``float``, to zwróć True
 
 :About:
     * Filename: ``kwargs_numeric.py``

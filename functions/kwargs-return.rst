@@ -3,48 +3,13 @@ Unpacking return elements
 *************************
 
 
-Operator ``*`` i ``**``
-=======================
+Operators ``*`` i ``**``
+========================
 - To nie jest mnożenie i potęgowanie!
 - ``*`` zwykle nazywa się ``*args`` (arguments) - argumenty pozycyjne (anonimowe)
 - ``**`` zwykle nazywa się ``**kwargs`` (keyword arguments) - argumenty nazwane
-
-
-Przypomnienie wiadomości o parametrach
-======================================
-.. code-block:: python
-
-    def add(a, b):
-        return a + b
-
-
-    add(1, 2)       # pozycyjne
-    add(a=1, b=2)   # nazwane, kolejność nie ma znaczenia
-    add(b=2, a=1)   # nazwane, kolejność nie ma znaczenia
-    add(1, b=2)     # pozycyjne i nazwane
-
-.. code-block:: python
-
-    a, b = 1, 2
-    # a == 1
-    # b == 2
-
-    a, b = (1, 2)
-    # a == 1
-    # b == 2
-
-    a, b = [1, 2]
-    # a == 1
-    # b == 2
-
-.. code-block:: python
-
-    def numbers():
-        return [1, 2]
-
-    a, b = numbers()
-    # a == 1
-    # b == 2
+- ``*args`` unpack ``tuple`` or ``list``
+- ``**kwargs`` unpack ``dict``
 
 
 Przyjmowanie z funkcji zmiennej ilości argumentów (Rozpakowywanie)

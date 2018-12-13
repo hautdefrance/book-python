@@ -3,10 +3,13 @@ Passing many arguments
 **********************
 
 
-.. note:: TL;DR:
-
-    * ``*args`` unpack ``tuple`` or ``list``
-    * ``**kwargs`` unpack ``dict``
+Operators ``*`` i ``**``
+========================
+- To nie jest mnożenie i potęgowanie!
+- ``*`` zwykle nazywa się ``*args`` (arguments) - argumenty pozycyjne (anonimowe)
+- ``**`` zwykle nazywa się ``**kwargs`` (keyword arguments) - argumenty nazwane
+- ``*args`` unpack ``tuple`` or ``list``
+- ``**kwargs`` unpack ``dict``
 
 
 ``*`` unpacks ``list`` or ``tuple``
@@ -31,9 +34,6 @@ Passing many arguments
 
     kwargs = {'real': 3, 'imag': 5}
     complex(**number)
-
-
-
 
 
 Przekazywanie do funkcji zmiennej ilości parametrów
