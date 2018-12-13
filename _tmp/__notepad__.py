@@ -1,26 +1,5 @@
 
 
-DATA = [
-    {'Sepal length': 5.1, 'Sepal width': 3.5, 'Petal length': 1.4, 'Petal width': 0.2, 'Species': 'setosa'},
-    {'Sepal length': 5.7, 'Sepal width': 2.8, 'Petal length': 4.1, 'Petal width': 1.3, 'Species': 'setosa'},
-    {'Sepal length': 6.3, 'Sepal width': 2.9, 'Petal length': 5.6, 'Petal width': 1.8, 'Species': 'setosa'},
-
-]
-
-DATABASE = [
-    {'last_name': 'Jiménez'},
-    {'first_name': 'Mark', 'last_name': 'Watney'},
-    {'first_name': 'Иван', 'age': 42},
-    {'first_name': 'Matt', 'last_name': 'Kowalski', 'born': 1961},
-    {'first_name': 'José', 'born': 1961, 'agency': 'NASA'},
-]
-
-klucze = set()
-
-for record in DATABASE:
-    klucze.update(record.keys())
-
-
 
 
 

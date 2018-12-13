@@ -48,6 +48,7 @@ Iterating over nested ``list`` items
     a, b = ('a', 0)
     k, v = ('a', 0)
     key, value = ('a', 0)
+    sepal_len, sepal_wid, petal_len, petal_wid, species = (5.1, 3.5, 1.4, 0.2, 'setosa')
 
 .. code-block:: python
 
