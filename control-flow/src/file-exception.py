@@ -1,7 +1,5 @@
-FILE = r'/tmp/my-file.txt'
-
 try:
-    with open(FILE) as file:
+    with open(r'/tmp/iris.csv') as file:
         content = file.read()
         print(content)
 

@@ -4,57 +4,74 @@
 Files
 *****
 
-Read, Write, Append
-===================
-* Works with both relative and absolute path
+
+Path
+====
 
 Absolute path
 -------------
 .. code-block:: python
 
-    FILENAME = r'C:\Temp\bootfilure.txt'
+    FILE = r'C:\Temp\iris.csv'
 
 .. code-block:: python
 
-    FILENAME = r'/tmp/my-file.txt'
+    FILE = r'/tmp/iris.csv'
 
+Relative path
+-------------
+.. code-block:: python
 
+    FILE = r'iris.csv'
 
-Good Engineering Practises
---------------------------
-* ``FILENAME`` as a raw string ``r'...'`` constant
-* ``encoding='utf-8'``
+.. code-block:: python
+
+    FILE = r'../data/iris.csv'
+
 
 Access modes
-------------
+============
 .. csv-table::
     :header-rows: 1
     :widths: 20, 80
     :file: data/file-open-modes.csv
 
-Reading file
-------------
+
+Read from file
+==============
+* Works with both relative and absolute path
+* Uses context manager
+
+Reading file line by line
+-------------------------
 * Fails when directory with file cannot be accessed
 * Fails when file cannot be accessed
 
+.. literalinclude:: src/file-iterate-lines.py
+    :language: python
+    :caption: ``file`` can be iterated line by line
+
+Reading whole file content
+--------------------------
 .. literalinclude:: src/file-read.py
     :language: python
     :caption: Read whole file as a text to ``content`` variable
 
+Reading file as ``list`` with lines
+-----------------------------------
 .. literalinclude:: src/file-readlines.py
     :language: python
     :caption: Convert file to list by line
 
+Read selected lines from file
+-----------------------------
 .. literalinclude:: src/file-readlines-slice.py
     :language: python
     :caption: Convert file to list by line, select 1-30 lines
 
-.. literalinclude:: src/file-iterate-lines.py
-    :language: python
-    :caption: By default ``file`` can be iterated by line similar to ``file.readlines()``
 
 Writing to file
----------------
+===============
 * Fails when directory with file cannot be accessed
 * Creates file if not exists
 * Overwrite old content
@@ -63,8 +80,9 @@ Writing to file
     :language: python
     :caption: Writing to file
 
+
 Appending to file
------------------
+=================
 * Fails when directory with file cannot be accessed
 * Creates file if not exists
 * Append to the end of file
@@ -79,6 +97,13 @@ Exception handling
 .. literalinclude:: src/file-exception.py
     :language: python
     :caption: Exception handling while accessing files
+
+
+Good Engineering Practises
+==========================
+* ``FILENAME`` as a raw string ``r'...'`` constant
+* ``encoding='utf-8'``
+* Use context manager
 
 
 Assignments
@@ -136,3 +161,25 @@ Parsing ``/etc/hosts``
 :Hints:
     * ``str.isspace()``
     * ``value = True if ... else False``
+
+Parsing simple CSV file
+-----------------------
+* http://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
+
+#. Sparsuj plik i wydostań z niego:
+
+    - ``features: List[Tuple[float]]``
+    - ``labels: List[str]``
+
+:About:
+    * Filename: ``file_iris.py``
+    * Lines of code to write: 15 lines
+    * Estimated time of completion: 20 min
+
+:The whys and wherefores:
+    * czytanie i parsowanie pliku
+    * nieregularne pliki konfiguracyjne (struktura może się zmieniać)
+    * filtrowanie elementów
+    * korzystanie z pętli i instrukcji warunkowych
+    * parsowanie stringów
+    * praca ze ścieżkami w systemie operacyjnym

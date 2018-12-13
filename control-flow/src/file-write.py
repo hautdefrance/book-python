@@ -1,5 +1,2 @@
-FILE = r'/tmp/my-file.txt'
-
-
-with open(FILE, mode='w') as file:
+with open(r'/tmp/iris.csv', mode='w') as file:
     file.write('hello')

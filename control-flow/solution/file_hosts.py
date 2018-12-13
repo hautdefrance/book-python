@@ -14,13 +14,14 @@ except PermissionError:
 
 
 for line in content:
-    line = line.strip()
-
-    if not line or line.startswith('#'):
+    if line.startswith('#'):
+        continue
+    if line.isspace():
         continue
 
-    ip = line.split()[0]
-    hosts = line.split()[1:]
+    line = line.strip().split()
+    ip = line[0]
+    hosts = line[1:]
 
     for record in hostnames:
         if record['ip'] == ip:
