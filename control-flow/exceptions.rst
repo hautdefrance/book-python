@@ -36,7 +36,11 @@ ImportError, ModuleNotFoundError
 --------------------------------
 .. code-block:: python
 
-    import nasa
+    import math
+
+.. code-block:: python
+
+    import match
     # ModuleNotFoundError
 
 IndexError
@@ -61,8 +65,8 @@ NameError
 ---------
 .. code-block:: python
 
-    print(astronaut)
-    # NameError: name 'astronaut' is not defined
+    print(first_name)
+    # NameError: name 'first_name' is not defined
 
 SyntaxError
 -----------
@@ -98,13 +102,25 @@ ValueError
     float('hello')
     # ValueError: could not convert string to float: 'hello'
 
+
 Raising exceptions
 ==================
+
+Simple Exception
+----------------
 .. code-block:: python
 
     raise RuntimeError
+
+Exception with additional message
+---------------------------------
+
+.. code-block:: python
+
     raise RuntimeError('Some message')
 
+Use case
+--------
 .. code-block:: python
 
     def apollo18():
@@ -116,6 +132,7 @@ Raising exceptions
 
     apollo18()
     apollo13()
+
 
 Traceback analysis
 ==================
@@ -168,6 +185,8 @@ Catching exceptions
 * ``else``
 * ``finally``
 
+Catch single exception
+----------------------
 .. code-block:: python
 
     def apollo13():
@@ -179,6 +198,8 @@ Catching exceptions
     except RuntimeError:
         print('Houston we have a problem!')
 
+Catch many exceptions with the same handling
+--------------------------------------------
 .. code-block:: python
 
     def apollo13():
@@ -190,17 +211,39 @@ Catching exceptions
     except (RuntimeError, TypeError, NameError):
         print('Houston we have a problem!')
 
+Catch many exceptions with different handling
+---------------------------------------------
+.. code-block:: python
+
+    def open_file(path):
+        if path.startswith('/tmp/'):
+            print('Will make file')
+        elif path.startswith('/etc/'):
+            raise PermissionError('Permission Denied')
+        else:
+            raise FileNotFoundError('File not found')
+
+
+    try:
+        open_file('/etc/my-file.txt')
+    except FileNotFoundError:
+        print('Permission Denied')
+    except PermissionError:
+        print('File not found')
+
+Exceptions logging
+------------------
 .. code-block:: python
 
     import logging
 
-    def apollo13():
-        raise RuntimeError('Mid-flight Oxygen tank explosion')
+    def open_file(filename):
+        raise PermissionError('Permission Denied')
 
 
     try:
-        apollo13()
-    except RuntimeError as err:
+        open_file('/tmp/my-file.txt')
+    except PermissionError as err:
         logging.error(err)
 
 .. code-block:: python

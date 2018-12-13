@@ -1,5 +1,5 @@
-FILENAME = r'C:\Temp\bootfilure.txt'
+FILE = r'/tmp/my-file.txt'
 
 
-with open(FILENAME, encoding='utf-8') as file:
-    selected_lines = file.readlines()[1:30]
+with open(FILE) as file:
+    lines = file.readlines()[1:30]

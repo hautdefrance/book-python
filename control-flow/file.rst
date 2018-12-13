@@ -6,14 +6,23 @@ Files
 
 Read, Write, Append
 ===================
+* Works with both relative and absolute path
 
-Path
-----
-* Relative and absolute path
-* ``FILENAME`` as a raw string ``r'...'`` constant
+Absolute path
+-------------
+.. code-block:: python
+
+    FILENAME = r'C:\Temp\bootfilure.txt'
+
+.. code-block:: python
+
+    FILENAME = r'/tmp/my-file.txt'
+
+
 
 Good Engineering Practises
 --------------------------
+* ``FILENAME`` as a raw string ``r'...'`` constant
 * ``encoding='utf-8'``
 
 Access modes

@@ -1,5 +1,5 @@
 ##
-# ```/etc/passwd`` structure:
+# ``/etc/passwd`` structure:
 #   - Username
 #   - Password: ``x`` indicates that shadow passwords are used
 #   - UID: User ID number

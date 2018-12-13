@@ -1,7 +1,7 @@
-FILENAME = r'C:\Temp\bootfilure.txt'
+FILE = r'/tmp/my-file.txt'
 
 try:
-    with open(FILENAME, mode='r', encoding='utf-8') as file:
+    with open(FILE) as file:
         content = file.read()
         print(content)
 

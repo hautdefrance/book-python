@@ -1,5 +1,5 @@
-FILENAME = r'C:\Temp\bootfilure.txt'
+FILE = r'/tmp/my-file.txt'
 
 
-with open(FILENAME, mode='w', encoding='utf-8') as file:
+with open(FILE, mode='w') as file:
     file.write('hello')

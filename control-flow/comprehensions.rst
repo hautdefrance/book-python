@@ -319,7 +319,7 @@ Split train/test
 #. Wypisz na ekranie ``result``
 
 :About:
-    * Filename: ``sequences_split_train_test.py``
+    * Filename: ``comprahension_split_train_test.py``
     * Lines of code to write: 6 lines
     * Estimated time of completion: 15 min
 

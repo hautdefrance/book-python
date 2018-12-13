@@ -1,9 +1,9 @@
 ##
-# ```/etc/group`` structure
-#   - Username: from ```/etc/passwd``
+# ``/etc/group`` structure
+#   - Username: from ``/etc/passwd``
 #   - Password: ``x`` indicates that shadow passwords are used)
 #   - GID: Group ID
-#   - Members: usernames from ```/etc/passwd``
+#   - Members: usernames from ``/etc/passwd``
 ##
 
 root::0:root

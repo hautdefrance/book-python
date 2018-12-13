@@ -1,6 +1,6 @@
 ##
 # ``/etc/shadow`` structure
-#   - Username: from ```/etc/passwd``
+#   - Username: from ``/etc/passwd``
 #   - Password
 #   - Last Password Change: Days since 1970-01-01
 #   - Minimum days between password changes: 0 - changed at any time

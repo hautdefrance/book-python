@@ -1,25 +1,15 @@
-SKALA_OCEN = [float(x) for x in (2, 3, 3.5, 4, 4.5, 5)]
 
-dzienniczek = []
-
-
-while True:
-    ocena = input('Podaj ocenę: ')
-
-    if not ocena:
-        break
-
-    if float(ocena) not in SKALA_OCEN:
-        print('Grade is not allowed')
-        continue
-
-    dzienniczek.append(ocena)
+FILENAME = r'C:\Temp\bootfilure.txt'
 
 
-srednia = sum(dzienniczek) / len(dzienniczek)
-print(srednia)
+with open(FILENAME, encoding='utf-8') as file:
+    lines = [line for line in file if not line.startswith('#')]
+    print(lines)
 
 
+    for line in file:
+        if not line.startswith('#'):
+            print(line)
 
 
 
