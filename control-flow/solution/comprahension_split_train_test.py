@@ -1,3 +1,4 @@
+RATIO = 0.6
 DATA = [
     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
     (5.8, 2.7, 5.1, 1.9, 'virginica'),
@@ -23,22 +24,17 @@ DATA = [
     (4.6, 3.1, 1.5, 0.2, 'setosa'),
 ]
 
-procent = 0.6
-punkt_podzialu = int(len(DATA[1:]) * procent)
+pivot = int(len(DATA[1:]) * RATIO)
+header = DATA[0]
+data = DATA[1:]
 
+X = [row[0:4] for row in data]
+X_train = X[:pivot]
+X_test = X[pivot:]
 
-# for wiersz in dane:
-#     X.append(wiersz[0:-1])
-#     y.append(wiersz[-1])
-
-
-X = [row[0:-1] for row in DATA[1:]]
-y = [row[-1] for row in DATA[1:]]
-
-X_train = X[:punkt_podzialu]
-X_test = X[punkt_podzialu:]
-y_train = y[:punkt_podzialu]
-y_test = y[punkt_podzialu:]
+y = [row[4] for row in data]
+y_train = y[:pivot]
+y_test = y[pivot:]
 
 result = X_train, X_test, y_train, y_test
 print(result)
