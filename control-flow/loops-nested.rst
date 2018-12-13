@@ -312,21 +312,20 @@ Assignments
 Unique keys from schema-less database
 -------------------------------------
 #. Mając bazę danych z listingu poniżej
-#. Wygeneruj listę unikalnych kluczy dictów
+#. Iteruj po rekordach w bazie danych
+#. Z rekordu wyciągnij klucze
+#. Wygeneruj listę unikalnych kluczy
 
 .. code-block:: python
 
     DATA = [
         {'Sepal length': 5.1, 'Sepal width': 3.5, 'Species': 'setosa'},
         {'Petal length': 4.1, 'Petal width': 1.3, 'Species': 'versicolor'},
-        {'Sepal length': 6.3, 'Petal width': 1.8},
+        {'Sepal length': 6.3, 'Petal width': 1.8, 'Species': 'virginica'},
+        {'Petal length': 1.4, 'Petal width': 0.2, 'Species': 'setosa'},
+        {'Sepal width': 2.8, 'Petal length': 4.1, 'Species': 'versicolor'},
+        {'Sepal width': 2.9, 'Petal width': 1.8, 'Species': 'virginica'},
     ]
-
-:Algorithm:
-    #. Iteruj po rekordach w bazie danych
-    #. Z rekordu wyciągnij klucze
-    #. Dodaj klucze do zbioru
-    #. Usuń duplikaty w zbiorze
 
 :About:
     * Filename: ``loop_unique_keys.py``
