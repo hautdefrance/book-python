@@ -2,6 +2,10 @@ TEXT = 'We choose to go to the Moon. We choose to go to the Moon in this decade 
 
 
 for zdanie in TEXT.split('.'):
+    zdanie = zdanie.strip()
+    slowa = zdanie.split()
+
+    ilosc_slow = len(slowa)
 
 
 
