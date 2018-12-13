@@ -111,7 +111,7 @@ Assignments
 
 Parsing simple CSV file
 -----------------------
-* http://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
+* http://raw.githubusercontent.com/AstroMatt/book-python/master/control-flow/data/iris.csv
 
 #. Skopij plik do siebie na dysk i nazwij go ``iris.csv``
 #. Dla każdej linii:

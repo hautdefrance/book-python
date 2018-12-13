@@ -242,7 +242,7 @@ Hosts
 
 Iris
 ----
-#. Dane dostępne są pod adresem: https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
+#. Dane dostępne są pod adresem: https://raw.githubusercontent.com/AstroMatt/book-python/master/functions/data/iris.csv
 #. Otwórz link w przeglądarce i skopiuj zawartość do pliku ``iris.csv`` na dysku
 #. Sparsuj zawartość odrzucając nagłówek
 #. Dla każdego rekordu, usuń białe spacje i podziel go po przecinku ``,``
