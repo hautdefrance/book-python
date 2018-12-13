@@ -59,3 +59,27 @@ Case Study
     celsius_to_fahrenheit(1, 2, 3, 4, 5)
     # [33.8, 35.6, 37.4, 39.2, 41.0]
 
+
+Assignments
+===========
+
+Numeric Values
+--------------
+#. Stwórz funkcję ``is_numeric``
+#. Funkcja może przyjmować dowolną ilość argumentów
+#. Funkcja ma sprawdzać czy jej argumenty to tylko ``int`` albo ``float``
+#. Jeżeli, któryś z argumentów nie jest ``int`` albo ``float`` to zwróć ``False``
+
+:About:
+    * Filename: ``kwargs_numeric.py``
+    * Lines of code to write: 10 lines
+    * Estimated time of completion: 15 min
+
+:The whys and wherefores:
+    * Definiowanie i uruchamianie funkcji
+    * Sprawdzanie przypadków brzegowych (niekompatybilne argumenty)
+    * Parsowanie argumentów funkcji
+    * Rzutowanie i konwersja typów
+
+:Hint:
+    * ``isinstance()``

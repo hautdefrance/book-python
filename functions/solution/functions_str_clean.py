@@ -12,16 +12,16 @@ k = 'Jana III Sobieskiego 1 m. 2'
 
 
 def clean(text):
-    text = text.lower()
+    text = text.upper()
     text = text.replace('\n', '')
     text = text.replace('\t', '')
-    text = text.replace('ulica', '')
+    text = text.replace('ULICA', '')
     text = text.replace('.', '')
-    text = text.replace('ul', '')
-    text = text.replace('trzeciego', 'III')
+    text = text.replace('UL', '')
+    text = text.replace('TRZECIEGO', 'III')
     text = text.replace('1/2', '')
     text = text.replace('1 /2', '')
-    text = text.replace('1 m 2', '')
+    text = text.replace('1 M 2', '')
     text = text.replace('3', 'III')
     text = text.strip()
     text = text.title().replace('Iii', 'III')
