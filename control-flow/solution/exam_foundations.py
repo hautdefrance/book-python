@@ -2,9 +2,9 @@ from datetime import date
 from pprint import pprint
 
 
-ETC_GROUPS = r'../assignment/etc-group.txt'
-ETC_SHADOW = r'../assignment/etc-shadow.txt'
-ETC_PASSWD = r'../assignment/etc-passwd.txt'
+ETC_GROUPS = r'../src/etc-group.txt'
+ETC_SHADOW = r'../src/etc-shadow.txt'
+ETC_PASSWD = r'../src/etc-passwd.txt'
 ALGORITHMS = {
     '1': 'MD5',
     '2a': 'Blowfish',

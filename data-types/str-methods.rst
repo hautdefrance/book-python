@@ -46,9 +46,10 @@ String Arithmetic
 
         name = 'pAn TwARDowSKi III'
 
-        name.upper()    # 'PAN TWARDOWSKI III'
-        name.lower()    # 'pan twardowski iii'
-        name.title()    # 'Pan Twardowski Iii'
+        name.upper()       # 'PAN TWARDOWSKI III'
+        name.lower()       # 'pan twardowski iii'
+        name.title()       # 'Pan Twardowski Iii'
+        name.capitalize()  # 'Pan twardowski iii'
 
 ``str.replace()``
 -----------------
@@ -91,6 +92,16 @@ String Arithmetic
 
 .. code-block:: python
 
+    text = '10.13.37.1      nasa.gov esa.int roscosmos.ru'
+
+    text.split(' ')
+    # ['10.13.37.1', '', '', '', '', '', 'nasa.gov', 'esa.int', 'roscosmos.ru']
+
+    text.split()
+    # ['10.13.37.1', 'nasa.gov', 'esa.int', 'roscosmos.ru']
+
+.. code-block:: python
+
     setosa = '5.1,3.5,1.4,0.2,setosa'
 
     setosa.split(',')
@@ -102,7 +113,7 @@ String Arithmetic
 
     text = ['We', 'choose', 'to', 'go', 'to', 'the', 'Moon']
 
-    ' '.join(setosa)
+    ' '.join(text)
     # 'We choose to go to the Moon'
 
 .. code-block:: python

@@ -109,6 +109,33 @@ Good Engineering Practises
 Assignments
 ===========
 
+Parsing simple CSV file
+-----------------------
+* http://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
+
+#. Skopij plik do siebie na dysk i nazwij go ``iris.csv``
+#. Dla każdej linii:
+
+    #. Oczyść linię z białych znaków
+    #. Podziel linię po przecinku
+    #. Zapisz rekordy do:
+
+        - ``X: List[Tuple[float]]`` - features
+        - ``y: List[str]`` - labels
+
+:About:
+    * Filename: ``file_iris.py``
+    * Lines of code to write: 15 lines
+    * Estimated time of completion: 20 min
+
+:The whys and wherefores:
+    * czytanie i parsowanie pliku
+    * nieregularne pliki konfiguracyjne (struktura może się zmieniać)
+    * filtrowanie elementów
+    * korzystanie z pętli i instrukcji warunkowych
+    * parsowanie stringów
+    * praca ze ścieżkami w systemie operacyjnym
+
 Content of a requested file
 ---------------------------
 #. Napisz program, który wyświetli na ekranie zawartość pliku o nazwie podanej przez użytkownika.
@@ -161,25 +188,3 @@ Parsing ``/etc/hosts``
 :Hints:
     * ``str.isspace()``
     * ``value = True if ... else False``
-
-Parsing simple CSV file
------------------------
-* http://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
-
-#. Sparsuj plik i wydostań z niego:
-
-    - ``features: List[Tuple[float]]``
-    - ``labels: List[str]``
-
-:About:
-    * Filename: ``file_iris.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 20 min
-
-:The whys and wherefores:
-    * czytanie i parsowanie pliku
-    * nieregularne pliki konfiguracyjne (struktura może się zmieniać)
-    * filtrowanie elementów
-    * korzystanie z pętli i instrukcji warunkowych
-    * parsowanie stringów
-    * praca ze ścieżkami w systemie operacyjnym
