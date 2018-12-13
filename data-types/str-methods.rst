@@ -300,7 +300,7 @@ Assignments
 String cleaning
 ---------------
 #. Dane poniżej przeczyść, tak aby zmienne miały wartość ``'Jana III Sobieskiego'``
-#. Przeprowadź dyskusję jak zrobić rozwiązanie generyczne pasujące do wszystkich?
+#. Przeprowadź dyskusję jak zrobić rozwiązanie generyczne pasujące do wszystkich? (Implementacja rozwiązania będzie w rozdziale :ref:`Function Basics`)
 
 .. code-block:: python
 
@@ -317,7 +317,6 @@ String cleaning
     i = ' Jana 3 Sobieskiego 1/2 '
     j = 'Jana III Sobieskiego 1 m. 2'
     k = 'ul.Jana III Sob\n\nieskiego 1/2'
-
 
     print(f'{a == expected}\t a: "{a}"')
     print(f'{b == expected}\t b: "{b}"')

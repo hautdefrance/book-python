@@ -276,8 +276,6 @@ Cleaning text input
     j = 'Jana III Sobieskiego 1 m. 2'
     k = 'ul.Jana III Sob\n\nieskiego 1/2'
 
-
-
     print(f'{a == expected}\t a: "{a}"')
     print(f'{b == expected}\t b: "{b}"')
     print(f'{c == expected}\t c: "{c}"')
