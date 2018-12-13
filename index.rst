@@ -43,10 +43,9 @@ Control Flow
 
     /control-flow/if-else.rst
     /control-flow/operators.rst
-    /control-flow/loops-while.rst
-    /control-flow/loops-for.rst
-    /control-flow/loops-nested.rst
-    /control-flow/keywords.rst
+    /control-flow/loop-while.rst
+    /control-flow/loop-for.rst
+    /control-flow/loop-nested.rst
     /control-flow/comprehensions.rst
     /control-flow/exceptions.rst
     /control-flow/file.rst

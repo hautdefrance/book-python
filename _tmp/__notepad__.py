@@ -1,3 +1,27 @@
+STARA_SKALA_OCEN = (2, 3, 3.5, 4, 4.5, 5)
+SKALA_OCEN = []
+dzienniczek = []
+
+for ocena in STARA_SKALA_OCEN:
+    SKALA_OCEN.append(float(ocena))
+
+
+while True:
+    ocena = input('Podaj ocenę: ')
+
+    if not ocena:
+        break
+
+    if float(ocena) not in SKALA_OCEN:
+        print('Grade is not allowed')
+        continue
+
+    dzienniczek.append(ocena)
+
+
+srednia = sum(dzienniczek) / len(dzienniczek)
+print(srednia)
+
 
 
 
