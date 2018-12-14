@@ -1,4 +1,4 @@
-DATABASE = [
+DATA = [
     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
     (5.8, 2.7, 5.1, 1.9, 'virginica'),
     (5.1, 3.5, 1.4, 0.2, 'setosa'),
@@ -23,22 +23,28 @@ DATABASE = [
     (4.6, 3.1, 1.5, 0.2, 'setosa'),
 ]
 
-average = dict()
-values = {
-    'Sepal length': [],
-    'Sepal width': [],
-    'Petal length': [],
-    'Petal width': [],
-}
 
-for record in DATABASE[1:]:
+def average(numbers):
+    return sum(numbers) / len(numbers)
+
+
+values = dict()
+averages = dict()
+header = DATA[0]
+data = DATA[1:]
+
+for key in header:
+    if key != 'Species':
+        values[key] = []
+
+for record in data:
     values['Sepal length'].append(record[0])
     values['Sepal width'].append(record[1])
     values['Petal length'].append(record[2])
     values['Petal width'].append(record[3])
 
 for key, value in values.items():
-    average[key] = sum(value) / len(value)
+    averages[key] = average(value)
 
 print(values)
-print(average)
+print(averages)
