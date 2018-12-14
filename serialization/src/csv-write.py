@@ -1,6 +1,5 @@
 import csv
 
-FILENAME = r'filename.csv'
 DATA = [
     {'first_name': 'José', 'last_name': 'Jiménez'},
     {'first_name': 'Mark', 'last_name': 'Watney'},
@@ -9,9 +8,9 @@ DATA = [
 ]
 
 
-with open(FILENAME, mode='w', encoding='utf-8') as file:
+with open(r'filename.csv', mode='w') as file:
     writer = csv.DictWriter(
-        file,
+        f=file,
         fieldnames=['first_name', 'last_name'],
         delimiter=',',
         quotechar='"',

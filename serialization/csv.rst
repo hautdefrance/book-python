@@ -9,7 +9,6 @@ Reading data from CSV files
 ===========================
 * Good practice is to always set:
 
-    * ``encoding='utf-8'``
     * ``quotechar='"'``
     * ``delimiter=','``
 
@@ -23,7 +22,6 @@ Writing to CSV files
 ====================
 * Good practice is to always set:
 
-    * ``encoding='utf-8'``
     * ``quoting=csv.QUOTE_ALL``
     * ``quotechar='"'``
     * ``delimiter=','``
@@ -57,7 +55,7 @@ Assignments
 
 Reading ``csv``
 ---------------
-* https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
+* https://raw.githubusercontent.com/AstroMatt/book-python/master/serialization/data/iris.csv
 
 #. Otwórz w przeglądarce podany powyżej URL
 #. Zapisz jego zawartość na dysku w miejscu gdzie masz skrypty w pliku ``iris.csv``

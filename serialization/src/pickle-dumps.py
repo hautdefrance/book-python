@@ -1,8 +1,6 @@
 import pickle
 from datetime import datetime, timezone, timedelta
 
-FILENAME = 'filename.pkl'
-
 
 def month_ago(dt):
     return dt - timedelta(days=30)

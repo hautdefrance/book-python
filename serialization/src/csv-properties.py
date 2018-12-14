@@ -1,6 +1,5 @@
 import csv
 
-FILENAME = r'sonar-project.properties'
 """
     sonar.host.url=https://sonarcloud.io
     sonar.language=py
@@ -11,7 +10,8 @@ FILENAME = r'sonar-project.properties'
     sonar.projectDescription=Operating System for analog extraterrestrial habitats.
 """
 
-with open(FILENAME) as file:
+with open(r'sonar-project.properties') as file:
+    
     config = csv.DictReader(
         file,
         fieldnames=['property', 'value'],

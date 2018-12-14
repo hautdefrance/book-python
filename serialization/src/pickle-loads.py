@@ -1,8 +1,7 @@
 import pickle
 
-FILENAME = 'filename.pkl'
 
-data = pickle.loads(FILENAME)
+data = pickle.loads('filename.pkl')
 print(f'Restored object: {data}')
 
 jose = data[0]
