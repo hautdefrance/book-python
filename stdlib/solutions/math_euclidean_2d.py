@@ -20,7 +20,6 @@ def euclidean_distance(A, B):
     >>> euclidean_distance((0,10), (1,1))
     9.055385138137417
     """
-
     x1 = A[0]
     x2 = B[0]
 
