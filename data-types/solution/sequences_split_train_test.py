@@ -1,4 +1,4 @@
-DATABASE = [
+DATA = [
     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
     (5.8, 2.7, 5.1, 1.9, 'virginica'),
     (5.1, 3.5, 1.4, 0.2, 'setosa'),
@@ -25,8 +25,8 @@ DATABASE = [
 
 TRAINING_SIZE = 60 / 100  # 60%
 
-header = DATABASE[0]
-data = DATABASE[1:]
+header = DATA[0]
+data = DATA[1:]
 
 pivot = int(len(data) * TRAINING_SIZE)
 

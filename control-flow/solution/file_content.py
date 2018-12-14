@@ -1,9 +1,9 @@
-FILENAME = input('Podaj nazwę pliku: ')
+FILE = input('Podaj nazwę pliku: ')
 
 
 try:
 
-    with open(FILENAME, mode='w') as file:
+    with open(FILE, mode='w') as file:
         content = file.read()
         print(content)
 

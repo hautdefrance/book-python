@@ -101,7 +101,7 @@ Exception handling
 
 Good Engineering Practises
 ==========================
-* ``FILENAME`` as a raw string ``r'...'`` constant
+* ``FILE`` as a raw string ``r'...'`` constant
 * ``encoding='utf-8'``
 * Use context manager
 

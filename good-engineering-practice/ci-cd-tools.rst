@@ -63,14 +63,14 @@ Static Code Analysis
 :Usage:
     .. code-block:: console
 
-        $ pycodestyle FILENAME.py
+        $ pycodestyle FILE.py
         $ pycodestyle DIRECTORY/
         $ pycodestyle --statistics -qq DIRECTORY/
-        $ pycodestyle --show-source --show-pep8 FILENAME.py
+        $ pycodestyle --show-source --show-pep8 FILE.py
 
     .. code-block:: console
 
-        $ python -m pycodestyle FILENAME.py
+        $ python -m pycodestyle FILE.py
 
 :Config:
     ``setup.cfg``
@@ -128,7 +128,7 @@ Static Code Analysis
     .. code-block:: console
 
         $ pylint DIRECTORY/
-        $ pylint FILENAME.py
+        $ pylint FILE.py
 
 :More information:
     * https://pypi.python.org/pypi/pylint/
@@ -169,7 +169,7 @@ Static Code Analysis
 :Usage:
     .. code-block:: console
 
-        $ coverage run FILENAME.py
+        $ coverage run FILE.py
         $ coverage report -m
 
     Use coverage run to run your program and gather data:
@@ -266,7 +266,7 @@ Type Checking
 .. code-block:: console
 
     $ pip install mypy
-    $ mypy FILENAME
+    $ mypy FILE
 
 ``setup.cfg``
 

@@ -1,7 +1,7 @@
 import sys
 
 
-FILENAME = '../assignment/etc-passwd.txt'
+FILE = '../assignment/etc-passwd.txt'
 
 
 def comprahension(lines):
@@ -33,7 +33,7 @@ def generator(lines):
 
 
 if __name__ == '__main__':
-    with open(FILENAME, encoding='utf-8') as file:
+    with open(FILE) as file:
         lines = file.readlines()
 
     comp = comprahension(lines)

@@ -26,13 +26,13 @@ Przykład
 --------
 .. code-block:: python
 
-    f = open(FILENAME)
+    f = open(FILE)
     # ...
     f.close()
 
 .. code-block:: python
 
-    with open(FILENAME) as file:
+    with open(FILE) as file:
         # ...
 
 Lock
@@ -184,13 +184,13 @@ Buffered file
 
 .. code-block:: python
 
-    FILENAME = '/tmp/context-manager.txt'
+    FILE = '/tmp/context-manager.txt'
 
     class File:
         pass
 
 
-    with File(FILENAME, encoding='utf-8') as file:
+    with File(FILENAME) as file:
         file.append_line(...)
         file.append_line(...)
         file.append_line(...)

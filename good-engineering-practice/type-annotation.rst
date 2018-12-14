@@ -25,7 +25,7 @@ Sprawdzanie typów
 .. code-block:: console
 
     $ pip install mypy
-    $ mypy FILENAME
+    $ mypy FILE
 
 ``setup.cfg``
 
@@ -41,7 +41,7 @@ Sprawdzanie typów
 .. code-block:: console
 
     $ pip install pytype
-    $ pytype -V 3.6 FILENAME
+    $ pytype -V 3.7 FILE
 
 Dodawanie typów do instniejącego kodu
 =====================================
@@ -55,7 +55,7 @@ Dodawanie typów do instniejącego kodu
     $ pip install pyannotate
 
     # (the -w flag means “go ahead, update the file”)
-    $ pyannotate -w FILENAME
+    $ pyannotate -w FILE
 
 
 Korzystanie z typów

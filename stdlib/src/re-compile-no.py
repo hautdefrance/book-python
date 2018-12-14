@@ -1,7 +1,7 @@
 import re
 
 
-DATABASE = [
+DATA = [
     'jose.jimenez@nasa.gov',
     'Jose.Jimenez@nasa.gov',
     '+jose.jimenez@nasa.gov',
@@ -15,5 +15,5 @@ DATABASE = [
 PATTERN = r'^[a-zA-Z0-9][\w.+-]*@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,}$'
 
 
-for email in DATABASE:
+for email in DATA:
     re.match(PATTERN, email)

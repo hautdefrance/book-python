@@ -1,7 +1,8 @@
 from dataclasses import dataclass
 from typing import Union
 
-FILENAME = '/tmp/context-manager.txt'
+
+FILE = '/tmp/context-manager.txt'
 
 
 @dataclass
@@ -26,12 +27,12 @@ class File:
                 file.write(f'{line}\n')
 
 
-f = File(FILENAME, content=['hello'])
+f = File(FILE, content=['hello'])
 print(f.content)
 f.write()
 
 
-with File(FILENAME) as file:
+with File(FILE) as file:
     file.append_line('first line')
     file.append_line('second line')
     file.append_line('third line')

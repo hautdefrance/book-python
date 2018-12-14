@@ -1,7 +1,8 @@
 import json
 from dataclasses import dataclass
 
-FILENAME = '../tmp/iris.json'
+
+FILE = '../tmp/iris.json'
 
 @dataclass
 class Iris:
@@ -23,7 +24,7 @@ class Versicolor(Iris):
     pass
 
 
-with open(FILENAME, encoding='utf-8') as file:
+with open(FILE, encoding='utf-8') as file:
     data = json.load(file)
 
 

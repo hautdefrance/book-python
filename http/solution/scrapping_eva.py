@@ -6,22 +6,22 @@ import requests
 
 
 URL = 'https://www.worldspaceflight.com/bios/eva/eva.php'
-FILENAME_HTML = 'eva.html'
-FILENAME_CSV = 'eva.csv'
+FILE_HTML = 'eva.html'
+FILE_CSV = 'eva.csv'
 
 
 # When you dump page for the first time, you can test parsing on local file
 # It saves bandwidth, and speeds you development
 # Then comment following ``with`` context manager
 
-with open(FILENAME_HTML, mode='w', encoding='utf-8') as file:
+with open(FILE_HTML, mode='w', encoding='utf-8') as file:
     response = requests.get(URL)
     file.write(response.text)
 
 
 # Parser content below
 
-with open(FILENAME_HTML, mode='r', encoding='utf-8') as file:
+with open(FILE_HTML, mode='r', encoding='utf-8') as file:
     content = file.read()
 
 html = BeautifulSoup(content, 'html.parser')
@@ -89,7 +89,7 @@ for row in table.find_all('tr')[1:]:
     })
 
 
-with open(FILENAME_CSV, mode='w', encoding='utf-8') as file:
+with open(FILE_CSV, mode='w', encoding='utf-8') as file:
     writer = csv.DictWriter(
         file,
         fieldnames=records[0].keys(),

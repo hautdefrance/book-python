@@ -3,7 +3,8 @@ from pprint import pprint
 from dataclasses import dataclass
 from typing import List
 
-FILENAME = 'addressbook.json'
+
+FILE = 'addressbook.json'
 
 @dataclass
 class Address:
@@ -58,11 +59,11 @@ class JSONObjectDecoder(json.JSONDecoder):
 
 out = json.dumps(ksiazka_adresowa, cls=JSONObjectEncoder)
 
-with open(FILENAME, mode='w', encoding='utf-8') as file:
+with open(FILE, mode='w', encoding='utf-8') as file:
     file.write(out)
 
 
-with open(FILENAME, mode='r', encoding='utf-8') as file:
+with open(FILE, mode='r', encoding='utf-8') as file:
     dane = file.read()
 
 

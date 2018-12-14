@@ -1,4 +1,4 @@
-DATABASE = [
+DATA = [
     {'last_name': 'Jiménez'},
     {'first_name': 'Matt', 'last_name': 'Kowalski'},
     {'first_name': 'Иван', 'age': 42},
@@ -8,14 +8,14 @@ DATABASE = [
 
 unique_keys = set()
 
-for row in DATABASE:
+for row in DATA:
     unique_keys.update(row.keys())
 
 
 
 unique_keys = set()
 
-for row in DATABASE:
+for row in DATA:
     for key in row.keys():
         unique_keys.add(key)
 
@@ -23,7 +23,7 @@ for row in DATABASE:
 
 all_keys = list()
 
-for row in DATABASE:
+for row in DATA:
     for key in row.keys():
         all_keys.append(key)
 
@@ -33,7 +33,7 @@ unique_keys = set(all_keys)
 
 unique_keys = list()
 
-for row in DATABASE:
+for row in DATA:
     for key in row.keys():
         if key not in unique_keys:
             unique_keys.append(key)

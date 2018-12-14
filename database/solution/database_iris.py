@@ -2,9 +2,7 @@ import sqlite3
 from datetime import datetime, timezone
 
 
-DATABASE = 'iris.sqlite3'
-
-DANE = """4.3,3.0,1.1,0.1,0
+DATA = """4.3,3.0,1.1,0.1,0
 5.8,4.0,1.2,0.2,0
 5.7,4.4,1.5,0.4,1
 5.4,3.9,1.3,0.4,2
@@ -68,7 +66,7 @@ SQL_SELECT = 'SELECT * FROM iris ORDER BY datetime DESC'
 lista_rekordow = []
 
 
-for rekord in DANE.split():
+for rekord in DATA.split():
     pomiary = rekord.split(',')
 
     lista_rekordow.append({
@@ -81,7 +79,7 @@ for rekord in DANE.split():
     })
 
 
-with sqlite3.connect(DATABASE) as db:
+with sqlite3.connect('iris.sqlite3') as db:
     db.row_factory = sqlite3.Row
 
     db.execute(SQL_CREATE_TABLE)

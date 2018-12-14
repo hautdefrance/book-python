@@ -22,8 +22,8 @@ xml
     import subprocess
 
 
-    FILENAME = 'xml-execute-commands.xml'
-    root = xml.etree.ElementTree.parse(FILENAME).getroot()
+    FILE = 'xml-execute-commands.xml'
+    root = xml.etree.ElementTree.parse(FILE).getroot()
 
 
     for command in root.findall('./command'):

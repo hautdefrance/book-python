@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-FILENAME = 'https://raw.githubusercontent.com/AstroMatt/book-python/master/numerical-analysis/data/iris-dirty.csv'
+FILE = 'https://raw.githubusercontent.com/AstroMatt/book-python/master/numerical-analysis/data/iris-dirty.csv'
 
 COLUMNS = [
     'Sepal length',
@@ -11,7 +11,7 @@ COLUMNS = [
     'Species'
 ]
 
-df = pd.read_csv(FILENAME, skiprows=1, names=COLUMNS)
+df = pd.read_csv(FILE, skiprows=1, names=COLUMNS)
 
 df['Species'].replace(to_replace={
     0: 'setosa',

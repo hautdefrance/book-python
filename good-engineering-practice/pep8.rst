@@ -720,7 +720,7 @@ Usage
 -----
 .. code-block:: console
 
-    pycodestyle FILENAME.py
+    pycodestyle FILE.py
 
 .. code-block:: console
 
@@ -736,7 +736,7 @@ Usage
 
 .. code-block:: console
 
-    pycodestyle --show-source --show-pep8 FILENAME.py
+    pycodestyle --show-source --show-pep8 FILE.py
 
 Configuration
 -------------

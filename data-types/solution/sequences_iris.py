@@ -1,4 +1,4 @@
-DATABASE = (
+DATA = (
     5.8, 2.7, 5.1, 1.9, 'virginica',
     5.1, 3.5, 1.4, 0.2, 'setosa',
     5.7, 2.8, 4.1, 1.3, 'versicolor',
@@ -8,15 +8,15 @@ DATABASE = (
 )
 
 features = [
-    DATABASE[0:4],
-    DATABASE[5:9],
-    DATABASE[10:14],
-    DATABASE[15:19],
-    DATABASE[20:24],
-    DATABASE[25:29],
+    DATA[0:4],
+    DATA[5:9],
+    DATA[10:14],
+    DATA[15:19],
+    DATA[20:24],
+    DATA[25:29],
 ]
 
-labels = list(DATABASE[4::5])
+labels = list(DATA[4::5])
 species = set(labels)
 
 print(f'Features:\n{features}\n')

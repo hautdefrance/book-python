@@ -1,4 +1,4 @@
-DATABASE = [
+DATA = [
     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
     (5.8, 2.7, 5.1, 1.9, 'virginica'),
     (5.1, 3.5, 1.4, 0.2, 'setosa'),
@@ -27,8 +27,8 @@ species = dict()
 labels = list()
 features = list()
 
-header = DATABASE[0]
-data = DATABASE[1:]
+header = DATA[0]
+data = DATA[1:]
 
 
 for record in data:
@@ -59,8 +59,8 @@ print(features)
 
 
 ## Alternative solution 1
-s = set(x[-1] for x in DATABASE[1:])
+s = set(x[-1] for x in DATA[1:])
 species = dict(zip(s, range(0, len(s))))
 
 ## In numerical analysis you can find this
-species = dict(enumerate(set(x[-1] for x in DATABASE[1:])))
+species = dict(enumerate(set(x[-1] for x in DATA[1:])))

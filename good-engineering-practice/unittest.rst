@@ -42,7 +42,7 @@ Using ``unittest``
 :Usage:
     .. code-block:: console
 
-        $ python -m unittest FILENAME.py
+        $ python -m unittest FILE.py
 
 
 Assignments
