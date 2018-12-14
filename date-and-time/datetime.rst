@@ -46,12 +46,6 @@ Current ``datetime`` in local time
     :language: python
     :caption: Current ``datetime`` in local timezone
 
-Current ``datetime`` in UTC timezone
-------------------------------------
-.. literalinclude:: src/datetime-current-utc.py
-    :language: python
-    :caption: Current ``datetime`` in UTC timezone
-
 
 ``datetime`` methods
 ====================

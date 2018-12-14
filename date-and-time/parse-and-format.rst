@@ -130,7 +130,7 @@ To ISO date format
 
 #. Przedstaw daty jako obiekt ``datetime``
 #. Wyświetl ``date1`` w formacie ISO, tj. "Rok-Miesiąc-DzieńTGodzina:Minuta:Sekunda.UłamkiSekund"
-#. Wyświetl ``date2`` samą datę, tj. bez czasu
+#. Wyświetl ``date2`` w formacie ISO samą datę, tj. bez czasu
 
 :About:
     * Filename: ``datetime_to_iso.py``

@@ -1,26 +1,17 @@
-import math
+
+from datetime import datetime, time, date
 
 
-def euclidean_distance(A, B):
-    """
-    >>> A = (1, 0)
-    >>> B = (0, 1)
-    >>> euclidean_distance(A, B)
-    1.4142135623730951
+d1 = date(1970, 1, 1)
+d2 = time(14, 30, 30)
+d3 = datetime(1970, 1, 1, 14, 30)
 
-    >>> euclidean_distance((0,0), (1,0))
-    1.0
+now = datetime.now()
+today = date.today()
+now_time = now.time()
 
-    >>> euclidean_distance((0,0), (1,1))
-    1.4142135623730951
 
-    >>> euclidean_distance((0,1), (1,1))
-    1.0
-
-    >>> euclidean_distance((0,10), (1,1))
-    9.055385138137417
-    """
-    return math.sqrt()
+d1 = datetime(1970, 1, 1)
 
 
 
