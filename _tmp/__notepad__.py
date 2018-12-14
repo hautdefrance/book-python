@@ -2,38 +2,6 @@
 
 
 
-def is_numeric(*args):
-    for arg in args:
-
-        if not isinstance(arg, (int, float)):
-            return False
-
-    return True
-
-
-
-
-#
-# def add(a, b, *args, **kwargs):
-#     return a + b
-#
-#
-# add(1, 2)
-# add(a=1, b=2)
-#
-#
-# add(1, 2, 'zielony', color='czerwony')
-#
-#
-#
-#
-# min(3, 6, 1, 2)
-#
-#
-#
-# line = '10.13.37.1      nasa.gov esa.int roscosmos.ru'
-#
-# line.split()
 
 
 

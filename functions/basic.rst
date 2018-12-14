@@ -21,6 +21,7 @@ Function definition
     hello()     # My name... José Jiménez
     hello()     # My name... José Jiménez
 
+
 Returning values
 ================
 * ``return`` wskazuje funkcji jaką wartość ma zwrócić
@@ -54,36 +55,58 @@ Returning simple types
     def function():
         return 42
 
+.. code-block:: python
+
     def function():
         return 13.37
+
+.. code-block:: python
 
     def function():
         return 'José Jiménez'
 
+.. code-block:: python
+
     def function():
         return (42, 13.37, 'José Jiménez')
+
+.. code-block:: python
 
     def function():
         return 42, 13.37, 'José Jiménez'
 
+.. code-block:: python
+
     def function():
         return [42, 13.37, 'foobar']
+
+.. code-block:: python
 
     def function():
         return {42, 13.37, 'José Jiménez'}
 
+.. code-block:: python
+
     def function():
         return {'first_name': 'José', 'last_name': 'Jiménez'}
+
+.. code-block:: python
 
     def function():
         return True
 
+.. code-block:: python
+
     def function():
         return None
+
+.. code-block:: python
 
     def function():
         print('ehlo world')
         # Python will ``return None`` if not specified
+
+.. code-block:: python
 
     def function():
         pass
@@ -199,37 +222,52 @@ Arguments with default value
 
 Naming convention
 =================
-* Używanie ``_`` w nazwach (snake_case) - // Python - snake ;)
 
-    .. code-block:: python
-
-        def add_numbers(a, b):
-            return a + b
-
-* Nie robimy camelCase
+Function name convention
+------------------------
+* It's not Java, do not use ``camelCase``
 
     .. code-block:: python
 
         def addNumbers(a, b):
             return a + b
 
-* Nazwy opisowe funkcji zamiast komentarza
+* It's Python, use ``snake_case`` # Python - snake ;)
 
     .. code-block:: python
 
-        def cal_var(results):
-            """Calculate variance"""
-            return sum((Xi-m) ** 2 for Xi in results) / len(results)
+        def add_numbers(a, b):
+            return a + b
 
-        def calculate_variance(results):
-            return sum((Xi-m) ** 2 for Xi in results) / len(results)
+Use better names, rather than comments
+--------------------------------------
+.. code-block:: python
 
+    def cal_var(results):
+        """Calculate variance"""
+        return sum((Xi-m) ** 2 for Xi in results) / len(results)
+
+    def calculate_variance(results):
+        return sum((Xi-m) ** 2 for Xi in results) / len(results)
+
+Name collisions
+---------------
 * ``_`` at the end of name when name collision
 
     .. code-block:: python
 
         def print_(text):
             print(f'<strong>{text}</strong>')
+
+System functions names
+----------------------
+* ``__`` at the beginning and end of name
+
+    .. code-block:: python
+
+        def __import__(module_name):
+            ...
+
 
 
 Variable scope

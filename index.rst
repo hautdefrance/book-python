@@ -60,7 +60,7 @@ Functions
     :caption: Functions
 
     /functions/basic.rst
-    /functions/kwargs-return.rst
+    /functions/kwargs-unpack.rst
     /functions/kwargs-define.rst
     /functions/kwargs-passing.rst
     /functions/recurrence.rst
