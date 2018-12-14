@@ -128,9 +128,8 @@ Basic Address Book
 ------------------
 #. Dla danych z listingu poniżej napisz książkę adresową
 
-    .. literalinclude:: assignment/oop_addressbook.txt
-        :name: listing-oop-addressbook-data
-        :language: text
+    .. literalinclude:: assignment/oop_addressbook.json
+        :language: json
         :caption: Address Book
 
 #. W zadaniu mamy doczynienia z trzema klasami, wymień je.

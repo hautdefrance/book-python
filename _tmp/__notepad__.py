@@ -1,21 +1,24 @@
+a = [
+    {"first_name": "Pan", "last_name": "Twardowski", "addresses": [
+        {"street": "Kamienica Pod sw. Janem Kapistranem", "city": "Krakow", "post_code": "31-008", "region": "Malopolskie", "country": "Poland"}]},
 
-from datetime import datetime, time, date
+    {"first_name": "José", "last_name": "Jiménez", "addresses": [
+        {"street": "2101 E NASA Pkwy", "city": "Houston", "post_code": 77058, "region": "Texas", "country": "USA"},
+        {"street": "", "city": "Kennedy Space Center", "post_code": 32899, "region": "Florida", "country": "USA"}]},
 
+    {"first_name": "Mark", "last_name": "Watney", "addresses": [
+        {"street": "4800 Oak Grove Dr", "city": "Pasadena", "post_code": 91109, "region": "California", "country": "USA"},
+        {"street": "2825 E Ave P", "city": "Palmdale", "post_code": "93550", "region": "California", "country": "USA"}]},
 
-d1 = date(1970, 1, 1)
-d2 = time(14, 30, 30)
-d3 = datetime(1970, 1, 1, 14, 30)
+    {"first_name": "Иван", "last_name": "Иванович", "addresses": [
+        {"street": "", "city": "Космодро́м Байкону́р", "post_code": "", "region": "Кызылординская область", "country": "Қазақстан"},
+        {"street": "", "city": "Звёздный городо́к", "post_code": 141160, "region": "Московская область", "country": "Россия"}]},
 
-now = datetime.now()
-today = date.today()
-now_time = now.time()
+    {"first_name": "Melissa", "last_name": "Lewis", "addresses": []},
 
-
-d1 = datetime(1970, 1, 1)
-
-
-
-
+    {"first_name": "Alex", "last_name": "Vogel", "addresses": [
+        {"street": "Linder Hoehe", "city": "Köln", "post_code": 51147, "region": "North Rhine-Westphalia", "country": "Germany"}]},
+]
 
 # a = list(range(0, 3))
 # b = list(range(3, 6))
@@ -53,13 +56,6 @@ d1 = datetime(1970, 1, 1)
 #
 
 
-
-
-
-
-
-
-
 # import pandas as pd
 #
 # FILE = r'iris.csv'
@@ -71,9 +67,6 @@ d1 = datetime(1970, 1, 1)
 # pd.read_csv(FILE, encoding='utf-8', decimal=',',
 #             quotechar='"', delimiter=',', lineterminator='\n')
 #
-
-
-
 
 
 # # def numbers():
@@ -129,8 +122,6 @@ d1 = datetime(1970, 1, 1)
 # print(e)
 # print(f)
 #
-
-
 
 
 #
