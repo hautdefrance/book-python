@@ -229,7 +229,7 @@ Aviation Language
     :file: data/aviation-alphabet.csv
 
 :About:
-    * Filename: ``collections_aviation_alphabet.py``
+    * Filename: ``dict_alphabet.py``
     * Lines of code to write: 30 lines
     * Estimated time of completion: 15 min
 

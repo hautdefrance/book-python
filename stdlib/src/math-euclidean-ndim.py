@@ -22,3 +22,4 @@ def euclidean_distance_n_dimensions(A, B):
         ...
     ValueError: Punkty muszą być w przestrzeni tylu-samo wymiarowej
     """
+    return

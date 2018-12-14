@@ -17,3 +17,4 @@ def euclidean_distance(A, B):
     >>> euclidean_distance((0,10), (1,1))
     9.055385138137417
     """
+    return

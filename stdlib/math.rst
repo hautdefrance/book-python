@@ -371,7 +371,6 @@ Points
 
 Sinusoid on grid
 ----------------
-
 .. figure:: img/matplotlib-02.png
     :scale: 50%
     :align: center
@@ -462,6 +461,7 @@ Matrix multiplication
         >>> matrix_multiplication(A, B)
         [[9, 2], [7, 3], [21, 8], [28, 8]]
         """
+        return
 
 :About:
     * Filename: ``math_matrix_multiplication.py``
