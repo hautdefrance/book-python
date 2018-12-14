@@ -1,6 +1,5 @@
 import csv
 
-FILENAME = '../data/iris.csv'
 DATA = [
     {'first_name': 'José'},
     {'last_name': 'Jiménez'},
@@ -14,13 +13,10 @@ fieldnames = set()
 for row in DATA:
     fieldnames.update(row.keys())
 
-# for row in DATA:
-#    for key in row.keys():
-#        fieldnames.add(key)
 
-with open(FILENAME, mode='w', encoding='utf-8') as file:
+with open(r'../data/iris.csv', mode='w') as file:
     writer = csv.DictWriter(
-        file,
+        f=file,
         fieldnames=fieldnames,
         delimiter=',',
         quotechar='"',

@@ -1,7 +1,6 @@
 import csv
 
 
-FILENAME = 'iris.csv'
 FIELDNAMES = [
     'Sepal length',
     'Sepal width',
@@ -11,9 +10,9 @@ FIELDNAMES = [
 ]
 
 
-with open(FILENAME, encoding='utf-8') as file:
+with open(r'../data/iris.csv') as file:
     data = csv.DictReader(
-        file,
+        f=file,
         fieldnames=FIELDNAMES,
         delimiter=',',
         quoting=csv.QUOTE_NONE)
