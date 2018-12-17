@@ -1,22 +1,23 @@
-*********************
-Key-Value Collections
-*********************
-
-
+********
 ``dict``
-========
+********
 
-Creating ``dict``
------------------
+
+Defining ``dict``
+=================
 * ``dict`` items order changes!
 * ``dict`` are key-value storage
 * Comma after last element is optional
 
+Empty ``dict``
+--------------
 .. code-block:: python
 
     my_dict = {}
     my_dict = dict()
 
+``dict`` with multiple values
+-----------------------------
 .. code-block:: python
 
     my_dict = {
@@ -69,11 +70,14 @@ Value can be any object
         'location': ('Bajkonur', 'KSC Florida'),
     }
 
-Adding values to ``dict``
--------------------------
+
+Adding elements
+===============
 * Adds if value not exist
 * Updates if value exist
 
+Adding using ``[...]`` syntax
+-----------------------------
 .. code-block:: python
 
     data = {
@@ -90,7 +94,8 @@ Adding values to ``dict``
     #   'agency': 'NASA'
     # }
 
-
+Adding using ``.update()`` method
+---------------------------------
 .. code-block:: python
 
     data = {
@@ -107,6 +112,10 @@ Adding values to ``dict``
     #   'location': ['Bajkonur', 'Florida'],
     #   'agency': 'NASA'
     # }
+
+
+Accessing elements
+==================
 
 Accessing values with ``[...]``
 -------------------------------
@@ -157,10 +166,24 @@ Accessing ``dict`` keys, values and key-value pairs
         'age': 42,
     }
 
-    my_dict.keys()    # ['first_name', 'last_name', 'age']
-    my_dict.values()  # ['José', 'Jiménez', 42]
-    my_dict.items()   # [('first_name', 'José'), ('last_name', 'Jiménez'), ('age', 42)]
+    my_dict.keys()      # ['first_name', 'last_name', 'age']
+    my_dict.values()    # ['José', 'Jiménez', 42]
+    my_dict.items()     # [('first_name', 'José'), ('last_name', 'Jiménez'), ('age', 42)]
 
+Length of a ``dict``
+====================
+.. code-block:: python
+
+    my_dict = {
+        'first_name': 'José',
+        'last_name': 'Jiménez',
+        'age': 42,
+    }
+
+    len(my_set)                 # 3
+    len(my_dict.keys())         # 3
+    len(my_dict.values())       # 3
+    len(my_dict.items())        # 3
 
 ``dict`` vs. ``set``
 ====================

@@ -28,8 +28,11 @@ Basic Types and Data Structures
     /data-types/str.rst
     /data-types/str-methods.rst
     /data-types/slice.rst
+    /data-types/list.rst
+    /data-types/set.rst
+    /data-types/tuple.rst
     /data-types/sequences.rst
-    /data-types/key-value.rst
+    /data-types/dict.rst
     /data-types/nested.rst
     /data-types/types.rst
 

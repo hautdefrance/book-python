@@ -1,31 +1,31 @@
-a = {
-    'A': 'Alfa',
-    'B': 'Bravo',
-    'C': 'Charlie',
-    'D': 'Delta',
-    'E': 'Echo',
-    'F': 'Foxtrot',
-    'G': 'Golf',
-    'H': 'Hotel',
-    'I': 'India',
-    'J': 'Juliet',
-    'K': 'Kilo',
-    'L': 'Lima',
-    'M': 'Mike',
-    'N': 'November',
-    'O': 'Oscar',
-    'P': 'Papa',
-    'Q': 'Quebec',
-    'R': 'Romeo',
-    'S': 'Sierra',
-    'T': 'Tango',
-    'U': 'Uniform',
-    'V': 'Victor',
-    'W': 'Whisky',
-    'X': 'X-Ray',
-    'Y': 'Yankee',
-    'Z': 'Zulu',
-}
+
+
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Vector(
+            x=self.x + other.x,
+            y=self.y + other.y,
+        )
+
+    def __str__(self):
+        return f'Vector(x={self.x}, y={self.y})'
+
+vector1 = Vector(x=2, y=4)
+vector2 = Vector(x=5, y=3)
+
+vector3 = vector1 + vector2
+
+print(vector3)
+
+
+
+
+
+
 
 
 
