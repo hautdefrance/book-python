@@ -14,28 +14,37 @@ Introduction
     /about/ide.rst
     /about/syntax.rst
 
-*******************************
-Basic Types and Data Structures
-*******************************
+**********
+Data Types
+**********
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Basic Types and Data Structures
+    :caption: Data Types
 
     /data-types/int.rst
     /data-types/float.rst
     /data-types/bool.rst
     /data-types/none.rst
     /data-types/str.rst
-    /data-types/str-methods.rst
-    /data-types/slice.rst
     /data-types/list.rst
     /data-types/set.rst
     /data-types/tuple.rst
-    /data-types/sequences.rst
     /data-types/dict.rst
-    /data-types/nested.rst
     /data-types/types.rst
+
+****************
+Basic Operations
+****************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Basic Operations
+
+    /data-types/str-methods.rst
+    /data-types/slice.rst
+    /data-types/nested.rst
+    /data-types/unpacking.rst
 
 ************
 Control Flow

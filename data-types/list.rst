@@ -98,6 +98,7 @@ Multiple statements in one line
 Slicing ``list``
 ================
 * Slicing works the same as for ``str``
+* More in :ref:`Slice` chapter
 
 .. code-block:: python
 

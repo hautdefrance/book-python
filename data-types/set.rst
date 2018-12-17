@@ -78,6 +78,7 @@ Adding many items
 Slicing ``set``
 ===============
 * Slicing ``set`` is not possible
+* More in :ref:`Slice` chapter
 
 .. code-block:: python
 

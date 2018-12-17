@@ -43,6 +43,8 @@ Empty ``tuple``
 
 Slicing ``tuple``
 =================
+* More in :ref:`Slice` chapter
+
 .. code-block:: python
 
     my_tuple = (1, 2, 3, 4, 5)
