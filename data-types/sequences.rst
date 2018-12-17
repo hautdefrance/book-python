@@ -473,7 +473,7 @@ Simple collections
 :About:
     * Filename: ``sequences_simple.py``
     * Lines of code to write: 5 lines
-    * Estimated time of completion: 10 min
+    * Estimated time of completion: 5 min
 
 :The whys and wherefores:
     * Definiowanie i korzystanie z ``list``, ``tuple``, ``set``
@@ -495,43 +495,41 @@ Iris dataset
             4.7, 3.2, 1.3, 0.2, 'setosa',
         )
 
-# Za pomocą slice wyodrębnij zmienną...
+#. Za pomocą slice wyodrębnij zmienną ``features: List[Tuple[float]]`` z wynikami pomiarów
 
-    #. ``features: List[Tuple[float]]`` z wynikami pomiarów
+    .. code-block:: python
 
-        .. code-block:: python
+        features = [
+            (5.8, 2.7, 5.1, 1.9),
+            (5.1, 3.5, 1.4, 0.2),
+            (5.7, 2.8, 4.1, 1.3),
+            (6.3, 2.9, 5.6, 1.8),
+            (6.4, 3.2, 4.5, 1.5),
+            (4.7, 3.2, 1.3, 0.2),
+        ]
 
-            features = [
-                (5.8, 2.7, 5.1, 1.9),
-                (5.1, 3.5, 1.4, 0.2),
-                (5.7, 2.8, 4.1, 1.3),
-                (6.3, 2.9, 5.6, 1.8),
-                (6.4, 3.2, 4.5, 1.5),
-                (4.7, 3.2, 1.3, 0.2),
-            ]
+#. Za pomocą slice wyodrębnij zmienną ``labels: List[str]``, która będzie zawierała w kolejności wszystkie nazwy gatunków
 
-    #. ``labels: List[str]``, która będzie zawierała w kolejności wszystkie nazwy gatunków
+    .. code-block:: python
 
-        .. code-block:: python
+        labels = [
+            'virginica',
+            'setosa',
+            'versicolor',
+            'virginica',
+            'versicolor',
+            'setosa',
+        ]
 
-            labels = [
-                'virginica',
-                'setosa',
-                'versicolor',
-                'virginica',
-                'versicolor',
-                'setosa',
-            ]
+#. Za pomocą slice wyodrębnij zmienną ``species: Set[str]``, która jest unikalnym zbiorem gatunków (na podstawie ``labels``)
 
-    #. ``species: Set[str]``, która jest unikalnym zbiorem gatunków (na podstawie ``labels``)
+    .. code-block:: python
 
-        .. code-block:: python
-
-            species = {
-                'versicolor',
-                'setosa',
-                'virginica',
-            }
+        species = {
+            'versicolor',
+            'setosa',
+            'virginica',
+        }
 
 :About:
     * Filename: ``sequences_iris.py``
