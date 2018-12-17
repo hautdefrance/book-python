@@ -138,6 +138,7 @@ Defining ``set``
 .. code-block:: python
 
     my_set = {1, 2.0, 'Jose'}   # {1, 2.0, 'Jose'}
+    my_set = {1, 2.0, (3, 4)}   # {1, 2.0, (3, 4)}
     my_set = {1, 2.0, [3, 4]}   # TypeError: unhashable type: 'list'
     my_set = {1, 2.0, {3, 4}}   # TypeError: unhashable type: 'set'
 
@@ -158,12 +159,6 @@ Adding many items
     my_set = {1, 2, 3}          # {1, 2, 3}
 
     my_set.update([4, 5])       # {1, 2, 3, 4, 5}
-
-.. code-block:: python
-
-    my_set = {1, 2, 3}          # {1, 2, 3}
-
-    my_set.update({4, 5})       # {1, 2, 3, 4, 5}
 
 Mathematical ``set`` operations
 -------------------------------
@@ -530,6 +525,8 @@ Iris dataset
             'setosa',
             'virginica',
         }
+
+#. Nie używaj slice, ani żadnych instrukcji, które nie zostały dotychczas omówione
 
 :About:
     * Filename: ``sequences_iris.py``

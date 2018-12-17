@@ -24,13 +24,6 @@ Creating ``dict``
         'last_name': 'Jiménez'
     }
 
-.. code-block:: python
-
-    my_dict = {
-        'first_name': 'José',
-        'last_name': 'Jiménez',
-    }
-
 Duplicating items are overridden by latter
 ------------------------------------------
 .. code-block:: python
