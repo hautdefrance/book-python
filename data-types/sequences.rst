@@ -261,12 +261,59 @@ Length of a ``tuple``
 
 Unpacking sequences to variables
 ================================
+
+Unpacking values
+----------------
 .. code-block:: python
 
     a, b, c = 1, 2, 3
+
+.. code-block:: python
+
     a, b, c = (1, 2, 3)
     a, b, c = [1, 2, 3]
     a, b, c = {1, 2, 3}
+
+Too many values to unpack
+-------------------------
+.. code-block:: python
+
+    a, b, c = [1, 2, 3, 4]
+    # ValueError: too many values to unpack (expected 3)
+
+Not enough values to unpack
+---------------------------
+.. code-block:: python
+
+    a, b, c, d = [1, 2, 3]
+    # ValueError: not enough values to unpack (expected 4, got 3)
+
+Unpacking values at the right side
+----------------------------------
+.. code-block:: python
+
+    a, b, *others = [1, 2, 3, 4]
+
+    a           # 1
+    b           # 2
+    others      # [3, 4]
+
+Unpacking values at the left side
+---------------------------------
+.. code-block:: python
+
+    *others, a, b = [1, 2, 3, 4]
+
+    a           # 3
+    b           # 4
+    others      # [1, 2]
+
+Cannot unpack from both sides at once
+-------------------------------------
+.. code-block:: python
+
+    *a, b, *c = [1, 2, 3, 4]
+    # SyntaxError: two starred expressions in assignment
 
 
 How Python understands types?
@@ -333,6 +380,7 @@ How Python understands types?
     what = (.5,.5)   # tuple with two floats
     what = (1.,.5)   # tuple with two floats
 
+
 Built-in functions on sequences
 ===============================
 
@@ -344,7 +392,6 @@ Built-in functions on sequences
 
     len(numbers)                   # 5
     len('Max')                     # 3
-    len({'id': 3, 'name': 'Max'})  # 2
 
 ``min()``
 ---------
@@ -373,7 +420,6 @@ Built-in functions on sequences
     numbers = sorted(numbers)
     print(numbers)  # [1, 2, 3]
 
-
  ``list.sort()``
 ----------------
 .. code-block:: python
@@ -382,9 +428,6 @@ Built-in functions on sequences
 
     numbers.sort()
     print(numbers)
-
-
-
 
 * ``sorted()`` zwraca posortowaną listę, ale nie zapisuje zmienionej kolejności
 * ``.sort()`` zmienia listę na stałe
