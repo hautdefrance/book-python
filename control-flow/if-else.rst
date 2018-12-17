@@ -308,3 +308,33 @@ Conditioning on user input
     * Definiowanie zmiennych i stałych w programie
     * Magic Number
 
+Classification of blood pressure in adults
+------------------------------------------
+* Source: https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings
+
+#. Poniższa tabelka przedstawia klasyfikację ciśnienia krwi, wg. American Heart Association
+
+    .. csv-table:: Classification of blood pressure in adults
+        :file: data/if-blood-pressure.csv
+        :header-rows: 1
+
+#. Użytkownik wprowadza ciśnienie w formacie ``XXX/YY``, gdzie:
+
+    - ``XXX`` to wartość ciśnienia skurczowego (ang. *systolic*)
+    - ``YY`` to wartość ciśnienia rozkurczowego (ang. *diastolic*)
+
+#. Daj informację użytkownikowi o klasyfikacji ciśnienia
+#. W przypadku gdy wartości ciśnienia skurczowego i ciśnienia rozkurczowego należą do różnych kategorii, należy przyjąć kategorię wyższą
+
+:About:
+    * Filename: ``ifelse_blood_pressure.py``
+    * Lines of code to write: 15 lines
+    * Estimated time of completion: 15 min
+
+:The whys and wherefores:
+    * Wczytywanie ciągu znaków od użytkownika
+    * Rzutowanie i konwersja typów
+    * Instrukcje warunkowe
+    * Złożone instrukcje warunkowe
+    * Sprawdzanie przypadków brzegowych (niekompatybilne argumenty)
+    * Definiowanie zmiennych i stałych w programie
