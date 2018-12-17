@@ -215,6 +215,14 @@ Getting text from user
 Assignments
 ===========
 
+Emot print
+----------
+#. Wczytaj od użytkownika imię
+#. Wyświetl ``hello IMIE EMOTICON``, gdzie:
+
+    - IMIE to imie wprowadzone przez usera
+    - EMOTICON to Unicode Codepoint "U+1F642"
+
 Variables and types
 -------------------
 #. Wczytaj od użytkownika imię
@@ -229,15 +237,7 @@ Variables and types
 #. Gdzie wartość w podwójnym cudzysłowiu to ciąg od użytkownika (w przykładzie użytkownik wpisał ``José Jiménez``)
 #. Zwróć uwagę na znaki apostrofów, cudzysłowów, tabulacji i nowych linii
 #. W ciągu do wyświetlenia nie używaj spacji ani enterów - użyj ``\n`` i ``\t``
-#. Tekst wyświetlony na ekranie ma mieć zamienione wszystkie spacje na ``_``
-#. Tekst wyświetlony na ekranie ma być w UPPERCASE
 #. Nie korzystaj z dodawania stringów (``str + str``)
-#. Następnie znów wyświetl na ekranie wynik, tym razem z podmienionymi spacjami:
-
-    .. code-block:: text
-
-        '''MY_NAME_"JOSÉ_JIMÉNEZ".
-        _I'M_AN_"""ASTRONAUT!"""'''
 
 :About:
     * Filename: ``types_str_input.py``
