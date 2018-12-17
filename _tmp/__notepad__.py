@@ -1,24 +1,13 @@
-a = [
-    {"first_name": "Pan", "last_name": "Twardowski", "addresses": [
-        {"street": "Kamienica Pod sw. Janem Kapistranem", "city": "Krakow", "post_code": "31-008", "region": "Malopolskie", "country": "Poland"}]},
 
-    {"first_name": "José", "last_name": "Jiménez", "addresses": [
-        {"street": "2101 E NASA Pkwy", "city": "Houston", "post_code": 77058, "region": "Texas", "country": "USA"},
-        {"street": "", "city": "Kennedy Space Center", "post_code": 32899, "region": "Florida", "country": "USA"}]},
+pi = 3.1415
+print(f'{pi:.3}')
 
-    {"first_name": "Mark", "last_name": "Watney", "addresses": [
-        {"street": "4800 Oak Grove Dr", "city": "Pasadena", "post_code": 91109, "region": "California", "country": "USA"},
-        {"street": "2825 E Ave P", "city": "Palmdale", "post_code": "93550", "region": "California", "country": "USA"}]},
 
-    {"first_name": "Иван", "last_name": "Иванович", "addresses": [
-        {"street": "", "city": "Космодро́м Байкону́р", "post_code": "", "region": "Кызылординская область", "country": "Қазақстан"},
-        {"street": "", "city": "Звёздный городо́к", "post_code": 141160, "region": "Московская область", "country": "Россия"}]},
 
-    {"first_name": "Melissa", "last_name": "Lewis", "addresses": []},
 
-    {"first_name": "Alex", "last_name": "Vogel", "addresses": [
-        {"street": "Linder Hoehe", "city": "Köln", "post_code": 51147, "region": "North Rhine-Westphalia", "country": "Germany"}]},
-]
+
+
+
 
 # a = list(range(0, 3))
 # b = list(range(3, 6))

@@ -115,12 +115,12 @@ To ``bool`` or not to ``bool``
         b = True
         c = None
 
-        c = 'a'
-        d = '.'
-        e = '0'
-        f = '0.0'
-        g = ''
-        h = ' '
+        d = 'a'
+        e = '.'
+        f = '0'
+        g = '0.0'
+        h = ''
+        i = ' '
 
         j = 0
         k = 0.0
