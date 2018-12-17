@@ -1,5 +1,0 @@
-"Modifier", "Name",  "Description"
-"``f'...'``", "Format string", "String interpolation (variable substitution), since Python 3.6"
-"``u'...'``", "Unicode literals", "Used in Python 2, now only for compatibility"
-"``b'...'``", "Bytes literals",  "Instance of the ``bytes`` type instead of the ``str``. Use ``b'...'.decode('utf-8')`` for conversion to unicode"
-"``r'...'``", "Raw string", "Escapes does not matters"

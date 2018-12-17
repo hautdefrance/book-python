@@ -200,32 +200,8 @@ Multiple statements in one line
     # AttributeError: 'bool' object has no attribute 'replace'
 
 
-Handling user input
-===================
-
-Getting user input
-------------------
-* ``input()`` returns ``str``
-* Space at the end of prompt
-
-.. code-block:: python
-
-    name = input('Type your name: ')
-    # User inputs: Jose
-
-    type(name)
-    # <class 'str'>
-
-.. code-block:: python
-
-    age = input('Type your age: ')
-    # User inputs: 42
-
-    type(age)
-    # <class 'str'>
-
-Cleaning data
--------------
+Cleaning ``str`` from user input
+================================
 * 80% of machine learning and data science is cleaning data
 * This is a dump of distinct records of a single address
 * Is this the same address?:

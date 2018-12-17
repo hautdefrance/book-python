@@ -11,7 +11,6 @@ Character Types
 Defining ``str``
 ----------------
 * ``"`` and ``'`` works the same
-* Unicode characters (UTF-16 or UTF-32, depending on how Python was compiled)
 
 .. code-block:: python
 
@@ -128,14 +127,11 @@ Other escape characters
 
 Characters before strings
 =========================
-.. csv-table:: String modifiers
-    :header-rows: 1
-    :widths: 15, 30, 55
-    :file: data/str-modifiers.csv
 
 Format String
 -------------
-* Format string: since Python 3.6
+* String interpolation (variable substitution)
+* Since Python 3.6
 
 .. code-block:: python
 
@@ -144,8 +140,8 @@ Format String
     print(f'My name... {name}')
     # My name... José Jiménez
 
-Unicode string
---------------
+Unicode literals
+----------------
 * In Python 3 ``str`` is Unicode
 * In Python 2 ``str`` is Bytes
 * In Python 3 ``u'...'`` is only for compatibility with Python 2
@@ -154,11 +150,13 @@ Unicode string
 
     u'zażółć gęślą jaźń'
 
-Bytes sequence
+Bytes literals
 --------------
 * Used while reading from low level devices and drivers
 * Used in sockets and HTTP connections
 * ``bytes`` is a sequence of octets (integers between 0 and 255)
+* ``bytes.decode()`` conversion to unicode ``str``
+* ``str.encode()`` conversion to ``bytes``
 
 .. code-block:: python
 
@@ -166,10 +164,11 @@ Bytes sequence
 
 Raw String
 ----------
+*  Escapes does not matters
+
 .. code-block:: python
 
     r'(?P<foo>)\n'
-    r'C:\Users\Admin\file.txt'
 
 .. code-block:: python
 
@@ -189,6 +188,28 @@ Raw String
 * Problem: ``\Users``
 * after ``\U...`` python expects Unicode codepoint in hex
 * ``s`` is invalid hexadecimal character
+
+
+Getting text from user
+======================
+* ``input()`` returns ``str``
+* Space at the end of prompt
+
+.. code-block:: python
+
+    name = input('Type your name: ')
+    # User inputs: Pan Twardowski
+
+    print(name)     # 'Pan Twardowski'
+    type(name)      # <class 'str'>
+
+.. code-block:: python
+
+    age = input('Type your age: ')
+    # User inputs: 42
+
+    print(age)      # '42'
+    type(age)       # <class 'str'>
 
 
 Assignments
