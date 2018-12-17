@@ -30,7 +30,7 @@ data = DATA[1:]
 
 pivot = int(len(data) * TRAINING_SIZE)
 
-X_train = data[:pivot+1]
+X_train = data[:pivot]
 X_test = data[pivot:]
 
 

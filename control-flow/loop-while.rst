@@ -77,7 +77,7 @@ Assignments
 Report card
 -----------
 #. Do zmiennej zapisz skalę ocen ``(2, 3, 3.5, 4, 4.5, 5)``
-#. Przekonwertuj skalę na ``List[float]``
+#. Za pomocą pętli przekonwertuj skalę na ``List[float]``
 #. Użytkownik podaje oceny jako ``int`` lub ``float`` (nie będzie próbował psuć)
 #. Jeżeli ocena jest na liście dopuszczalnych ocen, dodaj ją do dzienniczka
 #. Jeżeli wciśnięto sam Enter, zakończ wpisywanie do dzienniczka

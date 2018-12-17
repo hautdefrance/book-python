@@ -96,24 +96,6 @@ Conditional Statements
             print('Second line of the false statement')
             print('Third line of the false statement')
 
-``elif``
---------
-* Used to check for additional condition if first is not met
-* In other languages is known as ``else if``
-
-.. code-block:: python
-
-    country = 'Poland'
-
-    if country == 'USA':
-        print('Howdy!')
-    elif country == 'Germany':
-        print('Guten tag!')
-    elif country == 'Poland':
-        print('Witaj!')
-    else:
-        print('...')
-
 Inline ``if``
 -------------
 .. code-block:: python
@@ -130,6 +112,70 @@ Inline ``if``
     ip = '127.0.0.1'
 
     protocol = 'IPv4' if '.' in ip else 'IPv6'
+
+
+``elif`` and ``switch``
+=======================
+
+``elif``
+--------
+* Used to check for additional condition if first is not met
+* In other languages is known as ``else if``
+
+.. code-block:: python
+
+    country = 'Poland'
+
+    if country == 'USA':
+        print('Hello')
+    elif country == 'Germany':
+        print('Guten tag!')
+    elif country == 'Poland':
+        print('Witaj!')
+    else:
+        print('...')
+
+No ``switch`` statement?!
+-------------------------
+* ``switch`` in Object Oriented Programming is considered a bad practise
+* `PEP 275 <https://www.python.org/dev/peps/pep-0275/>`_
+
+.. code-block:: python
+
+    if name == 'José Jiménez':
+        print('My name... José Jiménez')
+    elif name == 'Иван Иванович':
+        print('Your name is Иван Иванович')
+    elif name == 'Mark Watney':
+        print('Your name is Mark Watney')
+    else:
+         print('Your name is other')
+
+.. code-block:: python
+
+    switch = {
+        'English': 'Hello',
+        'Russian': 'Здравствуйте',
+        'German': 'Guten Tag',
+        'Polish': 'Witaj',
+    }
+
+    what = 'French'
+    switch.get(what, "Sorry, I don't know")
+    # "Sorry, I don't know"
+
+.. code-block:: python
+
+    def switch(key):
+        return {
+            'English': 'Hello',
+            'Russian': 'Здравствуйте',
+            'German': 'Guten Tag',
+            'Polish': 'Witaj',
+        }.get(key, "Sorry, I don't know")
+
+    switch('Russian')       # 'Здравствуйте'
+    switch('French')        # "Sorry, I don't know"
 
 
 Complex expressions
@@ -238,48 +284,6 @@ Control Statements
 
     if name is not None:
         print(name)
-
-No ``switch`` statement?!
-=========================
-* ``switch`` in Object Oriented Programming is considered a bad practise
-* `PEP 275 <https://www.python.org/dev/peps/pep-0275/>`_
-
-.. code-block:: python
-
-    if name == 'José Jiménez':
-        print('My name... José Jiménez')
-    elif name == 'Иван Иванович':
-        print('Your name is Иван Иванович')
-    elif name == 'Mark Watney':
-        print('Your name is Mark Watney')
-    else:
-         print('Your name is other')
-
-.. code-block:: python
-
-    switch = {
-        'English': 'Hello',
-        'Russian': 'Здравствуйте',
-        'German': 'Guten Tag',
-        'Polish': 'Witaj',
-    }
-
-    what = 'French'
-    switch.get(what, "Sorry, I don't know")
-    # "Sorry, I don't know"
-
-.. code-block:: python
-
-    def switch(key):
-        return {
-            'English': 'Hello',
-            'Russian': 'Здравствуйте',
-            'German': 'Guten Tag',
-            'Polish': 'Witaj',
-        }.get(key, "Sorry, I don't know")
-
-    switch('Russian')       # 'Здравствуйте'
-    switch('French')        # "Sorry, I don't know"
 
 
 Assignments

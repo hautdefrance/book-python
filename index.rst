@@ -23,7 +23,8 @@ Basic Types and Data Structures
     :numbered:
     :caption: Basic Types and Data Structures
 
-    /data-types/numeric.rst
+    /data-types/int.rst
+    /data-types/float.rst
     /data-types/logic.rst
     /data-types/str.rst
     /data-types/str-methods.rst

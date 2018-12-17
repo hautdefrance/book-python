@@ -1,31 +1,10 @@
 
+number = input('Type number: ')
 
-class Vector:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def __add__(self, other):
-        return Vector(
-            x=self.x + other.x,
-            y=self.y + other.y,
-        )
-
-    def __str__(self):
-        return f'Vector(x={self.x}, y={self.y})'
-
-vector1 = Vector(x=2, y=4)
-vector2 = Vector(x=5, y=3)
-
-vector3 = vector1 + vector2
-
-print(vector3)
-
-
-
-
-
-
+if float(number) % 2 == 0:
+    print('parzysta')
+else:
+    print('nieparzysta')
 
 
 

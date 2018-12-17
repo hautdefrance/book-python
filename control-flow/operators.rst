@@ -13,13 +13,6 @@ Logical operators
     :file: data/operators-logical.csv
 
 
-Numerical types operators
-=========================
-.. csv-table:: Numerical types operators
-    :header-rows: 1
-    :widths: 15, 25, 60
-    :file: data/operators-numerical.csv
-
 
 Bitwise operators
 =================

@@ -1,57 +1,10 @@
-.. _Numerical Types:
-
-***************
-Numerical Types
-***************
-
-
-``int``
-=======
-
-Defining ``int``
-----------------
-* Python 3 dynamically extends ``int``, when it's too big
-* In Python 3 there is not maximal ``int`` value
-
-.. code-block:: python
-
-    value = 30
-
-* You can use ``_`` for easier read especially with big numbers:
-
-    .. code-block:: python
-
-        million = 1000000
-        million = 1_000_000
-
-Converting to ``int``
----------------------
-* Also known as "type casting"
-* ``int()`` converts argument to ``int``
-
-.. code-block:: python
-
-    int(10)          # 10
-
-.. code-block:: python
-
-    int(10.0)        # 10
-    int(10.9)        # 10
-
-    int(1.23)            # 1
-    int(-1.23)           # -1
-
-.. code-block:: python
-
-    int('10')        # 10
-    int('10.5')      # ValueError: invalid literal for int() with base 10: ' 10.5'
-
-
+*********
 ``float``
-=========
+*********
+
 
 Defining ``float``
-------------------
+==================
 .. code-block:: python
 
     value = 10.5
@@ -62,26 +15,6 @@ Defining ``float``
 
         value = 10.     # 10.0
         value = .44     # 0.44
-
-Converting to ``float``
------------------------
-* Also known as "type casting"
-* ``float()`` converts argument to ``float``
-
-.. code-block:: python
-
-    float(10.5)            # 10.5
-    float(10)              # 10.0
-
-.. code-block:: python
-
-    float(1.23)            # 1.23
-    float(-1.23)           # -1.23
-
-.. code-block:: python
-
-    float('+1.23')         # 1.23
-    float('-1.23')         # -1.23
 
 Engineering notation
 --------------------
@@ -103,18 +36,6 @@ Engineering notation
     float(1e-5)            # 1e-05
     float(1E-5)            # 1E-05
 
-Maximal and minimal ``float`` values
-------------------------------------
-.. code-block:: python
-
-    import sys
-
-    sys.float_info.min
-    # 2.2250738585072014e-308
-
-    sys.float_info.max
-    # 1.7976931348623157e+308
-
 Infinity representation
 -----------------------
 .. code-block:: python
@@ -129,19 +50,48 @@ Infinity representation
 
     float('-inf')          # -inf
     float('-Infinity')     # -inf
+
+.. code-block:: python
+
     float('inf')           # inf
     float('Infinity')      # inf
 
+Maximal and minimal ``float`` values
+------------------------------------
+.. code-block:: python
 
-Numeric Operators
+    import sys
+
+    sys.float_info.min
+    # 2.2250738585072014e-308
+
+    sys.float_info.max
+    # 1.7976931348623157e+308
+
+
+Converting to ``float``
+=======================
+* Also known as "type casting"
+* ``float()`` converts argument to ``float``
+
+.. code-block:: python
+
+    float(10.5)            # 10.5
+    float(10)              # 10.0
+
+.. code-block:: python
+
+    float(1.23)            # 1.23
+    float(-1.23)           # -1.23
+
+.. code-block:: python
+
+    float('+1.23')         # 1.23
+    float('-1.23')         # -1.23
+
+
+Numeric Functions
 =================
-
-Numeric types operators
------------------------
-.. csv-table:: Numeric types operators
-    :header-rows: 1
-    :widths: 25, 75
-    :file: data/operators-numeric.csv
 
 Rounding numbers
 ----------------
