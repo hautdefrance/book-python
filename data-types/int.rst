@@ -14,10 +14,10 @@ Defining ``int``
 
 * You can use ``_`` for easier read especially with big numbers:
 
-    .. code-block:: python
+.. code-block:: python
 
-        million = 1000000
-        million = 1_000_000
+    million = 1000000
+    million = 1_000_000
 
 
 Converting to ``int``

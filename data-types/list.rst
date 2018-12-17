@@ -109,6 +109,84 @@ Slicing ``list``
     my_list[-1]            # 'José'
 
 
+``sorted()`` vs. ``list.sort()``
+================================
+
+``sorted()``
+------------
+.. code-block:: python
+
+    numbers = [3, 1, 2]
+
+    numbers = sorted(numbers)
+    print(numbers)  # [1, 2, 3]
+
+``list.sort()``
+---------------
+.. code-block:: python
+
+    numbers = [3, 1, 2]
+
+    numbers.sort()
+    print(numbers)
+
+* ``sorted()`` zwraca posortowaną listę, ale nie zapisuje zmienionej kolejności
+* ``.sort()`` zmienia listę na stałe
+
+.. code-block:: python
+
+    numbers = [3, 1, 2]
+
+    sorted(numbers) # returns [1, 2, 3]
+    print(numbers)  # [3, 1, 2]
+
+.. code-block:: python
+
+    numbers = [3, 1, 2]
+
+    numbers.sort()  # returns None
+    print(numbers)  # [1, 2, 3]
+
+
+Built-in functions on sequences
+===============================
+
+``len()``
+---------
+.. code-block:: python
+
+    numbers = [1, 2, 3, 4, 5]
+
+    len(numbers)                   # 5
+    len('Max')                     # 3
+
+``min()``
+---------
+.. code-block:: python
+
+    numbers = [1, 2, 3, 4, 5]
+
+    min(numbers)  # 1
+    min(3, 1, 5)  # 1
+
+``max()``
+---------
+.. code-block:: python
+
+    numbers = [1, 2, 3, 4, 5]
+
+    max(numbers)  # 5
+    max(3, 1, 5)  # 5
+
+
+Membership Operators
+====================
+.. csv-table:: Membership operators
+    :header-rows: 1
+    :widths: 15, 25, 60
+    :file: data/operators-membership.csv
+
+
 Length of a ``list``
 ====================
 .. code-block:: python

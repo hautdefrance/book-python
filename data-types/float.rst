@@ -9,12 +9,14 @@ Defining ``float``
 
     value = 10.5
 
-* Notation without leading or trailing zero (used by ``numpy``):
+Notation without leading or trailing zero
+-----------------------------------------
+* Used by ``numpy``
 
-    .. code-block:: python
+.. code-block:: python
 
-        value = 10.     # 10.0
-        value = .44     # 0.44
+    value = 10.     # 10.0
+    value = .44     # 0.44
 
 Engineering notation
 --------------------
@@ -164,7 +166,6 @@ Handling user input and type casting
     * Oddzielenie logiki biznesowej od warstwy widoku
 
 :Hints:
-    * Aby podzielić liczbę użyj ``/``, np: ``10 / 2``
     * 1000 m = 1 km
     * 1608 m = 1 mila
     * 1852 m = 1 mila morska

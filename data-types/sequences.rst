@@ -1,15 +1,10 @@
-.. _Data Structures:
+*******************
+Unpacking sequences
+*******************
 
-******************
-Simple Collections
-******************
-
-
-Unpacking sequences to variables
-================================
 
 Unpacking values
-----------------
+================
 .. code-block:: python
 
     a, b, c = 1, 2, 3
@@ -33,6 +28,10 @@ Not enough values to unpack
 
     a, b, c, d = [1, 2, 3]
     # ValueError: not enough values to unpack (expected 4, got 3)
+
+
+Unpacking arbitrary number of arguments
+=======================================
 
 Unpacking values at the right side
 ----------------------------------
@@ -60,145 +59,6 @@ Cannot unpack from both sides at once
 
     *a, b, *c = [1, 2, 3, 4]
     # SyntaxError: two starred expressions in assignment
-
-
-How Python understands types?
-=============================
-.. code-block:: python
-
-    what = 1.2        # float
-    what = 1,2        # tuple
-
-    what = (1.2)      # float
-    what = (1,2)      # tuple
-
-.. code-block:: python
-
-    what = 1.2,       # tuple with float
-    what = 1,2.3      # tuple with int and float
-
-    what = (1.2,)     # tuple with float
-    what = (1,2.3)    # tuple with int and float
-
-.. code-block:: python
-
-    what = 'foo'      # str
-    what = 'foo',     # tuple with str
-    what = 'foo'.     # SyntaxError: invalid syntax
-
-    what = ('foo')    # str
-    what = ('foo',)   # tuple with str
-    what = ('foo'.)   # SyntaxError: invalid syntax
-
-.. code-block:: python
-
-    what = 1.        # float
-    what = .5        # float
-    what = 1.0       # float
-    what = 1         # int
-
-    what = (1.)      # float
-    what = (.5)      # float
-    what = (1.0)     # float
-    what = (1)       # int
-
-.. code-block:: python
-
-    what = 10.5      # float
-    what = 10,5      # tuple with two ints
-    what = 10.       # float
-    what = 10,       # tuple with int
-    what = 10        # int
-
-    what = (10.5)    # float
-    what = (10,5)    # tuple with two ints
-    what = (10.)     # float
-    what = (10,)     # tuple with int
-    what = (10)      # int
-
-.. code-block:: python
-
-    what = 1.,1.     # tuple with two floats
-    what = .5,.5     # tuple with two floats
-    what = 1.,.5     # tuple with two floats
-
-    what = (1.,1.)   # tuple with two floats
-    what = (.5,.5)   # tuple with two floats
-    what = (1.,.5)   # tuple with two floats
-
-
-Built-in functions on sequences
-===============================
-
-``len()``
----------
-.. code-block:: python
-
-    numbers = [1, 2, 3, 4, 5]
-
-    len(numbers)                   # 5
-    len('Max')                     # 3
-
-``min()``
----------
-.. code-block:: python
-
-    numbers = [1, 2, 3, 4, 5]
-
-    min(numbers)  # 1
-    min(3, 1, 5)  # 1
-
-``max()``
----------
-.. code-block:: python
-
-    numbers = [1, 2, 3, 4, 5]
-
-    max(numbers)  # 5
-    max(3, 1, 5)  # 5
-
-``sorted()``
-------------
-.. code-block:: python
-
-    numbers = [3, 1, 2]
-
-    numbers = sorted(numbers)
-    print(numbers)  # [1, 2, 3]
-
- ``list.sort()``
-----------------
-.. code-block:: python
-
-    numbers = [3, 1, 2]
-
-    numbers.sort()
-    print(numbers)
-
-* ``sorted()`` zwraca posortowaną listę, ale nie zapisuje zmienionej kolejności
-* ``.sort()`` zmienia listę na stałe
-
-.. code-block:: python
-
-    numbers = [3, 1, 2]
-
-    sorted(numbers) # returns [1, 2, 3]
-    print(numbers)  # [3, 1, 2]
-
-.. code-block:: python
-
-    numbers = [3, 1, 2]
-
-    numbers.sort()  # returns None
-    print(numbers)  # [1, 2, 3]
-
-
-Membership Operators
-====================
-.. csv-table:: Membership operators
-    :header-rows: 1
-    :widths: 15, 25, 60
-    :file: data/operators-membership.csv
 
 
 More advanced topics

@@ -25,7 +25,8 @@ Basic Types and Data Structures
 
     /data-types/int.rst
     /data-types/float.rst
-    /data-types/logic.rst
+    /data-types/bool.rst
+    /data-types/none.rst
     /data-types/str.rst
     /data-types/str-methods.rst
     /data-types/slice.rst

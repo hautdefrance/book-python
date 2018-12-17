@@ -1,15 +1,12 @@
 .. _Character Types:
 
-***************
-Character Types
-***************
-
-
+*******
 ``str``
-=======
+*******
+
 
 Defining ``str``
-----------------
+================
 * ``"`` and ``'`` works the same
 
 .. code-block:: python
@@ -42,7 +39,7 @@ Multiline ``str``
     # '\n        First line\n        Second line\n        Third line\n    '
 
 Type casting to ``str``
------------------------
+=======================
 .. code-block:: python
 
     str('hello')        # 'hello'
@@ -222,6 +219,16 @@ Emot print
 
     - IMIE to imie wprowadzone przez usera
     - EMOTICON to Unicode Codepoint "U+1F642"
+
+:About:
+    * Filename: ``types_emoticon.py``
+    * Lines of code to write: 4 lines
+    * Estimated time of completion: 10 min
+
+:The whys and wherefores:
+    * Definiowanie zmiennych
+    * Korzystanie z print formatting
+    * Wczytywanie tekstu od użytkownika
 
 Variables and types
 -------------------

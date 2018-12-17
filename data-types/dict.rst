@@ -185,44 +185,6 @@ Length of a ``dict``
     len(my_dict.values())       # 3
     len(my_dict.items())        # 3
 
-``dict`` vs. ``set``
-====================
-* both ``set`` and ``dict`` keys must be hashable
-* both ``set`` and ``dict`` uses the same (``{`` and ``}``) braces:
-
-    .. code-block:: python
-
-        {}                                # dict
-        {1}                               # set
-
-        {1, 2}                            # set
-        {1: 2}                            # dict
-
-        {1, 2,}                           # set
-        {1: 2,}                           # dict
-
-        {1: 2, 3: 4}                      # dict
-        {1, 2, 3, 4}                      # set
-
-* Despite similar syntax, they are different types:
-
-    .. code-block:: python
-
-        my_data = {}
-        isinstance(my_data, (set, dict))  # True
-        isinstance(my_data, dict)         # True
-        isinstance(my_data, set)          # False
-
-        my_data = {1}
-        isinstance(my_data, (set, dict))  # True
-        isinstance(my_data, dict)         # False
-        isinstance(my_data, set)          # True
-
-        my_data = {1: 1}
-        isinstance(my_data, (set, dict))  # True
-        isinstance(my_data, dict)         # True
-        isinstance(my_data, set)          # False
-
 
 Assignments
 ===========
