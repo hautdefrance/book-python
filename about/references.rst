@@ -3,6 +3,34 @@ References in the book
 **********************
 
 
+Iris Dataset
+============
+
+Iris Species
+------------
+.. figure:: img/iris-species.jpg
+    :scale: 50%
+    :align: center
+
+    Iris Species
+
+Iris Dataset
+------------
+.. figure:: img/iris-dataset.png
+    :scale: 50%
+    :align: center
+
+    Iris Dataset
+
+Iris Grid
+---------
+.. figure:: img/iris-grid.png
+    :scale: 50%
+    :align: center
+
+    Iris Grid
+
+
 Ehlo World!
 ===========
 W lekcjach programowania utarło się, że zawsze zaczynamy od już przysłowiowego "Hello World".
