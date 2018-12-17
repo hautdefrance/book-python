@@ -91,6 +91,16 @@ Inserting elements at specific position
 
     my_list.insert(0, 'a')  # ['a', 1, 2]
 
+Multiple statements in one line
+-------------------------------
+.. code-block:: python
+
+    my_list = [3, 1, 2]
+
+    a = my_list.append(4).sort()
+    # AttributeError: 'NoneType' object has no attribute 'sort'
+
+
 Length of a ``list``
 --------------------
 .. code-block:: python

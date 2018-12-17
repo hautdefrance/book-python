@@ -95,6 +95,21 @@ Date and Time
     /date-and-time/timestamp.rst
     /date-and-time/utils.rst
 
+*************
+Serialization
+*************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Serialization
+
+    /serialization/csv.rst
+    /serialization/json.rst
+    /serialization/xml.rst
+    /serialization/pickle.rst
+    /database/sqlite.rst
+    /database/sql.rst
+
 ***************************
 Object Oriented Programming
 ***************************
@@ -108,6 +123,9 @@ Object Oriented Programming
     /object-oriented-programming/dataclass.rst
     /object-oriented-programming/enum.rst
     /object-oriented-programming/operator-overload.rst
+    /object-oriented-programming/paradigm.rst
+    /object-oriented-programming/advanced.rst
+    /object-oriented-programming/metaclass.rst
 
 *************************
 Good Engineering Practice
@@ -125,18 +143,20 @@ Good Engineering Practice
     /good-engineering-practice/unittest.rst
     /good-engineering-practice/introspection.rst
 
-*************
-Serialization
-*************
+***************
+Design Patterns
+***************
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Serialization
+    :caption: Design Patterns
 
-    /serialization/csv.rst
-    /serialization/json.rst
-    /serialization/xml.rst
-    /serialization/pickle.rst
+    /design-patterns/generator.rst
+    /design-patterns/iterator.rst
+    /design-patterns/context-manager.rst
+    /design-patterns/descriptor.rst
+    /design-patterns/decorator.rst
+    /design-patterns/gang-of-four.rst
 
 ************
 HTTP and Web
@@ -146,8 +166,6 @@ HTTP and Web
     :numbered:
     :caption: HTTP and Web
 
-    /database/sqlite.rst
-    /database/sql.rst
     /http/protocol.rst
     /http/stdlib.rst
     /http/requests.rst
@@ -196,33 +214,6 @@ CI/CD, Versioning and Distributing
     /operating-system/argparse.rst
     /operating-system/os.rst
     /documentation/index.rst
-
-************
-Advanced OOP
-************
-.. toctree::
-    :maxdepth: 2
-    :numbered:
-    :caption: Advanced OOP
-
-    /object-oriented-programming/paradigm.rst
-    /object-oriented-programming/advanced.rst
-    /object-oriented-programming/metaclass.rst
-
-***************
-Design Patterns
-***************
-.. toctree::
-    :maxdepth: 2
-    :numbered:
-    :caption: Design Patterns
-
-    /design-patterns/generator.rst
-    /design-patterns/iterator.rst
-    /design-patterns/context-manager.rst
-    /design-patterns/descriptor.rst
-    /design-patterns/decorator.rst
-    /design-patterns/gang-of-four.rst
 
 ****************
 High Performance

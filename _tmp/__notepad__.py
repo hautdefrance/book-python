@@ -1,6 +1,33 @@
 
-pi = 3.1415
-print(f'{pi:.3}')
+
+
+
+a = 'UL. Jana III Sobieskiego 1/2'
+b = 'ulica Jana III Sobieskiego 1 apt 2'
+c = 'os. Jana III Sobieskiego'
+d = 'plac Jana III Sobieskiego 1/2'
+e = 'aleja Jana III Sobieskiego'
+f = 'alei Jana III Sobieskiego 1/2'
+g = 'Jana III Sobieskiego 1 m. 2'
+h = 'os. Jana III Sobieskiego 1 apt 2'
+
+a = a[:]
+b = b[:]
+c = c[:]
+d = d[:]
+e = e[:]
+f = f[:]
+g = g[:]
+h = h[:]
+
+print(a)
+print(b)
+print(c)
+print(d)
+print(e)
+print(f)
+print(g)
+print(h)
 
 
 

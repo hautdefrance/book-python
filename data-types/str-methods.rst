@@ -259,15 +259,18 @@ Cleaning ``str`` from user input
         '1 / 2'
         '1/ 2'
         '1 /2'
+        '3/5/7'
 
         '1 m. 2'
         '1 m 2'
         '1 apt 2'
         '1 apt. 2'
 
-        '1f/108f'
-        '1f/108'
-        '1/108f'
+        '180f/8f'
+        '180f/8'
+        '180/8f'
+
+        '13d bud. A'
 
 
 Assignments
@@ -282,17 +285,17 @@ String cleaning
 
     expected = 'Jana III Sobieskiego'
 
-    a = '  Jana III Sobieskiego 1 apt 2'
-    b = 'ul Jana III SobIESkiego 1/2'
-    c = '\tul. Jana trzeciego Sobieskiego 1/2'
-    d = 'ulicaJana III Sobieskiego 1/2'
-    e = 'UL. JA\tNA 3 SOBIES\tKIEGO 1/2'
-    f = 'UL. III SOBiesKIEGO 1/2'
-    g = 'ULICA JANA III SOBIESKIEGO 1 /2  '
-    h = 'ULICA. JANA III SOBI'
-    i = ' Jana 3 Sobieskiego 1/2 '
-    j = 'Jana III Sobieskiego 1 m. 2'
-    k = 'ul.Jana III Sob\n\nieskiego 1/2'
+    a = '  Jana III Sobieskiego '
+    b = 'ul Jana III SobIESkiego'
+    c = '\tul. Jana trzeciego Sobieskiego'
+    d = 'ulicaJana III Sobieskiego'
+    e = 'UL. JA\tNA 3 SOBIES\tKIEGO'
+    f = 'UL. jana III SOBiesKIEGO'
+    g = 'ULICA JANA III SOBIESKIEGO  '
+    h = 'ULICA. JANA III SOBIeskieGO'
+    i = ' Jana 3 Sobieskiego  '
+    j = 'Jana III\tSobieskiego '
+    k = 'ul.Jana III Sob\n\nieskiego\n'
 
     print(f'{a == expected}\t a: "{a}"')
     print(f'{b == expected}\t b: "{b}"')
