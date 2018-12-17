@@ -1,5 +1,13 @@
-ALLOWED_GRADES = [float(x) for x in (2, 3, 3.5, 4, 4.5, 5)]
+ALLOWED_GRADES_OLD = (2, 3, 3.5, 4, 4.5, 5)
+ALLOWED_GRADES = []
 report_card = []
+
+i = 0
+
+while i < len(ALLOWED_GRADES):
+    grade = ALLOWED_GRADES_OLD[i]
+    ALLOWED_GRADES.append(float(grade))
+    i += 1
 
 
 while True:
