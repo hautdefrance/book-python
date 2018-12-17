@@ -69,10 +69,10 @@ Single or double quote?
 
 When use double quotes?
 -----------------------
-    .. code-block:: python
+.. code-block:: python
 
-        my_str = 'It\'s Twardowski\'s Moon.'
-        my_str = "It's Twardowski's Moon."
+    my_str = 'It\'s Twardowski\'s Moon.'
+    my_str = "It's Twardowski's Moon."
 
 When use single quotes?
 -----------------------

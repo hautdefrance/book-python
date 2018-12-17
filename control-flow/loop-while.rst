@@ -7,22 +7,20 @@ Declaration
 ===========
 * Continue execution when argument is ``True``
 
-
 Never ending loop
-=================
+-----------------
 .. code-block:: python
 
     while True:
         pass
 
-
 Stop conditions
-===============
+---------------
 .. code-block:: python
 
     i = 0
 
-    while i < 10:
+    while i <= 5:
         print(i)
         i += 1
 
@@ -32,19 +30,33 @@ Stop conditions
     # 3
     # 4
     # 5
-    # 6
-    # 7
-    # 8
-    # 9
 
+Exit flag
+---------
+.. code-block:: python
+
+    i = 0
+    exit_flag = False
+
+    while not exit_flag:
+        if i % 2 == 0:
+            exit_flag = True
+
+        print(i)
+        i += 1
+
+    # 0
+
+``break`` and ``continue``
+==========================
 
 Skipping iterations
-===================
+-------------------
 .. code-block:: python
 
     i = 0
 
-    while i < 10:
+    while i <= 10:
         i += 1
 
         if i % 2 == 0:
@@ -55,12 +67,10 @@ Skipping iterations
     # 1
     # 3
     # 5
-    # 7
-    # 9
 
 
 Exiting the loop
-================
+----------------
 .. code-block:: python
 
     while True:

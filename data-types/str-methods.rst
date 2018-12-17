@@ -42,14 +42,14 @@ String Arithmetic
 -------------------------------------------------
 * Unify data format before analysis
 
-    .. code-block:: python
+.. code-block:: python
 
-        name = 'pAn TwARDowSKi III'
+    name = 'pAn TwARDowSKi III'
 
-        name.upper()       # 'PAN TWARDOWSKI III'
-        name.lower()       # 'pan twardowski iii'
-        name.title()       # 'Pan Twardowski Iii'
-        name.capitalize()  # 'Pan twardowski iii'
+    name.upper()       # 'PAN TWARDOWSKI III'
+    name.lower()       # 'pan twardowski iii'
+    name.title()       # 'Pan Twardowski Iii'
+    name.capitalize()  # 'Pan twardowski iii'
 
 ``str.replace()``
 -----------------
@@ -203,74 +203,78 @@ Multiple statements in one line
 Cleaning ``str`` from user input
 ================================
 * 80% of machine learning and data science is cleaning data
+
+Is this the same address?
+-------------------------
 * This is a dump of distinct records of a single address
-* Is this the same address?:
+* Which one of the below is a true address?
 
-    .. code-block:: text
+.. code-block:: text
 
-        'ul. Jana III Sobieskiego'
-        'ul Jana III Sobieskiego'
-        'ul.Jana III Sobieskiego'
-        'ulicaJana III Sobieskiego'
-        'Ul. Jana III Sobieskiego'
-        'UL. Jana III Sobieskiego'
-        'ulica Jana III Sobieskiego'
-        'Ulica. Jana III Sobieskiego'
+    'ul. Jana III Sobieskiego'
+    'ul Jana III Sobieskiego'
+    'ul.Jana III Sobieskiego'
+    'ulicaJana III Sobieskiego'
+    'Ul. Jana III Sobieskiego'
+    'UL. Jana III Sobieskiego'
+    'ulica Jana III Sobieskiego'
+    'Ulica. Jana III Sobieskiego'
 
-        'os. Jana III Sobieskiego'
+    'os. Jana III Sobieskiego'
 
-        'Jana 3 Sobieskiego'
-        'Jana 3ego Sobieskiego'
-        'Jana III Sobieskiego'
-        'Jana Iii Sobieskiego'
-        'Jana IIi Sobieskiego'
-        'Jana lll Sobieskiego'  # three small letters 'L'
+    'Jana 3 Sobieskiego'
+    'Jana 3ego Sobieskiego'
+    'Jana III Sobieskiego'
+    'Jana Iii Sobieskiego'
+    'Jana IIi Sobieskiego'
+    'Jana lll Sobieskiego'  # three small letters 'L'
 
-* Which one of the above is a true address?
-* Other examples:
+Different way of spelling and abbreviating
+------------------------------------------
+.. code-block:: text
 
-    .. code-block:: text
+    'ul '
+    'ul. '
+    'ul.'
+    'ulica'
+    'Ul. '
+    'UL. '
+    'ulica '
+    'Ulica. '
+    'os. '
+    'ośedle'
+    'osiedle'
+    'os'
+    'plac '
+    'pl '
+    'al '
+    'al. '
+    'aleja '
+    'alei '
+    'aleia'
+    'aleii'
+    'aleji'
 
-        'ul '
-        'ul. '
-        'ul.'
-        'ulica'
-        'Ul. '
-        'UL. '
-        'ulica '
-        'Ulica. '
-        'os. '
-        'ośedle'
-        'osiedle'
-        'os'
-        'plac '
-        'pl '
-        'al '
-        'al. '
-        'aleja '
-        'alei '
-        'aleia'
-        'aleii'
-        'aleji'
+House number and apartment
+--------------------------
+.. code-block:: text
 
-    .. code-block:: text
+    '1/2'
+    '1 / 2'
+    '1/ 2'
+    '1 /2'
+    '3/5/7'
 
-        '1/2'
-        '1 / 2'
-        '1/ 2'
-        '1 /2'
-        '3/5/7'
+    '1 m. 2'
+    '1 m 2'
+    '1 apt 2'
+    '1 apt. 2'
 
-        '1 m. 2'
-        '1 m 2'
-        '1 apt 2'
-        '1 apt. 2'
+    '180f/8f'
+    '180f/8'
+    '180/8f'
 
-        '180f/8f'
-        '180f/8'
-        '180/8f'
-
-        '13d bud. A'
+    '13d bud. A'
 
 
 Assignments

@@ -75,9 +75,8 @@ Types do not enforce checking
     age: float = 30
     is_adult: int = True
 
-
 More advanced topics
-====================
+--------------------
 .. note:: The topic will be continued in chapter: :ref:`Software Engineering Conventions`
 
 
@@ -86,24 +85,9 @@ Problematic types
 
 ``dict`` vs. ``set``
 --------------------
-* both ``set`` and ``dict`` keys must be hashable
-* both ``set`` and ``dict`` uses the same (``{`` and ``}``) braces
-
-.. code-block:: python
-
-    {}                                # dict
-    {1}                               # set
-
-    {1, 2}                            # set
-    {1: 2}                            # dict
-
-    {1, 2,}                           # set
-    {1: 2,}                           # dict
-
-    {1: 2, 3: 4}                      # dict
-    {1, 2, 3, 4}                      # set
-
-Despite similar syntax, they are different types
+* Both ``set`` and ``dict`` keys must be hashable
+* Both ``set`` and ``dict`` uses the same ``{`` and ``}`` braces
+* Despite similar syntax, they are different types
 
 .. code-block:: python
 
@@ -122,6 +106,19 @@ Despite similar syntax, they are different types
     isinstance(my_data, dict)         # True
     isinstance(my_data, set)          # False
 
+.. code-block:: python
+
+    {}                # dict
+    {1}               # set
+
+    {1, 2}            # set
+    {1: 2}            # dict
+
+    {1, 2,}           # set
+    {1: 2,}           # dict
+
+    {1: 2, 3: 4}      # dict
+    {1, 2, 3, 4}      # set
 
 ``tuple`` vs. ``str``
 ---------------------
@@ -134,7 +131,6 @@ Despite similar syntax, they are different types
     what = ('foo')    # str
     what = ('foo',)   # tuple with str
     what = ('foo'.)   # SyntaxError: invalid syntax
-
 
 ``tuple`` vs. ``float`` and ``int``
 -----------------------------------
@@ -156,36 +152,36 @@ Despite similar syntax, they are different types
 
 .. code-block:: python
 
-    what = 1.        # float
-    what = .5        # float
-    what = 1.0       # float
-    what = 1         # int
+    what = 1.         # float
+    what = .5         # float
+    what = 1.0        # float
+    what = 1          # int
 
-    what = (1.)      # float
-    what = (.5)      # float
-    what = (1.0)     # float
-    what = (1)       # int
-
-.. code-block:: python
-
-    what = 10.5      # float
-    what = 10,5      # tuple with two ints
-    what = 10.       # float
-    what = 10,       # tuple with int
-    what = 10        # int
-
-    what = (10.5)    # float
-    what = (10,5)    # tuple with two ints
-    what = (10.)     # float
-    what = (10,)     # tuple with int
-    what = (10)      # int
+    what = (1.)       # float
+    what = (.5)       # float
+    what = (1.0)      # float
+    what = (1)        # int
 
 .. code-block:: python
 
-    what = 1.,1.     # tuple with two floats
-    what = .5,.5     # tuple with two floats
-    what = 1.,.5     # tuple with two floats
+    what = 10.5       # float
+    what = 10,5       # tuple with two ints
+    what = 10.        # float
+    what = 10,        # tuple with int
+    what = 10         # int
 
-    what = (1.,1.)   # tuple with two floats
-    what = (.5,.5)   # tuple with two floats
-    what = (1.,.5)   # tuple with two floats
+    what = (10.5)     # float
+    what = (10,5)     # tuple with two ints
+    what = (10.)      # float
+    what = (10,)      # tuple with int
+    what = (10)       # int
+
+.. code-block:: python
+
+    what = 1.,1.      # tuple with two floats
+    what = .5,.5      # tuple with two floats
+    what = 1.,.5      # tuple with two floats
+
+    what = (1.,1.)    # tuple with two floats
+    what = (.5,.5)    # tuple with two floats
+    what = (1.,.5)    # tuple with two floats

@@ -7,19 +7,19 @@ For loop
 
 Iterating over ``str``
 ======================
-* Iterating ``str`` will get character on each iteration:
+* Iterating ``str`` will get character on each iteration
 
-    .. code-block:: python
+.. code-block:: python
 
-        for character in 'setosa':
-            print(character)
+    for character in 'setosa':
+        print(character)
 
-        # s
-        # e
-        # t
-        # o
-        # s
-        # a
+    # s
+    # e
+    # t
+    # o
+    # s
+    # a
 
 
 Iterating simple collections
@@ -116,8 +116,8 @@ Counter
     * Definiowanie i korzystanie z ``dict`` z wartościami
     * Iterowanie po liście
 
-Text manipulation
------------------
+Text analysis
+-------------
 #. Dany jest tekst przemównienia John F. Kennedy'ego "Moon Speech" wygłoszony na Rice Stadium
 
     .. code-block:: text
@@ -134,8 +134,9 @@ Text manipulation
     * klucz: zdanie
     * wartość: ilość wyrazów
 
-#. Na końcu wypisz także ile jest:
+#. Na końcu wypisz także ile jest łącznie w całym tekście:
 
+    * przysłówków (słów zakończonych na "ly")
     * zdań
     * słów
     * znaków (łącznie ze spacjami wewnątrz zdań, ale bez kropek)
@@ -151,5 +152,3 @@ Text manipulation
     * Iterowanie po elementach listy
     * Nazywanie zmiennych
 
-:Hint:
-    * ``zdania = TEXT.split('.')``

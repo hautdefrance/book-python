@@ -3,6 +3,31 @@ Operating System
 ****************
 
 
+Bitwise operators
+=================
+- ``|`` - OR
+- ``&`` - AND
+- ``~`` - NOT
+- ``^`` - XOR
+- ``<<`` - Shift left
+- ``>>`` - Shift right
+
+.. code-block:: python
+
+    0 ^ 0  # 0
+    1 ^ 1  # 0
+    1 ^ 0  # 1
+    0 ^ 1  # 1
+    8 ^ 5  # 13
+
+.. code-block:: text
+
+    1000  # 8 (binary)
+    0101  # 3 (binary)
+    ----  # APPLY XOR ('vertically')
+    1101  # result = 13 (dec)
+
+
 Accessing Environmental Variables
 =================================
 .. code-block:: python

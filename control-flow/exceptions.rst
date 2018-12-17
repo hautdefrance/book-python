@@ -18,13 +18,11 @@ What are and why to use exceptions?
 
 Most common exceptions
 ======================
-.. csv-table:: Most common exceptions
-    :header-rows: 1
-    :widths: 25, 75
-    :file: data/exception-most-common.csv
 
 AttributeError
 --------------
+* Attribute reference or assignment fails
+
 .. code-block:: python
 
     name = 'Jose'
@@ -34,6 +32,8 @@ AttributeError
 
 ImportError, ModuleNotFoundError
 --------------------------------
+* Module could not be located
+
 .. code-block:: python
 
     import math
@@ -45,6 +45,8 @@ ImportError, ModuleNotFoundError
 
 IndexError
 ----------
+* Sequence subscript is out of range
+
 .. code-block:: python
 
     DATA = ['a', 'b', 'c']
@@ -54,6 +56,8 @@ IndexError
 
 KeyError
 --------
+* Dictionary key is not found
+
 .. code-block:: python
 
     DATA = {'a': 1, 'b': 2}
@@ -63,6 +67,8 @@ KeyError
 
 NameError
 ---------
+* Local or global name is not found
+
 .. code-block:: python
 
     print(first_name)
@@ -70,6 +76,8 @@ NameError
 
 SyntaxError
 -----------
+* Parser encounters a syntax error
+
 .. code-block:: python
 
     if True
@@ -79,6 +87,8 @@ SyntaxError
 
 IndentationError
 ----------------
+* Syntax errors related to incorrect indentation
+
 .. code-block:: python
 
     if True:
@@ -90,6 +100,8 @@ IndentationError
 
 TypeError
 ---------
+* Operation or function is applied to an object of inappropriate type
+
 .. code-block:: python
 
     42 + 'Jose'
@@ -97,6 +109,8 @@ TypeError
 
 ValueError
 ----------
+* Argument is right type but an inappropriate value
+
 .. code-block:: python
 
     float('hello')
@@ -123,19 +137,28 @@ Use case
 --------
 .. code-block:: python
 
-    def apollo18():
-        raise NotImplementedError('Mission dropped due to budget cuts')
-
     def apollo13():
         raise RuntimeError('Mid-flight Oxygen tank explosion')
 
 
-    apollo18()
     apollo13()
 
+.. code-block:: python
+
+    def apollo18():
+        raise NotImplementedError('Mission dropped due to budget cuts')
+
+
+    apollo18()
+
+
+Tracebacks
+==========
 
 Traceback analysis
-==================
+------------------
+* Stacktraces are 8 levels deep, it's not Java's 200 ;)
+
 .. code-block:: python
 
     def apollo13():
@@ -143,39 +166,43 @@ Traceback analysis
 
     apollo13()
 
-* Stacktraces are 8 levels deep, it's not Java's 200 ;)
+    # Traceback (most recent call last):
+    #   File "/Users/matt/.virtualenvs/book-python/lib/python3.7/site-packages/IPython/core/interactiveshell.py", line 2961, in run_code
+    #     exec(code_obj, self.user_global_ns, self.user_ns)
+    #   File "<ipython-input-2-badb71482ca2>", line 1, in <module>
+    #     runfile('/Users/matt/Developer/book-python/__notepad__.py', wdir='/Users/matt/Developer/book-python')
+    #   File "/Applications/PyCharm 2018.3 EAP.app/Contents/helpers/pydev/_pydev_bundle/pydev_umd.py", line 198, in runfile
+    #     pydev_imports.execfile(filename, global_vars, local_vars)  # execute the script
+    #   File "/Applications/PyCharm 2018.3 EAP.app/Contents/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    #     exec(compile(contents+"\n", file, 'exec'), glob, loc)
+    #   File "/Users/matt/Developer/book-python/__notepad__.py", line 13, in <module>
+    #     apollo13()
+    #   File "/Users/matt/Developer/book-python/__notepad__.py", line 5, in apollo13
+    #     raise RuntimeError('Mid-flight Oxygen tank explosion')
+    # RuntimeError: Mid-flight Oxygen tank explosion
 
-    .. code-block:: text
-
-          File "/Users/matt/.virtualenvs/book-python/lib/python3.7/site-packages/IPython/core/interactiveshell.py", line 2961, in run_code
-            exec(code_obj, self.user_global_ns, self.user_ns)
-          File "<ipython-input-2-badb71482ca2>", line 1, in <module>
-            runfile('/Users/matt/Developer/book-python/__notepad__.py', wdir='/Users/matt/Developer/book-python')
-          File "/Applications/PyCharm 2018.3 EAP.app/Contents/helpers/pydev/_pydev_bundle/pydev_umd.py", line 198, in runfile
-            pydev_imports.execfile(filename, global_vars, local_vars)  # execute the script
-          File "/Applications/PyCharm 2018.3 EAP.app/Contents/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
-            exec(compile(contents+"\n", file, 'exec'), glob, loc)
-          File "/Users/matt/Developer/book-python/__notepad__.py", line 13, in <module>
-            apollo13()
-          File "/Users/matt/Developer/book-python/__notepad__.py", line 5, in apollo13
-            raise RuntimeError('Mid-flight Oxygen tank explosion')
-        RuntimeError: Mid-flight Oxygen tank explosion
-
-* Change level with ``sys.tracebacklimit``:
-
-    .. code-block:: python
-
-        import sys
-        sys.tracebacklimit = 1
-
+Change verbosity level
+----------------------
+* Change level with ``sys.tracebacklimit``
 * From time to time you can have problems somewhere in the middle, but it's rare
 * Last lines are the most important, in most cases error is there
 
-    .. code-block:: text
+.. code-block:: python
 
-          File "/Users/matt/Developer/book-python/__notepad__.py", line 5, in apollo13
-            raise RuntimeError('Mid-flight Oxygen tank explosion')
-        RuntimeError: Mid-flight Oxygen tank explosion
+    import sys
+
+    sys.tracebacklimit = 1
+
+
+    def apollo13():
+        raise RuntimeError('Mid-flight Oxygen tank explosion')
+
+    apollo13()
+
+    # Traceback (most recent call last):
+    #   File "/Users/matt/Developer/book-python/__notepad__.py", line 5, in apollo13
+    #     raise RuntimeError('Mid-flight Oxygen tank explosion')
+    # RuntimeError: Mid-flight Oxygen tank explosion
 
 
 Catching exceptions
@@ -272,26 +299,26 @@ Exceptions logging
     finally:
         print('Returning safely to the Earth')
 
-.. warning:: Always catch exception!
+Always catch exceptions!
+------------------------
+.. code-block:: python
 
-    .. code-block:: python
+    # Problematic code which catches 'Ctrl-C'
+    # User cannot simply kill program
+    while True:
+        try:
+            number = float(input('Type number: '))
+        except:
+            continue
 
-        # Problematic code which catches 'Ctrl-C'
-        # User cannot simply kill program
-        while True:
-            try:
-                number = float(input('Type number: '))
-            except:
-                continue
+.. code-block:: python
 
-    .. code-block:: python
-
-        # User can kill program with 'Ctrl-C'
-        while True:
-            try:
-                number = float(input('Type number: '))
-            except Exception:
-                continue
+    # User can kill program with 'Ctrl-C'
+    while True:
+        try:
+            number = float(input('Type number: '))
+        except Exception:
+            continue
 
 
 Exception hierarchy
@@ -370,7 +397,7 @@ Defining own exceptions
     import math
 
 
-    class CotangentDoesNotExistsError(ArithmeticError):
+    class CotangentDoesNotExistsError(Exception):
         pass
 
 
@@ -392,7 +419,11 @@ Real life use-case
 
     from django.contrib.auth.models import User
 
+
+    username = POST.get('username')
+    password = POST.get('password')
+
     try:
-        User.objects.get(username='jose-jimenez')
+        User.objects.get(username=username, password=password)
     except User.DoesNotExists:
-        print('No such user')
+        print('Permission denied')

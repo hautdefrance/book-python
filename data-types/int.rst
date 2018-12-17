@@ -7,12 +7,11 @@ Defining ``int``
 ================
 * Python 3 dynamically extends ``int``, when it's too big
 * In Python 3 there is not maximal ``int`` value
+* You can use ``_`` for easier read especially with big numbers
 
 .. code-block:: python
 
     value = 30
-
-* You can use ``_`` for easier read especially with big numbers:
 
 .. code-block:: python
 

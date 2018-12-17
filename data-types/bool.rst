@@ -106,6 +106,14 @@ Using both: ``or`` and ``and``
     False and False or True     # True
 
 
+Logic operators
+===============
+.. csv-table:: Logic operators
+    :header-rows: 1
+    :widths: 15, 25, 60
+    :file: data/operators-logic.csv
+
+
 Assignments
 ===========
 

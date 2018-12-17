@@ -18,14 +18,6 @@ Defining ``None``
     my_var = None
 
 
-Logic operators
-===============
-.. csv-table:: Logic operators
-    :header-rows: 1
-    :widths: 15, 25, 60
-    :file: data/operators-logic.csv
-
-
 Assignments
 ===========
 

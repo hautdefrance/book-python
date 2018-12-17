@@ -114,38 +114,25 @@ Slicing ``list``
 
 ``sorted()``
 ------------
+* ``sorted()`` zwraca posortowaną listę, ale nie zapisuje zmienionej kolejności
+
 .. code-block:: python
 
     numbers = [3, 1, 2]
 
-    numbers = sorted(numbers)
-    print(numbers)  # [1, 2, 3]
+    sorted(numbers)     # returns [1, 2, 3]
+    print(numbers)      # [3, 1, 2]
 
 ``list.sort()``
 ---------------
-.. code-block:: python
-
-    numbers = [3, 1, 2]
-
-    numbers.sort()
-    print(numbers)
-
-* ``sorted()`` zwraca posortowaną listę, ale nie zapisuje zmienionej kolejności
-* ``.sort()`` zmienia listę na stałe
+* ``list.sort()`` zmienia listę na stałe
 
 .. code-block:: python
 
     numbers = [3, 1, 2]
 
-    sorted(numbers) # returns [1, 2, 3]
-    print(numbers)  # [3, 1, 2]
-
-.. code-block:: python
-
-    numbers = [3, 1, 2]
-
-    numbers.sort()  # returns None
-    print(numbers)  # [1, 2, 3]
+    numbers.sort()      # returns None
+    print(numbers)      # [1, 2, 3]
 
 
 Built-in functions on sequences
@@ -177,6 +164,15 @@ Built-in functions on sequences
 
     max(numbers)  # 5
     max(3, 1, 5)  # 5
+
+``sum()``
+---------
+.. code-block:: python
+
+    numbers = [1, 2, 3, 4, 5]
+
+    sum(numbers)  # 15
+    sum(3, 1, 5)  # 9
 
 
 Membership Operators
