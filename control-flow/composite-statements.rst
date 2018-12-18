@@ -125,6 +125,7 @@ Classification of blood pressure in adults
     - ``YY`` to wartość ciśnienia rozkurczowego (ang. *diastolic*)
 
 #. Daj informację użytkownikowi o klasyfikacji ciśnienia
+#. W przypadku gdy wartości ciśnienia skurczowego i ciśnienia rozkurczowego należą do różnych kategorii, należy przyjąć kategorię wyższą
 
 .. csv-table:: Classification of blood pressure in adults :cite:`AHA2018`
     :header-rows: 1

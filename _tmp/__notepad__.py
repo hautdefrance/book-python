@@ -1,13 +1,31 @@
-import sys
+hosts = []
 
-sys.tracebacklimit = 3
+with open('../control-flow/src/etc-hosts.txt') as file:
+    file.readline()
+
+    for line in file.readlines():
+        if line.startswith('#'):
+            continue
+
+        if line.isspace():
+            continue
+
+        ip, *hostnames = line.split()
+
+        for entry in hosts:
+            if entry['ip'] == ip:
+                entry['hostnames'] += hostnames
+                break
+        else:
+            hosts.append({
+                'ip': ip,
+                'hostnames': hostnames,
+                'protocol': 'IPv4' if '.' in ip else 'IPv6',
+            })
+
+print(hosts)
 
 
-def apollo13():
-    raise RuntimeError('Mid-flight Oxygen tank explosion')
-
-
-apollo13()
 
 
 # a = list(range(0, 3))
