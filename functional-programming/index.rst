@@ -317,20 +317,28 @@ Assignments
 
 ``map()``, ``filter()`` i ``lambda``
 ------------------------------------
-Używając generatora zbuduj listę zawierającą wszystkie liczby podzielne przez 3 z zakresu od 1 do 33:
+* Filename: ``funcprog_map_filter_lambda.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 15 min
 
-* Używając funkcji ``filter()`` usuń z niej wszystkie liczby parzyste
-* Używając wyrażenia ``lambda`` i funkcji ``map()`` podnieś wszystkie elementy tak otrzymanej listy do sześcianu
-* Odpowiednio używając funkcji ``sum()``  i ``len()`` oblicz średnią arytmetyczną z elementów tak otrzymanej listy.
+#. Używając generatora zbuduj listę zawierającą wszystkie liczby podzielne przez 3 z zakresu od 1 do 33:
+#. Używając funkcji ``filter()`` usuń z niej wszystkie liczby parzyste
+#. Używając wyrażenia ``lambda`` i funkcji ``map()`` podnieś wszystkie elementy tak otrzymanej listy do sześcianu
+#. Odpowiednio używając funkcji ``sum()``  i ``len()`` oblicz średnią arytmetyczną z elementów tak otrzymanej listy.
 
 Zbalansowanie nawiasów
 ----------------------
-Napisz kod, który za pomocą rekurencji sprawdzi zbalansowanie nawiasów, tzn. czy ilość otwieranych nawiasów jest równa ilości nawiasów zamykanych. Zwórć uwagę, że mogą być cztery typy nawiasów:
+* Filename: ``funcprog_brackets.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 15 min
 
-* okrągłe: ``(`` i ``)``
-* kwadratowe: ``[`` i ``]``
-* klamrowe ``{`` i ``}``
-* trójkątne ``<`` i ``>``
+#. Napisz kod, który za pomocą rekurencji sprawdzi zbalansowanie nawiasów, tzn. czy ilość otwieranych nawiasów jest równa ilości nawiasów zamykanych.
+#. Zwórć uwagę, że mogą być cztery typy nawiasów:
+
+    #. okrągłe: ``(`` i ``)``
+    #. kwadratowe: ``[`` i ``]``
+    #. klamrowe ``{`` i ``}``
+    #. trójkątne ``<`` i ``>``
 
 .. code-block:: python
 

@@ -402,6 +402,7 @@ Euclidean distance 2D
 * Filename: ``math_euclidean_2d.py``
 * Lines of code to write: 5 lines
 * Estimated time of completion: 15 min
+* Input data: :numref:`listing-math-euclidean-distance-2D`
 
 #. Dane są dwa punkty :math:`A` i :math:`B` o podanych koordynatach ``tuple``
 #. Punkty :math:`A` i :math:`B` są dwuwymiarowe ``(x, y)``
@@ -445,6 +446,7 @@ Euclidean distance ``n`` dimensions
 * Filename: ``math_euclidean_multi_dim.py``
 * Lines of code to write: 10 lines
 * Estimated time of completion: 15 min
+* Input data: :numref:`listing-math-euclidean-distance-n-dimensions`
 
 #. Dane są dwa punkty :math:`A` i :math:`B` o podanych koordynatach ``tuple``
 #. Punkty :math:`A` i :math:`B` są na :math:`N`-wymiarowej przestrzeni ``(x, y, ...)``

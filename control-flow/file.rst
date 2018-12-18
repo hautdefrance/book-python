@@ -121,8 +121,7 @@ Parsing simple CSV file
 * Filename: ``file_iris.py``
 * Lines of code to write: 15 lines
 * Estimated time of completion: 20 min
-
-* http://raw.githubusercontent.com/AstroMatt/book-python/master/control-flow/data/iris.csv
+* Input data: http://raw.githubusercontent.com/AstroMatt/book-python/master/control-flow/data/iris.csv
 
 #. Skopij plik do siebie na dysk i nazwij go ``iris.csv``
 #. Dla każdej linii:

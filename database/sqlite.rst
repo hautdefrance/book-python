@@ -333,8 +333,8 @@ Dane w jednej tabeli
 --------------------
 * Lines of code to write: 0 lines
 * Estimated time of completion: 5 min
+* Input data: :numref:`listing-database-addressbook.txt`
 
-#. Dane z listingu :numref:`listing-database-addressbook.txt`
 #. Jak zapisać w jednej tabeli bez wykorzystania relacji?
 #. Przeprowadź dyskusję na temat zalet i wad podejść:
 

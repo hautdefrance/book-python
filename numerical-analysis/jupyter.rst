@@ -418,7 +418,11 @@ Assignments
 
 Podstawy korzystania
 --------------------
-#. Stwórz notebook jupyter o nazwie ``first.ipynb``
+* Filename: ``jupyter_first.ipynb``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 15 min
+
+#. Stwórz notebook jupyter o nazwie ``jupyter_first.ipynb``
 #. Dodaj tekst opisujący następne polecenia
 #. Dodaj trzy różne 'Code Cell'
 #. Uruchom Code Cell z wynikiem wszystkich powyżej
@@ -427,4 +431,8 @@ Podstawy korzystania
 
 Slajdy
 ------
+* Filename: ``jupyter_slides.py``
+* Lines of code to write: 1 lines
+* Estimated time of completion: 5 min
+
 #. Poprzedni skrypt przekonwertuj na slajdy i uruchom prezentację w przeglądarce

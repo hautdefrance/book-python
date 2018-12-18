@@ -195,6 +195,7 @@ Memoization
 * Filename: ``performance_memoize.py``
 * Lines of code to write: 5 lines
 * Estimated time of completion: 15 min
+* Input data: :numref:`listing-performance-memoize`
 
 #. Skopiuj kod z listingu poniżej
 #. Stwórz pusty ``dict`` o nazwie ``CACHE``
@@ -214,3 +215,4 @@ Memoization
 .. literalinclude:: src/performance-memoize.py
     :language: python
     :caption: Memoization
+    :name: listing-performance-memoize

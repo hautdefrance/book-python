@@ -350,6 +350,9 @@ Assignments
 
 Kto jest na zdjęciu? - używanie ``TensorFlow for Poets``
 --------------------------------------------------------
+* Lines of code to write: 0 lines
+* Estimated time of completion: 60 min
+
 #. Stwórz zbiór obrazów zawierający zwierzęta:
 
     - tygrysy,

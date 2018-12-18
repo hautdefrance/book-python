@@ -338,6 +338,10 @@ Assignments
 
 Klastrowanie zbioru Iris
 ------------------------
+* Filename: ``ml_clustering_iris.py``
+* Lines of code to write: 30 lines
+* Estimated time of completion: 15 min
+
 #. Dla zbioru Iris dokonaj klastrowania za pomocą alborytmu ``KMeans`` z biblioteki ``sklearn``.
 #. Dla jakiego hiperparametru ``n_clusters`` osiągniemy najwięsze accuracy?
 #. Zwizualizuj graficznie rozwiązanie problemu

@@ -1381,8 +1381,97 @@ Sum of inner matrix
 #. Policz sumę środkowych (4x4) elementów macierzy
 #. Wyświetl wartość (skalar) sumy, a nie nie wektor
 
+Euclidean distance 2D
+---------------------
+* Filename: ``math_euclidean_2d.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 15 min
+
+#. Dany jest ``np.array`` przechowujący wektor
+#. Dane są dwa punkty :math:`A` i :math:`B` o podanych koordynatach ``tuple``
+#. Punkty :math:`A` i :math:`B` są dwuwymiarowe ``(x, y)``
+#. Oblicz odległość między nimi
+#. Wykorzystaj algorytm Euklidesa
+#. Funkcja musi przechodzić ``doctest`` :numref:`listing-numpy-euclidean-distance-2D`
+
+.. code-block:: python
+    :name: listing-numpy-euclidean-distance-2D
+    :caption: Euclidean distance 2D
+
+    def euclidean_distance_2D(A, B):
+        """
+        >>> A = (1, 0)
+        >>> B = (0, 1)
+        >>> euclidean_distance(A, B)
+        1.4142135623730951
+
+        >>> euclidean_distance((0,0), (1,0))
+        1.0
+
+        >>> euclidean_distance((0,0), (1,1))
+        1.4142135623730951
+
+        >>> euclidean_distance((0,1), (1,1))
+        1.0
+
+        >>> euclidean_distance((0,10), (1,1))
+        9.055385138137417
+        """
+        return
+
+.. figure:: ../machine-learning/img/k-nearest-neighbors-euclidean-distance.png
+    :scale: 100%
+    :align: center
+
+    Wyliczanie odległości w celu oszacowania przynależności do zbioru. Zwróć uwagę, że bez względu na ilość wymiarów wzór się niewiele różni.
+
+Euclidean distance multi dimensions
+-----------------------------------
+* Filename: ``math_euclidean_multi_dim.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 15 min
+
+#. Dane są dwa punkty :math:`A` i :math:`B` o podanych koordynatach ``tuple``
+#. Punkty :math:`A` i :math:`B` są na :math:`N`-wymiarowej przestrzeni ``(x, y, ...)``
+#. Punkty :math:`A` i :math:`B` muszą być równo-wymiarowe
+#. Funkcja musi przechodzić ``doctest`` :numref:`listing-numpy-euclidean-distance-n-dimensions`
+
+.. code-block:: python
+    :name: listing-numpy-euclidean-distance-n-dimensions
+    :caption: Euclidean distance N-dimension
+
+    def euclidean_distance_n_dimensions(A, B):
+        """
+        >>> A = (0,1,0,1)
+        >>> B = (1,1,0,0)
+        >>> euclidean_distance_n_dimensions(A, B)
+        1.4142135623730951
+
+        >>> euclidean_distance_n_dimensions((0,0,0), (0,0,0))
+        0.0
+
+        >>> euclidean_distance_n_dimensions((0,0,0), (1,1,1))
+        1.7320508075688772
+
+        >>> euclidean_distance_n_dimensions((0,1,0,1), (1,1,0,0))
+        1.4142135623730951
+
+        >>> euclidean_distance_n_dimensions((0,0,1,0,1), (1,1,0,0,1))
+        1.7320508075688772
+
+        >>> euclidean_distance_n_dimensions((0,0,1,0,1), (1,1))
+        Traceback (most recent call last):
+            ...
+        ValueError: Punkty muszą być w przestrzeni tylu-samo wymiarowej
+        """
+        return
+
 Szukanie liczby
 ---------------
+* Filename: ``numpy_number.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 15 min
+
 #. Mamy liczbę trzycyfrową.
 #. Jeżeli od liczny dziesiątek odejmiemy liczbę jedności otrzymamy 6.
 #. Jeżeli do liczby dziesiątek dodamy liczbę jedności otrzymamy 10.
@@ -1461,94 +1550,3 @@ Szukanie liczby
 
     res2 = res1[m]
     # array([282., 582., 882.])
-
-
-Assgnments
-==========
-
-
-Euclidean distance 2D
----------------------
-* Filename: ``math_euclidean_2d.py``
-* Lines of code to write: 5 lines
-* Estimated time of completion: 15 min
-
-#. Dany jest ``np.array`` przechowujący wektor
-#. Dane są dwa punkty :math:`A` i :math:`B` o podanych koordynatach ``tuple``
-#. Punkty :math:`A` i :math:`B` są dwuwymiarowe ``(x, y)``
-#. Oblicz odległość między nimi
-#. Wykorzystaj algorytm Euklidesa
-#. Funkcja musi przechodzić ``doctest`` :numref:`listing-numpy-euclidean-distance-2D`
-
-.. code-block:: python
-    :name: listing-numpy-euclidean-distance-2D
-    :caption: Euclidean distance 2D
-
-    def euclidean_distance_2D(A, B):
-        """
-        >>> A = (1, 0)
-        >>> B = (0, 1)
-        >>> euclidean_distance(A, B)
-        1.4142135623730951
-
-        >>> euclidean_distance((0,0), (1,0))
-        1.0
-
-        >>> euclidean_distance((0,0), (1,1))
-        1.4142135623730951
-
-        >>> euclidean_distance((0,1), (1,1))
-        1.0
-
-        >>> euclidean_distance((0,10), (1,1))
-        9.055385138137417
-        """
-        return
-
-.. figure:: ../machine-learning/img/k-nearest-neighbors-euclidean-distance.png
-    :scale: 100%
-    :align: center
-
-    Wyliczanie odległości w celu oszacowania przynależności do zbioru. Zwróć uwagę, że bez względu na ilość wymiarów wzór się niewiele różni.
-
-
-Euclidean distance multi dimensions
------------------------------------
-* Filename: ``math_euclidean_multi_dim.py``
-* Lines of code to write: 10 lines
-* Estimated time of completion: 15 min
-
-#. Dane są dwa punkty :math:`A` i :math:`B` o podanych koordynatach ``tuple``
-#. Punkty :math:`A` i :math:`B` są na :math:`N`-wymiarowej przestrzeni ``(x, y, ...)``
-#. Punkty :math:`A` i :math:`B` muszą być równo-wymiarowe
-#. Funkcja musi przechodzić ``doctest`` :numref:`listing-numpy-euclidean-distance-n-dimensions`
-
-.. code-block:: python
-    :name: listing-numpy-euclidean-distance-n-dimensions
-    :caption: Euclidean distance N-dimension
-
-    def euclidean_distance_n_dimensions(A, B):
-        """
-        >>> A = (0,1,0,1)
-        >>> B = (1,1,0,0)
-        >>> euclidean_distance_n_dimensions(A, B)
-        1.4142135623730951
-
-        >>> euclidean_distance_n_dimensions((0,0,0), (0,0,0))
-        0.0
-
-        >>> euclidean_distance_n_dimensions((0,0,0), (1,1,1))
-        1.7320508075688772
-
-        >>> euclidean_distance_n_dimensions((0,1,0,1), (1,1,0,0))
-        1.4142135623730951
-
-        >>> euclidean_distance_n_dimensions((0,0,1,0,1), (1,1,0,0,1))
-        1.7320508075688772
-
-        >>> euclidean_distance_n_dimensions((0,0,1,0,1), (1,1))
-        Traceback (most recent call last):
-            ...
-        ValueError: Punkty muszą być w przestrzeni tylu-samo wymiarowej
-        """
-        return

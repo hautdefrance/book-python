@@ -84,7 +84,7 @@ Dragon (Part 2)
 * Filename: ``oop_dragon_2.py``
 * Lines of code to write: 120 lines
 * Estimated time of completion: 60 min
-* Don't delete code, assignment will be continued
+* Warning: Don't delete code, assignment will be continued
 
 .. figure:: img/dragon.gif
     :scale: 100%

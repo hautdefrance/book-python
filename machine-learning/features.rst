@@ -161,10 +161,9 @@ Feature Engineering
 * Lines of code to write: 15 lines
 * Estimated time of completion: 10 min
 
-- Celem zadania będzie opracowanie tabeli, cech osób, które czynią z niego astronautę.
-- Istotne jest dobranie odpowiednich kolumn cech oraz wpisanie wartości
-- Dane kontr-argumentowe możesz dobrać dowolnie
-
+#. Celem zadania będzie opracowanie tabeli, cech osób, które czynią z niego astronautę.
+#. Istotne jest dobranie odpowiednich kolumn cech oraz wpisanie wartości
+#. Dane kontr-argumentowe możesz dobrać dowolnie
 #. Na podstawie danych wybranych astronautów:
 
     - https://github.com/AstroMatt/astroBio/tree/master/raw

@@ -353,7 +353,11 @@ Assignments
 
 XML Parsing
 -----------
-#. Mając do dyspozycji tekst z listingu :numref:`listing-xml_plants.xml`
+* Filename: ``xml_parse.py``
+* Lines of code to write: 20 lines
+* Estimated time of completion: 20 min
+* Input data: :numref:`listing-xml_plants.xml`
+
 #. Przekonwertuj dane do struktur Pythonowych ``list`` of ``dict``
 
 .. literalinclude:: assignment/xml_plants.xml
@@ -363,7 +367,11 @@ XML Parsing
 
 XSLT Transformation
 -------------------
-#. Mając do dyspozycji tekst z listingu poniżej
+* Filename: ``xml_xslt.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 10 min
+* Input data: :numref:`listing-xml_transform.xml`
+
 #. Przekonwertuj dane do struktur Pythonowych ``list`` of ``dict``
 
 .. literalinclude:: assignment/xml_transform.xml

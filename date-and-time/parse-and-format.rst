@@ -106,34 +106,36 @@ From ISO date format
 * Filename: ``datetime_from_iso.py``
 * Lines of code to write: 5 lines
 * Estimated time of completion: 10 min
-
-#. Dane są dwie następujące daty w formacie jak poniżej:
-
-    .. code-block:: python
-
-        gagarin = '1961-04-12T06:07:00.123456'
-        armstrong = '1969-07-21T14:56:15.123456'
+* Input data: :numref:`listing-time-from-iso`
 
 #. Przedstaw daty jako obiekt ``datetime``
 #. Wyświetl pierwszą datę w formacie Amerykańkim "Miesiąc Dzień, Rok Godzina:Minuta AM/PM"
 #. Wyświetl drugą datę w formacie Niemieckim "Dzień.Miesiąc.Rok"
+
+.. code-block:: python
+    :name: listing-time-from-iso
+    :caption: Convert ``str`` from ISO date format to ``datetime`` objects
+
+    gagarin = '1961-04-12T06:07:00.123456'
+    armstrong = '1969-07-21T14:56:15.123456'
 
 To ISO date format
 ------------------
 * Filename: ``datetime_to_iso.py``
 * Lines of code to write: 5 lines
 * Estimated time of completion: 15 min
-
-#. Dane są dwie następujące daty w formacie jak poniżej:
-
-    .. code-block:: python
-
-        date1 = 'April 12, 1961 2:07 local time'
-        date2 = '"07/21/69 2:56:15 AM UTC"'
+* Input data:
 
 #. Przedstaw daty jako obiekt ``datetime``
 #. Wyświetl ``date1`` w formacie ISO, tj. "Rok-Miesiąc-DzieńTGodzina:Minuta:Sekunda.UłamkiSekund"
 #. Wyświetl ``date2`` w formacie ISO samą datę, tj. bez czasu
+
+.. code-block:: python
+    :name: listing-time-to-iso
+    :caption: Convert ``str`` to ``datetime`` objects and print as ISO date format
+
+    date1 = 'April 12, 1961 2:07 local time'
+    date2 = '"07/21/69 2:56:15 AM UTC"'
 
 :Hint:
     * Wpisz "local time" jako zwykły tekst do ``strptime``

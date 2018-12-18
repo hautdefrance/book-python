@@ -177,6 +177,7 @@ Książka adresowa
 * Filename: ``iterator_addressbook.py``
 * Lines of code to write: 20 lines
 * Estimated time of completion: 15 min
+* Input data: :numref:`listing-iterators-ksiazka-adresowa`
 
 #. spraw aby można było iterować w książce adresowej z poprzednich zadań po adresach użytkownika.
 

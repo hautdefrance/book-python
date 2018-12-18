@@ -167,39 +167,46 @@ Assignments
 
 Pima Indians Diabetes problem
 -----------------------------
-Dla Pima Indians Diabetes wykonaj analizę algorytmem KNN z biblioteki ``sklearn``.
+* Filename: ``ml_knn_pima.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 15 min
+
+#. Dla Pima Indians Diabetes wykonaj analizę algorytmem KNN z biblioteki ``sklearn``.
 
 Płeć
 ----
-Napisz własną implementacje k Nearest Neighbors, która dla danych:
+* Filename: ``ml_knn_gender.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 15 min
 
-.. csv-table::
-    :header: "Gender", "Height", "Weight", "Foot Size"
+#. Napisz własną implementacje k Nearest Neighbors, która dla danych:
 
-    male,6.00,180,12
-    male,5.92,190,11
-    male,5.58,170,12
-    male,5.92,165,10
-    female,5.00,100,6
-    female,5.50,150,8
-    female,5.42,130,7
-    female,5.75,150,9
+    .. csv-table::
+        :header: "Gender", "Height", "Weight", "Foot Size"
 
-Odpowie na pytanie jaką płeć ma osoba o parametrach:
+        male,6.00,180,12
+        male,5.92,190,11
+        male,5.58,170,12
+        male,5.92,165,10
+        female,5.00,100,6
+        female,5.50,150,8
+        female,5.42,130,7
+        female,5.75,150,9
+
+#. Odpowie na pytanie jaką płeć ma osoba o parametrach:
 
     - Height: 6
     - Weight: 130
     - Foot Size: 8
 
-* Jaki jest najlepszy parametr :math:`k` dla tego zadania?
-* Która z cech ma najwięszy wpływ?
-* Czy algorytm lepiej działa z:
+#. Jaki jest najlepszy parametr :math:`k` dla tego zadania?
+#. Która z cech ma najwięszy wpływ?
+#. Czy algorytm lepiej działa z:
 
     - normalizacją i skalownaiem?
     - bez normalizacji i skalowania?
     - tylko z normalizacją?
     - tylko skalowaniem?
-
 
 :Hints:
     * ``preprocessing.LabelEncoder()``
