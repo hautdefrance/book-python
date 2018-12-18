@@ -118,6 +118,10 @@ Assignments
 
 Parsing simple CSV file
 -----------------------
+* Filename: ``file_iris.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 20 min
+
 * http://raw.githubusercontent.com/AstroMatt/book-python/master/control-flow/data/iris.csv
 
 #. Skopij plik do siebie na dysk i nazwij go ``iris.csv``
@@ -130,11 +134,6 @@ Parsing simple CSV file
         - ``X: List[Tuple[float]]`` - features
         - ``y: List[str]`` - labels
 
-:About:
-    * Filename: ``file_iris.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 20 min
-
 :The whys and wherefores:
     * czytanie i parsowanie pliku
     * nieregularne pliki konfiguracyjne (struktura może się zmieniać)
@@ -145,16 +144,19 @@ Parsing simple CSV file
 
 Content of a requested file
 ---------------------------
+* Filename: ``file_content.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 5 min
+
 #. Napisz program, który wyświetli na ekranie zawartość pliku o nazwie podanej przez użytkownika.
 #. Dopisz obsługę wyjątków dla braku uprawnień oraz tego że plik nie istnieje.
 
-:About:
-    * Filename: ``file_content.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 5 min
-
 Parsing ``/etc/hosts``
 ----------------------
+* Filename: ``file_hosts.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 20 min
+
 #. Utwórz plik tekstowy ``hosts.txt``
 #. Do pliku skopiuj kod z listingu:
 
@@ -178,11 +180,6 @@ Parsing ``/etc/hosts``
         :caption: ``/etc/hosts`` example
 
 #. Dla zaawansowanych: scal listy hostname'ów dla wpisów o tym samym IP
-
-:About:
-    * Filename: ``file_hosts.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 20 min
 
 :The whys and wherefores:
     * czytanie i parsowanie pliku

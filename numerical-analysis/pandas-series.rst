@@ -254,23 +254,21 @@ Assignments
 
 Even Numbers
 ------------
+* Filename: ``pandas_even_numbers.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 10 min
+
 #. Stwórz ``pd.Series`` z 10 liczbami parzystymi
 #. Podnieś wszystkie elementy do kwadratu
 #. Dodaj 5 do każdego z elementów
 
-:About:
-    * Filename: ``pandas_even_numbers.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 10 min
-
 Slicing
 -------
+* Filename: ``pandas_even_numbers.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 20 min
+
 #. Stwórz ``pd.Series`` z 24 losowymi liczbami całkowitymi z przedziału ``[10, 100)``
 #. Nazwij indeksy jak kolejne litery alfabetu łacińskiego (bez polskich znaków)
 #. Za pomocą funkcji statystycznych znajdź medianę alfabetu
 #. Wytnij z serii po 3 elementy w prawo i w lewo od mediany
-
-:About:
-    * Filename: ``pandas_even_numbers.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 20 min

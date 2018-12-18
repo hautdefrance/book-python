@@ -55,7 +55,10 @@ Assignments
 
 Reading ``csv``
 ---------------
-* https://raw.githubusercontent.com/AstroMatt/book-python/master/serialization/data/iris.csv
+* Filename: ``csv_dictreader.py``
+* Lines of code to write: 20 lines
+* Estimated time of completion: 10 min
+* Data: https://raw.githubusercontent.com/AstroMatt/book-python/master/serialization/data/iris.csv
 
 #. Otwórz w przeglądarce podany powyżej URL
 #. Zapisz jego zawartość na dysku w miejscu gdzie masz skrypty w pliku ``iris.csv``
@@ -71,13 +74,12 @@ Reading ``csv``
 
 #. Wypisz wiersze na ekranie
 
-:About:
-    * Filename: ``csv_dictreader.py``
-    * Lines of code to write: 20 lines
-    * Estimated time of completion: 10 min
-
 Writing ``csv``
 ---------------
+* Filename: ``csv_dictwriter.py``
+* Lines of code to write: 8 lines
+* Estimated time of completion: 10 min
+
 #. Za pomocą ``csv.DictWriter()`` zapisz do pliku CSV dane o zmiennej strukturze
 #. Podaj jawnie ``encoding``, ``delimiter``, ``quotechar`` ``quoting``, ``lineterminator``
 #. ``fieldnames`` nie może być wymienione wprost w skrypcie (zahardkodowane)
@@ -92,11 +94,6 @@ Writing ``csv``
         {'first_name': 'José', 'born': 1961, 'first_step': 1969},
     ]
 
-:About:
-    * Filename: ``csv_dictwriter.py``
-    * Lines of code to write: 8 lines
-    * Estimated time of completion: 10 min
-
 :Hints:
     * To jest bardzo często występujący i użyteczny przykład
 
@@ -107,6 +104,10 @@ Writing ``csv``
 
 Object serialization to CSV
 ---------------------------
+* Filename: ``csv_addressbook.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 20 min
+
 #. Użyj obiektu ``książka_adresowa`` z listingu :numref:`listing-address-book`
 #. Za pomocą ``csv.DictWriter()`` zapisz kontakty z książki adresowej w pliku
 #. Wszystkie pola muszą być zawsze w cudzysłowiach i oddzielone średnikami, kodowanie UTF-8.
@@ -123,8 +124,3 @@ Object serialization to CSV
     :name: listing-address-book
     :language: python
     :caption: Address book
-
-:About:
-    * Filename: ``csv_addressbook.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 20 min

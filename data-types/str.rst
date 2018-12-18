@@ -477,16 +477,15 @@ Assignments
 
 Emot print
 ----------
+* Filename: ``types_emoticon.py``
+* Lines of code to write: 4 lines
+* Estimated time of completion: 10 min
+
 #. Wczytaj od użytkownika imię
 #. Wyświetl ``hello IMIE EMOTICON``, gdzie:
 
     - IMIE to imie wprowadzone przez usera
     - EMOTICON to Unicode Codepoint "U+1F642"
-
-:About:
-    * Filename: ``types_emoticon.py``
-    * Lines of code to write: 4 lines
-    * Estimated time of completion: 10 min
 
 :The whys and wherefores:
     * Definiowanie zmiennych
@@ -495,6 +494,10 @@ Emot print
 
 Variables and types
 -------------------
+* Filename: ``types_str_input.py``
+* Lines of code to write: 4 lines
+* Estimated time of completion: 10 min
+
 #. Wczytaj od użytkownika imię
 #. Za pomocą f-string formatting wyświetl na ekranie:
 
@@ -509,11 +512,6 @@ Variables and types
 #. W ciągu do wyświetlenia nie używaj spacji ani enterów - użyj ``\n`` i ``\t``
 #. Nie korzystaj z dodawania stringów (``str + str``)
 
-:About:
-    * Filename: ``types_str_input.py``
-    * Lines of code to write: 4 lines
-    * Estimated time of completion: 10 min
-
 :The whys and wherefores:
     * Definiowanie zmiennych
     * Korzystanie z print formatting
@@ -521,6 +519,10 @@ Variables and types
 
 String cleaning
 ---------------
+* Filename: ``types_str_cleaning.py``
+* Lines of code to write: 11 lines
+* Estimated time of completion: 15 min
+
 #. Dane poniżej przeczyść, tak aby zmienne miały wartość ``'Jana III Sobieskiego'``
 #. Przeprowadź dyskusję jak zrobić rozwiązanie generyczne pasujące do wszystkich? (Implementacja rozwiązania będzie w rozdziale :ref:`Function Basics`)
 
@@ -551,11 +553,6 @@ String cleaning
     print(f'{i == expected}\t i: "{i}"')
     print(f'{j == expected}\t j: "{j}"')
     print(f'{k == expected}\t k: "{k}"')
-
-:About:
-    * Filename: ``types_str_cleaning.py``
-    * Lines of code to write: 11 lines
-    * Estimated time of completion: 15 min
 
 :The whys and wherefores:
     * Definiowanie zmiennych

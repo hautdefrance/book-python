@@ -44,6 +44,10 @@ Assignments
 
 Date manipulation
 ------------------
+* Filename: ``datetime_deltas.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 20 min
+
 #. Dane są dwie następujące daty w formacie jak poniżej:
 
     .. code-block:: python
@@ -61,11 +65,6 @@ Date manipulation
 
     - rok = 365.2425 dni
     - miesiac = 30.436875 dni
-
-:About:
-    * Filename: ``datetime_deltas.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 20 min
 
 :Zadanie z gwiazdką:
     * Co to za daty, które podał użytkownik?

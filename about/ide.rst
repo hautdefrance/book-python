@@ -87,6 +87,10 @@ Create Project from GIT
 
 Check Python Version
 --------------------
+* Filename: ``python_version.py``
+* Lines of code to write: 0 lines
+* Estimated time of completion: 5 min
+
 #. Stwórz skrypt o nazwie ``python_version.py`` (nazwa skryptu będzie zawsze wpisana w sekcji "About")
 #. Plik ma mieć zawartość:
 
@@ -99,11 +103,6 @@ Check Python Version
 #. Uruchom go w swoim IDE (menu ``Run -> Run... -> nazwa Twojego skryptu``)
 #. Jaka wersja Python jest zainstalowana?
 
-:About:
-    * Filename: ``python_version.py``
-    * Lines of code to write: 0 lines
-    * Estimated time of completion: 5 min
-
 :The whys and wherefores:
     * Czy Python działa
     * Jaka jest wersja Python
@@ -113,6 +112,10 @@ Check Python Version
 
 Check Python Environment
 ------------------------
+* Filename: ``python_env.py``
+* Lines of code to write: 0 lines
+* Estimated time of completion: 5 min
+
 #. Stwórz plik o nazwie ``python_env.py``
 #. Plik ma mieć zawartość:
 
@@ -129,11 +132,6 @@ Check Python Environment
 #. Czy korzystasz z "Virtualenv"?
 #. Upewnij się, że w linijce z "Virtualenv" nie masz ``None``
 
-:About:
-    * Filename: ``python_env.py``
-    * Lines of code to write: 0 lines
-    * Estimated time of completion: 5 min
-
 :The whys and wherefores:
     * Czy Python działa
     * Jaka jest wersja Python
@@ -144,6 +142,9 @@ Check Python Environment
 
 Know thou IDE
 -------------
+* Lines of code to write: 0 lines
+* Estimated time of completion: 10 min
+
 #. Jak zrobić w Twoim IDE:
 
     * Run...
@@ -162,10 +163,6 @@ Know thou IDE
 #. Czym się różni ``Distraction Free Mode`` od ``Full Screen``
 #. Ustaw Scope tak, aby ukryć katalog z Virtualenv
 
-:About:
-    * Lines of code to write: 0 lines
-    * Estimated time of completion: 10 min
-
 :The whys and wherefores:
     * Korzystanie z IDE
     * Uruchamianie debuggera
@@ -174,13 +171,12 @@ Know thou IDE
 
 Spellchecker
 ------------
+* Lines of code to write: 0 lines
+* Estimated time of completion: 3 min
+
 #. Zainstaluj plugin 'Hunspell'
 #. Pobierz z https://github.com/LibreOffice/dictionaries słownik ``.dic`` oraz ``.aff`` dla języka polskiego
 #. Skonfiguruj IDE do korzystania z tego słownika
-
-:About:
-    * Lines of code to write: 0 lines
-    * Estimated time of completion: 3 min
 
 :The whys and wherefores:
     * Korzystanie z IDE

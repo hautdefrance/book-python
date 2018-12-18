@@ -125,6 +125,10 @@ Assignments
 
 Wielowątkowość
 --------------
+* Filename: ``multiprocessing_server.py`` and ``multiprocessing_client.py``
+* Lines of code to write: 50 lines
+* Estimated time of completion: 30 min
+
 #. Stwórz kolejkę ``queue`` do której dodasz różne polecenia systemowe do wykonania, np.:
 
     - Lunux/macOS: ``['/bin/ls /etc/', '/bin/echo "test"', '/bin/sleep 2']``,
@@ -137,8 +141,3 @@ Wielowątkowość
 #. Wątki powinny być uśpione za pomocą ``Timer`` przez 5.0 sekund, a następnie ruszyć do roboty.
 #. Wątki mają być uruchomione w tle (ang. ``daemon``)
 #. Użyj logowania za pomocą biblioteki ``logging`` tak aby przy wyświetlaniu wyników widoczny był identyfikator procesu i wątku.
-
-:About:
-    * Filename: ``multiprocessing_server.py`` i ``multiprocessing_client.py``
-    * Lines of code to write: 50 lines
-    * Estimated time of completion: 30 min

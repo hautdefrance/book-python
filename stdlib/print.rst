@@ -513,6 +513,10 @@ Assignments
 
 Powielanie napisów
 ------------------
+* Filename: ``print_lines.py``
+* Lines of code to write: 8 lines
+* Estimated time of completion: 5 min
+
 #. Dany jest ciąg znaków: ``text = 'Lorem Ipsum'``
 #. Napisz trzy funkcje:
 
@@ -524,11 +528,6 @@ Powielanie napisów
 #. Każdy ciąg znaków w osobnej linii
 #. Napisz doctest do wszystkich funkcji
 
-:About:
-    * Filename: ``print_lines.py``
-    * Lines of code to write: 8 lines
-    * Estimated time of completion: 5 min
-
 :The whys and wherefores:
     * wczytywanie ciągu znaków od użytkownika
     * formatowanie ciągu znaków
@@ -536,6 +535,10 @@ Powielanie napisów
 
 Przeliczanie temperatury
 ------------------------
+* Filename: ``print_formatting.py``
+* Lines of code to write: 8 lines
+* Estimated time of completion: 15 min
+
 #. Napisz program, który wyświetli tabelę przeliczeń stopni Celsjusza na stopnie Fahrenheita w zakresie od –20 do +40 stopni Celsjusza (co 5 stopni).
 #. Wynik musi być taki jak na listingu poniżej
 #. Znak ma być zawsze wyświetlany
@@ -570,13 +573,6 @@ Przeliczanie temperatury
         | Temperatura | +     35°C | ...+95....°F |
         -------------------------------------------
         | Temperatura | +     40°C | ...+104...°F |
-
-
-
-:About:
-    * Filename: ``print_formatting.py``
-    * Lines of code to write: 8 lines
-    * Estimated time of completion: 15 min
 
 :Hints:
     * Fahrenheit to Celsius: (°F - 32) / 1.8 = °C

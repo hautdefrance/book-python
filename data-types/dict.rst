@@ -191,6 +191,10 @@ Assignments
 
 Aviation Language
 -----------------
+* Filename: ``dict_alphabet.py``
+* Lines of code to write: 30 lines
+* Estimated time of completion: 15 min
+
 #. Stwórz słownik języka pilotów
 #. Pojedynczym literom przyporządkuj ich fonetyczne odpowiedniki
 #. Do przekonwertowania tabelki poniżej, wykorzystaj zaznaczanie wielu linijek za pomocą klawisza ``alt`` w Twoim IDE
@@ -201,11 +205,6 @@ Aviation Language
 #. Słownik ma wyświetlić kod bez względu na to czy użytkownik podał dużą czy małą literę
 #. Jeżeli wpisał znak, który nie jest w alfabecie, to wypisz "Pilots don't say that"
 #. Nie używaj konstrukcji ``if``, ani ``try`` i ``except``
-
-:About:
-    * Filename: ``dict_alphabet.py``
-    * Lines of code to write: 30 lines
-    * Estimated time of completion: 15 min
 
 :The whys and wherefores:
     * Definiowanie i korzystanie z ``dict`` z wartościami

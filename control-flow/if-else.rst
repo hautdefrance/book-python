@@ -182,14 +182,13 @@ Assignments
 
 Conditioning on user input
 --------------------------
+* Filename: ``ifelse_input.py``
+* Lines of code to write: 6 lines
+* Estimated time of completion: 5 min
+
 #. Napisz program, który poprosi użytkownika o wiek
 #. Użytkownik będzie podawał tylko i wyłącznie ``int`` lub ``float``
 #. Następnie sprawdzi pełnoletność i wyświetli informację czy osoba jest "dorosła" czy "niepełnoletnia"
-
-:About:
-    * Filename: ``ifelse_input.py``
-    * Lines of code to write: 6 lines
-    * Estimated time of completion: 5 min
 
 :The whys and wherefores:
     * Wczytywanie ciągu znaków od użytkownika
@@ -201,13 +200,12 @@ Conditioning on user input
 
 ``int`` and ``float``
 ---------------------
+* Filename: ``operators_integers.py``
+* Lines of code to write: 7 lines
+* Estimated time of completion: 10 min
+
 #. Wczytaj liczbę od użytkownika (poda tylko ``int`` albo ``float``)
 #. Wyświetl informację czy jest to liczba całkowita, czy niecałkowita.
-
-:About:
-    * Filename: ``operators_integers.py``
-    * Lines of code to write: 7 lines
-    * Estimated time of completion: 10 min
 
 :The whys and wherefores:
     * wczytywanie ciągu znaków od użytkownika

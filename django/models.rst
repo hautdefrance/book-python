@@ -123,6 +123,9 @@ Assignments
 
 Address Book
 ------------
+* Lines of code to write: 50 lines
+* Estimated time of completion: 30 min
+
 #. Stwórz projekt ``addressbook``
 #. Stwórz apkę ``contact``
 #. Stwórz model ``Address`` z polami:
@@ -151,10 +154,6 @@ Address Book
 #. Moża wylistować kontakty i na głównym ekranie widoczne są podstawowe pola osoby
 #. Dodaj wyszukiwarkę po nazwisku
 #. Dodaj filtrowanie po dacie urodzenia
-
-:About:
-    * Lines of code to write: 50 lines
-    * Estimated time of completion: 30 min
 
 :The whys and wherefores:
     * Umiejętność modelowania obiektów świata rzeczywistego

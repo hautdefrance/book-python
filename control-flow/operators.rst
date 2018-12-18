@@ -42,14 +42,13 @@ Assignments
 
 Even and odd numbers
 --------------------
+* Filename: ``operators_even_odd.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 5 min
+
 #. Wczytaj od użytkownika ciąg znaków dowolnej długości
 #. Użytkownik poda wyłącznie ciągi znaków parsujące się do ``int`` lub ``float`` bez błędów
 #. Sprawdź czy jest to liczba parzysta, czy nieparzysta
-
-:About:
-    * Filename: ``operators_even_odd.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 5 min
 
 :The whys and wherefores:
     * wczytywanie ciągu znaków od użytkownika

@@ -23,6 +23,10 @@ Assignments
 
 To ``bool`` or not to ``bool``
 ------------------------------
+* Filename: ``types_bool.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 10 min
+
 #. Wprowadzono zmienne:
 
     .. code-block:: python
@@ -48,11 +52,6 @@ To ``bool`` or not to ``bool``
 
 #. Które zmienne mają wartość ``True``, ``None``, ``False``?
 #. Czym się różni ``None`` od ``False``?
-
-:About:
-    * Filename: ``types_bool.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 10 min
 
 :The whys and wherefores:
     * Definiowanie zmiennych

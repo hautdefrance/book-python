@@ -179,6 +179,10 @@ Assignments
 
 Average
 -------
+* Filename: ``builtin_average.py``
+* Lines of code to write: 12 lines
+* Estimated time of completion: 15 min
+
 #. Dane są pomiary Irysów:
 
     .. literalinclude:: assignments/builtin-iris-sample.py
@@ -216,11 +220,6 @@ Average
         }
 
 #. Wypisz na ekranie ``values`` oraz ``averages``
-
-:About:
-    * Filename: ``builtin_average.py``
-    * Lines of code to write: 12 lines
-    * Estimated time of completion: 15 min
 
 :The whys and wherefores:
     * Korzystanie z funkcji wbudowanych

@@ -223,6 +223,10 @@ Assignments
 
 Address Book (dataclass)
 ------------------------
+* Filename: ``oop_dataclass_addressbook.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 10 min
+
 #. Dla danych :numref:`listing-dataclass_addressbook.json`
 #. Stwórz klasy wykorzystujące mechanizm ``dataclass``
 
@@ -230,8 +234,3 @@ Address Book (dataclass)
     :name: listing-dataclass_addressbook.json
     :language: json
     :caption: Data for AddressBook
-
-:About:
-    * Filename: ``oop_dataclass_addressbook.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 10 min

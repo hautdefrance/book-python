@@ -260,6 +260,10 @@ Assignments
 
 Iris Database
 -------------
+* Filename: ``database_iris.py``
+* Lines of code to write: 30 lines
+* Estimated time of completion: 30 min
+
 #. Pobierz dane z listingu :numref:`listing-database-iris.csv`
 #. Bazę pomiarów Irysów przekonwertuj na tabelę w ``sqlite3``
 #. Nazwy poszczególnych kolumn:
@@ -290,11 +294,6 @@ Iris Database
     :language: python
     :caption: Iris Database
 
-:About:
-    * Filename: ``database_iris.py``
-    * Lines of code to write: 30 lines
-    * Estimated time of completion: 30 min
-
 :The whys and wherefores:
     * Parsowanie plików ``csv``
     * Wykorzystywanie bazy ``sqlite3``
@@ -307,15 +306,14 @@ Iris Database
 
 Tworzenie bazy danych i proste zapytania
 ----------------------------------------
+* Filename: ``database_addressbook.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 20 min
+
 #. Wykorzystaj kod z listingu :numref:`listing-database-addressbook.sql` oraz :numref:`listing-database-addressbook.txt`
 #. Wykorzystaj ``cursor`` oraz połączenia jako context manager (``with``)
 #. Dane powinny być zwracane w postaci listy ``dict``
 #. Do wpisywania danych wykorzystaj konstrukcję ``execute`` wykorzystując ``dict`` jako argument
-
-:About:
-    * Filename: ``database_addressbook.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 20 min
 
 :Zadanie z gwiazdką:
     * Dodaj obsługę wielu adresów

@@ -126,6 +126,10 @@ Assignments
 
 Basic Address Book
 ------------------
+* Filename: ``oop_addressbook_basic.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 20 min
+
 #. Dla danych z listingu poniżej napisz książkę adresową
 
     .. literalinclude:: assignment/oop_addressbook.json
@@ -137,11 +141,6 @@ Basic Address Book
 #. Użytkownik może mieć wiele adresów
 #. Użytkownik może nie mieć żadnego adresu
 
-:About:
-    * Filename: ``oop_addressbook_basic.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 20 min
-
 :The whys and wherefores:
     * myślenie obiektowe i odwzorowanie struktury w programie
     * praca z obiektami
@@ -151,14 +150,13 @@ Basic Address Book
 
 Address Book from API
 ---------------------
+* Filename: ``oop_addressbook_api.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 20 min
+
 #. API programu powinno być tak jak na :numref:`listing-oop-addressbook-py`
 #. Zrób tak, aby się ładnie wyświetlało zarówno dla jednego wyniku jak i dla wszystkich w książce
 #. ``Address`` ma mieć zmienną liczbę argumentów
-
-:About:
-    * Filename: ``oop_addressbook_api.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 20 min
 
 :The whys and wherefores:
     * Korzystanie z ``.__str__()``
@@ -170,6 +168,11 @@ Address Book from API
 
 Dragon (Part 1)
 ---------------
+* Filename: ``oop_dragon_1.py``
+* Lines of code to write: 100 lines
+* Estimated time of completion: 75 min
+* Don't delete code, assignment will be continued
+
 .. figure:: img/dragon.gif
     :scale: 100%
     :align: center
@@ -224,9 +227,3 @@ Dragon (Part 1)
     * Zadaj 15 obrażeń smokowi
     * Zadaj 25 obrażeń smokowi
     * Zadaj 75 obrażeń smokowi
-
-:About:
-    * Filename: ``oop_dragon_1.py``
-    * Lines of code to write: 100 lines
-    * Estimated time of completion: 75 min
-    * Don't delete code, assignment will be continued

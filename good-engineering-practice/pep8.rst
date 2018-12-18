@@ -754,15 +754,14 @@ Assignment
 
 Cleanup your file
 -----------------
+* Lines of code to write: 2 lines
+* Estimated time of completion: 5 min
+
 #. Install ``pycodestyle``
 #. Run ``pycodestyle`` on your last script
 #. Fix all errors
 #. Run ``pycodestyle`` on directory with all of your scripts
 #. Fix all errors
-
-:About:
-    * Lines of code to write: 2 lines
-    * Estimated time of completion: 5 min
 
 :Co zadanie sprawdza:
     * Umiejętność czytania komunikatów

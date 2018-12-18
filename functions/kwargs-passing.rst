@@ -224,6 +224,10 @@ Assignments
 
 Iris
 ----
+* Filename: ``kwargs_iris.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 20 min
+
 #. Dane dostępne są pod adresem: https://raw.githubusercontent.com/AstroMatt/book-python/master/functions/data/iris.csv
 #. Otwórz link w przeglądarce i skopiuj zawartość do pliku ``iris.csv`` na dysku
 #. Sparsuj zawartość odrzucając nagłówek
@@ -237,7 +241,3 @@ Iris
 #. Odpalaj funkcję ``print_iris()``, podając wartości ``features`` i ``labels``
 #. Pomiary mają być podane pozycyjnie (``*``), a gatunek nazwanie (``**``)
 
-:About:
-    * Filename: ``kwargs_iris.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 20 min

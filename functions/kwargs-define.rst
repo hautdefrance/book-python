@@ -153,15 +153,14 @@ Assignments
 
 Numeric Values
 --------------
+* Filename: ``kwargs_numeric.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 15 min
+
 #. Stwórz funkcję ``is_numeric``
 #. Funkcja może przyjmować dowolną ilość argumentów
 #. Jeżeli, któryś z argumentów nie jest ``int`` albo ``float`` to zwróć ``False``
 #. Jeżeli, wszystkie argumenty to ``int`` albo ``float``, to zwróć True
-
-:About:
-    * Filename: ``kwargs_numeric.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 15 min
 
 :The whys and wherefores:
     * Definiowanie i uruchamianie funkcji

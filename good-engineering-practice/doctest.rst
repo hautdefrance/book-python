@@ -236,6 +236,10 @@ Assignments
 
 Refactoring
 -----------
+* Filename: ``doctest_temp.py``
+* Lines of code to write: 5 lines of code
+* Estimated time of completion: 15 min
+
 #. Dana jest funkcja ``celsius_to_kelvin(degrees)``
 #. Napisz ciało funkcji aby testy przechodziły:
 
@@ -262,13 +266,12 @@ Refactoring
             """
             pass
 
-:About:
-    * Filename: ``doctest_temp.py``
-    * Lines of code to write: 5 lines of code
-    * Estimated time of completion: 15 min
-
 Distance conversion doctest
 ---------------------------
+* Filename: ``doctest_distance.py``
+* Lines of code to write: 5 lines of code + 16 lines of tests
+* Estimated time of completion: 10 min
+
 #. Napisz funkcję, która przeliczy dystans podany w metrach na kilometry
 #. 1 km = 1000 m
 #. Dystans nie może być ujemny
@@ -282,11 +285,6 @@ Distance conversion doctest
     * dystans w metrach jest ``int``
     * podano listę odległości
     * podany parametr to ``str``
-
-:About:
-    * Filename: ``doctest_distance.py``
-    * Lines of code to write: 5 lines of code + 16 lines of tests
-    * Estimated time of completion: 10 min
 
 Fix URL Regex
 -------------

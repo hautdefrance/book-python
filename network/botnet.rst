@@ -26,6 +26,10 @@ Mini Botnet
 
 Heartbeat Receiver
 ------------------
+* Filename: ``botnet_heartbeat_receiver.py``
+* Lines of code to write: 45 lines
+* Estimated time of completion: 30 min
+
 #. Server ma przyjmować komunikaty UDP na porcie 1337
 #. Datę UTC przyjścia pakietu, IP i port backdoora zapisuje do bazy danych ``sqlite3`` jako pola:
 
@@ -33,16 +37,15 @@ Heartbeat Receiver
     - ``host TEXT``,
     - ``port INTEGER``.
 
-:About:
-    * Filename: ``botnet_heartbeat_receiver.py``
-    * Lines of code to write: 45 lines
-    * Estimated time of completion: 30 min
-
 :Hints:
     * ``socketserver.UDPServer``
 
 Victim
 ------
+* Filename: ``botnet_victim.py``
+* Lines of code to write: 150 lines
+* Estimated time of completion: 75 min
+
 #. Po zainfekowaniu otwiera randomowy port TCP (backdoor) z przedziału 1025-65535 na którym nasłuchuje komunikatów
 #. Dlaczego taki zakres portów?
 #. Co 5 sekund wysyła informację ze swoim numerem portu backdoor oraz swoim adresem IP do Heartbeat Receivera
@@ -58,11 +61,6 @@ Victim
 #. Stwórz dekorator ``is_valid_xml``, który sprawdzi czy XML się waliduje (czy ma poprawną strukturę) i tylko wtedy wykona polecenia
 #. Stwórz dekorator ``log_incoming_requests``, który zapisze do pliku ``botnet.log`` logi w formacie ``Request from IP:PORT to execute COMMAND ARGUMENTS`` dla każdego polecenia wykonywanego na systemie ofiary
 
-:About:
-    * Filename: ``botnet_victim.py``
-    * Lines of code to write: 150 lines
-    * Estimated time of completion: 75 min
-
 :Hints:
     * ``random``
     * ``logging``
@@ -74,6 +72,10 @@ Victim
 
 Attacker
 --------
+* Filename: ``botnet_attacker.py``
+* Lines of code to write: 150 lines
+* Estimated time of completion: 75 min
+
 #. Skopiuj zawartość :numref:`listing-botnet-commands` do pliku ``botnet-commands.xml``
 #. Skrypt można wywoływać z parametrami linii poleceń:
 
@@ -103,11 +105,6 @@ Attacker
     :name: listing-botnet-commands
     :language: python
     :caption: Komunikat XML z listą poleceń do wykonania na komputerze ofiary
-
-:About:
-    * Filename: ``botnet_attacker.py``
-    * Lines of code to write: 150 lines
-    * Estimated time of completion: 75 min
 
 :Hints:
     * ``argparse``

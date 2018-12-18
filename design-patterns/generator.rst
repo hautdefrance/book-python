@@ -276,6 +276,9 @@ Assignments
 
 Generators vs. Comprehensions - iris
 ------------------------------------
+* Filename: ``generator_iris.py``
+* Lines of code to write: 40 lines
+* Estimated time of completion: 20 min
 
 #. Skopiuj dane z https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv do pliku "iris.csv"
 #. Zaczytaj dane pomijając nagłówek
@@ -283,11 +286,6 @@ Generators vs. Comprehensions - iris
 #. Gatunek będzie podawany jako ``str`` do funkcji
 #. Zaimplementuj rozwiązanie wykorzystując zwykłą funkcję
 #. Zaimplementuj rozwiązanie wykorzystując generator i słówko kluczowe ``yield``
-
-:About:
-    * Filename: ``generator_iris.py``
-    * Lines of code to write: 40 lines
-    * Estimated time of completion: 20 min
 
 :The whys and wherefores:
     * Wykorzystanie generatorów
@@ -298,6 +296,10 @@ Generators vs. Comprehensions - iris
 
 Generators vs. Comprehensions - passwd
 --------------------------------------
+* Filename: ``generator_passwd.py``
+* Lines of code to write: 40 lines
+* Estimated time of completion: 20 min
+
 #. Napisz program, który wczyta plik :numref:`listing-file-etc-passwd-2`
 #. Przefiltruj linie, tak aby nie zawierały komentarzy (zaczynające się od ``#``) oraz pustych linii
 #. Przefiltruj linie, aby wyciągnąć konta systemowe - użytkowników, którzy mają UID (trzecie pole) mniejsze niż 1000
@@ -305,11 +307,6 @@ Generators vs. Comprehensions - passwd
 #. Zaimplementuj rozwiązanie wykorzystując zwykłą funkcję
 #. Zaimplementuj rozwiązanie wykorzystując generator i słówko kluczowe ``yield``
 #. Porównaj wyniki jednego i drugiego rozwiązania przez użycie ``sys.getsizeof()``
-
-:About:
-    * Filename: ``generator_passwd.py``
-    * Lines of code to write: 40 lines
-    * Estimated time of completion: 20 min
 
 :The whys and wherefores:
     * Wykorzystanie generatorów

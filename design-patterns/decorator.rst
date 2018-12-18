@@ -265,17 +265,20 @@ Assignments
 
 Prosty dekorator
 ----------------
+* Filename: ``decorator_abspath.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 15 min
+
 * Program przechodzi przez pliki i katalogi wykorzystując ``os.walk``.
 * Stwórz funkcję, która wypisuje na ekranie nazwę pliku lub katalogu.
 * Stwórz dekorator do funkcji, który przed wyświetleniem jej na ekranie podmieni ścieżkę na bezwzględną (``path`` + ``filename``).
 
-:About:
-    * Filename: ``decorator_abspath.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 15 min
-
 Memoization
 -----------
+* Filename: ``decorator_memoize.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 15 min
+
 #. Stwórz ``dict`` o nazwie ``CACHE`` z wynikami wyliczenia funkcji
 
     - klucz: argument funkcji
@@ -288,11 +291,6 @@ Memoization
     - jeżeli nie, to oblicza, aktualizuje ``CACHE``, a następnie zwraca wartość
 
 #. Porównaj prędkość działania z obliczaniem na bieżąco dla parametru 500
-
-:About:
-    * Filename: ``decorator_memoize.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 15 min
 
 :Hints:
     * ``import timeit`` - https://docs.python.org/3/library/timeit.html

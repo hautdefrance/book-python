@@ -165,12 +165,11 @@ Assignment
 
 Address Book
 ------------
-#. Dopisz odpowiednie metody do ``Contact`` i ``Address`` aby poniższy kod zadziałał poprawnie
+* Filename: ``oop_addressbook_operators.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 15 min
 
-:About:
-    * Filename: ``oop_addressbook_operators.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 15 min
+#. Dopisz odpowiednie metody do ``Contact`` i ``Address`` aby poniższy kod zadziałał poprawnie
 
 .. code-block:: python
 

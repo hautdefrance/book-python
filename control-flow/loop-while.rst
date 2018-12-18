@@ -86,6 +86,10 @@ Assignments
 
 Report card
 -----------
+* Filename: ``loop_report_card.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 10 min
+
 #. Do zmiennej zapisz skalę ocen ``(2, 3, 3.5, 4, 4.5, 5)``
 #. Za pomocą pętli przekonwertuj skalę na ``List[float]``
 #. Użytkownik podaje oceny jako ``int`` lub ``float`` (nie będzie próbował psuć)
@@ -93,11 +97,6 @@ Report card
 #. Jeżeli wciśnięto sam Enter, zakończ wpisywanie do dzienniczka
 #. Jeżeli wpisano cyfrę nie znajdującą się na liście dopuszczalnych ocen, wyświetl informację "Grade is not allowed" i dalej kontynuuj wpisywanie
 #. Na zakończenie wyświetl wyliczoną dla dzienniczka średnią arytmetyczną z ocen
-
-:About:
-    * Filename: ``loop_report_card.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 10 min
 
 :The whys and wherefores:
     * Wczytywanie ciągu znaków od użytkownika

@@ -81,6 +81,11 @@ Assignments
 
 Dragon (Part 2)
 ---------------
+* Filename: ``oop_dragon_2.py``
+* Lines of code to write: 120 lines
+* Estimated time of completion: 60 min
+* Don't delete code, assignment will be continued
+
 .. figure:: img/dragon.gif
     :scale: 100%
     :align: center
@@ -114,25 +119,18 @@ Dragon (Part 2)
 #. Przeprowadź walkę, tak długo aż ktoś pierwszy nie zginie
 #. Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
 
-:About:
-    * Filename: ``oop_dragon_2.py``
-    * Lines of code to write: 120 lines
-    * Estimated time of completion: 60 min
-    * Don't delete code, assignment will be continued
-
 :Hint:
     * Aby zaimportować trzeba najpierw w katalogu stworzyć pusty plik ``__init__.py``
 
 Bank i Bankomaty
 ----------------
+* Filename: ``oop_bank.py``
+* Lines of code to write: 60 lines
+* Estimated time of completion: 20 min
+
 #. Klient może otworzyć konto w banku
 #. Bank może mieć wiele kont dla różnych klientów
 #. Każde konto ma unikalny numer, który jest generowany przy zakładaniu
 #. Klient może odpytać o swój numer
 #. Klient może wpłacić pieniądze na swoje konto
 #. Klient może wybrać pieniądze z bankomatu
-
-:About:
-    * Filename: ``oop_bank.py``
-    * Lines of code to write: 60 lines
-    * Estimated time of completion: 20 min

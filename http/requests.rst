@@ -279,6 +279,10 @@ Assignments
 
 REST API
 --------
+* Filename: ``requests_github.py``
+* Lines of code to write: 35 lines
+* Estimated time of completion: 30 min
+
 #. Załóż darmowe konto na Github i potwierdź email
 #. W przeglądarce internetowej wygeneruj w swoim profilu token https://github.com/settings/tokens
 #. Używając biblioteki ``requests``
@@ -288,11 +292,6 @@ REST API
 #. Przeglądnij to repozytorium i jego listę commitów
 #. Podaj datę i opis ostatniego commita
 #. Znajdź numery ID ticketów (``Fixed #...``) z issue trackera, które zostały rozwiązane w ostatnim miesiącu
-
-:About:
-    * Filename: ``requests_github.py``
-    * Lines of code to write: 35 lines
-    * Estimated time of completion: 30 min
 
 :The whys and wherefores:
     * Komunikacja HTTP (request, response)

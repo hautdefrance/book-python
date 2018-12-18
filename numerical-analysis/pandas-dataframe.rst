@@ -1140,6 +1140,10 @@ Assignments
 
 Iris Dirty
 ----------
+* Filename: ``pandas_iris_dirty.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 20 min
+
 * https://raw.githubusercontent.com/AstroMatt/book-python/master/numerical-analysis/data/iris-dirty.csv
 
 #. Mając dane Irysów przekonwertuj je na ``DataFrame``
@@ -1162,14 +1166,12 @@ Iris Dirty
 #. Wyświetl pierwsze 5 i ostatnie 3 wiersze
 #. Wykreśl podstawowe statystyki opisowe
 
-:About:
-    * Filename: ``pandas_iris_dirty.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 20 min
-
 Iris Clean
 ----------
-* https://raw.githubusercontent.com/AstroMatt/book-python/master/numerical-analysis/data/iris-clean.csv
+* Filename: ``pandas_iris_clean.py``
+* Lines of code to write: 25 lines
+* Estimated time of completion: 25 min
+* Input data: https://raw.githubusercontent.com/AstroMatt/book-python/master/numerical-analysis/data/iris-clean.csv
 
 #. Mając dane Irysów przekonwertuj je na ``DataFrame``
 #. Podaj jawnie ``encoding``
@@ -1188,13 +1190,12 @@ Iris Clean
 #. Pozostaw tylko kolumny 'Sepal length', 'Sepal width' oraz 'Species'
 #. Wykreśl podstawowe statystyki opisowe
 
-:About:
-    * Filename: ``pandas_iris_clean.py``
-    * Lines of code to write: 25 lines
-    * Estimated time of completion: 25 min
-
 Cars
 ----
+* Filename: ``pandas_cars.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 45 min
+
 #. Stwórz ``DataFrame`` samochody z:
 
     - losową kolumną liczb całkowitych przebieg z przedziału [0, 200 000]
@@ -1219,13 +1220,12 @@ Cars
 
 #. Pogrupuj dane po marce i po pochodzenie
 
-:About:
-    * Filename: ``pandas_cars.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 45 min
-
 EVA
 ---
+* Filename: ``pandas_eva.py``
+* Lines of code to write: 25 lines
+* Estimated time of completion: 30 min
+
 #. Na podstawie podanych URL:
 
     * https://www.worldspaceflight.com/bios/eva/eva.php
@@ -1236,8 +1236,3 @@ EVA
 #. Scrappuj stronę wykorzystując ``pandas.read_html()``
 #. Połącz dane wykorzystując ``pd.concat``
 #. Przygotuj plik ``CSV`` z danymi dotyczącymi spacerów kosmicznych
-
-:About:
-    * Filename: ``pandas_eva.py``
-    * Lines of code to write: 25 lines
-    * Estimated time of completion: 30 min

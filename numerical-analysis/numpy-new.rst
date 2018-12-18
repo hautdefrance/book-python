@@ -1344,6 +1344,10 @@ Assignments
 
 Matrix multiplication
 ---------------------
+* Filename: ``numpy-matrix-mul.py``
+* Lines of code to write: 2 lines
+* Estimated time of completion: 5 min
+
 #. Używając ``numpy`` oraz operatora ``@`` oraz ``*``
 #. Czym się różnią?
 
@@ -1365,23 +1369,17 @@ Matrix multiplication
         """
         pass
 
-:About:
-    * Filename: ``numpy-matrix-mul.py``
-    * Lines of code to write: 2 lines
-    * Estimated time of completion: 5 min
-
 Sum of inner matrix
 -------------------
+* Filename: ``numpy-sum.py``
+* Lines of code to write: 4 lines
+* Estimated time of completion: 5 min
+
 #. Wygeneruj macierz (16x16) randomowych intów o wartościach od 10 do 100
 #. Przekonwertuj macierz na typ float
 #. Transponuj ją
 #. Policz sumę środkowych (4x4) elementów macierzy
 #. Wyświetl wartość (skalar) sumy, a nie nie wektor
-
-:About:
-    * Filename: ``numpy-sum.py``
-    * Lines of code to write: 4 lines
-    * Estimated time of completion: 5 min
 
 Szukanie liczby
 ---------------
@@ -1471,6 +1469,10 @@ Assgnments
 
 Euclidean distance 2D
 ---------------------
+* Filename: ``math_euclidean_2d.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 15 min
+
 #. Dany jest ``np.array`` przechowujący wektor
 #. Dane są dwa punkty :math:`A` i :math:`B` o podanych koordynatach ``tuple``
 #. Punkty :math:`A` i :math:`B` są dwuwymiarowe ``(x, y)``
@@ -1503,11 +1505,6 @@ Euclidean distance 2D
         """
         return
 
-:About:
-    * Filename: ``math_euclidean_2d.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 15 min
-
 .. figure:: ../machine-learning/img/k-nearest-neighbors-euclidean-distance.png
     :scale: 100%
     :align: center
@@ -1517,6 +1514,10 @@ Euclidean distance 2D
 
 Euclidean distance multi dimensions
 -----------------------------------
+* Filename: ``math_euclidean_multi_dim.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 15 min
+
 #. Dane są dwa punkty :math:`A` i :math:`B` o podanych koordynatach ``tuple``
 #. Punkty :math:`A` i :math:`B` są na :math:`N`-wymiarowej przestrzeni ``(x, y, ...)``
 #. Punkty :math:`A` i :math:`B` muszą być równo-wymiarowe
@@ -1551,8 +1552,3 @@ Euclidean distance multi dimensions
         ValueError: Punkty muszą być w przestrzeni tylu-samo wymiarowej
         """
         return
-
-:About:
-    * Filename: ``math_euclidean_multi_dim.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 15 min

@@ -103,6 +103,10 @@ Assignments
 
 From ISO date format
 --------------------
+* Filename: ``datetime_from_iso.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 10 min
+
 #. Dane są dwie następujące daty w formacie jak poniżej:
 
     .. code-block:: python
@@ -114,13 +118,12 @@ From ISO date format
 #. Wyświetl pierwszą datę w formacie Amerykańkim "Miesiąc Dzień, Rok Godzina:Minuta AM/PM"
 #. Wyświetl drugą datę w formacie Niemieckim "Dzień.Miesiąc.Rok"
 
-:About:
-    * Filename: ``datetime_from_iso.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 10 min
-
 To ISO date format
 ------------------
+* Filename: ``datetime_to_iso.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 15 min
+
 #. Dane są dwie następujące daty w formacie jak poniżej:
 
     .. code-block:: python
@@ -131,11 +134,6 @@ To ISO date format
 #. Przedstaw daty jako obiekt ``datetime``
 #. Wyświetl ``date1`` w formacie ISO, tj. "Rok-Miesiąc-DzieńTGodzina:Minuta:Sekunda.UłamkiSekund"
 #. Wyświetl ``date2`` w formacie ISO samą datę, tj. bez czasu
-
-:About:
-    * Filename: ``datetime_to_iso.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 15 min
 
 :Hint:
     * Wpisz "local time" jako zwykły tekst do ``strptime``

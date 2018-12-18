@@ -139,15 +139,14 @@ Assignments
 
 Parsing text from webpage
 -------------------------
+* Filename: ``regex_html.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 20 min
+
 #. Ze strony https://er.jsc.nasa.gov/seh/ricetalk.htm pobrano tekst przemówienia John F. Kennedy'ego "Moon Speech" i zamieszczono w listingu poniżej
 #. Skopiuj zawartość listingu do pliku ``moon-speech.html``
 #. Za pomocą regexpów wytnij tekst fragmentu przemówienia JFK
 #. Zwróć pierwszy paragraf tekstu przemówienia zaczynający się od słów "We choose to go to the moon"
-
-:About:
-    * Filename: ``regex_html.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 20 min
 
 .. code-block:: html
 
@@ -155,6 +154,9 @@ Parsing text from webpage
 
 PESEL Validation
 ----------------
+* Lines of code to write: 0 lines
+* Estimated time of completion: 10 min
+
 #. Przeprowadź eksperyment myślowy (nie pisz kodu tylko pomyśl)
 #. Jak sprawdzić za pomocą wyrażeń regularnych czy:
 
@@ -179,11 +181,6 @@ PESEL Validation
     #. Jakie wyrażenie może być na czwartym miejscu w PESEL?
     #. Jakie wyrażenie może być na piątym miejscu w PESEL?
     #. Jakie wyrażenie może być na szóstym miejscu w PESEL?
-
-:About:
-    * Filename: ``regex_pesel.py``
-    * Lines of code to write: 0 lines
-    * Estimated time of completion: 10 min
 
 :Z gwiazdką:
     * sprawdź walidację numerów PESEL dla osób urodzonych po 2000 roku.

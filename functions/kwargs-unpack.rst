@@ -106,6 +106,10 @@ Assignments
 
 Hosts
 -----
+* Filename: ``kwargs_hosts.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 15 min
+
 #. Skopiuj zawartość listingu poniżej do pliku ``hosts.txt``
 
     .. literalinclude:: assignment/etc-hosts.txt
@@ -116,8 +120,3 @@ Hosts
 #. Czytając plik pomiń puste linie lub zaczynające się od komentarza ``#``
 #. Do ``hosts`` dla klucza IP dodaj listę hostname
 #. Przy parsowaniu linii skorzystaj z konstrukcji z gwiazdką ``*``
-
-:About:
-    * Filename: ``kwargs_hosts.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 15 min

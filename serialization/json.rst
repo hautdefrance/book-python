@@ -112,6 +112,10 @@ Assignments
 
 Iris Serialize
 --------------
+* Filename: ``json_iris_serialize.py``
+* Lines of code to write: 30 lines
+* Estimated time of completion: 20 min
+
 #. Dane z listingu poniżej zapisz do pliku ``iris.json`` w formacie JSON
 #. Dane mają być zapisane jako ``list`` of ``dict``
 
@@ -142,11 +146,6 @@ Iris Serialize
             (4.6, 3.1, 1.5, 0.2, 'setosa'),
         ]
 
-:About:
-    * Filename: ``json_iris_serialize.py``
-    * Lines of code to write: 30 lines
-    * Estimated time of completion: 20 min
-
 :The whys and wherefores:
     * Serializacja danych
     * Korzystanie z biblioteki JSON
@@ -155,6 +154,10 @@ Iris Serialize
 
 Iris deserialize
 ----------------
+* Filename: ``json_iris_deserialize.py``
+* Lines of code to write: 30 lines
+* Estimated time of completion: 20 min
+
 #. Dane z listingu poniżej skopiuj do pliku "iris.json"
 
     .. code-block:: json
@@ -165,11 +168,6 @@ Iris deserialize
 #. Pierwsza linijka ma zawierać nagłówek
 #. Kolejne linie mają mieć dane
 
-:About:
-    * Filename: ``json_iris_deserialize.py``
-    * Lines of code to write: 30 lines
-    * Estimated time of completion: 20 min
-
 :The whys and wherefores:
     * Deserializacja danych
     * Korzystanie z biblioteki JSON
@@ -178,14 +176,13 @@ Iris deserialize
 
 Date serialization
 ------------------
+* Filename: ``json_datetimes.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 15 min
+
 #. Skopiuj do swojego pliku strukturę danych :numref:`listing-json-assignment-datetime`
 #. Zapisz ją do pliku json
 #. Wczytaj ją z pliku json jako obiekty Pythona (ten sam efekt co na listingu)
-
-:About:
-    * Filename: ``json_datetimes.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 15 min
 
 :The whys and wherefores:
     * Serializacja danych
@@ -199,14 +196,13 @@ Date serialization
 
 Serializing custom class to JSON
 --------------------------------
+* Filename: ``json_objects.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 20 min
+
 #. Skopiuj do pliku ``iris.json`` dane z listingu :numref:`listing-json-assignment-objects`
 #. Stwórz klasy ``Setosa``, ``Virginica``, ``Versicolor``
 #. Czytając dane z pliku twórz obiekty powyższych klas w zależności od wyniku pomiaru (pole "species")
-
-:About:
-    * Filename: ``json_objects.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 20 min
 
 :The whys and wherefores:
     * Serializacja danych
@@ -220,13 +216,12 @@ Serializing custom class to JSON
 
 Deserialize data from GITHub
 ----------------------------
+* Filename: ``json_deserialize_github.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 20 min
+
 #. Za pomocą biblioteki ``requests`` pobierz dane z https://api.github.com/users
 #. Iterując po rekordach twórz obiekty klasy ``User``
-
-:About:
-    * Filename: ``json_deserialize_github.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 20 min
 
 :The whys and wherefores:
     * Deserializacja danych
@@ -236,17 +231,16 @@ Deserialize data from GITHub
 
 Deserialize
 -----------
+* Filename: ``json_deserialize_classes.py``
+* Lines of code to write: 30 lines
+* Estimated time of completion: 30 min
+
 #. Po API dostajesz JSONa tak jak na listingu poniżej
 #. Iterując po rekordach twórz obiekty klasy ``Astronaut``
 #. Sparsuj ``user_permissions`` i przedstaw je za pomocą listy klas
 #. Nazwa klasy to klucz w słowniku
 #. Są zawsze cztery pola: ``"add", "modify", "view", "delete"``
 #. Jeżeli jakieś pole jest wymienione, to ma wartość ``True``, jeżeli nie to ``False``
-
-:About:
-    * Filename: ``json_deserialize_classes.py``
-    * Lines of code to write: 30 lines
-    * Estimated time of completion: 30 min
 
 :The whys and wherefores:
     * Deserializacja danych

@@ -215,6 +215,10 @@ Assignments
 
 Dragon (Part 3)
 ---------------
+* Filename: ``oop_dragon_3.py``
+* Lines of code to write: 50 lines
+* Estimated time of completion: 30 min
+
 .. figure:: img/dragon.gif
     :scale: 100%
     :align: center
@@ -237,8 +241,3 @@ Dragon (Part 3)
 #. Bohater nie może zadawać obrażeń jak jest dalej niż 50 punktów od przeciwnika
 #. Wszystkie istoty mogą lewelować a bazowe punty życia i obrażeń się zmieniają z poziomem
 #. Przeprowadź symulację walki. Kto zginie pierwszy?
-
-:About:
-    * Filename: ``oop_dragon_3.py``
-    * Lines of code to write: 50 lines
-    * Estimated time of completion: 30 min

@@ -787,6 +787,10 @@ Assignments
 
 Recursive folders walking
 -------------------------
+* Filename: ``system_walk.py``
+* Lines of code to write: 30 lines
+* Estimated time of completion: 30 min
+
 #. Sprawdź czy katalog "Python" już istnieje na pulpicie w Twoim systemie
 #. Jeżeli nie istnieje to za pomocą ``os.mkdir()`` stwórz go w tym miejscu
 #. Za pomocą ``subprocess.call()`` w tym katalogu stwórz plik ``README.rst`` i dodaj do niego tekst "Ehlo World"
@@ -800,11 +804,6 @@ Recursive folders walking
 #. Ścieżkę do powyższego pliku ``README`` skonstruuj za pomocą ``os.path.join()``
 #. Ścieżka ma być względna w stosunku do pliku, który aktualnie jest uruchamiany
 #. Jeżeli po przeszukaniu całego Pulpitu rekurencyjnie skrypt nie znajdzie pliku ``LICENSE.rst``, to ma rzucić informację ``logging.critical()`` i wyjść z kodem błędu ``1``.
-
-:About:
-    * Filename: ``system_walk.py``
-    * Lines of code to write: 30 lines
-    * Estimated time of completion: 30 min
 
 :Hints:
     * Gdyby był problem ze znalezieniem pliku, a ścieżka jest poprawna to zastosuj ``shell=True``
@@ -824,6 +823,10 @@ Recursive folders walking
 
 Tree
 ----
+* Filename: ``system_tree.py``
+* Lines of code to write: 60 lines
+* Estimated time of completion: 60 min
+
 #. Za pomocą znaków unicode: "┣━", "┗━" , "┃  "
 #. Wygeneruj wynik przypominający wynik polecenia ``tree``.
 
@@ -852,7 +855,3 @@ Tree
     ┣━folder_tree_maker.py
     ┗━tree.py
 
-:About:
-    * Filename: ``system_tree.py``
-    * Lines of code to write: 60 lines
-    * Estimated time of completion: 60 min

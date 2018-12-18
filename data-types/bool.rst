@@ -128,6 +128,10 @@ Assignments
 
 ``True`` of ``False``
 ---------------------
+* Filename: ``types_bool_or_none.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 5 min
+
 #. Co należy podstawić do zmiennych aby wyrażenia poniżej zgadzały się z wartością oczekiwaną?
 
     .. code-block:: python
@@ -165,11 +169,6 @@ Assignments
         print(k)  # True
         print(l)  # False
         print(m)  # False
-
-:About:
-    * Filename: ``types_bool_or_none.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 5 min
 
 :The whys and wherefores:
     * Definiowanie zmiennych

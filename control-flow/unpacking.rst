@@ -71,15 +71,14 @@ Assignments
 
 Simple collections
 ------------------
+* Filename: ``sequences_simple.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 5 min
+
 #. Stwórz ``a: tuple`` z cyframi 0, 1, 2, 3
 #. Stwórz ``b: list`` z cyframi 2, 3, 4, 5
 #. Stwórz ``c: set``, który będzie zawierał co drugie elementy z ``a`` i ``b``
 #. Wyświetl ``c`` na ekranie
-
-:About:
-    * Filename: ``sequences_simple.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 5 min
 
 :The whys and wherefores:
     * Definiowanie i korzystanie z ``list``, ``tuple``, ``set``
@@ -88,6 +87,10 @@ Simple collections
 
 Iris dataset
 ------------
+* Filename: ``unpacking_iris.py``
+* Lines of code to write: 30 lines
+* Estimated time of completion: 20 min
+
 #. Mając dane z listingu poniżej
 
     .. code-block:: python
@@ -138,11 +141,6 @@ Iris dataset
         }
 
 #. Nie używaj slice, ani żadnych instrukcji, które nie zostały dotychczas omówione
-
-:About:
-    * Filename: ``unpacking_iris.py``
-    * Lines of code to write: 30 lines
-    * Estimated time of completion: 20 min
 
 :The whys and wherefores:
     * Definiowanie i korzystanie z ``list``, ``tuple``, ``set``

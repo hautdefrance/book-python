@@ -168,6 +168,10 @@ Assignments
 
 Split train/test
 ----------------
+* Filename: ``sequences_split_train_test.py``
+* Lines of code to write: 6 lines
+* Estimated time of completion: 15 min
+
 #. Mając do dyspozycji zbiór danych Irysów z listingu :numref:`listing-nested-iris-dataset`
 #. Zapisz nagłówek (pierwsza linia) do zmiennej
 #. Zapisz do innej zmiennej dane bez nagłówka
@@ -179,11 +183,6 @@ Split train/test
 
 #. Z danych bez nagłówka zapisz do uczenia rekordy od początku do punktu podziału
 #. Z danych bez nagłówka zapisz do testów rekordy od punktu podziału do końca
-
-:About:
-    * Filename: ``sequences_split_train_test.py``
-    * Lines of code to write: 6 lines
-    * Estimated time of completion: 15 min
 
 :The whys and wherefores:
     * Umiejętność przetwarzania złożonych typów danych

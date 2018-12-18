@@ -59,32 +59,29 @@ Assignments
 
 Create ``date``, ``time`` and ``datetime`` objects
 --------------------------------------------------
+* Filename: ``datetime_create_custom.py``
+* Lines of code to write: 3 lines
+* Estimated time of completion: 5 min
+
 #. Stwórz obiekt ``date`` z datą Twojego urodzenia
 #. Stwórz obiekt ``time`` z czasem Twojego urodzenia
 #. Stwórz obiekt ``datetime`` z datą i czasem Twojego urodzenia
 
-:About:
-    * Filename: ``datetime_create_custom.py``
-    * Lines of code to write: 3 lines
-    * Estimated time of completion: 5 min
-
 Create current ``date`` and ``datetime`` objects
 ------------------------------------------------
+* Filename: ``datetime_create_current.py``
+* Lines of code to write: 3 lines
+* Estimated time of completion: 5 min
+
 #. Stwórz obiekt ``date`` z obecną datą
 #. Stwórz obiekt ``datetime`` z datą i czasem
 #. Jak stworzyć obiekt ``time`` obecnym czasem?
 
-:About:
-    * Filename: ``datetime_create_current.py``
-    * Lines of code to write: 3 lines
-    * Estimated time of completion: 5 min
-
 Create ``datetime`` object
 --------------------------
+* Filename: ``datetime_create.py``
+* Lines of code to write: 1 lines
+* Estimated time of completion: 5 min
+
 #. Stwórz obiekt ``datetime`` z datą "1970-01-01T00:00:00.000000+0000"
 #. Co to za data?
-
-:About:
-    * Filename: ``datetime_create.py``
-    * Lines of code to write: 1 lines
-    * Estimated time of completion: 5 min

@@ -133,6 +133,10 @@ Assignments
 
 Slicing text
 ------------
+* Filename: ``slice_text.py``
+* Lines of code to write: 8 lines
+* Estimated time of completion: 10 min
+
 #. Z podanych poniżej ciągów znaków
 #. Za pomocą ``[...]`` wydobądź ``Jana III Sobieskiego``
 #. Jakie parametry użyłeś dla każdej z linijek?
@@ -157,11 +161,6 @@ Slicing text
     print(f'{f == expected}\t f: "{f}"')
     print(f'{g == expected}\t g: "{g}"')
     print(f'{h == expected}\t h: "{h}"')
-
-:About:
-    * Filename: ``slice_text.py``
-    * Lines of code to write: 8 lines
-    * Estimated time of completion: 10 min
 
 :The whys and wherefores:
     * Definiowanie zmiennych

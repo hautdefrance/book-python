@@ -157,6 +157,10 @@ Assignments
 
 Feature Engineering
 -------------------
+* Filename: ``ml-features-engineering.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 10 min
+
 - Celem zadania będzie opracowanie tabeli, cech osób, które czynią z niego astronautę.
 - Istotne jest dobranie odpowiednich kolumn cech oraz wpisanie wartości
 - Dane kontr-argumentowe możesz dobrać dowolnie
@@ -171,7 +175,6 @@ Feature Engineering
 #. Do
 #. Uruchom test wagi parametrów
 #. Czy Twoje features mają wysokie znaczenie?
-
 
 :Hints:
     * ``np.genfromtxt()``
@@ -237,8 +240,3 @@ Feature Engineering
 
             print(vector)
 
-
-:About:
-    * Filename: ``ml-features-engineering.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 10 min

@@ -207,6 +207,10 @@ Assignments
 
 Meet Python
 -----------
+* Filename: ``syntax_python.py``
+* Lines of code to write: 2 lines + 2 lines of comment
+* Estimated time of completion: 5 min
+
 #. Create Python script
 #. Add interpreter declaration
 #. Under interpreter declaration add multiline comment with program description (copy-paste from book)
@@ -215,11 +219,6 @@ Meet Python
 #. Print variable
 #. Next line under ``print`` statement add line comment, with expected output
 #. Run script
-
-:About:
-    * Filename: ``syntax_python.py``
-    * Lines of code to write: 2 lines + 2 lines of comment
-    * Estimated time of completion: 5 min
 
 :The whys and wherefores:
     * Tworzenie skryptów Python

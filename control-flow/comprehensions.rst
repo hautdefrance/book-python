@@ -271,6 +271,10 @@ Assignments
 
 Split train/test
 ----------------
+* Filename: ``comprahension_split_train_test.py``
+* Lines of code to write: 6 lines
+* Estimated time of completion: 15 min
+
 #. Mając do dyspozycji zbiór danych Irysów z listingu poniżej:
 
     .. code-block:: python
@@ -317,11 +321,6 @@ Split train/test
 
 #. Stwórz ``result: Tuple[list, list, list, list]`` z wszystkimi cechami i labelkami
 #. Wypisz na ekranie ``result``
-
-:About:
-    * Filename: ``comprahension_split_train_test.py``
-    * Lines of code to write: 6 lines
-    * Estimated time of completion: 15 min
 
 :The whys and wherefores:
     * Umiejętność przetwarzania złożonych typów danych

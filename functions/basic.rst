@@ -296,6 +296,10 @@ Assignments
 
 Cleaning text input
 -------------------
+* Filename: ``functions_str_clean.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 15 min
+
 #. Napisz funkcję oczyszczającą, która podane niżej zmienne zamieni na ciąg "Jana III Sobieskiego"
 
 .. code-block:: python
@@ -326,11 +330,6 @@ Cleaning text input
     print(f'{j == expected}\t j: "{j}"')
     print(f'{k == expected}\t k: "{k}"')
 
-:About:
-    * Filename: ``functions_str_clean.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 15 min
-
 :The whys and wherefores:
     * Definiowanie i uruchamianie funkcji
     * Sprawdzanie przypadków brzegowych (niekompatybilne argumenty)
@@ -339,6 +338,10 @@ Cleaning text input
 
 Aviation numbers
 ----------------
+* Filename: ``functions_aviation_numbers.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 15 min
+
 #. Napisz funkcję ``aviation_numbers``
 #. Funkcja zamieni dowolnego ``int`` lub ``float`` na formę tekstową w mowie pilotów
 
@@ -356,11 +359,6 @@ Aviation numbers
     aviation_numbers(-31.337)    # 'minus tree one and tree tree seven
     aviation_numbers(-49.35)     # 'minus fower niner and tree fife'
 
-:About:
-    * Filename: ``functions_aviation_numbers.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 15 min
-
 :The whys and wherefores:
     * Definiowanie i uruchamianie funkcji
     * Sprawdzanie przypadków brzegowych (niekompatybilne argumenty)
@@ -371,6 +369,10 @@ Aviation numbers
 
 Number to human readable
 ------------------------
+* Filename: ``functions_numstr_human.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 15 min
+
 #. Napisz funkcję ``number_to_str``
 #. Funkcja zamieni dowolnego ``int`` lub ``float`` na formę tekstową
 #. Funkcja musi zmieniać wartości na poprawną gramatycznie formę
@@ -386,11 +388,6 @@ Number to human readable
         number_to_str(-1969)     # 'minus one thousand nine hundred sixty nine'
         number_to_str(-31.337)   # 'minus thirty one three hundreds thirty seven thousands'
 
-:About:
-    * Filename: ``functions_numstr_human.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 15 min
-
 :The whys and wherefores:
     * Definiowanie i uruchamianie funkcji
     * Sprawdzanie przypadków brzegowych (niekompatybilne argumenty)
@@ -401,13 +398,12 @@ Number to human readable
 
 Roman numbers
 -------------
+* Filename: ``functions_roman.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 15 min
+
 #. Napisz program, który przeliczy wprowadzoną liczbę rzymską na jej postać dziesiętną.
 #. Napisz drugą funkcję, która dokona procesu odwrotnego.
-
-:About:
-    * Filename: ``functions_roman.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 15 min
 
 :The whys and wherefores:
     * Definiowanie i uruchamianie funkcji

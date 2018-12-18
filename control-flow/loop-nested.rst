@@ -315,6 +315,10 @@ Assignments
 
 Unique keys from schema-less database
 -------------------------------------
+* Filename: ``loop_unique_keys.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 5 min
+
 #. Mając bazę danych z listingu poniżej
 #. Iteruj po rekordach w bazie danych
 #. Z rekordu wyciągnij klucze
@@ -331,11 +335,6 @@ Unique keys from schema-less database
         {'Sepal width': 2.9, 'Petal width': 1.8, 'Species': 'virginica'},
     ]
 
-:About:
-    * Filename: ``loop_unique_keys.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 5 min
-
 :The whys and wherefores:
     * Generowanie zbiorów
     * Usuwanie powtarzających się elementów
@@ -345,6 +344,10 @@ Unique keys from schema-less database
 
 Label encoder
 -------------
+* Filename: ``loop_label_encoder.py``
+* Lines of code to write: 13 lines
+* Estimated time of completion: 15 min
+
 #. Dany jest zbiór pomiarów Irysów :numref:`listing-loops-iris-sample`
 #. Ze zbioru wyodrębnij dane odrzucając nagłówek
 #. Z danych wyodrębnij:
@@ -393,11 +396,6 @@ Label encoder
     #. Do listy label dodawaj wartość słownika gatunków dla gatunku w tym rekordzie
     #. Odwróć słownik gatunków
     #. Wyświetl na ekranie ``species`` oraz ``labels``
-
-:About:
-    * Filename: ``loop_label_encoder.py``
-    * Lines of code to write: 13 lines
-    * Estimated time of completion: 15 min
 
 :The whys and wherefores:
     * Sprawdzanie występowania elementów w słowniku

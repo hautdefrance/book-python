@@ -399,6 +399,10 @@ Assignments
 
 Euclidean distance 2D
 ---------------------
+* Filename: ``math_euclidean_2d.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 15 min
+
 #. Dane są dwa punkty :math:`A` i :math:`B` o podanych koordynatach ``tuple``
 #. Punkty :math:`A` i :math:`B` są dwuwymiarowe ``(x, y)``
 #. Oblicz odległość między nimi
@@ -430,11 +434,6 @@ Euclidean distance 2D
         """
         return
 
-:About:
-    * Filename: ``math_euclidean_2d.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 15 min
-
 .. figure:: ../machine-learning/img/k-nearest-neighbors-euclidean-distance.png
     :scale: 100%
     :align: center
@@ -443,6 +442,10 @@ Euclidean distance 2D
 
 Euclidean distance ``n`` dimensions
 -----------------------------------
+* Filename: ``math_euclidean_multi_dim.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 15 min
+
 #. Dane są dwa punkty :math:`A` i :math:`B` o podanych koordynatach ``tuple``
 #. Punkty :math:`A` i :math:`B` są na :math:`N`-wymiarowej przestrzeni ``(x, y, ...)``
 #. Punkty :math:`A` i :math:`B` muszą być równo-wymiarowe
@@ -478,13 +481,12 @@ Euclidean distance ``n`` dimensions
         """
         return
 
-:About:
-    * Filename: ``math_euclidean_multi_dim.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 15 min
-
 Matrix multiplication
 ---------------------
+* Filename: ``math_matrix_multiplication.py``
+* Lines of code to write: 6 lines
+* Estimated time of completion: 20 min
+
 #. Napisz program mnożący macierze wykorzystując zagnieżdżone pętle ``for``
 
 .. code-block:: python
@@ -510,38 +512,31 @@ Matrix multiplication
         """
         return
 
-:About:
-    * Filename: ``math_matrix_multiplication.py``
-    * Lines of code to write: 6 lines
-    * Estimated time of completion: 20 min
-
 :Hints:
     * macierz zerowa
     * trzy pętle
 
 Trigonometry
 ------------
+* Filename: ``math_trigonometry.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 10 min
+
 #. Program wczytuje od użytkownika wielkość kąta w stopniach
 #. Użytkownik zawsze podaje ``int`` albo ``float``
 #. Wyświetl wartość funkcji trygonometrycznych (sin, cos, tg, ctg)
 #. Jeżeli funkcja trygonometryczna nie istnieje dla danego kąta wypisz "For this angle function does not exist." i zakończ program
 
-:About:
-    * Filename: ``math_trigonometry.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 10 min
-
 Random numbers
 --------------
+* Filename: ``math_random_numbers.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 10 min
+
 #. Napisz program, który wyświetli 6 losowych i nie powtarzających się liczb z zakresu od 1 do 49.
 #. Czym sa liczby pseudolosowe?
 #. Czy da się stworzyć program czysto losowy?
 #. Dlaczego?
-
-:About:
-    * Filename: ``math_random_numbers.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 10 min
 
 :Hints:
     * ``random.randrange()``
@@ -557,13 +552,12 @@ Random numbers
 
 Triangle
 --------
+* Filename: ``math_triangle.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 10 min
+
 #. Napisz program, który obliczy pole trójkąta.
 #. Użytkownik poda wysokość i długość podstawy tego trójkąta. Uwzględnij, że wysokość i długość podstawy mogą być liczbami niecałkowitymi. Wykorzystaj doctest do przetestowania funkcji.
-
-:About:
-    * Filename: ``math_triangle.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 10 min
 
 :The whys and wherefores:
     * Umiejętność wykorzystania gotowych funkcji w zewnętrznej bibliotece
@@ -573,6 +567,10 @@ Triangle
 
 Random points
 -------------
+* Filename: ``math_random_points.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 20 min
+
 #. Wygeneruj 100 losowych punktów (rozkład gaussa o średniej 0, dowolnym odchyleniu standardowym(np. 0.2))
 #. Punkty muszą być wylosowane wokół dwóch dowolnie wybranych punktów (np. A=[0, 1], B=[2, 4]).
 #. Funkcja musi przechodzić ``doctest``
@@ -601,8 +599,3 @@ Wyrysuj te punkty na wykresie (możesz użyć funkcji ``plt.axis('equal')`` żeb
 Korzystając z funkcji napisanej w ćwiczeniu powyżej oblicz odległość od każdego z punktów do punktów A i B oraz na podstawie tej odległości zaklasyfikuj te punkty (jeżeli punkt jest bliżej punktu A to należy do zbioru A, jeżeli jest bliżej do zbioru B to należy do zbioru B). Narysuj nowy wykres, na którym punkty ze zbioru A będą narysowane kolorem czerwonym, a punkty ze zbioru B kolorem niebieskim.
 
 Czy dwa wykresy są takie same? Co się stanie jeżeli będziemy zwiększali odchylenie standardowe przy generacji punktów? Albo przybliżymy do siebie punkty A i B?
-
-:About:
-    * Filename: ``math_random_points.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 20 min

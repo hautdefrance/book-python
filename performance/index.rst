@@ -192,6 +192,10 @@ Assignments
 
 Memoization
 -----------
+* Filename: ``performance_memoize.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 15 min
+
 #. Skopiuj kod z listingu poniżej
 #. Stwórz pusty ``dict`` o nazwie ``CACHE``
 #. W słowniku będziemy przechowywali wyniki wyliczenia funkcji dla zadanych parametrów:
@@ -206,11 +210,6 @@ Memoization
     - jeżeli nie, to oblicza, aktualizuje ``CACHE``, a następnie zwraca wartość
 
 #. Porównaj prędkość działania
-
-:About:
-    * Filename: ``performance_memoize.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 15 min
 
 .. literalinclude:: src/performance-memoize.py
     :language: python

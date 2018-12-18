@@ -138,6 +138,10 @@ Assignments
 
 Handling user input and type casting
 ------------------------------------
+* Filename: ``types_casting.py``
+* Lines of code to write: 4 lines
+* Estimated time of completion: 5 min
+
 #. Użytkownik wprowadził odległość w metrach równą ``1337``
 #. Wyświetl wartość na ekranie w różnych jednostkach
 #. Do wyświetlania skorzystaj z kodu poniżej
@@ -151,11 +155,6 @@ Handling user input and type casting
     print(f'Miles: {...}')                               # float
     print(f'Nautical Miles: {...}')                      # float
     print(f'm: {...}, km: {...}, mi: {...}, nm: {...}')  # int, int, float, float
-
-:About:
-    * Filename: ``types_casting.py``
-    * Lines of code to write: 4 lines
-    * Estimated time of completion: 5 min
 
 :The whys and wherefores:
     * Definiowanie zmiennych

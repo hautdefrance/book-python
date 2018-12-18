@@ -60,6 +60,10 @@ Assignments
 
 Longtitude and Latitude
 -----------------------
+* Filename: ``descriptor_geographic.py``
+* Lines of code to write: 25 lines
+* Estimated time of completion: 15 min
+
 #. Stwórz klasę ``GeographicCoordinate``
 #. Klasa ma mieć pola:
 
@@ -71,26 +75,19 @@ Longtitude and Latitude
 #. Przy kasowaniu (``del``) wartości, nie usuwaj jej, a ustaw na ``None``
 #. Zablokuj całkowicie modyfikację pola ``elevation``
 
-:About:
-    * Filename: ``descriptor_geographic.py``
-    * Lines of code to write: 25 lines
-    * Estimated time of completion: 15 min
-
 :The whys and wherefores:
     * Wykorzystanie deskryptorów
     * Walidacja danych
 
-
 Temperatura
 -----------
+* Filename: ``descriptor_temperature.py``
+* Lines of code to write: 25 lines
+* Estimated time of completion: 15 min
+
 #. Stwórz klasę ``KelvinTemperature``
 #. Temperatura musi być dodatnia, sprawdzaj to przy zapisie do pola ``value``
 #. Usunięcie temperatury nie usunie wartości, ale ustawi ją na ``None``
-
-:About:
-    * Filename: ``descriptor_temperature.py``
-    * Lines of code to write: 25 lines
-    * Estimated time of completion: 15 min
 
 :The whys and wherefores:
     * Wykorzystanie deskryptorów

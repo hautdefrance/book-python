@@ -133,6 +133,10 @@ Zadania praktyczne
 
 Nearest Neighbor Classifier
 ---------------------------
+* Filename: ``ml-sklearn-classifier.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 30 min
+
 #. Napisz klasyfikator najbliższego sąsiada
 #. Podziel dane treningowe i testowe pół-na-pół
 #. Dla zbioru Iris ma osiągać accuracy na poziomie powyżej 90%
@@ -182,14 +186,12 @@ Nearest Neighbor Classifier
 
         print(accuracy)
 
-
-:About:
-    * Filename: ``ml-sklearn-classifier.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 30 min
-
 Porównanie classifierów
 -----------------------
+* Filename: ``ml-sklearn-comparision.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 20 min
+
 * Pobierz dane Brest Cancer Dataset (``datasets.load_breast_cancer()``)
 * Podziel zestaw na dane testowe (15%) i dane treningowe (85%) i ustaw ``random_state=0``
 * Dla danych przeprowadź analizę wykorzystując różne modele danych
@@ -227,8 +229,3 @@ Porównanie classifierów
 :Zadanie z gwiazdką:
     * Zrównoleglij uruchamianie predykcji za pomocą modułu ``threading`` oraz architektury opartej na Workerach.
     * Wyświetl posortowaną malejąco listę wg. dokładności
-
-:About:
-    * Filename: ``ml-sklearn-comparision.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 20 min

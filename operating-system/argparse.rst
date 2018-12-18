@@ -217,6 +217,10 @@ Assignments
 
 Argument parsing
 ----------------
+* Filename: ``argparse_avg.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 10 min
+
 #. Napisz parser parametrów linii poleceń
 #. Ma przyjmować tylko ``int`` i ``float``
 #. Dla parametrów ma uruchomić funkcje ``avg()`` z listingu poniżej:
@@ -227,8 +231,3 @@ Argument parsing
             return sum(args) / len(args)
 
 #. Uruchamianie ``python argparse_avg.py --numbers 5 10 100 32 -90 27.5``
-
-:About:
-    * Filename: ``argparse_avg.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 10 min

@@ -1,30 +1,9 @@
-hosts = []
 
-with open('../control-flow/src/etc-hosts.txt') as file:
-    file.readline()
+def asd():
+    a = 101001
+    print(locals())
 
-    for line in file.readlines():
-        if line.startswith('#'):
-            continue
-
-        if line.isspace():
-            continue
-
-        ip, *hostnames = line.split()
-
-        for entry in hosts:
-            if entry['ip'] == ip:
-                entry['hostnames'] += hostnames
-                break
-        else:
-            hosts.append({
-                'ip': ip,
-                'hostnames': hostnames,
-                'protocol': 'IPv4' if '.' in ip else 'IPv6',
-            })
-
-print(hosts)
-
+asd()
 
 
 

@@ -4,6 +4,10 @@ Exam from basic topics
 
 Parsowanie ``/etc/passwd``
 --------------------------
+* Filename: ``exam-foundations.py``
+* Lines of code to write: 60 lines
+* Estimated time of completion: 60 min
+
 #. Poniższe listingi prezentują zawartość plików:
 
     - ``/etc/passwd`` - :numref:`code-file-etc-passwd`
@@ -32,11 +36,6 @@ Parsowanie ``/etc/passwd``
             },
             ...
         ]
-
-:About:
-    * Filename: ``exam-foundations.py``
-    * Lines of code to write: 60 lines
-    * Estimated time of completion: 60 min
 
 :The whys and wherefores:
     * czytanie i parsowanie pliku

@@ -162,6 +162,10 @@ Assignments
 
 EVA
 ---
+* Filename: ``scrapping_eva.py``
+* Lines of code to write: 100 lines
+* Estimated time of completion: 45 min
+
 #. Na podstawie podanych URL:
 
     * https://www.worldspaceflight.com/bios/eva/eva.php
@@ -175,11 +179,6 @@ EVA
 
     * Podając jako parametr czwarty URL
     * Dla częściowo sparsowanej strony, np. wyciągniętej tabelki
-
-:About:
-    * Filename: ``scrapping_eva.py``
-    * Lines of code to write: 100 lines
-    * Estimated time of completion: 45 min
 
 :The whys and wherefores:
     * Komunikacja HTTP (request, response)

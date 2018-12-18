@@ -118,6 +118,10 @@ Assignments
 
 Classification of blood pressure in adults
 ------------------------------------------
+* Filename: ``ifelse_blood_pressure.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 15 min
+
 #. Poniższa tabelka przedstawia klasyfikację ciśnienia krwi, wg. American Heart Association
 #. Użytkownik wprowadza ciśnienie w formacie ``XXX/YY``, gdzie:
 
@@ -136,12 +140,6 @@ Classification of blood pressure in adults
     "Hypertension stage 1", "130-139", "or", "80-89"
     "Hypertension stage 2", "140 or higher", "or", "90 or higher"
     "Hypertensive Crisis", "Higher than 180", "and/or", "Higher than 120"
-
-
-:About:
-    * Filename: ``ifelse_blood_pressure.py``
-    * Lines of code to write: 15 lines
-    * Estimated time of completion: 15 min
 
 :The whys and wherefores:
     * Wczytywanie ciągu znaków od użytkownika

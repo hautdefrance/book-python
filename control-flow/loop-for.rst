@@ -91,17 +91,16 @@ Assignments
 
 Counter
 -------
+* Filename: ``for_counter.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 5 min
+
 #. Dane są liczby na listingu :numref:`listing-for-counter`
 #. Policz ile jest wystąpień każdej z cyfr w tej liście
 #. Zwróć ``counter: Dict[int, int]``
 
     - klucz - cyfra
     - wartość - ilość wystąpień
-
-:About:
-    * Filename: ``for_counter.py``
-    * Lines of code to write: 5 lines
-    * Estimated time of completion: 5 min
 
 :The whys and wherefores:
     * Definiowanie i korzystanie z ``dict`` z wartościami
@@ -119,6 +118,10 @@ Counter
 
 Text analysis
 -------------
+* Filename: ``for_text_analysis.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 10 min
+
 #. Dany jest tekst przemównienia John F. Kennedy'ego "Moon Speech" wygłoszony na Rice Stadium :numref:`listing-for-moon-speach`
 #. Zdania oddzielone są kropkami
 #. Każde zdanie oczyść z białych znaków na początku i końcu
@@ -136,11 +139,6 @@ Text analysis
     * zdań
     * słów
     * znaków (łącznie ze spacjami wewnątrz zdań, ale bez kropek)
-
-:About:
-    * Filename: ``for_text_analysis.py``
-    * Lines of code to write: 10 lines
-    * Estimated time of completion: 10 min
 
 :Co zadanie sprawdza:
     * Dzielenie stringów
