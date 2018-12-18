@@ -178,6 +178,10 @@ Assignments
 
 Buffered file
 -------------
+* Filename: ``context_manager_file.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 15 min
+
 #. Stwórz Context Manager dla zapisu do plików
 #. Context Manager buforuje dane (nie zapisuje ich na bieżąco
 #. Gdy program wyjdzie z bloku context managera, to nastąpi zapisanie do pliku

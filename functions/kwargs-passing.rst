@@ -227,15 +227,15 @@ Iris
 * Filename: ``kwargs_iris.py``
 * Lines of code to write: 15 lines
 * Estimated time of completion: 20 min
+* Input data: https://raw.githubusercontent.com/AstroMatt/book-python/master/functions/data/iris.csv
 
-#. Dane dostępne są pod adresem: https://raw.githubusercontent.com/AstroMatt/book-python/master/functions/data/iris.csv
 #. Otwórz link w przeglądarce i skopiuj zawartość do pliku ``iris.csv`` na dysku
 #. Sparsuj zawartość odrzucając nagłówek
 #. Dla każdego rekordu, usuń białe spacje i podziel go po przecinku ``,``
 #. Wyniki podziału odbierz do dwóch zmiennych:
 
     * ``features: Tuple[float]`` - pomiary
-    * ``labels: str`` - nazwa gatunku
+    * ``labels: Dict[str, str]`` - key: 'species', value: nazwa gatunku
 
 #. Stwórz funkcję ``print_iris(sepal_length, sepal_width, *args, **kwargs)``, która wyświetli zawartość wszystkich argumentów
 #. Odpalaj funkcję ``print_iris()``, podając wartości ``features`` i ``labels``

@@ -288,6 +288,9 @@ Distance conversion doctest
 
 Fix URL Regex
 -------------
+* Lines of code to write: 0 lines
+* Estimated time of completion: 5 min
+
 #. Dane jest wyrażenie z listingu poniżej
 
     .. code-block:: python

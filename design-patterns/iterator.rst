@@ -165,11 +165,19 @@ Assignments
 
 Range
 -----
+* Filename: ``iterator_range.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 10 min
+
 #. Zaimplementuj własne rozwiązanie ``range()`` wykorzystując iterator.
 #. Początek, koniec, krok (step)
 
 Książka adresowa
 ----------------
+* Filename: ``iterator_addressbook.py``
+* Lines of code to write: 20 lines
+* Estimated time of completion: 15 min
+
 #. spraw aby można było iterować w książce adresowej z poprzednich zadań po adresach użytkownika.
 
 .. literalinclude:: src/iterators-ksiazka-adresowa.py

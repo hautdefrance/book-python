@@ -58,7 +58,7 @@ Reading ``csv``
 * Filename: ``csv_dictreader.py``
 * Lines of code to write: 20 lines
 * Estimated time of completion: 10 min
-* Data: https://raw.githubusercontent.com/AstroMatt/book-python/master/serialization/data/iris.csv
+* Input data: https://raw.githubusercontent.com/AstroMatt/book-python/master/serialization/data/iris.csv
 
 #. Otwórz w przeglądarce podany powyżej URL
 #. Zapisz jego zawartość na dysku w miejscu gdzie masz skrypty w pliku ``iris.csv``

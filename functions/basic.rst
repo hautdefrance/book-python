@@ -351,13 +351,30 @@ Aviation numbers
 
 .. code-block:: python
 
-    aviation_numbers(1969)       # 'one niner six niner'
-    aviation_numbers(31337)      # 'tree one tree tree seven'
-    aviation_numbers(13.37)      # 'one tree and tree seven'
-    aviation_numbers(31.337)     # 'tree one and tree tree seven'
-    aviation_numbers(-1969)      # 'minus one niner six niner'
-    aviation_numbers(-31.337)    # 'minus tree one and tree tree seven
-    aviation_numbers(-49.35)     # 'minus fower niner and tree fife'
+    def aviation_numbers(number):
+        """
+        >>> aviation_numbers(1969)
+        'one niner six niner'
+
+        >>> aviation_numbers(31337)
+        'tree one tree tree seven'
+
+        >>> aviation_numbers(13.37)
+        'one tree and tree seven'
+
+        >>> aviation_numbers(31.337)
+        'tree one and tree tree seven'
+
+        >>> aviation_numbers(-1969)
+        'minus one niner six niner'
+
+        >>> aviation_numbers(-31.337)
+        'minus tree one and tree tree seven
+
+        >>> aviation_numbers(-49.35)
+        'minus fower niner and tree fife'
+        """
+        return
 
 :The whys and wherefores:
     * Definiowanie i uruchamianie funkcji
@@ -381,12 +398,39 @@ Number to human readable
 
     .. code-block:: python
 
-        number_to_str(1969)      # 'one thousand nine hundred sixty nine'
-        number_to_str(13.37)     # 'thirteen and thirty seven hundredths'
-        number_to_str(31337)     # 'thirty one thousand three hundred thirty seven'
-        number_to_str(31.337)    # 'thirty one three hundreds thirty seven thousands'
-        number_to_str(-1969)     # 'minus one thousand nine hundred sixty nine'
-        number_to_str(-31.337)   # 'minus thirty one three hundreds thirty seven thousands'
+        number_to_str(1969)      #
+        number_to_str(13.37)     #
+        number_to_str(31337)     #
+        number_to_str(31.337)    #
+        number_to_str(-1969)     #
+        number_to_str(-31.337)   #
+
+.. code-block:: python
+
+    def aviation_numbers(number):
+        """
+        >>> aviation_numbers(1969)
+        'one thousand nine hundred sixty nine'
+
+        >>> aviation_numbers(31337)
+        'thirty one thousand three hundred thirty seven'
+
+        >>> aviation_numbers(13.37)
+        'thirteen and thirty seven hundredths'
+
+        >>> aviation_numbers(31.337)
+        'thirty one three hundreds thirty seven thousands'
+
+        >>> aviation_numbers(-1969)
+        'minus one thousand nine hundred sixty nine'
+
+        >>> aviation_numbers(-31.337)
+        'minus thirty one three hundreds thirty seven thousands'
+
+        >>> aviation_numbers(-49.35)
+        'minus fower niner and tree fife'
+        """
+        return
 
 :The whys and wherefores:
     * Definiowanie i uruchamianie funkcji

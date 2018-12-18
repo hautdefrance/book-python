@@ -1,3 +1,24 @@
+
+
+import matplotlib.pyplot as plt
+
+a = plt.plot(0, 10)
+
+
+print()
+
+
+
+
+import numpy as np
+
+a = np.array([
+    [1, 2, 3],
+    [4, 5, 6]
+])
+
+
+
 alphabet = {
     '0': 'zero',
     '1': 'one',
@@ -24,10 +45,17 @@ def aviation_numbers(number):
     >>> aviation_numbers(13.37)
     'one tree and tree seven'
 
-    aviation_numbers(31.337)     # 'tree one and tree tree seven'
-    aviation_numbers(-1969)      # 'minus one niner six niner'
-    aviation_numbers(-31.337)    # 'minus tree one and tree tree seven
-    aviation_numbers(-49.35)     # 'minus fower niner and tree fife'
+    >>> aviation_numbers(31.337)
+    'tree one and tree tree seven'
+
+    >>> aviation_numbers(-1969)
+    'minus one niner six niner'
+
+    >>> aviation_numbers(-31.337)
+    'minus tree one and tree tree seven
+
+    >>> aviation_numbers(-49.35)
+    'minus fower niner and tree fife'
     """
     return ' '.join(alphabet[d] for d in str(number))
 

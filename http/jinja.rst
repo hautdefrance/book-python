@@ -78,8 +78,8 @@ Filters
         This text becomes uppercase
     {% endfilter %}
 
-Assignments
-===========
+Assignment tag
+==============
 .. code-block:: jinja
 
     {% set navigation = [('index.html', 'Index'), ('about.html', 'About')] %}

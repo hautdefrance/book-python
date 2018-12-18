@@ -128,13 +128,17 @@ Assignments
 
 Dokumentacja
 ------------
+* Lines of code to write: 30 lines
+* Estimated time of completion: 15 min
+* Input data: https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
+
 #. Za pomocą ``sphinx-quickstart`` stwórz dokumentację.
 #. Zmień theme na ``sphinx_rtd_theme``
 #. Dokument zatytułuj "Szkolenie z Pythona"
 #. Stwórz nagłówek pierwszego poziomu "Obrazki i tesksy" i w nim osadź obrazek jako figure, wraz tekstem opisującym, obrazek ma być połowy wielkości i wycentrowany, nazwany
 #. Stwórz nagłówek pierwszego poziomu "Lorem Ipsum" i wklej tekst lorem ipsum do dokumentacji.
 #. W tekście lorem ipsum wstaw numref do obrazka
-#. Stwórz nagłówek pierwszego poziomu i zamieść tabelę Irysów na podstawie danych Iris Dataset https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
+#. Stwórz nagłówek pierwszego poziomu i zamieść tabelę Irysów na podstawie danych Iris Dataset
 #. Stwórz nagłówek pierwszego poziomu "Listingi kodu" i osadź dwa swoje skrypty z poprzednich zadań:
 
     - książka adresowa jako ``literalinclude`` w nagłówku drugiego poziomu "Książka Adresowa"

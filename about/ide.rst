@@ -68,6 +68,9 @@ Assignments
 
 Create Project in Pure Python
 -----------------------------
+* Lines of code to write: 0 lines
+* Estimated time of completion: 2 min
+
 #. Stwórz projekt w Twoim IDE
 #. Wybierz "Pure Python" (opcja dostępna tylko w Pycharm Professional)
 #. Rozwiń listę Project Interpreter i ustaw aby korzystać z "Virtualenv"
@@ -77,6 +80,9 @@ Create Project in Pure Python
 
 Create Project from GIT
 -----------------------
+* Lines of code to write: 0 lines
+* Estimated time of completion: 2 min
+
 #. Stwórz projekt w Twoim IDE
 #. Wykorzystaj opcję 'Create from VCS'
 #. WAŻNE: Upewnij się, że masz Python 3.7 lub nowszy

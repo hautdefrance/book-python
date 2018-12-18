@@ -194,8 +194,16 @@ Assignments
 
 C Types
 -------
+* Filename: ``cext_types.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 15 min
+
 Wykorzystując C Types wyświetl na ekranie datę i czas, za pomocą funkcji zdefiniowanej w C ``<time.h>``
 
 C Modules
 ---------
+* Filename: ``cext_modules.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 15 min
+
 Wykorzystując C Modules wyświetl na ekranie datę i czas, za pomocą funkcji zdefiniowanej w C ``<time.h>``

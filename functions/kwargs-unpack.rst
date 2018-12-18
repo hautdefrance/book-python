@@ -78,6 +78,7 @@ Naming convention
 
     *_, species = line.split(',')
 
+
 Example
 =======
 .. code-block:: python

@@ -337,7 +337,11 @@ Assignment
 
 Iris transformations
 --------------------
-#. https://raw.githubusercontent.com/AstroMatt/book-python/master/data-vizualization/data/iris.csv
+* Filename: ``matplotlib_lifecycle.py``
+* Lines of code to write: 20 lines
+* Estimated time of completion: 20 min
+* Input data: https://raw.githubusercontent.com/AstroMatt/book-python/master/data-vizualization/data/iris.csv
+
 #. Opracuj podobny wykres dla danych Irysów
 #. Weź pod uwagę jedynie ``sepal_length`` oraz ``species``
 #. Species ma być w osi ``y``

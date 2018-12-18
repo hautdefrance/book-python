@@ -1143,8 +1143,7 @@ Iris Dirty
 * Filename: ``pandas_iris_dirty.py``
 * Lines of code to write: 10 lines
 * Estimated time of completion: 20 min
-
-* https://raw.githubusercontent.com/AstroMatt/book-python/master/numerical-analysis/data/iris-dirty.csv
+* Input data: https://raw.githubusercontent.com/AstroMatt/book-python/master/numerical-analysis/data/iris-dirty.csv
 
 #. Mając dane Irysów przekonwertuj je na ``DataFrame``
 #. Pomiń pierwszą linię z metadanymi

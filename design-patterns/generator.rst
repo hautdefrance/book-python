@@ -279,8 +279,9 @@ Generators vs. Comprehensions - iris
 * Filename: ``generator_iris.py``
 * Lines of code to write: 40 lines
 * Estimated time of completion: 20 min
+* Input data: https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv
 
-#. Skopiuj dane z https://raw.githubusercontent.com/AstroMatt/book-python/master/database/data/iris.csv do pliku "iris.csv"
+#. Skopiuj dane do pliku "iris.csv"
 #. Zaczytaj dane pomijając nagłówek
 #. Napisz funkcję która zwraca wszystkie pomiary dla danego gatunku
 #. Gatunek będzie podawany jako ``str`` do funkcji
