@@ -1,11 +1,12 @@
 import csv
 
 DATA = [
-    {'first_name': 'José'},
-    {'last_name': 'Jiménez'},
-    {'first_name': 'Иван', 'last_name': 'Иванович'},
-    {'first_name': 'Mark', 'last_name': 'Watney', 'born': 1961},
-    {'first_name': 'José', 'born': 1961, 'first_step': 1969},
+    {'Sepal length': 5.1, 'Sepal width': 3.5, 'Species': 'setosa'},
+    {'Petal length': 4.1, 'Petal width': 1.3, 'Species': 'versicolor'},
+    {'Sepal length': 6.3, 'Petal width': 1.8, 'Species': 'virginica'},
+    {'Petal length': 1.4, 'Petal width': 0.2, 'Species': 'setosa'},
+    {'Sepal width': 2.8, 'Petal length': 4.1, 'Species': 'versicolor'},
+    {'Sepal width': 2.9, 'Petal width': 1.8, 'Species': 'virginica'},
 ]
 
 fieldnames = set()
