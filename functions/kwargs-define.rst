@@ -3,17 +3,17 @@ Functions with many arguments
 *****************************
 
 
-Operators ``*`` i ``**``
-========================
-- To nie jest mnożenie i potęgowanie!
-- ``*`` zwykle nazywa się ``*args`` (arguments) - argumenty pozycyjne (anonimowe)
-- ``**`` zwykle nazywa się ``**kwargs`` (keyword arguments) - argumenty nazwane
-- ``*args`` unpack ``tuple`` or ``list``
-- ``**kwargs`` unpack ``dict``
+Operands ``*`` and ``**``
+=========================
+- This is not multiplication or power...
+- ``*args`` - positional arguments
+- ``**kwargs`` - keyword arguments
+- ``*args`` unpacks to ``tuple``
+- ``**kwargs`` unpacks to ``dict``
 
 
-Przypomnienie wiadomości o parametrach
-======================================
+Recap information about function parameters
+===========================================
 .. code-block:: python
 
     def add(a, b):
@@ -24,29 +24,6 @@ Przypomnienie wiadomości o parametrach
     add(a=1, b=2)   # nazwane, kolejność nie ma znaczenia
     add(b=2, a=1)   # nazwane, kolejność nie ma znaczenia
     add(1, b=2)     # pozycyjne i nazwane
-
-.. code-block:: python
-
-    a, b = 1, 2
-    # a == 1
-    # b == 2
-
-    a, b = (1, 2)
-    # a == 1
-    # b == 2
-
-    a, b = [1, 2]
-    # a == 1
-    # b == 2
-
-.. code-block:: python
-
-    def numbers():
-        return [1, 2]
-
-    a, b = numbers()
-    # a == 1
-    # b == 2
 
 
 Defining function with many arguments
@@ -74,7 +51,7 @@ Many positional arguments
         for arg in args:
             total += arg
 
-        return arg
+        return total
 
 
     add()            # 0
@@ -147,9 +124,14 @@ Case Study
     celsius_to_fahrenheit(1, 2, 3, 4, 5)
     # [33.8, 35.6, 37.4, 39.2, 41.0]
 
+.. code-block:: python
 
-Assignments
-===========
+    def print(*values, sep=' ', end='\n', ...):
+        return sep.join(values) + end
+
+
+Assignment
+==========
 
 Numeric Values
 --------------
@@ -159,14 +141,13 @@ Numeric Values
 
 #. Stwórz funkcję ``is_numeric``
 #. Funkcja może przyjmować dowolną ilość argumentów
-#. Jeżeli, któryś z argumentów nie jest ``int`` albo ``float`` to zwróć ``False``
-#. Jeżeli, wszystkie argumenty to ``int`` albo ``float``, to zwróć True
+#. Za pomocą funkcji ``isinstance()`` sprawdź czy wszystkie argumenty są ``int`` albo ``float``:
+
+    - Jeżeli wszystkie są ``int`` albo ``float``, to zwróć ``True``
+    - Jeżeli którykolwiek nie jest, to zwróć ``False``
 
 :The whys and wherefores:
     * Definiowanie i uruchamianie funkcji
     * Sprawdzanie przypadków brzegowych (niekompatybilne argumenty)
     * Parsowanie argumentów funkcji
     * Rzutowanie i konwersja typów
-
-:Hint:
-    * ``isinstance()``
