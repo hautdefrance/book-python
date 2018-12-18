@@ -6,6 +6,7 @@ result = dict()
 total_words = 0
 total_sentences = 0
 total_chars = 0
+total_adjectives = 0
 
 
 for sentence in SENTENCES:
@@ -18,8 +19,13 @@ for sentence in SENTENCES:
     total_sentences += 1
     total_chars += len(sentence)
 
+    for word in words_in_sentence:
+        if word.endswith('ly'):
+            total_adjectives += 1
+
 
 print(f'Result: {result}')
 print(f'Total Words: {total_words}')
 print(f'Total Sentences: {total_sentences}')
 print(f'Total Characters: {total_chars}')
+print(f'Total Adjectives: {total_adjectives}')

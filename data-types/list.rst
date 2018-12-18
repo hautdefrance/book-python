@@ -179,9 +179,14 @@ Built-in functions on sequences
 Membership Operators
 ====================
 .. csv-table:: Membership operators
-    :header-rows: 1
     :widths: 15, 25, 60
-    :file: data/operators-membership.csv
+    :header-rows: 1
+
+    "Operand", "Example", "Description"
+    "``x == y``", "``x == 18``", "value of ``x`` is equal to ``y``"
+    "``x != y``", "``x != 18``", "value of ``x`` is not equal to ``y``"
+    "``x in y``", "``x in [1, 2, 3]``", "``x`` contains ``y``"
+    "``x not in y``", "``x not in [1, 2, 3]``", "``x`` not contains ``y``"
 
 
 Length of a ``list``

@@ -334,7 +334,7 @@ Unique keys from schema-less database
 :About:
     * Filename: ``loop_unique_keys.py``
     * Lines of code to write: 5 lines
-    * Estimated time of completion: 10 min
+    * Estimated time of completion: 5 min
 
 :The whys and wherefores:
     * Generowanie zbiorów

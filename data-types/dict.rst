@@ -202,10 +202,6 @@ Aviation Language
 #. Jeżeli wpisał znak, który nie jest w alfabecie, to wypisz "Pilots don't say that"
 #. Nie używaj konstrukcji ``if``, ani ``try`` i ``except``
 
-.. csv-table:: Aviation Alphabet
-    :header-rows: 1
-    :file: data/aviation-alphabet.csv
-
 :About:
     * Filename: ``dict_alphabet.py``
     * Lines of code to write: 30 lines
@@ -214,3 +210,34 @@ Aviation Language
 :The whys and wherefores:
     * Definiowanie i korzystanie z ``dict`` z wartościami
     * Rzutowanie i konwersja typów
+
+.. csv-table:: Aviation Alphabet
+    :header-rows: 1
+
+    "Letter", "Pronounce"
+    "A", "Alfa"
+    "B", "Bravo"
+    "C", "Charlie"
+    "D", "Delta"
+    "E", "Echo"
+    "F", "Foxtrot"
+    "G", "Golf"
+    "H", "Hotel"
+    "I", "India"
+    "J", "Juliet"
+    "K", "Kilo"
+    "L", "Lima"
+    "M", "Mike"
+    "N", "November"
+    "O", "Oscar"
+    "P", "Papa"
+    "Q", "Quebec"
+    "R", "Romeo"
+    "S", "Sierra"
+    "T", "Tango"
+    "U", "Uniform"
+    "V", "Victor"
+    "W", "Whisky"
+    "X", "X-Ray"
+    "Y", "Yankee"
+    "Z", "Zulu"

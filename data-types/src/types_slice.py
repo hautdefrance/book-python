@@ -1,8 +1,0 @@
-a = 'UL. Jana III Sobieskiego 1/2'
-b = 'ulica Jana III Sobieskiego 1/2'
-c = 'os. Jana III Sobieskiego 1/2'
-d = 'plac Jana III Sobieskiego 1/2'
-e = 'aleja Jana III Sobieskiego 1/2'
-f = 'alei Jana III Sobieskiego 1/2'
-g = 'Jana III Sobieskiego 1 m. 2'
-h = 'os. Jana III Sobieskiego 1 apt 2'

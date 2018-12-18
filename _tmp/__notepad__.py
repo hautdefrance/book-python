@@ -1,13 +1,4 @@
 
-number = input('Type number: ')
-
-if float(number) % 2 == 0:
-    print('parzysta')
-else:
-    print('nieparzysta')
-
-
-
 
 # a = list(range(0, 3))
 # b = list(range(3, 6))

@@ -140,7 +140,7 @@ Iris dataset
 #. Nie używaj slice, ani żadnych instrukcji, które nie zostały dotychczas omówione
 
 :About:
-    * Filename: ``sequences_iris.py``
+    * Filename: ``unpacking_iris.py``
     * Lines of code to write: 30 lines
     * Estimated time of completion: 20 min
 

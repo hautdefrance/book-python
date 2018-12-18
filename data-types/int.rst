@@ -47,4 +47,19 @@ Numerical Operators
 .. csv-table:: Numerical types operators
     :header-rows: 1
     :widths: 15, 85
-    :file: data/operators-numeric.csv
+
+    "Operand", "Description"
+    "``-x``", "``x`` negation"
+    "``+x``", "``x``"
+    "``x + y``", "Sum ``x`` and ``y``"
+    "``x - y``", "Substract ``x`` and ``y``"
+    "``x * y``", "Multiply ``x`` and ``y``"
+    "``x / y``", "Divide ``x`` and ``y``"
+    "``x ** y``", "``x`` to the power of ``y``"
+    "``x // y``", "Quotient of division ``x`` by ``y``"
+    "``x % y``", "Modulo. Reminder of division ``x`` by ``y``"
+    "``x += y``", "``x = 1``; ``x += 3``; ``x == 4`` add ``y`` to ``x`` and assign new value to ``x``"
+    "``x -= y``", "Substract and assign"
+    "``x *= y``", "Multiply and assign"
+    "``x /= y``", "Divide and assign"
+

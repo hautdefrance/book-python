@@ -42,7 +42,12 @@ for record in data:
     features.append(measurements)
     labels.append(species[name])
 
-species = {value: key for key, value in species.items()}
+# species = {value: key for key, value in species.items()}
+species_clean = {}
+for key, value in species.items():
+    species_clean[value] = key
+species = species_clean
+
 
 print(species)
 # {0: 'virginica', 1: 'setosa', 2: 'versicolor'}

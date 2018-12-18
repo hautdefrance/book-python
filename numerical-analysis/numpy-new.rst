@@ -1476,11 +1476,32 @@ Euclidean distance 2D
 #. Punkty :math:`A` i :math:`B` są dwuwymiarowe ``(x, y)``
 #. Oblicz odległość między nimi
 #. Wykorzystaj algorytm Euklidesa
-#. Funkcja musi przechodzić ``doctest``
+#. Funkcja musi przechodzić ``doctest`` :numref:`listing-numpy-euclidean-distance-2D`
 
-.. literalinclude:: src/math-euclidean-2d.py
-    :language: python
+.. code-block:: python
+    :name: listing-numpy-euclidean-distance-2D
     :caption: Euclidean distance 2D
+
+    def euclidean_distance_2D(A, B):
+        """
+        >>> A = (1, 0)
+        >>> B = (0, 1)
+        >>> euclidean_distance(A, B)
+        1.4142135623730951
+
+        >>> euclidean_distance((0,0), (1,0))
+        1.0
+
+        >>> euclidean_distance((0,0), (1,1))
+        1.4142135623730951
+
+        >>> euclidean_distance((0,1), (1,1))
+        1.0
+
+        >>> euclidean_distance((0,10), (1,1))
+        9.055385138137417
+        """
+        return
 
 :About:
     * Filename: ``math_euclidean_2d.py``
@@ -1493,16 +1514,43 @@ Euclidean distance 2D
 
     Wyliczanie odległości w celu oszacowania przynależności do zbioru. Zwróć uwagę, że bez względu na ilość wymiarów wzór się niewiele różni.
 
+
 Euclidean distance multi dimensions
 -----------------------------------
 #. Dane są dwa punkty :math:`A` i :math:`B` o podanych koordynatach ``tuple``
 #. Punkty :math:`A` i :math:`B` są na :math:`N`-wymiarowej przestrzeni ``(x, y, ...)``
 #. Punkty :math:`A` i :math:`B` muszą być równo-wymiarowe
-#. Funkcja musi przechodzić ``doctest``
+#. Funkcja musi przechodzić ``doctest`` :numref:`listing-numpy-euclidean-distance-n-dimensions`
 
-.. literalinclude:: src/math-euclidean-ndim.py
-    :language: python
+.. code-block:: python
+    :name: listing-numpy-euclidean-distance-n-dimensions
     :caption: Euclidean distance N-dimension
+
+    def euclidean_distance_n_dimensions(A, B):
+        """
+        >>> A = (0,1,0,1)
+        >>> B = (1,1,0,0)
+        >>> euclidean_distance_n_dimensions(A, B)
+        1.4142135623730951
+
+        >>> euclidean_distance_n_dimensions((0,0,0), (0,0,0))
+        0.0
+
+        >>> euclidean_distance_n_dimensions((0,0,0), (1,1,1))
+        1.7320508075688772
+
+        >>> euclidean_distance_n_dimensions((0,1,0,1), (1,1,0,0))
+        1.4142135623730951
+
+        >>> euclidean_distance_n_dimensions((0,0,1,0,1), (1,1,0,0,1))
+        1.7320508075688772
+
+        >>> euclidean_distance_n_dimensions((0,0,1,0,1), (1,1))
+        Traceback (most recent call last):
+            ...
+        ValueError: Punkty muszą być w przestrzeni tylu-samo wymiarowej
+        """
+        return
 
 :About:
     * Filename: ``math_euclidean_multi_dim.py``

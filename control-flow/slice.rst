@@ -159,7 +159,7 @@ Slicing text
     print(f'{h == expected}\t h: "{h}"')
 
 :About:
-    * Filename: ``types_slice.py``
+    * Filename: ``slice_text.py``
     * Lines of code to write: 8 lines
     * Estimated time of completion: 10 min
 

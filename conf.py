@@ -74,6 +74,7 @@ exclude_patterns = [
     '*/_template.rst',
     '.*', 'venv*', 'virtualenv*',
     'index-*.rst',
+    '_book',
 ]
 
 extensions_dir = os.path.join(os.path.dirname(__file__), '', '_extensions')

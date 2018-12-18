@@ -1089,6 +1089,7 @@ Append
 Concat
 ------
 * Przydatne przy łączeniu dataframe wczytanych z wielu plików
+
 .. code-block:: python
 
     pd.concat([df1, df2])

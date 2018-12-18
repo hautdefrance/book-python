@@ -21,7 +21,7 @@ Simple ``timedelta`` shifts
 
 Complex ``timedelta`` shifts
 ----------------------------
-.. literalinclude:: src/datetime-timedelta-complex.py
+.. literalinclude:: src/timedelta-complex.py
     :language: python
     :caption: Complex ``timedelta`` shifts
 

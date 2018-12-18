@@ -20,6 +20,7 @@ Data Types
 .. toctree::
     :maxdepth: 2
     :numbered:
+    :name: Data Types
     :caption: Data Types
 
     /data-types/int.rst
@@ -31,20 +32,8 @@ Data Types
     /data-types/set.rst
     /data-types/tuple.rst
     /data-types/dict.rst
-    /data-types/types.rst
-
-****************
-Basic Operations
-****************
-.. toctree::
-    :maxdepth: 2
-    :numbered:
-    :caption: Basic Operations
-
-    /data-types/str-methods.rst
-    /data-types/slice.rst
     /data-types/nested.rst
-    /data-types/unpacking.rst
+    /data-types/type-system.rst
 
 ************
 Control Flow
@@ -52,9 +41,13 @@ Control Flow
 .. toctree::
     :maxdepth: 2
     :numbered:
+    :name: Control Flow
     :caption: Control Flow
 
+    /control-flow/slice.rst
+    /control-flow/unpacking.rst
     /control-flow/if-else.rst
+    /control-flow/composite-statements.rst
     /control-flow/operators.rst
     /control-flow/loop-while.rst
     /control-flow/loop-for.rst
@@ -357,6 +350,7 @@ Django
     /django/cache.rst
     /django/signals.rst
     /django/auth-and-permissions.rst
+    /django/api-cors.rst
     /django/standalone-scripts.rst
     /django/tests-and-quality.rst
     /django/tests.rst
@@ -407,4 +401,5 @@ Appendixes
     /appendix/python-wat.rst
     /TODO.rst
     /LICENSE.rst
+    /bibliography.rst
     /glossary.rst

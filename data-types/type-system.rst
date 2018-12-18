@@ -1,6 +1,6 @@
-*****
-Types
-*****
+***********
+Type System
+***********
 
 
 Type inference

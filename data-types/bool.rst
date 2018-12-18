@@ -111,7 +111,16 @@ Logic operators
 .. csv-table:: Logic operators
     :header-rows: 1
     :widths: 15, 25, 60
-    :file: data/operators-logic.csv
+
+    "Operand", "Example", "Description"
+    "``x < y``", "``x < 18``", "value of ``x`` is less than ``y``"
+    "``x <= y``", "``x <= 18``", "value of ``x`` is less or equal ``y``"
+    "``x > y``", "``x > 18``", "value of ``x`` is greater than ``y``"
+    "``x >= y``", "``x >= 18``", "value of ``x`` is greater or equal than ``y``"
+    "``x == y``", "``x == 18``", "value of ``x`` is equal to ``y``"
+    "``x != y``", "``x != 18``", "value of ``x`` is not equal to ``y``"
+    "``x is y``", "``x is None``", "``x`` is the same object as ``y``"
+    "``x is not y``", "``x is not None``", "``x`` is not the same object as ``y``"
 
 
 Assignments
