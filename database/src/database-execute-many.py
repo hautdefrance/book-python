@@ -13,7 +13,7 @@ SQL_INSERT_DICT = 'INSERT INTO astronauts VALUES (NULL, :pesel, :firstname, :las
 
 list_of_tuples = [
     (61041212345, 'José', 'Jiménez'),
-    (61041212346, 'Matt', 'Kowalski'),
+    (61041212346, 'Pan', 'Twardowski'),
     (61041212347, 'Melissa', 'Lewis'),
     (61041212348, 'Alex', 'Vogel'),
     (61041212349, 'Ryan', 'Stone'),
@@ -21,7 +21,7 @@ list_of_tuples = [
 
 list_of_dicts = [
     {'pesel': '61041212345', 'firstname': 'José', 'lastname': 'Jiménez'},
-    {'pesel': '61041212346', 'firstname': 'Matt', 'lastname': 'Kowalski'},
+    {'pesel': '61041212346', 'firstname': 'Pan', 'lastname': 'Twardowski'},
     {'pesel': '61041212347', 'firstname': 'Melissa', 'lastname': 'Lewis'},
     {'pesel': '61041212348', 'firstname': 'Alex', 'lastname': 'Vogel'},
     {'pesel': '61041212349', 'firstname': 'Ryan', 'lastname': 'Stone'},

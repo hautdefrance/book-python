@@ -119,9 +119,9 @@ Returning nested types
     def function():
         return [
             ('Mark', 'Watney'),
-            {'Kowalski', 'Lewis'},
-            {'astro': 'Иванович', 'agency': {'name': 'roscosmos'}},
-            {'astro': 'Jiménez', 'missions': ('mercury', 'apollo')},
+            {'Pan Twardowski', 'Melissa Lewis'},
+            {'astro': 'Иванович', 'agency': {'name': 'Roscosmos'}},
+            {'astro': 'Jiménez', 'missions': ('Mercury', 'Apollo')},
         ]
 
 

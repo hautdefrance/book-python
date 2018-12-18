@@ -27,7 +27,7 @@ class AddressBook:
 ksiazka_adresowa = AddressBook(contacts=[
     Contact(first_name='José', last_name='Jiménez'),
     Contact(first_name='Иван', last_name='Иванович', addresses=[]),
-    Contact(first_name='Matt', last_name='Kowalski', addresses=[
+    Contact(first_name='Pan', last_name='Twardowski', addresses=[
         Address(street='2101 E NASA Pkwy', city='Houston'),
         Address(city='Kennedy Space Center'),
         Address(street='4800 Oak Grove Dr', city='Pasadena'),

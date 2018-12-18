@@ -13,7 +13,7 @@ SQL_SELECT = 'SELECT * FROM astronauts'
 
 astronauts = [
     {'pesel': '61041212345', 'firstname': 'José', 'lastname': 'Jiménez'},
-    {'pesel': '61041212346', 'firstname': 'Matt', 'lastname': 'Kowalski'},
+    {'pesel': '61041212346', 'firstname': 'Pan', 'lastname': 'Twardowski'},
     {'pesel': '61041212347', 'firstname': 'Melissa', 'lastname': 'Lewis'},
     {'pesel': '61041212348', 'firstname': 'Alex', 'lastname': 'Vogel'},
     {'pesel': '61041212349', 'firstname': 'Ryan', 'lastname': 'Stone'},
@@ -30,7 +30,7 @@ with sqlite3.connect(':memory:') as db:
         print(dict(row))
 
 # {'id': 1, 'pesel': 61041212345, 'firstname': 'José', 'lastname': 'Jiménez'}
-# {'id': 2, 'pesel': 61041212346, 'firstname': 'Matt', 'lastname': 'Kowalski'}
+# {'id': 2, 'pesel': 61041212346, 'firstname': 'Pan', 'lastname': 'Twardowski'}
 # {'id': 3, 'pesel': 61041212347, 'firstname': 'Melissa', 'lastname': 'Lewis'}
 # {'id': 4, 'pesel': 61041212348, 'firstname': 'Alex', 'lastname': 'Vogel'}
 # {'id': 5, 'pesel': 61041212349, 'firstname': 'Ryan', 'lastname': 'Stone'}

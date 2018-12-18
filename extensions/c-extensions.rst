@@ -85,7 +85,7 @@ Przykład - typy proste
     lib.ehlo()
 
     lib.greeting.argtypes = [ctypes.c_char_p]
-    name = ctypes.create_string_buffer('Matt'.encode('ASCII'))
+    name = ctypes.create_string_buffer('Twardowski'.encode('ASCII'))
     lib.greeting(name)
 
     lib.number(10)

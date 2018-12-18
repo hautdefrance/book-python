@@ -108,7 +108,7 @@ Nested Comprahensions
         {'last_name': 'Jiménez'},
         {'first_name': 'Mark', 'last_name': 'Watney'},
         {'first_name': 'Иван'},
-        {'first_name': 'Matt', 'last_name': 'Kowalski', 'born': 1961},
+        {'first_name': 'Pan', 'last_name': 'Twardowski', 'born': 1961},
         {'first_name': 'Melissa', 'last_name': 'Lewis', 'first_step': 1969},
     ]
 

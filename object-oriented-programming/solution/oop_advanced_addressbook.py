@@ -39,7 +39,7 @@ print(mark)
 # Mark Watney [Houston, Cocoa Beach]
 
 addressbook = [
-    Contact(imie='Matt', nazwisko='Kowalski', adresy=[
+    Contact(imie='Pan', nazwisko='Twardowski', adresy=[
         Address(ulica='2101 E NASA Pkwy', miasto='Houston', stan='Texas', kod='77058', panstwo='USA'),
         Address(ulica=None, miasto='Kennedy Space Center', kod='32899', panstwo='USA'),
         Address(ulica='4800 Oak Grove Dr', miasto='Pasadena', kod='91109', panstwo='USA'),
@@ -51,4 +51,4 @@ addressbook = [
 
 
 print(addressbook)
-# [Matt Kowalski [Houston, Kennedy Space Center, Pasadena, Palmdale], José Jiménez, Иван Иванович]
+# [Pan Twardowski [Houston, Kennedy Space Center, Pasadena, Palmdale], José Jiménez, Иван Иванович]
