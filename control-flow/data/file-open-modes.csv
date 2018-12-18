@@ -1,7 +1,0 @@
-"Character", "Meaning"
-"``'r'``", "open for reading (default)"
-"``'w'``", "open for writing, truncating the file first"
-"``'a'``", "open for writing, appending to the end of the file if it exists"
-"``'rb'``", "read binary mode"
-"``'ab'``", "append binary mode"
-"``'wb'``", "write binary mode"

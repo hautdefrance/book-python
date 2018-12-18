@@ -118,21 +118,24 @@ Assignments
 
 Classification of blood pressure in adults
 ------------------------------------------
-* Source: https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings
-
 #. Poniższa tabelka przedstawia klasyfikację ciśnienia krwi, wg. American Heart Association
-
-    .. csv-table:: Classification of blood pressure in adults
-        :file: data/if-blood-pressure.csv
-        :header-rows: 1
-
 #. Użytkownik wprowadza ciśnienie w formacie ``XXX/YY``, gdzie:
 
     - ``XXX`` to wartość ciśnienia skurczowego (ang. *systolic*)
     - ``YY`` to wartość ciśnienia rozkurczowego (ang. *diastolic*)
 
 #. Daj informację użytkownikowi o klasyfikacji ciśnienia
-#. W przypadku gdy wartości ciśnienia skurczowego i ciśnienia rozkurczowego należą do różnych kategorii, należy przyjąć kategorię wyższą
+
+.. csv-table:: Classification of blood pressure in adults :cite:`AHA2018`
+    :header-rows: 1
+
+    "Blood Pressure Category", "Systolic [mm Hg]", "Operator", "Diastolic [mm Hg]"
+    "Normal", "Less than 120", "and", "Less than 80"
+    "Elevated", "120-129", "and", "Less than 80"
+    "Hypertension stage 1", "130-139", "or", "80-89"
+    "Hypertension stage 2", "140 or higher", "or", "90 or higher"
+    "Hypertensive Crisis", "Higher than 180", "and/or", "Higher than 120"
+
 
 :About:
     * Filename: ``ifelse_blood_pressure.py``

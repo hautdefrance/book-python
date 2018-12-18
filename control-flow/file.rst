@@ -34,7 +34,14 @@ Access modes
 .. csv-table::
     :header-rows: 1
     :widths: 20, 80
-    :file: data/file-open-modes.csv
+
+    "Character", "Meaning"
+    "``'r'``", "open for reading (default)"
+    "``'w'``", "open for writing, truncating the file first"
+    "``'a'``", "open for writing, appending to the end of the file if it exists"
+    "``'rb'``", "read binary mode"
+    "``'ab'``", "append binary mode"
+    "``'wb'``", "write binary mode"
 
 
 Read from file
