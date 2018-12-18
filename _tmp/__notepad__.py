@@ -1,4 +1,13 @@
+import sys
 
+sys.tracebacklimit = 3
+
+
+def apollo13():
+    raise RuntimeError('Mid-flight Oxygen tank explosion')
+
+
+apollo13()
 
 
 # a = list(range(0, 3))

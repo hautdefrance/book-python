@@ -165,7 +165,6 @@ Traceback analysis
         raise RuntimeError('Mid-flight Oxygen tank explosion')
 
     apollo13()
-
     # Traceback (most recent call last):
     #   File "/Users/matt/.virtualenvs/book-python/lib/python3.7/site-packages/IPython/core/interactiveshell.py", line 2961, in run_code
     #     exec(code_obj, self.user_global_ns, self.user_ns)
@@ -198,7 +197,6 @@ Change verbosity level
         raise RuntimeError('Mid-flight Oxygen tank explosion')
 
     apollo13()
-
     # Traceback (most recent call last):
     #   File "/Users/matt/Developer/book-python/__notepad__.py", line 5, in apollo13
     #     raise RuntimeError('Mid-flight Oxygen tank explosion')
@@ -302,6 +300,7 @@ Exceptions logging
 Always catch exceptions!
 ------------------------
 .. code-block:: python
+    :emphasize-lines: 6
 
     # Problematic code which catches 'Ctrl-C'
     # User cannot simply kill program
@@ -312,6 +311,7 @@ Always catch exceptions!
             continue
 
 .. code-block:: python
+    :emphasize-lines: 5
 
     # User can kill program with 'Ctrl-C'
     while True:
@@ -393,6 +393,7 @@ Exception hierarchy
 Defining own exceptions
 =======================
 .. code-block:: python
+    :emphasize-lines: 4-5, 10, 16-17
 
     import math
 
