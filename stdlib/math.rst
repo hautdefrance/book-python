@@ -418,19 +418,19 @@ Euclidean distance 2D
         """
         >>> A = (1, 0)
         >>> B = (0, 1)
-        >>> euclidean_distance(A, B)
+        >>> euclidean_distance_2D(A, B)
         1.4142135623730951
 
-        >>> euclidean_distance((0,0), (1,0))
+        >>> euclidean_distance_2D((0,0), (1,0))
         1.0
 
-        >>> euclidean_distance((0,0), (1,1))
+        >>> euclidean_distance_2D((0,0), (1,1))
         1.4142135623730951
 
-        >>> euclidean_distance((0,1), (1,1))
+        >>> euclidean_distance_2D((0,1), (1,1))
         1.0
 
-        >>> euclidean_distance((0,10), (1,1))
+        >>> euclidean_distance_2D((0,10), (1,1))
         9.055385138137417
         """
         return
@@ -457,26 +457,26 @@ Euclidean distance ``n`` dimensions
     :name: listing-math-euclidean-distance-n-dimensions
     :caption: Euclidean distance N-dimension
 
-    def euclidean_distance_n_dimensions(A, B):
+    def euclidean_distance_nD(A, B):
         """
         >>> A = (0,1,0,1)
         >>> B = (1,1,0,0)
-        >>> euclidean_distance_n_dimensions(A, B)
+        >>> euclidean_distance_nD(A, B)
         1.4142135623730951
 
-        >>> euclidean_distance_n_dimensions((0,0,0), (0,0,0))
+        >>> euclidean_distance_nD((0,0,0), (0,0,0))
         0.0
 
-        >>> euclidean_distance_n_dimensions((0,0,0), (1,1,1))
+        >>> euclidean_distance_nD((0,0,0), (1,1,1))
         1.7320508075688772
 
-        >>> euclidean_distance_n_dimensions((0,1,0,1), (1,1,0,0))
+        >>> euclidean_distance_nD((0,1,0,1), (1,1,0,0))
         1.4142135623730951
 
-        >>> euclidean_distance_n_dimensions((0,0,1,0,1), (1,1,0,0,1))
+        >>> euclidean_distance_nD((0,0,1,0,1), (1,1,0,0,1))
         1.7320508075688772
 
-        >>> euclidean_distance_n_dimensions((0,0,1,0,1), (1,1))
+        >>> euclidean_distance_nD((0,0,1,0,1), (1,1))
         Traceback (most recent call last):
             ...
         ValueError: Punkty muszą być w przestrzeni tylu-samo wymiarowej

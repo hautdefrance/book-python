@@ -1,17 +1,20 @@
-DATA = [
-     {'last_name': 'Jiménez'},
-     {'first_name': 'Mark', 'last_name': 'Watney'},
-     {'first_name': 'Иван'},
-     {'first_name': 'Pan', 'last_name': 'Twardowski', 'born': 1961},
-     {'first_name': 'Melissa', 'last_name': 'Lewis', 'first_step': 1969},
- ]
+def euclidean_distance_2D(A, B):
+    """
+    >>> A = (1, 0)
+    >>> B = (0, 1)
+    >>> euclidean_distance_2D(A, B)
+    1.4142135623730951
 
-def asd(value):
-    pass
+    >>> euclidean_distance_2D((0,0), (1,0))
+    1.0
 
-[
-                asd(value)
-            for d in DATA
-        for key, value in d.items()
-    if key == 'username'
-]
+    >>> euclidean_distance_2D((0,0), (1,1))
+    1.4142135623730951
+
+    >>> euclidean_distance_2D((0,1), (1,1))
+    1.0
+
+    >>> euclidean_distance_2D((0,10), (1,1))
+    9.055385138137417
+    """
+    return
