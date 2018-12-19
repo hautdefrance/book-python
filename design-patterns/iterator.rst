@@ -1,6 +1,9 @@
+.. _Iterators:
+
 *********
 Iterators
 *********
+
 
 What is iterator?
 =================

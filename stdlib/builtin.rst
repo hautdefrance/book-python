@@ -189,15 +189,16 @@ Average
         :language: python
         :caption: Sample Iris databases
 
-#. Na podstawie nagłówka stwórz ``dict`` z pustymi ``list`` dla każdego z parametrów poza "Species"
+#. Na podstawie nagłówka stwórz ``dict`` z pustymi ``list`` dla każdego z parametrów"
 
     .. code-block:: python
 
         values = {
-            'Sepal Length': [],
-            'Sepal Width': [],
-            'Petal Length': [],
-            'Petal Width': [],
+            'Sepal length': [],
+            'Sepal width': [],
+            'Petal length': [],
+            'Petal width': [],
+            'Species': [],
         }
 
 #. Stwórz funkcję ``average()``, która będzie liczyła średnią dla dowolnej ilości argumentów
@@ -208,15 +209,17 @@ Average
             pass
 
 #. Do wyliczenia średniej, wykorzystaj wbudowane funkcje
+#. Funkcja ma wyliczać średnią tylko dla parametrów typu ``float``, w przeciwnym wypadku zwróć ``None``
 #. Do ``averages: Dict[str, float]`` wpisz wyliczone wartości dla każdego z parametrów
 
     .. code-block:: python
 
         averages = {
-            'Sepal Length': average(...),
-            'Sepal Width': average(...),
-            'Petal Length': average(...),
-            'Petal Width': average(...),
+            'Sepal length': average(...),
+            'Sepal width': average(...),
+            'Petal length': average(...),
+            'Petal width': average(...),
+            'Species': average(...),
         }
 
 #. Wypisz na ekranie ``values`` oraz ``averages``

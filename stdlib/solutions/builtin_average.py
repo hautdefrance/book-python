@@ -1,3 +1,5 @@
+from pprint import pprint
+
 DATA = [
     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
     (5.8, 2.7, 5.1, 1.9, 'virginica'),
@@ -23,28 +25,29 @@ DATA = [
     (4.6, 3.1, 1.5, 0.2, 'setosa'),
 ]
 
-
-def average(numbers):
-    return sum(numbers) / len(numbers)
-
-
-values = dict()
-averages = dict()
 header = DATA[0]
 data = DATA[1:]
+values = dict()
+averages = dict()
 
-for key in header:
-    if key != 'Species':
-        values[key] = []
+
+def average(numbers):
+    if all(isinstance(x, float) for x in numbers):
+        return sum(numbers) / len(numbers)
+
 
 for record in data:
-    values['Sepal length'].append(record[0])
-    values['Sepal width'].append(record[1])
-    values['Petal length'].append(record[2])
-    values['Petal width'].append(record[3])
+    for i, name in enumerate(header):
+
+        if not values.get(name):
+            values[name] = []
+
+        values[name].append(record[i])
+
 
 for key, value in values.items():
     averages[key] = average(value)
 
-print(values)
-print(averages)
+
+pprint(values)
+pprint(averages)

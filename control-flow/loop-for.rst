@@ -1,8 +1,66 @@
 .. _Loops:
 
-********
-For loop
-********
+************
+``for`` loop
+************
+
+
+Syntax
+======
+
+No context syntax
+-----------------
+.. code-block:: python
+    :caption: ``for`` loop syntax
+
+    for ... in ... :
+        ...
+
+Generic syntax
+--------------
+* More on iterators in chapter :ref:`Iterators`
+
+.. code-block:: python
+    :caption: ``for`` loop generic syntax
+
+    for my_variable in ITERATOR:
+        print(my_variable)
+
+Example
+-------
+.. code-block:: python
+    :caption: ``for`` loop syntax: printing each number from ``list``
+
+    DATA = [1, 2, 3]
+
+    for number in DATA:
+        print(number)
+
+    # 1
+    # 2
+    # 3
+
+.. code-block:: python
+    :caption: ``for`` loop syntax: data can be inlined
+
+    for number in [1, 2, 3]:
+        print(number)
+
+    # 1
+    # 2
+    # 3
+
+.. code-block:: python
+    :caption: ``for`` loop syntax: data can be inlined
+
+    for number in range(0, 5):
+        print(number)
+
+    # 0
+    # 1
+    # 2
+    # 3
+    # 4
 
 
 Iterating over ``str``
@@ -10,6 +68,7 @@ Iterating over ``str``
 * Iterating ``str`` will get character on each iteration
 
 .. code-block:: python
+    :caption: Iterating over ``str``
 
     for character in 'setosa':
         print(character)
