@@ -3,6 +3,8 @@ JSON Serialization
 ******************
 
 
+JSON syntax
+===========
 Format JSON jest podobny do zapisu dict w Python, ale różni się:
 
     * nie może być przecinka po ostatnim elemencie list

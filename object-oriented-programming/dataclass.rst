@@ -30,6 +30,65 @@ Dataclasses
         agency: str = 'NASA'
 
 
+Field Factory
+=============
+.. code-block:: python
+
+    from dataclasses import dataclass
+
+    @dataclass
+    class C:
+        x: int
+        y: int = field(repr=False)
+        z: int = field(repr=False, default=10)
+        t: int = 20
+
+.. code-block:: python
+
+    from dataclasses import dataclass
+
+    @dataclass
+    class C:
+        mylist: List[int] = field(default_factory=list)
+
+    c = C()
+    c.mylist += [1, 2, 3]
+
+Why?
+----
+.. code-block:: python
+
+    class Address:
+        def __init__(self, address):
+            self.address = address
+
+        def __repr__(self):
+            return str(self.address)
+
+
+    class Contact:
+        def __init__(self, name, addresses=[]):
+            self.name = name
+            self.addresses = addresses
+
+
+    jose = Contact(name='Jose Jimenez')
+    jsc = Address('2101 E NASA Pkwy, Houston, TX')
+    jose.addresses.append(jsc)
+    print(jose.addresses)
+    # [2101 E NASA Pkwy, Houston, TX]
+
+    ivan = Contact(name='Ivan Ivanovich')
+    print(ivan.addresses)
+    # [2101 E NASA Pkwy, Houston, TX]
+
+
+So what?
+--------
+* ``field()`` creates new empty ``list`` for each object
+* It does not reuse pointer
+
+
 ``__init__`` vs. ``__post_init__``
 ==================================
 

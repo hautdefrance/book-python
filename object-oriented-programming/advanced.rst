@@ -55,6 +55,29 @@ What should be in the class and what not?
     :caption: Using ``@staticmethod``
 
 
+``@classmethod``
+----------------
+.. code-block:: python
+
+    import json
+
+    class User:
+        def __init__(self, name, username):
+            self.name = name
+            self.username = username
+
+        def to_json(self):
+            return json.dumps(self.__dict__)
+
+        @classmethod
+        def from_json(cls, json_str):
+            json_dict = json.loads(json_str)
+            return cls(**json_dict)
+
+
+    data = User("tbrown", "Tom Brown").to_json()
+    user = User.from_json(data)
+
 Dynamically creating fields
 ===========================
 .. literalinclude:: src/oop-init-dynamic.py

@@ -50,7 +50,7 @@ class Dragon:
         print(f'{self.name} is dead')
         self.texture = self.TEXTURE_DEAD
         print(f'Position: {self.get_position()}')
-        self._make_drop()
+        return self._make_drop()
 
     def set_status(self):
         if self.hit_points <= 0:

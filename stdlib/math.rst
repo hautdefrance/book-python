@@ -139,35 +139,6 @@ Other functions
     math.hypot(x, y)
 
 
-``decimal``
-===========
-.. code-block:: python
-
-    0.1 + 0.2
-    # 0.30000000000000004
-
-.. code-block:: python
-
-    from decimal import Decimal
-
-
-    a = Decimal('0.1')
-    b = Decimal('0.2')
-
-    a + b
-    # Decimal('0.3')
-
-.. code-block:: python
-
-    from decimal import Decimal
-
-
-    a = Decimal('0.3')
-
-    float(a)
-    # 0.3
-
-
 ``fractions``
 =============
 .. code-block:: python

@@ -83,6 +83,7 @@ Standard Library
     /stdlib/import.rst
     /stdlib/builtin.rst
     /stdlib/math.rst
+    /stdlib/precision.rst
     /stdlib/print.rst
     /stdlib/regex.rst
 
