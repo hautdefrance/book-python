@@ -397,6 +397,17 @@ Multiple charts
 Assignments
 ===========
 
+Sum of inner elements
+---------------------
+* Filename: ``math_random_array.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 10 min
+
+#. Za pomocą biblioteki ``random`` wygeneruj ``List[List[int]]``
+#. Tablica ma mieć 16 wierszy i 16 kolumn
+#. Policz sumę środkowych 4x4 elementów
+#. Ustaw ``random.seed()``
+
 Euclidean distance 2D
 ---------------------
 * Filename: ``math_euclidean_2d.py``
@@ -414,23 +425,23 @@ Euclidean distance 2D
     :name: listing-math-euclidean-distance-2D
     :caption: Euclidean distance 2D
 
-    def euclidean_distance_2D(A, B):
+    def euclidean_distance(A, B):
         """
         >>> A = (1, 0)
         >>> B = (0, 1)
-        >>> euclidean_distance_2D(A, B)
+        >>> euclidean_distance(A, B)
         1.4142135623730951
 
-        >>> euclidean_distance_2D((0,0), (1,0))
+        >>> euclidean_distance((0,0), (1,0))
         1.0
 
-        >>> euclidean_distance_2D((0,0), (1,1))
+        >>> euclidean_distance((0,0), (1,1))
         1.4142135623730951
 
-        >>> euclidean_distance_2D((0,1), (1,1))
+        >>> euclidean_distance((0,1), (1,1))
         1.0
 
-        >>> euclidean_distance_2D((0,10), (1,1))
+        >>> euclidean_distance((0,10), (1,1))
         9.055385138137417
         """
         return
@@ -457,26 +468,26 @@ Euclidean distance ``n`` dimensions
     :name: listing-math-euclidean-distance-n-dimensions
     :caption: Euclidean distance N-dimension
 
-    def euclidean_distance_nD(A, B):
+    def euclidean_distance(A, B):
         """
         >>> A = (0,1,0,1)
         >>> B = (1,1,0,0)
-        >>> euclidean_distance_nD(A, B)
+        >>> euclidean_distance(A, B)
         1.4142135623730951
 
-        >>> euclidean_distance_nD((0,0,0), (0,0,0))
+        >>> euclidean_distance((0,0,0), (0,0,0))
         0.0
 
-        >>> euclidean_distance_nD((0,0,0), (1,1,1))
+        >>> euclidean_distance((0,0,0), (1,1,1))
         1.7320508075688772
 
-        >>> euclidean_distance_nD((0,1,0,1), (1,1,0,0))
+        >>> euclidean_distance((0,1,0,1), (1,1,0,0))
         1.4142135623730951
 
-        >>> euclidean_distance_nD((0,0,1,0,1), (1,1,0,0,1))
+        >>> euclidean_distance((0,0,1,0,1), (1,1,0,0,1))
         1.7320508075688772
 
-        >>> euclidean_distance_nD((0,0,1,0,1), (1,1))
+        >>> euclidean_distance((0,0,1,0,1), (1,1))
         Traceback (most recent call last):
             ...
         ValueError: Punkty muszą być w przestrzeni tylu-samo wymiarowej
