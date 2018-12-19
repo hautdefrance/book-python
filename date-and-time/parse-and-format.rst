@@ -105,7 +105,7 @@ From ISO date format
 --------------------
 * Filename: ``datetime_from_iso.py``
 * Lines of code to write: 5 lines
-* Estimated time of completion: 10 min
+* Estimated time of completion: 5 min
 * Input data: :numref:`listing-time-from-iso`
 
 #. Przedstaw daty jako obiekt ``datetime``
@@ -123,7 +123,7 @@ To ISO date format
 ------------------
 * Filename: ``datetime_to_iso.py``
 * Lines of code to write: 5 lines
-* Estimated time of completion: 15 min
+* Estimated time of completion: 5 min
 * Input data:
 
 #. Przedstaw daty jako obiekt ``datetime``

@@ -399,7 +399,7 @@ Assignments
 
 Sum of inner elements
 ---------------------
-* Filename: ``math_random_array.py``
+* Filename: ``math_inner_sum.py``
 * Lines of code to write: 5 lines
 * Estimated time of completion: 10 min
 
