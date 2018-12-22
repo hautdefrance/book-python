@@ -10,6 +10,7 @@ Date and time formats
 Date formats
 ------------
 * Which format is a formal standard in USA?
+* Which format is a formal standard in `Japan <https://en.wikipedia.org/wiki/Date_and_time_notation_in_Japan#Date>`_ ?
 * Which format is a formal standard in Germany?
 * Which format is a formal standard in Poland?
 
@@ -17,6 +18,10 @@ Date formats
 
     4/12/61
     April 12, 1961
+
+.. code-block:: text
+
+    20/12/31
 
 .. code-block:: text
 
@@ -47,45 +52,104 @@ Time formats
 
     12:00 am
     12:00 pm
+    12:00
+    0:00
+    24:00
+
+* `Confusion at noon and midnight <https://en.wikipedia.org/wiki/12-hour_clock#Confusion_at_noon_and_midnight>`_
 
 * Are those times correct?
 
 .. code-block:: text
 
-    12:00
-    23:59
-    24:00
     0:00
     00:00
 
+.. code-block:: text
+
+    23:59:59
+    23:59:60
+
+.. code-block:: text
+
+    24:01
+    25:00
+    27:45
+    14:00-30:00
+
+.. code-block:: text
+
+    1200J
+
+* `Times after 24:00 <https://en.wikipedia.org/wiki/24-hour_clock#Times_after_24:00>`_
+* Military `time <https://en.wikipedia.org/wiki/24-hour_clock#Military_time>`_ and `timezones <https://en.wikipedia.org/wiki/List_of_military_time_zones>`_
+
+
 ISO 8601 Standard
------------------
+=================
+
+Dates
+-----
+.. code-block:: text
+
+   1961-04-12
+
+Date and time
+-------------
+* "Z" (Zulu) means UTC
+* The notation "00:00" is used at the beginning of a calendar day and is the more frequently used.
+* At the end of a day use "24:00".
+* "2007-04-05T24:00" is the same as "2007-04-06T00:00"
+
+.. code-block:: text
+
+    1961-04-12T06:07:00Z
+
+* Date and time with miliseconds:
+
+.. code-block:: text
+
+    1961-04-12T06:07:00.123Z
+
+* Date and time with microseconds:
+
+.. code-block:: text
+
+    1961-04-12T06:07:00.123456Z
+
+Weeks
+-----
+* Monday 29 December 2008 is written "2009-W01-1"
+* Sunday 3 January 2010 is written "2009-W53-7"
+
+Timezone
+--------
 * "Z" (Zulu) means UTC
 
-* Dates:
+.. code-block:: text
 
-    .. code-block:: text
+    <time>Z
+    <time>±hh:mm
+    <time>±hhmm
+    <time>±hh
 
-       1961-04-12
+Duration
+--------
+* ``P[n]Y[n]M[n]DT[n]H[n]M[n]S``:
 
-* Date and time
+    - ``P`` is the duration designator (for period) placed at the start of the duration representation.
+    - ``Y`` is the year designator that follows the value for the number of years.
+    - ``M`` is the month designator that follows the value for the number of months.
+    - ``W`` is the week designator that follows the value for the number of weeks.
+    - ``D`` is the day designator that follows the value for the number of days.
+    - ``T`` is the time designator that precedes the time components of the representation.
+    - ``H`` is the hour designator that follows the value for the number of hours.
+    - ``M`` is the minute designator that follows the value for the number of minutes.
+    - ``S`` is the second designator that follows the value for the number of seconds.
 
-    .. code-block:: text
+.. code-block:: text
 
-        1961-04-12T06:07:00Z
-
-* Date and time with miliseconds
-
-    .. code-block:: text
-
-        1961-04-12T06:07:00.123Z
-
-* Date and time with microseconds
-
-    .. code-block:: text
-
-        1961-04-12T06:07:00.123456Z
-
+    "P3Y6M4DT12H30M5S" represents a duration of "three years, six months, four days, twelve hours, thirty minutes, and five seconds".
 
 Table of date and time parsing and formatting parameters
 ========================================================
