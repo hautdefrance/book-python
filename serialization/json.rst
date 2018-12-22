@@ -90,7 +90,9 @@ Pretty Printing JSON
 ====================
 .. code-block:: console
 
-    $ echo '[{"sepalLength":5.1,"sepalWidth":3.5,"petalLength":1.4,"petalWidth":0.2,"species":"setosa"},{"sepalLength":4.9,"sepalWidth":3,"petalLength":1.4,"petalWidth":0.2,"species":"setosa"}]' | python -m json.tool
+    $ DATA='[{"sepalLength":5.1,"sepalWidth":3.5,"petalLength":1.4,"petalWidth":0.2,"species":"setosa"},{"sepalLength":4.9,"sepalWidth":3,"petalLength":1.4,"petalWidth":0.2,"species":"setosa"}]'
+
+    $ echo $DATA | python -m json.tool
     [
         {
             "sepalLength": 5.1,
@@ -115,7 +117,8 @@ Pretty Printing JSON
 
 .. code-block:: console
 
-    $ curl https://raw.githubusercontent.com/AstroMatt/book-python/master/serialization/data/iris.json |python -m json.tool
+    $ URL='https://raw.githubusercontent.com/AstroMatt/book-python/master/serialization/data/iris.json'
+    $ curl $URL |python -m json.tool
 
 Alternatywy:
 
@@ -132,7 +135,6 @@ Iris Serialize
 * Estimated time of completion: 20 min
 
 #. Dane z listingu poniżej zapisz do pliku ``iris.json`` w formacie JSON
-#. Dane mają być zapisane jako ``list`` of ``dict``
 
     .. code-block:: python
 
@@ -181,7 +183,7 @@ Iris deserialize
         :language: python
         :caption: Iris dataset in JSON
 
-#. Odczytaj dane z pliku, i wyświetl je w formacie ``list`` of ``tuple``
+#. Odczytaj dane z pliku, i wyświetl je w formacie ``List[tuple]``
 #. Pierwsza linijka ma zawierać nagłówek
 #. Kolejne linie mają mieć dane
 
@@ -198,8 +200,8 @@ Date serialization
 * Estimated time of completion: 15 min
 
 #. Skopiuj do swojego pliku strukturę danych :numref:`listing-json-assignment-datetime`
-#. Zapisz ją do pliku json
-#. Wczytaj ją z pliku json jako obiekty Pythona (ten sam efekt co na listingu)
+#. Zapisz ją do pliku JSON
+#. Wczytaj ją z pliku JSON jako obiekty Pythona (ten sam efekt co na listingu)
 
 :The whys and wherefores:
     * Serializacja danych
