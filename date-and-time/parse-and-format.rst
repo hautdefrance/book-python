@@ -18,14 +18,22 @@ Date formats
     4/12/61
     April 12, 1961
 
+.. code-block:: text
+
     12.4.1961
     12.04.1961
+
+.. code-block:: text
 
     12 IV 1961
     12.IV.1961
 
+.. code-block:: text
+
     12/4/1961
     12/04/1961
+
+.. code-block:: text
 
     12 kwietnia 1961
     12 kwiecień 1961
@@ -39,6 +47,11 @@ Time formats
 
     12:00 am
     12:00 pm
+
+* Are those times correct?
+
+.. code-block:: text
+
     12:00
     23:59
     24:00
@@ -47,6 +60,8 @@ Time formats
 
 ISO 8601 Standard
 -----------------
+* "Z" (Zulu) means UTC
+
 * Dates:
 
     .. code-block:: text
@@ -57,13 +72,19 @@ ISO 8601 Standard
 
     .. code-block:: text
 
-        1961-04-12T06:07:00
+        1961-04-12T06:07:00Z
+
+* Date and time with miliseconds
+
+    .. code-block:: text
+
+        1961-04-12T06:07:00.123Z
 
 * Date and time with microseconds
 
     .. code-block:: text
 
-        1961-04-12T06:07:00.123456
+        1961-04-12T06:07:00.123456Z
 
 
 Table of date and time parsing and formatting parameters
@@ -108,35 +129,60 @@ From ISO date format
 * Estimated time of completion: 5 min
 * Input data: :numref:`listing-time-from-iso`
 
-#. Przedstaw daty jako obiekt ``datetime``
-#. Wyświetl pierwszą datę w formacie Amerykańkim "Miesiąc Dzień, Rok Godzina:Minuta AM/PM"
-#. Wyświetl drugą datę w formacie Niemieckim "Dzień.Miesiąc.Rok"
+#. Przedstaw datę jako obiekt ``datetime``
 
-.. code-block:: python
+.. code-block:: text
     :name: listing-time-from-iso
     :caption: Convert ``str`` from ISO date format to ``datetime`` objects
 
-    gagarin = '1961-04-12T06:07:00.123456'
-    armstrong = '1969-07-21T14:56:15.123456'
+    1969-07-21T14:56:15.123Z
 
 To ISO date format
 ------------------
 * Filename: ``datetime_to_iso.py``
 * Lines of code to write: 5 lines
 * Estimated time of completion: 5 min
-* Input data:
+
+#. Datę:
+
+    .. code-block:: python
+
+        datetime.datetime(1961, 4, 12, 6, 7, 0, 123456)
 
 #. Przedstaw daty jako obiekt ``datetime``
-#. Wyświetl ``date1`` w formacie ISO, tj. "Rok-Miesiąc-DzieńTGodzina:Minuta:Sekunda.UłamkiSekund"
-#. Wyświetl ``date2`` w formacie ISO samą datę, tj. bez czasu
+#. Wyświetl w formacie ISO datę i czas, tj.:
 
-.. code-block:: python
-    :name: listing-time-to-iso
-    :caption: Convert ``str`` to ``datetime`` objects and print as ISO date format
+    .. code-block:: text
 
-    date1 = 'April 12, 1961 2:07 local time'
-    date2 = '"07/21/69 2:56:15 AM UTC"'
+        "Rok-Miesiąc-DzieńTGodzina:Minuta:Sekunda.UłamkiSekundZ"
+        1961-04-12T06:07:00.123456Z
+
+#. Wyświetl w formacie ISO samą datę, tj. bez czasu:
+
+    .. code-block:: text
+
+        "Rok-Miesiąc-Dzień"
+        1961-04-12
+
+US date and time format
+-----------------------
+* Filename: ``datetime_from_us.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 5 min
+
+#. Rozczytaj datę z formatu Amerykańkiego długiego:
+
+    .. code-block:: text
+
+        "April 12, 1961 06:07:00 AM local time"
+
+#. Wyświetl datę w formacie Amerykańkim krótkim:
+
+    .. code-block:: text
+
+        "Miesiąc/Dzień/Rok Godzina:Minuta AM/PM"
+        04/12/61 06:07 AM
 
 :Hint:
-    * Wpisz "local time" jako zwykły tekst do ``strptime``
-    * Znaki znaki cudzysłowia jako znaczki do ``strptime``
+    * Wpisz "local time" jako część stringa (formatu) do``strptime``
+    * Wpisz znaki cudzysłowia jako część stringa (formatu) do ``strptime``

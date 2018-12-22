@@ -30,6 +30,12 @@ Create ``time``
     :language: python
     :caption: Create ``time``
 
+Create empty ``time`` (midnight)
+--------------------------------
+.. literalinclude:: src/time-midnight.py
+    :language: python
+    :caption: Create empty ``time`` - midnight
+
 
 Creating ``datetime`` objects
 =============================
@@ -39,6 +45,18 @@ Create ``datetime``
 .. literalinclude:: src/datetime-custom.py
     :language: python
     :caption: Create ``datetime``
+
+Create ``datetime`` with empty time (midnight)
+----------------------------------------------
+.. literalinclude:: src/datetime-midnight.py
+    :language: python
+    :caption: Create ``datetime`` with empty time
+
+Create ``datetime`` from ``date`` and ``time`` objects
+------------------------------------------------------
+.. literalinclude:: src/datetime-compose.py
+    :language: python
+    :caption: Create ``datetime`` from ``date`` and ``time`` objects
 
 Current ``datetime`` in local time
 ----------------------------------
