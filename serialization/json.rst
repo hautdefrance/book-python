@@ -226,7 +226,7 @@ Date serialization
     * Korzystanie z biblioteki JSON
     * Serializowanie zagnieżdżonych dat i dat z czasem
 
-.. literalinclude:: src/json-assignment-datetime.py
+.. literalinclude:: assignment/json-datetime.py
     :name: listing-json-assignment-datetime
     :language: python
     :caption: Sample Python data JSON
@@ -246,7 +246,7 @@ Serializing custom class to JSON
     * Korzystanie z biblioteki JSON
     * Serializowanie zagnieżdżonych obiektów
 
-.. literalinclude:: src/json-assignment-objects.py
+.. literalinclude:: assignment/json-objects.py
     :name: listing-json-assignment-objects
     :language: python
     :caption: Sample Python data JSON
