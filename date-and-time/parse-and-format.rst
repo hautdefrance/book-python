@@ -234,11 +234,11 @@ US date and time format
 * Lines of code to write: 5 lines
 * Estimated time of completion: 5 min
 
-#. Rozczytaj datę z formatu Amerykańkiego długiego:
+#. Rozczytaj datę z formatu Amerykańkiego długiego (skopiuj z cudzysłowami):
 
-    .. code-block:: text
+    .. code-block:: python
 
-        "April 12, 1961 06:07:00 AM local time"
+        armstrong = '"April 12, 1961 06:07:00 AM local time"'
 
 #. Wyświetl datę w formacie Amerykańkim krótkim:
 
