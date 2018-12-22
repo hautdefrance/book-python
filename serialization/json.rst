@@ -141,6 +141,15 @@ Iris Serialize
     - klucz: nazwa z nagłówka
     - wartość: obserwacje
 
+    .. code-block:: python
+
+        DATA = [
+            {'Sepal length': 5.8, 'Sepal width': 2.7, ...},
+            {'Sepal length': 5.1, 'Sepal width': 3.5, ...},
+            {'Sepal length': 5.7, 'Sepal width': 2.8, ...},
+            ...
+        ]
+
 #. Zapisz do pliku ``iris.json`` w formacie JSON
 
 .. code-block:: python
