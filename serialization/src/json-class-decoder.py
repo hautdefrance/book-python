@@ -1,11 +1,11 @@
-import datetime
+from datetime import datetime, timezone
 import json
 
 
 DATA = '{"email": "jose.jimenez@nasa.gov", "date": "1961-04-12", "datetime": "1969-07-21T14:56:15.000Z"}'
 
 
-class DatetimeDecoder(json.JSONDecoder):
+class JSONDatetimeDecoder(json.JSONDecoder):
     def __init__(self):
         super().__init__(object_hook=self.default)
 
@@ -13,17 +13,17 @@ class DatetimeDecoder(json.JSONDecoder):
         for key, value in obj.items():
 
             if key == 'datetime':
-                dt = datetime.datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%fZ')
-                obj['datetime'] = dt.replace(tzinfo=datetime.timezone.utc)
+                dt = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%fZ')
+                obj['datetime'] = dt.replace(tzinfo=timezone.utc)
 
             elif key == 'date':
-                dt = datetime.datetime.strptime(value, '%Y-%m-%d')
-                obj['date'] = dt.date()
+                dt = datetime.strptime(value, '%Y-%m-%d')
+                obj['date'] = dt.replace(tzinfo=timezone.utc).date()
 
         return obj
 
 
-output = json.loads(DATA, cls=DatetimeDecoder)
+output = json.loads(DATA, cls=JSONDatetimeDecoder)
 
 print(output)
 # {

@@ -22,13 +22,17 @@ class Contact:
     addresses: tuple = ()
 
 
-def decoder(obj):
-    type = obj.pop('__type__')
-    cls = getattr(sys.modules[__name__], type)
-    return cls(**obj)
+class JSONObjectDecoder(json.JSONDecoder):
+    def __init__(self):
+        super().__init__(object_hook=self.default)
+
+    def default(self, obj):
+        type = obj.pop('__type__')
+        cls = getattr(sys.modules[__name__], type)
+        return cls(**obj)
 
 
-output = json.loads(DATA, object_hook=decoder)
+output = json.loads(DATA, cls=JSONObjectDecoder)
 print(output)
 # [
 #   Contact(first_name='Pan', last_name='Twardowski', addresses=[

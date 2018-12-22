@@ -12,9 +12,9 @@ DATA = {
 def encoder(self, value):
 
     if isinstance(value, datetime):
-        return f'{value:%Y-%m-%dT%H:%M:%S.%fZ}'
+        return value.strftime('%Y-%m-%dT%H:%M:%S.%fZ')
     elif isinstance(value, date):
-        return f'{value:%Y-%m-%d}'
+        return value.strftime('%Y-%m-%d')
 
 
 json.JSONEncoder.default = encoder

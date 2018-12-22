@@ -54,22 +54,6 @@ Decoding ``datetime`` and ``date``
     :caption: Decoding ``datetime`` and ``date``
 
 
-Serializing objects
-===================
-
-Encoding objects
-----------------
-.. literalinclude:: src/json-object-encoder.py
-    :language: python
-    :caption: Encoding objects to JSON
-
-Decoding objects
-----------------
-.. literalinclude:: src/json-object-decoder.py
-    :language: python
-    :caption: Decoding objects from JSON
-
-
 Class based encoders and decoders
 =================================
 
@@ -86,23 +70,52 @@ Class based decoder
     :caption: Class based decoder
 
 
+Serializing objects
+===================
+
+Encoding objects
+----------------
+.. literalinclude:: src/json-object-encoder.py
+    :language: python
+    :caption: Encoding objects to JSON
+
+Decoding objects
+----------------
+.. literalinclude:: src/json-object-decoder.py
+    :language: python
+    :caption: Decoding objects from JSON
+
+
 Pretty Printing JSON
 ====================
 .. code-block:: console
 
-    $ echo '{"json": "obj"}' | python -m json.tool
-    {
-        "json": "obj"
-    }
+    $ echo '[{"sepalLength":5.1,"sepalWidth":3.5,"petalLength":1.4,"petalWidth":0.2,"species":"setosa"},{"sepalLength":4.9,"sepalWidth":3,"petalLength":1.4,"petalWidth":0.2,"species":"setosa"}]' | python -m json.tool
+    [
+        {
+            "sepalLength": 5.1,
+            "sepalWidth": 3.5,
+            "petalLength": 1.4,
+            "petalWidth": 0.2,
+            "species": "setosa"
+        },
+        {
+            "sepalLength": 4.9,
+            "sepalWidth": 3,
+            "petalLength": 1.4,
+            "petalWidth": 0.2,
+            "species": "setosa"
+        }
+    ]
 
 .. code-block:: console
 
-    $ echo '{1.2:3.4}' | python -m json.tool
-    Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+    $ echo '{"sepalLength":5.1,"sepalWidth":3.5,}' | python -m json.tool
+    Expecting property name enclosed in double quotes: line 1 column 37 (char 36)
 
 .. code-block:: console
 
-    $ curl https://api.github.com/repos/django/django/commits |python -m json.tool
+    $ curl https://raw.githubusercontent.com/AstroMatt/book-python/master/serialization/data/iris.json |python -m json.tool
 
 Alternatywy:
 
@@ -159,12 +172,14 @@ Iris deserialize
 * Filename: ``json_iris_deserialize.py``
 * Lines of code to write: 30 lines
 * Estimated time of completion: 20 min
+* Input data: :ref:`listing-json-iris`
 
 #. Dane z listingu poniżej skopiuj do pliku "iris.json"
 
-    .. code-block:: json
-
-        [{"sepalLength":5.1,"sepalWidth":3.5,"petalLength":1.4,"petalWidth":0.2,"species":"setosa"},{"sepalLength":4.9,"sepalWidth":3,"petalLength":1.4,"petalWidth":0.2,"species":"setosa"},{"sepalLength":4.7,"sepalWidth":3.2,"petalLength":1.3,"petalWidth":0.2,"species":"setosa"},{"sepalLength":4.6,"sepalWidth":3.1,"petalLength":1.5,"petalWidth":0.2,"species":"setosa"},{"sepalLength":5,"sepalWidth":3.6,"petalLength":1.4,"petalWidth":0.2,"species":"setosa"},{"sepalLength":5.4,"sepalWidth":3.9,"petalLength":1.7,"petalWidth":0.4,"species":"setosa"},{"sepalLength":4.6,"sepalWidth":3.4,"petalLength":1.4,"petalWidth":0.3,"species":"setosa"},{"sepalLength":5,"sepalWidth":3.4,"petalLength":1.5,"petalWidth":0.2,"species":"setosa"},{"sepalLength":4.4,"sepalWidth":2.9,"petalLength":1.4,"petalWidth":0.2,"species":"setosa"},{"sepalLength":4.9,"sepalWidth":3.1,"petalLength":1.5,"petalWidth":0.1,"species":"setosa"},{"sepalLength":7,"sepalWidth":3.2,"petalLength":4.7,"petalWidth":1.4,"species":"versicolor"},{"sepalLength":6.4,"sepalWidth":3.2,"petalLength":4.5,"petalWidth":1.5,"species":"versicolor"},{"sepalLength":6.9,"sepalWidth":3.1,"petalLength":4.9,"petalWidth":1.5,"species":"versicolor"},{"sepalLength":5.5,"sepalWidth":2.3,"petalLength":4,"petalWidth":1.3,"species":"versicolor"},{"sepalLength":6.5,"sepalWidth":2.8,"petalLength":4.6,"petalWidth":1.5,"species":"versicolor"},{"sepalLength":5.7,"sepalWidth":2.8,"petalLength":4.5,"petalWidth":1.3,"species":"versicolor"},{"sepalLength":6.3,"sepalWidth":3.3,"petalLength":4.7,"petalWidth":1.6,"species":"versicolor"},{"sepalLength":4.9,"sepalWidth":2.4,"petalLength":3.3,"petalWidth":1,"species":"versicolor"},{"sepalLength":6.6,"sepalWidth":2.9,"petalLength":4.6,"petalWidth":1.3,"species":"versicolor"},{"sepalLength":5.2,"sepalWidth":2.7,"petalLength":3.9,"petalWidth":1.4,"species":"versicolor"},{"sepalLength":6.3,"sepalWidth":3.3,"petalLength":6,"petalWidth":2.5,"species":"virginica"},{"sepalLength":5.8,"sepalWidth":2.7,"petalLength":5.1,"petalWidth":1.9,"species":"virginica"},{"sepalLength":7.1,"sepalWidth":3,"petalLength":5.9,"petalWidth":2.1,"species":"virginica"},{"sepalLength":6.3,"sepalWidth":2.9,"petalLength":5.6,"petalWidth":1.8,"species":"virginica"},{"sepalLength":6.5,"sepalWidth":3,"petalLength":5.8,"petalWidth":2.2,"species":"virginica"},{"sepalLength":7.6,"sepalWidth":3,"petalLength":6.6,"petalWidth":2.1,"species":"virginica"},{"sepalLength":4.9,"sepalWidth":2.5,"petalLength":4.5,"petalWidth":1.7,"species":"virginica"},{"sepalLength":7.3,"sepalWidth":2.9,"petalLength":6.3,"petalWidth":1.8,"species":"virginica"},{"sepalLength":6.7,"sepalWidth":2.5,"petalLength":5.8,"petalWidth":1.8,"species":"virginica"},{"sepalLength":7.2,"sepalWidth":3.6,"petalLength":6.1,"petalWidth":2.5,"species":"virginica"}]
+    .. literalinclude:: data/iris.json
+        :name: listing-json-iris
+        :language: python
+        :caption: Iris dataset in JSON
 
 #. Odczytaj dane z pliku, i wyświetl je w formacie ``list`` of ``tuple``
 #. Pierwsza linijka ma zawierać nagłówek

@@ -5,12 +5,13 @@ Parsing and Formatting
 
 Date and time formats
 =====================
+* https://en.wikipedia.org/wiki/Date_format_by_country
 * https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
 
 Date formats
 ------------
 * Which format is a formal standard in USA?
-* Which format is a formal standard in `Japan <https://en.wikipedia.org/wiki/Date_and_time_notation_in_Japan#Date>`_ ?
+* Which format is a formal standard in Japan?
 * Which format is a formal standard in Germany?
 * Which format is a formal standard in Poland?
 
@@ -42,6 +43,10 @@ Date formats
 
     12 kwietnia 1961
     12 kwiecień 1961
+
+* https://en.wikipedia.org/wiki/Date_and_time_notation_in_Japan#Date
+* https://en.wikipedia.org/wiki/Date_and_time_notation_in_the_United_States
+* https://en.wikipedia.org/wiki/ISO_8601
 
 Time formats
 ------------
@@ -87,6 +92,7 @@ Time formats
 
 ISO 8601 Standard
 =================
+* https://en.wikipedia.org/wiki/ISO_8601
 
 Dates
 -----
