@@ -284,7 +284,7 @@ REST API
 * Estimated time of completion: 30 min
 
 #. Załóż darmowe konto na Github i potwierdź email
-#. W przeglądarce internetowej wygeneruj w swoim profilu token https://github.com/settings/tokens
+#. W przeglądarce internetowej wygeneruj w swoim profilu token https://github.com/settings/tokens/new (wybierz scope ``public_repo``)
 #. Używając biblioteki ``requests``
 #. Zaciągnij informacje o repozytoriach użytkownika Django na https://github.com
 #. Każdy request uwierzytelnij za pomocą Basic Auth i swojego Access Tokena

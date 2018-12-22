@@ -28,6 +28,19 @@ DATA = '[{"model":"authorization.user","pk":1,"fields":{"password":"pbkdf2_sha25
 """
 
 
+class User:
+    def __init__(self, **kwargs):
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+
+
+for user in json.loads(DATA):
+    u = User(**user['fields'])
+    print(u)
+
+
+## Alternative
+
 @dataclass
 class User:
     model: str
@@ -54,8 +67,6 @@ class User:
 
 
 for user in json.loads(DATA):
-    model = user['model']
-    pk = user['pk']
-
-    u = User(model, pk, **user['fields'])
+    u = User(**user['fields'])
     print(u)
+
