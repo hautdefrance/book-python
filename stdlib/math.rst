@@ -277,7 +277,15 @@ Return the population standard deviation (the square root of the population vari
 ==========
 .. csv-table:: ``random``
     :header-rows: 1
-    :file: data/random.csv
+
+    "Function", "Description"
+    "``random.random()``", "Random float:  0.0 <= x < 1.0"
+    "``random.randint(min, max)``", "Return a random integer N such that ``min <= N <= max``. Max is included"
+    "``random.gauss(mu, sigma)``", "Gaussian distribution. mu is the mean, and sigma is the standard deviation"
+    "``random.shuffle(list)``", "Randomize order of list (in place)"
+    "``random.choice(list)``", "Single random element from a sequence"
+    "``random.sample(list, k)``", "k random elements from list without replacement"
+    "``random.seed(a=None, version=2)``", "Initialize the random number generator. If a is omitted or None, the current system time is used"
 
 
 ``collections.Counter``

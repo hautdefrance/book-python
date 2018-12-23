@@ -1,5 +1,0 @@
-"Flag", "Description"
-"``re.IGNORECASE``", "Case-insensitive (Unicode support i.e. Ü and ü)"
-"``re.MULTILINE``", "``^`` matches beginning of the string and each line"
-"``re.MULTILINE``", "``$`` matches end of the string and each line"
-"``re.DOTALL``", "``.`` matches newlines"
