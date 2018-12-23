@@ -1,35 +1,40 @@
-#!/usr/bin/env python3
-
 import re
+from datetime import datetime, timezone
 import requests
 
-auth = ('username', 'token')
 
-resp = requests.get('https://api.github.com/orgs/django/repos', auth=auth)
-repositories = resp.json()
+USERNAME = '...'
+TOKEN = '...'
 
-repo = [repo for repo in repositories if repo['full_name'] == 'django/django'][0]
-url = repo['commits_url'].replace('{/sha}', '')
+AUTH = (USERNAME, TOKEN)
+commits = list()
+issues = set()
 
-resp = requests.get(url, auth=auth)
-commits = resp.json()
 
-data = commits[0]['commit']['author']['date']
-name = commits[0]['commit']['author']['name']
+url = 'https://api.github.com/orgs/django/repos'
 
-print('Ostatni commit:', data, name)
+for repository in requests.get(url, auth=AUTH).json():
+    if repository['name'] == 'django':
+        url = repository['commits_url']
+        url = url.replace('{/sha}', '')
+        break
 
-messages = [commit['commit']['message'] for commit in commits]
+for commit in requests.get(url, auth=AUTH).json():
+    date = commit['author']['date']
+    date = datetime.strptime(date, '%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=timezone.utc)
 
-issues = []
+    commits.append({
+        'hash': commit['sha'],
+        'author': commit['author']['name'],
+        'email': commit['author']['email'],
+        'date': date,
+        'message': commit['message'],
+    })
 
-for msg in messages:
-    issue = re.findall(r'#([0-9]+)', msg, flags=re.MULTILINE)
+for commit in commits:
+    issue = re.findall(r'#([0-9]+)', commit['message'], flags=re.MULTILINE)
 
     if issue:
-        issues.extend(issue)
+        issues.add(issue)
 
-unique = set(issues)
-
-print(unique)
-
+print(issues)
