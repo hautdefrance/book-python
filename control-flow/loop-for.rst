@@ -144,6 +144,28 @@ Loops with ``range``
     # 3
     # 4
 
+Create ``dict`` from two ``list``
+---------------------------------
+.. code-block:: python
+
+    klucze = ['a', 'b', 'c', 'd']
+    wartosci = [1, 2, 3, 4]
+    output = {}
+
+    for i, _ in enumerate(klucze):
+        key = klucze[i]
+        value = wartosci[i]
+
+        output[key] = value
+
+    # {
+    #     'a': 1,
+    #     'b': 2,
+    #     'c': 3,
+    #     'd': 4,
+    # }
+
+
 
 Assignments
 ===========
