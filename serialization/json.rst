@@ -133,7 +133,7 @@ Iris Serialize
 * Filename: ``json_iris_serialize.py``
 * Lines of code to write: 30 lines
 * Estimated time of completion: 20 min
-* Input data: :ref:`listing-json-serialize`
+* Input data: :numref:`listing-json-serialize`
 
 #. Z danych wydziel nagłówek i pomiary
 #. Na podstawie nagłówka przekonwertuj na ``List[dict]``
@@ -192,7 +192,7 @@ Iris deserialize
 * Filename: ``json_iris_deserialize.py``
 * Lines of code to write: 30 lines
 * Estimated time of completion: 20 min
-* Input data: :ref:`listing-json-iris`
+* Input data: :numref:`listing-json-iris`
 
 #. Dane z listingu poniżej skopiuj do pliku "iris.json"
 

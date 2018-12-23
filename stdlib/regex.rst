@@ -171,7 +171,7 @@ Parsing text from webpage
 * Filename: ``regex_html.py``
 * Lines of code to write: 5 lines
 * Estimated time of completion: 20 min
-* Input data: :ref:`listing-regex-moon-speach`
+* Input data: :numref:`listing-regex-moon-speach`
 
 #. Skopiuj zawartość listingu do pliku ``moon-speech.html``
 #. Za pomocą regexpów wytnij tekst fragmentu przemówienia JFK
