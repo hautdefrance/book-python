@@ -41,6 +41,9 @@ Private, protected, public?!
 Inheritance vs. Composition (Mixin Classes)
 ===========================================
 * Kompozycja ponad dziedziczenie!
+* Composition: http://blog.thedigitalcatonline.com/blog/2014/08/20/python-3-oop-part-3-delegation-composition-and-inheritance/
+* Inheritance: https://www.programiz.com/python-programming/multiple-inheritance
+* Mixins: https://www.linuxjournal.com/article/4540
 
 .. literalinclude:: src/oop-composition.py
     :language: python
