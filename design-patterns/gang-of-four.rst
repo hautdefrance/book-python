@@ -5,6 +5,8 @@ Gang of Four
 
 Examples
 ========
+* https://www.toptal.com/python/python-design-patterns
+
 
 Singleton
 ---------
