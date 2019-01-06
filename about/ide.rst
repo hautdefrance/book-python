@@ -31,13 +31,21 @@ How to choose?
 
 Which one is the best?
 ======================
-#. PyCharm Professional EAP
-#. PyCharm Community
-#. PyCharm Professional
-#. PyDev
 
-* https://www.jetbrains.com/pycharm/download/
-* http://www.pydev.org/download.html
+Open Source
+-----------
+#. `PyCharm Community <https://www.jetbrains.com/pycharm/download/>`_
+#. `PyDev <http://www.pydev.org/download.html>`_
+#. Spyder
+#. Atom
+#. Jupyter Notebook
+#. Rodeo
+
+Not-free
+--------
+#. `PyCharm Professional <https://www.jetbrains.com/pycharm/download/>`_
+#. Visual Studio Code
+
 
 PyCharm
 =======
