@@ -14,6 +14,7 @@ The type system supports unions, generic types, and a special type named Any whi
 
 .. warning:: It should also be emphasized that Python will remain a dynamically typed language, and the authors have no desire to ever make type hints mandatory, even by convention.
 
+
 Sprawdzanie typów
 =================
 
@@ -56,6 +57,17 @@ Dodawanie typów do instniejącego kodu
 
     # (the -w flag means “go ahead, update the file”)
     $ pyannotate -w FILE
+
+``monkeytype``
+--------------
+* https://instagram-engineering.com/let-your-code-type-hint-itself-introducing-open-source-monkeytype-a855c7284881
+
+.. code-block:: console
+
+    $ pip install monkeytype
+    $ monkeytype run runtests.py
+    $ monkeytype stub some.module
+    $ monkeytype apply some.module
 
 
 Korzystanie z typów
