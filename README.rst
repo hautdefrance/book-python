@@ -33,7 +33,7 @@ Python 3: from None to Machine Learning
 **Other books from this series**
 
     :Python and Machine Learning: http://python.astrotech.io
-    :DevOps and Development Tools Ecosystem: http://devops.astrotech.io
+    :DevOps and CI/CD wtih Docker: http://devops.astrotech.io
     :GIT and GIT Flow in CI/CD: http://git.astrotech.io
     :Agile, Scrum, Kanban, XP, Lean: http://agile.astrotech.io
     :Software Architecture, Cloud, Microservices and Processes: http://arch.astrotech.io
