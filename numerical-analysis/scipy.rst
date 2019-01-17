@@ -17,57 +17,57 @@ SciPy builds on the NumPy array object and is part of the NumPy stack which incl
 
 .. code-block:: python
 
-    >>> import scipy
-    >>> help(scipy)
-    Help on package scipy:
-    NAME
-     scipy
-    FILE
-     c:\python25\lib\site-packages\scipy\__init__.py
-    DESCRIPTION
-     SciPy --- A scientific computing package for Python
-     ===================================================
-     Documentation is available in the docstrings and
-     online at http://docs.scipy.org.
-     Contents
-     --------
-     SciPy imports all the functions from the NumPy namespace, and in
-     addition provides:
-     Available subpackages
-     ---------------------
-     odr --- Orthogonal Distance Regression [*]
-     misc --- Various utilities that don't have another home.
-     sparse.linalg.eigen.arpack --- Eigenvalue solver using iterative methods. [*]
-     fftpack --- Discrete Fourier Transform algorithms [*]
-     io --- Data input and output [*]
-     sparse.linalg.eigen.lobpcg --- Locally Optimal Block Preconditioned Conjugate Gradient Method (LOBPCG) [*]
-     special --- Airy Functions [*]
-     lib.blas --- Wrappers to BLAS library [*]
-     sparse.linalg.eigen --- Sparse Eigenvalue Solvers [*]
-     stats --- Statistical Functions [*]
-     lib --- Python wrappers to external libraries [*]
-     lib.lapack --- Wrappers to LAPACK library [*]
-     maxentropy --- Routines for fitting maximum entropy models [*]
-     integrate --- Integration routines [*]
-     ndimage --- n-dimensional image package [*]
-     linalg --- Linear algebra routines [*]
-     spatial --- Spatial data structures and algorithms [*]
-     interpolate --- Interpolation Tools [*]
-     sparse.linalg --- Sparse Linear Algebra [*]
-     sparse.linalg.dsolve.umfpack --- :Interface to the UMFPACK library: [*]
-     sparse.linalg.dsolve --- Linear Solvers [*]
-     optimize --- Optimization Tools [*]
-     cluster --- Vector Quantization / Kmeans [*]
-     signal --- Signal Processing Tools [*]
-     sparse --- Sparse Matrices [*]
+    import scipy
+    
+    help(scipy)
+    # Help on package scipy:
+    # NAME
+    #  scipy
+    # FILE
+    #  c:\python25\lib\site-packages\scipy\__init__.py
+    # DESCRIPTION
+    #  SciPy --- A scientific computing package for Python
+    #  ===================================================
+    #  Documentation is available in the docstrings and
+    #  online at http://docs.scipy.org.
+    #  Contents
+    #  --------
+    #  SciPy imports all the functions from the NumPy namespace, and in
+    #  addition provides:
+    #  Available subpackages
+    #  ---------------------
+    #  odr --- Orthogonal Distance Regression [*]
+    #  misc --- Various utilities that don't have another home.
+    #  sparse.linalg.eigen.arpack --- Eigenvalue solver using iterative methods. [*]
+    #  fftpack --- Discrete Fourier Transform algorithms [*]
+    #  io --- Data input and output [*]
+    #  sparse.linalg.eigen.lobpcg --- Locally Optimal Block Preconditioned Conjugate Gradient Method (LOBPCG) [*]
+    #  special --- Airy Functions [*]
+    #  lib.blas --- Wrappers to BLAS library [*]
+    #  sparse.linalg.eigen --- Sparse Eigenvalue Solvers [*]
+    #  stats --- Statistical Functions [*]
+    #  lib --- Python wrappers to external libraries [*]
+    #  lib.lapack --- Wrappers to LAPACK library [*]
+    #  maxentropy --- Routines for fitting maximum entropy models [*]
+    #  integrate --- Integration routines [*]
+    #  ndimage --- n-dimensional image package [*]
+    #  linalg --- Linear algebra routines [*]
+    #  spatial --- Spatial data structures and algorithms [*]
+    #  interpolate --- Interpolation Tools [*]
+    #  sparse.linalg --- Sparse Linear Algebra [*]
+    #  sparse.linalg.dsolve.umfpack --- :Interface to the UMFPACK library: [*]
+    #  sparse.linalg.dsolve --- Linear Solvers [*]
+    #  optimize --- Optimization Tools [*]
+    #  cluster --- Vector Quantization / Kmeans [*]
+    #  signal --- Signal Processing Tools [*]
+    #  sparse --- Sparse Matrices [*]
 
-     [*] - using a package requires explicit import (see pkgload)
-    ...
-
+    # [*] - using a package requires explicit import (see pkgload)
+    
 .. code-block:: python
 
-    >>> import scipy
-    >>> import scipy.interpolate
+    import scipy
+    import scipy.interpolate
 
 .. csv-table:: Scipy
     :header-rows: 1
