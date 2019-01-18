@@ -36,6 +36,71 @@ WebDriver is the name of the key interface against which tests should be written
 Static Code Analysis
 ====================
 
+``SonarScanner``
+----------------
+
+Przygotowanie środowiska statycznej analizy
+===========================================
+
+Uruchomienie:
+
+.. code-block:: console
+
+    cd PROJECT_DIRECTORY
+    docker run --rm -d --name sonarqube -p 9000:9000 -v $(pwd):/src sonarqube
+    docker exec -u 0 -it sonarqube bash
+
+        curl -sL https://deb.nodesource.com/setup_8.x -o /opt/node.sh
+        bash /opt/node.sh
+        apt install -y nodejs
+        wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492.zip -O /opt/sonar-scanner.zip
+        unzip -d /opt/ /opt/sonar-scanner.zip
+        ln -s /opt/sonar-scanner-*/bin/sonar-scanner /usr/bin/sonar-scanner
+        VERSION=$(cd /src/ && hg log -l 1 --template '{node}\n')
+
+        apt install -y python-pip pylint python-coverage python-nose
+        pip install -r /src/requirements.txt
+
+Konfiguracja:
+
+    #. Quality Profile -> Python
+    #. Skopiuj profil "Sonar way" i nazwij nowy jako "PyLint"
+    #. Trybik (prawy górny róg) -> Activate more rules
+    #. Przefiltruj listę (lewy dolny róg) po "Repository" równym "PyLint"
+    #. Bulk Change (góra ekrany) -> Activate in "PyLint" -> zaakceptuj
+    #. Ustaw "PyLint jako domyślny"
+    #. Uruchom analizę
+
+.. warning:: Po uruchomieniu ``SonarQube`` z obrazu ``Docker`` instalacja pluginów, a następnie restart ``SonarQube`` niszczy możliwość przeprowadzania analizy
+
+#. Administration -> Marketplace
+
+    - Zainstalować plugin HTML
+
+Python
+^^^^^^
+.. literalinclude:: src/sonar-python.properties
+    :language: properties
+    :caption: SonarScanner config for static analysis of Python code
+
+CSS
+^^^
+.. literalinclude:: src/sonar-css.properties
+    :language: properties
+    :caption: SonarScanner config for static analysis of CSS code
+
+JavaScript
+^^^^^^^^^^
+.. literalinclude:: src/sonar-javascript.properties
+    :language: properties
+    :caption: SonarScanner config for static analysis of JavaScript code
+
+Multi-language
+^^^^^^^^^^^^^^
+.. literalinclude:: src/sonar-multilanguage.properties
+    :language: properties
+    :caption: SonarScanner config for static analysis of Multilanguage code
+
 ``SonarLint``
 -------------
 * https://www.sonarlint.org
@@ -87,6 +152,10 @@ Static Code Analysis
 :About:
     Simply speaking flake8 is "the wrapper which verifies ``pycodestyle``, ``pyflakes`` and circular complexity". For other functions, it can control the warnings for specific line (impossible by a simple pyflakes)by # flake8: noqa or it can customize warnings happening by configuration file such as ``pycodestyle``.
 
+.. literalinclude:: src/flake8.ini
+    :language: ini
+    :caption: Flake8 config in ``setup.cfg``
+
 ``SonarQube``
 -------------
 
@@ -133,6 +202,10 @@ Static Code Analysis
 :More information:
     * https://pypi.python.org/pypi/pylint/
 
+:Config:
+    .. literalinclude:: src/pylintrc.ini
+        :language: ini
+        :caption: PyLama
 
 ``Pyflakes``
 ------------
@@ -171,6 +244,7 @@ Static Code Analysis
 
         $ coverage run FILE.py
         $ coverage report -m
+        $ nosetests --with-coverage --cover-erase --cover-xml --cover-inclusive --with-xunit --xunit-file=xunit.xml --cover-xml-file=coverage.xml
 
     Use coverage run to run your program and gather data:
 
@@ -201,6 +275,44 @@ Static Code Analysis
 :More information:
     * https://pypi.python.org/pypi/coverage
     * https://coverage.readthedocs.io/
+
+
+``pylama``
+----------
+.. code-block:: console
+
+    pylama --linters pylint --skip='*/migrations/*' --abspath /src
+
+.. literalinclude:: src/pylama.ini
+    :language: ini
+    :caption: setup.cfg
+
+``bandit``
+----------
+* Sprawdzanie kodu pod kątem podatności bezpieczeństwa
+
+.. code-block:: console
+
+    pip install bandit
+
+.. code-block:: console
+
+    bandit --recursive /src/
+
+``pycodestyle``
+---------------
+.. code-block:: console
+
+    pip isntall pycodestyle
+    pycodestyle --max-line-length=79 --exclude=*/migrations/* .
+
+``safety``
+----------
+.. code-block:: console
+
+    pip install safety
+    safety check -r /src/requirements.txt
+
 
 Behavioral Testing
 ==================
