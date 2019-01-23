@@ -1,8 +1,15 @@
+book = /tmp/python-book/
+slides = /tmp/python-slides/
+
 book:
-	@clear && rm -fr .build && sphinx-build -j10 -b html . .build/
+	@rm -fr $(book) && clear && sphinx-build -j11 -b html . $(book)
+
+slides:
+	@rm -fr $(book) && clear && sphinx-build -j11 -b html _slides/ $(slides)
 
 help:
 	@sphinx-build -M help help help
 
 clean:
-	-rm -fr .build/
+	-rm -fr $(book)
+	-rm -fr $(slides)
