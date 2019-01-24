@@ -2,8 +2,8 @@ from datetime import date
 
 
 today = date.today()
-# datetime.date(2018, 12, 6)
+# datetime.date(2019, 1, 5)
 
-today.year    # 2018
-today.month   # 12
-today.day     # 6
+today.year    # 2019
+today.month   # 1
+today.day     # 5

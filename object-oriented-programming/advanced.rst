@@ -19,10 +19,10 @@ OOP Advanced
     import datetime
 
     datetime.datetime.now()  # ``__repr__``
-    # datetime.datetime(2018, 7, 3, 11, 32, 51, 684972)
+    # datetime.datetime(2019, 1, 5, 20, 15, 0, 684972)
 
     print(datetime.datetime.now())  # ``__str__``
-    # 2018-07-03 11:32:58.927387
+    # 2019-01-05 20:15:00.927387
 
 
 What should be in the class and what not?
