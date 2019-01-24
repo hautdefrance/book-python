@@ -1,11 +1,5 @@
-## Private
-_config/
-_database/
+## Temporary
 _tmp/
-_tmp/*
-_tmp/__notepad__.py
-__notepad__.py
-__notepad__.ipynb
 
 ## Compiled and environmental
 __pycache__/
@@ -13,17 +7,9 @@ __pycache__/
 *.pyc
 ~$*
 *.spec
-.ipynb_checkpoints/
-venv/
-.venv/
-.virtualenv/
-.virtualenv-3.6/
-.virtualenv-3.7/
-virtualenv/
-venv-3.7/
-venv-3.6/
-.venv-3.7/
-.venv-3.6/
+.ipynb_checkpoints
+*virtualenv*/
+*venv*/
 
 ## Distribution / packaging
 build/
