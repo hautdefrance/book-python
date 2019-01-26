@@ -195,6 +195,7 @@ Dragon (Part 1)
     * być przesuwany o zadaną liczbę punktów w którymś z kierunków
 
 #. Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
+#. Nie musisz trzymać się kolejności punktów i podpunktów w zadaniu
 #. Przyjmij górny lewy róg ekranu za punkt (0, 0)
 
     * idąc w prawo dodajesz ``x``
