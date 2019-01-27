@@ -73,14 +73,6 @@ With multiple rows
     # 1  NaN  NaN  3.0
 
 
-.. csv-table::
-    :header-rows: 1
-
-    "", "A", "B", "C"
-    "0", "1.0", "2.0", "NaN"
-    "1", "NaN", "NaN", "3.0"
-
-
 Properties
 ==========
 .. code-block:: python
@@ -90,13 +82,13 @@ Properties
     indexes = pd.date_range('1970-01-01', periods=6)
 
     df = pd.DataFrame(values, index=indexes, columns=columns)
-    #               Morning       Noon    Evening   Midnight
-    # 1970-01-01   0.486726  -0.291364  -1.105248  -0.333574
-    # 1970-01-02   0.301838  -0.603001   0.069894   0.309209
-    # 1970-01-03  -0.424429   0.845898  -1.460294   0.109749
-    # 1970-01-04   0.909958  -0.986246   0.122176   1.205697
-    # 1970-01-05  -0.172540  -0.974159  -0.848519   1.691875
-    # 1970-01-06   0.047059   0.359687   0.531386  -0.587663
+    #                 Morning        Noon    Evening   Midnight
+    # 1970-01-01     2.269755   -1.454366   0.045759  -0.187184
+    # 1970-01-02     1.532779    1.469359   0.154947   0.378163
+    # 1970-01-03    -0.887786   -1.980796  -0.347912   0.156349
+    # 1970-01-04     1.230291    1.202380  -0.387327  -0.302303
+    # 1970-01-05    -1.048553   -1.420018  -1.706270   1.950775
+    # 1970-01-06    -0.509652   -0.438074  -1.252795   0.777490
 
 Indexes
 -------
@@ -113,6 +105,8 @@ Columns
     df.columns
     # Index(['Morning', 'Noon', 'Evening', 'Midnight'], dtype='object')
 
+
+.. todo:: convert all below values in this chapter to ``np.random.seed(0)``
 
 Slicing
 =======
