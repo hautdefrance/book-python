@@ -1010,7 +1010,7 @@ Where
 
         a = np.array([1, -3, 3, 0], float)
         np.logical_and(a > 0, a % 3 == 0)
-        # array([False, False, False, False])
+        # array([False, False, True, False])
 
 Nonzero
 ^^^^^^^
@@ -1337,6 +1337,15 @@ Linear Algebra
     "LinAlgError", "Indicates a failed linear algebra operation"
 
 
+Euclidean distance
+==================
+.. figure:: ../machine-learning/img/k-nearest-neighbors-euclidean-distance.png
+    :scale: 100%
+    :align: center
+
+    Wyliczanie odległości w celu oszacowania przynależności do zbioru. Zwróć uwagę, że bez względu na ilość wymiarów wzór się niewiele różni.
+
+
 Assignments
 ===========
 * http://www.labri.fr/perso/nrougier/teaching/numpy.100/
@@ -1391,18 +1400,18 @@ Euclidean distance 2D
 #. Dane są dwa punkty :math:`A` i :math:`B` o podanych koordynatach ``tuple``
 #. Punkty :math:`A` i :math:`B` są dwuwymiarowe ``(x, y)``
 #. Oblicz odległość między nimi
-#. Wykorzystaj algorytm Euklidesa
+#. Wykorzystaj algorytm Euklidesa :math:`euclidean_distance(a, b) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}`
 #. Funkcja musi przechodzić ``doctest`` :numref:`listing-numpy-euclidean-distance-2D`
 
 .. code-block:: python
     :name: listing-numpy-euclidean-distance-2D
     :caption: Euclidean distance 2D
 
-    def euclidean_distance_2D(A, B):
+    def euclidean_distance(a, b):
         """
-        >>> A = (1, 0)
-        >>> B = (0, 1)
-        >>> euclidean_distance(A, B)
+        >>> a = (1, 0)
+        >>> b = (0, 1)
+        >>> euclidean_distance(a, b)
         1.4142135623730951
 
         >>> euclidean_distance((0,0), (1,0))
@@ -1419,12 +1428,6 @@ Euclidean distance 2D
         """
         return
 
-.. figure:: ../machine-learning/img/k-nearest-neighbors-euclidean-distance.png
-    :scale: 100%
-    :align: center
-
-    Wyliczanie odległości w celu oszacowania przynależności do zbioru. Zwróć uwagę, że bez względu na ilość wymiarów wzór się niewiele różni.
-
 Euclidean distance multi dimensions
 -----------------------------------
 * Filename: ``math_euclidean_multi_dim.py``
@@ -1434,32 +1437,33 @@ Euclidean distance multi dimensions
 #. Dane są dwa punkty :math:`A` i :math:`B` o podanych koordynatach ``tuple``
 #. Punkty :math:`A` i :math:`B` są na :math:`N`-wymiarowej przestrzeni ``(x, y, ...)``
 #. Punkty :math:`A` i :math:`B` muszą być równo-wymiarowe
+#. Wykorzystaj algorytm Euklidesa :math:`euclidean_distance(a, b) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + ... + (n_2 - n_1)^2}`
 #. Funkcja musi przechodzić ``doctest`` :numref:`listing-numpy-euclidean-distance-n-dimensions`
 
 .. code-block:: python
     :name: listing-numpy-euclidean-distance-n-dimensions
     :caption: Euclidean distance N-dimension
 
-    def euclidean_distance_n_dimensions(A, B):
+    def euclidean_distance(a, b):
         """
-        >>> A = (0,1,0,1)
-        >>> B = (1,1,0,0)
-        >>> euclidean_distance_n_dimensions(A, B)
+        >>> a = (0,1,0,1)
+        >>> b = (1,1,0,0)
+        >>> euclidean_distance(a, b)
         1.4142135623730951
 
-        >>> euclidean_distance_n_dimensions((0,0,0), (0,0,0))
+        >>> euclidean_distance((0,0,0), (0,0,0))
         0.0
 
-        >>> euclidean_distance_n_dimensions((0,0,0), (1,1,1))
+        >>> euclidean_distance((0,0,0), (1,1,1))
         1.7320508075688772
 
-        >>> euclidean_distance_n_dimensions((0,1,0,1), (1,1,0,0))
+        >>> euclidean_distance((0,1,0,1), (1,1,0,0))
         1.4142135623730951
 
-        >>> euclidean_distance_n_dimensions((0,0,1,0,1), (1,1,0,0,1))
+        >>> euclidean_distance((0,0,1,0,1), (1,1,0,0,1))
         1.7320508075688772
 
-        >>> euclidean_distance_n_dimensions((0,0,1,0,1), (1,1))
+        >>> euclidean_distance((0,0,1,0,1), (1,1))
         Traceback (most recent call last):
             ...
         ValueError: Punkty muszą być w przestrzeni tylu-samo wymiarowej
