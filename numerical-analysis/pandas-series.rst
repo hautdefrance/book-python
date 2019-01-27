@@ -3,6 +3,16 @@ Pandas ``Series``
 *****************
 
 
+.. warning:: Following values are generated with ``np.random.seed(0)``
+
+Values
+======
+.. code-block:: python
+
+    pd.Timestamp('1961-04-12')
+    pd.Categorical(["test", "train", "test", "train"])
+
+
 Creating
 ========
 * 1-dimentional data structure similar to ``ndarray``
@@ -45,26 +55,29 @@ Alphabetic
 ----------
 .. code-block:: python
 
-    indexes = ['a', 'b', 'c', 'd', 'e']
+    indexes = ['a', 'b', 'c', 'd', 'e', 'f']
+    values = [1, 3, 5, np.nan, 6, 8]
 
-    values = np.random.randn(5)
     s = pd.Series(values, index=indexes)
-    # a    1.016521
-    # b   -0.441865
-    # c    0.519119
-    # d    0.948774
-    # e    0.207670
+    # a    1.0
+    # b    3.0
+    # c    5.0
+    # d    NaN
+    # e    6.0
+    # f    8.0
     # dtype: float64
 
 .. code-block:: python
 
     values = np.random.randn(5)
-    s = pd.Series(values, index=list('abcde'))
-    # a    1.016521
-    # b   -0.441865
-    # c    0.519119
-    # d    0.948774
-    # e    0.207670
+
+    s = pd.Series(values, index=list('abcdef'))
+    # a    1.0
+    # b    3.0
+    # c    5.0
+    # d    NaN
+    # e    6.0
+    # f    8.0
     # dtype: float64
 
 Datetime
@@ -82,6 +95,7 @@ Datetime
     #                '1970-01-06'], dtype='datetime64[ns]', freq='D')
 
     values = [1, 3, 5, np.nan, 6, 8]
+
     s = pd.Series(values, index=indexes)
     # 1970-01-01    1.0
     # 1970-01-02    3.0
@@ -190,31 +204,31 @@ Slicing by index numbers
     indexes = ['a', 'b', 'c', 'd', 'e']
 
     s = pd.Series(values, index=indexes)
-    # a    1.016521
-    # b   -0.441865
-    # c    0.519119
-    # d    0.948774
-    # e    0.207670
+    # a   -1.613898
+    # b   -0.212740
+    # c   -0.895467
+    # d    0.386902
+    # e   -0.510805
     # dtype: float64
 
 .. code-block:: python
 
     s[1]
-    # -0.4418648443118965
+    # -0.2127402802139687
 
 .. code-block:: python
 
     s[2:]
-    # c    0.519119
-    # d    0.948774
-    # e    0.207670
+    # c   -0.895467
+    # d    0.386902
+    # e   -0.510805
     # dtype: float64
 
 .. code-block:: python
 
     s[1:-2]
-    # b   -0.441865
-    # c    0.519119
+    # b   -0.212740
+    # c   -0.895467
     # dtype: float64
 
 Slicing by index names
@@ -225,31 +239,31 @@ Slicing by index names
     indexes = ['a', 'b', 'c', 'd', 'e']
 
     s = pd.Series(values, index=indexes)
-    # a    1.016521
-    # b   -0.441865
-    # c    0.519119
-    # d    0.948774
-    # e    0.207670
+    # a   -1.613898
+    # b   -0.212740
+    # c   -0.895467
+    # d    0.386902
+    # e   -0.510805
     # dtype: float64
 
 .. code-block:: python
 
     s['b']
-    # -0.4418648443118965
+    # -0.2127402802139687
 
 .. code-block:: python
 
     s['c':]
-    # c    0.519119
-    # d    0.948774
-    # e    0.207670
+    # c   -0.895467
+    # d    0.386902
+    # e   -0.510805
     # dtype: float64
 
 .. code-block:: python
 
     s['b':'c']
-    # b   -0.441865
-    # c    0.519119
+    # b   -0.212740
+    # c   -0.895467
     # dtype: float64
 
 .. code-block:: python
@@ -342,11 +356,11 @@ Arithmetic operations
     indexes = ['a', 'b', 'c', 'd', 'e']
 
     s = pd.Series(values, index=indexes)
-    # a    1.016521
-    # b   -0.441865
-    # c    0.519119
-    # d    0.948774
-    # e    0.207670
+    # a   -1.613898
+    # b   -0.212740
+    # c   -0.895467
+    # d    0.386902
+    # e   -0.510805
     # dtype: float64
 
 Multiply by scalar
@@ -354,11 +368,11 @@ Multiply by scalar
 .. code-block:: python
 
     s * 5
-    # a    5.082606
-    # b   -2.209324
-    # c    2.595593
-    # d    4.743869
-    # e    1.038348
+    # a   -8.069489
+    # b   -1.063701
+    # c   -4.477333
+    # d    1.934512
+    # e   -2.554026
     # dtype: float64
 
 Multiply by itself
@@ -366,21 +380,21 @@ Multiply by itself
 .. code-block:: python
 
     s * s
-    # a    1.033315
-    # b    0.195245
-    # c    0.269484
-    # d    0.900172
-    # e    0.043127
+    # a    2.604666
+    # b    0.045258
+    # c    0.801860
+    # d    0.149694
+    # e    0.260922
     # dtype: float64
 
 .. code-block:: python
 
     s ** 3
-    # a    1.050387
-    # b   -0.086272
-    # c    0.139894
-    # d    0.854059
-    # e    0.008956
+    # a   -4.203665
+    # b   -0.009628
+    # c   -0.718039
+    # d    0.057917
+    # e   -0.133280
     # dtype: float64
 
 Sum elements
@@ -388,12 +402,12 @@ Sum elements
 .. code-block:: python
 
     s.sum()
-    # 2.250219
+    # -2.846007328675207
 
 .. code-block:: python
 
     sum(s)
-    # 2.250219
+    # -2.846007328675207
 
 Add values
 ----------
