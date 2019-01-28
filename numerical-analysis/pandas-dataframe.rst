@@ -134,7 +134,6 @@ Slicing by index
     # 1970-01-02   0.301838  -0.603001   0.069894   0.309209
     # 1970-01-03  -0.424429   0.845898  -1.460294   0.109749
 
-
 Slicing by columns
 ------------------
 .. code-block:: python
@@ -185,6 +184,17 @@ Slicing by columns
     # 1970-01-05   1.800466   0.611194
     # 1970-01-06   0.141029  -0.046938
 
+.. code-block:: python
+
+    df.loc[:, 'Morning':'Evening']
+    #     	          Morning	     Noon	  Evening
+    # 1970-01-01	-1.185919	 0.929399	 0.546952
+    # 1970-01-02	 1.223428	-0.132430	-0.504896
+    # 1970-01-03	 0.377136	-0.637106	-0.104753
+    # 1970-01-04	 0.844626	 0.908642	 0.982422
+    # 1970-01-05	 0.089944	-0.706245	 0.052225
+    # 1970-01-06	 1.382942	 0.386913	-1.332453
+
 
 Filtering
 =========
@@ -205,20 +215,20 @@ Filtering
 
 .. code-block:: python
 
-    df[df['Morning'] < 0]
+    df.loc[df['Morning'] < 0]
     #               Morning       Noon    Evening   Midnight
     # 1970-01-03  -0.424429   0.845898  -1.460294   0.109749
     # 1970-01-05  -0.172540  -0.974159  -0.848519   1.691875
 
 
-Locating values
-===============
-* Zalecane jest używanie zoptymalizowanych funkcji Pandas
-* ``iloc`` integer locate (bez where i innych bajerów)
+Selecting Rows
+==============
+* ``loc`` zaawansowane opcje wyszukiwania
+* ``iloc`` integer locate - tylko po numerkach indeksów
 
 .. warning::
-    * Start and the stop are included.
-    * This is different behavior than Python slices!
+    * ``df.loc`` - start and stop are included!!
+    * ``df.iloc`` - behaves like Python slices
 
 .. code-block:: python
 
@@ -235,8 +245,8 @@ Locating values
     # 1970-01-05  -0.172540  -0.974159  -0.848519   1.691875
     # 1970-01-06   0.047059   0.359687   0.531386  -0.587663
 
-Single label
-------------
+Single row
+----------
 * Returns the row as a Series
 
 .. code-block:: python
@@ -248,8 +258,8 @@ Single label
     # Midnight   -0.042712
     # Name: 1970-01-01 00:00:00, dtype: float64
 
-Range
------
+Range of rows
+-------------
 .. code-block:: python
 
     df.loc['1970-01-02': '1970-01-04']
@@ -258,24 +268,65 @@ Range
     # 1970-01-03  -0.424429   0.845898  -1.460294   0.109749
     # 1970-01-04   0.909958  -0.986246   0.122176   1.205697
 
-Single label for row and column
--------------------------------
+Range of dates
+--------------
+.. code-block:: python
+
+    df.loc['1970-01']
+    #                 Morning        Noon    Evening   Midnight
+    # 1970-01-01     2.269755   -1.454366   0.045759  -0.187184
+    # 1970-01-02     1.532779    1.469359   0.154947   0.378163
+    # 1970-01-03    -0.887786   -1.980796  -0.347912   0.156349
+    # 1970-01-04     1.230291    1.202380  -0.387327  -0.302303
+    # 1970-01-05    -1.048553   -1.420018  -1.706270   1.950775
+    # 1970-01-06    -0.509652   -0.438074  -1.252795   0.777490
+
+Single row and single column
+----------------------------
 .. code-block:: python
 
     df.loc['1970-01-02', 'Morning']
     # -1.7982538699804334
 
-Slice with labels for row and single label for column
------------------------------------------------------
+Range of rows and single column
+-------------------------------
 * Note that both the start and stop of the slice are included
 
 .. code-block:: python
 
-    df.loc['1970-01-02': '1970-01-04', 'Noon']
+    df.loc['1970-01-02':'1970-01-04', 'Noon']
     # 1970-01-02   -1.440613
     # 1970-01-03    0.301141
     # 1970-01-04   -0.574301
     # Freq: D, Name: Noon, dtype: float64
+
+Range of rows and single column
+-------------------------------
+.. todo:: naprawić to
+
+.. code-block:: python
+
+    df.loc[['1970-01-02','1970-01-04'], 'Noon']
+    # KeyError: "None of [['1970-01-02', '1970-01-04']] are in the [index]"
+
+Single row and selected columns
+-------------------------------
+.. code-block:: python
+
+    df.loc['1970-01-02', ['Noon', 'Midnight']]
+    # Noon       -0.132430
+    # Midnight   -0.444758
+    # Name: 1970-01-02 00:00:00, dtype: float64
+
+Single row and column range
+---------------------------
+.. code-block:: python
+
+    df.loc['1970-01-02', 'Noon':'Midnight']
+    # Noon       -0.132430
+    # Evening    -0.504896
+    # Midnight   -0.444758
+    # Name: 1970-01-02 00:00:00, dtype: float64
 
 Boolean list with the same length as the row axis
 -------------------------------------------------
@@ -454,26 +505,19 @@ Modifying values
 
     df = pd.DataFrame([ {'A': 1, 'B': 2},
                         {'C': 3}])
-
-.. csv-table::
-    :header-rows: 1
-
-    "", "A", "B", "C"
-    "0", "1.0", "2.0", "NaN"
-    "1", "NaN", "NaN", "3.0"
+    #       A     B     C
+    # 0   1.0   2.0   NaN
+    # 1   NaN   2.0   3.0
 
 Adding column
 -------------
 .. code-block:: python
 
     df['Z'] = ['aa', 'bb']
+    #       A     B     C   Z
+    # 0   1.0   2.0   NaN  aa
+    # 1   NaN   2.0   3.0  bb
 
-=== === === === ==
-    A   B   C   Z
-=== === === === ==
-0   1.0 2.0 NaN aa
-1   NaN NaN 3.0 bb
-=== === === === ==
 
 Drop row if all values are ``NaN``
 ----------------------------------
