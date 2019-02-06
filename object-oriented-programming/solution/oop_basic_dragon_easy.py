@@ -7,22 +7,33 @@ class Status:
 
 
 class Dragon:
-    HIT_POINTS_MAX = 100
+    TEXTURE_ALIVE = 'img/dragon/alive.png'
+    TEXTURE_DEAD = 'img/dragon/dead.png'
     HIT_POINTS_MIN = 50
+    HIT_POINTS_MAX = 100
     DAMAGE_MIN = 5
     DAMAGE_MAX = 20
     GOLD_MIN = 1
     GOLD_MAX = 100
-    TEXTURE_LIVE = 'dragon.png'
-    TEXTURE_DEAD = 'dragon-dead.png'
 
-    def __init__(self, name, position_x=0, position_y=0, texture=TEXTURE_LIVE):
+    def __init__(self, name, position_x=0, position_y=0):
         self.name = name
-        self.hit_points = randint(self.HIT_POINTS_MIN, self.HIT_POINTS_MAX)
+        self.texture = self.TEXTURE_ALIVE
         self.status = Status.ALIVE
-        self.texture = texture
-        self.gold = randint(self.GOLD_MIN, self.GOLD_MAX)
+        self.hit_points = self._get_initial_hit_points()
+        self.gold = self._get_initial_gold()
         self.set_position(position_x, position_y)
+
+    def _get_initial_gold(self):
+        return randint(self.GOLD_MIN, self.GOLD_MAX)
+
+    def _get_initial_hit_points(self):
+        return randint(self.HIT_POINTS_MIN, self.HIT_POINTS_MAX)
+
+    def get_position(self):
+        return {
+            'x': self.position_x,
+            'y': self.position_y}
 
     def set_position(self, x, y):
         self.position_x = x
@@ -33,24 +44,9 @@ class Dragon:
             x=self.position_x + right - left,
             y=self.position_y + down - up)
 
-    def get_position(self):
-        return self.position_x, self.position_y
-
     def make_damage(self):
-        if self.is_dead():
-            return None
-        else:
+        if self.is_alive():
             return randint(self.DAMAGE_MIN, self.DAMAGE_MAX)
-
-    def _make_drop(self):
-        print(f'Dropped {self.gold} gold')
-        return self.gold
-
-    def _make_dead(self):
-        print(f'{self.name} is dead')
-        self.texture = self.TEXTURE_DEAD
-        print(f'Position: {self.get_position()}')
-        return self._make_drop()
 
     def set_status(self):
         if self.hit_points <= 0:
@@ -71,16 +67,39 @@ class Dragon:
             return False
 
     def take_damage(self, damage):
+        if not isinstance(damage, (int, float)):
+            raise ValueError('Damage must be int or float')
+
         if self.is_dead():
-            return None
+            return
 
         self.hit_points -= damage
         self.set_status()
 
         if self.is_alive():
-            print(f'{self.name}, took DMG: {damage}, current HP: {self.hit_points}')
+            print(f'{self.name}, DAMAGE: {damage}, HIT POINTS: {self.hit_points}')
         else:
-            self._make_dead()
+            return self._make_dead()
+
+    def _get_drop(self):
+        return {
+            'position': self.get_position(),
+            'gold': self.gold,
+        }
+
+    def _make_dead(self):
+        self.set_status()
+        self.texture = self.TEXTURE_DEAD
+
+        drop = self._get_drop()
+        gold = drop['gold']
+        position = self.get_position()
+
+        print(f'{self.name} is dead')
+        print(f'Gold dropped: {gold}')
+        print(f'Position {position}')
+
+        return drop
 
 
 def run():

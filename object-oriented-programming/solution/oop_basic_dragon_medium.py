@@ -42,16 +42,16 @@ class Character(Dragon):
         >>> wawelski = MediumDragon(name='Red', position_x=0, position_y=0)
         >>> wawelski.move(right=1)
         >>> wawelski.get_position()
-        (1, 0)
+        {'x': 1, 'y': 0}
         >>> wawelski.move(down=1)
         >>> wawelski.get_position()
-        (1, 1)
+        {'x': 1, 'y': 1}
         >>> wawelski.move(left=2)
         >>> wawelski.get_position()
-        (0, 1)
+        {'x': 0, 'y': 1}
         >>> wawelski.move(up=2)
         >>> wawelski.get_position()
-        (0, 0)
+        {'x': 0, 'y': 0}
         """
         if x > Config.BORDER_X_MAX:
             x = Config.BORDER_X_MAX
