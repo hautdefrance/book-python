@@ -124,6 +124,53 @@ One class per file?
 Assignments
 ===========
 
+Defining Classes
+----------------
+* Filename: ``oop_iris.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 10 min
+
+#. Stwórz klasę ``Iris`` z polami:
+
+    - ``sepal_length: float``,
+    - ``sepal_width: float``,
+    - ``petal_length: float``,
+    - ``petal_width: float``,
+    - ``species: str``.
+
+#. Napisz metodę ``total()`` wyliczającą sumę dla pól numerycznych
+#. Napisz metodę ``average()`` wyliczającą średnią dla pól numerycznych
+
+Defining Classes
+----------------
+* Filename: ``oop_iris.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 10 min
+
+#. Stwórz klasy ``Virginica``, ``Versicolor``, ``Setosa``, które będą identyczne do ``Iris``.
+#. Klasy ``Virginica``, ``Versicolor``, ``Setosa`` mają mieć pole species wypełnione odpowiednio do nazwy gatunku.
+#. Iterując po ``DATA`` z :numref:`listing-oop-classes` twórz obiekty klasy odpowiedniej dla nazwy gatunku (ostatni rekord każdej z krotek).
+#. Obiekt inicjalizuj danymi z pomiarów.
+#. Na ekranie wyświetlaj nazwę gatunku oraz sumę i średnią z pomiarów.
+
+.. code-block:: python
+    :caption: Iris sample dataset
+    :name: listing-oop-classes
+
+    DATA = [
+        ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+        (5.8, 2.7, 5.1, 1.9, 'virginica'),
+        (5.1, 3.5, 1.4, 0.2, 'setosa'),
+        (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+        (6.3, 2.9, 5.6, 1.8, 'virginica'),
+        (6.4, 3.2, 4.5, 1.5, 'versicolor'),
+        (4.7, 3.2, 1.3, 0.2, 'setosa'),
+        (7.0, 3.2, 4.7, 1.4, 'versicolor'),
+        (7.6, 3.0, 6.6, 2.1, 'virginica'),
+        (4.9, 3.0, 1.4, 0.2, 'setosa'),
+        (4.6, 3.1, 1.5, 0.2, 'setosa'),
+    ]
+
 Basic Address Book
 ------------------
 * Filename: ``oop_addressbook_basic.py``

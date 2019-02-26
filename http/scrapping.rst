@@ -160,6 +160,18 @@ Getting Page Text
 Assignments
 ===========
 
+Iris
+----
+* Filename: ``scrapping_iris.py``
+* Lines of code to write: 20 lines
+* Estimated time of completion: 30 min
+
+#. Za pomocą beautifulsoup4 ze strony https://github.com/AstroMatt/book-python/blob/master/numerical-analysis/data/iris-dirty.csv pobierz dane zbióru Irysów.
+#. Parsując kod HTML oczyść dane.
+#. Skasuj pierwszy wiersz nagłówkowy.
+#. Kolumny nazwij: ``Sepal length``, ``Sepal width``, ``Petal length``, ``Petal width``, ``Species``
+#. Wyświetl dane w formacie listy dictów, kluczami mają być nazwy kolumn.
+
 EVA
 ---
 * Filename: ``scrapping_eva.py``

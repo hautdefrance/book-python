@@ -1378,12 +1378,26 @@ Matrix multiplication
         """
         pass
 
+Array filtering
+---------------
+* Filename: ``numpy-array-filtering.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 20 min
+
+#. Ustaw ziarno losowości na 0
+#. Wygeneruj macierz (50x50) o nazwie ``A``
+#. Macierz ma składać się z losowych liczb całkowitych z zakresu od 0 do 1024 włącznie.
+#. Stwórz macierz ``B``, która będzie zawierała liczby z macierzy ``A`` będące potęgami dwójki.
+#. Pozostaw tylko i wyłącznie unikalne wartości.
+#. Uporządkuj macierz B w kolejności malejącej (od największej do najmniejszej).
+
 Sum of inner matrix
 -------------------
 * Filename: ``numpy-sum.py``
 * Lines of code to write: 4 lines
 * Estimated time of completion: 5 min
 
+#. Ustaw ziarno losowości na 0
 #. Wygeneruj macierz (16x16) randomowych intów o wartościach od 10 do 100
 #. Przekonwertuj macierz na typ float
 #. Transponuj ją
