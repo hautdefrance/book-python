@@ -61,6 +61,47 @@ Cannot unpack from both sides at once
     # SyntaxError: two starred expressions in assignment
 
 
+Example
+=======
+.. code-block:: python
+
+    line = '4.9,3.1,1.5,0.1,setosa'
+
+    line.split(',')
+    # ['4.9', '3.1', '1.5', '0.1', 'setosa']
+
+.. code-block:: python
+
+    line = '4.9,3.1,1.5,0.1,setosa'
+
+    sepal_length, sepal_width, petal_length, petal_width, species = line.split(',')
+
+    sepal_length    # '4.9'
+    sepal_width     # '3.1'
+    petal_length    # '1.5'
+    petal_width     # '0.1'
+    species         # 'setosa'
+
+.. code-block:: python
+
+    line = '4.9,3.1,1.5,0.1,setosa'
+
+    sepal_length, sepal_width, *others = line.split(',')
+
+    sepal_length    # '4.9'
+    sepal_width     # '3.1'
+    others          # ['1.5', '0.1', 'setosa']
+
+.. code-block:: python
+
+    line = '4.9,3.1,1.5,0.1,setosa'
+
+    *features, species = line.split(',')
+
+    features        # ['4.9', '3.1', '1.5', '0.1']
+    species         # 'setosa'
+
+
 More advanced topics
 ====================
 .. note:: The topic will be continued in Intermediate and Advanced part of the book
