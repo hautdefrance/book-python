@@ -58,7 +58,7 @@ Control Statements
 
 .. code-block:: python
 
-    usernames = {'José Jiménez', 'Pan Twardowski', 'Mark Watney'}
+    usernames = {'José Jiménez', 'Jan Twardowski', 'Mark Watney'}
 
     if 'José Jiménez' in usernames:
         print(True)

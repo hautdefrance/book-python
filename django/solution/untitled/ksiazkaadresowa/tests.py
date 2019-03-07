@@ -8,8 +8,8 @@ from .models import Person
 class PersonTest(TestCase):
 
     def test_create_person(self):
-        p = Person.objects.create(first_name='Pan', last_name='Twardowski')
-        self.assertEqual(p.first_name, 'Pan')
+        p = Person.objects.create(first_name='Jan', last_name='Twardowski')
+        self.assertEqual(p.first_name, 'Jan')
         self.assertEqual(p.last_name, 'Twardowski')
 
     def test_is_adult(self):

@@ -142,7 +142,7 @@ Mixed types
         [1, 2, 3],
         (4, 5, 6),
         {7, 8, 9},
-        {'first_name': 'Pan', 'last_name': 'Twardowski'}
+        {'first_name': 'Jan', 'last_name': 'Twardowski'}
     ]
 
     DATA[1][2]                # 6
@@ -155,7 +155,7 @@ Mixed types
         [1, 2, 3],
         (4, 5, 6),
         {7, 8, 9},
-        {'first_name': 'Pan', 'last_name': 'Twardowski'}
+        {'first_name': 'Jan', 'last_name': 'Twardowski'}
     ]
 
     len(DATA)     # 4

@@ -3,7 +3,7 @@ import csv
 """
     "first_name", "last_name"
     "José", "Jiménez"
-    "Pan", "Twardowski"
+    "Jan", "Twardowski"
     "Иван", "Иванович"
     "Mark", "Watney"
 """

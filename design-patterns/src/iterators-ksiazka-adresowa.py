@@ -11,7 +11,7 @@ class Adres:
             setattr(self, key, value)
 
 
-kontakt = Kontakt(imie='Pan', nazwisko='Twardowski', adresy=[
+kontakt = Kontakt(imie='Jan', nazwisko='Twardowski', adresy=[
     Adres(ulica='2101 E NASA Pkwy', miasto='Houston', stan='Texas',
           kod='77058', panstwo='USA'),
     Adres(ulica=None, miasto='Kennedy Space Center', kod='32899',

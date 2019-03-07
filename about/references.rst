@@ -69,13 +69,13 @@ Main Characters
 Astronauts
 ----------
 
-Pan Twardowski
+Jan Twardowski
 ^^^^^^^^^^^^^^
 .. figure:: img/pan-twardowski.jpg
     :scale: 50%
     :align: center
 
-    Pan Twardowski
+    Jan Twardowski
 
 José Jiménez
 ^^^^^^^^^^^^
@@ -84,7 +84,7 @@ José Jiménez
     :align: center
 
     José Jiménez
-    
+
 * https://www.youtube.com/watch?v=kPnaaHR9pLc
 * https://www.youtube.com/watch?v=i6ckW7uRRNw
 * https://www.youtube.com/watch?v=PVxfJYw59cM

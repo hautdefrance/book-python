@@ -1,11 +1,3 @@
-class Address:
-    def __init__(self, address):
-        self.address = address
-
-    def __repr__(self):
-        return str(self.address)
-
-
 class Contact:
     def __init__(self, name, addresses=[]):
         self.name = name
@@ -13,8 +5,7 @@ class Contact:
 
 
 jose = Contact(name='Jose Jimenez')
-jsc = Address('2101 E NASA Pkwy, Houston, TX')
-jose.addresses.append(jsc)
+jose.addresses.append('2101 E NASA Pkwy, Houston, TX')
 print(jose.addresses)
 # [2101 E NASA Pkwy, Houston, TX]
 

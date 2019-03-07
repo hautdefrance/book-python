@@ -39,9 +39,20 @@ Static vs. Dynamic Fields
     :caption: ``__dict__`` - Getting dynamic fields and values
 
 
+.. _Initial arguments mutability and shared state:
+
 Initial arguments mutability and shared state
 =============================================
-.. literalinclude:: src/oop-init-shared-state.py
+
+Bad
+---
+.. literalinclude:: src/oop-init-shared-state-bad.py
+    :language: python
+    :caption: Initial arguments mutability and shared state
+
+Good
+----
+.. literalinclude:: src/oop-init-shared-state-good.py
     :language: python
     :caption: Initial arguments mutability and shared state
 

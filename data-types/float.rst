@@ -38,6 +38,18 @@ Engineering notation
     float(1e-5)            # 1e-05
     float(1E-5)            # 1E-05
 
+Maximal and minimal ``float`` values
+------------------------------------
+.. code-block:: python
+
+    import sys
+
+    sys.float_info.min
+    # 2.2250738585072014e-308
+
+    sys.float_info.max
+    # 1.7976931348623157e+308
+
 Infinity representation
 -----------------------
 .. code-block:: python
@@ -57,18 +69,6 @@ Infinity representation
 
     float('inf')           # inf
     float('Infinity')      # inf
-
-Maximal and minimal ``float`` values
-------------------------------------
-.. code-block:: python
-
-    import sys
-
-    sys.float_info.min
-    # 2.2250738585072014e-308
-
-    sys.float_info.max
-    # 1.7976931348623157e+308
 
 
 Converting to ``float``

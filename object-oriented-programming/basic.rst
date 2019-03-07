@@ -226,23 +226,23 @@ Dragon (Part 1)
 
     Firkraag dragon from game Baldur's Gate II: Shadows of Amn
 
+#. Nie musisz trzymać się kolejności punktów i podpunktów w zadaniu
+#. Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
 #. Smok ma mieć:
 
-    * nazwę smoka
-    * pozycja ``x`` na ekranie
-    * pozycja ``y`` na ekranie
-    * teksturę, domyślnie ``img/dragon/alive.png``
+    * nazwę
+    * pozycję ``x`` na ekranie
+    * pozycję ``y`` na ekranie
+    * nazwę pliku tekstury, domyślnie ``img/dragon/alive.png``
     * punkty życia, domyślnie losowy ``int`` z zakresu od 50 do 100
 
 #. Smok może:
 
-    * otrzymywać obrażenia
-    * zadawać komuś losowe obrażenia z przedziału od 5 do 20
     * być ustawiony w dowolne miejsce ekranu
+    * zadawać komuś losowe obrażenia z przedziału od 5 do 20
+    * otrzymywać obrażenia
     * być przesuwany o zadaną liczbę punktów w którymś z kierunków
 
-#. Jeżeli konieczne jest wprowadzenie nowej metody, klasy lub pól to należy to zrobić
-#. Nie musisz trzymać się kolejności punktów i podpunktów w zadaniu
 #. Przyjmij górny lewy róg ekranu za punkt (0, 0)
 
     * idąc w prawo dodajesz ``x``
@@ -255,8 +255,8 @@ Dragon (Part 1)
 #. Kiedy punkty życia smoka spadną do, lub poniżej zera:
 
     * ustaw status obiektu na ``dead``
-    * na ekranie ma pojawić się napis 'XXX is dead' gdzie XXX to nazwa smoka
-    * zmień teksturę smoka na ``img/dragon/dead.png``
+    * na ekranie ma pojawić się napis ``XXX is dead`` gdzie XXX to nazwa smoka
+    * zmień nazwę pliku tekstury na ``img/dragon/dead.png``
     * na ekranie pojawi się informacja ile złota smok wyrzucił (losowa 1-100)
     * na ekranie pojawi się informacja o pozycji gdzie smok zginął
 

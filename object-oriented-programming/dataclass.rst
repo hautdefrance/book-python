@@ -56,15 +56,9 @@ Field Factory
 
 Why?
 ----
+* :ref:`Initial arguments mutability and shared state`
+
 .. code-block:: python
-
-    class Address:
-        def __init__(self, address):
-            self.address = address
-
-        def __repr__(self):
-            return str(self.address)
-
 
     class Contact:
         def __init__(self, name, addresses=[]):
@@ -73,15 +67,13 @@ Why?
 
 
     jose = Contact(name='Jose Jimenez')
-    jsc = Address('2101 E NASA Pkwy, Houston, TX')
-    jose.addresses.append(jsc)
+    jose.addresses.append('2101 E NASA Pkwy, Houston, TX')
     print(jose.addresses)
     # [2101 E NASA Pkwy, Houston, TX]
 
     ivan = Contact(name='Ivan Ivanovich')
     print(ivan.addresses)
     # [2101 E NASA Pkwy, Houston, TX]
-
 
 So what?
 --------

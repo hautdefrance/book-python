@@ -34,7 +34,7 @@ Basic types
 -----------
 .. code-block:: python
 
-    name: str = 'Pan Twardowski'
+    name: str = 'Jan Twardowski'
     age: int = 30
     is_adult: bool = True
 
@@ -71,7 +71,7 @@ Types do not enforce checking
 
 .. code-block:: python
 
-    name: int = 'Pan Twardowski'
+    name: int = 'Jan Twardowski'
     age: float = 30
     is_adult: int = True
 

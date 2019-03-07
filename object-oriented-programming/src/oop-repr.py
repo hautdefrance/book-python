@@ -16,13 +16,13 @@ print(jose)
 
 crew = [
     Astronaut(name='José Jimenéz', agency='NASA'),
-    Astronaut(name='Pan Twardowski', agency='POLSA'),
+    Astronaut(name='Jan Twardowski', agency='POLSA'),
     Astronaut(name='Иван Иванович', agency='Roscosmos'),
     Astronaut(name='Alex Vogel', agency='ESA'),
 ]
 
 print(crew)
 # Astronaut(name='José Jiménez', agency='NASA')
-# Astronaut(name='Pan Twardowski', agency='POLSA')
+# Astronaut(name='Jan Twardowski', agency='POLSA')
 # Astronaut(name='Ivan Иванович', agency='Roscosmos')
 # Astronaut(name='Alex Vogel', agency='ESA')

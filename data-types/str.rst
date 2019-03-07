@@ -16,8 +16,8 @@ Defining ``str``
 
 .. code-block:: python
 
-    name = 'Pan Twardowski'       # 'Pan Twardowski'
-    name = "Pan Twardowski"       # 'Pan Twardowski'
+    name = 'Jan Twardowski'       # 'Jan Twardowski'
+    name = "Jan Twardowski"       # 'Jan Twardowski'
 
 Multiline ``str``
 -----------------
@@ -229,11 +229,11 @@ String Arithmetic
 -----------------
 .. code-block:: python
 
-    first_name = 'Pan'
+    first_name = 'Jan'
     last_name = 'Twardowski'
 
     name = first_name + last_name
-    # Pan Twardowski
+    # Jan Twardowski
 
 .. code-block:: python
 
@@ -250,27 +250,27 @@ String Arithmetic
 
     name.upper()       # 'PAN TWARDOWSKI III'
     name.lower()       # 'pan twardowski iii'
-    name.title()       # 'Pan Twardowski Iii'
-    name.capitalize()  # 'Pan twardowski iii'
+    name.title()       # 'Jan Twardowski Iii'
+    name.capitalize()  # 'Jan twardowski iii'
 
 ``str.replace()``
 -----------------
 .. code-block:: python
 
-    name = 'Pan Twardowski Iii'
+    name = 'Jan Twardowski Iii'
 
     name.replace('Iii', 'III')
-    # 'Pan Twardowski III'
+    # 'Jan Twardowski III'
 
 ``str.strip()``, ``str.lstrip()``, ``str.rstrip()``
 ---------------------------------------------------
 .. code-block:: python
 
-    name = '\tPan Twardowski    \n'
+    name = '\tJan Twardowski    \n'
 
-    name.strip()        # 'Pan Twardowski'
-    name.rstrip()       # '\tPan Twardowski'
-    name.lstrip()       # 'Pan Twardowski    \n'
+    name.strip()        # 'Jan Twardowski'
+    name.rstrip()       # '\tJan Twardowski'
+    name.lstrip()       # 'Jan Twardowski    \n'
 
 ``str.startswith()`` and ``str.endswith()``
 -------------------------------------------
@@ -278,9 +278,9 @@ String Arithmetic
 
 .. code-block:: python
 
-    name = 'Pan Twardowski'
+    name = 'Jan Twardowski'
 
-    name.startswith('Pan')  # True
+    name.startswith('Jan')  # True
     name.endswith(';')      # False
 
 ``str.split()``
@@ -381,9 +381,9 @@ Getting text from user
 .. code-block:: python
 
     name = input('Type your name: ')
-    # User inputs: Pan Twardowski
+    # User inputs: Jan Twardowski
 
-    print(name)     # 'Pan Twardowski'
+    print(name)     # 'Jan Twardowski'
     type(name)      # <class 'str'>
 
 .. code-block:: python

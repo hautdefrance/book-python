@@ -1,11 +1,11 @@
 import json
 
 
-DATA = '{"first_name": "Pan", "last_name": "Twardowski"}'
+DATA = '{"first_name": "Jan", "last_name": "Twardowski"}'
 
 output = json.loads(DATA)
 print(output)
 # {
-#     'first_name': 'Pan',
+#     'first_name': 'Jan',
 #     'last_name': 'Twardowski'
 # }

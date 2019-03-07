@@ -184,19 +184,19 @@ Placeholder class
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
-    Kontakt(imie='Pan', nazwisko='Twardowski')
+    Kontakt(imie='Jan', nazwisko='Twardowski')
 
 Print formatting in classes
 ---------------------------
 .. code-block:: python
 
     class Osoba:
-        first_name = 'Pan'
+        first_name = 'Jan'
         last_name = 'Twardowski'
 
         def __str__(self):
             return '{first_name} {last_name}'.format(**self.__dict__)
-            return '{first_name} {last_name}'.format(first_name='Pan', last_name='Twardowski')
+            return '{first_name} {last_name}'.format(first_name='Jan', last_name='Twardowski')
             return f'{self.first_name} {self.last_name}'
 
 

@@ -70,7 +70,7 @@ Many named arguments
 
     show(a=10)                                      # {'a': 10}
     show(color='red')                               # {'color': 'red'}
-    show(first_name='Pan', last_name='Twardowski')  # {'first_name': 'Pan', 'last_name': Twardowski}
+    show(first_name='Jan', last_name='Twardowski')  # {'first_name': 'Pan', 'last_name': Twardowski}
 
 Many named and positional arguments
 -----------------------------------

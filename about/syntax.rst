@@ -120,7 +120,7 @@ Variables and constants
 
         name = 'José Jiménez'
         NAME = 'Иван Иванович'
-        Name = 'Pan Twardowski'
+        Name = 'Jan Twardowski'
 
 Variable declaration
 --------------------
@@ -159,7 +159,7 @@ Variables vs. constants
 
         name = 'José Jiménez'
         NAME = 'Иван Иванович'
-        Name = 'Pan Twardowski'
+        Name = 'Jan Twardowski'
 
 * Python do not distinguish between variables and constants
 * Python allows you to change "constants" but it's a bad practice (good IDE will tell you)
