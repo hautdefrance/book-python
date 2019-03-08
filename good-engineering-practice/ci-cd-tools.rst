@@ -3,6 +3,25 @@ Tools for CI/CD
 ***************
 
 
+Narzędzia
+=========
+* ``bandit``
+* ``cloc``
+* ``eradicate``
+* ``isort``
+* ``mccabe``
+* ``pycodestyle``
+* ``pydocestyle``
+* ``pyflakes``
+* ``pylint``
+* ``radon``
+* ``coverage``
+* ``flake8``
+* ``mypy``
+* ``safety``
+* ``SonarQube``
+* ``SonarLint``
+
 Frontend Testing
 ================
 
