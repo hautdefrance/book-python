@@ -8,6 +8,28 @@ Doctest
 * niezwykle przydatne przy tworzeniu regexpów
 * można przetykać tekst pomiędzy testami
 
+Running tests
+=============
+
+Running tests with your IDE
+---------------------------
+
+From command line
+-----------------
+* Without ``-v`` this won’t display anything unless an example fails
+
+.. code-block:: console
+
+    python -m doctest -v example.py
+
+From code
+---------
+.. code-block:: python
+
+    if __name__ == "__main__":
+        import doctest
+        doctest.testmod()
+
 
 Test for ``bool`` return values
 ===============================

@@ -163,6 +163,7 @@ Design Patterns
     /design-patterns/context-manager.rst
     /design-patterns/descriptor.rst
     /design-patterns/decorator.rst
+    /design-patterns/event-programming.rst
     /design-patterns/gang-of-four.rst
 
 ************
@@ -236,8 +237,18 @@ High Performance
     /concurrency/threading.rst
     /concurrency/async.rst
     /extensions/c-extensions.rst
-    /functional-programming/index.rst
     /good-engineering-practice/debugging-advanced.rst
+
+*********
+Paradigms
+*********
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Paradigms
+
+    /paradigms/functional-programming.rst
+    /paradigms/event-programming.rst.rst
 
 **************************
 Scientific and Engineering

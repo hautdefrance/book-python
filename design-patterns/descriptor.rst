@@ -32,6 +32,7 @@ Example
     :language: python
     :caption: Example
 
+.. todo:: dorobić przykład z konwersją stref czasowych i bazowym czasie w UTC
 
 Accessors
 =========

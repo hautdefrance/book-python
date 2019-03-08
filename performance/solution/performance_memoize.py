@@ -31,7 +31,7 @@ def factorial_cache(n):
     if result:
         return result
     else:
-        result = factorial_nocache()
+        result = factorial_nocache(n)
         CACHE[n] = result
         return result
 
