@@ -21,6 +21,13 @@ Narzędzia
 * ``safety``
 * ``SonarQube``
 * ``SonarLint``
+* ``selenium``
+* ``behave``
+* ``pyre-check``
+* ``pyannotate``
+* ``pytypes``
+* ``mutpy``
+
 
 Frontend Testing
 ================
