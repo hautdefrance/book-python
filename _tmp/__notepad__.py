@@ -1,30 +1,128 @@
 
+class Temperature:
+    def __init__(self, value):
+        self.xxx = value
+
+    @property
+    def value(self):
+        return
+
+    @value.setter
+    def value_setter(self, value):
+        if value >= 0:
+            self.xxx = value
+        else:
+            raise
 
 
-class Calculator:
-
-    @staticmethod
-    def add(a, b):
-        return a + b
-
-    def total(self, a, b):
-        return Calculator.add(a, b)
-
-
-
-Calculator.add(5, 10)
-
-
-
-
-
-
-
+kelvin = Temperature()
+kelvin.value = -300
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+from random import randint
+
+STATUS_DEAD = 'dead'
+
+
+class Dragon:
+    GOLD_MIN = 1
+    GOLD_MAX = 100
+    HIT_POINTS_MIN = 50
+    HIT_POINTS_MAX = 100
+    TEXTURE_ALIVE = 'img/dragon/alive.png'
+    TEXTURE_DEAD = 'img/dragon/dead.png'
+
+    def __init__(self, name, x=0, y=0):
+        self.name = name
+        self.texture = self.TEXTURE_ALIVE
+        self.hit_points = randint(self.HIT_POINTS_MIN, self.HIT_POINTS_MAX)
+        self.gold = randint(self.GOLD_MIN, self.GOLD_MAX)
+        self.set_position(x, y)
+
+    def set_position(self, x, y):
+        self.position_x = x
+        self.position_y = y
+
+    def get_position(self):
+        return self.position_x, self.position_y
+
+    def move(self, left=0, right=0, up=0, down=0):
+        x, y = self.get_position()
+
+        self.set_position(
+            x=x + right - left,
+            y=y + down - up)
+
+    def make_damage(self):
+        return randint(5, 20)
+
+    def take_damage(self, damage):
+        if self.is_dead():
+            return None
+
+        self.hit_points -= damage
+
+        if self.hit_points <= 0:
+            return self._make_dead()
+
+    def is_dead(self):
+        if self.hit_points <= 0:
+            return True
+        else:
+            return False
+
+    def _make_dead(self):
+        self.status = STATUS_DEAD
+        self.texture = self.TEXTURE_DEAD
+        print(f'{self.name} is {self.status}')
+        print(f'Position {self.get_position()}')
+        return self._make_drop()
+
+    def _make_drop(self):
+        print(f'Gold dropped {self.gold}')
+
+
+wawelski = Dragon(name='Wawelski', x=50, y=120)
+
+wawelski.set_position(x=10, y=20)
+wawelski.move(left=10, down=20)
+wawelski.move(left=10, right=15)
+wawelski.move(right=15, up=5)
+wawelski.move(down=5)
+
+wawelski.take_damage(10)
+wawelski.take_damage(5)
+wawelski.take_damage(3)
+wawelski.take_damage(2)
+wawelski.take_damage(15)
+wawelski.take_damage(25)
+wawelski.take_damage(75)
 
 
 

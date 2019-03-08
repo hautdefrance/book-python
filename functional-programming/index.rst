@@ -85,6 +85,7 @@ Closure
 
 Monady
 ======
+* Monady pozwalają programiście sprzęgać ze sobą kolejno wykonywane działania i budować potoki danych, w których każda akcja jest materializacją wzorca dekoratora z dodatkowymi regułami przetwarzającymi.
 
 złożenia funkcji
 ================
@@ -232,6 +233,34 @@ Equivalent to:
 
 ``functools``
 =============
+
+.. code-block:: python
+
+    import functools
+
+    my_list = [1, 2, 3, 4, 5]
+
+    def add_it(x, y):
+        return (x + y)
+
+    sum = functools.reduce(add_it, my_list)
+    print(sum)
+
+.. code-block:: python
+
+    square = lambda x: x**2
+    double = lambda x: x + x
+
+    print(list(map(square, my_list)))
+    print(list(map(double, my_list)))
+
+.. code-block:: python
+
+    import functools
+
+    my_list = [1, 2, 3, 4, 5]
+    sum = functools.reduce(lambda x, y: x + y, my_list)
+    print(sum)
 
 ``memoize``
 -----------
