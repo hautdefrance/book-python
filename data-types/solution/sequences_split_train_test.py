@@ -23,7 +23,7 @@ DATA = [
     (4.6, 3.1, 1.5, 0.2, 'setosa'),
 ]
 
-TRAINING_SIZE = 60 / 100  # 60%
+TRAINING_SIZE = 0.6  # 60%
 
 header = DATA[0]
 data = DATA[1:]

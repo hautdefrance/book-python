@@ -346,6 +346,15 @@ String Arithmetic
     'hello'.isalpha()   # True
     'hello1'.isalpha()  # False
 
+``str.find()``
+--------------
+.. code-block:: python
+
+    text = 'We choose to go to the Moon'
+
+    text.find('M')      # 23
+    text.find('x')      # -1
+
 ``str`` in ``str``
 ------------------
 .. code-block:: python

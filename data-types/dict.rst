@@ -181,7 +181,7 @@ Length of a ``dict``
         'age': 42,
     }
 
-    len(my_set)                 # 3
+    len(my_dict)                # 3
     len(my_dict.keys())         # 3
     len(my_dict.values())       # 3
     len(my_dict.items())        # 3

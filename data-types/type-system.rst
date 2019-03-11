@@ -75,6 +75,19 @@ Types do not enforce checking
     age: float = 30
     is_adult: int = True
 
+Why?
+----
+* Good IDE will highlight, incorrect types
+
+.. code-block:: python
+
+    def sum_numbers(a: int, b: float) -> int:
+        return int(a + b)
+
+
+    sumuj_liczby(1, 2.5)
+    sumuj_liczby('a', 'b')
+
 More advanced topics
 --------------------
 .. note:: The topic will be continued in chapter: :ref:`Software Engineering Conventions`

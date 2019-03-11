@@ -26,7 +26,6 @@ j = j.strip().replace('\t', ' ')
 k = k.upper().replace('UL.', '').replace('\n', '').title().replace('Iii', 'III')
 
 
-expected = 'Jana III Sobieskiego'
 print(f'{a == expected}\t a: "{a}"')
 print(f'{b == expected}\t b: "{b}"')
 print(f'{c == expected}\t c: "{c}"')

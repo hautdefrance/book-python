@@ -56,29 +56,35 @@ Getting elements
 .. code-block:: python
 
     DATA = [
-        {'first_name': 'Max'},
-        {'first_name': 'José', 'last_name': 'Jiménez'},
-        {'first_name': 'Иван', 'tags': ['astronaut', 'roscosmos', 'space']},
+        {'species': 'setosa'},
+        {'sepal_length': 4.7, 'sepal_width': 3.2, 'species': 'setosa'},
+        {'sepal_length': 7.0, 'sepal_width': 3.2, 'petal_length': 4.7, 'petal_width': 1.4, 'species': 'versicolor'},
+        {'species': 'virginica', 'measurements': [7.6, 3.0, 6.6, 2.1]},
     ]
 
-    DATA[0]                            # {'first_name': 'Max'}
-    DATA[0]['last_name']               # KeyError: 'last_name'
-    DATA[0].get('tags', 'n/a')         # 'n/a'
-    DATA[2].get('tags')                # ['astronaut', 'roscosmos', 'space']
-    DATA[2].get('tags')[1]             # 'roscosmos'
+    DATA[0]                             # {'species': 'setosa'}
+    DATA[0]['measurements']             # KeyError: 'measurements'
+    DATA[0].get('measurements', 'n/a')  # 'n/a'
+    DATA[3].get('measurements')         # [7.6, 3.0, 6.6, 2.1]
+    DATA[3].get('measurements')[1]      # 3.0
 
 Length
 ------
 .. code-block:: python
 
     DATA = [
-        {'first_name': 'Max'},
-        {'first_name': 'José', 'last_name': 'Jiménez'},
-        {'first_name': 'Иван', 'tags': ['astronaut', 'roscosmos', 'space']},
+        {'species': 'setosa'},
+        {'sepal_length': 4.7, 'sepal_width': 3.2, 'species': 'setosa'},
+        {'sepal_length': 7.0, 'sepal_width': 3.2, 'petal_length': 4.7, 'petal_width': 1.4, 'species': 'versicolor'},
+        {'species': 'virginica', 'measurements': [7.6, 3.0, 6.6, 2.1]},
     ]
 
-    len(DATA)     # 3
-    len(DATA[2])  # 2
+    len(DATA)                     # 4
+    len(DATA[0])                  # 1
+    len(DATA[1])                  # 3
+    len(DATA[2])                  # 5
+    len(DATA[3])                  # 2
+    len(DATA[3]['measurements'])  # 4
 
 
 ``list`` of ``list``
@@ -136,31 +142,37 @@ Length
 
 Mixed types
 ===========
+
+Getting elements
+----------------
 .. code-block:: python
 
     DATA = [
         [1, 2, 3],
         (4, 5, 6),
         {7, 8, 9},
-        {'first_name': 'Jan', 'last_name': 'Twardowski'}
+        {'species': 'virginica', 'measurements': [7.6, 3.0, 6.6, 2.1]}
     ]
 
     DATA[1][2]                # 6
-    DATA[3]['last_name']      # 'Twardowski'
-    DATA[3].get('last_name')  # 'Twardowski'
+    DATA[3]['species']        # 'virginica'
+    DATA[3].get('species')    # 'virginica'
 
+Length
+------
 .. code-block:: python
 
     DATA = [
         [1, 2, 3],
         (4, 5, 6),
         {7, 8, 9},
-        {'first_name': 'Jan', 'last_name': 'Twardowski'}
+        {'species': 'virginica', 'measurements': [7.6, 3.0, 6.6, 2.1]}
     ]
 
-    len(DATA)     # 4
-    len(DATA[2])  # 3
-    len(DATA[3])  # 2
+    len(DATA)                     # 4
+    len(DATA[0])                  # 3
+    len(DATA[3])                  # 2
+    len(DATA[3]['measurements'])  # 4
 
 
 Assignments
