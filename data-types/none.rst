@@ -18,12 +18,25 @@ Defining ``None``
     my_var = None
 
 
+Logic operators
+===============
+* Do not use ``==`` or ``!=`` to check ``None`` values
+
+.. csv-table:: Logic operators
+    :header-rows: 1
+    :widths: 15, 25, 60
+
+    "Operand", "Example", "Description"
+    "``x is y``", "``x is None``", "``x`` is the same object as ``y``"
+    "``x is not y``", "``x is not None``", "``x`` is not the same object as ``y``"
+
+
 Assignments
 ===========
 
 To ``bool`` or not to ``bool``
 ------------------------------
-* Filename: ``types_bool.py``
+* Filename: ``types_none.py``
 * Lines of code to write: 15 lines
 * Estimated time of completion: 10 min
 

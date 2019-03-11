@@ -1,9 +1,42 @@
+m = 1337
+km = int(m / 1000)
+mi = float(m / 1608)
+nm = float(m / 1852)
 
-#
-#
-#
-#
-#
+
+name = 'Ania'
+NAME = 'kasia'
+
+NAME = name
+
+
+print(f'Meters: {m}')                              # int
+print(f'Kilometers: {km}')                          # int
+print(f'Miles: {mi}')                               # float
+print(f'Nautical Miles: {nm}')                      # float
+print(f'm: {m}, km: {km}, mi: {mi}, nm: {nm}')  # int, int, float, float
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# https://www.ventusky.com/krakow
+
+
 # from random import randint
 #
 # STATUS_DEAD = 'dead'

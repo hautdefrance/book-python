@@ -119,8 +119,6 @@ Logic operators
     "``x >= y``", "``x >= 18``", "value of ``x`` is greater or equal than ``y``"
     "``x == y``", "``x == 18``", "value of ``x`` is equal to ``y``"
     "``x != y``", "``x != 18``", "value of ``x`` is not equal to ``y``"
-    "``x is y``", "``x is None``", "``x`` is the same object as ``y``"
-    "``x is not y``", "``x is not None``", "``x`` is not the same object as ``y``"
 
 
 Assignments
@@ -128,7 +126,7 @@ Assignments
 
 ``True`` of ``False``
 ---------------------
-* Filename: ``types_bool_or_none.py``
+* Filename: ``types_bool.py``
 * Lines of code to write: 10 lines
 * Estimated time of completion: 5 min
 
