@@ -4,7 +4,7 @@ report_card = []
 
 i = 0
 
-while i < len(ALLOWED_GRADES):
+while i < len(ALLOWED_GRADES_OLD):
     grade = ALLOWED_GRADES_OLD[i]
     ALLOWED_GRADES.append(float(grade))
     i += 1

@@ -48,6 +48,31 @@ Complex expressions
         print('Your name is different')
 
 
+Good practice
+=============
+
+Complex conditions
+------------------
+.. code-block:: python
+
+    for line in file:
+        if line and not line.startswith('#') and not line.isspace():
+            ...
+
+Defining exit conditions first
+------------------------------
+.. code-block:: python
+
+    for line in file:
+        if line.startswith('#'):
+            continue
+
+        if line.isspace():
+            continue
+
+        ...
+
+
 Control Statements
 ==================
 

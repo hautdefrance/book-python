@@ -148,16 +148,16 @@ Create ``dict`` from two ``list``
 ---------------------------------
 .. code-block:: python
 
-    klucze = ['a', 'b', 'c', 'd']
-    wartosci = [1, 2, 3, 4]
+    keys = ['a', 'b', 'c', 'd']
+    values = [1, 2, 3, 4]
     output = {}
 
-    for i, _ in enumerate(klucze):
-        key = klucze[i]
-        value = wartosci[i]
-
+    for i, element in enumerate(keys):
+        key = keys[i]
+        value = values[i]
         output[key] = value
 
+    print(output)
     # {
     #     'a': 1,
     #     'b': 2,
@@ -236,6 +236,7 @@ Get elements from nested data structure
 * Estimated time of completion: 10 min
 
 #. Na podstawie ``DATA`` z :numref:`listing-for-elements-fom-nested`
+#. Po odrzuceniu nagłówka iteruj po danych
 #. Wyświetl na ekranie nazwy gatunków zaczynające się na "v".
 
 .. code-block:: python

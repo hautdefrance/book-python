@@ -187,7 +187,7 @@ Conditioning on user input
 * Estimated time of completion: 5 min
 
 #. Napisz program, który poprosi użytkownika o wiek
-#. Użytkownik będzie podawał tylko i wyłącznie ``int`` lub ``float``
+#. Użytkownik będzie podawał ``int`` lub ``float``, nie będzie próbował podawać niepoprawnych typów, np. ``str`` albo ``float`` z przecinkiem zamiast kropki
 #. Następnie sprawdzi pełnoletność i wyświetli informację czy osoba jest "dorosła" czy "niepełnoletnia"
 
 :The whys and wherefores:

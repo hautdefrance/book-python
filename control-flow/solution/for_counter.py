@@ -13,6 +13,4 @@ for digit in DATA:
     else:
         counter[digit] += 1
 
-
-counter = dict(sorted(counter.items()))
 print(counter)

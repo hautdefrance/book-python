@@ -3,16 +3,27 @@ While loop
 **********
 
 
-Declaration
-===========
+Syntax
+======
 * Continue execution when argument is ``True``
+
+Generic syntax
+--------------
+.. code-block:: python
+    :caption: ``while`` loop generic syntax
+
+    while CONDITION:
+        ...
+
+Example
+=======
 
 Never ending loop
 -----------------
 .. code-block:: python
 
     while True:
-        pass
+        print('hello')
 
 Stop conditions
 ---------------
@@ -20,16 +31,27 @@ Stop conditions
 
     i = 0
 
-    while i <= 5:
+    while i <= 3:
         print(i)
         i += 1
 
     # 0
     # 1
     # 2
+
+.. code-block:: python
+
+    i = 0
+    numbers = [1, 2, 3]
+
+    while i <= len(numbers):
+        current = numbers[i]
+        print(current)
+        i += 1
+
+    # 1
+    # 2
     # 3
-    # 4
-    # 5
 
 Exit flag
 ---------
@@ -91,11 +113,14 @@ Report card
 * Estimated time of completion: 10 min
 
 #. Do zmiennej zapisz skalę ocen ``(2, 3, 3.5, 4, 4.5, 5)``
-#. Za pomocą pętli przekonwertuj skalę na ``List[float]``
-#. Użytkownik podaje oceny jako ``int`` lub ``float`` (nie będzie próbował psuć)
-#. Jeżeli ocena jest na liście dopuszczalnych ocen, dodaj ją do dzienniczka
+#. Za pomocą pętli ``while`` przekonwertuj skalę na zmienną typu ``List[float]``
+#. Użytkownik podaje oceny jako ``int`` lub ``float``, nie będzie próbował podawać niepoprawnych typów, np. ``str`` albo ``float`` z przecinkiem zamiast kropki
 #. Jeżeli wciśnięto sam Enter, zakończ wpisywanie do dzienniczka
-#. Jeżeli wpisano cyfrę nie znajdującą się na liście dopuszczalnych ocen, wyświetl informację "Grade is not allowed" i dalej kontynuuj wpisywanie
+#. Jeżeli ocena na liście dopuszczalnych ocen:
+
+    - Jest: dodaj ją do dzienniczka
+    - Nie ma: wyświetl informację "Grade is not allowed" i dalej kontynuuj wpisywanie
+
 #. Na zakończenie wyświetl wyliczoną dla dzienniczka średnią arytmetyczną z ocen
 
 :The whys and wherefores:

@@ -33,6 +33,11 @@ Many element ``list``
 
     my_list = [1, 2.0, None, False, 'José']
 
+.. code-block:: python
+
+    alphabet = list('ABCDE')
+    # ['A', 'B', 'C', 'D', 'E']
+
 Nested ``list``
 ---------------
 .. code-block:: python

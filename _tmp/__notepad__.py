@@ -2,34 +2,6 @@
 
 
 
-
-print(flush=1)
-
-def sumuj_liczby(a: int, b: float) -> int:
-    return int(a + b)
-
-
-sumuj_liczby(1, 2)
-sumuj_liczby('a', 'b')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # https://www.ventusky.com/krakow
 
 
