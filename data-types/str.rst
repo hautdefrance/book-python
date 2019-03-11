@@ -227,12 +227,14 @@ String immutability
 
 String Arithmetic
 -----------------
+* Preferred string concatenation is using ``f-string`` formatting
+
 .. code-block:: python
 
     first_name = 'Jan'
     last_name = 'Twardowski'
 
-    name = first_name + last_name
+    name = first_name + ' ' + last_name
     # Jan Twardowski
 
 .. code-block:: python
@@ -246,10 +248,10 @@ String Arithmetic
 
 .. code-block:: python
 
-    name = 'pAn TwARDowSKi III'
+    name = 'jAn TwARDowSKi III'
 
-    name.upper()       # 'PAN TWARDOWSKI III'
-    name.lower()       # 'pan twardowski iii'
+    name.upper()       # 'JAN TWARDOWSKI III'
+    name.lower()       # 'jan twardowski iii'
     name.title()       # 'Jan Twardowski Iii'
     name.capitalize()  # 'Jan twardowski iii'
 
@@ -287,9 +289,19 @@ String Arithmetic
 ---------------
 .. code-block:: python
 
+    setosa = '5.1,3.5,1.4,0.2,setosa'
+
+    setosa.split(',')
+    # ['5.1', '3.5', '1.4', '0.2', 'setosa']
+
+.. code-block:: python
+
     text = 'We choose to go to the Moon'
 
     text.split()
+    # ['We', 'choose', 'to', 'go', 'to', 'the', 'Moon']
+
+    text.split(' ')
     # ['We', 'choose', 'to', 'go', 'to', 'the', 'Moon']
 
 .. code-block:: python
@@ -301,13 +313,6 @@ String Arithmetic
 
     text.split()
     # ['10.13.37.1', 'nasa.gov', 'esa.int', 'roscosmos.ru']
-
-.. code-block:: python
-
-    setosa = '5.1,3.5,1.4,0.2,setosa'
-
-    setosa.split(',')
-    # ['5.1', '3.5', '1.4', '0.2', 'setosa']
 
 ``str.join()``
 --------------

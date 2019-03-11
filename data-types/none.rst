@@ -34,39 +34,30 @@ Logic operators
 Assignments
 ===========
 
-To ``bool`` or not to ``bool``
-------------------------------
-* Filename: ``types_none.py``
-* Lines of code to write: 15 lines
-* Estimated time of completion: 10 min
+Is ``None`` or ``not``
+---------------------
+* Filename: ``types_bool.py``
+* Lines of code to write: 10 lines
+* Estimated time of completion: 5 min
 
-#. Wprowadzono zmienne:
+#. Co należy podstawić do zmiennych aby wyrażenia poniżej zgadzały się z wartością oczekiwaną?
 
-    .. code-block:: python
+.. code-block:: python
 
-        a = False
-        b = True
-        c = None
+        a = ... is None                                                                       # True
+        b = ... is not None                                                                   # False
+        c = bool(bool(...) is not bool(...)) == False                                         # True
+        d = (bool(bool(...) is not bool(...)) == False and bool(...))                         # False
+        e = (bool(bool(...) is not bool(...)) == False and bool(...)) and (... is not None)   # False
 
-        d = 'a'
-        e = '.'
-        f = '0'
-        g = '0.0'
-        h = ''
-        i = ' '
-
-        j = 0
-        k = 0.0
-        l = -0
-        m = -0.0+0.0j
-
-        n = int('0')
-        o = float('-0')
-
-#. Które zmienne mają wartość ``True``, ``None``, ``False``?
-#. Czym się różni ``None`` od ``False``?
+        print(a)  # True
+        print(b)  # False
+        print(c)  # True
+        print(d)  # False
+        print(e)  # False
 
 :The whys and wherefores:
     * Definiowanie zmiennych
     * Konwersja typów
     * Typy logiczne
+

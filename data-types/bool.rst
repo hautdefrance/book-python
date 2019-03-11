@@ -124,6 +124,42 @@ Logic operators
 Assignments
 ===========
 
+To ``bool`` or not to ``bool``
+------------------------------
+* Filename: ``types_bool_imple.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 10 min
+
+#. Wprowadzono zmienne:
+
+    .. code-block:: python
+
+        a = bool(False)
+        b = bool(True)
+
+        c = bool('a')
+        d = bool('.')
+        e = bool('0')
+        f = bool('0.0')
+        g = bool('')
+        h = bool(' ')
+
+        i = bool(0)
+        j = bool(0.0)
+        k = bool(-0)
+        l = bool(-0.0+0.0j)
+        l = bool('-0.0+0.0j')
+
+        m = bool(int('0'))
+        n = bool(float('-0'))
+
+#. Które zmienne mają wartość ``True``, ``False``?
+
+:The whys and wherefores:
+    * Definiowanie zmiennych
+    * Konwersja typów
+    * Typy logiczne
+
 ``True`` of ``False``
 ---------------------
 * Filename: ``types_bool.py``
@@ -134,42 +170,25 @@ Assignments
 
     .. code-block:: python
 
-        a = bool(...) == True                          # True
-        b = bool(...) == False                         # True
-        c = ... == True                                # True
-        d = ... != False                               # True
-        e = ... or ...                                 # True
-        f = ... and ...                                # False
-        g = bool(bool(...) == False) or False          # True
-        h = ... is None                                # True
-        i = ... is not None                            # False
-        j = bool(...) is not bool(...)                 # False
+        a = bool(...) == True                   # True
+        b = bool(...) == False                  # True
+        c = ... == True                         # True
+        d = ... != False                        # True
+        e = ... or ...                          # True
+        f = ... and ...                         # False
+        g = bool(bool(...) == False) or False   # True
+        h = bool(...) is not bool(...)          # False
 
-        print(a)  # True
-        print(b)  # True
-        print(c)  # True
-        print(d)  # True
-        print(e)  # True
-        print(f)  # False
-        print(g)  # True
-        print(h)  # True
-        print(i)  # False
-        print(j)  # False
-
-#. Zadanie dla chętnych:
-
-    .. code-block:: python
-
-        k = bool(bool(...) is not bool(...)) == False  # True
-        l = (bool(bool(...) is not bool(...)) == False and bool(...))   # False
-        m = (bool(bool(...) is not bool(...)) == False and bool(...)) and (... is not None)   # False
-
-        print(k)  # True
-        print(l)  # False
-        print(m)  # False
+        print(a)                                # True
+        print(b)                                # True
+        print(c)                                # True
+        print(d)                                # True
+        print(e)                                # True
+        print(f)                                # False
+        print(g)                                # True
+        print(i)                                # False
 
 :The whys and wherefores:
     * Definiowanie zmiennych
     * Konwersja typów
     * Typy logiczne
-

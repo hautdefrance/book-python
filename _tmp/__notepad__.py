@@ -1,24 +1,31 @@
-m = 1337
-km = int(m / 1000)
-mi = float(m / 1608)
-nm = float(m / 1852)
+expected = 'Jana III Sobieskiego'
+
+a = '  Jana III Sobieskiego '
+b = 'ul Jana III SobIESkiego'
+c = '\tul. Jana trzeciego Sobieskiego'
+d = 'ulicaJana III Sobieskiego'
+e = 'UL. JA\tNA 3 SOBIES\tKIEGO'
+f = 'UL. jana III SOBiesKIEGO'
+g = 'ULICA JANA III SOBIESKIEGO  '
+h = 'ULICA. JANA III SOBIeskieGO'
+i = ' Jana 3 Sobieskiego  '
+j = 'Jana III\tSobieskiego '
+k = 'ul.Jana III Sob\n\nieskiego\n'
+
+a = a.strip()
 
 
-name = 'Ania'
-NAME = 'kasia'
-
-NAME = name
-
-
-print(f'Meters: {m}')                              # int
-print(f'Kilometers: {km}')                          # int
-print(f'Miles: {mi}')                               # float
-print(f'Nautical Miles: {nm}')                      # float
-print(f'm: {m}, km: {km}, mi: {mi}, nm: {nm}')  # int, int, float, float
-
-
-
-
+print(f'{a == expected}\t a: "{a}"')
+print(f'{b == expected}\t b: "{b}"')
+print(f'{c == expected}\t c: "{c}"')
+print(f'{d == expected}\t d: "{d}"')
+print(f'{e == expected}\t e: "{e}"')
+print(f'{f == expected}\t f: "{f}"')
+print(f'{g == expected}\t g: "{g}"')
+print(f'{h == expected}\t h: "{h}"')
+print(f'{i == expected}\t i: "{i}"')
+print(f'{j == expected}\t j: "{j}"')
+print(f'{k == expected}\t k: "{k}"')
 
 
 
