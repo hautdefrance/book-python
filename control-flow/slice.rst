@@ -131,6 +131,22 @@ Reversing
 Assignments
 ===========
 
+Simple collections
+------------------
+* Filename: ``slice_every_nth.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 5 min
+
+#. Stwórz ``a: tuple`` z cyframi 0, 1, 2, 3
+#. Stwórz ``b: list`` z cyframi 2, 3, 4, 5
+#. Stwórz ``c: set``, który będzie zawierał co drugie elementy z ``a`` i ``b``
+#. Wyświetl ``c`` na ekranie
+
+:The whys and wherefores:
+    * Definiowanie i korzystanie z ``list``, ``tuple``, ``set``
+    * Slice zbiorów danych
+    * Rzutowanie i konwersja typów
+
 Slicing text
 ------------
 * Filename: ``slice_text.py``

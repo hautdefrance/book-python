@@ -110,22 +110,6 @@ More advanced topics
 Assignments
 ===========
 
-Simple collections
-------------------
-* Filename: ``sequences_simple.py``
-* Lines of code to write: 5 lines
-* Estimated time of completion: 5 min
-
-#. Stwórz ``a: tuple`` z cyframi 0, 1, 2, 3
-#. Stwórz ``b: list`` z cyframi 2, 3, 4, 5
-#. Stwórz ``c: set``, który będzie zawierał co drugie elementy z ``a`` i ``b``
-#. Wyświetl ``c`` na ekranie
-
-:The whys and wherefores:
-    * Definiowanie i korzystanie z ``list``, ``tuple``, ``set``
-    * Slice zbiorów danych
-    * Rzutowanie i konwersja typów
-
 Iris dataset
 ------------
 * Filename: ``unpacking_iris.py``
@@ -158,7 +142,7 @@ Iris dataset
             (4.7, 3.2, 1.3, 0.2),
         ]
 
-#. Za pomocą slice wyodrębnij zmienną ``labels: List[str]``, która będzie zawierała w kolejności wszystkie nazwy gatunków
+#. Za pomocą slice (co piąty element) wyodrębnij zmienną ``labels: List[str]``, która będzie zawierała w kolejności wszystkie nazwy gatunków:
 
     .. code-block:: python
 
