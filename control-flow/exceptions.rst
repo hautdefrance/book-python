@@ -24,6 +24,8 @@ AttributeError
 * Attribute reference or assignment fails
 
 .. code-block:: python
+    :caption: ``AttributeError`` exception
+    :emphasize-lines: 3
 
     name = 'Jose'
 
@@ -35,6 +37,7 @@ ImportError, ModuleNotFoundError
 * Module could not be located
 
 .. code-block:: python
+    :caption: ``ModuleNotFoundError`` exception
     :emphasize-lines: 2
 
     import math
@@ -46,6 +49,8 @@ IndexError
 * Sequence subscript is out of range
 
 .. code-block:: python
+    :caption: ``IndexError`` exception
+    :emphasize-lines: 3
 
     DATA = ['a', 'b', 'c']
 
@@ -57,6 +62,8 @@ KeyError
 * Dictionary key is not found
 
 .. code-block:: python
+    :caption: ``KeyError`` exception
+    :emphasize-lines: 3
 
     DATA = {'a': 1, 'b': 2}
 
@@ -68,6 +75,8 @@ NameError
 * Local or global name is not found
 
 .. code-block:: python
+    :caption: ``KeyError`` exception
+    :emphasize-lines: 1
 
     print(first_name)
     # NameError: name 'first_name' is not defined
@@ -77,6 +86,7 @@ SyntaxError
 * Parser encounters a syntax error
 
 .. code-block:: python
+    :caption: ``SyntaxError`` exception
     :emphasize-lines: 1
 
     if True
@@ -89,6 +99,7 @@ IndentationError
 * Syntax errors related to incorrect indentation
 
 .. code-block:: python
+    :caption: ``IndentationError`` exception
     :emphasize-lines: 3
 
     if True:
@@ -103,6 +114,8 @@ TypeError
 * Operation or function is applied to an object of inappropriate type
 
 .. code-block:: python
+    :caption: ``TypeError`` exception
+    :emphasize-lines: 2
 
     42 + 'Jose'
     # TypeError: unsupported operand type(s) for +: 'int' and 'str'
@@ -112,6 +125,8 @@ ValueError
 * Argument is right type but an inappropriate value
 
 .. code-block:: python
+    :caption: ``ValueError`` exception
+    :emphasize-lines: 1
 
     float('hello')
     # ValueError: could not convert string to float: 'hello'
@@ -120,16 +135,17 @@ ValueError
 Raising exceptions
 ==================
 
-Simple Exception
-----------------
+Raise Exception without message
+-------------------------------
 .. code-block:: python
+    :caption: Raise Exception without message
 
     raise RuntimeError
 
 Exception with additional message
 ---------------------------------
-
 .. code-block:: python
+    :caption: Exception with additional message
 
     raise RuntimeError('Some message')
 
