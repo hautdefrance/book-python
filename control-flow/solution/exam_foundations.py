@@ -58,7 +58,7 @@ for line in etc_groups:
         continue
 
     record = line.split(':')
-    groupname = record[0]
+    group_name = record[0]
     members = record[3].split(',')
 
     if members == ['']:
@@ -68,7 +68,7 @@ for line in etc_groups:
         if member not in output_groups.keys():
             output_groups[member] = set()
 
-        output_groups[member].add(groupname)
+        output_groups[member].add(group_name)
 
 
 for line in etc_shadow:
