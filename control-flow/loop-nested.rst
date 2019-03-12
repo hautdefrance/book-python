@@ -6,6 +6,7 @@ Loops and nested objects
 Iterating over nested ``list`` items
 ====================================
 .. code-block:: python
+    :caption: Iterating over nested ``list`` items
 
     DATA = [1, 2, 3]
 
@@ -17,6 +18,7 @@ Iterating over nested ``list`` items
     # 3
 
 .. code-block:: python
+    :caption: Iterating over nested ``list`` items
 
     DATA = [(...), (...), (...)]
 
@@ -28,6 +30,7 @@ Iterating over nested ``list`` items
     # (...)
 
 .. code-block:: python
+    :caption: Iterating over nested ``list`` items
 
     DATA = [
         (5.1, 3.5, 1.4, 0.2, 'setosa'),
@@ -45,6 +48,7 @@ Iterating over nested ``list`` items
 Unpacking values in loop
 ========================
 .. code-block:: python
+    :caption: Unpacking values in loop
 
     a, b = 'a', 0
     a, b = ('a', 0)
@@ -53,6 +57,7 @@ Unpacking values in loop
     sepal_len, sepal_wid, petal_len, petal_wid, species = (5.1, 3.5, 1.4, 0.2, 'setosa')
 
 .. code-block:: python
+    :caption: Unpacking values in loop
 
     DATA = [
         ('a', 0),
@@ -68,6 +73,7 @@ Unpacking values in loop
     # c -> 2
 
 .. code-block:: python
+    :caption: Unpacking values in loop
 
     DATA = [
         (0, 1),
@@ -83,6 +89,7 @@ Unpacking values in loop
     # locations -> ['CapeCanaveral', 'Houston']
 
 .. code-block:: python
+    :caption: Unpacking values in loop
 
     DATA = [
         (5.1, 3.5, 1.4, 0.2, 'setosa'),
@@ -102,6 +109,7 @@ Unpacking values in loop
 Enumerating and item index
 ==========================
 .. code-block:: python
+    :caption: Enumerating and item index
 
     DATA = [
         (5.1, 3.5, 1.4, 0.2, 'setosa'),
@@ -121,6 +129,7 @@ Enumerating and item index
 
 
 .. code-block:: python
+    :caption: Enumerating and item index
 
     DATA = [
         (5.1, 3.5, 1.4, 0.2, 'setosa'),
@@ -143,6 +152,7 @@ Iterating over ``dict`` items
 Iterating over ``dict`` values
 ------------------------------
 .. code-block:: python
+    :caption: Iterating over ``dict`` items
 
     DATA = {
         'Sepal length': 5.1,
@@ -167,6 +177,7 @@ Iterating over ``dict`` values
 Iterating over ``dict`` keys
 ----------------------------
 .. code-block:: python
+    :caption: Iterating over ``dict`` items
 
     DATA = {
         'Sepal length': 5.1,
@@ -191,6 +202,7 @@ Iterating over ``dict`` keys
 By default ``dict`` iterates over keys
 --------------------------------------
 .. code-block:: python
+    :caption: By default ``dict`` iterates over keys
 
     DATA = {
         'Sepal length': 5.1,
@@ -212,6 +224,7 @@ By default ``dict`` iterates over keys
 Getting pair: ``key``, ``value`` from ``dict`` items
 ----------------------------------------------------
 .. code-block:: python
+    :caption: Getting pair: ``key``, ``value`` from ``dict`` items
 
     DATA = {
         'Sepal length': 5.1,
@@ -243,6 +256,7 @@ Getting pair: ``key``, ``value`` from ``dict`` items
 ``list`` of ``dict``
 --------------------
 .. code-block:: python
+    :caption: ``list`` of ``dict``
 
     DATA = [
         {'Sepal length': 5.1, 'Sepal width': 3.5, 'Petal length': 1.4, 'Petal width': 0.2, 'Species': 'setosa'},
@@ -261,6 +275,7 @@ Getting pair: ``key``, ``value`` from ``dict`` items
 Iterating complex types
 =======================
 .. code-block:: python
+    :caption: Iterating over ``list`` with scalar and vector values - simple loop
 
     DATA = ['Max', ('1.0', 'José'), 3, 2.8, {True, None, False}]
 
@@ -274,6 +289,7 @@ Iterating complex types
     # value: "{False, True, None}"
 
 .. code-block:: python
+    :caption: Iterating over ``list`` with scalar and vector values - nested loop
 
     DATA = ['Max', ('1.0', 'José'), 3, 2.8, {True, None, False}]
 
@@ -289,6 +305,7 @@ Iterating complex types
     # TypeError: 'int' object is not iterable
 
 .. code-block:: python
+    :caption: Iterating over ``list`` with scalar and vector values - smart loop
 
     DATA = ['Max', ('1.0', 'José'), 3, 2.8, {True, None, False}]
 
@@ -318,6 +335,7 @@ Unique keys from schema-less database
 * Filename: ``loop_unique_keys.py``
 * Lines of code to write: 5 lines
 * Estimated time of completion: 5 min
+* Input data: :numref:`listing-loops-unique-keys`
 
 #. Mając bazę danych z listingu poniżej
 #. Iteruj po rekordach w bazie danych
@@ -325,6 +343,8 @@ Unique keys from schema-less database
 #. Wygeneruj listę unikalnych kluczy
 
 .. code-block:: python
+    :name: listing-loops-unique-keys
+    :caption: Unique keys from schema-less database
 
     DATA = [
         {'Sepal length': 5.1, 'Sepal width': 3.5, 'Species': 'setosa'},
@@ -347,9 +367,14 @@ Label encoder
 * Filename: ``loop_label_encoder.py``
 * Lines of code to write: 13 lines
 * Estimated time of completion: 15 min
+* Input data: :numref:`listing-loops-iris-sample`
 
-#. Dany jest zbiór pomiarów Irysów :numref:`listing-loops-iris-sample`
-#. Ze zbioru wyodrębnij dane odrzucając nagłówek
+.. literalinclude:: src/loops-iris-sample.py
+    :name: listing-loops-iris-sample
+    :language: python
+    :caption: Sample Iris databases
+
+#. Ze zbioru :numref:`listing-loops-iris-sample` wyodrębnij dane odrzucając nagłówek
 #. Z danych wyodrębnij:
 
     * cechy opisujące: ``features: List[Tuple[float]]``
@@ -358,6 +383,7 @@ Label encoder
 #. Przykład danych wyodrębnionych:
 
     .. code-block:: python
+        :caption: Przykład danych wyodrębnionych
 
         features = [
             (5.8, 2.7, 5.1, 1.9),
@@ -374,6 +400,7 @@ Label encoder
 #. Przykład słownika ``species``:
 
     .. code-block:: python
+        :caption: Przykład słownika ``species``
 
         species = {
             0: 'virginica',
@@ -401,8 +428,3 @@ Label encoder
     * Sprawdzanie występowania elementów w słowniku
     * Generowanie słownika i listy na podstawie innych danych
     * Odwracanie słownika
-
-.. literalinclude:: src/loops-iris-sample.py
-    :name: listing-loops-iris-sample
-    :language: python
-    :caption: Sample Iris databases

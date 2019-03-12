@@ -1,4 +1,16 @@
 
+DATA = {
+    'Sepal length': 5.1,
+    'Sepal width': 3.5,
+    'Petal length': 1.4,
+    'Petal width': 0.2,
+    'Species': 'setosa',
+}
+
+if 'Species' in DATA.ke:
+
+
+
 
 
 

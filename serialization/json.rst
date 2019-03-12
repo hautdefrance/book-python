@@ -8,7 +8,7 @@ JSON syntax
 Format JSON jest podobny do zapisu dict w Python, ale różni się:
 
     * nie może być przecinka po ostatnim elemencie list
-    * zawsze są stosowane podwójne cudzysłowia
+    * zawsze stosowany jest podwójny cudzysłów
     * ``true`` i ``false`` jest pisane małymi literami
     * zamiast ``None`` jest ``null``
 
@@ -16,18 +16,18 @@ Format JSON jest podobny do zapisu dict w Python, ale różni się:
 JSON Serialization of simple objects
 ====================================
 
-Serializing to JSON
--------------------
+Serialize to JSON
+-----------------
 .. literalinclude:: src/json-simple-dumps.py
     :language: python
     :caption: Serializing to JSON
 
 
-Deserializing from JSON
------------------------
+Deserialize from JSON
+---------------------
 .. literalinclude:: src/json-simple-loads.py
     :language: python
-    :caption: Deserializing from JSON
+    :caption: Deserialize from JSON
 
 
 Serializing ``datetime`` and ``date``
@@ -213,7 +213,7 @@ Iris deserialize
 
 Date serialization
 ------------------
-* Filename: ``json_datetimes.py``
+* Filename: ``json_datetime.py``
 * Lines of code to write: 10 lines
 * Estimated time of completion: 15 min
 
