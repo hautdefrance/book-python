@@ -23,37 +23,28 @@ DATA = [
     (4.6, 3.1, 1.5, 0.2, 'setosa'),
 ]
 
-species = dict()
-labels = list()
-features = list()
-
 header = DATA[0]
 data = DATA[1:]
 
+features = []
+labels = []
+species = {}
 
-for record in data:
-    measurements = record[:4]
-    name = record[4]
+for *pomiary, gatunek in data:
+    if gatunek not in species:
+        species[gatunek] = len(species)
 
-    if name not in species.keys():
-        # dict[key] = value
-        species[name] = len(species)
-
-    features.append(measurements)
-    labels.append(species[name])
-
-# species = {value: key for key, value in species.items()}
-species_clean = {}
-for key, value in species.items():
-    species_clean[value] = key
-species = species_clean
+    features.append(tuple(pomiary))
+    labels.append(species[gatunek])
 
 
-print(species)
-# {0: 'virginica', 1: 'setosa', 2: 'versicolor'}
-
-print(labels)
-# [0, 1, 2, 0, 2, 1, 2, 0, 1, 0, 0, 1, 1, 2, 1, 2, 0, 2, 0, 2, 1]
+# temp_species = {}
+#
+# for key, value in species.items():
+#     temp_species[value] = key
+#
+# species = temp_species
+species = {v:k for k,v in species.items()}
 
 print(features)
 # [
@@ -61,6 +52,15 @@ print(features)
 #   (5.1, 3.5, 1.4, 0.2),
 #   (5.7, 2.8, 4.1, 1.3),
 #   (6.3, 2.9, 5.6, 1.8), ...]
+
+print(labels)
+# [0, 1, 2, 0, 2, 1, 2, 0, 1, 0, 0, 1, 1, 2, 1, 2, 0, 2, 0, 2, 1]
+
+print(species)
+# {0: 'virginica', 1: 'setosa', 2: 'versicolor'}
+
+
+
 
 
 ## Alternative solution 1

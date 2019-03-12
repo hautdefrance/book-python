@@ -11,6 +11,7 @@ Simple usage
 Traditional
 -----------
 .. code-block:: python
+    :caption: Iterative approach to applying function to elements
 
     numbers = []
 
@@ -22,32 +23,37 @@ Traditional
 List Comprehension
 ------------------
 .. code-block:: python
+    :caption: ``list`` Comprehension approach to applying function to elements
 
-    [x+10 for x in range(0, 5)]
+    numbers = [x+10 for x in range(0, 5)]
     # [10, 11, 12, 13, 14]
 
 Set Comprehension
 -----------------
 .. code-block:: python
+    :caption: ``set`` Comprehension approach to applying function to elements
 
-    {x+10 for x in range(0, 5)}
+    numbers = {x+10 for x in range(0, 5)}
     # {10, 11, 12, 13, 14}
 
 Dict Comprehension
 ------------------
 .. code-block:: python
+    :caption: ``dict`` Comprehension approach to applying function to elements
 
-    {x: x+10 for x in range(0, 5)}
+    numbers = {x: x+10 for x in range(0, 5)}
     # {0:10, 1:11, 2:12, 3:13, 4:14}
 
 .. code-block:: python
+    :caption: ``dict`` Comprehension approach to applying function to elements
 
-    {x+10: x for x in range(0, 5)}
+    numbers = {x+10: x for x in range(0, 5)}
     # {10:0, 11:1, 12:2, 13:3, 14:4}
 
 .. code-block:: python
+    :caption: ``dict`` Comprehension approach to applying function to elements
 
-    {x+10: x+10 for x in range(0, 5)}
+    numbers = {x+10: x+10 for x in range(0, 5)}
     # {10:10, 11:11, 12:12, 13:13, 14:14}
 
 Tuple Comprehension?!
@@ -56,8 +62,9 @@ Tuple Comprehension?!
 * More in chapter :ref:`Generators and Comprehensions`
 
 .. code-block:: python
+    :caption: Generator Expression approach to applying function to elements
 
-    (x+10 for x in range(0, 5))
+    numbers = (x+10 for x in range(0, 5))
     # <generator object <genexpr> at 0x11eaef570>
 
 
@@ -67,6 +74,7 @@ Conditional Comprehension
 Traditional
 -----------
 .. code-block:: python
+    :caption: Iterative approach to applying function to selected elements
 
     even_numbers = []
 
@@ -80,6 +88,7 @@ Traditional
 Comprehensions
 --------------
 .. code-block:: python
+    :caption: ``list`` Comprehensions approach to applying function to selected elements
 
     even_numbers = [x for x in range(0, 10) if x % 2 == 0]
 
@@ -93,6 +102,7 @@ Why?
 Filtering results
 -----------------
 .. code-block:: python
+    :caption: Using ``list`` comprehension for result filtering
 
     DATA = [
         ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
@@ -105,7 +115,7 @@ Filtering results
         (7.0, 3.2, 4.7, 1.4, 'versicolor'),
     ]
 
-    [record for record in DATA if record[4] == 'setosa']
+    measurements = [record for record in DATA if record[4] == 'setosa']
     # [
     #   (5.1, 3.5, 1.4, 0.2, 'setosa'),
     #   (4.7, 3.2, 1.3, 0.2, 'setosa')
@@ -114,6 +124,7 @@ Filtering results
 Filtering with complex expressions
 ----------------------------------
 .. code-block:: python
+    :caption: Using ``list`` comprehension for result filtering with more complex expression
 
     DATA = [
         ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
@@ -134,25 +145,110 @@ Filtering with complex expressions
             return False
 
 
-    [record for record in DATA if is_setosa(record)]
+    measurements = [record for record in DATA if is_setosa(record)]
     # [
     #   (5.1, 3.5, 1.4, 0.2, 'setosa'),
     #   (4.7, 3.2, 1.3, 0.2, 'setosa')
     # ]
 
+Reversing ``dict`` keys with values
+-----------------------------------
+.. code-block:: python
+    :caption: Reversing ``dict`` keys with values
+
+    DATA = {'a': 1, 'b': 2}
+
+    DATA.items()
+    # [
+    #    ('a', 1),
+    #    ('b', 2),
+    # ]
+
+.. code-block:: python
+    :caption: Reversing ``dict`` keys with values
+
+    DATA = {'a': 1, 'b': 2}
+
+    {value: key for key, value in DATA.items()}
+    # {1:'a', 2:'b'}
+
+.. code-block:: python
+    :caption: Reversing ``dict`` keys with values
+
+    DATA = {'a': 1, 'b': 2}
+
+    {v:k for k,v in DATA.items()}
+    # {1:'a', 2:'b'}
+
+Value collision while reversing ``dict``
+----------------------------------------
+.. code-block:: python
+    :caption: Value collision while reversing ``dict``
+
+    DATA = {'a': 1, 'b': 2, 'c': 2}
+
+    {v:k for k,v in DATA.items()}
+    # {1:'a', 2:'c'}
+
+Quick parsing lines
+-------------------
+.. code-block:: python
+    :caption: Quick parsing lines
+
+    DATA = [
+        '5.8,2.7,5.1,1.9,virginica',
+        '5.1,3.5,1.4,0.2,setosa',
+        '5.7,2.8,4.1,1.3,versicolor',
+    ]
+
+    output = []
+
+    for row in DATA:
+        row = row.split(',')
+        output.append(row)
+
+
+    print(output)
+    # [
+    #   ['5.8', '2.7', '5.1', '1.9', 'virginica'],
+    #   ['5.1', '3.5', '1.4', '0.2', 'setosa'],
+    #   ['5.7', '2.8', '4.1', '1.3', 'versicolor']
+    # ]
+
+.. code-block:: python
+    :caption: Quick parsing lines
+
+    DATA = [
+        '5.8,2.7,5.1,1.9,virginica',
+        '5.1,3.5,1.4,0.2,setosa',
+        '5.7,2.8,4.1,1.3,versicolor',
+    ]
+
+    output = [row.split(',') for row in DATA]
+
+    print(output)
+    # [
+    #   ['5.8', '2.7', '5.1', '1.9', 'virginica'],
+    #   ['5.1', '3.5', '1.4', '0.2', 'setosa'],
+    #   ['5.7', '2.8', '4.1', '1.3', 'versicolor']
+    # ]
+
 Applying function to each output element
 ----------------------------------------
 .. code-block:: python
+    :caption: Applying function to each output element
 
-    [float(x) for x in range(0, 10)]
+    numbers = [float(x) for x in range(0, 10)]
 
 .. code-block:: python
+    :caption: Applying function to each output element
 
-    [float(x) for x in range(0, 10) if x % 2 == 0]
+    numbers = [float(x) for x in range(0, 10) if x % 2 == 0]
 
 Returning nested objects
 ------------------------
 .. code-block:: python
+    :caption: Returning nested objects
 
     def get_tuple(number):
         return number, number+10
@@ -167,6 +263,7 @@ Returning nested objects
     # ]
 
 .. code-block:: python
+    :caption: Returning nested objects
 
     def get_dict(number):
         if number % 2 == 0:
@@ -184,82 +281,6 @@ Returning nested objects
     #    {'number': 4, 'status': 'even'},
     # ]
 
-Reversing ``dict`` keys with values
------------------------------------
-.. code-block:: python
-
-    DATA = {'a': 1, 'b': 2}
-
-    DATA.items()
-    # [
-    #    ('a', 1),
-    #    ('b', 2),
-    # ]
-
-.. code-block:: python
-
-    DATA = {'a': 1, 'b': 2}
-
-    {value: key for key, value in DATA.items()}
-    # {1:'a', 2:'b'}
-
-.. code-block:: python
-
-    DATA = {'a': 1, 'b': 2}
-
-    {v:k for k,v in DATA.items()}
-    # {1:'a', 2:'b'}
-
-Value collision while reversing ``dict``
-----------------------------------------
-.. code-block:: python
-
-    DATA = {'a': 1, 'b': 2, 'c': 2}
-
-    {v:k for k,v in DATA.items()}
-    # {1:'a', 2:'c'}
-
-Quick parsing lines
--------------------
-.. code-block:: python
-
-    FILE = [
-        '5.8,2.7,5.1,1.9,virginica',
-        '5.1,3.5,1.4,0.2,setosa',
-        '5.7,2.8,4.1,1.3,versicolor',
-    ]
-
-    output = []
-
-    for line in FILE:
-        line = line.split(',')
-        output.append(line)
-
-
-    print(output)
-    # [
-    #   ['5.8', '2.7', '5.1', '1.9', 'virginica'],
-    #   ['5.1', '3.5', '1.4', '0.2', 'setosa'],
-    #   ['5.7', '2.8', '4.1', '1.3', 'versicolor']
-    # ]
-
-.. code-block:: python
-
-    FILE = [
-        '5.8,2.7,5.1,1.9,virginica',
-        '5.1,3.5,1.4,0.2,setosa',
-        '5.7,2.8,4.1,1.3,versicolor',
-    ]
-
-    output = [line.split(',') for line in FILE]
-
-    print(output)
-    # [
-    #   ['5.8', '2.7', '5.1', '1.9', 'virginica'],
-    #   ['5.1', '3.5', '1.4', '0.2', 'setosa'],
-    #   ['5.7', '2.8', '4.1', '1.3', 'versicolor']
-    # ]
-
 
 Advanced usage for Comprehensions and Generators
 ================================================
@@ -271,13 +292,14 @@ Assignments
 
 Split train/test
 ----------------
-* Filename: ``comprahension_split_train_test.py``
+* Filename: ``comprehension_split_train_test.py``
 * Lines of code to write: 6 lines
 * Estimated time of completion: 15 min
-
-#. Mając do dyspozycji zbiór danych Irysów z listingu poniżej:
+* Input data: :numref:`listing-comprehension_split_train_test`
 
     .. code-block:: python
+        :caption: Split train/test data
+        :name: listing-comprehension_split_train_test
 
         DATA = [
             ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
@@ -304,6 +326,7 @@ Split train/test
             (4.6, 3.1, 1.5, 0.2, 'setosa'),
         ]
 
+#. Mając do dyspozycji zbiór danych Irysów z listingu :numref:`listing-comprehension_split_train_test`:
 #. Zapisz nagłówek (pierwsza linia) do zmiennej
 #. Zapisz do innej zmiennej dane bez nagłówka
 #. Wylicz punkt podziału: ilość rekordów danych bez nagłówka razy procent
