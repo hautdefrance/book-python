@@ -1,4 +1,3 @@
-RATIO = 0.6
 DATA = [
     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
     (5.8, 2.7, 5.1, 1.9, 'virginica'),
@@ -24,17 +23,23 @@ DATA = [
     (4.6, 3.1, 1.5, 0.2, 'setosa'),
 ]
 
-pivot = int(len(DATA[1:]) * RATIO)
+RATIO = 0.6
 header = DATA[0]
 data = DATA[1:]
+pivot = int(len(data) * RATIO)
 
-X = [row[0:4] for row in data]
+X = [row[:4] for row in data]
 X_train = X[:pivot]
 X_test = X[pivot:]
 
 y = [row[4] for row in data]
 y_train = y[:pivot]
 y_test = y[pivot:]
+
+# X_train = [x[:4] for x in data[:pivot]]
+# X_test = [x[:4] for x in data[pivot:]]
+# y_train = [y[4] for y in data[:pivot]]
+# y_test = [y[4] for y in data[pivot:]]
 
 result = X_train, X_test, y_train, y_test
 print(result)

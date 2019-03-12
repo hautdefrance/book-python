@@ -35,11 +35,9 @@ ImportError, ModuleNotFoundError
 * Module could not be located
 
 .. code-block:: python
+    :emphasize-lines: 2
 
     import math
-
-.. code-block:: python
-
     import match
     # ModuleNotFoundError
 
@@ -79,6 +77,7 @@ SyntaxError
 * Parser encounters a syntax error
 
 .. code-block:: python
+    :emphasize-lines: 1
 
     if True
         print('Yes')
@@ -90,6 +89,7 @@ IndentationError
 * Syntax errors related to incorrect indentation
 
 .. code-block:: python
+    :emphasize-lines: 3
 
     if True:
        print('Hello!')
@@ -136,6 +136,7 @@ Exception with additional message
 Use case
 --------
 .. code-block:: python
+    :emphasize-lines: 2
 
     def apollo13():
         raise RuntimeError('Mid-flight Oxygen tank explosion')
@@ -144,6 +145,7 @@ Use case
     apollo13()
 
 .. code-block:: python
+    :emphasize-lines: 2
 
     def apollo18():
         raise NotImplementedError('Mission dropped due to budget cuts')
@@ -152,14 +154,15 @@ Use case
     apollo18()
 
 
-Tracebacks
-==========
+Traceback
+=========
 
 Traceback analysis
 ------------------
-* Stacktraces are 8 levels deep, it's not Java's 200 ;)
+* Stacktrace is 8 levels deep, it's not Java's 200 ;)
 
 .. code-block:: python
+    :emphasize-lines: 16-18
 
     def apollo13():
         raise RuntimeError('Mid-flight Oxygen tank explosion')
@@ -187,6 +190,7 @@ Change verbosity level
 * Last lines are the most important, in most cases error is there
 
 .. code-block:: python
+    :emphasize-lines: 1,3
 
     import sys
 
@@ -213,6 +217,7 @@ Catching exceptions
 Catch single exception
 ----------------------
 .. code-block:: python
+    :emphasize-lines: 7
 
     def apollo13():
         raise RuntimeError('Mid-flight Oxygen tank explosion')
@@ -226,6 +231,7 @@ Catch single exception
 Catch many exceptions with the same handling
 --------------------------------------------
 .. code-block:: python
+    :emphasize-lines: 7
 
     def apollo13():
         raise RuntimeError('Mid-flight Oxygen tank explosion')
@@ -239,6 +245,7 @@ Catch many exceptions with the same handling
 Catch many exceptions with different handling
 ---------------------------------------------
 .. code-block:: python
+    :emphasize-lines: 5,7,12,14
 
     def open_file(path):
         if path.startswith('/tmp/'):
@@ -252,13 +259,14 @@ Catch many exceptions with different handling
     try:
         open_file('/etc/my-file.txt')
     except FileNotFoundError:
-        print('Permission Denied')
-    except PermissionError:
         print('File not found')
+    except PermissionError:
+        print('Permission Denied')
 
 Exceptions logging
 ------------------
 .. code-block:: python
+    :emphasize-lines: 9,10
 
     import logging
 
@@ -274,7 +282,7 @@ Exceptions logging
 .. code-block:: python
 
     def apollo11():
-        print('Program P63 - Landing Maneuvre Approach Phase')
+        print('Program P63 - Landing Manoeuvre Approach Phase')
         raise RuntimeError('1201 Alarm')
         raise RuntimeError('1202 Alarm')
         print('Contact lights')
@@ -417,6 +425,7 @@ Defining own exceptions
 Real life use-case
 ==================
 .. code-block:: python
+    :emphasize-lines: 9
 
     from django.contrib.auth.models import User
 

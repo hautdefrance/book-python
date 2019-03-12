@@ -10,23 +10,30 @@ Path
 
 Absolute path
 -------------
-.. code-block:: python
+* Windows
+    .. code-block:: python
 
-    FILE = r'C:\Temp\iris.csv'
+        FILE = r'C:\Temp\iris.csv'
 
-.. code-block:: python
+* Linux, macOS, BSD, *nix
 
-    FILE = r'/tmp/iris.csv'
+    .. code-block:: python
+
+        FILE = r'/tmp/iris.csv'
 
 Relative path
 -------------
-.. code-block:: python
+* File in the same directory directory
 
-    FILE = r'iris.csv'
+    .. code-block:: python
 
-.. code-block:: python
+        FILE = r'iris.csv'
 
-    FILE = r'../data/iris.csv'
+* File in parent directory
+
+    .. code-block:: python
+
+        FILE = r'../data/iris.csv'
 
 
 Access modes
@@ -40,8 +47,8 @@ Access modes
     "``'w'``", "open for writing, truncating the file first"
     "``'a'``", "open for writing, appending to the end of the file if it exists"
     "``'rb'``", "read binary mode"
-    "``'ab'``", "append binary mode"
     "``'wb'``", "write binary mode"
+    "``'ab'``", "append binary mode"
 
 
 Read from file
@@ -76,9 +83,11 @@ Read selected lines from file
     :language: python
     :caption: Convert file to list by line, select 1-30 lines
 
+Writing
+=======
 
 Writing to file
-===============
+---------------
 * Fails when directory with file cannot be accessed
 * Creates file if not exists
 * Overwrite old content
@@ -89,7 +98,7 @@ Writing to file
 
 
 Appending to file
-=================
+-----------------
 * Fails when directory with file cannot be accessed
 * Creates file if not exists
 * Append to the end of file
@@ -116,6 +125,15 @@ Good Engineering Practises
 Assignments
 ===========
 
+Content of a requested file
+---------------------------
+* Filename: ``file_content.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 5 min
+
+#. Napisz program, który wyświetli na ekranie zawartość pliku o nazwie podanej przez użytkownika.
+#. Dopisz obsługę wyjątków dla braku uprawnień oraz tego że plik nie istnieje.
+
 Parsing simple CSV file
 -----------------------
 * Filename: ``file_iris.py``
@@ -123,7 +141,7 @@ Parsing simple CSV file
 * Estimated time of completion: 20 min
 * Input data: http://raw.githubusercontent.com/AstroMatt/book-python/master/control-flow/data/iris.csv
 
-#. Skopij plik do siebie na dysk i nazwij go ``iris.csv``
+#. Skopiuj plik do siebie na dysk i nazwij go ``iris.csv``
 #. Dla każdej linii:
 
     #. Oczyść linię z białych znaków
@@ -140,15 +158,6 @@ Parsing simple CSV file
     * korzystanie z pętli i instrukcji warunkowych
     * parsowanie stringów
     * praca ze ścieżkami w systemie operacyjnym
-
-Content of a requested file
----------------------------
-* Filename: ``file_content.py``
-* Lines of code to write: 5 lines
-* Estimated time of completion: 5 min
-
-#. Napisz program, który wyświetli na ekranie zawartość pliku o nazwie podanej przez użytkownika.
-#. Dopisz obsługę wyjątków dla braku uprawnień oraz tego że plik nie istnieje.
 
 Parsing ``/etc/hosts``
 ----------------------
