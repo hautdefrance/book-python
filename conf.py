@@ -14,9 +14,9 @@ extensions = [
     # 'sphinx.ext.autodoc',
     # 'sphinx.ext.intersphinx',
     # 'sphinx.ext.graphviz',
-    'nbsphinx',
     'sphinxcontrib.bibtex',
     # 'sphinxjp.themes.revealjs',
+    'nbsphinx',
     'IPython.sphinxext.ipython_console_highlighting',
 ]
 
@@ -58,15 +58,13 @@ templates_path = ['_templates']
 source_suffix = ['.rst']
 imgmath_image_format = 'svg'
 today_fmt = '%Y-%m-%d'
+
 project_slug = re.sub(r'[\W]+', '', project)
 sha1 = subprocess.Popen('git log -1 --format="%h"', stdout=subprocess.PIPE, shell=True).stdout.read().decode().replace('\n', '')
-version = '#{sha1}, {date:%Y-%m-%d}'.format(sha1=sha1, date=datetime.date.today())
-release = '#{sha1}, {date:%Y-%m-%d}'.format(sha1=sha1, date=datetime.date.today())
-copyright = '{year}, {author} <{email}>'.format(
-    year=datetime.date.today().year,
-    author=author,
-    email=email,
-)
+today = datetime.date.today()
+version = f'#{sha1}, {today:%Y-%m-%d}'
+release = f'#{sha1}, {today:%Y-%m-%d}'
+copyright = f'{today:%Y}, {author} <{email}>'
 
 exclude_patterns = exclude_patterns + [
     '.*',
@@ -86,14 +84,19 @@ exclude_patterns = exclude_patterns + [
 extensions_dir = os.path.join(os.path.dirname(__file__), '', '_extensions')
 sys.path.append(extensions_dir)
 
+htmlhelp_basename = project
 html_theme_path = ['_themes']
 html_static_path = ['_static']
 html_favicon = '_static/favicon.png'
 html_sidebars = {'sidebar': ['localtoc.html', 'sourcelink.html', 'searchbox.html']}
 html_show_sphinx = False
-htmlhelp_basename = project
+html_context = {
+    'css_files': [
+        '_static/theme-overrides.css',
+    ],
+}
 
-latex_documents = [(master_doc, '{0}.tex'.format(project_slug), project, author, 'manual')]
+latex_documents = [(master_doc, f'{project_slug}.tex', project, author, 'manual')]
 latex_elements = {
     'papersize': 'a4paper',
     'pointsize': '10pt',

@@ -163,7 +163,6 @@ Design Patterns
     /design-patterns/context-manager.rst
     /design-patterns/descriptor.rst
     /design-patterns/decorator.rst
-    /design-patterns/event-programming.rst
     /design-patterns/gang-of-four.rst
 
 ************
@@ -248,7 +247,7 @@ Paradigms
     :caption: Paradigms
 
     /paradigms/functional-programming.rst
-    /paradigms/event-programming.rst.rst
+    /paradigms/event-programming.rst
 
 **************************
 Scientific and Engineering
