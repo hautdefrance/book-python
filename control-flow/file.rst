@@ -164,14 +164,15 @@ Parsing ``/etc/hosts``
 * Filename: ``file_hosts.py``
 * Lines of code to write: 10 lines
 * Estimated time of completion: 20 min
-
-#. Utwórz plik tekstowy ``hosts.txt``
-#. Do pliku skopiuj kod z listingu:
+* Input data: :numref:`listing-etc-hosts`
 
     .. literalinclude:: src/etc-hosts.txt
+        :name: listing-etc-hosts
         :language: text
         :caption: Zawartość pliku ``hosts.txt``
 
+#. Utwórz plik tekstowy ``hosts.txt``
+#. Do pliku skopiuj kod z listingu :numref:`listing-etc-hosts`
 #. Ważne, żeby przepisać zawartość zawierającą komentarze, białe spacje i linie przerwy
 #. Sparsuj plik i dla każdej linii:
 
@@ -180,14 +181,26 @@ Parsing ``/etc/hosts``
     #. Wydziel ip i hosty
     #. Wykorzystaj jednolinikowego ``if`` do sprawdzenia czy jest kropka w adresie IP (to IPv4) w przeciwnym przypadku IPv6
     #. Do listy wynikowej dopisz słownik z ip, hostami i protokołem
+    #. Jeżeli IP jest już wpisane do naszej listy wynikowej to scal listy hostname'ów dla wpisów o tym samym IP
 
-#. Po zakończeniu parsowania przedstaw listę wynikową w formie ``List[Dict[str, Union[str, List[str]]]`` jak poniżej:
+#. Na końcu przedstaw dane w formacie:
 
-    .. literalinclude:: src/file-hosts.py
-        :language: python
-        :caption: ``/etc/hosts`` example
+    * Wersja prosta ``Dict[str, dict]``:
 
-#. Dla zaawansowanych: scal listy hostname'ów dla wpisów o tym samym IP
+        .. code-block:: python
+
+            {
+                '127.0.0.1': {'protocol': 'ipv4', 'hostnames': ['localhost', 'astromatt']},
+                '10.13.37.1': {'protocol': 'ipv4', 'hostnames': ['nasa.gov', 'esa.int', 'roscosmos.ru']},
+                '255.255.255.255': {'protocol': 'ipv4', 'hostnames': ['broadcasthost']},
+                '::1': {'protocol': 'ipv4', 'hostnames': ['localhost']},
+            }
+
+    * Wersja zaawansowana ``List[Dict[str, Union[str, List[str]]]``:
+
+        .. literalinclude:: src/file-hosts.py
+            :language: python
+            :caption: ``/etc/hosts`` example
 
 :The whys and wherefores:
     * czytanie i parsowanie pliku

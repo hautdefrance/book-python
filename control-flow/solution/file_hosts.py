@@ -19,13 +19,11 @@ for line in content:
     if line.isspace():
         continue
 
-    line = line.strip().split()
-    ip = line[0]
-    hosts = line[1:]
+    ip, *hosts = line.strip().split()
 
     for record in hostnames:
         if record['ip'] == ip:
-            record['hostnames'].update(hosts)
+            record['hostnames'] += hosts
             break
     else:
         hostnames.append({
@@ -35,3 +33,19 @@ for line in content:
         })
 
 print(hostnames)
+
+"""
+found = False
+
+for x in hosts:
+    if x['ip'] == ip:
+        found = True
+        x['hostnames'] += hostnames
+
+if not found:
+    hosts.append({
+        'ip': ip,
+        'hostnames': hostnames,
+        'protocol': 'IPv4' if '.' in ip else 'IPv6'
+    })
+"""
