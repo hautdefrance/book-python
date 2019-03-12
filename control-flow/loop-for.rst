@@ -41,7 +41,7 @@ Example
     # 3
 
 .. code-block:: python
-    :caption: ``for`` loop syntax: data can be inlined
+    :caption: ``for`` loop syntax: data can be inline
 
     for number in [1, 2, 3]:
         print(number)
@@ -51,7 +51,7 @@ Example
     # 3
 
 .. code-block:: python
-    :caption: ``for`` loop syntax: data can be inlined
+    :caption: ``for`` loop syntax: data can be inline
 
     for number in range(0, 5):
         print(number)
@@ -87,6 +87,7 @@ Iterating simple collections
 Iterating over ``list``
 -----------------------
 .. code-block:: python
+    :caption: Iterating over ``list``
 
     DATA = [5.1, 3.5, 1.4, 0.2, 'setosa']
 
@@ -102,6 +103,7 @@ Iterating over ``list``
 Iterating over ``tuple``
 ------------------------
 .. code-block:: python
+    :caption: Iterating over ``tuple``
 
     DATA = (5.1, 3.5, 1.4, 0.2, 'setosa')
 
@@ -117,6 +119,7 @@ Iterating over ``tuple``
 Iterating over ``set``
 ----------------------
 .. code-block:: python
+    :caption: Iterating over ``set``
 
     DATA = {5.1, 3.5, 1.4, 0.2, 'setosa'}
 
@@ -134,6 +137,7 @@ Loops with ``range``
 * ``range(0, 5)`` will generate ``(0, 1, 2, 3, 4)``
 
 .. code-block:: python
+    :caption: Loops with ``range``
 
     for number in range(0, 5):
         print(number)
@@ -147,6 +151,7 @@ Loops with ``range``
 Create ``dict`` from two ``list``
 ---------------------------------
 .. code-block:: python
+    :caption: Create ``dict`` from two ``list``
 
     keys = ['a', 'b', 'c', 'd']
     values = [1, 2, 3, 4]
@@ -262,7 +267,7 @@ Text analysis
 * Lines of code to write: 10 lines
 * Estimated time of completion: 10 min
 
-#. Dany jest tekst przemównienia John F. Kennedy'ego "Moon Speech" wygłoszony na Rice Stadium :numref:`listing-for-moon-speach`
+#. Dany jest tekst przemówienia John F. Kennedy'ego "Moon Speech" wygłoszony na Rice Stadium :numref:`listing-for-moon-speech`
 #. Zdania oddzielone są kropkami
 #. Każde zdanie oczyść z białych znaków na początku i końcu
 #. Wyrazy oddzielone są spacjami
@@ -287,7 +292,7 @@ Text analysis
     * Nazywanie zmiennych
 
 .. code-block:: text
-    :name: listing-for-moon-speach
+    :name: listing-for-moon-speech
     :caption: "Moon Speech" by John F. Kennedy, Rice Stadium, Houston, TX, 1962-09-12 :cite:`Kennedy1962`
 
     We choose to go to the Moon. We choose to go to the Moon in this decade and do the other things. Not because they are easy, but because they are hard. Because that goal will serve to organize and measure the best of our energies and skills. Because that challenge is one that we are willing to accept. One we are unwilling to postpone. And one we intend to win

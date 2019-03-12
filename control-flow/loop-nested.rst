@@ -340,7 +340,7 @@ Unique keys from schema-less database
 #. Mając bazę danych z listingu poniżej
 #. Iteruj po rekordach w bazie danych
 #. Z rekordu wyciągnij klucze
-#. Wygeneruj listę unikalnych kluczy
+#. Wypisz unikalne klucze
 
 .. code-block:: python
     :name: listing-loops-unique-keys
