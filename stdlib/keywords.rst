@@ -38,7 +38,7 @@ Example 2
         pass
 
     print('hello')
-    # IndentationError: expected an indented block
+    # hello
 
 Example 3
 ---------
@@ -55,6 +55,7 @@ Example 3
         pass
 
     print('hello')
+    # hello
 
 
 ``__file__``
@@ -62,13 +63,14 @@ Example 3
 .. code-block:: python
 
     print(__file__)
-    # /Users/matt/Developer/book/python/_tmp/__notepad__.py
+    # /tmp/__notepad__.py
 
 .. code-block:: python
 
     BASE_DIR = os.path.dirname(__file__)
 
-    print(f'Script working directory is: {BASE_DIR}')
+    print(f'Working directory: {BASE_DIR}')
+    # Working directory: /tmp
 
 .. code-block:: python
 
@@ -76,6 +78,9 @@ Example 3
 
     BASE_DIR = os.path.dirname(__file__)
     path = os.path.join(BASE_DIR, 'main.py')
+
+    print(f'Executing: {path}')
+    # Executing: /tmp/main.py
 
 
 ``__name__``

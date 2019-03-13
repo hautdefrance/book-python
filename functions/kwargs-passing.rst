@@ -179,12 +179,33 @@ Placeholder class
 -----------------
 .. code-block:: python
 
+    DATA = [
+        {"sepl": 6.0, "sepw": 3.4, "petl":4.5, "petw": 1.6, "species": "versicolor"},
+    ]
+
+    class Iris:
+        def __init__(self, sepl, sepw, petl, petw):
+            self.sepl = sepl
+            self.sepw = sepw
+            self.petl = petl
+            self.petw = petw
+
+
+    for row in DATA:
+        Iris(**row)
+
+.. code-block:: python
+
     class Kontakt:
         def __init__(self, **kwargs):
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
     Kontakt(imie='Jan', nazwisko='Twardowski')
+    Kontakt(sepal_length=6.0, sepal_width=3.4, nazwisko='Twardowski')
+
+    DATA = {"sepl": 6.0, "sepw": 3.4, "petl":4.5, "petw": 1.6, "species": "versicolor"}
+    Kontakt(**DATA)
 
 Print formatting in classes
 ---------------------------
@@ -229,15 +250,18 @@ Iris
 * Estimated time of completion: 20 min
 * Input data: https://raw.githubusercontent.com/AstroMatt/book-python/master/functions/data/iris.csv
 
-#. Otwórz link w przeglądarce i skopiuj zawartość do pliku ``iris.csv`` na dysku
-#. Sparsuj zawartość odrzucając nagłówek
-#. Dla każdego rekordu, usuń białe spacje i podziel go po przecinku ``,``
-#. Wyniki podziału odbierz do dwóch zmiennych:
+#. Otwórz link w przeglądarce i skopiuj zawartość do pliku na dysku o nazwie ``iris.csv``
+#. Stwórz funkcję ``print_iris(sepal_length, sepal_width, *args, **kwargs)``, która wyświetli zawartość wszystkich argumentów za pomocą ``locals()``
+#. Sparsuj zawartość pliku ``iris.csv`` odrzucając nagłówek
+#. Dla każdego rekordu:
 
-    * ``features: Tuple[float]`` - pomiary
-    * ``labels: Dict[str, str]`` - key: 'species', value: nazwa gatunku
+    #. Usuń białe spacje
+    #. Podziel po przecinku ``,``
+    #. Wyniki podziału zapisz do dwóch zmiennych:
 
-#. Stwórz funkcję ``print_iris(sepal_length, sepal_width, *args, **kwargs)``, która wyświetli zawartość wszystkich argumentów
-#. Odpalaj funkcję ``print_iris()``, podając wartości ``features`` i ``labels``
-#. Pomiary mają być podane pozycyjnie (``*``), a gatunek nazwanie (``**``)
+        * ``features: Tuple[float]`` - pomiary
+        * ``labels: Dict[str, str]`` - key: słowo ``species``, value: nazwa gatunku
+
+    #. Odpalaj funkcję ``print_iris()``, podając wartości ``features`` i ``labels``
+    #. Pomiary mają być podane pozycyjnie (``*``), a gatunek nazwanie (``**``)
 
