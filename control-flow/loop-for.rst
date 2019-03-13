@@ -170,6 +170,26 @@ Create ``dict`` from two ``list``
     #     'd': 4,
     # }
 
+``else``
+--------
+.. code-block:: python
+
+    hostnames = {}
+
+    for line in content:
+
+        ip, *hosts = line.strip().split()
+
+        for record in hostnames:
+            if record['ip'] == ip:
+                record['hostnames'] += hosts
+                break
+        else:
+            hostnames.append({
+                'hostnames': set(hosts),
+                'protocol': 'IPv4' if '.' in ip else 'IPv6',
+                'ip': ip,
+            })
 
 
 Assignments
