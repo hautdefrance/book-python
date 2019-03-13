@@ -6,3 +6,7 @@ sphinxcontrib-bibtex
 # sphinxjp.themes.revealjs
 nbsphinx
 ipython
+
+
+
+pycodestyle==2.4.*

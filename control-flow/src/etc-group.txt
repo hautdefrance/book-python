@@ -1,7 +1,7 @@
 ##
 # ``/etc/group`` structure
-#   - Username: from ``/etc/passwd``
-#   - Password: ``x`` indicates that shadow passwords are used)
+#   - Group Name: from ``/etc/passwd``
+#   - Group Password: ``x`` indicates that shadow passwords are used)
 #   - GID: Group ID
 #   - Members: usernames from ``/etc/passwd``
 ##

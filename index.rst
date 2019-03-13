@@ -80,7 +80,10 @@ Standard Library
     :numbered:
     :caption: Standard Library
 
+    /stdlib/venv.rst
+    /stdlib/pip.rst
     /stdlib/import.rst
+    /stdlib/keywords.rst
     /stdlib/builtin.rst
     /stdlib/math.rst
     /stdlib/precision.rst

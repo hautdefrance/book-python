@@ -54,13 +54,13 @@ Cele zajęć
 1. Poznanie metod selekcji zmiennych
 2. Ćwiczenie przeprowadzania analiz
 3. Ćwiczenie obróbki danych
-4. Zrozumienie problemu niezbalansowanych klas i podstwowych metod radzenia sobie z nim
+4. Zrozumienie problemu niezbalansowanych klas i podstawowych metod radzenia sobie z nim
 5. Poznanie kolejnych klasyfikatorów
 6. Omówienie jak mają wyglądać projekty
 
 Dzień 1
 -------
-1. Selekcja: regularyzacja l1, wielkość współczynników, ważność cech (drzewa) , selekcja rekursywana, metoda losowych podzbiorów, filtorwanie zmiennych. Wszystko (oprócz metody losowych podzbiorów) przerobić w sklearnie
+1. Selekcja: regularyzacja l1, wielkość współczynników, ważność cech (drzewa) , selekcja rekursywna, metoda losowych podzbiorów, filtrowanie zmiennych. Wszystko (oprócz metody losowych podzbiorów) przerobić w ``sklearn``
 2. Kolejne miary oceny klasyfikatorów: krzywa ROC i AUC
 3. Kolejne klasyfikatory: LDA, QDA oraz KNN
 4. Problem niezbalansowanych klas. Podejście zwykłe jako do klasyfikacji (a nie detekcja obserwacji odstających czy cos innego) - omówienie zabiegów typu, over/undersampling i innych
@@ -68,10 +68,10 @@ Dzień 1
 
 Dzień 2
 -------
-1 Łączenie klasyfikatorów - pobieżna opowiasta o różnych sposobach. Pokazać w sklearnie VotingClassifier i Bagging
+1 Łączenie klasyfikatorów - pobieżna opowiastka o różnych sposobach. Pokazać w ``sklearn`` VotingClassifier i Bagging
 1. XGBoost (przed zajęciami trzeba dać uczestnikom instrukcję instalacji!)
-2. Problem optymalizacji bardzo wielu barametrów na przykładzie XGBoost: optymalizacja iteracyjna po parametrach /podzbiorach parametrów, randomizowany gridsearch, schematy kombinowane, ewentualnie optymalizacja bayesowaska
-3. Problem braków danych - jak obsługwać braki.
+2. Problem optymalizacji bardzo wielu parametrów na przykładzie XGBoost: optymalizacja iteracyjna po parametrach /podzbiorach parametrów, randomizowany gridsearch, schematy kombinowane, ewentualnie optymalizacja bayesowska
+3. Problem braków danych - jak obsługiwać braki.
 4. Zarówno na optymalizację parametrów jak i braki danych większe zadania. Podział czasowy: pierwsza połowa dnia xgboost i optymalizacja parametrów, druga: braki danych
 5. W obu zagadnieniach uwzględnić jako element zadania obróbkę danych
 6. Na koniec dnia (ok 30 minut) trzeba opowiedzieć o tym jak mają wyglądać projekty
@@ -85,12 +85,12 @@ Notatki
     - pyTorch
     - Julia (język programowania)
     - funkcyjne: higher order function -> przekazywanie funkcji jako argument
-    - nltk - natural language toolkit
+    - ``nltk`` - natural language toolkit
     - dodać algorytmy genetyczne
     - sklearn ma wiele datasetów, a te które mają prefix ``fetch_`` zaciągają dane z internetu bo są większe
 
 .. todo::
-    - selekcja ficzerów
+    - selekcja features
     - LDA, QDA, KNN. KNN akurat jest, i go wykorzystam
     - ROC, AUC
     - niezbalansowane klasy
@@ -117,11 +117,11 @@ Eksploracja danych - poszukiwania trendów:
     - czy to jest rozkład
     - można liczyć kurtozę
     - można liczyć średnie itp
-    - rozklad Studenta-t stosujesz do 30 próbek, a w Machine Learning zwykle masz dużo więcej
+    - rozkład Studenta-t stosujesz do 30 próbek, a w Machine Learning zwykle masz dużo więcej
     - czy rozkład jest gausem (czy jest wielomodalnym - złożeniem dwóch lub więcej rozkładów), np. wiek - gaus dla mężczyzn i dla kobiet, będzie inny
-    - gaussian mixture models (model szuka ile modeli gaussowskich jest w dancyh)
+    - gaussian mixture models (model szuka ile modeli gaussowskich jest w danych)
 
-Badacz Daych
+Badacz Danych
 
 
 Trzy dziedziny Data Science
@@ -141,7 +141,7 @@ Jupyter
 - średnik usuwa wyświetlanie linii
 - zamykanie kerneli
 - instalowanie pluginów - spellchecker
-- list.pop? - znak apytania wyświetla help do obiektu
+- list.pop? - znak zapytania wyświetla help do obiektu
 - %%timeit
 - % - globalne
 - %% - dla komorki
@@ -153,9 +153,9 @@ bez nadzoru:
 
     - Poszukiwanie wzorców
     - najczęściej to jakiś rodzaj klastrowania
-    - zmniejsza wymiarowość dancyh
+    - zmniejsza wymiarowość danych
     - wykrywanie anomalii
-    - klastrownaie hierarchiczne
+    - klastrowanie hierarchiczne
 
 z nadzorem:
 
@@ -165,21 +165,21 @@ z nadzorem:
 Musimy mieć więcej niż 50 próbek. Poniżej tej ilości można bawić się w statystykę ale nie w machine learning:
 
     - czy idziemy w stronę regresji czy klasyfikacji
-    - czy mamy oznaczone dane czy nie (idzemy w unsupervised learning)
+    - czy mamy oznaczone dane czy nie (idziemy w unsupervised learning)
     - czy mamy więcej czy mniej niż 100k próbek
 
 Pierwszy wybór jeżeli chodzi o klasyfikator to Regresja Logistyczna.
 
 // obrazek ze slajdów z wyborem algorytmu
 
-Są metody kóre mają problemy gdy mają zbyt dużo proóbek.
+Są metody które mają problemy gdy mają zbyt dużo próbek.
 Sieci neuronowe lubią mieć więcej próbek (dobrze z nimi działaj)
 
 W problemach tekstowych dane są rzadkie.
 w problemach numerycznych możemy mieć więcej danych.
 
 
-SGD - Stocastic Gradient Descent
+SGD - Stochastic Gradient Descent
 
 
 Not working:
@@ -190,13 +190,13 @@ Not working:
 Klastry
 -------
 Definiujemy K klastrów i dzielimy przez odległość od środka klastrów
-PCA - znajdywanie wektorów własnych kowariancji (z wielowymiarowych przestrzeni możemy zbudować mniejwymiarowe)
-Dużo algorytmów stosuje odwracanie macieży, a komputery mają z tym problem, dlatego warto zmniejszyć jego poziom
+PCA - znajdywanie wektorów własnych kowariancji (z wielowymiarowych przestrzeni możemy zbudować mniej wymiarowe)
+Dużo algorytmów stosuje odwracanie macierzy, a komputery mają z tym problem, dlatego warto zmniejszyć jego poziom
 
 PCA - Twój model będzie działał lepiej, ale nie wiesz który parametr ma większy wpływ na jakość, np:
 
     - długość, szerokość i położenie działki zamienia w jeden wektor
-    - porównuje dane według tego wektoru
+    - porównuje dane według tego wektora
     - ale nie wiadomo które z długość, szerokość i położenie działki ma największy wpływ
 
 Sieci Neuronowe
@@ -220,7 +220,7 @@ Regresja liniowa
 - Podatna na underfitting
 - Dobra wartość dobroci w stosunku do trudności.
 - Bardzo często wykorzystywana.
-- Szczególnie często wykorzystywane w systemach RTB (Realtime Bidding) czyli system aukcji dla reklam na stronach, który musi wyrobić sięw 100-200ms (trzeba uwzględnić narzut sieciowy). Dla takich przypadków stosuje się regresję liniową albo logistyczną, bo decysja musi być podjęta bardzo szybko (wykorzystanie sieci neuronowych byłoby zbyt czasochłonne).
+- Szczególnie często wykorzystywane w systemach RTB (Realtime Bidding) czyli system aukcji dla reklam na stronach, który musi wyrobić się w 100-200ms (trzeba uwzględnić narzut sieciowy). Dla takich przypadków stosuje się regresję liniową albo logistyczną, bo decyzja musi być podjęta bardzo szybko (wykorzystanie sieci neuronowych byłoby zbyt czasochłonne).
 
 - Przykładowy dataset: Diabetes (http://www4.stat.ncsu.edu/~boos/var.select/diabetes.html)
 - Sklearn wykorzystuje tablice numpy
@@ -328,8 +328,8 @@ Zadanie
 
 Ciąg dalszy
 ^^^^^^^^^^^
-- Regresję logistyczną można wykorzystać dla tzw. okien danych. Gdy wykres rośnie a później maleje, to regresja liniowa byłaby linią prostą, a tak gdzy podzieli się wykres na połowę (rosnącą i malejącą) i stworzy się regresję dla przedziału.
-- Można to łatwiej zrobić tworząc pandas dataframe i przekazując je do sklearn
+- Regresję logistyczną można wykorzystać dla tzw. okien danych. Gdy wykres rośnie a później maleje, to regresja liniowa byłaby linią prostą, a tak gdy podzieli się wykres na połowę (rosnącą i malejącą) i stworzy się regresję dla przedziału.
+- Można to łatwiej zrobić tworząc ``pandas.DataFrame`` i przekazując je do ``sklearn``
 - Przypadek dla wielu zmiennych opisujących:
 
 .. code-block:: python
@@ -339,7 +339,7 @@ Ciąg dalszy
     dia_df = pd.DataFrame(diabetes.data, columns=diabetes.feature_names)\
         .assign(target=diabetes.target)
 
-    # Podiał zbioru na testowy i treningowy
+    # Podział zbioru na testowy i treningowy
     dia_train = dia_df.iloc[:-20, :]
     dia_test = dia_df.iloc[-20:, :]
 
@@ -362,7 +362,7 @@ Ciąg dalszy
     dia_df = pd.DataFrame(diabetes.data, columns=diabetes.feature_names)\
         .assign(target=diabetes.target)
 
-    # Podiał zbioru na testowy i treningowy
+    # Podział zbioru na testowy i treningowy
     dia_train = dia_df.iloc[:-20, :]
     dia_test = dia_df.iloc[-20:, :]
 
@@ -385,7 +385,7 @@ Modele Chernove
     - czy zgłaszał jakieś problemy z umową
     - jaka jest wartość abonamentu
     - ile dzwoni
-    - możesz mierzyć dobroć oferty 0-100 czy np. nowa oferta jest dla klieta
+    - możesz mierzyć dobroć oferty 0-100 czy np. nowa oferta jest dla klienta
 
 * Jak sprawdzić czy klient jest zadowolony? (np. śledzić trendy na FB, czy napisał, że jest niezadowolony):
 
@@ -393,7 +393,7 @@ Modele Chernove
     - Analiza Sentymentu (jak nacechowana jest wiadomość na social media)
     - Inżynieria cech z innych źródeł (typowy Data Science)
 
-* Mogą wystąpić dyskretne eventy, które wpływają na ofertę. Np jakieś wydarzenia na świecie itp które wpływają na model. np. premier błał łapówki a to jest firma publiczna, jej akcje spadną, więc trzeba uwzględnić w modelu możliwość wprowadzenia dyskretnych eventów wraz z wagą wydarzenia i wpływem na model. Tu wchodzi teoria gier i Nash
+* Mogą wystąpić dyskretne eventy, które wpływają na ofertę. Np jakieś wydarzenia na świecie itp które wpływają na model. np. premier brał łapówki a to jest firma publiczna, jej akcje spadną, więc trzeba uwzględnić w modelu możliwość wprowadzenia dyskretnych eventów wraz z wagą wydarzenia i wpływem na model. Tu wchodzi teoria gier i Nash
 
 * Ciężko jest przewidzieć wiek, ale łatwiej jest przewidzieć kubełki wieku (16-20, 20-25 itp). Zamieniasz problem ciągły na dyskretny. Przechodzisz z regresji na problem klasyfikacji. Nikogo nie obchodzi, że masz 26.5 roku, raczej, że jesteś w przedziale wiekowym 25-30 lat bo tak reklama jest targetowana.
 
@@ -419,18 +419,18 @@ Regularyzacja
     - Samo użycie regularyzacji w regresji liniowej sprowadza się do użycia modelu o innej nazwie
     - Czasami dobierając parametr alfa np. 0.5 to może polepszyć wynik
 
-Jest wersja modeli które mają CV w nazwie (Cross Walidation):
+Jest wersja modeli które mają CV w nazwie (Cross Validation):
 
     - LassoCV()
     - oprócz podziału na treningowy i testowy to dzielimy jeszcze na x małych części
     - trenujemy każdy przedział osobno i sprawdzamy jak błędy się rozkładają
     - domyślnie jest cv=3, cv=5 daje dobre wyniki
-    - trzeba pamietać, aby zbiór mógł się na tyle podzielić, aby nie było tam zerowych wartości
+    - trzeba pamiętać, aby zbiór mógł się na tyle podzielić, aby nie było tam zerowych wartości
     - sam z siebie zmienia parametr alfa i próbuje znaleźć wartość dla której model będzie najlepszy na podstawie wyliczania Mean Square Errors
     - ``lasso.alpha_`` można zobaczyć jaki parametr jest najlepszy
 
 * Elastic Net - ważona regularyzacja L1 i L2, i sprawdzanie która lepiej działa.
-* Cechy binarne w modelach liniowych dziąłają tak sobie, modele drzewiaste dobrze sobie z nią radzą.
+* Cechy binarne w modelach liniowych działają tak sobie, modele drzewiaste dobrze sobie z nią radzą.
 
 .. code-block:: python
 
@@ -489,9 +489,9 @@ SVM
 - Krenel Tricks (trik jądrowy)
 - Jeżeli dane nie są liniowo separowalne (tzn można przeprowadzić linię, która rozdzieli zbiór na dwie części)
 - Mapuje coś na jakąś funkcję np. koła i tak rozdziela punkty sprowadzając odległości od okręgu na płaszczyznę liniową (odległość punktu od okręgu)
-- Funkci się raczej nie pisze, używamy już istniejące.
-- Sara się znaleźć taką linię, która nie tylko najepiej aproxymuje punkty, ale także stara się by punkty graniczne były równoodległe od linii.
-- Funkcja Sinus jest przedziałami liniowa. Model polimianowy jest lepiej dopasowany.
+- Funkcji się raczej nie pisze, używamy już istniejące.
+- Sara się znaleźć taką linię, która nie tylko najlepiej aproksymuje punkty, ale także stara się by punkty graniczne były równoodległe od linii.
+- Funkcja Sinus jest przedziałami liniowa. Model wielomianowy jest lepiej dopasowany.
 - Lepiej jest zastosować OLS i dopasować sinusoidę (np. do sygnałów z szumem warto dopasować sinusoidę)
 - Zwykle jednak nie znamy jaka to funkcja i trzeba szukać.
 - Modele wielomianowe są dużo bardziej złożone obliczeniowo.
@@ -589,14 +589,14 @@ Uwaga na ``train_test_split(iris, test_size=0.2)`` kiepsko działa, jeżeli jedn
 Np ilość osób które mają raka. Zdecydowana większość nie ma raka.
 
 - Optymalizować nie tylko na Recall ale również F1
-- Dzielisz próbki by ilość była równoreprezentowana (ale trzeba losować w zależności od wielu zmiennych opisujących)
+- Dzielisz próbki by ilość była równo reprezentowana (ale trzeba losować w zależności od wielu zmiennych opisujących)
 - Szczególnie w tematach medycznych (neurologicznych) jest to często występujące: wtedy optymalizować Recall a nie precyzję.
 - Trzeba losować próbki tak, by rozkład był jak najbardziej podobny do rozkładu zbioru oryginalnego
 - Sprawdzasz jak bardzo zbiór oryginalny jest skrzywiony, a później coś robisz. zawsze popełniasz błąd, ale kwestia jak wielki
 - Decydujesz się którą rzecz optymalizujesz, false positive czy false negative
 - Recall = minimalizacja false negativów (lepiej zrobić fałszywy alarm, niż nie wykryć)
 
-Łańcuchy markova
+Łańcuchy Markova
 ----------------
 - konwersja z reklam
 - totalnie nie interesuje Cię co nie konwertuje
@@ -627,10 +627,10 @@ Recall
 - Recall = tp / tp + fn
 - Type 1 i Type 2 error (częste pytanie na rozmowach kwalifikacyjnych):
 
-    - Type 1 czyli tzw. false positive - powiedzieć mężczyżnie że jest w ciąży
+    - Type 1 czyli tzw. false positive - powiedzieć mężczyźnie że jest w ciąży
     - Type 2 czyli tzw. false negative - ciężarnej kobiecie powiedzieć, że nie jest w ciąży
 
-- False negativy staramy się eliminować, szczególnie w sytemach medycznych
+- False negativy staramy się eliminować, szczególnie w systemach medycznych
 - Support = ile mamy elementów w naszym zbiorze testowym
 
 .. code-block:: python

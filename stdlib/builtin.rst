@@ -1,80 +1,12 @@
-.. _Builtin and Keywords:
+.. _Builtin functions:
 
-********************
-Builtin and Keywords
-********************
-
-
-Keywords
-========
-
-``pass``
---------
-Python domyślnie oczekuje wcięcia po dwukropku. Jeżeli chcemy zostawić klasę czy funkcję pustą, korzystamy wtedy ze słowa kluczowego ``pass``.
-
-.. code-block:: python
-
-    def my_function():
-        pass
-
-.. code-block:: python
-
-    def my_function():
-        pass
-
-    my_var = my_function()
-    # None
-
-``__file__``
-------------
-.. code-block:: python
-
-    import os
-
-    BASE_DIR = os.path.dirname(__file__)
-    path = os.path.join(BASE_DIR, 'main.py')
-
-``__name__``
-------------
-* Zmienna ``__name__`` pozwala ustalić czy dany plik jest wykonywany czy importowany.
-* Jeżeli dany plik jest wykonywany, zmienna ``__name__`` ustawiana jest na ``'__main__'``.
-* Jeżeli dany plik jest importowany jako moduł, zmienna ``__name__`` ustawiana jest na nazwę modułu.
-* Jest to przydatne na przykład przy testowaniu modułów.
-
-Dodanie do modułu poniższej linijki:
-
-.. code-block:: python
-
-    if __name__ == '__main__':
-        print('hello world')
-
-Sprawi, że wypisane na konsoli zostanie ``'hello world!'`` jeżeli dany plik jest uruchamiany z konsoli. Powyższy kod nie wykona się natomiast jeżeli plik zaimportujemy jako moduł w innym pliku.
-
-Przykład z życia:
-
-.. code-block:: python
-
-    import logging
-
-    log = logging.getLogger(__name__)
-
-.. code-block:: python
-
-    def run():
-        ...
-
-    if __name__ == '__main__':
-        # Jeżeli skrypt wywoływany jest z konsoli "z ręki" to uruchom funckję ``run()``
-        # Jeżeli został zaimportowany, to ten fragment będzie zignorowany
-        # I trzeba uruchomić funkcję ``run()`` samodzielnie - kontrolowanie
-        run()
-
-
+*****************
 Builtin functions
-=================
+*****************
+
 
 ``range()``
------------
+===========
 * Tworzy **iterator**, który zwraca liczby w sekwencji.
 
 .. code-block:: python
@@ -99,6 +31,10 @@ Builtin functions
 
     print(numbers)  # [0, 1, 2, 3, 4]
 
+
+Sprawdzanie typów
+=================
+
 ``isinstance()``
 ----------------
 * Sprawdza czy dany obiekt jest instancją danej klasy
@@ -109,6 +45,32 @@ Builtin functions
     isinstance(10, int)           # True
     isinstance(10, float)         # False
     isinstance(10, (int, float))  # True
+
+``issubclass()``
+----------------
+
+``type()``
+----------
+
+
+Działania na kolekcjach
+=======================
+
+``any()``
+---------
+
+``all()``
+---------
+
+``sum()``
+---------
+
+``len()``
+---------
+
+
+Konwersje typów
+===============
 
 ``bin()``
 ---------
