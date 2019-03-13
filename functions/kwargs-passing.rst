@@ -259,7 +259,7 @@ Iris
     #. Podziel po przecinku ``,``
     #. Wyniki podziału zapisz do dwóch zmiennych:
 
-        * ``features: Tuple[float]`` - pomiary
+        * ``features: List[float]`` - pomiary
         * ``labels: Dict[str, str]`` - key: słowo ``species``, value: nazwa gatunku
 
     #. Odpalaj funkcję ``print_iris()``, podając wartości ``features`` i ``labels``
