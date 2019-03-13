@@ -369,7 +369,7 @@ Aviation numbers
         'minus one niner six niner'
 
         >>> aviation_numbers(-31.337)
-        'minus tree one and tree tree seven
+        'minus tree one and tree tree seven'
 
         >>> aviation_numbers(-49.35)
         'minus fower niner and tree fife'
