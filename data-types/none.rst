@@ -35,7 +35,7 @@ Assignments
 ===========
 
 Is ``None`` or ``not``
----------------------
+----------------------
 * Filename: ``types_bool.py``
 * Lines of code to write: 10 lines
 * Estimated time of completion: 5 min
