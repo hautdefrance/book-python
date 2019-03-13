@@ -26,10 +26,10 @@ def euclidean_distance(A, B):
     y1 = A[1]
     y2 = B[1]
 
-    part_x = (x2-x1) ** 2
-    part_y = (y2-y1) ** 2
+    dx = (x2-x1)
+    dy = (y2-y1)
 
-    return math.sqrt(part_x + part_y)
+    return math.sqrt(dx**2 + dy**2)
 
     return math.sqrt((x2-x1)**2 + (y2-y1)**2)
     return math.sqrt(pow(B[1]-A[1],2)+pow(B[0]-A[0],2))
