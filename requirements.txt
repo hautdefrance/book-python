@@ -1,4 +1,4 @@
-sphinx==1.8.5
+sphinx==1.8.*
 sphinx_rtd_theme
 sphinxcontrib-bibtex
 
@@ -6,7 +6,3 @@ sphinxcontrib-bibtex
 # sphinxjp.themes.revealjs
 nbsphinx
 ipython
-
-
-
-pycodestyle==2.4.*
