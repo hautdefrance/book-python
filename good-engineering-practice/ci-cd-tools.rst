@@ -104,25 +104,25 @@ Konfiguracja:
     - Zainstalować plugin HTML
 
 Python
-^^^^^^
+------
 .. literalinclude:: src/sonar-python.properties
     :language: properties
     :caption: SonarScanner config for static analysis of Python code
 
 CSS
-^^^
+---
 .. literalinclude:: src/sonar-css.properties
     :language: properties
     :caption: SonarScanner config for static analysis of CSS code
 
 JavaScript
-^^^^^^^^^^
+----------
 .. literalinclude:: src/sonar-javascript.properties
     :language: properties
     :caption: SonarScanner config for static analysis of JavaScript code
 
 Multi-language
-^^^^^^^^^^^^^^
+--------------
 .. literalinclude:: src/sonar-multilanguage.properties
     :language: properties
     :caption: SonarScanner config for static analysis of Multilanguage code
@@ -141,7 +141,7 @@ Multi-language
     against some of the style conventions in PEP 8.
 
     * Plugin architecture: Adding new checks is easy.
-    * Parseable output: Jump to error location in your editor.
+    * Parsable output: Jump to error location in your editor.
     * Small: Just one Python file, requires only stdlib. You can use just the
     * pep8.py file for this purpose.
     * Comes with a comprehensive test suite.
@@ -212,7 +212,7 @@ Multi-language
     - checking if declared interfaces are truly implemented
     - checking if modules are imported and much more (see the complete check list)
 
-    Pylint is shipped with Pyreverse which creates UML diagrams for python code.
+    ``Pylint`` is shipped with ``Pyreverse`` which creates UML diagrams for python code.
 
 :Install:
     .. code-block:: console
@@ -329,7 +329,7 @@ Multi-language
 ---------------
 .. code-block:: console
 
-    pip isntall pycodestyle
+    pip install pycodestyle
     pycodestyle --max-line-length=79 --exclude=*/migrations/* .
 
 ``safety``
