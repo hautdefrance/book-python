@@ -1,4 +1,12 @@
-from typing import List, Optional
+
+from random import seed, randint
+
+import math
+math.tan
+
+
+
+
 
 DATA = [
     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
@@ -24,6 +32,16 @@ DATA = [
     (6.9, 3.1, 4.9, 1.5, 'versicolor'),
     (4.6, 3.1, 1.5, 0.2, 'setosa'),
 ]
+
+from random import shuffle
+
+shuffle(DATA)
+
+print(DATA)
+
+
+
+
 
 header = DATA[0]
 data = DATA[1:]

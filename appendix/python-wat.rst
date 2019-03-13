@@ -4,6 +4,14 @@ Python WAT?!
 
 .. code-block:: python
 
+    0.1 + 0.1 == 0.2
+    # True
+
+    0.1 + 0.2 == 0.3
+    # False
+
+.. code-block:: python
+
     list('ABCDE')
     # ['A', 'B', 'C', 'D', 'E']
 

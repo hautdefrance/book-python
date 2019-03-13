@@ -5,6 +5,13 @@ Mathematics
 ***********
 
 
+Builtin
+=======
+* ``abs()``
+* ``round()``
+* ``pow()``
+
+
 ``complex``
 ===========
 * Complex number with real and imaginary parts
@@ -15,11 +22,18 @@ Defining ``complex``
 --------------------
 .. code-block:: python
 
-    complex()               # 0j
+    complex()                # 0j
+    complex(real=0, imag=0)  # 0+0j
 
 .. code-block:: python
 
     complex(1)              # (1+0j)
+    complex(imag=1)         # 1j
+    complex(real=1)         # (1+0j)
+
+.. code-block:: python
+
+    complex(real=1, imag=2) # (1+2j)
     complex(1, 2)           # (1+2j)
     complex(1.12, 2.34)     # (1.12+2.34j)
     complex(1, 2.34)        # (1+2.34j)
@@ -32,14 +46,26 @@ Defining ``complex``
 .. code-block:: python
 
     complex('1+2j')         # (1+2j)
+    complex('1.5+2.7j')     # (1.5+2.7j)
     complex('1 + 2j')       # ValueError: complex() arg is a malformed string
 
+.. code-block:: python
 
-Builtin
-=======
-* ``abs()``
-* ``round()``
-* ``pow()``
+    a = complex(1, 2)       # (1+2j)
+    b = 3+4j                # (3+4j)
+
+    a + b                   # (4+6j)
+    a - b                   # (-2-2j)
+    a * b                   # (-5+10j)
+    a / b                   # (0.44+0.08j)
+
+.. code-block:: python
+
+    abs(1+2j)
+    # 2.23606797749979
+
+    abs(3+4j)
+    # 5.0
 
 
 ``math``
@@ -73,8 +99,9 @@ Rounding to lower
 
 
     math.floor(3.14)                # 3
+    math.floor(3.00000000000000)     # 3
     math.floor(3.00000000000001)    # 3
-    math.floor(3.00000000000000)    # 3
+    math.floor(3.99999999999999)    # 3
 
 Rounding to higher
 ------------------
@@ -84,8 +111,9 @@ Rounding to higher
 
 
     math.ceil(3.14)                 # 4
-    math.ceil(3.00000000000001)     # 4
     math.ceil(3.00000000000000)     # 3
+    math.ceil(3.00000000000001)     # 4
+    math.ceil(3.99999999999999)     # 4
 
 Logarithms
 ----------
@@ -94,7 +122,7 @@ Logarithms
     import math
 
 
-    math.log(x)
+    math.log(x)     # if base is not set, then ``e``
     math.log(x, base=2)
     math.log10()
 
@@ -110,6 +138,9 @@ Linear Algebra
     math.sqrt()
     math.pow(x, y)
 
+    # Return the Euclidean distance, sqrt(x*x + y*y).
+    math.hypot(x, y)
+
 Trigonometry
 ------------
 .. code-block:: python
@@ -121,9 +152,17 @@ Trigonometry
     math.cos()
     math.tan()
 
-    math.atan(x)
+    math.sinh()
+    math.cosh()
+    math.tanh()
+
     math.asin(x)
     math.acos(x)
+    math.atan(x)
+    math.atan2(x)
+
+    math.asinh(x)
+    math.acosh(x)
 
 Other functions
 ---------------
@@ -134,9 +173,6 @@ Other functions
 
     math.isinf(x)
     math.fabs(x)
-
-    # Return the Euclidean distance, sqrt(x*x + y*y).
-    math.hypot(x, y)
 
 
 ``fractions``
@@ -382,10 +418,10 @@ Sum of inner elements
 * Lines of code to write: 5 lines
 * Estimated time of completion: 10 min
 
+#. Ustaw ``random.seed(0)``
 #. Za pomocą biblioteki ``random`` wygeneruj ``List[List[int]]``
 #. Tablica ma mieć 16 wierszy i 16 kolumn
 #. Policz sumę środkowych 4x4 elementów
-#. Ustaw ``random.seed()``
 
 Euclidean distance 2D
 ---------------------
