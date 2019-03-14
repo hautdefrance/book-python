@@ -52,8 +52,8 @@ Date manipulation
 
     .. code-block:: python
 
-        date1 = 'April 12, 1961 2:07 local time'  # Asia/Almaty
-        date2 = '"07/21/69 2:56:15 AM UTC"'
+        gagarin = 'April 12, 1961 2:07 local time'  # Asia/Almaty
+        armstrong = '"07/21/69 2:56:15 AM UTC"'
 
 #. Przedstaw daty jako obiekt ``datetime``
 #. Odejmij obie daty od siebie
@@ -67,7 +67,6 @@ Date manipulation
     - miesiąc = 30.436875 dni
 
 :Zadanie z gwiazdką:
-    * Co to za daty, które podał użytkownik?
     * Co robiłeś przez ten czas?
 
 :Hint:

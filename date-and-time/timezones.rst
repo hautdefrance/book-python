@@ -48,3 +48,32 @@ Between timezones
 .. literalinclude:: src/pytz-between-timezones.py
     :language: python
     :caption: Between timezones
+
+
+Assignments
+===========
+
+Time zone converting
+--------------------
+* Filename: ``datetime_tz.py``
+* Lines of code to write: 5 lines
+* Estimated time of completion: 10 min
+
+#. Dane są dwie następujące daty w formacie jak poniżej:
+
+    .. code-block:: python
+
+        gagarin = 'April 12, 1961 2:07 local time'  # Asia/Almaty
+        armstrong = '"07/21/69 2:56:15 AM UTC"'
+
+#. Przedstaw daty jako obiekt ``datetime`` ze strefą czasową UTC
+#. Wyświetl obie daty w formacie *ISO* w strefie czasowej ``Europe/Warsaw``
+
+:Hint:
+    * Wpisz "local time" jako zwykły tekst w parametrze ``fmt`` funkcji ``.strptime()``
+    * Wpisz znaki cudzysłowia ``"`` jako zwykły tekst w parametrze ``fmt`` funkcji ``.strptime()``
+    * Standard ISO:
+
+        * '1961-04-12'
+        * '1961-04-12T06:07:00Z'
+        * '1961-04-12T06:07:00.123456Z'
