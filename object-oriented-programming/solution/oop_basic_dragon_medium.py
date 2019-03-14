@@ -39,7 +39,7 @@ class Character(Dragon):
 
     def set_position(self, x, y):
         """
-        >>> wawelski = MediumDragon(name='Red', position_x=0, position_y=0)
+        >>> wawelski = Character(name='Red', position_x=0, position_y=0)
         >>> wawelski.move(right=1)
         >>> wawelski.get_position()
         {'x': 1, 'y': 0}

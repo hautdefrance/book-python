@@ -1,6 +1,103 @@
 
 
 
+"""
+
+https://tinyurl.com/python-aptiv
+
+"""
+
+
+
+
+
+from random import randint
+
+STATUS_ALIVE = 'alive'
+STATUS_DEAD = 'dead'
+
+
+class Dragon:
+    TEXTURE = 'img/dragon/alive.png'
+    HEALTH_MIN = 50
+    HEALTH_MAX = 100
+    DAMAGE_MIN = 5
+    DAMAGE_MAX = 20
+    GOLD_MIN = 1
+    GOLD_MAX = 100
+
+    def __init__(self, name, x=0, y=0, texture=TEXTURE):
+        self.name = name
+        self.texture = texture
+        self.status = STATUS_ALIVE
+        self.health = randint(self.HEALTH_MIN, self.HEALTH_MAX)
+        self.gold = randint(self.GOLD_MIN, self.GOLD_MAX)
+        self.set_position(x, y)
+
+    def set_position(self, x, y):
+        self.position_x = x
+        self.position_y = y
+
+    def get_position(self):
+        return self.position_x, self.position_y
+
+    def move(self, left=0, down=0, up=0, right=0):
+        x = self.position_x + right - left
+        y = self.position_y + down - up
+        self.set_position(x, y)
+
+    def make_damage(self):
+        return randint(self.DAMAGE_MIN, self.DAMAGE_MAX)
+
+    def _make_dead(self):
+        self.status = STATUS_DEAD
+        print(f'{self.name} is dead')
+        print(f'Gold {self.gold}')
+        print(f'Position {self.get_position()}')
+
+    def is_dead(self):
+        if self.health <= 0:
+            return True
+        else:
+            return False
+
+    def is_alive(self):
+        return not self.is_dead()
+
+    def take_damage(self, damage):
+        if self.is_dead():
+            return None
+
+        self.health -= damage
+
+        if self.is_dead():
+            self._make_dead()
+        else:
+            print(f'{Dragon}, DMG: {damage}, Health: {self.health}')
+
+
+wawelski = Dragon(name='Wawelski', x=50, y=120)
+
+wawelski.set_position(x=10, y=20)
+wawelski.move(left=10, down=20)
+wawelski.move(left=10, right=15)
+wawelski.move(right=15, up=5)
+wawelski.move(down=5)
+
+wawelski.take_damage(10)
+wawelski.take_damage(5)
+wawelski.take_damage(3)
+wawelski.take_damage(2)
+wawelski.take_damage(15)
+wawelski.take_damage(25)
+wawelski.take_damage(75)
+
+
+
+
+
+
+
 # https://www.ventusky.com/krakow
 
 

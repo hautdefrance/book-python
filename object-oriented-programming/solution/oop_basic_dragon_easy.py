@@ -93,7 +93,7 @@ class Dragon:
 
         drop = self._get_drop()
         gold = drop['gold']
-        position = self.get_position()
+        position = drop['position']
 
         print(f'{self.name} is dead')
         print(f'Gold dropped: {gold}')
