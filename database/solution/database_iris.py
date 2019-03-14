@@ -44,14 +44,8 @@ SQL_CREATE_INDEX = """
 """
 
 SQL_INSERT = """
-    INSERT INTO iris (
-        species,
-        datetime,
-        sepal_length,
-        sepal_width,
-        petal_length,
-        petal_width) 
-    VALUES (
+    INSERT INTO iris VALUES (
+        NULL,
         :species,
         :datetime,
         :sepal_length,
@@ -63,13 +57,13 @@ SQL_INSERT = """
 
 SQL_SELECT = 'SELECT * FROM iris ORDER BY datetime DESC'
 
-lista_rekordow = []
+data = []
 
 
 for rekord in DATA.split():
     pomiary = rekord.split(',')
 
-    lista_rekordow.append({
+    data.append({
         'datetime': datetime.now(tz=timezone.utc),
         'sepal_length': float(pomiary[0]),
         'sepal_width': float(pomiary[1]),
@@ -84,9 +78,8 @@ with sqlite3.connect('iris.sqlite3') as db:
 
     db.execute(SQL_CREATE_TABLE)
     db.execute(SQL_CREATE_INDEX)
-    db.executemany(SQL_INSERT, lista_rekordow)
+    db.executemany(SQL_INSERT, data)
 
     for row in db.execute(SQL_SELECT):
-        row = dict(row)
-        print(row)
+        print(dict(row))
 

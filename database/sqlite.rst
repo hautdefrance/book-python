@@ -265,36 +265,39 @@ Iris Database
 * Filename: ``database_iris.py``
 * Lines of code to write: 30 lines
 * Estimated time of completion: 30 min
-
-#. Pobierz dane z listingu :numref:`listing-database-iris.csv`
-#. Bazę pomiarów Irysów przekonwertuj na tabelę w ``sqlite3``
-#. Nazwy poszczególnych kolumn:
-
-    * id - ``int``
-    * species - ``str``
-    * datetime - ``datetime``
-    * sepal_length - ``float``
-    * sepal_width - ``float``
-    * petal_length - ``float``
-    * petal_width - ``float``
-
-#. Do połączenia wykorzystaj context manager (``with``)
-#. Dane wrzuć do bazy za pomocą ``.executemany()`` podając ``dict``
-#. Do bazy danych zapisz ``species`` jako nazwę gatunku (``str``), a nie jego id (``int``) (wersja z gwiazdką: nie korzystaj z if-ów do tego)
-
-    * 0 - setosa
-    * 1 - versicolor
-    * 2 - virginica
-
-#. Dodaj kolumnę ``datetime`` z datą i czasem dodania (UTC)
-#. Załóż index na ``datetime``
-#. Wyniki wypisz z bazy danych (``SELECT * FROM iris ORDER BY datetime DESC``)
-#. Zwracaj dane jako ``sqlite3.Row``
+* Input data: :numref:`listing-database-iris.csv`
 
 .. literalinclude:: assignment/database-iris.csv
     :name: listing-database-iris.csv
     :language: python
     :caption: Iris Database
+
+#. Skopiuj dane z listingu :numref:`listing-database-iris.csv` i zapisz je w pliku ``iris-db.csv``
+#. Wczytaj dane z pliku ``iris-db.csv``
+#. Stwórz ``species: Dict[int, str]`` o strukturze:
+
+    * 0 - setosa
+    * 1 - versicolor
+    * 2 - virginica
+
+#. Bazę pomiarów Irysów przekonwertuj na tabelę w ``sqlite3``
+#. Do połączenia wykorzystaj context manager (``with``)
+#. Dane wrzuć do bazy za pomocą ``.executemany()`` podając ``dict``
+#. Nazwy poszczególnych kolumn:
+
+    * id - ``int``
+    * species - ``str`` - podmień ``int`` na ``str`` ze słownika ``species``
+    * datetime - ``datetime`` - z datą i czasem dodania w UTC
+    * sepal_length - ``float``
+    * sepal_width - ``float``
+    * petal_length - ``float``
+    * petal_width - ``float``
+
+#. Przy dodawaniu danych ``species`` podmień ``int`` na ``str`` ze słownika ``species``
+#. Dodaj kolumnę ``datetime`` z datą i czasem dodania (UTC)
+#. Załóż index na ``datetime``
+#. Wyniki wypisz z bazy danych (``SELECT * FROM iris ORDER BY datetime DESC``)
+#. Zwracaj dane jako ``sqlite3.Row``
 
 :The whys and wherefores:
     * Parsowanie plików ``csv``
@@ -344,5 +347,5 @@ Dane w jednej tabeli
     - wiele adresów i dane rozdzielone separatorem (``;``)
     - wiele kolumn dla każdego pola
 
-#. Które podejście jest najepsze?
+#. Które podejście jest najlepsze?
 #. Które podejście jest zgodne z ACID?
