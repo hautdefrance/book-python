@@ -7,7 +7,7 @@ Time shifts
 ===========
 .. literalinclude:: src/timedelta-shift.py
     :language: python
-    :caption: Shifting datetimes
+    :caption: Shifting datetime objects
 
 
 ``timedelta``
@@ -29,14 +29,14 @@ Complex ``timedelta`` shifts
 --------------------------
 .. literalinclude:: src/timedelta-month.py
     :language: python
-    :caption: Substract month from ``datetime``
+    :caption: Subtract month from ``datetime``
 
 
 Time diff
 =========
 .. literalinclude:: src/timedelta-diff.py
     :language: python
-    :caption: Diff between datetimes
+    :caption: Diff between datetime objects
 
 
 Assignments
@@ -58,17 +58,16 @@ Date manipulation
 #. Przedstaw daty jako obiekt ``datetime``
 #. Odejmij obie daty od siebie
 #. Oblicz ile lat i miesięcy minęło między wydarzeniami
-#. Od obecnej chwili (UTC) odejmij ten sam czas, który Ci wyszedł w poprzednim punkcie
+#. Od obecnej chwili odejmij ten sam czas, który Ci wyszedł w poprzednim punkcie
 #. Wyświetl samą datę (bez czasu)
 #. Ile miałeś wtedy lat?
 #. Przyjmij:
 
     - rok = 365.2425 dni
-    - miesiac = 30.436875 dni
+    - miesiąc = 30.436875 dni
 
 :Zadanie z gwiazdką:
     * Co to za daty, które podał użytkownik?
-    * Uwzględnij strefy czasowe.
     * Co robiłeś przez ten czas?
 
 :Hint:

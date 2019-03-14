@@ -1,41 +1,8 @@
+from datetime import datetime
 
-import datetime
+dt = datetime(1961, 4, 12, 6, 7, 0, 123456)
 
-2020-01-05
-
-
-
-
-class Vector:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def __add__(self, other):
-        return Vector(
-            x=self.x + other.x,
-            y=self.y + other.y
-        )
-
-    def __sub__(self, other):
-        return Vector(
-            x=self.x - other.x,
-            y=self.y - other.y
-        )
-
-    def __str__(self):
-        return f'Vector(x={self.x}, y={self.y})'
-
-a = Vector(1, 0)
-b = Vector(0, 1)
-
-print(a - b)
-
-
-
-
-
-
+print(dt.date().isoformat())
 
 
 

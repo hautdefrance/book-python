@@ -111,7 +111,7 @@ Date and time
 
     1961-04-12T06:07:00Z
 
-* Date and time with miliseconds:
+* Date and time with milliseconds:
 
 .. code-block:: text
 
@@ -165,19 +165,26 @@ Table of date and time parsing and formatting parameters
     :header-rows: 1
     :file: data/datetime-formatting.csv
 
+Date formatting
+===============
 
 ``f-string`` formatting
-=======================
+-----------------------
 .. literalinclude:: src/datetime-format.py
     :language: python
     :caption: Datetime formatting as string with ``f'...'``
 
-
 Format to string
-================
+----------------
 .. literalinclude:: src/datetime-strftime.py
     :language: python
     :caption: Datetime formatting as string with ``.strftime()``
+
+ISO Format
+----------
+.. literalinclude:: src/datetime-format-iso.py
+    :language: python
+    :caption: Date and Datetime formatting to ISO format
 
 
 Parsing dates
@@ -225,7 +232,7 @@ To ISO date format
     .. code-block:: text
 
         "Rok-Miesiąc-DzieńTGodzina:Minuta:Sekunda.UłamkiSekundZ"
-        1961-04-12T06:07:00.123456Z
+        1961-04-12T06:07:00.123456
 
 #. Wyświetl w formacie ISO samą datę, tj. bez czasu:
 
@@ -240,7 +247,7 @@ US date and time format
 * Lines of code to write: 5 lines
 * Estimated time of completion: 5 min
 
-#. Rozczytaj datę z formatu Amerykańkiego długiego (skopiuj z cudzysłowami):
+#. Rozczytaj datę z formatu amerykańskiego długiego (skopiuj z cudzysłowami):
 
     .. code-block:: python
 
@@ -254,5 +261,5 @@ US date and time format
         04/12/61 06:07 AM
 
 :Hint:
-    * Wpisz "local time" jako część stringa (formatu) do``strptime``
-    * Wpisz znaki cudzysłowia jako część stringa (formatu) do ``strptime``
+    * Wpisz "local time" jako zwykły tekst w parametrze ``fmt`` funkcji ``.strptime()``
+    * Wpisz znaki cudzysłowia ``"`` jako zwykły tekst w parametrze ``fmt`` funkcji ``.strptime()``
