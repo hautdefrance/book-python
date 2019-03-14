@@ -26,17 +26,19 @@ Connection
     :language: python
     :caption: Connection to database file
 
-.. literalinclude:: src/database-connect-context-manager.py
-    :language: python
-    :caption: Connection
-
-Execute and executemany
------------------------
+Execute
+-------
 .. literalinclude:: src/database-execute.py
     :language: python
     :caption: Execute
 
-.. literalinclude:: src/database-execute-many.py
+Executemany
+-----------
+.. literalinclude:: src/database-executemany-tuple.py
+    :language: python
+    :caption: Execute many
+
+.. literalinclude:: src/database-executemany-dict.py
     :language: python
     :caption: Execute many
 
