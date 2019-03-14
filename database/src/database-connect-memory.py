@@ -1,4 +1,4 @@
 import sqlite3
 
-connection = sqlite3.connect(':memory:')
-connection.execute('SELECT * FROM users')
+with sqlite3.connect(':memory:') as db:
+    db.execute('SELECT * FROM users')
