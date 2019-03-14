@@ -12,9 +12,12 @@ DATA = {
 def encoder(self, value):
 
     if isinstance(value, datetime):
-        return value.strftime('%Y-%m-%dT%H:%M:%S.%fZ')
-    elif isinstance(value, date):
-        return value.strftime('%Y-%m-%d')
+        format = '%Y-%m-%dT%H:%M:%S.%fZ'
+
+    if isinstance(value, date):
+        format = '%Y-%m-%d'
+
+    return value.strftime(format)
 
 
 json.JSONEncoder.default = encoder

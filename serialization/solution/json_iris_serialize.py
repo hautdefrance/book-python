@@ -33,6 +33,9 @@ iris = []
 for value in data:
     iris.append({key: value[i] for i, key in enumerate(header)})
 
+    # d = dict(zip(header, value))
+    # iris.append(d)
+
     # header == ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species')
     # iris.append({
     #     'Sepal length': row[0],
@@ -42,7 +45,10 @@ for value in data:
     #     'Species': row[4]
     # })
 
-
 with open(r'iris.json', mode='w') as file:
     content = json.dumps(iris)
     file.write(content)
+
+
+with open(r'iris.json', mode='w') as file:
+    json.dump(iris, file)

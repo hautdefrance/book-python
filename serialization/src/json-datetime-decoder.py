@@ -9,11 +9,13 @@ def decoder(obj):
     for key, value in obj.items():
 
         if key == 'datetime':
-            dt = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%fZ')
+            format = '%Y-%m-%dT%H:%M:%S.%fZ'
+            dt = datetime.strptime(value, format)
             obj['datetime'] = dt.replace(tzinfo=timezone.utc)
 
         elif key == 'date':
-            dt = datetime.strptime(value, '%Y-%m-%d')
+            format = '%Y-%m-%d'
+            dt = datetime.strptime(value, format)
             obj['date'] = dt.replace(tzinfo=timezone.utc).date()
 
     return obj
