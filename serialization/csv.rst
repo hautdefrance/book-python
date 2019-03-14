@@ -11,6 +11,7 @@ Reading data from CSV files
 
     * ``quotechar='"'``
     * ``delimiter=','``
+    * ``open(FILE, encoding='utf-8')`` - especially for MS Excel exported *CSV* files
 
 .. literalinclude:: src/csv-read.py
     :name: listing-csv-read
@@ -26,6 +27,7 @@ Writing to CSV files
     * ``quotechar='"'``
     * ``delimiter=','``
     * ``lineterminator='\n'``
+    * ``open(FILE, encoding='utf-8')`` - especially for reading in MS Excel
 
 .. literalinclude:: src/csv-write.py
     :name: listing-csv-write
@@ -74,19 +76,41 @@ Reading ``csv``
 
 #. Wypisz wiersze na ekranie
 
-Writing ``csv``
----------------
-* Filename: ``csv_dictwriter.py``
+Writing ``csv`` - fixed schema
+------------------------------
+* Filename: ``csv_dictwriter_fixed.py``
 * Lines of code to write: 8 lines
 * Estimated time of completion: 10 min
-* Input data: :numref:`listing-csv-dictwriter`
+* Input data: :numref:`listing-csv-dictwriter-fixed`
+
+#. Za pomocą ``csv.DictWriter()`` zapisz do pliku *CSV* dane o stałej strukturze
+#. Podaj jawnie ``encoding``, ``delimiter``, ``quotechar`` ``quoting``, ``lineterminator``
+
+.. code-block:: python
+    :name: listing-csv-dictwriter-fixed
+    :caption: Create ``fieldnames: Set[str]`` with unique keys
+
+    DATA = [
+        {'first_name': 'Jan',  'last_name': 'Twardowski'},
+        {'first_name': 'José', 'last_name': 'Jiménez'},
+        {'first_name': 'Mark', 'last_name': 'Watney'},
+        {'first_name': 'Иван', 'last_name': 'Иванович'},
+        {'first_name': 'Alex', 'last_name': 'Vogel'},
+    ]
+
+Writing ``csv`` - variable schema
+---------------------------------
+* Filename: ``csv_dictwriter_variable.py``
+* Lines of code to write: 8 lines
+* Estimated time of completion: 10 min
+* Input data: :numref:`listing-csv-dictwriter-variable`
 
 #. Za pomocą ``csv.DictWriter()`` zapisz do pliku CSV dane o zmiennej strukturze
 #. Podaj jawnie ``encoding``, ``delimiter``, ``quotechar`` ``quoting``, ``lineterminator``
 #. ``fieldnames`` nie może być wymienione wprost w skrypcie (zahardkodowane)
 
 .. code-block:: python
-    :name: listing-csv-dictwriter
+    :name: listing-csv-dictwriter-variable
     :caption: Create ``fieldnames: Set[str]`` with unique keys
 
     DATA = [

@@ -1,10 +1,13 @@
 import csv
 
+
 DATA = [
-    {'first_name': 'José', 'last_name': 'Jiménez'},
-    {'first_name': 'Mark', 'last_name': 'Watney'},
-    {'first_name': 'Иван', 'last_name': 'Иванович'},
-    {'first_name': 'Alex', 'last_name': 'Vogel'},
+    {'sepal_length': 5.4, 'sepal_width': 3.9, 'petal_length': 1.3, 'petal_width': 0.4, 'species': 'setosa'},
+    {'sepal_length': 5.9, 'sepal_width': 3.0, 'petal_length': 5.1, 'petal_width': 1.8, 'species': 'virginica'},
+    {'sepal_length': 6.0, 'sepal_width': 3.4, 'petal_length': 4.5, 'petal_width': 1.6, 'species': 'versicolor'},
+    {'sepal_length': 7.3, 'sepal_width': 2.9, 'petal_length': 6.3, 'petal_width': 1.8, 'species': 'virginica'},
+    {'sepal_length': 5.6, 'sepal_width': 2.5, 'petal_length': 3.9, 'petal_width': 1.1, 'species': 'versicolor'},
+    {'sepal_length': 5.4, 'sepal_width': 3.9, 'petal_length': 1.3, 'petal_width': 0.4, 'species': 'setosa'},
 ]
 
 

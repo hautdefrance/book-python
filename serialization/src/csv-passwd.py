@@ -2,6 +2,7 @@ import csv
 
 
 FIELDNAMES = ['username', 'password', 'uid', 'gid', 'full_name', 'home', 'shell']
+FILE = r'../data/etc-passwd.txt'
 """
 root:x:0:0:root:/root:/bin/bash
 watney:x:1000:1000:Mark Watney:/home/watney:/bin/bash
@@ -10,11 +11,11 @@ ivanovic:x:1002:1002:Иван Иванович:/home/ivanovic:/bin/bash
 """
 
 
-with open(r'etc-passwd.txt') as file:
-    content = csv.DictReader(file, fieldnames=FIELDNAMES, delimiter=':')
+with open(FILE) as file:
+    data = csv.DictReader(file, fieldnames=FIELDNAMES, delimiter=':')
 
-    for row in content:
-        print(dict(row))
+    for line in data:
+        print(dict(line))
 
 # {'username': 'root', 'password': 'x', 'uid': '0',...}
 # {'username': 'bin', 'password': 'x', 'uid': '1',...}
