@@ -1,9 +1,3 @@
-from datetime import datetime
-
-dt = datetime(1961, 4, 12, 6, 7, 0, 123456)
-
-print(dt.date().isoformat())
-
 
 
 

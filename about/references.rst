@@ -71,7 +71,7 @@ Astronauts
 
 Jan Twardowski
 ^^^^^^^^^^^^^^
-.. figure:: img/pan-twardowski.jpg
+.. figure:: img/jan-twardowski.jpg
     :scale: 50%
     :align: center
 

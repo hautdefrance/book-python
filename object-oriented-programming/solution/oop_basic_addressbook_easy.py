@@ -18,7 +18,7 @@ class Contact:
 
 AddressBook([
     Contact(first_name='José', last_name='Jiménez'),
-    Contact(first_name='Иван', last_name='Иванович', addresses=[]),
+    Contact(first_name='Иван', last_name='Иванович', addresses=()),
     Contact(first_name='Jan', last_name='Twardowski', addresses=[
         Address(street='2101 E NASA Pkwy', city='Houston'),
         Address(city='Kennedy Space Center'),

@@ -26,6 +26,7 @@ Classes
     :language: python
     :caption: Defining and naming classes with ``CamelCase`` names
 
+
 Classes vs Objects
 ==================
 * Objects, Instances
@@ -93,6 +94,10 @@ Initializer Method
 * Domyślny ``__init__()`` gdy niezdefiniowaliśmy własnego
 * Inicjalizacja pól klasy tylko w ``__init__``
 
+.. literalinclude:: src/oop-init-simple.py
+    :language: python
+    :caption: ``__init__()`` - Initializer Method
+
 .. literalinclude:: src/oop-init.py
     :language: python
     :caption: ``__init__()`` - Initializer Method
@@ -109,6 +114,60 @@ Stringify object
 .. literalinclude:: src/oop-str-with.py
     :language: python
     :caption: Stringify object
+
+Inheritance
+===========
+.. code-block:: python
+
+    class Iris:
+        def __init__(self, sepal_length, sepal_width, petal_length, petal_width, species):
+        self.sepal_length = sepal_length
+        self.sepal_width = sepal_width
+        self.petal_length = petal_length
+        self.petal_width = petal_width
+        self.species = species
+
+    class Virginica(Iris):
+        pass
+
+    class Setosa(Iris):
+        pass
+
+    class Versicolor(Iris):
+        pass
+
+
+    setosa = Setosa(
+        sepal_length=5.1,
+        sepal_width=3.5,
+        petal_length=1.4,
+        petal_width=0.2,
+        species='setosa'
+    )
+
+Relations
+=========
+.. code-block:: python
+
+    class Address:
+        def __init__(self, street=None, city=None, country=None):
+            self.street = street
+            self.city = city
+            self.country = country
+
+
+    class Contact:
+        def __init__(self, first_name, last_name, addresses=()):
+            self.first_name = first_name
+            self.last_name = last_name
+            self.address = addresses
+
+
+    twardowski = Contact(first_name='Jan', last_name='Twardowski', address=[
+        Address(street='Kamienica Pod św. Janem Kapistranem', city='Kraków', country='Poland'),
+        Address(street='2101 E NASA Pkwy', city='Houston', country='USA'),
+        Address(city='Kennedy Space Center', country='USA'),
+    ])
 
 
 One class per file?
@@ -140,18 +199,21 @@ Defining Classes
 
 #. Napisz metodę ``total()`` wyliczającą sumę dla pól numerycznych
 #. Napisz metodę ``average()`` wyliczającą średnią dla pól numerycznych
+#. Stwórz obiekt ``setosa`` z pomiarami:
+
+    * sepal_length: 5.4
+    * sepal_width: 3.9
+    * petal_length: 1.3
+    * petal_width: 0.4
+
+#. Wyświetl na ekranie nazwę gatunku oraz sumę i średnią z pomiarów.
 
 Defining Classes
 ----------------
 * Filename: ``oop_iris.py``
 * Lines of code to write: 15 lines
 * Estimated time of completion: 10 min
-
-#. Stwórz klasy ``Virginica``, ``Versicolor``, ``Setosa``, które będą identyczne do ``Iris``.
-#. Klasy ``Virginica``, ``Versicolor``, ``Setosa`` mają mieć pole species wypełnione odpowiednio do nazwy gatunku.
-#. Iterując po ``DATA`` z :numref:`listing-oop-classes` twórz obiekty klasy odpowiedniej dla nazwy gatunku (ostatni rekord każdej z krotek).
-#. Obiekt inicjalizuj danymi z pomiarów.
-#. Na ekranie wyświetlaj nazwę gatunku oraz sumę i średnią z pomiarów.
+* Input data: :numref:`listing-oop-classes`
 
 .. code-block:: python
     :caption: Iris sample dataset
@@ -171,6 +233,34 @@ Defining Classes
         (4.6, 3.1, 1.5, 0.2, 'setosa'),
     ]
 
+#. Stwórz ``flowers: list``
+#. Stwórz klasy ``Virginica``, ``Versicolor``, ``Setosa``, które będą identyczne do ``Iris``
+#. Iterując po ``DATA`` z :numref:`listing-oop-classes`:
+
+    #. Twórz obiekty klasy odpowiedniej dla nazwy gatunku (ostatni rekord każdej z krotek)
+    #. Obiekt inicjalizuj danymi z pomiarów
+    #. Obiekt dodaj do listy ``flowers``
+
+#. Na ekranie wyświetlaj nazwę gatunku oraz sumę i średnią z pomiarów.
+
+:Dla chętnych:
+    #. Wynik sformatuj aby wyglądał jak tabelka:
+
+        .. code-block:: text
+
+            Species    Total   Avg
+            ----------------------
+             virginica  15.5  3.88
+                setosa  10.2  2.55
+            versicolor  13.9  3.48
+             virginica  16.6  4.15
+            versicolor  15.6  3.90
+                setosa   9.4  2.35
+            versicolor  16.3  4.07
+             virginica  19.3  4.83
+                setosa   9.5  2.38
+                setosa   9.4  2.35
+
 Basic Address Book
 ------------------
 * Filename: ``oop_addressbook_basic.py``
@@ -183,7 +273,7 @@ Basic Address Book
         :language: json
         :caption: Address Book
 
-#. W zadaniu mamy doczynienia z trzema klasami, wymień je.
+#. W zadaniu mamy do czynienia z trzema klasami, wymień je.
 #. Zamodeluj problem wykorzystując trzy klasy i relacje między nimi
 #. Użytkownik może mieć wiele adresów
 #. Użytkownik może nie mieć żadnego adresu
@@ -192,8 +282,7 @@ Basic Address Book
     * myślenie obiektowe i odwzorowanie struktury w programie
     * praca z obiektami
     * zagnieżdżanie obiektów
-    * rzutowanie obiektu na stringa oraz jego reprezentacja (które i kiedy użyć)
-
+    * rzutowanie obiektu na ``str`` oraz jego reprezentacja (które i kiedy użyć)
 
 Address Book from API
 ---------------------
