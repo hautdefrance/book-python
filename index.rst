@@ -234,7 +234,8 @@ High Performance
     :numbered:
     :caption: High Performance
 
-    /performance/index.rst
+    /performance/optimization.rst
+    /performance/micro-benchmarking.rst
     /extensions/compilers.rst
     /data-types/collections.rst
     /concurrency/threading.rst
@@ -280,23 +281,23 @@ Numerical Analysis
     /numerical-analysis/pandas-dataframe.rst
 
 ******************
-Data Vizualization
+Data Visualization
 ******************
 
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Data Vizualization
+    :caption: Data Visualization
 
-    /data-vizualization/matplotlib-basic.rst
-    /data-vizualization/matplotlib-pandas.rst
-    /data-vizualization/matplotlib-charts.rst
-    /data-vizualization/matplotlib-lifecycle.rst
-    /data-vizualization/matplotlib-example.rst
-    /data-vizualization/plotly.rst
-    /data-vizualization/bokeh.rst
-    /data-vizualization/seaborn.rst
-    /data-vizualization/graphs.rst
+    /data-visualization/matplotlib-basic.rst
+    /data-visualization/matplotlib-pandas.rst
+    /data-visualization/matplotlib-charts.rst
+    /data-visualization/matplotlib-lifecycle.rst
+    /data-visualization/matplotlib-example.rst
+    /data-visualization/plotly.rst
+    /data-visualization/bokeh.rst
+    /data-visualization/seaborn.rst
+    /data-visualization/graphs.rst
     /gui/index.rst
 
 ****************
