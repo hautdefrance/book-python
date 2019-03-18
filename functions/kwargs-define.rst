@@ -126,8 +126,57 @@ Case Study
 
 .. code-block:: python
 
+    def html_list(*args):
+        print('<ul>')
+
+        for element in args:
+            print(f'<li>{element}</li>')
+
+        print('</ul>')
+
+    print_everything('apple', 'banana', 'cabbage')
+    # <ul>
+    # <li>apple</li>
+    # <li>banana</li>
+    # <li>cabbage</li>
+    # </ul>
+
+.. code-block:: python
+
     def print(*values, sep=' ', end='\n', ...):
         return sep.join(values) + end
+
+.. code-block:: python
+
+    class Point2D:
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
+
+
+    class Point3D(Point2D):
+        def __init__(self, z, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.z = z
+
+.. code-block:: python
+
+    mynum = 1000
+    mystr = 'Hello World!'
+    print "{mystr} New-style formatting is {mynum}x more fun!".format(**locals())
+
+.. code-block:: python
+
+    from functools import wraps
+
+    def login_required(f):
+        @wraps(f)
+        def wrapper(*args, **kwargs):
+            if user.is_logged():
+                return f(*args, **kwargs)
+            else:
+                print('Permission denied')
+        return wrapper
 
 
 Assignment
