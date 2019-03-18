@@ -15,6 +15,8 @@ Unpacking values
     a, b, c = [1, 2, 3]
     a, b, c = {1, 2, 3}
 
+.. note:: Note, that ``set`` is unordered collection!
+
 Too many values to unpack
 -------------------------
 .. code-block:: python
@@ -49,9 +51,19 @@ Unpacking values at the left side
 
     *others, a, b = [1, 2, 3, 4]
 
+    others      # [1, 2]
     a           # 3
     b           # 4
-    others      # [1, 2]
+
+Unpacking values at the left side
+---------------------------------
+.. code-block:: python
+
+    first, *middle, last = [1, 2, 3, 4]
+
+    first       # 1
+    middle      # [2, 3]
+    last        # 4
 
 Cannot unpack from both sides at once
 -------------------------------------

@@ -31,10 +31,10 @@ data = DATA[1:]
 iris = []
 
 for value in data:
-    iris.append({key: value[i] for i, key in enumerate(header)})
+    # iris.append({key: value[i] for i, key in enumerate(header)})
 
-    # d = dict(zip(header, value))
-    # iris.append(d)
+    pair = zip(header, value)
+    iris.append(dict(pair))
 
     # header == ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species')
     # iris.append({
