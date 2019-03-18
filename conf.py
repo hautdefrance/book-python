@@ -3,6 +3,7 @@ email = 'matt@astrotech.io'
 project = 'Python 3: from None to Machine Learning'
 description = "Matt Harasymczuk's Python 3: from None to Machine Learning"
 
+
 extensions = [
     'sphinx.ext.doctest',
     'sphinx.ext.todo',
