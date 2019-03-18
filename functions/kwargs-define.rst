@@ -5,7 +5,7 @@ Functions with many arguments
 
 Operands ``*`` and ``**``
 =========================
-- This is not multiplication or power...
+- This is not multiplication or power!
 - ``*args`` - positional arguments
 - ``**kwargs`` - keyword arguments
 - ``*args`` unpacks to ``tuple``

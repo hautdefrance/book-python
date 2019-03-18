@@ -5,11 +5,11 @@ Passing many arguments
 
 Operators ``*`` i ``**``
 ========================
-- To nie jest mnożenie i potęgowanie!
-- ``*`` zwykle nazywa się ``*args`` (arguments) - argumenty pozycyjne (anonimowe)
-- ``**`` zwykle nazywa się ``**kwargs`` (keyword arguments) - argumenty nazwane
-- ``*args`` unpack ``tuple`` or ``list``
-- ``**kwargs`` unpack ``dict``
+- This is not multiplication or power!
+- ``*args`` - positional arguments
+- ``**kwargs`` - keyword arguments
+- ``*args`` unpacks ``tuple`` or ``list``
+- ``**kwargs`` unpacks to ``dict``
 
 
 ``*`` unpacks ``list`` or ``tuple``
@@ -55,76 +55,76 @@ Przykładowe zastosownaie operatorów ``*`` i ``**`` polega na wykorzystaniu ich
 
 .. code-block:: python
 
-    def wyswietl(a, b, c=0):
+    def show(a, b, c=0):
         print(locals())
 
-    wyswietl(1, 2, 3)
+    show(1, 2, 3)
     # {'a': 1, 'b': 2, 'c': 3}
 
     dane = (1, 2, 3)
-    wyswietl(*dane)
+    show(*dane)
     # {'a': 1, 'b': 2, 'c': 3}
 
     dane = (1, 2)
-    wyswietl(*dane)
+    show(*dane)
     # {'a': 1, 'b': 2, 'c': 0}
 
 .. code-block:: python
 
-    def wyswietl(a, b, c=0, *args):
+    def show(a, b, c=0, *args):
         print(locals())
 
     dane = (1, 2, 3, 4)
-    wyswietl(*dane)
+    show(*dane)
     # {'a': 1, 'b': 2, 'c': 3, 'args': (4,)}
 
     dane = (1, 2, 3, 4, 5, 6, 7)
-    wyswietl(*dane)
+    show(*dane)
     # {'a': 1, 'b': 2, 'c': 3, 'args': (4, 5, 6, 7)}
 
-    wyswietl(1, 2)
+    show(1, 2)
     # {'a': 1, 'b': 2, 'c': 0, 'args': ()}
 
 .. code-block:: python
 
-    def wyswietl(a, b, c=0, *args, **kwargs):
+    def show(a, b, c=0, *args, **kwargs):
         print(locals())
 
-    wyswietl(1, 2, x=77, y=99)
+    show(1, 2, x=77, y=99)
     # {'a': 1, 'b': 2, 'c': 0, 'args': (), 'kwargs': {'x': 77, 'y': 99}}
 
-    wyswietl(1, 2, x=77, y=99, c=7)
+    show(1, 2, x=77, y=99, c=7)
     # {'a': 1, 'b': 2, 'c': 7, 'args': (), 'kwargs': {'x': 77, 'y': 99}}
 
     dane = {'x': 77, 'y': 99}
-    wyswietl(1, 2, 3, **dane)
+    show(1, 2, 3, **dane)
     # {'a': 1, 'b': 2, 'c': 3, 'args': (), 'kwargs': {'x': 77, 'y': 99}}
 
     dane = {'a': 1, 'b': 2, 'x': 77, 'y': 99}
-    wyswietl(**dane)
+    show(**dane)
     # {'a': 1, 'b': 2, 'c': 0, 'args': (), 'kwargs': {'x': 77, 'y': 99}}
 
 
 .. code-block:: python
 
-    def wyswietl(a, b, c=0, *args, **kwargs):
+    def show(a, b, c=0, *args, **kwargs):
         print(locals())
 
     dane = {'x': 77, 'y': 99, 'a': 7}
-    wyswietl(1, 2, 3, **dane)
-    # TypeError: wyswietl() got multiple values for argument 'a'
+    show(1, 2, 3, **dane)
+    # TypeError: show() got multiple values for argument 'a'
 
 .. code-block:: python
 
-    def wyswietl(a, b, c=0, *args, **kwargs):
+    def show(a, b, c=0, *args, **kwargs):
         print(locals())
 
-    wyswietl(1, 2, 3, 4, 5, 6, x=77, y=99)
+    show(1, 2, 3, 4, 5, 6, x=77, y=99)
     # {'a': 1, 'b': 2, 'c': 3, 'args': (4, 5, 6), 'kwargs': {'x': 77, 'y': 99}}
 
     pozycyjne = (4, 5, 6)
     nazwane = {'x': 77, 'y': 99}
-    wyswietl(1, 2, 3, *pozycyjne, **nazwane)
+    show(1, 2, 3, *pozycyjne, **nazwane)
     # {'a': 1, 'b': 2, 'c': 3, 'args': (4, 5, 6), 'kwargs': {'x': 77, 'y': 99}}
 
 
@@ -151,28 +151,30 @@ Podawanie parametrów do funkcji
 -------------------------------
 .. code-block:: python
 
-    def rysuj_wykres(a, b, color, linia):
-        print(locals())
+    def draw_line(x, y, color, style, width, markers):
+        ...
 
 
-    rysuj_wykres(1, 2, color='czerwony', linia='przerywana')
-    rysuj_wykres(3, 4, color='czerwony', linia='przerywana')
-    rysuj_wykres(5, 6, color='czerwony', linia='przerywana')
+    draw_line(1, 2, color='red', style='dashed', width='2px', markers='disc')
+    draw_line(3, 4, color='red', style='dashed', width='2px', markers='disc')
+    draw_line(5, 6, color='red', style='dashed', width='2px', markers='disc')
 
 .. code-block:: python
 
-    def rysuj_wykres(a, b, color, linia):
-        print(locals())
+    def draw_chart(a, b, color, style, width, markers):
+        ...
 
 
-    parametry = {
+    config = {
         'color': 'czerwony',
-        'linia': 'przerywana',
+        'style': 'dashed',
+        'width': '2px',
+        'markers': 'disc',
     }
 
-    rysuj_wykres(1, 2, **parametry)
-    rysuj_wykres(3, 4, **parametry)
-    rysuj_wykres(5, 6, **parametry)
+    draw_line(1, 2, **config)
+    draw_line(3, 4, **config)
+    draw_line(5, 6, **config)
 
 
 Placeholder class
@@ -180,19 +182,23 @@ Placeholder class
 .. code-block:: python
 
     DATA = [
-        {"sepl": 6.0, "sepw": 3.4, "petl":4.5, "petw": 1.6, "species": "versicolor"},
+        {"sepal_length": 6.0, "sepal_width": 3.4, "petal_length": 4.5, "petal_width": 1.6, "species": "versicolor"},
+        {"sepal_length": 4.9, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa"},
     ]
 
     class Iris:
-        def __init__(self, sepl, sepw, petl, petw):
-            self.sepl = sepl
-            self.sepw = sepw
-            self.petl = petl
-            self.petw = petw
+        def __init__(self, sepal_length, sepal_width, petal_length, petal_width, species):
+            self.sepal_length = sepal_length
+            self.sepal_width = sepal_width
+            self.petal_length = petal_length
+            self.petal_width = petal_width
+            self.species = species
 
+    flowers = []
 
     for row in DATA:
-        Iris(**row)
+        flower = Iris(**row)
+        flowers.append(flower)
 
 .. code-block:: python
 
@@ -201,10 +207,19 @@ Placeholder class
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
+
     Kontakt(imie='Jan', nazwisko='Twardowski')
     Kontakt(sepal_length=6.0, sepal_width=3.4, nazwisko='Twardowski')
 
-    DATA = {"sepl": 6.0, "sepw": 3.4, "petl":4.5, "petw": 1.6, "species": "versicolor"}
+
+    DATA = {"sepal_length": 6.0, "sepal_width": 3.4, "petal_length": 4.5, "petal_width": 1.6, "species": "versicolor"},
+    Kontakt(**DATA)
+
+
+    DATA = [
+        {"sepal_length": 6.0, "sepal_width": 3.4, "petal_length": 4.5, "petal_width": 1.6, "species": "versicolor"},
+        {"sepal_length": 4.9, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa"},
+    ]
     Kontakt(**DATA)
 
 Print formatting in classes
@@ -225,7 +240,7 @@ Calling function with all variables from higher order function
 --------------------------------------------------------------
 .. code-block:: python
 
-    def wyswietl(*args, **kwargs):
+    def show(*args, **kwargs):
         print(f'args: {args}')
         print(f'kwargs: {kwargs}')
 
@@ -233,7 +248,7 @@ Calling function with all variables from higher order function
         x = 4
         y = 5
 
-        wyswietl(**locals())
+        show(**locals())
 
     function(1, 2)
     # args: ()

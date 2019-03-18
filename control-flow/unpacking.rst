@@ -73,8 +73,11 @@ Cannot unpack from both sides at once
     # SyntaxError: two starred expressions in assignment
 
 
-Example
-=======
+Unpacking values from function
+==============================
+
+Recap of assignment information
+-------------------------------
 .. code-block:: python
 
     line = '4.9,3.1,1.5,0.1,setosa'
@@ -94,6 +97,8 @@ Example
     petal_width     # '0.1'
     species         # 'setosa'
 
+Unpacking values at the right side
+----------------------------------
 .. code-block:: python
 
     line = '4.9,3.1,1.5,0.1,setosa'
@@ -104,6 +109,8 @@ Example
     sepal_width     # '3.1'
     others          # ['1.5', '0.1', 'setosa']
 
+Unpacking values at the left side
+---------------------------------
 .. code-block:: python
 
     line = '4.9,3.1,1.5,0.1,setosa'
@@ -112,6 +119,48 @@ Example
 
     features        # ['4.9', '3.1', '1.5', '0.1']
     species         # 'setosa'
+
+Cannot unpack from both sides at once
+-------------------------------------
+.. code-block:: python
+
+    line = '4.9,3.1,1.5,0.1,setosa'
+
+    *a, b, *c = line.split(',')
+    # SyntaxError: two starred expressions in assignment
+
+Naming convention
+-----------------
+* if you're not using ``features`` later in your code
+
+.. code-block:: python
+
+    line = '4.9,3.1,1.5,0.1,setosa'
+
+    *_, species = line.split(',')
+
+
+Example
+=======
+.. code-block:: python
+
+    def get_iris():
+        """
+        Would be nice, if you can get ``dict``...
+        but most programmers will return ``tuple``
+        because it's a bit faster
+
+        return {
+            'sepal_length': 4.9,
+            'sepal_width': 3.1,
+            'petal_length': 1.5,
+            'petal_width': 0.1,
+            'species': 'setosa'
+        }
+        """
+        return 4.9, 3.1, 1.5, 0.1, 'setosa'
+
+    *features, species = get_iris()
 
 
 More advanced topics
@@ -183,3 +232,21 @@ Iris dataset
     * Definiowanie i korzystanie z ``list``, ``tuple``, ``set``
     * Slice zbiorów danych
     * Rzutowanie i konwersja typów
+
+Hosts
+-----
+* Filename: ``kwargs_hosts.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 15 min
+* Input data: :numref:`lang-functions-kwargs-hosts`
+
+#. Skopiuj zawartość listingu poniżej do pliku ``hosts.txt``
+#. Stwórz pusty ``dict`` o nazwie ``hosts``
+#. Czytając plik pomiń puste linie lub zaczynające się od komentarza ``#``
+#. Do ``hosts`` dla klucza IP dodaj listę hostname
+#. Przy parsowaniu linii skorzystaj z konstrukcji z gwiazdką ``*``
+
+.. literalinclude:: assignment/etc-hosts.txt
+    :name: lang-functions-kwargs-hosts
+    :language: python
+    :caption: Listing pliku ``/etc/hosts``
