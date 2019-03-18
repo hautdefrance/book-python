@@ -33,16 +33,38 @@ JSON Serialization of simple objects
 
 Serialize to JSON
 -----------------
-.. literalinclude:: src/json-simple-dumps.py
-    :language: python
+.. code-block:: python
     :caption: Serializing to JSON
+
+    import json
+
+
+    DATA = {
+        'first_name': 'Jan',
+        'last_name': 'Twardowski'
+    }
+
+    output = json.dumps(DATA)
+    print(output)
+    # '{"first_name": "Jan", "last_name": "Twardowski"}'
 
 
 Deserialize from JSON
 ---------------------
-.. literalinclude:: src/json-simple-loads.py
-    :language: python
+.. code-block:: python
     :caption: Deserialize from JSON
+
+    import json
+
+
+    DATA = '{"first_name": "Jan", "last_name": "Twardowski"}'
+
+    output = json.loads(DATA)
+    print(output)
+    # {
+    #     'first_name': 'Jan',
+    #     'last_name': 'Twardowski'
+    # }
 
 
 Serializing ``datetime`` and ``date``
@@ -52,41 +74,103 @@ Encoding ``datetime`` and ``date``
 ----------------------------------
 * Encoder will be used, when standard procedure fails
 
-.. literalinclude:: src/json-datetime-dumps.py
-    :language: python
+.. code-block:: python
     :caption: Exception during encoding datetime
 
-.. literalinclude:: src/json-datetime-encoder.py
-    :language: python
+    from datetime import datetime, date
+    import json
+
+
+    DATA = {
+        'name': 'Pan Twardowski',
+        'date': date(1961, 4, 12),
+        'datetime': datetime(1969, 7, 21, 14, 56, 15),
+    }
+
+    output = json.dumps(DATA)
+    # TypeError: Object of type date is not JSON serializable
+
+.. code-block:: python
     :caption: Encoding ``datetime`` and ``date``
+
+    from datetime import datetime, date
+    import json
+
+
+    DATA = {
+        'name': 'Pan Twardowski',
+        'date': date(1961, 4, 12),
+        'datetime': datetime(1969, 7, 21, 14, 56, 15),
+    }
+
+
+    class JSONDatetimeEncoder(json.JSONEncoder):
+        def default(self, value):
+
+            if isinstance(value, datetime):
+                return value.strftime('%Y-%m-%dT%H:%M:%S.%fZ')
+            elif isinstance(value, date):
+                return value.strftime('%Y-%m-%d')
+
+
+    output = json.dumps(DATA, cls=JSONDatetimeEncoder)
+    print(output)
+    # '{"name": "Pan Twardowski", "date": "1961-04-12", "datetime": "1969-07-21T14:56:15.000Z"}'
+
 
 Decoding ``datetime`` and ``date``
 ----------------------------------
-.. literalinclude:: src/json-datetime-loads.py
-    :language: python
+.. code-block:: python
     :caption: Simple loading returns ``str`` not ``datetime`` or ``date``
 
-.. literalinclude:: src/json-datetime-decoder.py
-    :language: python
+    import json
+
+
+    DATA = '{"name": "Pan Twardowski", "date": "1961-04-12", "datetime": "1969-07-21T14:56:15.000Z"}'
+
+    output = json.loads(DATA)
+    print(output)
+    # {
+    #     'name': 'Pan Twardowski',
+    #     'date': '1961-04-12',
+    #     'datetime': '1969-07-21T14:56:15.000Z',
+    # }
+
+.. code-block:: python
     :caption: Decoding ``datetime`` and ``date``
 
+    from datetime import datetime, timezone
+    import json
 
-Class based encoders and decoders
-=================================
 
-Class based encoder
--------------------
-* Encoder will be used, when standard procedure fails
+    DATA = '{"name": "Pan Twardowski", "date": "1961-04-12", "datetime": "1969-07-21T14:56:15.000Z"}'
 
-.. literalinclude:: src/json-class-encoder.py
-    :language: python
-    :caption: Class based encoder
 
-Class based decoder
--------------------
-.. literalinclude:: src/json-class-decoder.py
-    :language: python
-    :caption: Class based decoder
+    class JSONDatetimeDecoder(json.JSONDecoder):
+        def __init__(self):
+            super().__init__(object_hook=self.default)
+
+        def default(self, obj):
+            for key, value in obj.items():
+
+                if key == 'datetime':
+                    dt = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%fZ')
+                    obj['datetime'] = dt.replace(tzinfo=timezone.utc)
+
+                elif key == 'date':
+                    dt = datetime.strptime(value, '%Y-%m-%d')
+                    obj['date'] = dt.replace(tzinfo=timezone.utc).date()
+
+            return obj
+
+
+    output = json.loads(DATA, cls=JSONDatetimeDecoder)
+    print(output)
+    # {
+    #     'name': 'Pan Twardowski',
+    #     'date': date(1961, 4, 12),
+    #     'datetime': datetime(1969, 7, 21, 14, 56, 15, tzinfo=datetime.timezone.utc),
+    # }
 
 
 Serializing objects
@@ -96,15 +180,111 @@ Encoding objects
 ----------------
 * Encoder will be used, when standard procedure fails
 
-.. literalinclude:: src/json-object-encoder.py
-    :language: python
+.. code-block:: python
     :caption: Encoding objects to JSON
+
+    import json
+
+
+    class Address:
+        def __init__(self, city, state):
+            self.city = city
+            self.state = state
+
+
+    class Contact:
+        def __init__(self, name, addresses=()):
+            self.name = name
+            self.addresses = addresses
+
+
+    DATA = [
+        Contact(name='Jan Twardowski', addresses=(
+            Address(city='Houston', state='Texas'),
+            Address(city='Kennedy Space Center', state='Florida'),
+            Address(city='Pasadena', state='California'),
+            Address(city='Palmdale', state='California'),
+        )),
+        Contact(name='Mark Watney'),
+        Contact(name='José Jiménez', addresses=()),
+    ]
+
+
+    class JSONObjectEncoder(json.JSONEncoder):
+        def default(self, obj):
+            result = obj.__dict__
+            result['__type__'] = obj.__class__.__name__
+            return result
+
+
+    output = json.dumps(DATA, cls=JSONObjectEncoder)
+
+    print(output)
+    # [
+    #    {"__type__":"Contact", "name":"Jan Twardowski", "addresses":[
+    #          {"__type__":"Address", "city":"Houston", "state":"Texas"},
+    #          {"__type__":"Address", "city":"Kennedy Space Center", "state":"Florida"},
+    #          {"__type__":"Address", "city":"Pasadena", "state":"California"},
+    #          {"__type__":"Address", "city":"Palmdale", "state":"California"}]},
+    #    {"__type__":"Contact", "name":"Mark Watney", "addresses":[]},
+    #    {"__type__":"Contact", "name":"Jos\u00e9 Jim\u00e9nez", "addresses":[]}
+    # ]
 
 Decoding objects
 ----------------
-.. literalinclude:: src/json-object-decoder.py
-    :language: python
+.. code-block:: python
     :caption: Decoding objects from JSON
+
+    import json
+    import sys
+
+
+    DATA = """
+    [
+       {"__type__":"Contact", "name":"Jan Twardowski", "addresses":[
+             {"__type__":"Address", "city":"Houston", "state":"Texas"},
+             {"__type__":"Address", "city":"Kennedy Space Center", "state":"Florida"},
+             {"__type__":"Address", "city":"Pasadena", "state":"California"},
+             {"__type__":"Address", "city":"Palmdale", "state":"California"}]},
+       {"__type__":"Contact", "name":"Mark Watney", "addresses":[]},
+       {"__type__":"Contact", "name":"Jos\u00e9 Jim\u00e9nez", "addresses":[]}
+    ]"""
+
+
+    class Address:
+        def __init__(self, city, state):
+            self.city = city
+            self.state = state
+
+
+    class Contact:
+        def __init__(self, name, addresses=()):
+            self.name = name
+            self.addresses = addresses
+
+
+    class JSONObjectDecoder(json.JSONDecoder):
+        def __init__(self):
+            super().__init__(object_hook=self.default)
+
+        def default(self, obj):
+            type = obj.pop('__type__')
+            cls = getattr(sys.modules[__name__], type)
+            return cls(**obj)
+
+
+    output = json.loads(DATA, cls=JSONObjectDecoder)
+    print(output)
+    # [
+    #     Contact(name='Jan Twardowski', addresses=(
+    #         Address(city='Houston', state='Texas'),
+    #         Address(city='Kennedy Space Center', state='Florida'),
+    #         Address(city='Pasadena', state='California'),
+    #         Address(city='Palmdale', state='California'),
+    #     )),
+    #     Contact(name='Mark Watney'),
+    #     Contact(name='José Jiménez', addresses=()),
+    # ]
 
 
 Pretty Printing JSON
