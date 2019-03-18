@@ -293,7 +293,7 @@ Assignments
 Split train/test
 ----------------
 * Filename: ``comprehension_split_train_test.py``
-* Lines of code to write: 6 lines
+* Lines of code to write: 8 lines
 * Estimated time of completion: 15 min
 * Input data: :numref:`listing-comprehension_split_train_test`
 

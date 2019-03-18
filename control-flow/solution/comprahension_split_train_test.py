@@ -28,11 +28,11 @@ header = DATA[0]
 data = DATA[1:]
 pivot = int(len(data) * RATIO)
 
-X = [row[:4] for row in data]
+X = [row[:-1] for row in data]
 X_train = X[:pivot]
 X_test = X[pivot:]
 
-y = [row[4] for row in data]
+y = [row[-1] for row in data]
 y_train = y[:pivot]
 y_test = y[pivot:]
 

@@ -40,6 +40,12 @@ class Dragon:
         self.position_y = y
 
     def move(self, left=0, right=0, up=0, down=0):
+        position = self.get_position()
+        x = position['x'] + right - left
+        y = position['y'] + down - up
+        self.set_position(x, y)
+
+
         self.set_position(
             x=self.position_x + right - left,
             y=self.position_y + down - up)
