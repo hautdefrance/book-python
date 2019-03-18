@@ -23,6 +23,7 @@ DATA = [
     (4.6, 3.1, 1.5, 0.2, 'setosa'),
 ]
 
+
 header = DATA[0]
 data = DATA[1:]
 
@@ -30,12 +31,13 @@ features = []
 labels = []
 species = {}
 
-for *pomiary, gatunek in data:
-    if gatunek not in species:
-        species[gatunek] = len(species)
 
-    features.append(tuple(pomiary))
-    labels.append(species[gatunek])
+for *measurements, kind in data:
+    if kind not in species:
+        species[kind] = len(species)
+
+    features.append(tuple(measurements))
+    labels.append(species[kind])
 
 
 # temp_species = {}
@@ -44,20 +46,24 @@ for *pomiary, gatunek in data:
 #     temp_species[value] = key
 #
 # species = temp_species
+
+
 species = {v:k for k,v in species.items()}
 
+
+
 print(features)
+print(labels)
+print(species)
+
 # [
 #   (5.8, 2.7, 5.1, 1.9),
 #   (5.1, 3.5, 1.4, 0.2),
 #   (5.7, 2.8, 4.1, 1.3),
 #   (6.3, 2.9, 5.6, 1.8), ...]
-
-print(labels)
 # [0, 1, 2, 0, 2, 1, 2, 0, 1, 0, 0, 1, 1, 2, 1, 2, 0, 2, 0, 2, 1]
-
-print(species)
 # {0: 'virginica', 1: 'setosa', 2: 'versicolor'}
+
 
 
 
