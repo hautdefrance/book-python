@@ -1,5 +1,5 @@
-book = /tmp/python-book/
-slides = /tmp/python-slides/
+book = /tmp/book-python/
+slides = /tmp/slides-python/
 cpu_cores = 11
 format = html
 
