@@ -10,21 +10,21 @@ class PickleSerializable:
         return pickle.dumps(self)
 
 
-class Connection(JSONSerializable, PickleSerializable):
-    def __init__(self, host, user, password=None):
-        self.host = host
-        self.user = user
-        self.password = password
+class User(JSONSerializable, PickleSerializable):
+    def __init__(self, first_name, last_name, address=()):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.address = address
 
 
-connection = Connection(
-    host='localhost',
-    user='admin',
-    password='admin'
+user = User(
+    first_name='Jan',
+    last_name='Twardowski',
+    address='Copernicus Crater, Moon'
 )
 
-connection.to_json()
-# {"host": "localhost", "user": "admin", "password": "admin"}
+print(user.to_json())
+# {"first_name": "Jan", "last_name": "Twardowski", "address": "Copernicus Crater, Moon"}
 
-connection.to_pickle()
-# b'\x80\x03c__main__\nServer\nq\x00)\x81q\x01}q\x02(X\x04\x00\x00\x00hostq\x03X\t\x00\x00\x00localhostq\x04X\x04\x00\x00\x00userq\x05X\x05\x00\x00\x00adminq\x06X\x08\x00\x00\x00passwordq\x07h\x06ub.'
+print(user.to_pickle())
+# b'\x80\x03c__main__\nUser\nq\x00)\x81q\x01}q\x02(X\n\x00\x00\x00first_nameq\x03X\x03\x00\x00\x00Janq\x04X\t\x00\x00\x00last_nameq\x05X\n\x00\x00\x00Twardowskiq\x06X\x07\x00\x00\x00addressq\x07X\x17\x00\x00\x00Copernicus Crater, Moonq\x08ub.'

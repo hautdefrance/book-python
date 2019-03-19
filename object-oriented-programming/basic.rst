@@ -7,11 +7,22 @@ OOP Basic
 
 Object Paradigm
 ===============
-* Odwzorowanie świata na obiekty i relacje między nimi
-* Class
-* Objects, Instances
-* Fields, Properties, Attributes
-* Methods
+* Model world as objects that interacts with each other
+
+.. glossary::
+
+    class
+        Templates for objects.
+
+    objects
+        Instances of a class.
+
+    method
+        Function inside the class.
+
+    field
+        Variable inside the class.
+        Also known as "Properties" or "Attributes"
 
 
 Classes
@@ -20,46 +31,58 @@ Classes
 * Classes are templates for objects
 
 .. code-block:: python
-    :caption: Defining and naming classes with single word names
+    :caption: Classes should have capitalized name
 
-    class Astronaut:
+    class Iris:
         pass
 
 .. code-block:: python
-    :caption: Defining and naming classes with ``CamelCase`` names
+    :caption: Classes should have ``CamelCase`` names
 
-    class CosmonautPilot:
+    class IrisSetosa:
         pass
 
-Classes vs Objects
-------------------
-* Objects also known as Instances
+Classes vs Instances
+--------------------
+* Instances are also known as Objects
 * ``snake_case`` names
 
 .. code-block:: python
-    :caption: Classes and Objects
+    :caption: One class and one instance
 
-    class Astronaut:
+    class Iris:
         pass
 
 
-    twardowski = Astronaut()
-    mark_watney = Astronaut()
-
+    flower = Iris()
 
 .. code-block:: python
-    :caption: Classes and Objects
+    :caption: One class and three instances
 
-    class Astronaut:
+    class Iris:
         pass
 
 
-    class Cosmonaut:
+    setosa = Iris()
+    versicolor = Iris()
+    virginica = Iris()
+
+.. code-block:: python
+    :caption: Three classes and three instances
+
+    class Setosa:
+        pass
+
+    class Versicolor:
+        pass
+
+    class Virginica:
         pass
 
 
-    mark = Astronaut()
-    ivan = Cosmonaut()
+    iris_setosa = Setosa()
+    iris_versicolor = Versicolor()
+    iris_virginica = Virginica()
 
 
 Fields
@@ -70,20 +93,22 @@ Fields
 * Fields store information for instances
 
 .. code-block:: python
-    :caption: Fields
+    :caption: Classes can have multiple fields. Look, that all fields are initialized in ``__init__()`` method.
 
-    class Astronaut:
+    class Iris:
         def __init__(self):
-            self.first_name = 'Jan'
-            self.last_name = 'Twardowski'
-            self.agency = 'POLSA'
+            self.sepal_length = 5.1
+            self.sepal_width = 3.5
+            self.petal_length = 1.4
+            self.petal_width = 0.2
+            self.species = 'setosa'
 
 
-    twardowski = Astronaut()
+    flower = Iris()
 
-    print(twardowski.first_name)  # Jan
-    print(twardowski.last_name)   # Twardowski
-    print(twardowski.agency)      # POLSA
+    print(flower.sepal_length)  # 5.1
+    print(flower.sepal_width)   # 3.5
+    print(flower.species)       # 'setosa'
 
 
 Methods
@@ -97,82 +122,94 @@ Simple Methods
 .. code-block:: python
     :caption: Simple Methods
 
-    class Astronaut:
-        def say_something(self):
-            print("That's one small step for [a] man, one giant leap for mankind.")
+    class Iris:
+        def __init__(self):
+            self.species = 'setosa'
+
+        def latin_name(self):
+            print(f'Latin name is: Iris setosa')
 
 
-    neil = Astronaut()
-    neil.say_something()
-    # That's one small step for [a] man, one giant leap for mankind.
+    flower = Iris()
+    flower.latin_name()
+    # Latin name is: Iris setosa
 
 Methods accessing fields
 ------------------------
 .. code-block:: python
     :caption: Methods accessing fields
 
-    class Astronaut:
-        def __init__():
-            self.name = 'José Jiménez'
+    class Iris:
+        def __init__(self):
+            self.species = 'setosa'
 
-        def say_something(self):
-            print(f'My name... {self.name}')
+        def latin_name(self):
+            print(f'Latin name is: Iris {self.species}')
 
 
-    jose = Astronaut()
-    jose.say_hello()
-    # My name... José Jiménez!
+    flower = Iris()
+    flower.latin_name()
+    # Latin name is: Iris setosa
 
-Methods with default arguments
-------------------------------
+Methods with argument
+---------------------
 .. code-block:: python
     :caption: Methods with arguments
 
-    class Astronaut:
-        def say_hello(self, text):
-            print(text)
+    class Iris:
+        def latin_name(self, species):
+            print(f'Iris {species}')
 
 
-    jose = Astronaut()
+    flower = Iris()
 
-    jose.say_hello(text='Privyet')     # Privyet
-    jose.say_hello('Hello')            # Hello
-    jose.say_hello()                   # TypeError: say_text() missing 1 required positional argument: 'text'
+    flower.latin_name(species='setosa')  # Iris setosa
+    flower.latin_name('setosa')          # Iris setosa
+    flower.latin_name()                  # TypeError: latin_name() missing 1 required positional argument: 'species'
 
-Methods with default arguments
-------------------------------
+Methods with arguments with default value
+-----------------------------------------
 .. code-block:: python
     :caption: Methods with default arguments
 
-    class Astronaut:
-        def say_hello(self, text='Ehlo World!'):
-            print(text)
+    class Iris:
+        def latin_name(self, species='unknown'):
+            print(f'Iris {species}')
 
 
-    jose = Astronaut()
+    flower = Iris()
 
-    jose.say_hello(text='Privyet')     # Privyet
-    jose.say_hello('Hello')            # Hello
-    jose.say_hello()                   # Ehlo World!
+    flower.latin_name(species='setosa')  # Iris setosa
+    flower.latin_name('setosa')          # Iris setosa
+    flower.latin_name()                  # Iris unknown
 
-Methods call other methods
---------------------------
+Methods calling other methods
+-----------------------------
 .. code-block:: python
     :caption: Methods call other methods
 
-    class Astronaut:
-        def say_hello(self):
-            name = self.get_name()
-            print(f'My name... {name}')
+    class Iris:
+        def __init__(self):
+            self.sepal_length = 5.1
+            self.sepal_width = 3.5
+            self.petal_length = 1.4
+            self.petal_width = 0.2
+            self.species = 'setosa'
 
-        def get_name(self):
-            return 'José Jiménez'
+        def sepal_area(self):
+            return self.sepal_length * self.sepal_width
+
+        def petal_area(self):
+            return self.petal_length * self.petal_width
+
+        def total_area(self):
+            area = self.sepal_area() + self.petal_area()
+            print(f'Total area is: {area:.1f}')
 
 
-    jose = Astronaut()
-
-    jose.say_hello()    # My name... José Jiménez!
-    jose.get_name()     # 'José Jiménez!'
+    flower = Iris()
+    flower.total_area()
+    # Total area is: 18.1
 
 
 Initializer Method
@@ -182,41 +219,42 @@ Initializer Method
 * Initialize all fields only in ``__init__``
 
 .. code-block:: python
-    :caption: ``__init__()`` - Initializer Method
+    :caption: Class initialization
 
-    class Astronaut:
-        def __init__(self):
-            self.first_name = 'Jan'
-            self.last_name = 'Twardowski'
-            self.agency = 'POLSA'
+    class Iris:
+        def __init__(self, species):
+            self.species = species
 
 
-    twardowski = Astronaut()
+    setosa = Iris(species='setosa')
+    print(setosa.species)
+    # setosa
 
-    print(twardowski.first_name)  # Jan
-    print(twardowski.last_name)   # Twardowski
-    print(twardowski.agency)      # POLSA
+    virginica = Iris('virginica')
+    print(virginica.species)
+    # virginica
+
+    versicolor = Iris()
+    # TypeError: __init__() missing 1 required positional argument: 'species'
 
 .. code-block:: python
-    :caption: ``__init__()`` - Initializer Method
+    :caption: Method argument with default value
 
-    class Astronaut:
-        def __init__(self, first_name, last_name, agency='NASA'):
-            self.first_name = first_name
-            self.last_name = last_name
-            self.agency = agency
+    class Iris:
+        def __init__(self, species=None):
+            self.species = species
 
 
-    jose = Astronaut(first_name='José', last_name='Jiménez')
-    ivan = Astronaut(first_name='Иван', last_name='Иванович', agency='Roscosmos')
+    setosa = Iris(species='setosa')
+    print(setosa.species)
+    # setosa
 
-    print(jose.first_name)  # José
-    print(jose.last_name)   # Jiménez
-    print(jose.agency)      # NASA
+    virginica = Iris('virginica')
+    print(virginica.species)
+    # virginica
 
-    print(ivan.first_name)  # Иван
-    print(ivan.last_name)   # Иванович
-    print(ivan.agency)      # Roscosmos
+    versicolor = Iris()
+    # None
 
 
 Stringify object
@@ -224,33 +262,33 @@ Stringify object
 * ``print`` converts it's arguments to ``str()`` before printing
 
 .. code-block:: python
-    :caption: Print object without ``__str__()`` method overloaded
+    :caption: Object without ``__str__()`` method overloaded prints their memory address
 
-    class Astronaut:
-        def __init__(self, name):
-            self.name = name
+    class Iris:
+        def __init__(self, species):
+            self.species = species
 
 
-    jose = Astronaut(name='José Jiménez')
+    flower = Iris('setosa')
 
-    str(jose)       # <__main__.Astronaut object at 0x01E3FDF0>
-    print(jose)     # <__main__.Astronaut object at 0x01E3FDF0>
+    str(flower)       # <__main__.Iris object at 0x112b366d8>
+    print(flower)     # <__main__.Iris object at 0x112b366d8>
 
 .. code-block:: python
-    :caption: Stringify object
+    :caption: Objects can verbose print if ``__str__()`` method is present
 
-    class Astronaut:
-        def __init__(self, name):
-            self.name = name
+    class Iris:
+        def __init__(self, species):
+            self.species = species
 
         def __str__(self):
-            return f'My name... {self.name}'
+            return f'Species: {self.species}'
 
 
-    jose = Astronaut(name='José Jiménez')
+    flower = Iris('setosa')
 
-    str(jose)       # My name... José Jiménez
-    print(jose)     # My name... José Jiménez
+    str(flower)       # Species: setosa
+    print(flower)     # Species: setosa
 
 
 One class per file?
@@ -261,16 +299,19 @@ One class per file?
 .. code-block:: python
     :caption: Classes and Objects
 
-    class Astronaut:
+    class Setosa:
+        pass
+
+    class Versicolor:
+        pass
+
+    class Virginica:
         pass
 
 
-    class Cosmonaut:
-        pass
-
-
-    jose = Astronaut()
-    ivan = Cosmonaut()
+    setosa = Setosa()
+    versicolor = Versicolor()
+    virginica = Virginica()
 
 
 Assignments
@@ -331,7 +372,7 @@ Dragon (Part 1)
     * otrzymywać obrażenia
     * być przesuwany o zadaną liczbę punktów w którymś z kierunków
 
-#. Przyjmij górny lewy róg ekranu za punkt (0, 0)
+#. Przyjmij górny lewy róg ekranu za punkt (``x=0``, ``y=0``)
 
     * idąc w prawo dodajesz ``x``
     * idąc w lewo odejmujesz ``x``
