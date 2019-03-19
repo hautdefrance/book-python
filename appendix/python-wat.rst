@@ -41,6 +41,7 @@ Python WAT?!
     1000 is 1000            # True
 
 * Ze względów optymalizacyjnych od którejś wartości, obiekty mają inną tożsamość
+
 .. code-block:: python
 
     1 + 1 is 2              # True

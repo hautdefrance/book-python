@@ -15,7 +15,7 @@ Absolute path
 
         FILE = r'C:\Temp\iris.csv'
 
-* Linux, macOS, BSD, *nix
+* Linux, macOS, BSD
 
     .. code-block:: python
 

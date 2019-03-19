@@ -238,7 +238,7 @@ Hosts
 * Filename: ``kwargs_hosts.py``
 * Lines of code to write: 15 lines
 * Estimated time of completion: 15 min
-* Input data: :numref:`lang-functions-kwargs-hosts`
+* Input data: :numref:`controlflow-kwargs-hosts`
 
 #. Skopiuj zawartość listingu poniżej do pliku ``hosts.txt``
 #. Stwórz pusty ``dict`` o nazwie ``hosts``
@@ -246,7 +246,7 @@ Hosts
 #. Do ``hosts`` dla klucza IP dodaj listę hostname
 #. Przy parsowaniu linii skorzystaj z konstrukcji z gwiazdką ``*``
 
-.. literalinclude:: assignment/etc-hosts.txt
-    :name: lang-functions-kwargs-hosts
+.. literalinclude:: src/etc-hosts.txt
+    :name: controlflow-kwargs-hosts
     :language: python
     :caption: Listing pliku ``/etc/hosts``

@@ -10,19 +10,53 @@ OOP Advanced
 * ``__repr__`` jest dla developerów (być jednoznacznym),
 * ``__str__`` dla użytkowników (być czytelnym).
 
-.. literalinclude:: src/oop-repr.py
-    :language: python
+.. code-block:: python
     :caption: Using ``__repr__()`` on a class
 
-.. code-block:: python
+    class Point:
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
 
-    import datetime
+        def __str__(self):
+            return f'({self.x}, {self.y})'
 
-    datetime.datetime.now()  # ``__repr__``
-    # datetime.datetime(2019, 1, 5, 20, 15, 0, 684972)
+        def __repr__(self):
+            return f'Point(x={self.x}, y={self.y})'
 
-    print(datetime.datetime.now())  # ``__str__``
-    # 2019-01-05 20:15:00.927387
+     point = Point(2, 4)
+
+     point
+     # 'Point(x=2, y=4)'
+
+     repr(point)
+     # 'Point(x=2, y=4)'
+
+     str(point)
+     # '(2, 4)'
+
+     print(point)
+     # (2, 4)
+
+Case Study
+----------
+* ``__repr__``
+
+    .. code-block:: python
+
+        import datetime
+
+        datetime.datetime.now()
+        # datetime.datetime(2019, 1, 5, 20, 15, 0, 684972)
+
+* ``__str__``
+
+    .. code-block:: python
+
+        import datetime
+
+        print(datetime.datetime.now())
+        # 2019-01-05 20:15:00.927387
 
 
 What should be in the class and what not?
@@ -31,52 +65,93 @@ What should be in the class and what not?
 * Jeżeli metoda nie ma w swoim ciele ``self`` to nie powinna być w klasie
 * Jeżeli metoda nie ma w swoim ciele ``self`` ale wybitnie pasuje do klasy, to można ją tam zamieścić oraz dodać dekorator ``@staticmethod``
 
-.. literalinclude:: src/oop-staticmethod-without.py
-    :language: python
-    :caption: Case Study uzasadnionego użcycia ``@staticmethod``
-
-.. literalinclude:: src/oop-staticmethod-with.py
-    :language: python
-    :caption: Case Study uzasadnionego użcycia ``@staticmethod``
-
-.. literalinclude:: src/oop-staticmethod-decorator.py
-    :language: python
-    :caption: Case Study uzasadnionego użcycia ``@staticmethod``
-
-
 ``@staticmethod``
 -----------------
 * Using class as namespace
 * Will not pass instance as a first argument
 * ``self`` is not required
 
-.. literalinclude:: src/oop-staticmethod.py
-    :language: python
-    :caption: Using ``@staticmethod``
+.. code-block:: python
+    :caption: Functions on a high level of a module lack namespace
 
+    def add(a, b):
+        return a + b
+
+    def sub(a, b):
+        return a - b
+
+
+    add(1, 2)
+    sub(8, 4)
+
+.. code-block:: python
+    :caption: When ``add`` and ``sub`` are in ``Calculator`` class (namespace) they get instance (``self``) as a first argument. Instantiating Calculator is not needed, as of functions do not read or write to instance variables.
+
+    class Calculator:
+
+        def add(self, a, b):
+            return a + b
+
+        def sub(self, a, b):
+            return a - b
+
+
+    Calculator.add(10, 20)  # TypeError: add() missing 1 required positional argument: 'b'
+    Calculator.sub(8, 4)    # TypeError: add() missing 1 required positional argument: 'b'
+
+    calc = Calculator()
+    calc.add(1, 2)          # 3
+    calc.sub(8, 4)          # 4
+
+.. code-block:: python
+    :caption: Class ``Calculator`` is a namespace for functions. ``@staticmethod`` remove instance (``self``) argument to method.
+
+    class Calculator:
+
+        @staticmethod
+        def add(a, b):
+            return a + b
+
+        @staticmethod
+        def sub(a, b):
+            return a - b
+
+
+    Calculator.add(1, 2)
+    Calculator.sub(8, 4)
 
 ``@classmethod``
 ----------------
 .. code-block:: python
 
-    import json
-
     class User:
-        def __init__(self, name, username):
-            self.name = name
-            self.username = username
+        def __init__(self, first_name, last_name):
+            self.first_name = first_name
+            self.last_name = last_name
+
+        def __str__(self):
+            return f'{self.first_name} {self.last_name}'
 
         def to_json(self):
+            import json
             return json.dumps(self.__dict__)
 
         @classmethod
-        def from_json(cls, json_str):
-            json_dict = json.loads(json_str)
-            return cls(**json_dict)
+        def from_json(cls, data):
+            import json
+            data = json.loads(data)
+            return cls(**data)
 
 
-    data = User("tbrown", "Tom Brown").to_json()
-    user = User.from_json(data)
+    user = User('Jan', 'Twardowski')
+    # Jan Twardowski
+
+    DATA = user.to_json()
+    # '{"first_name": "Jan", "last_name": "Twardowski"}'
+
+    user = User.from_json(DATA)
+    # Jan Twardowski
+
 
 Dynamically creating fields
 ===========================

@@ -116,25 +116,22 @@ Good
 
 Inheritance
 ===========
+
+Simple inheritance
+------------------
 .. code-block:: python
 
     class Iris:
-        def __init__(self, sepal_length, sepal_width, petal_length, petal_width, species):
+        def __init__(self, sepal_length, sepal_width,
+                     petal_length, petal_width, species):
             self.sepal_length = sepal_length
             self.sepal_width = sepal_width
             self.petal_length = petal_length
             self.petal_width = petal_width
             self.species = species
 
-    class Virginica(Iris):
-        pass
-
     class Setosa(Iris):
         pass
-
-    class Versicolor(Iris):
-        pass
-
 
     setosa = Setosa(
         sepal_length=5.1,
@@ -144,21 +141,36 @@ Inheritance
         species='setosa'
     )
 
-.. literalinclude:: src/oop-inheritance.py
-    :language: python
-    :caption: Inheritance
-
 Multilevel Inheritance
 ----------------------
-.. literalinclude:: src/oop-inheritance-multilevel.py
-    :language: python
+.. code-block:: python
     :caption: Multilevel Inheritance
+
+    class Flower:
+        kingdom = 'plantae'
+
+    class Iris(Flower):
+        genus = 'iris'
+
+    class Setosa(Iris):
+        species = 'setosa'
 
 Multiple Inheritance
 --------------------
-.. literalinclude:: src/oop-inheritance-multiple.py
-    :language: python
-    :caption: Multiple Inheritance
+.. code-block:: python
+    :caption: Multiple inheritance.
+
+    class JSONMixin:
+        def to_json(self):
+            return ...
+
+    class CSVMixin:
+        def to_csv(self):
+            return ...
+
+    class User(JSONMixin, CSVMixin):
+        def __init__(self, first_name, last_name):
+            ...
 
 ``super()`` - Calling object parent
 -----------------------------------

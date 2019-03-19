@@ -40,14 +40,77 @@ Private, protected, public?!
 
 Inheritance vs. Composition (Mixin Classes)
 ===========================================
-* Kompozycja ponad dziedziczenie!
-* Composition: http://blog.thedigitalcatonline.com/blog/2014/08/20/python-3-oop-part-3-delegation-composition-and-inheritance/
-* Inheritance: https://www.programiz.com/python-programming/multiple-inheritance
-* Mixins: https://www.linuxjournal.com/article/4540
+* Composition over Inheritance
 
-.. literalinclude:: src/oop-composition.py
-    :language: python
-    :caption: Composition (Mixin Classes)
+Multi level inheritance problem
+-------------------------------
+.. code-block:: python
+    :caption: Multi level inheritance is a bad pattern here
+
+    class JSONMixin:
+        def to_json(self):
+            return ...
+
+    class CSVMixin(JSONMixin):
+        def to_csv(self):
+            return ...
+
+    class User(CSVMixin):
+        def __init__(self, first_name, last_name):
+            ...
+
+Composition using Mixin classes
+-------------------------------
+.. code-block:: python
+    :caption: ``User`` is composed from Mixin classes
+
+    class JSONMixin:
+        def to_json(self):
+            return ...
+
+    class CSVMixin:
+        def to_csv(self):
+            return ...
+
+    class User(JSONMixin, CSVMixin):
+        def __init__(self, first_name, last_name):
+            ...
+
+Case Study
+----------
+.. code-block:: python
+
+    class JSONSerializable:
+        def to_json(self):
+            import json
+            return json.dumps(self.__dict__)
+
+
+    class PickleSerializable:
+        def to_pickle(self):
+            import pickle
+            return pickle.dumps(self)
+
+
+    class User(JSONSerializable, PickleSerializable):
+        def __init__(self, first_name, last_name, address=()):
+            self.first_name = first_name
+            self.last_name = last_name
+            self.address = address
+
+
+    user = User(
+        first_name='Jan',
+        last_name='Twardowski',
+        address='Copernicus Crater, Moon'
+    )
+
+    print(user.to_json())
+    # {"first_name": "Jan", "last_name": "Twardowski", "address": "Copernicus Crater, Moon"}
+
+    print(user.to_pickle())
+    # b'\x80\x03c__main__\nUser\nq\x00)\x81q\x01}q\x02(X\n\x00\x00\x00first_nameq\x03X\x03\x00\x00\x00Janq\x04X\t\x00\x00\x00last_nameq\x05X\n\x00\x00\x00Twardowskiq\x06X\x07\x00\x00\x00addressq\x07X\x17\x00\x00\x00Copernicus Crater, Moonq\x08ub.'
+
 
 
 Polymorphism
