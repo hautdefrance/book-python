@@ -23,12 +23,7 @@ extensions = [
 
 todo_emit_warnings = False
 todo_include_todos = True
-
-exclude_patterns = [
-    '*/_template.rst',
-    '*/solution/*',
-]
-
+exclude_patterns = []
 
 # -----------------------------------------------------------------------------
 # Standard book config
@@ -41,6 +36,25 @@ import subprocess
 import sys
 
 
+html_theme = 'sphinx_rtd_theme'
+
+exclude_patterns = exclude_patterns + [
+    '*/_template.rst',
+    '*/solution/*',
+    '.*',
+    'venv*',
+    'virtualenv*',
+    '_extensions',
+    '_img',
+    '_slides',
+    '_static',
+    '_themes',
+    '_tmp',
+    '*/solutions/*',
+    '**.ipynb_checkpoints',
+    'README.rst'
+]
+
 numfig_format = {
     'section': 'Sect. %s.',
     'figure': 'Fig. %s.',
@@ -48,7 +62,6 @@ numfig_format = {
     'code-block': 'Code Listing %s.',
 }
 
-html_theme = 'sphinx_rtd_theme'
 language = 'en'
 source_directory = '.'
 master_doc = 'index'
@@ -66,21 +79,6 @@ today = datetime.date.today()
 version = f'#{sha1}, {today:%Y-%m-%d}'
 release = f'#{sha1}, {today:%Y-%m-%d}'
 copyright = f'{today:%Y}, {author} <{email}>'
-
-exclude_patterns = exclude_patterns + [
-    '.*',
-    'venv*',
-    'virtualenv*',
-    '_extensions',
-    '_img',
-    '_slides',
-    '_static',
-    '_themes',
-    '_tmp',
-    '*/solutions/*',
-    '**.ipynb_checkpoints',
-    'README.rst'
-]
 
 extensions_dir = os.path.join(os.path.dirname(__file__), '', '_extensions')
 sys.path.append(extensions_dir)
