@@ -257,40 +257,6 @@ Initializer Method
     # None
 
 
-Stringify object
-================
-* ``print`` converts it's arguments to ``str()`` before printing
-
-.. code-block:: python
-    :caption: Object without ``__str__()`` method overloaded prints their memory address
-
-    class Iris:
-        def __init__(self, species):
-            self.species = species
-
-
-    flower = Iris('setosa')
-
-    str(flower)       # <__main__.Iris object at 0x112b366d8>
-    print(flower)     # <__main__.Iris object at 0x112b366d8>
-
-.. code-block:: python
-    :caption: Objects can verbose print if ``__str__()`` method is present
-
-    class Iris:
-        def __init__(self, species):
-            self.species = species
-
-        def __str__(self):
-            return f'Species: {self.species}'
-
-
-    flower = Iris('setosa')
-
-    str(flower)       # Species: setosa
-    print(flower)     # Species: setosa
-
-
 One class per file?
 ===================
 * Osobne pliki - gdy klasy są duże

@@ -5,6 +5,105 @@ OOP Intermediate
 ****************
 
 
+Stringify object
+================
+* ``print`` converts it's arguments to ``str()`` before printing
+
+.. code-block:: python
+    :caption: Object without ``__str__()`` method overloaded prints their memory address
+
+    class Iris:
+        def __init__(self, species):
+            self.species = species
+
+
+    flower = Iris('setosa')
+
+    str(flower)       # <__main__.Iris object at 0x112b366d8>
+    print(flower)     # <__main__.Iris object at 0x112b366d8>
+
+.. code-block:: python
+    :caption: Objects can verbose print if ``__str__()`` method is present
+
+    class Iris:
+        def __init__(self, species):
+            self.species = species
+
+        def __str__(self):
+            return f'Species: {self.species}'
+
+
+    flower = Iris('setosa')
+
+    str(flower)       # Species: setosa
+    print(flower)     # Species: setosa
+
+
+Inheritance
+===========
+
+Simple inheritance
+------------------
+.. code-block:: python
+
+    class Iris:
+        def __init__(self, sepal_length, sepal_width,
+                     petal_length, petal_width, species):
+            self.sepal_length = sepal_length
+            self.sepal_width = sepal_width
+            self.petal_length = petal_length
+            self.petal_width = petal_width
+            self.species = species
+
+    class Setosa(Iris):
+        pass
+
+    setosa = Setosa(
+        sepal_length=5.1,
+        sepal_width=3.5,
+        petal_length=1.4,
+        petal_width=0.2,
+        species='setosa'
+    )
+
+Multilevel Inheritance
+----------------------
+.. code-block:: python
+    :caption: Multilevel Inheritance
+
+    class Flower:
+        kingdom = 'plantae'
+
+    class Iris(Flower):
+        genus = 'iris'
+
+    class Setosa(Iris):
+        species = 'setosa'
+
+Multiple Inheritance
+--------------------
+.. code-block:: python
+    :caption: Multiple inheritance.
+
+    class JSONMixin:
+        def to_json(self):
+            return ...
+
+    class CSVMixin:
+        def to_csv(self):
+            return ...
+
+    class User(JSONMixin, CSVMixin):
+        def __init__(self, first_name, last_name):
+            ...
+
+``super()`` - Calling object parent
+-----------------------------------
+.. literalinclude:: src/oop-super.py
+    :language: python
+    :caption: Using ``super()`` on a class
+
+
 Fields
 ======
 
@@ -88,7 +187,6 @@ Static vs. Dynamic Fields
     mark.agency         # ESA
     Astronaut.agency    # ESA
 
-
 ``__dict__`` - Getting dynamic fields and values
 ------------------------------------------------
 .. literalinclude:: src/oop-fields-dict.py
@@ -97,6 +195,7 @@ Static vs. Dynamic Fields
 
 
 .. _Initial arguments mutability and shared state:
+
 
 Initial arguments mutability and shared state
 =============================================
@@ -112,71 +211,6 @@ Good
 .. literalinclude:: src/oop-init-shared-state-good.py
     :language: python
     :caption: Initial arguments mutability and shared state
-
-
-Inheritance
-===========
-
-Simple inheritance
-------------------
-.. code-block:: python
-
-    class Iris:
-        def __init__(self, sepal_length, sepal_width,
-                     petal_length, petal_width, species):
-            self.sepal_length = sepal_length
-            self.sepal_width = sepal_width
-            self.petal_length = petal_length
-            self.petal_width = petal_width
-            self.species = species
-
-    class Setosa(Iris):
-        pass
-
-    setosa = Setosa(
-        sepal_length=5.1,
-        sepal_width=3.5,
-        petal_length=1.4,
-        petal_width=0.2,
-        species='setosa'
-    )
-
-Multilevel Inheritance
-----------------------
-.. code-block:: python
-    :caption: Multilevel Inheritance
-
-    class Flower:
-        kingdom = 'plantae'
-
-    class Iris(Flower):
-        genus = 'iris'
-
-    class Setosa(Iris):
-        species = 'setosa'
-
-Multiple Inheritance
---------------------
-.. code-block:: python
-    :caption: Multiple inheritance.
-
-    class JSONMixin:
-        def to_json(self):
-            return ...
-
-    class CSVMixin:
-        def to_csv(self):
-            return ...
-
-    class User(JSONMixin, CSVMixin):
-        def __init__(self, first_name, last_name):
-            ...
-
-``super()`` - Calling object parent
------------------------------------
-.. literalinclude:: src/oop-super.py
-    :language: python
-    :caption: Using ``super()`` on a class
 
 
 Relations
