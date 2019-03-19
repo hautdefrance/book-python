@@ -1,7 +1,7 @@
 class Contact:
     def __init__(self, name, addresses=()):
         self.name = name
-        self.addresses = addresses
+        self.addresses = list(addresses)
 
     def __str__(self):
         return f'{self.__dict__}'
