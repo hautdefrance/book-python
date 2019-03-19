@@ -14,23 +14,80 @@ Static Fields
 * Must have default values
 * Share state
 
-.. literalinclude:: src/oop-fields-static.py
-    :language: python
+.. code-block:: python
     :caption: Static Fields
+
+    class Astronaut:
+        name = 'José Jiménez'
+
+
+    jose = Astronaut()
+    ivan = Astronaut()
+
+    jose.name           # José Jiménez
+    ivan.name           # José Jiménez
+    Astronaut.name      # José Jiménez
 
 Dynamic Fields
 --------------
 * Require ``__init__()``
 
-.. literalinclude:: src/oop-fields-dynamic.py
-    :language: python
+.. code-block:: python
     :caption: Dynamic fields
+
+    class Astronaut:
+        def __init__(self, name):
+            self.name = name
+            self.agency = agency
+
+    jose = Astronaut(name='José Jiménez')
+    ivan = Astronaut(name='Иван Иванович')
+
+    jose.name           # José Jiménez
+    ivan.name           # Иван Иванович
+    Astronaut.name      # AttributeError: type object 'Astronaut' has no attribute 'name'
 
 Static vs. Dynamic Fields
 -------------------------
-.. literalinclude:: src/oop-fields-static-vs-dynamic.py
-    :language: python
+.. code-block:: python
     :caption: Static vs. Dynamic fields
+
+    class Astronaut:
+        agency = 'NASA'
+
+        def __init__(self, name):
+            self.name = name
+
+
+    ivan = Astronaut(name='Иван Иванович')
+    jose = Astronaut(name='José Jiménez')
+    mark = Astronaut(name='Mark Watney')
+
+
+    # Check value of field agency
+    ivan.agency         # NASA
+    jose.agency         # NASA
+    mark.agency         # NASA
+    Astronaut.agency    # NASA
+
+
+    # Let's change Agency of ``ivan``
+    ivan.agency = 'Roscosmos'
+
+    ivan.agency         # Roscosmos
+    jose.agency         # NASA
+    mark.agency         # NASA
+    Astronaut.agency    # NASA
+
+
+    # Let's change agency of ``Astronaut`` class
+    Astronaut.agency = 'ESA'
+
+    ivan.agency         # Roscosmos
+    jose.agency         # ESA
+    mark.agency         # ESA
+    Astronaut.agency    # ESA
+
 
 ``__dict__`` - Getting dynamic fields and values
 ------------------------------------------------

@@ -18,10 +18,10 @@ class Config:
 
 class Character(Dragon):
 
-    def __init__(self, name, position_x=0, position_y=0):
-        super().__init__(name, position_x, position_y)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.hit_points_full = self.hit_points
-        self.status = Status.FULL_HEALTH
+        self.set_status()
 
     def set_status(self):
         procent = self.hit_points / self.hit_points_full * 100
