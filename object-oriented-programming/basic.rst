@@ -16,7 +16,8 @@ Object Paradigm
 
 Classes
 =======
-* ``CamelCase`` names
+* ``CamelCase`` name convention
+* Classes are templates for objects
 
 .. code-block:: python
     :caption: Defining and naming classes with single word names
@@ -30,10 +31,9 @@ Classes
     class CosmonautPilot:
         pass
 
-
 Classes vs Objects
-==================
-* Objects, Instances
+------------------
+* Objects also known as Instances
 * ``snake_case`` names
 
 .. code-block:: python
@@ -64,8 +64,10 @@ Classes vs Objects
 
 Fields
 ======
-* Fields, Properties, Attributes
-* ``snake_case`` names
+* Fields are also known as "Properties" or "Attributes"
+* ``snake_case`` name convention
+* Fields are defined in ``__init__()`` method
+* Fields store information for instances
 
 .. code-block:: python
     :caption: Fields
@@ -87,8 +89,8 @@ Fields
 Methods
 =======
 * Methods are functions in the class
-* ``self`` - Instance as an argument
-* przy uruchomieniu funkcji nie podajemy jawnie argumentu ``self``
+* First argument is always ``self`` (instance)
+* While calling function you never pass ``self``
 
 Simple Methods
 --------------
@@ -103,7 +105,6 @@ Simple Methods
     neil = Astronaut()
     neil.say_something()
     # That's one small step for [a] man, one giant leap for mankind.
-
 
 Methods accessing fields
 ------------------------
@@ -138,7 +139,6 @@ Methods with default arguments
     jose.say_hello('Hello')            # Hello
     jose.say_hello()                   # TypeError: say_text() missing 1 required positional argument: 'text'
 
-
 Methods with default arguments
 ------------------------------
 .. code-block:: python
@@ -154,7 +154,6 @@ Methods with default arguments
     jose.say_hello(text='Privyet')     # Privyet
     jose.say_hello('Hello')            # Hello
     jose.say_hello()                   # Ehlo World!
-
 
 Methods call other methods
 --------------------------
@@ -178,9 +177,9 @@ Methods call other methods
 
 Initializer Method
 ==================
-* ``__init__()`` to nie konstruktor
-* Domyślny ``__init__()`` gdy niezdefiniowaliśmy własnego
-* Inicjalizacja pól klasy tylko w ``__init__``
+* ``__init__()`` is not a constructor!
+* All classes has default ``__init__()``
+* Initialize all fields only in ``__init__``
 
 .. code-block:: python
     :caption: ``__init__()`` - Initializer Method
@@ -222,7 +221,7 @@ Initializer Method
 
 Stringify object
 ================
-* print converts it's arguments to ``str()`` automatically before printing
+* ``print`` converts it's arguments to ``str()`` before printing
 
 .. code-block:: python
     :caption: Print object without ``__str__()`` method overloaded
@@ -252,61 +251,6 @@ Stringify object
 
     str(jose)       # My name... José Jiménez
     print(jose)     # My name... José Jiménez
-
-
-Inheritance
-===========
-.. code-block:: python
-
-    class Iris:
-        def __init__(self, sepal_length, sepal_width, petal_length, petal_width, species):
-        self.sepal_length = sepal_length
-        self.sepal_width = sepal_width
-        self.petal_length = petal_length
-        self.petal_width = petal_width
-        self.species = species
-
-    class Virginica(Iris):
-        pass
-
-    class Setosa(Iris):
-        pass
-
-    class Versicolor(Iris):
-        pass
-
-
-    setosa = Setosa(
-        sepal_length=5.1,
-        sepal_width=3.5,
-        petal_length=1.4,
-        petal_width=0.2,
-        species='setosa'
-    )
-
-Relations
-=========
-.. code-block:: python
-
-    class Address:
-        def __init__(self, street=None, city=None, country=None):
-            self.street = street
-            self.city = city
-            self.country = country
-
-
-    class Contact:
-        def __init__(self, first_name, last_name, addresses=()):
-            self.first_name = first_name
-            self.last_name = last_name
-            self.address = addresses
-
-
-    twardowski = Contact(first_name='Jan', last_name='Twardowski', address=[
-        Address(street='Kamienica Pod św. Janem Kapistranem', city='Kraków', country='Poland'),
-        Address(street='2101 E NASA Pkwy', city='Houston', country='USA'),
-        Address(city='Kennedy Space Center', country='USA'),
-    ])
 
 
 One class per file?
@@ -356,100 +300,6 @@ Defining Classes
     * petal_width: 0.4
 
 #. Wyświetl na ekranie nazwę gatunku oraz sumę i średnią z pomiarów.
-
-Defining Classes
-----------------
-* Filename: ``oop_iris.py``
-* Lines of code to write: 15 lines
-* Estimated time of completion: 10 min
-* Input data: :numref:`listing-oop-classes`
-
-.. code-block:: python
-    :caption: Iris sample dataset
-    :name: listing-oop-classes
-
-    DATA = [
-        ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
-        (5.8, 2.7, 5.1, 1.9, 'virginica'),
-        (5.1, 3.5, 1.4, 0.2, 'setosa'),
-        (5.7, 2.8, 4.1, 1.3, 'versicolor'),
-        (6.3, 2.9, 5.6, 1.8, 'virginica'),
-        (6.4, 3.2, 4.5, 1.5, 'versicolor'),
-        (4.7, 3.2, 1.3, 0.2, 'setosa'),
-        (7.0, 3.2, 4.7, 1.4, 'versicolor'),
-        (7.6, 3.0, 6.6, 2.1, 'virginica'),
-        (4.9, 3.0, 1.4, 0.2, 'setosa'),
-        (4.6, 3.1, 1.5, 0.2, 'setosa'),
-    ]
-
-#. Stwórz ``flowers: list``
-#. Stwórz klasy ``Virginica``, ``Versicolor``, ``Setosa``, które będą identyczne do ``Iris``
-#. Iterując po ``DATA`` z :numref:`listing-oop-classes`:
-
-    #. Twórz obiekty klasy odpowiedniej dla nazwy gatunku (ostatni rekord każdej z krotek)
-    #. Obiekt inicjalizuj danymi z pomiarów
-    #. Obiekt dodaj do listy ``flowers``
-
-#. Na ekranie wyświetlaj nazwę gatunku oraz sumę i średnią z pomiarów.
-
-:Dla chętnych:
-    #. Wynik sformatuj aby wyglądał jak tabelka:
-
-        .. code-block:: text
-
-            Species    Total   Avg
-            ----------------------
-             virginica  15.5  3.88
-                setosa  10.2  2.55
-            versicolor  13.9  3.48
-             virginica  16.6  4.15
-            versicolor  15.6  3.90
-                setosa   9.4  2.35
-            versicolor  16.3  4.07
-             virginica  19.3  4.83
-                setosa   9.5  2.38
-                setosa   9.4  2.35
-
-Basic Address Book
-------------------
-* Filename: ``oop_addressbook_basic.py``
-* Lines of code to write: 10 lines
-* Estimated time of completion: 20 min
-
-#. Dla danych z listingu poniżej napisz książkę adresową
-
-    .. literalinclude:: assignment/oop_addressbook.json
-        :language: json
-        :caption: Address Book
-
-#. W zadaniu mamy do czynienia z trzema klasami, wymień je.
-#. Zamodeluj problem wykorzystując trzy klasy i relacje między nimi
-#. Użytkownik może mieć wiele adresów
-#. Użytkownik może nie mieć żadnego adresu
-
-:The whys and wherefores:
-    * myślenie obiektowe i odwzorowanie struktury w programie
-    * praca z obiektami
-    * zagnieżdżanie obiektów
-    * rzutowanie obiektu na ``str`` oraz jego reprezentacja (które i kiedy użyć)
-
-Address Book from API
----------------------
-* Filename: ``oop_addressbook_api.py``
-* Lines of code to write: 15 lines
-* Estimated time of completion: 20 min
-
-#. API programu powinno być tak jak na :numref:`listing-oop-addressbook-py`
-#. Zrób tak, aby się ładnie wyświetlało zarówno dla jednego wyniku jak i dla wszystkich w książce
-#. ``Address`` ma mieć zmienną liczbę argumentów
-
-:The whys and wherefores:
-    * Korzystanie z ``.__str__()``
-
-.. literalinclude:: assignment/oop_addressbook.py
-    :name: listing-oop-addressbook-py
-    :language: python
-    :caption: Address Book
 
 Dragon (Part 1)
 ---------------
