@@ -5,10 +5,11 @@ class Contact:
 
 
 jose = Contact(name='Jose Jimenez')
+
 jose.addresses.append('2101 E NASA Pkwy, Houston, TX')
-print(jose.addresses)
+print('Jose:', jose.addresses)
 # [2101 E NASA Pkwy, Houston, TX]
 
 ivan = Contact(name='Ivan Ivanovich')
-print(ivan.addresses)
+print('Ivan:', ivan.addresses)
 # [2101 E NASA Pkwy, Houston, TX]

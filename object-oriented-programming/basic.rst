@@ -18,13 +18,17 @@ Classes
 =======
 * ``CamelCase`` names
 
-.. literalinclude:: src/oop-class-1.py
-    :language: python
+.. code-block:: python
     :caption: Defining and naming classes with single word names
 
-.. literalinclude:: src/oop-class-2.py
-    :language: python
+    class Astronaut:
+        pass
+
+.. code-block:: python
     :caption: Defining and naming classes with ``CamelCase`` names
+
+    class CosmonautPilot:
+        pass
 
 
 Classes vs Objects
@@ -32,13 +36,30 @@ Classes vs Objects
 * Objects, Instances
 * ``snake_case`` names
 
-.. literalinclude:: src/oop-objects-1.py
-    :language: python
+.. code-block:: python
     :caption: Classes and Objects
 
-.. literalinclude:: src/oop-objects-2.py
-    :language: python
+    class Astronaut:
+        pass
+
+
+    twardowski = Astronaut()
+    mark_watney = Astronaut()
+
+
+.. code-block:: python
     :caption: Classes and Objects
+
+    class Astronaut:
+        pass
+
+
+    class Cosmonaut:
+        pass
+
+
+    mark = Astronaut()
+    ivan = Cosmonaut()
 
 
 Fields
@@ -46,9 +67,21 @@ Fields
 * Fields, Properties, Attributes
 * ``snake_case`` names
 
-.. literalinclude:: src/oop-fields.py
-    :language: python
+.. code-block:: python
     :caption: Fields
+
+    class Astronaut:
+        def __init__(self):
+            self.first_name = 'Jan'
+            self.last_name = 'Twardowski'
+            self.agency = 'POLSA'
+
+
+    twardowski = Astronaut()
+
+    print(twardowski.first_name)  # Jan
+    print(twardowski.last_name)   # Twardowski
+    print(twardowski.agency)      # POLSA
 
 
 Methods
@@ -59,33 +92,88 @@ Methods
 
 Simple Methods
 --------------
-.. literalinclude:: src/oop-methods-1.py
-    :language: python
+.. code-block:: python
     :caption: Simple Methods
+
+    class Astronaut:
+        def say_something(self):
+            print("That's one small step for [a] man, one giant leap for mankind.")
+
+
+    neil = Astronaut()
+    neil.say_something()
+    # That's one small step for [a] man, one giant leap for mankind.
+
 
 Methods accessing fields
 ------------------------
-.. literalinclude:: src/oop-methods-2.py
-    :language: python
+.. code-block:: python
     :caption: Methods accessing fields
 
-Methods with default arguments
-------------------------------
-.. literalinclude:: src/oop-methods-args.py
-    :language: python
-    :caption: Methods with arguments
+    class Astronaut:
+        def __init__():
+            self.name = 'José Jiménez'
+
+        def say_something(self):
+            print(f'My name... {self.name}')
+
+
+    jose = Astronaut()
+    jose.say_hello()
+    # My name... José Jiménez!
 
 Methods with default arguments
 ------------------------------
-.. literalinclude:: src/oop-methods-args-default.py
-    :language: python
+.. code-block:: python
+    :caption: Methods with arguments
+
+    class Astronaut:
+        def say_hello(self, text):
+            print(text)
+
+
+    jose = Astronaut()
+
+    jose.say_hello(text='Privyet')     # Privyet
+    jose.say_hello('Hello')            # Hello
+    jose.say_hello()                   # TypeError: say_text() missing 1 required positional argument: 'text'
+
+
+Methods with default arguments
+------------------------------
+.. code-block:: python
     :caption: Methods with default arguments
+
+    class Astronaut:
+        def say_hello(self, text='Ehlo World!'):
+            print(text)
+
+
+    jose = Astronaut()
+
+    jose.say_hello(text='Privyet')     # Privyet
+    jose.say_hello('Hello')            # Hello
+    jose.say_hello()                   # Ehlo World!
+
 
 Methods call other methods
 --------------------------
-.. literalinclude:: src/oop-methods-call-another.py
-    :language: python
+.. code-block:: python
     :caption: Methods call other methods
+
+    class Astronaut:
+        def say_hello(self):
+            name = self.get_name()
+            print(f'My name... {name}')
+
+        def get_name(self):
+            return 'José Jiménez'
+
+
+    jose = Astronaut()
+
+    jose.say_hello()    # My name... José Jiménez!
+    jose.get_name()     # 'José Jiménez!'
 
 
 Initializer Method
@@ -94,26 +182,77 @@ Initializer Method
 * Domyślny ``__init__()`` gdy niezdefiniowaliśmy własnego
 * Inicjalizacja pól klasy tylko w ``__init__``
 
-.. literalinclude:: src/oop-init-simple.py
-    :language: python
+.. code-block:: python
     :caption: ``__init__()`` - Initializer Method
 
-.. literalinclude:: src/oop-init.py
-    :language: python
+    class Astronaut:
+        def __init__(self):
+            self.first_name = 'Jan'
+            self.last_name = 'Twardowski'
+            self.agency = 'POLSA'
+
+
+    twardowski = Astronaut()
+
+    print(twardowski.first_name)  # Jan
+    print(twardowski.last_name)   # Twardowski
+    print(twardowski.agency)      # POLSA
+
+.. code-block:: python
     :caption: ``__init__()`` - Initializer Method
+
+    class Astronaut:
+        def __init__(self, first_name, last_name, agency='NASA'):
+            self.first_name = first_name
+            self.last_name = last_name
+            self.agency = agency
+
+
+    jose = Astronaut(first_name='José', last_name='Jiménez')
+    ivan = Astronaut(first_name='Иван', last_name='Иванович', agency='Roscosmos')
+
+    print(jose.first_name)  # José
+    print(jose.last_name)   # Jiménez
+    print(jose.agency)      # NASA
+
+    print(ivan.first_name)  # Иван
+    print(ivan.last_name)   # Иванович
+    print(ivan.agency)      # Roscosmos
 
 
 Stringify object
 ================
 * print converts it's arguments to ``str()`` automatically before printing
 
-.. literalinclude:: src/oop-str-without.py
-    :language: python
+.. code-block:: python
     :caption: Print object without ``__str__()`` method overloaded
 
-.. literalinclude:: src/oop-str-with.py
-    :language: python
+    class Astronaut:
+        def __init__(self, name):
+            self.name = name
+
+
+    jose = Astronaut(name='José Jiménez')
+
+    str(jose)       # <__main__.Astronaut object at 0x01E3FDF0>
+    print(jose)     # <__main__.Astronaut object at 0x01E3FDF0>
+
+.. code-block:: python
     :caption: Stringify object
+
+    class Astronaut:
+        def __init__(self, name):
+            self.name = name
+
+        def __str__(self):
+            return f'My name... {self.name}'
+
+
+    jose = Astronaut(name='José Jiménez')
+
+    str(jose)       # My name... José Jiménez
+    print(jose)     # My name... José Jiménez
+
 
 Inheritance
 ===========
@@ -175,9 +314,19 @@ One class per file?
 * Osobne pliki - gdy klasy są duże
 * Jeden plik - gdy klasy są małe i czytelne
 
-    .. literalinclude:: src/oop-objects-2.py
-        :language: python
-        :caption: Classes and Objects
+.. code-block:: python
+    :caption: Classes and Objects
+
+    class Astronaut:
+        pass
+
+
+    class Cosmonaut:
+        pass
+
+
+    jose = Astronaut()
+    ivan = Cosmonaut()
 
 
 Assignments

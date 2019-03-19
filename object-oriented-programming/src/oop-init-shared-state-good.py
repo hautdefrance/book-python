@@ -1,7 +1,7 @@
 class Contact:
     def __init__(self, name, addresses=()):
         self.name = name
-        self.addresses = addresses if addresses else []
+        self.addresses = list(addresses)
 
 
 jose = Contact(name='Jose Jimenez')
@@ -11,4 +11,4 @@ print(jose.addresses)
 
 ivan = Contact(name='Ivan Ivanovich')
 print(ivan.addresses)
-# [2101 E NASA Pkwy, Houston, TX]
+# []

@@ -45,11 +45,6 @@ class Dragon:
         y = position['y'] + down - up
         self.set_position(x, y)
 
-
-        self.set_position(
-            x=self.position_x + right - left,
-            y=self.position_y + down - up)
-
     def make_damage(self):
         if self.is_alive():
             return randint(self.DAMAGE_MIN, self.DAMAGE_MAX)
