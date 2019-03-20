@@ -191,6 +191,11 @@ Hash
 * ``set()`` można zrobić z dowolnego hashowalnego obiektu
 * ``dict()`` może mieć klucze, które są dowolnym hashowalnym obiektem
 
+* User-defined classes have ``__eq__()`` and ``__hash__()`` methods by default.
+* All objects compare unequal (except with themselves)
+* ``x.__hash__()`` returns an appropriate value such that ``x == y`` implies both that ``x is y`` and ``hash(x) == hash(y)``
+
+
 .. literalinclude:: src/oop-hash-dict.py
     :language: python
     :caption: ``dict()`` może mieć klucze, które są dowolnym hashowalnym obiektem
