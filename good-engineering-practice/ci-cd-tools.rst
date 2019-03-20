@@ -28,6 +28,8 @@ Narzędzia
 * ``pyannotate``
 * ``pytypes``
 * ``mutpy``
+* ``python -m doctest -v example.py``
+* ``python -m unittest -v example.py``
 
 
 CI/CD

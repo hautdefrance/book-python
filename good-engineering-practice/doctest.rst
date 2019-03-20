@@ -7,6 +7,8 @@ Doctest
 * sprawdzają poprawność działania funkcji
 * niezwykle przydatne przy tworzeniu regexpów
 * można przetykać tekst pomiędzy testami
+* Case Study: https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/linear_model/base.py#L409
+
 
 Running tests
 =============

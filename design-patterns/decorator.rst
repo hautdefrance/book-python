@@ -27,11 +27,14 @@ Przykład zastosowania
 
 .. code-block:: python
 
-    @permission_required(uid=0)
-    @modyfikuj_sciezke_w_zaleznosci_od_systemu_operacyjnego
-    @timeout(seconds=10, error_message='za dlugo')
-    def instaluj_oprogramowanie(sciezka, nazwa_oprogramowania, wersja_paczki):
-        pass
+    @timeout(seconds=10)
+    def calculate(operations=[], collection):
+        total = 0
+
+        for operation in operations:
+            total += operations(collection)
+
+        return total
 
 
 Function Decorators
@@ -87,66 +90,91 @@ Class Decorators
 @staticmethod
 -------------
 .. code-block:: python
+    :caption: Functions on a high level of a module lack namespace
 
-    class Foo:
-        def __init__(self, tekst='Jose'):
-            self.tekst = tekst
+    def add(a, b):
+        return a + b
 
-        def hello(self):
-            print(f'hello {self.tekst}')
+    def sub(a, b):
+        return a - b
+
+
+    add(1, 2)
+    sub(8, 4)
+
+.. code-block:: python
+    :caption: When ``add`` and ``sub`` are in ``Calculator`` class (namespace) they get instance (``self``) as a first argument. Instantiating Calculator is not needed, as of functions do not read or write to instance variables.
+
+    class Calculator:
+
+        def add(self, a, b):
+            return a + b
+
+        def sub(self, a, b):
+            return a - b
+
+
+    Calculator.add(10, 20)  # TypeError: add() missing 1 required positional argument: 'b'
+    Calculator.sub(8, 4)    # TypeError: add() missing 1 required positional argument: 'b'
+
+    calc = Calculator()
+    calc.add(1, 2)          # 3
+    calc.sub(8, 4)          # 4
+
+.. code-block:: python
+    :caption: Class ``Calculator`` is a namespace for functions. ``@staticmethod`` remove instance (``self``) argument to method.
+
+    class Calculator:
 
         @staticmethod
-        def ehlo():
-            print('hello')
+        def add(a, b):
+            return a + b
+
+        @staticmethod
+        def sub(a, b):
+            return a - b
 
 
-    # intuicyjna implementacja
-    def staticmethod(method):
-        def wrapper(*args, **kwargs):
-            args = (x for x in args if not instanceof(arg, Foo))
-            return method(*args, **kwargs)
-        return wrapper
+    Calculator.add(1, 2)
+    Calculator.sub(8, 4)
 
 @classmethod
 ------------
-- ``@classmehtod`` turns a normal method to a factory method.
+- ``@classmethod`` turns a normal method to a factory method.
 - first argument for ``@classmethod`` function must always be ``cls`` (class)
 - Factory methods, that are used to create an instance for a class using for example some sort of pre-processing.
 - Static methods calling static methods: if you split a static methods in several static methods, you shouldn't hard-code the class name but use class methods
 
 .. code-block:: python
 
-    class Hero:
+    class User:
+        def __init__(self, first_name, last_name):
+            self.first_name = first_name
+            self.last_name = last_name
 
-      @staticmethod
-      def say_hello():
-         print("Helllo...")
+        def __str__(self):
+            return f'{self.first_name} {self.last_name}'
 
-      @classmethod
-      def say_class_hello(cls):
-         if cls.__name__ == "HeroSon":
-            print("Hi Kido")
-         elif cls.__name__ == "HeroDaughter":
-            print("Hi Princess")
+        def to_json(self):
+            import json
+            return json.dumps(self.__dict__)
 
-
-    class HeroSon(Hero):
-      def say_son_hello(self):
-         print("test hello")
-
-
-    class HeroDaughter(Hero):
-      def say_daughter_hello(self):
-         print("test hello daughter")
+        @classmethod
+        def from_json(cls, data):
+            import json
+            data = json.loads(data)
+            return cls(**data)
 
 
-    testson = HeroSon()
-    testson.say_class_hello()       # "Hi Kido"
-    testson.say_hello()             # "Helllo..."
+    user = User('Jan', 'Twardowski')
+    # Jan Twardowski
 
-    testdaughter = HeroDaughter()
-    testdaughter.say_class_hello()  # "Hi Princess"
-    testdaughter.say_hello()        # "Helllo..."
+    DATA = user.to_json()
+    # '{"first_name": "Jan", "last_name": "Twardowski"}'
+
+    user = User.from_json(DATA)
+    # Jan Twardowski
+
 
 ``functools``
 =============
