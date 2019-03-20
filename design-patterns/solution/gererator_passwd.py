@@ -4,7 +4,7 @@ import sys
 FILE = '../assignment/etc-passwd.txt'
 
 
-def comprahension(lines):
+def function(lines):
     accounts = []
 
     for line in lines:
@@ -36,8 +36,8 @@ if __name__ == '__main__':
     with open(FILE) as file:
         lines = file.readlines()
 
-    comp = comprahension(lines)
+    fn = function(lines)
     gene = generator(lines)
 
-    print(f'Comprahension: {sys.getsizeof(comp)}')
+    print(f'Function: {sys.getsizeof(fn)}')
     print(f'Generator: {sys.getsizeof(gene)}')
