@@ -27,11 +27,11 @@ Object Paradigm
 
 Classes
 =======
-* ``CamelCase`` name convention
+* Capitalized ``CamelCase`` name convention
 * Classes are templates for objects
 
 .. code-block:: python
-    :caption: Classes should have capitalized name
+    :caption: Defining class. Classes should have capitalized name
 
     class Iris:
         pass
@@ -45,6 +45,7 @@ Classes
 Classes vs Instances
 --------------------
 * Instances are also known as Objects
+* Two newlines between class and code
 * ``snake_case`` names
 
 .. code-block:: python
@@ -93,7 +94,7 @@ Fields
 * Fields store information for instances
 
 .. code-block:: python
-    :caption: Classes can have multiple fields. Look, that all fields are initialized in ``__init__()`` method.
+    :caption: Classes can have multiple fields. All fields should be initialized in ``__init__()`` method.
 
     class Iris:
         def __init__(self):
@@ -111,10 +112,56 @@ Fields
     print(flower.species)       # 'setosa'
 
 
+Initializer Method
+==================
+* ``__init__()`` is not a constructor!
+* It's a first method run after object is initiated
+* All classes has default ``__init__()``
+* Initialize all fields only in ``__init__``
+
+.. code-block:: python
+    :caption: Class initialization
+
+    class Iris:
+        def __init__(self, species):
+            self.species = species
+
+
+    setosa = Iris(species='setosa')
+    print(setosa.species)
+    # setosa
+
+    virginica = Iris('virginica')
+    print(virginica.species)
+    # virginica
+
+    versicolor = Iris()
+    # TypeError: __init__() missing 1 required positional argument: 'species'
+
+.. code-block:: python
+    :caption: Method argument with default value
+
+    class Iris:
+        def __init__(self, species=None):
+            self.species = species
+
+
+    setosa = Iris(species='setosa')
+    print(setosa.species)
+    # setosa
+
+    virginica = Iris('virginica')
+    print(virginica.species)
+    # virginica
+
+    versicolor = Iris()
+    # None
+
+
 Methods
 =======
 * Methods are functions in the class
-* First argument is always ``self`` (instance)
+* First argument is always instance (``self``)
 * While calling function you never pass ``self``
 
 Simple Methods
@@ -210,51 +257,6 @@ Methods calling other methods
     flower = Iris()
     flower.total_area()
     # Total area is: 18.1
-
-
-Initializer Method
-==================
-* ``__init__()`` is not a constructor!
-* All classes has default ``__init__()``
-* Initialize all fields only in ``__init__``
-
-.. code-block:: python
-    :caption: Class initialization
-
-    class Iris:
-        def __init__(self, species):
-            self.species = species
-
-
-    setosa = Iris(species='setosa')
-    print(setosa.species)
-    # setosa
-
-    virginica = Iris('virginica')
-    print(virginica.species)
-    # virginica
-
-    versicolor = Iris()
-    # TypeError: __init__() missing 1 required positional argument: 'species'
-
-.. code-block:: python
-    :caption: Method argument with default value
-
-    class Iris:
-        def __init__(self, species=None):
-            self.species = species
-
-
-    setosa = Iris(species='setosa')
-    print(setosa.species)
-    # setosa
-
-    virginica = Iris('virginica')
-    print(virginica.species)
-    # virginica
-
-    versicolor = Iris()
-    # None
 
 
 One class per file?

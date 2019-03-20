@@ -49,14 +49,17 @@ Simple inheritance
     class Iris:
         def __init__(self, sepal_length, sepal_width,
                      petal_length, petal_width, species):
+
             self.sepal_length = sepal_length
             self.sepal_width = sepal_width
             self.petal_length = petal_length
             self.petal_width = petal_width
             self.species = species
 
+
     class Setosa(Iris):
         pass
+
 
     setosa = Setosa(
         sepal_length=5.1,
@@ -116,16 +119,16 @@ Static Fields
 .. code-block:: python
     :caption: Static Fields
 
-    class Astronaut:
-        name = 'José Jiménez'
+    class Iris:
+        species = 'setosa'
 
 
-    jose = Astronaut()
-    ivan = Astronaut()
+    setosa = Iris()
+    versicolor = Iris()
 
-    jose.name           # José Jiménez
-    ivan.name           # José Jiménez
-    Astronaut.name      # José Jiménez
+    setosa.species      # setosa
+    versicolor.species  # setosa
+    Iris.species        # setosa
 
 Dynamic Fields
 --------------
@@ -134,64 +137,88 @@ Dynamic Fields
 .. code-block:: python
     :caption: Dynamic fields
 
-    class Astronaut:
-        def __init__(self, name):
-            self.name = name
-            self.agency = agency
+    class Iris:
+        def __init__(self, species):
+            self.species = species
 
-    jose = Astronaut(name='José Jiménez')
-    ivan = Astronaut(name='Иван Иванович')
 
-    jose.name           # José Jiménez
-    ivan.name           # Иван Иванович
-    Astronaut.name      # AttributeError: type object 'Astronaut' has no attribute 'name'
+    setosa = Iris('setosa')
+    versicolor = Iris('versicolor')
+
+    setosa.species      # setosa
+    versicolor.species  # versicolor
+    Iris.species        # AttributeError: type object 'Iris' has no attribute 'species'
 
 Static vs. Dynamic Fields
 -------------------------
 .. code-block:: python
     :caption: Static vs. Dynamic fields
 
-    class Astronaut:
-        agency = 'NASA'
+    class Iris:
+        kingdom = 'Plantae'
 
-        def __init__(self, name):
-            self.name = name
+        def __init__(self, species):
+            self.species = species
 
 
-    ivan = Astronaut(name='Иван Иванович')
-    jose = Astronaut(name='José Jiménez')
-    mark = Astronaut(name='Mark Watney')
+    setosa = Iris('setosa')
+    versicolor = Iris('versicolor')
+    virginica = Iris('virginica')
 
 
     # Check value of field agency
-    ivan.agency         # NASA
-    jose.agency         # NASA
-    mark.agency         # NASA
-    Astronaut.agency    # NASA
+    setosa.kingdom       # Plantae
+    versicolor.kingdom   # Plantae
+    virginica.kingdom    # Plantae
+    Iris.kingdom         # Plantae
 
 
-    # Let's change Agency of ``ivan``
-    ivan.agency = 'Roscosmos'
+    # Let's change ``kingdom`` of ``setosa`` object
+    setosa.kingdom = 'Flower'
 
-    ivan.agency         # Roscosmos
-    jose.agency         # NASA
-    mark.agency         # NASA
-    Astronaut.agency    # NASA
+    setosa.kingdom       # Flower
+    versicolor.kingdom   # Plantae
+    virginica.kingdom    # Plantae
+    Iris.kingdom         # Plantae
 
 
-    # Let's change agency of ``Astronaut`` class
-    Astronaut.agency = 'ESA'
+    # Let's change ``kingdom`` of ``Iris`` class
+    Iris.kingdom = 'Iris'
 
-    ivan.agency         # Roscosmos
-    jose.agency         # ESA
-    mark.agency         # ESA
-    Astronaut.agency    # ESA
+    setosa.kingdom       # Flower
+    versicolor.kingdom   # Iris
+    virginica.kingdom    # Iris
+    Iris.kingdom         # Iris
 
 ``__dict__`` - Getting dynamic fields and values
 ------------------------------------------------
-.. literalinclude:: src/oop-fields-dict.py
-    :language: python
+.. code-block:: python
     :caption: ``__dict__`` - Getting dynamic fields and values
+
+    class Iris:
+        def __init__(self, sepal_length, sepal_width,
+                     petal_length, petal_width, species):
+
+            self.sepal_length = sepal_length
+            self.sepal_width = sepal_width
+            self.petal_length = petal_length
+            self.petal_width = petal_width
+            self.species = species
+
+    flower = Iris(
+        sepal_length=5.1,
+        sepal_width=3.5,
+        petal_length=1.4,
+        petal_width=0.2,
+        species='setosa'
+    )
+
+    flower.__dict__
+    # {'sepal_length': 5.1,
+    # 'sepal_width': 3.5,
+    # 'petal_length': 1.4,
+    # 'petal_width': 0.2,
+    # 'species': 'setosa'}
 
 
 .. _Initial arguments mutability and shared state:
