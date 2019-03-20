@@ -188,6 +188,7 @@ Accessing class fields
 
 Hash
 ====
+* Funkcja hash zwraca ``int``
 * ``set()`` można zrobić z dowolnego hashowalnego obiektu
 * ``dict()`` może mieć klucze, które są dowolnym hashowalnym obiektem
 
@@ -216,6 +217,7 @@ Hash
 ``is``
 ======
 * ``is`` porównuje czy dwa obiekty są tożsame
+* Sprawdzenie odbywa się przez porównanie wartości ``id()`` dla obiektu
 * Najczęściej służy do sprawdzania czy coś jest ``None``
 
 .. code-block:: python
@@ -235,16 +237,17 @@ Bardzo kuszący jest następujący przykład:
         print('You are not pirate at all!')
 
 **Nie jest on jednak do końca poprawny. Słowo kluczowe ``is`` porównuje czy dwa obiekty są tym samym obiektem, nie czy mają taką samą wartość.**
-* Poniższy przykład ilustruje, że pomimo że dwa obiekty przechowują takiego samego stringa to nie są sobie tożsame, mimo że są sobie równe.
+* Poniższy przykład ilustruje, że pomimo że dwa obiekty przechowują takiego samego ``str`` to nie są sobie tożsame, mimo że są sobie równe.
 
  .. code-block:: python
 
     a = 'hello'
     b = 'hello'
 
-    print(f'a is {a}, b is {b}')        # a is hello, b is hello
-    print(f'a == b returns: {a==b}')    # a == b returns: True
-    print(f'a is b returns: {a is b}')  # a is b returns: True
+    print(a)      # hello
+    print(b)      # hello
+    a == b        # True
+    a is b        # True
 
 
     print(id(a))  # 4640833352
@@ -255,13 +258,13 @@ Bardzo kuszący jest następujący przykład:
     a = 'hello'
     b = ''.join('hello')
 
-    print(f'a is {a}, b is {b}')        # a is hello, b is hello
-    print(f'a == b returns: {a==b}')    # a == b returns: True
-    print(f'a is b returns: {a is b}')  # a is b returns: False
+    print(a)      # hello
+    print(b)      # hello
+    a == b        # True
+    a is b        # False
 
     print(id(a))  # 4640833352
     print(id(b))  # 4662440600
-
 
 
 Monkey Patching
