@@ -312,8 +312,8 @@ Memoization
     - klucz: argument funkcji
     - wartość: wynik obliczeń
 
-#. Zmodyfikuj funkcję ``factorial(n: int)`` z listingu poniżej
-#. Przed uruchomieniem funkcji, sprawdź czy wynik został już wcześniej obliczony:
+#. Dodaj dekorator do funkcji ``factorial(n: int)`` z listingu poniżej
+#. Decorator ma sprawdzać przed uruchomieniem funkcji, sprawdź czy wynik został już wcześniej obliczony:
 
     - jeżeli tak, to zwraca dane z ``CACHE``
     - jeżeli nie, to oblicza, aktualizuje ``CACHE``, a następnie zwraca wartość

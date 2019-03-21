@@ -108,6 +108,23 @@ Bad
 
     hello(1, 2)
 
+``pformat``
+-----------
+.. code-block:: python
+
+    from pprint import pformat
+
+
+    class ASD:
+        def __init__(self):
+            self.a = 1
+            self.b = 2
+
+        def __str__(self):
+        return pformat(self.__dict__, indent=1, width=120, compact=False)
+
+
+
 ``locals()``
 ============
 .. code-block:: python

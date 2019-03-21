@@ -12,6 +12,9 @@ class File:
     content: Union[list, tuple] = ()
     encoding: str = 'utf-8'
 
+    def __post_init__(self):
+        self.content = list(self.content)
+
     def __enter__(self):
         return self
 

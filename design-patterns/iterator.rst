@@ -135,6 +135,28 @@ Własny iterator
 
 ``itertools``
 =============
+.. code-block:: python
+
+    from itertools import cycle
+
+    DATA = [
+        {'last_name': 'Jiménez'},
+        {'first_name': 'Mark', 'last_name': 'Watney'},
+        {'first_name': 'Иван'},
+        {'first_name': 'Jan', 'last_name': 'Twardowski', 'born': 1961},
+        {'first_name': 'Melissa', 'last_name': 'Lewis', 'first_step': 1969},
+    ]
+
+    def get_species(species):
+        for record in DATA:
+            if record[4] == species:
+                yield record
+
+    data = get_species('setosa')
+
+    cycle(data)
+
+
 
 Przykład
 ========
