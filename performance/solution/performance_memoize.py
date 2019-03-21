@@ -51,3 +51,4 @@ duration_nocache = timeit(
 print(f'factorial_cache time: {round(duration_cache, 4)} seconds')
 print(f'factorial_nocache time: {round(duration_nocache, 3)} seconds')
 print(f'Cached solution is {round(duration_nocache / duration_cache, 1)} times faster')
+

@@ -3,17 +3,17 @@
 
 
 
-# a = 'Jose Jimenez'
-# b = 'Jose Jimenez'
-#
-# print(id(a))
-# # 4649319408, 4450998960
-# print(id(b))
-# # 4649320304, 4450998960
-# print(a is b)
-# # False, True
-# print(a == b)
-# # True, True
+a = 'Jose Jimenez'
+b = 'Jose Jimenez'
+
+print(id(a))
+# 4649319408, 4450998960
+print(id(b))
+# 4649320304, 4450998960
+print(a is b)
+# False, True
+print(a == b)
+# True, True
 
 
 

@@ -30,6 +30,8 @@ Narzędzia
 * ``mutpy``
 * ``python -m doctest -v example.py``
 * ``python -m unittest -v example.py``
+* ``tox``
+* ``pipenv``
 
 
 CI/CD

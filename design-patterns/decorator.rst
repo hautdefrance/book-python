@@ -5,6 +5,38 @@ Decorator
 
 Example
 =======
+
+Example 1
+---------
+.. code-block:: python
+
+    from django.shortcuts import render
+    from django.contrib.auth.decorators import login_required
+
+
+    def edit_profile(request):
+        """
+        Function checks whether user is_authenticated
+        If not, user will be redirected to login page
+        """
+        if not request.user.is_authenticated:
+            return render(request, 'myapp/login_error.html')
+        else:
+            return render(request, 'myapp/edit-profile.html')
+
+    # better use decorator
+    # as shown below
+
+    @login_required
+    def edit_profile(request):
+        """
+        Decorator checks whether user is_authenticated
+        If not, user will be redirected to login page
+        """
+        return render(request, 'myapp/edit_profile.html')
+
+Example 2
+---------
 .. literalinclude:: src/decorators-function.py
     :language: python
     :caption: Decorator usage
@@ -287,6 +319,7 @@ Case Study
 Decorator library
 -----------------
 - https://wiki.python.org/moin/PythonDecoratorLibrary
+
 
 Assignments
 ===========
