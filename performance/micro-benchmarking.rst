@@ -17,6 +17,7 @@ Setup
         {'Sepal width': 2.9, 'Petal width': 1.8, 'Species': 'virginica'},
     ]
 
+
 Statements
 ==========
 * Jupyter ``%%timeit``
@@ -31,6 +32,16 @@ Code 1
 
     for row in DATA:
         fieldnames.update(row.keys())
+
+Code 2
+------
+* 2.03 µs ± 49.9 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+
+.. code-block:: python
+
+    %%timeit
+
+    fieldnames = set(key for record in DATA for key in record.keys())
 
 Code 2
 ------

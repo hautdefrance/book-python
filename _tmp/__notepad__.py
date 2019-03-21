@@ -1,3 +1,24 @@
+from pprint import pformat
+
+
+class ASD:
+    def __init__(self):
+        self.a = 1
+        self.b = 2
+
+    def __str__(self):
+        return pformat(self.__dict__)
+
+
+
+
+
+
+
+
+
+
+
 
 
 # from itertools import cycle

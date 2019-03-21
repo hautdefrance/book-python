@@ -8,8 +8,8 @@ About Context Managers
 
 How to create
 -------------
-* ``__enter__()``
-* ``__exit__()``
+* ``__enter__() -> Any``
+* ``__exit__(*args) -> None``
 
 .. literalinclude:: src/context-manager-create.py
     :language: python
@@ -34,33 +34,6 @@ Przykład
 
     with open(FILE) as file:
         # ...
-
-Lock
-----
-.. code-block:: python
-
-    import threading
-
-
-    lock = threading.Lock()
-
-    with lock:
-        my_list.append(item)
-
-replaces the more verbose:
-
-.. code-block:: python
-
-    import threading
-
-
-    lock = threading.Lock()
-    lock.acquire()
-
-    try:
-        my_list.append(item)
-    finally:
-        lock.release()
 
 Database
 --------
@@ -94,6 +67,34 @@ Database
 
         for row in db.execute(SQL_SELECT):
             print(row)
+
+Lock
+----
+.. code-block:: python
+
+    import threading
+
+
+    lock = threading.Lock()
+
+    with lock:
+        my_list.append(item)
+
+replaces the more verbose:
+
+.. code-block:: python
+
+    import threading
+
+
+    lock = threading.Lock()
+    lock.acquire()
+
+    try:
+        my_list.append(item)
+    finally:
+        lock.release()
+
 
 Contextmanager decorator
 ========================
@@ -130,7 +131,6 @@ Dzieli naszą funkcję na bloki przed i po ``yield``.
 
         def __exit__(self, *exc):
             print('</p>')
-            return False
 
     @makeparagraph()
     def generate_html():
@@ -153,7 +153,7 @@ timing
 
 
     @contextmanager
-    def time_print(task_name):
+    def timeit(task_name):
         start = time.time()
 
         try:
@@ -162,14 +162,20 @@ timing
             duration = time.time() - start
             print(f'{task_name} took {duration} seconds')
 
+    def exec_as_process():
+        pass
 
-    with time_print("processes"):
-        [doproc() for _ in range(500)]
+    def exec_as_thread():
+        pass
+
+
+    with timeit("processes"):
+        [exec_as_process() for _ in range(500)]
     # processes took 15.236166954 seconds
 
 
-    with time_print("threads"):
-        [dothread() for _ in range(500)]
+    with timeit("threads"):
+        [exec_as_thread() for _ in range(500)]
     # threads took 0.11357998848 seconds
 
 
