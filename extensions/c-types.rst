@@ -1,23 +1,9 @@
-************
-C Extensions
-************
-
-* biblioteka ``ctypes``
-* C Modules
-
+*******
 C Types
-=======
+*******
 
-Kompilacja
-----------
-.. code-block:: console
-
-    $ include_dir='-I/usr/local/Cellar/python3/3.6.1/Frameworks/Python.framework/Versions/3.6/include/python3.6m/'
-    $ gcc -fPIC -c -o mylib-ctypes.o mylib-ctypes.c ${include_dir}
-    $ gcc -shared mylib-ctypes.o -o mylib-ctypes.so
-
-Przykład - Rekurencja
----------------------
+Code
+====
 .. code-block:: C
 
     long factorial(long n) {
@@ -27,11 +13,24 @@ Przykład - Rekurencja
         return (n * factorial(n - 1));
     }
 
+
+Build
+=====
+.. code-block:: console
+
+    $ INCLUDES='-I/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7/include/python3.7m/'
+    $ FILE='mylib-ctypes'
+    $ gcc -fPIC -c -o ${FILE}.o ${FILE}.c ${INCLUDE}
+    $ gcc -shared ${FILE}.o -o ${FILE}.so
+
+
+Run
+===
 .. code-block:: python
 
     import ctypes
 
-    lib = ctypes.CDLL('mylib-ctypes.so')
+    lib = ctypes.CDLL('mylib.so')
 
     lib.factorial(16)  # 2004189184
     lib.factorial(17)  # -288522240
@@ -52,11 +51,13 @@ Argumenty
         ctypes.POINTER(ctypes.c_double),
     ]
 
+.. code-block:: python
+
     lib.my_function.restype = ctypes.c_char_p
 
-Przykład - typy proste
-----------------------
 
+Case Study
+==========
 .. code-block:: C
 
     #include <stdio.h>
@@ -80,6 +81,7 @@ Przykład - typy proste
 .. code-block:: python
 
     import ctypes
+
     lib = ctypes.CDLL('mylib-ctypes.so')
 
     lib.ehlo()
@@ -95,9 +97,8 @@ Przykład - typy proste
     i = lib.return_int(15)
     print(i)
 
-Wywołania funkcji
------------------
-
+Multi OS code
+-------------
 .. code-block:: python
 
     import sys
@@ -116,7 +117,6 @@ Wywołania funkcji
 
 Overflow
 --------
-
 .. code-block:: C
 
     #include <stdio.h>
@@ -139,56 +139,6 @@ Overflow
     # ctypes.ArgumentError: argument 1: <class 'OverflowError'>: int too long to convert
 
 
-C Modules
-=========
-
-Python 3
---------
-.. literalinclude:: src/c-modules.c
-    :name: listing-c-modules
-    :language: C
-    :caption: Przykład kodu w C wykorzystującego *C modules*
-
-``setup.py``
-------------
-
-.. code-block:: python
-
-    import sys
-    from distutils.core import setup, Extension
-
-    if sys.version_info >= (3,):
-        print('Building for Python 3')
-        module = Extension('hello', sources = ['hello-py3.c'])
-
-    elif sys.version_info >= (2,):
-        print('Building for Python 2')
-        module = Extension('hello', sources=['hello-py2.c'])
-
-    else:
-        print('Unsupported Python version')
-        sys.exit(1)
-
-    setup(
-        name = 'hello',
-        version='1.0',
-        description = 'Ehlo World!',
-        ext_modules = [module])
-
-.. code-block:: console
-
-    $ python setup.py build
-
-    $ cd build/lib*
-
-    $ python
-
-.. code-block:: python
-
-    import hello
-    hello.say_hello('José Jiménez')
-
-
 Assignments
 ===========
 
@@ -199,11 +149,3 @@ C Types
 * Estimated time of completion: 15 min
 
 Wykorzystując C Types wyświetl na ekranie datę i czas, za pomocą funkcji zdefiniowanej w C ``<time.h>``
-
-C Modules
----------
-* Filename: ``cext_modules.py``
-* Lines of code to write: 10 lines
-* Estimated time of completion: 15 min
-
-Wykorzystując C Modules wyświetl na ekranie datę i czas, za pomocą funkcji zdefiniowanej w C ``<time.h>``

@@ -239,7 +239,8 @@ High Performance
     /data-types/collections.rst
     /concurrency/threading.rst
     /concurrency/async.rst
-    /extensions/c-extensions.rst
+    /extensions/c-types.rst
+    /extensions/c-modules.rst
     /good-engineering-practice/debugging-advanced.rst
 
 *********

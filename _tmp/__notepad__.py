@@ -1,9 +1,5 @@
 
 
-
-
-
-
 # from itertools import cycle
 # #
 # DATA = [
