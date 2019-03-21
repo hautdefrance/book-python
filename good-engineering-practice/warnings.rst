@@ -63,4 +63,38 @@ Example
     $ python -W all __notepad__.py
     __notepad__.py:5: PendingDeprecationWarning: ariane5(), is deprecated, please use ariane6() instead
 
+Example 2
+---------
+.. code-block:: python
 
+    import warnings
+    import functools
+
+
+    def deprecated(func):
+        """
+        This is a decorator which can be used to mark functions
+        as deprecated. It will result in a warning being emitted
+        when the function is used.
+        """
+
+        @functools.wraps(func)
+        def new_func(*args, **kwargs):
+            warnings.warn_explicit(
+                f"Call to deprecated function {func.__name__}.",
+                category=DeprecationWarning,
+                filename=func.func_code.co_filename,
+                lineno=func.func_code.co_firstlineno + 1)
+            return func(*args, **kwargs)
+        return new_func
+
+
+    ## Usage examples ##
+    @deprecated
+    def my_func():
+        pass
+
+    @other_decorators_must_be_upper
+    @deprecated
+    def my_func():
+        pass

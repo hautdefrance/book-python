@@ -5,6 +5,113 @@ OOP Advanced
 ************
 
 
+``__new__()`` and ``__init__()``
+================================
+
+``__new__()``
+-------------
+* the constructor
+* solely for creating the object
+* ``cls`` as it's first parameter
+* when calling ``__new__()`` you actually don't have an instance yet, therefore no ``self`` exists at that moment
+
+``__init__()``
+--------------
+* the initializer
+* for initializing object with data
+* ``self`` as it's first parameter
+* ``__init__()`` is called after ``__new__()`` and the instance is in place, so you can use ``self`` with it
+* it's purpose is just to alter the fresh state of the newly created instance
+
+Example usage
+-------------
+.. code-block:: python
+    :emphasize-lines: 4,5
+
+    class A:
+
+        def __new__(cls):
+            print("A.__new__() called")
+            return super(A, cls).__new__(cls)
+
+        def __init__(self):
+            print("A.__init__() called")
+
+    A()
+    # A.__new__() called
+    # A.__init__() called
+
+Missing ``return`` from constructor
+-----------------------------------
+.. code-block:: python
+    :emphasize-lines: 4
+
+    class B:
+
+        def __new__(cls):
+            print("B.__new__() called")
+
+        def __init__(self):
+            print("B.__init__() called")  # -> is actually never called
+
+    print B()
+    # B.__new__() called
+    # None
+
+The instantiation is evaluated to ``None`` since we don't return anything from the constructor.
+
+Return invalid from constructor
+-------------------------------
+.. code-block:: python
+
+    class C:
+
+        def __new__(cls):
+            print("C.__new__() called")
+            return 29
+
+    print C()
+    # C.__new__() called
+    # 29
+
+Return invalid from initializer
+-------------------------------
+.. code-block:: python
+
+    class D(object):
+
+        def __init__(self):
+            print("C.__new__() called")
+            return 33
+
+    D()
+    # TypeError: __init__ should return None
+
+Why?
+----
+* Factory method
+* Could be used to implement Singleton
+
+.. code-block:: python
+
+    class One:
+        name = 'Twardowski'
+
+
+    class Two:
+        def __new__(cls):
+            return One()
+
+
+    a = Two()
+
+    print(a)
+    # <__main__.One object at 0x11ca09588>
+
+    a.__class__.__name__
+    # 'One'
+
+
 ``__str__()`` and ``__repr__()``
 ================================
 * ``__repr__`` jest dla developerów (być jednoznacznym),

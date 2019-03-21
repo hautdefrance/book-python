@@ -37,6 +37,42 @@ Example 1
 
 Example 2
 ---------
+.. code-block:: python
+
+    import warnings
+    import functools
+
+
+    def deprecated(func):
+        """
+        This is a decorator which can be used to mark functions
+        as deprecated. It will result in a warning being emitted
+        when the function is used.
+        """
+
+        @functools.wraps(func)
+        def new_func(*args, **kwargs):
+            warnings.warn_explicit(
+                f"Call to deprecated function {func.__name__}.",
+                category=DeprecationWarning,
+                filename=func.func_code.co_filename,
+                lineno=func.func_code.co_firstlineno + 1)
+            return func(*args, **kwargs)
+        return new_func
+
+
+    ## Usage examples ##
+    @deprecated
+    def my_func():
+        pass
+
+    @other_decorators_must_be_upper
+    @deprecated
+    def my_func():
+        pass
+
+Example 3
+---------
 .. literalinclude:: src/decorators-function.py
     :language: python
     :caption: Decorator usage
@@ -276,6 +312,8 @@ LRU (least recently used) cache
 Przykład
 ========
 
+Example 1
+---------
 .. code-block:: python
 
     import os
@@ -304,6 +342,85 @@ Przykład
         print_file('/etc/passwd')
         print_file('/tmp/passwd')
 
+Example 2
+---------
+.. code-block:: python
+
+    class LoginCheck:
+        '''
+        This class checks whether a user
+        has logged in properly via
+        the global "check_function". If so,
+        the requested routine is called.
+        Otherwise, an alternative page is
+        displayed via the global "alt_function"
+        '''
+        def __init__(self, f):
+            self._f = f
+
+        def __call__(self, *args):
+            Status = check_function()
+            if Status is 1:
+                return self._f(*args)
+            else:
+                return alt_function()
+
+    def check_function():
+        return test
+
+    def alt_function():
+        return 'Sorry - this is the forced behaviour'
+
+    @LoginCheck
+    def display_members_page():
+        print 'This is the members page'
+
+Example 3
+---------
+.. code-block:: python
+
+    import functools
+
+    def singleton(cls):
+        ''' Use class as singleton. '''
+
+        cls.__new_original__ = cls.__new__
+
+        @functools.wraps(cls.__new__)
+        def singleton_new(cls, *args, **kw):
+            it =  cls.__dict__.get('__it__')
+            if it is not None:
+                return it
+
+            cls.__it__ = it = cls.__new_original__(cls, *args, **kw)
+            it.__init_original__(*args, **kw)
+            return it
+
+        cls.__new__ = singleton_new
+        cls.__init_original__ = cls.__init__
+        cls.__init__ = object.__init__
+
+        return cls
+
+    #
+    # Sample use:
+    #
+
+    @singleton
+    class Foo:
+        def __new__(cls):
+            cls.x = 10
+            return object.__new__(cls)
+
+        def __init__(self):
+            assert self.x == 10
+            self.x = 15
+
+    assert Foo().x == 15
+    Foo().x = 20
+    assert Foo().x == 20
+
+
 Case Study
 ----------
 .. literalinclude:: src/decorators-case-study-flask.py
@@ -315,6 +432,10 @@ Case Study
     :name: listing-decorators-case-study-django
     :language: python
     :caption: Case Study wykorzystania dekotatorów do poprawienia czytelności kodu Django
+
+
+
+
 
 Decorator library
 -----------------
