@@ -35,14 +35,26 @@ Using ``unittest``
     :language: python
     :caption: Przykład pokrycia klasy za pomocą ``unittest``
 
-.. literalinclude:: src/unittest-temperature.py
-    :language: python
-    :caption: Przykład pokrycia klasy za pomocą ``unittest``
 
 :Usage:
     .. code-block:: console
 
         $ python -m unittest FILE.py
+
+Example
+=======
+
+Example 1
+---------
+.. literalinclude:: src/unittest-example-1.py
+    :language: python
+    :caption: Przykład pokrycia klasy za pomocą ``unittest``
+
+Example 2
+---------
+.. literalinclude:: src/unittest-example-2.py
+    :language: python
+    :caption: Przykład pokrycia klasy za pomocą ``unittest``
 
 
 Assignments

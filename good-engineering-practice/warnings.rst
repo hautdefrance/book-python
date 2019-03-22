@@ -98,3 +98,25 @@ Example 2
     @deprecated
     def my_func():
         pass
+
+Example 3
+---------
+.. code-block:: python
+
+    import warnings
+
+
+    class RemovedInVersion20(DeprecationWarning):
+        pass
+
+
+    def sumuj(a, b):
+        warnings.warn('Use ``sum`` function', RemovedInVersion20)
+        return a + b
+
+    def sum(a, b):
+        return a + b
+
+
+    sumuj(1, 2)
+    sum(1, 2)

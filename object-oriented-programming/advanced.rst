@@ -327,6 +327,8 @@ Hash
 * Sprawdzenie odbywa się przez porównanie wartości ``id()`` dla obiektu
 * Najczęściej służy do sprawdzania czy coś jest ``None``
 
+Good
+----
 .. code-block:: python
 
     if name is None:
@@ -334,8 +336,8 @@ Hash
     else:
         print('You have set your name')
 
-Bardzo kuszący jest następujący przykład:
-
+Not good
+--------
  .. code-block:: python
 
      if name is 'Mark Watney':
@@ -343,35 +345,59 @@ Bardzo kuszący jest następujący przykład:
      else:
         print('You are not pirate at all!')
 
-**Nie jest on jednak do końca poprawny. Słowo kluczowe ``is`` porównuje czy dwa obiekty są tym samym obiektem, nie czy mają taką samą wartość.**
-* Poniższy przykład ilustruje, że pomimo że dwa obiekty przechowują takiego samego ``str`` to nie są sobie tożsame, mimo że są sobie równe.
+Using ``is`` in script
+----------------------
+* ``id()`` will change every time you execute script
+* both objects has the same ``id``.
 
  .. code-block:: python
+    :caption: Using this code in script.
 
-    a = 'hello'
-    b = 'hello'
+    a = 'Jan Twardowski'
+    b = 'Jan Twardowski'
 
-    print(a)      # hello
-    print(b)      # hello
-    a == b        # True
-    a is b        # True
+    print(a)        # Jan Twardowski
+    print(b)        # Jan Twardowski
 
+    print(a == b)   # True
+    print(a is b)   # True
 
-    print(id(a))  # 4640833352
-    print(id(b))  # 4640833352
+    print(id(a))    # 4430933296
+    print(id(b))    # 4430933296
 
+Using ``is`` in REPL (evaluated line by line)
+---------------------------------------------
 .. code-block:: python
+    :caption: Evaluated in REPL line by line.
 
-    a = 'hello'
-    b = ''.join('hello')
+    a = 'Jan Twardowski'
+    b = 'Jan Twardowski'
 
-    print(a)      # hello
-    print(b)      # hello
-    a == b        # True
-    a is b        # False
+    print(a)        # Jan Twardowski
+    print(b)        # Jan Twardowski
 
-    print(id(a))  # 4640833352
-    print(id(b))  # 4662440600
+    print(a == b)   # True
+    print(a is b)   # False
+
+    print(id(a))    # 4784790960
+    print(id(b))    # 4784791408
+
+Using ``is`` in REPL (evaluated at once)
+----------------------------------------
+.. code-block:: python
+    :caption: Evaluated in REPL at once.
+
+    a = 'Jan Twardowski'
+    b = 'Jan Twardowski'
+
+    print(a)        # Jan Twardowski
+    print(b)        # Jan Twardowski
+
+    print(a == b)   # True
+    print(a is b)   # True
+
+    print(id(a))    # 4784833072
+    print(id(b))    # 4784833072
 
 
 Monkey Patching
@@ -391,11 +417,11 @@ Monkey Patching
 
 Method Resolution Order
 =======================
-.. figure:: img/inherintace-diamond.jpg
+.. figure:: img/inheritance-diamond.jpg
     :scale: 100%
     :align: center
 
-    Inherintace Diamond
+    Inheritance Diamond
 
 .. literalinclude:: src/oop-mro.py
     :language: python
@@ -407,20 +433,6 @@ Objects and instances
 .. literalinclude:: src/oop-objects-and-instances.py
     :language: python
     :caption: Objects and instances
-
-
-Metaclass
-=========
-* Można zmienić, że obiekt nie dziedziczy po ``object``
-* Każdy obiekt klasy jest instancją tej klasy
-* Każda napisana klasa jest instancją obiektu, który nazywa się metaklasą
-* Na 99% tego nie potrzebujesz
-
-.. warning:: więcej na ten temat w rozdziale :ref:`Metaclass`
-
-.. literalinclude:: src/oop-metaclass.py
-    :language: python
-    :caption: Metaclass
 
 
 Assignments
