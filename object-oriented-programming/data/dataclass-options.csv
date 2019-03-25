@@ -1,7 +1,0 @@
-"Option", "Default", "Description (if True)"
-"init", "True", "Generate __init__ method"
-"repr", "True", "Generate __repr__ method"
-"eq", "True", "Generate __eq__ method"
-"order", "False", "Generate __lt__, __le__, __gt__, and __ge__ methods"
-"unsafe_hash", "False", "if False: the __hash__ method is generated according to how eq and frozen are set"
-"frozen", "False", "if True: assigning to fields will generate an exception"

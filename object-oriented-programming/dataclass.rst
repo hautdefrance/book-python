@@ -2,19 +2,95 @@
 Dataclass
 *********
 
+Syntax
+======
+* This are not static fields!
+* Dataclasses require Type Annotations
+* Introduced in Pyton 3.7
+* Backported to Python 3.6 via ``pip install dataclasses``
 
-Example 1
-=========
 
-Old style classes
------------------
+Example
+=======
 .. code-block:: python
+    :caption: Defining classes
+
+    class Point:
+        def __init__(self, x=0, y=0, z=0):
+            self.x = x
+            self.y = y
+            self.z = z
+
+    p = Point(x=10, y=20, z=30)
+
+.. code-block:: python
+    :caption: Defining dataclasses
+
+    from dataclasses import dataclass
+
+
+    @dataclass
+    class Point:
+        x: int
+        y: int
+        z: int
+
+    p = Point(x=10, y=20, z=30)
+
+Example 2
+---------
+.. code-block:: python
+    :caption: Defining classes
 
     class Astronaut:
-        def __init__(self, first_name, last_name, agency='NASA'):
+        def __init__(self, first_name: str, last_name: str, agency: str = 'POLSA'):
             self.first_name = first_name
             self.last_name = last_name
             self.agency = agency
+
+
+    twardowski = Astronaut(first_name='Jan', last_name='Twardowski')
+
+    twardowski.first_name   # Jan
+    twardowski.last_name    # Twardowski
+    twardowski.agency       # POLSA
+
+.. code-block:: python
+    :caption: Defining dataclasses
+
+    from dataclasses import dataclass
+
+
+    @dataclass
+    class Astronaut:
+        first_name: str
+        last_name: str
+        agency: str = 'POLSA'
+
+
+    twardowski = Astronaut(first_name='Jan', last_name='Twardowski')
+
+    twardowski.first_name   # Jan
+    twardowski.last_name    # Twardowski
+    twardowski.agency       # POLSA
+
+
+``__init__`` vs. ``__post_init__``
+==================================
+
+Classes
+-------
+.. code-block:: python
+
+    class Kelvin:
+        def __init__(self, value):
+            if self.value < 0.0:
+                raise ValueError('Temperature must be greater than 0')
+            else:
+                self.value = value
+
+
+    temp = Kelvin(-300)
 
 Dataclasses
 -----------
@@ -24,10 +100,15 @@ Dataclasses
 
 
     @dataclass
-    class Astronaut:
-        first_name: str
-        last_name: str
-        agency: str = 'NASA'
+    class Kelvin:
+        value: float = 0.0
+
+        def __post_init__(self):
+            if self.value < 0.0:
+                raise ValueError('Temperature must be greater than 0')
+
+
+    temp = Kelvin(-300)
 
 
 Field Factory
@@ -80,41 +161,6 @@ So what?
 * ``field()`` creates new empty ``list`` for each object
 * It does not reuse pointer
 
-
-``__init__`` vs. ``__post_init__``
-==================================
-
-Old style classes
------------------
-.. code-block:: python
-
-    class Kelvin:
-        def __init__(self, value):
-            if self.value < 0.0:
-                raise ValueError('Temperature must be greater than 0')
-            else:
-                self.value = value
-
-
-    temp = Kelvin(-300)
-
-Dataclasses
------------
-.. code-block:: python
-
-    from dataclasses import dataclass
-
-
-    @dataclass
-    class Kelvin:
-        value: float = 0.0
-
-        def __post_init__(self):
-            if self.value < 0.0:
-                raise ValueError('Temperature must be greater than 0')
-
-
-    temp = Kelvin(-300)
 
 
 Case Study
@@ -199,8 +245,15 @@ More advanced options
     @dataclass(init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False)
 
 .. csv-table:: More advanced options
-    :header-rows: 1
-    :file: data/dataclass-options.csv
+    :header: "Option", "Default", "Description (if True)"
+
+    "``init``", "``True``", "Generate ``__init__()`` method"
+    "``repr``", "``True``", "Generate ``__repr__()`` method"
+    "``eq``", "``True``", "Generate ``__eq__()`` method"
+    "``order``", "``False``", "Generate ``__lt__()``, ``__le__()``, ``__gt__()``, and ``__ge__()`` methods"
+    "``unsafe_hash``", "``False``", "if False: the ``__hash__()`` method is generated according to how eq and frozen are set"
+    "``frozen``", "``False``", "if ``True``: assigning to fields will generate an exception"
+
 
 
 Under the hood
@@ -213,59 +266,59 @@ Write
     from dataclasses import dataclass
 
     @dataclass
-    class InventoryItem:
+    class ShoppingCartItem:
         name: str
         unit_price: float
-        quantity_on_hand: int = 0
+        quantity: int = 0
 
         def total_cost(self) -> float:
-            return self.unit_price * self.quantity_on_hand
+            return self.unit_price * self.quantity
 
 Dataclass will add
 ------------------
 .. code-block:: python
 
-    class InventoryItem:
+    class ShoppingCartItem:
 
         def total_cost(self) -> float:
-            return self.unit_price * self.quantity_on_hand
+            return self.unit_price * self.quantity
 
-        def __init__(self, name: str, unit_price: float, quantity_on_hand: int = 0) -> None:
+        def __init__(self, name: str, unit_price: float, quantity: int = 0) -> None:
             self.name = name
             self.unit_price = unit_price
-            self.quantity_on_hand = quantity_on_hand
+            self.quantity = quantity
 
         def __repr__(self):
-            return f'InventoryItem(name={self.name!r}, unit_price={self.unit_price!r}, quantity_on_hand={self.quantity_on_hand!r})'
+            return f'ShoppingCartItem(name={self.name!r}, unit_price={self.unit_price!r}, quantity={self.quantity!r})'
 
         def __eq__(self, other):
             if other.__class__ is self.__class__:
-                return (self.name, self.unit_price, self.quantity_on_hand) == (other.name, other.unit_price, other.quantity_on_hand)
+                return (self.name, self.unit_price, self.quantity) == (other.name, other.unit_price, other.quantity)
             return NotImplemented
 
         def __ne__(self, other):
             if other.__class__ is self.__class__:
-                return (self.name, self.unit_price, self.quantity_on_hand) != (other.name, other.unit_price, other.quantity_on_hand)
+                return (self.name, self.unit_price, self.quantity) != (other.name, other.unit_price, other.quantity)
             return NotImplemented
 
         def __lt__(self, other):
             if other.__class__ is self.__class__:
-                return (self.name, self.unit_price, self.quantity_on_hand) < (other.name, other.unit_price, other.quantity_on_hand)
+                return (self.name, self.unit_price, self.quantity) < (other.name, other.unit_price, other.quantity)
             return NotImplemented
 
         def __le__(self, other):
             if other.__class__ is self.__class__:
-                return (self.name, self.unit_price, self.quantity_on_hand) <= (other.name, other.unit_price, other.quantity_on_hand)
+                return (self.name, self.unit_price, self.quantity) <= (other.name, other.unit_price, other.quantity)
             return NotImplemented
 
         def __gt__(self, other):
             if other.__class__ is self.__class__:
-                return (self.name, self.unit_price, self.quantity_on_hand) > (other.name, other.unit_price, other.quantity_on_hand)
+                return (self.name, self.unit_price, self.quantity) > (other.name, other.unit_price, other.quantity)
             return NotImplemented
 
         def __ge__(self, other):
             if other.__class__ is self.__class__:
-                return (self.name, self.unit_price, self.quantity_on_hand) >= (other.name, other.unit_price, other.quantity_on_hand)
+                return (self.name, self.unit_price, self.quantity) >= (other.name, other.unit_price, other.quantity)
             return NotImplemented
 
 
