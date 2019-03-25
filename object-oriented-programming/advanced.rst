@@ -112,10 +112,11 @@ Why?
     # 'One'
 
 
-``__str__()`` and ``__repr__()``
-================================
-* ``__repr__`` jest dla developerów (być jednoznacznym),
-* ``__str__`` dla użytkowników (być czytelnym).
+Stringify objects
+=================
+* ``__repr__()`` jest dla developerów (być jednoznacznym)
+* ``__str__()`` dla użytkowników (być czytelnym)
+* ``__format__()`` - do zaawansowanego formatowania
 
 .. code-block:: python
     :caption: Using ``__repr__()`` on a class
@@ -144,6 +145,28 @@ Why?
 
      print(point)
      # (2, 4)
+
+``__format__()``
+----------------
+.. code-block:: python
+
+    class Point:
+        def __init__(self, x, y, z=0):
+            self.x = x
+            self.y = y
+            self.z = z
+
+        def __format__(self, format):
+            if format == '2D':
+                return f"({self.x}, {self.y})"
+            elif format == '3D':
+                return f"({self.x}, {self.y}, {self.z})"
+            else:
+                raise ValueError
+
+    p = Point(x=1, y=2)
+    print(f'{p:2D}')
+
 
 Case Study
 ----------

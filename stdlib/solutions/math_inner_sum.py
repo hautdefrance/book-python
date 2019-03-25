@@ -13,8 +13,9 @@ for x in range(0, 16):
         losowa = random.randint(0, 9)
         matrix[x].append(losowa)
 
-        if 6 <= x <= 10 and 6 <= y <= 10:
+        if 6 <= x < 10 and 6 <= y < 10:
             total += matrix[x][y]
 
 
+pprint(matrix)
 pprint(total)

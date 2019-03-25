@@ -161,12 +161,6 @@ Case Study
 
 .. code-block:: python
 
-    mynum = 1000
-    mystr = 'Hello World!'
-    print "{mystr} New-style formatting is {mynum}x more fun!".format(**locals())
-
-.. code-block:: python
-
     from functools import wraps
 
     def login_required(f):

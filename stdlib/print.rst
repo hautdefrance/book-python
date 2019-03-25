@@ -471,14 +471,22 @@ Custom objects
 --------------
 .. code-block:: python
 
-    class HAL9000(object):
-        def __format__(self, format):
-            if (format == 'open-the-pod-bay-doors'):
-                return "I'm afraid I can't do that."
-            return 'HAL 9000'
+    class Point:
+        def __init__(self, x, y, z=0):
+            self.x = x
+            self.y = y
+            self.z = z
 
-    '{:open-the-pod-bay-doors}'.format(HAL9000())
-    # "I'm afraid I can't do that."
+        def __format__(self, format):
+            if format == '2D':
+                return f"({self.x}, {self.y})"
+            elif format == '3D':
+                return f"({self.x}, {self.y}, {self.z})"
+            else:
+                raise ValueError
+
+    p = Point(x=1, y=2)
+    print(f'{p:2D}')
 
 Więcej informacji
 =================

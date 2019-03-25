@@ -9,8 +9,8 @@ DATA = (
 
 STEP = 5
 
-labels = list()
 features = list()
+labels = list()
 species = set()
 
 for i in range(0, len(DATA), STEP):
@@ -18,7 +18,6 @@ for i in range(0, len(DATA), STEP):
     features.append(measurements)
     labels.append(kind)
     species.add(kind)
-
 
 print(f'Features:\n{features}\n')
 print(f'Labels:\n{labels}\n')

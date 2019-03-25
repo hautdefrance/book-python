@@ -38,7 +38,6 @@ Stringify object
     str(flower)       # Species: setosa
     print(flower)     # Species: setosa
 
-
 Inheritance
 ===========
 
