@@ -195,6 +195,37 @@ Create ``dict`` from two ``list``
 Assignments
 ===========
 
+Dict to Dict
+------------
+* Filename: ``for_dict_to_dict.py``
+* Lines of code to write: 3 lines
+* Estimated time of completion: 10 min
+
+#. Dany jest ``dict`` w formacie:
+
+    .. code-block:: python
+
+        DATA = {
+            6: ['Doctorate', 'Prof-school'],
+            5: ['Masters', 'Bachelor', 'Engineer'],
+            4: ['HS-grad'],
+            3: ['Junior High'],
+            2: ['Primary School'],
+            1: ['Kindergarten'],
+        }
+
+#. Przekonwertuj go aby uzyskać format:
+
+    .. code-block:: python
+
+        OUTPUT = {
+            'Masters': '4',
+            'Doctorate': '4',
+            'Prof-school': '4',
+            'HS-grad': '6',
+            'Bachelor': '3',
+        }
+
 Counter
 -------
 * Filename: ``for_counter.py``
