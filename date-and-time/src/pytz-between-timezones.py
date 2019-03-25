@@ -1,5 +1,5 @@
 from datetime import datetime
-from pytz import utc, timezone
+from pytz import timezone
 
 
 warsaw = timezone('Europe/Warsaw')

@@ -2,10 +2,10 @@ from datetime import datetime
 from pytz import timezone
 
 
-warsaw = timezone('Europe/Warsaw')
 bajkonur = timezone('Asia/Almaty')
 
-gagarin = datetime(1961, 4, 12, 14, 7)  # timezone naive
+# timezone naive
+gagarin = datetime(1961, 4, 12, 14, 7)
 
 
 bajkonur.localize(gagarin)

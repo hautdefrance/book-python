@@ -251,9 +251,9 @@ US date and time format
 
     .. code-block:: python
 
-        armstrong = '"April 12, 1961 06:07:00 AM local time"'
+        gagarin = '"April 12, 1961 06:07:00 AM local time"'
 
-#. Wyświetl datę w formacie Amerykańkim krótkim:
+#. Wyświetl datę w formacie amerykańskim krótkim:
 
     .. code-block:: text
 

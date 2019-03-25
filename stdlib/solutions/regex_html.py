@@ -21,5 +21,6 @@ for p in paragraphs:
 
 # Alternative solution
 output = re.search(r'<p>(We choose .*?)</p>', TEXT)
-output = re.sub('</?p>', '', output.group())
-print(output)
+if output:
+    print(output.group(1))
+
