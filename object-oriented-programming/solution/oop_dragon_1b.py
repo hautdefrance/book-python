@@ -20,15 +20,9 @@ class Dragon:
         self.name = name
         self.texture = self.TEXTURE_ALIVE
         self.status = Status.ALIVE
-        self.hit_points = self._get_initial_hit_points()
-        self.gold = self._get_initial_gold()
+        self.hit_points = randint(self.GOLD_MIN, self.GOLD_MAX)
+        self.gold = randint(self.HIT_POINTS_MIN, self.HIT_POINTS_MAX)
         self.set_position(position_x, position_y)
-
-    def _get_initial_gold(self):
-        return randint(self.GOLD_MIN, self.GOLD_MAX)
-
-    def _get_initial_hit_points(self):
-        return randint(self.HIT_POINTS_MIN, self.HIT_POINTS_MAX)
 
     def get_position(self):
         return {
@@ -49,7 +43,7 @@ class Dragon:
         if self.is_alive():
             return randint(self.DAMAGE_MIN, self.DAMAGE_MAX)
 
-    def set_status(self):
+    def update_status(self):
         if self.hit_points <= 0:
             self.status = Status.DEAD
         else:
@@ -75,7 +69,7 @@ class Dragon:
             return
 
         self.hit_points -= damage
-        self.set_status()
+        self.update_status()
 
         if self.is_alive():
             print(f'{self.name}, DAMAGE: {damage}, HIT POINTS: {self.hit_points}')
@@ -89,7 +83,7 @@ class Dragon:
         }
 
     def _make_dead(self):
-        self.set_status()
+        self.update_status()
         self.texture = self.TEXTURE_DEAD
 
         drop = self._get_drop()

@@ -21,9 +21,9 @@ class Character(Dragon):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.hit_points_full = self.hit_points
-        self.set_status()
+        self.update_status()
 
-    def set_status(self):
+    def update_status(self):
         procent = self.hit_points / self.hit_points_full * 100
 
         if procent == 100:
