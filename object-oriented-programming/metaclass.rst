@@ -39,6 +39,9 @@ Example use of Metaclasses
 
 Type and objects
 ================
+
+Types
+-----
 .. code-block:: python
 
     type(int)       # <class 'type'>
@@ -46,8 +49,6 @@ Type and objects
     type(dict)      # <class 'type'>
     type(list)      # <class 'type'>
     type(tuple)     # <class 'type'>
-
-.. code-block:: python
 
     type(type)      # <class 'type'>
 
@@ -57,7 +58,8 @@ Type and objects
 
     Class is an instance of a metaclass.
 
-
+Objects
+-------
 .. code-block:: python
     :caption: Metaclass
 
@@ -71,6 +73,11 @@ Type and objects
 
     Iris.__mro__
     # (<class '__main__.Iris'>, <class 'object'>)
+
+.. code-block:: python
+
+    type(object)    # <class 'type'>
+    type(type)      # <class 'type'>
 
 
 Example
