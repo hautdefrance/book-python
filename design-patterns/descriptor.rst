@@ -34,6 +34,7 @@ Example
 
 .. todo:: dorobić przykład z konwersją stref czasowych i bazowym czasie w UTC
 
+
 Accessors
 =========
 
@@ -56,11 +57,108 @@ Accessors
     :caption: Example ``__delattr__()``
 
 
+setter, getter, deleter
+=======================
+
+``@property``
+-------------
+* ``@property`` - for defining getters
+* Przykład użycia:
+
+    * Blokowanie możliwości edycji pola klasy
+    * Dodawanie logowania przy ustawianiu wartości
+
+.. code-block:: python
+    :caption: Using ``@property`` as a getter
+
+    class Temperature:
+        def __init__(self, kelvin: float = 0.0):
+            self.kelvin = kelvin
+
+        @property
+        def celsius(self):
+            temp = self.kelvin - 273.15
+            return round(temp, 2)
+
+
+    temp = Temperature(kelvin=309.75)
+
+    print(temp.celsius)
+    # 36.6
+
+``@x.setter``
+-------------
+* ``@x.setter`` - for defining setter for field ``x``
+* Require field to be ``@property``
+
+.. code-block:: python
+    :caption: ``@x.setter``
+
+    class Temperature:
+        def __init__(self, kelvin: float = 0.0):
+            self.kelvin = kelvin
+
+        @property
+        def celsius(self):
+            temp = self.kelvin - 273.15
+            return round(temp, 2)
+
+        @celsius.setter
+        def celsius(self, value):
+            if value < -273.15:
+                raise ValueError('Temperature below -273.15 is not possible')
+            else:
+                self.kelvin = value + 273.15
+
+    temp = Temperature()
+
+    print(temp.kelvin)
+    # 0.0
+
+    temp.celsius = 36.60
+    print(temp.kelvin)
+    # 309.75
+
+    temp.celsius = -1000
+    # ValueError: Temperature below -273.15 is not possible
+
+``@x.deleter``
+--------------
+* ``@x.deleter`` - for defining deleter for field ``x``
+* Require field to be ``@property``
+
+.. code-block:: python
+    :caption: ``@x.deleter``
+
+    class Temperature:
+        def __init__(self, kelvin: float = 0.0):
+            self.kelvin = kelvin
+
+        @property
+        def celsius(self):
+            temp = self.kelvin - 273.15
+            return round(temp, 2)
+
+        @celsius.deleter
+        def celsius(self):
+            self.kelvin = 0.0
+
+    temp = Temperature(kelvin=100)
+
+    print(temp.celsius)
+    # -173.15
+
+    del temp.celsius
+
+    print(temp.celsius)
+    # -273.15
+
+
 Assignments
 ===========
 
-Longtitude and Latitude
------------------------
+Longitude and Latitude
+----------------------
 * Filename: ``descriptor_geographic.py``
 * Lines of code to write: 25 lines
 * Estimated time of completion: 15 min
