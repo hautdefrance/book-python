@@ -31,7 +31,7 @@ OOP Advanced
 Example usage
 -------------
 .. code-block:: python
-    :emphasize-lines: 4,5
+    :emphasize-lines: 3,4
 
     class A:
         def __new__(cls):
@@ -48,7 +48,7 @@ Example usage
 Missing ``return`` from constructor
 -----------------------------------
 .. code-block:: python
-    :emphasize-lines: 4
+    :emphasize-lines: 3
 
     class B:
         def __new__(cls):
@@ -66,6 +66,7 @@ The instantiation is evaluated to ``None`` since we don't return anything from t
 Return invalid from constructor
 -------------------------------
 .. code-block:: python
+    :emphasize-lines: 4
 
     class C:
         def __new__(cls):
@@ -79,6 +80,7 @@ Return invalid from constructor
 Return invalid from initializer
 -------------------------------
 .. code-block:: python
+    :emphasize-lines: 4
 
     class D:
         def __init__(self):
@@ -119,8 +121,12 @@ Stringify objects
 * ``__str__()`` dla użytkowników (być czytelnym)
 * ``__format__()`` - do zaawansowanego formatowania
 
+    :emphasize-lines: 4,5
+
+``__str__()``
+-------------
 .. code-block:: python
-    :caption: Using ``__repr__()`` on a class
+    :caption: Using ``__str__()`` on a class
 
     class Point:
         def __init__(self, x, y):
@@ -130,44 +136,52 @@ Stringify objects
         def __str__(self):
             return f'({self.x}, {self.y})'
 
+
+     point = Point(2, 4)
+
+     str(point)     # '(2, 4)'
+     print(point)   # (2, 4)
+
+``__repr__()``
+--------------
+.. code-block:: python
+    :caption: Using ``__repr__()`` on a class
+
+    class Point:
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
+
         def __repr__(self):
             return f'Point(x={self.x}, y={self.y})'
 
      point = Point(2, 4)
 
-     point
-     # 'Point(x=2, y=4)'
-
-     repr(point)
-     # 'Point(x=2, y=4)'
-
-     str(point)
-     # '(2, 4)'
-
-     print(point)
-     # (2, 4)
+     repr(point)    # 'Point(x=2, y=4)'
+     point          # 'Point(x=2, y=4)'
 
 ``__format__()``
 ----------------
 .. code-block:: python
 
     class Point:
-        def __init__(self, x, y, z=0):
+        def __init__(self, x=0, y=0, z=0):
             self.x = x
             self.y = y
             self.z = z
 
-        def __format__(self, format):
-            if format == '2D':
+        def __format__(self, style):
+            if style == '2D':
                 return f"({self.x}, {self.y})"
-            elif format == '3D':
+            elif style == '3D':
                 return f"({self.x}, {self.y}, {self.z})"
             else:
                 raise ValueError
 
     p = Point(x=1, y=2)
-    print(f'{p:2D}')
 
+    print(f'{p:2D}')    # (1, 2)
+    print(f'{p:3D}')    # (1, 2, 3)
 
 Case Study
 ----------
@@ -255,6 +269,8 @@ What should be in the class and what not?
 ----------------
 .. code-block:: python
 
+    import json
+
     class User:
         def __init__(self, first_name, last_name):
             self.first_name = first_name
@@ -264,31 +280,31 @@ What should be in the class and what not?
             return f'{self.first_name} {self.last_name}'
 
         def to_json(self):
-            import json
             return json.dumps(self.__dict__)
 
         @classmethod
         def from_json(cls, data):
-            import json
             data = json.loads(data)
             return cls(**data)
 
+    class SuperUser(User):
+        pass
 
-    user = User('Jan', 'Twardowski')
-    # Jan Twardowski
 
-    DATA = user.to_json()
-    # '{"first_name": "Jan", "last_name": "Twardowski"}'
+    DATA = '{"first_name": "Jan", "last_name": "Twardowski"}'
 
-    user = User.from_json(DATA)
-    # Jan Twardowski
+    normal = User.from_json(DATA)
+    root = SuperUser.from_json(DATA)
+
+    type(normal)    # <class '__main__.User'>
+    type(root)      # <class '__main__.SuperUser'>
 
 
 Dynamically creating fields
 ===========================
 .. literalinclude:: src/oop-init-dynamic.py
     :language: python
-    :caption: Funkcja inicjalizująca, która automatycznie dodaje pola do naszej klasy w zależności od tego co zostanie podane przy tworzeniu obiektu
+    :caption: Funkcja inicjalizującą, która automatycznie dodaje pola do naszej klasy w zależności od tego co zostanie podane przy tworzeniu obiektu
 
 
 Setter and Getter
@@ -306,11 +322,13 @@ Accessing class fields
 
 ``@property``, ``@x.setter``, ``@x.deleter``
 --------------------------------------------
-* ``@propery`` - for defining getters
+* ``@property`` - for defining getters
 * ``@kola.setter`` - for defining setter
 * ``@kola.deleter`` - for defining deleter
-* Blokowanie możliwości edycji pola klasy
-* Dodawanie logowania przy ustawianiu wartości
+* Przykład użycia:
+
+    * Blokowanie możliwości edycji pola klasy
+    * Dodawanie logowania przy ustawianiu wartości
 
 .. literalinclude:: src/oop-property.py
     :language: python
@@ -439,25 +457,113 @@ Monkey Patching
     :caption: Monkey Patching
 
 
+Inheritance Method Resolution
+=============================
+
 Method Resolution Order
-=======================
-.. figure:: img/inheritance-diamond.jpg
-    :scale: 100%
+-----------------------
+
+.. code-block:: python
+    :caption: Method Resolution Order
+
+    class A:
+        def show(self):
+            print('a')
+
+    class B:
+        def show(self):
+            print('b')
+
+    class C:
+        def show(self):
+            print('c')
+
+    class D(A, B, C):
+        pass
+
+
+    obj = D()
+
+    obj.show()
+    # a
+
+    print(D.__mro__)
+    # (<class '__main__.D'>,
+    #  <class '__main__.A'>,
+    #  <class '__main__.B'>,
+    #  <class '__main__.C'>,
+    #  <class 'object'>)
+
+Inheritance Diamond
+-------------------
+.. figure:: img/inheritance-diamond-1.jpg
+    :scale: 75%
     :align: center
 
     Inheritance Diamond
 
-.. literalinclude:: src/oop-mro.py
-    :language: python
-    :caption: Method Resolution Order
+.. figure:: img/inheritance-diamond-2.jpg
+    :scale: 75%
+    :align: center
+
+    Inheritance Diamond
+
+.. code-block:: python
+    :caption: Inheritance Diamond
+
+    class A:
+        def show(self):
+            print('a')
+
+
+    class B(A):
+        def show(self):
+            print('b')
+
+
+    class C(A):
+        def show(self):
+            print('c')
+
+
+    class D(B, C):
+        pass
+
+
+    obj = D()
+
+    obj.show()
+    # b
+
+    print(D.__mro__)
+    # (<class '__main__.D'>,
+    #  <class '__main__.B'>,
+    #  <class '__main__.C'>,
+    #  <class '__main__.A'>,
+    #  <class 'object'>)
 
 
 Objects and instances
 =====================
-.. literalinclude:: src/oop-objects-and-instances.py
-    :language: python
-    :caption: Objects and instances
+.. code-block:: python
+    :caption: Implicit passing instance to class as ``self``.
 
+    text = 'Jan,Twardowski'
+
+    text.split(',')                     # ['Jan', 'Twardowski']
+
+.. code-block:: python
+    :caption: Explicit passing instance to class overriding ``self``.
+
+    text = 'Jan,Twardowski'
+
+    str.split(text, ',')                # ['Jan', 'Twardowski']
+
+.. code-block:: python
+    :caption: Passing anonymous objects as instances.
+
+    'Jan,Twardowski'.split(',')         # ['Jan', 'Twardowski']
+    str.split('Jan,Twardowski', ',')    # ['Jan', 'Twardowski']
 
 Assignments
 ===========
