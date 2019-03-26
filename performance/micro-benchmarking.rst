@@ -39,11 +39,9 @@ Code 2
 
 .. code-block:: python
 
-    %%timeit
-
     fieldnames = set(key for record in DATA for key in record.keys())
 
-Code 2
+Code 3
 ------
 * 431 ns ± 5.93 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 
@@ -54,7 +52,7 @@ Code 2
         for record in DATA
            for key in record.keys())
 
-Code 3
+Code 4
 ------
 * 2.11 µs ± 51 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 
@@ -63,7 +61,7 @@ Code 3
     fieldnames = set()
     fieldnames.update(tuple(x.keys()) for x in DATA)
 
-Code 4
+Code 5
 ------
 * 2.43 µs ± 63.9 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 

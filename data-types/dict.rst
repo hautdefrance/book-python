@@ -9,6 +9,8 @@ Defining ``dict``
 * ``dict`` are key-value storage
 * Comma after last element is optional
 
+.. note:: Since Python 3.7: The insertion-order preservation nature of dict objects is now an official part of the Python language spec.
+
 Empty ``dict``
 --------------
 .. code-block:: python

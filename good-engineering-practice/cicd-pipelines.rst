@@ -106,8 +106,6 @@ Travis
     - sonar-scanner --debug
 
 
-
-
 Frontend Testing
 ================
 
@@ -143,6 +141,7 @@ Static Code Analysis
 
 ``SonarScanner``
 ----------------
+
 
 Przygotowanie środowiska statycznej analizy
 ===========================================
@@ -272,7 +271,6 @@ Multi-language
     * http://docs.sonarqube.org/display/SONAR/Documentation
     * https://sonarqube.com/dashboard/index?did=143
     * https://sonarqube.com/governance?id=662857
-
 
 ``Pylint``
 ----------
@@ -472,6 +470,7 @@ Output:
         1 scenario passed, 0 failed, 0 skipped
         3 steps passed, 0 failed, 0 skipped, 0 undefined
 
+
 Type Checking
 =============
 
@@ -500,6 +499,7 @@ Type Checking
 
     $ pip install pyre-check
 
+
 Automation and Releases
 =======================
 
@@ -514,9 +514,9 @@ Fabric
 PSSH
 ----
 
+
 Testy Mutacyjne
 ===============
-
 * https://pypi.python.org/pypi/MutPy
 * https://pypi.python.org/pypi/MutPy/0.4.0
 * https://github.com/sixty-north/cosmic-ray
@@ -524,6 +524,7 @@ Testy Mutacyjne
 * https://www.youtube.com/watch?v=jwB3Nn4hR1o
 * http://cosmic-ray.readthedocs.io/en/latest/
 * https://github.com/sk-/elcap
+
 
 Translation
 ===========

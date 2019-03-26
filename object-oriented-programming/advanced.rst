@@ -7,6 +7,11 @@ OOP Advanced
 
 ``__new__()`` and ``__init__()``
 ================================
+``__call__()`` method invokes the following:
+
+    * ``__new__()``
+    * ``__init__()``
+
 
 ``__new__()``
 -------------
@@ -29,7 +34,6 @@ Example usage
     :emphasize-lines: 4,5
 
     class A:
-
         def __new__(cls):
             print("A.__new__() called")
             return super().__new__(cls)
@@ -47,7 +51,6 @@ Missing ``return`` from constructor
     :emphasize-lines: 4
 
     class B:
-
         def __new__(cls):
             print("B.__new__() called")
 
@@ -65,7 +68,6 @@ Return invalid from constructor
 .. code-block:: python
 
     class C:
-
         def __new__(cls):
             print("C.__new__() called")
             return 29
@@ -78,8 +80,7 @@ Return invalid from initializer
 -------------------------------
 .. code-block:: python
 
-    class D(object):
-
+    class D:
         def __init__(self):
             print("C.__new__() called")
             return 33
