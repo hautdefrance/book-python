@@ -216,8 +216,9 @@ CI/CD, Versioning and Distributing
     :numbered:
     :caption: CI/CD, Versioning and Distributing
 
-    /good-engineering-practice/ci-cd-tools.rst
     /good-engineering-practice/type-annotation.rst
+    /good-engineering-practice/cicd-tools.rst
+    /good-engineering-practice/cicd-pipelines.rst
     /extensions/venv.rst
     /extensions/zipapp.rst
     /extensions/distributing-packages.rst

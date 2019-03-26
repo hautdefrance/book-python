@@ -455,6 +455,42 @@ Prosty dekorator
 * Stwórz funkcję, która wypisuje na ekranie nazwę pliku lub katalogu.
 * Stwórz dekorator do funkcji, który przed wyświetleniem jej na ekranie podmieni ścieżkę na bezwzględną (``path`` + ``filename``).
 
+Type Checking Decorator
+-----------------------
+* Filename: ``decorator_type_check.py``
+* Lines of code to write: 15 lines
+* Estimated time of completion: 20 min
+
+.. code-block:: python
+    :name: code-listing-decorator-type-check
+    :caption: Force type checking for function
+
+    from typing import Union
+
+    AllowedTypes = Union[list, set, tuple]
+
+    def print_elements(collection: AllowedTypes) -> None:
+
+        if not isinstance(collection, AllowedTypes.__args__):
+            raise TypeError(f'Collection must be instance of {AllowedTypes.__args__}')
+
+        for element in collection:
+            print(element)
+
+#. Stwórz decorator na podstawie kodu :numref:`code-listing-decorator-type-check`
+#. Nazwij decorator ``type_check``
+#. Decorator ma sprawdzać typy danych, wszystkich parametrów wchodzących do funkcji
+
+:Hint:
+    .. code-block:: python
+
+        def annotated(x: int, y: str) -> bool:
+            return x < y
+
+        print(annotated.__annotations__)
+        # {'y': <class 'str'>, 'return': <class 'bool'>, 'x': <class 'int'>}
+
+
 Memoization
 -----------
 * Filename: ``decorator_memoize.py``

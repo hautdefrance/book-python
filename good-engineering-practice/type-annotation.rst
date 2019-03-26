@@ -8,66 +8,11 @@ Type Annotation
 
 PEP 3107 introduced syntax for function annotations, but the semantics were deliberately left undefined. There has now been enough 3rd party usage for static type analysis that the community would benefit from a standard vocabulary and baseline tools within the standard library.
 
-While these annotations are available at runtime through the usual __annotations__ attribute, no type checking happens at runtime . Instead, the proposal assumes the existence of a separate off-line type checker which users can run over their source code voluntarily. Essentially, such a type checker acts as a very powerful linter. (While it would of course be possible for individual users to employ a similar checker at run time for Design By Contract enforcement or JIT optimization, those tools are not yet as mature.)
+While these annotations are available at runtime through the usual ``__annotations__`` attribute, no type checking happens at runtime . Instead, the proposal assumes the existence of a separate off-line type checker which users can run over their source code voluntarily. Essentially, such a type checker acts as a very powerful linter. (While it would of course be possible for individual users to employ a similar checker at run time for Design By Contract enforcement or JIT optimization, those tools are not yet as mature.)
 
 The type system supports unions, generic types, and a special type named Any which is consistent with (i.e. assignable to and from) all types. This latter feature is taken from the idea of gradual typing. Gradual typing and the full type system are explained in PEP 483.
 
 .. warning:: It should also be emphasized that Python will remain a dynamically typed language, and the authors have no desire to ever make type hints mandatory, even by convention.
-
-
-Sprawdzanie typów
-=================
-
-``MyPy``
---------
-* http://mypy-lang.org/
-* https://github.com/python/mypy
-
-.. code-block:: console
-
-    $ pip install mypy
-    $ mypy FILE
-
-``setup.cfg``
-
-.. code-block:: ini
-
-    [mypy]
-    strict_optional = True
-
-``PyType``
-----------
-* https://github.com/google/pytype
-
-.. code-block:: console
-
-    $ pip install pytype
-    $ pytype -V 3.7 FILE
-
-Dodawanie typów do instniejącego kodu
-=====================================
-
-``PyAnnotate``
---------------
-* http://mypy-lang.blogspot.com/2017/11/dropbox-releases-pyannotate-auto.html
-
-.. code-block:: console
-
-    $ pip install pyannotate
-
-    # (the -w flag means “go ahead, update the file”)
-    $ pyannotate -w FILE
-
-``monkeytype``
---------------
-* https://instagram-engineering.com/let-your-code-type-hint-itself-introducing-open-source-monkeytype-a855c7284881
-
-.. code-block:: console
-
-    $ pip install monkeytype
-    $ monkeytype run runtests.py
-    $ monkeytype stub some.module
-    $ monkeytype apply some.module
 
 
 Korzystanie z typów
@@ -251,4 +196,60 @@ Introspekcja
 
     print(annotated.__annotations__)
     # {'y': <class 'str'>, 'return': <class 'bool'>, 'x': <class 'int'>}
+
+
+Sprawdzanie typów
+=================
+
+``MyPy``
+--------
+* http://mypy-lang.org/
+* https://github.com/python/mypy
+
+.. code-block:: console
+
+    $ pip install mypy
+    $ mypy FILE
+
+``setup.cfg``
+
+.. code-block:: ini
+
+    [mypy]
+    strict_optional = True
+
+``PyType``
+----------
+* https://github.com/google/pytype
+
+.. code-block:: console
+
+    $ pip install pytype
+    $ pytype -V 3.7 FILE
+
+
+Dodawanie typów do istniejącego kodu
+====================================
+
+``PyAnnotate``
+--------------
+* http://mypy-lang.blogspot.com/2017/11/dropbox-releases-pyannotate-auto.html
+
+.. code-block:: console
+
+    $ pip install pyannotate
+
+    # (the -w flag means “go ahead, update the file”)
+    $ pyannotate -w FILE
+
+``monkeytype``
+--------------
+* https://instagram-engineering.com/let-your-code-type-hint-itself-introducing-open-source-monkeytype-a855c7284881
+
+.. code-block:: console
+
+    $ pip install monkeytype
+    $ monkeytype run runtests.py
+    $ monkeytype stub some.module
+    $ monkeytype apply some.module
 

@@ -3,37 +3,6 @@ Tools for CI/CD
 ***************
 
 
-Narzędzia
-=========
-* ``pylama``
-* ``bandit``
-* ``cloc``
-* ``eradicate``
-* ``isort``
-* ``mccabe``
-* ``pycodestyle``
-* ``pydocestyle``
-* ``pyflakes``
-* ``pylint``
-* ``radon``
-* ``coverage``
-* ``flake8``
-* ``mypy``
-* ``safety``
-* ``SonarQube``
-* ``SonarLint``
-* ``selenium``
-* ``behave``
-* ``pyre-check``
-* ``pyannotate``
-* ``pytypes``
-* ``mutpy``
-* ``python -m doctest -v example.py``
-* ``python -m unittest -v example.py``
-* ``tox``
-* ``pipenv``
-
-
 CI/CD
 =====
 
