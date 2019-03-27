@@ -2,8 +2,10 @@
 ReST and Sphinx documentation
 *****************************
 
+
 reStructuredText vs. Markdown
 =============================
+
 
 Format reStructuredText
 =======================
@@ -31,7 +33,7 @@ Odnośniki
 
 Obrazki i media
 ---------------
-- figure (scale, name, align, podpsy pod obrazkami)
+- figure (scale, name, align, podpisy pod obrazkami)
 
 Specjalne wstawki
 -----------------
@@ -67,21 +69,23 @@ Cytowanie
 Sphinx
 ======
 
-Zależnośći
+Zależności
 ----------
-.. code-block:: text
+* ``requirements.txt``
 
-    # Minimalne wymaganie
-    sphinx==1.8.0
+    .. code-block:: text
 
-    # Theme Read the Docs
-    sphinx_rtd_theme
+        # Minimalne wymaganie
+        sphinx==1.8.*
 
-    # System cytowania i parsowanie bibtex
-    sphinxcontrib-bibtex==0.3.6
+        # Theme Read the Docs
+        sphinx_rtd_theme
 
-    # Jeżeli chcemy generować slajdy RevealJS
-    sphinxjp.themes.revealjs
+        # System cytowania i parsowanie bibtex
+        sphinxcontrib-bibtex
+
+        # Jeżeli chcemy generować slajdy RevealJS
+        sphinxjp.themes.revealjs
 
 Config
 ------
@@ -92,9 +96,9 @@ Dobre praktyki
 - podział na rozdziały
 - rozkład katalogów
 - listingi kodu
-- zdjecia
+- zdjęcia
 - dane w tabelkach CSV
-- konwencja nazewnicza plikow
+- konwencja nazewnicza plików
 - konwencja nazewnicza figure, csv-table, literalinclude
 
 Generowanie dokumentacji
@@ -110,8 +114,8 @@ Automatyczne odpalanie doctestów do listingów kodu
 Osadzanie LaTeX
 ---------------
 
-Buildery
---------
+Budowanie
+---------
 - make html
 - make singlehtml
 - make pdf
@@ -135,7 +139,7 @@ Dokumentacja
 #. Za pomocą ``sphinx-quickstart`` stwórz dokumentację.
 #. Zmień theme na ``sphinx_rtd_theme``
 #. Dokument zatytułuj "Szkolenie z Pythona"
-#. Stwórz nagłówek pierwszego poziomu "Obrazki i tesksy" i w nim osadź obrazek jako figure, wraz tekstem opisującym, obrazek ma być połowy wielkości i wycentrowany, nazwany
+#. Stwórz nagłówek pierwszego poziomu "Obrazki i teksty" i w nim osadź obrazek jako figure, wraz tekstem opisującym, obrazek ma być połowy wielkości i wycentrowany, nazwany
 #. Stwórz nagłówek pierwszego poziomu "Lorem Ipsum" i wklej tekst lorem ipsum do dokumentacji.
 #. W tekście lorem ipsum wstaw numref do obrazka
 #. Stwórz nagłówek pierwszego poziomu i zamieść tabelę Irysów na podstawie danych Iris Dataset
