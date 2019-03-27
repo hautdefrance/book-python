@@ -1,3 +1,5 @@
+.. _cicd-pipelines:
+
 ***************
 CI/CD Pipelines
 ***************

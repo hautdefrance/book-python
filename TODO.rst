@@ -7,6 +7,7 @@ Book TODO
 - Machine Learning rewrite
 - Newsletter, once a month, what changed in the book
 
+
 Python PEP
 ==========
 * dict(keys=[...], values=[...])

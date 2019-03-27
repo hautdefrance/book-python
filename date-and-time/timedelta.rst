@@ -31,6 +31,7 @@ Complex ``timedelta`` shifts
     :language: python
     :caption: Subtract month from ``datetime``
 
+.. todo:: Biblioteka calendar ma funkcję wyliczającą ilość dni w miesiącu
 
 Time diff
 =========

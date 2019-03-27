@@ -163,27 +163,13 @@ Good Engineering Practice
     :caption: Good Engineering Practice
 
     /good-engineering-practice/pep8.rst
+    /good-engineering-practice/pep20.rst
     /good-engineering-practice/logging.rst
     /good-engineering-practice/warnings.rst
     /good-engineering-practice/debugging-basic.rst
     /good-engineering-practice/doctest.rst
     /good-engineering-practice/unittest.rst
     /good-engineering-practice/introspection.rst
-
-***************
-Design Patterns
-***************
-.. toctree::
-    :maxdepth: 2
-    :numbered:
-    :caption: Design Patterns
-
-    /design-patterns/generator.rst
-    /design-patterns/iterator.rst
-    /design-patterns/context-manager.rst
-    /design-patterns/descriptor.rst
-    /design-patterns/decorator.rst
-    /design-patterns/gang-of-four.rst
 
 **********************************
 CI/CD, Versioning and Distributing
@@ -220,6 +206,21 @@ High Performance
     /extensions/c-types.rst
     /extensions/c-modules.rst
     /good-engineering-practice/debugging-advanced.rst
+
+***************
+Design Patterns
+***************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Design Patterns
+
+    /design-patterns/generator.rst
+    /design-patterns/iterator.rst
+    /design-patterns/context-manager.rst
+    /design-patterns/descriptor.rst
+    /design-patterns/decorator.rst
+    /design-patterns/gang-of-four.rst
 
 *********
 Paradigms
