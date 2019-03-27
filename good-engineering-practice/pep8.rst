@@ -700,6 +700,11 @@ Magic number i magic string
 ---------------------------
 * NO!
 
+PEP 8, but...
+-------------
+* http://docs.python-requests.org/en/master/dev/contributing/#kenneth-reitz-s-code-style
+
+
 Static Code Analysis
 ====================
 .. note:: Topic is covered in details in chapters: :ref:`cicd-tools` and :ref:`cicd-pipelines`.

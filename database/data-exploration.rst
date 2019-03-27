@@ -83,3 +83,38 @@ Production setup
         --limit-request-field_size 0 \
         --statsd-host localhost:8125 \
         superset:app
+
+Features
+--------
+
+Dashboard
+^^^^^^^^^
+.. figure:: img/superset-01.png
+    :align: center
+    :scale: 25%
+
+    Dashboard
+
+Data exploration
+^^^^^^^^^^^^^^^^
+.. figure:: img/superset-02.png
+    :align: center
+    :scale: 25%
+
+    Data exploration
+
+SQL IDE
+^^^^^^^
+.. figure:: img/superset-03.png
+    :align: center
+    :scale: 25%
+
+    SQL IDE
+
+GIS and spatial data
+^^^^^^^^^^^^^^^^^^^^
+.. figure:: img/superset-04.png
+    :align: center
+    :scale: 25%
+
+    GIS and spatial data
