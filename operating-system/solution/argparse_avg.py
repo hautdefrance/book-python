@@ -1,9 +1,13 @@
-import argparse
-import statistics
+from argparse import ArgumentParser
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--numbers', metavar='int', type=int, nargs='+', help='an integer in the range 0..9')
+def avg(*args):
+    return sum(args) / len(args)
 
+
+parser = ArgumentParser()
+parser.add_argument('--numbers', nargs='+', type=float)
 args = parser.parse_args()
-print(statistics.mean(args.numbers))
+
+out = avg(*args.numbers)
+print(out)
