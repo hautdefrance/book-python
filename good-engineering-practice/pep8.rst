@@ -16,9 +16,12 @@ Tabs or spaces?
 Line length
 -----------
 * najbardziej kontrowersyjna klauzula
-* 79 znaków
+* 79 znaków kod
+* 72 znaki docstrings/comments
+* Python standard library is conservative and requires limiting lines to 79 characters (and docstrings/comments to 72)
 * soft wrap
 * co z monitorami 4k?
+* Preferred way of wrapping long lines is by using Python's implied line continuation inside parentheses, brackets and braces.
 
 .. code-block:: python
 
@@ -50,24 +53,25 @@ File encoding
 -------------
 * UTF-8
 * always remember to open files for reading and writing with ``encoding='utf-8'``
+* All identifiers in the Python standard library MUST use ASCII-only identifiers, and SHOULD use English words wherever feasible (in many cases, abbreviations and technical terms are used which aren't English).
+* String literals and comments must also be in ASCII.
+* Authors whose names are not based on the Latin alphabet (latin-1, ISO/IEC 8859-1 character set) MUST provide a transliteration of their names in this character set.
 
 Comments
 --------
-* Better named functions and variables:
+* Comments that contradict the code are worse than no comments.
+* Comments should be complete sentences.
+* Block comments generally consist of one or more paragraphs built out of complete sentences
+* Each sentence ending in a period.
+* Python coders from non-English speaking countries: please write your comments in English, unless you are 120% sure that the code will never be read by people who don't speak your language.
+* Each line of a block comment starts with a # and a single space (unless it is indented text inside the comment).
 
-    .. code-block:: python
-
-        def fabs(a, b):
-            return float(abs(a + b))
-
-        def float_absolute_value(a, b):
-            return float(abs(a + b))
-
-        def abs(a: int, b: int) -> float:
-            return float(abs(a + b))
-
-        def absolute_value(a: int, b: int) -> float:
-            return float(abs(a + b))
+Documentation Strings
+---------------------
+* :pep:`257`
+* Write docstrings for all public modules, functions, classes, and methods.
+* Docstrings are not necessary for non-public methods, but you should have a comment that describes what the method does.
+* For one liner docstrings, please keep the closing """ on the same line.
 
 Use better names, rather than comments
 --------------------------------------
@@ -79,6 +83,20 @@ Use better names, rather than comments
 
     def calculate_variance(results):
         return sum((Xi-m) ** 2 for Xi in results) / len(results)
+
+.. code-block:: python
+
+    def fabs(a, b):
+        return float(abs(a + b))
+
+    def float_absolute_value(a, b):
+        return float(abs(a + b))
+
+    def abs(a: int, b: int) -> float:
+        return float(abs(a + b))
+
+    def absolute_value(a: int, b: int) -> float:
+        return float(abs(a + b))
 
 Commented code?
 ---------------
@@ -121,6 +139,13 @@ Classes
 
         class MyClass:
             pass
+
+Class Attributes
+----------------
+* Public attributes should have no leading underscores.
+* If your public attribute name collides with a reserved keyword, append a single trailing underscore to your attribute name.
+* ``cls`` is the preferred spelling for any variable or argument which is known to be a class, especially the first argument to a class method.
+
 
 Methods/Functions
 -----------------
@@ -234,6 +259,7 @@ Single or double quotes?
 * Interpreter Pythona domyślnie stosuje pojedyncze znaki cudzysłowia.
 * Z tego powodu w tej książce będziemy trzymać się powyższej konwencji.
 * Ma to znaczenie przy ``doctest``, który zawsze korzysta z pojedynczych i rzuca errorem jak są podwójne
+* For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in :pep:`257`
 
 .. code-block:: python
 
@@ -243,6 +269,18 @@ Single or double quotes?
 .. code-block:: python
 
     print('<a href="http://python.astrotech.io">Python and Machine Learning</a>')
+
+Trailing Commas
+---------------
+.. code-block:: python
+    :caption: Yes
+
+    FILES = ('setup.cfg',)
+
+.. code-block:: python
+    :caption: OK, but confusing
+
+    FILES = 'setup.cfg',
 
 Indents
 -------
@@ -294,6 +332,11 @@ Brackets
         ('vegetables', _('Vegetables')),
         ('meat', _('Meat'))]
 
+Modules
+-------
+* Modules should explicitly declare the names in their public API using the ``__all__`` attribute.
+* Setting ``__all__`` to an empty list indicates that the module has no public API.
+
 Line continuation
 -----------------
 Linie możemy łamać poprzez stawianie znaku ukośnika ``\`` na końcu:
@@ -304,6 +347,15 @@ Linie możemy łamać poprzez stawianie znaku ukośnika ``\`` na końcu:
             open('/path/to/some/file/being/written', mode='w') as file2:
         content = file1.read()
         file2.write(content)
+
+.. code-block:: python
+    :caption: Easy to match operators with operands
+
+    income = (gross_wages
+              + taxable_interest
+              + (dividends - qualified_dividends)
+              - ira_deduction
+              - student_loan_interest)
 
 .. code-block:: python
 
@@ -334,6 +386,11 @@ Linie możemy łamać poprzez stawianie znaku ukośnika ``\`` na końcu:
 
 Blank lines
 -----------
+* Surround top-level function and class definitions with two blank lines.
+* Method definitions inside a class are surrounded by a single blank line.
+* Extra blank lines may be used (sparingly) to separate groups of related functions.
+* Use blank lines in functions, sparingly, to indicate logical sections.
+
 .. code-block:: python
 
     class Server:

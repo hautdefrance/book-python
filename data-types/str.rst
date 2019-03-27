@@ -66,6 +66,7 @@ Single or double quote?
 * Python console uses ``'``
 * I use ``'`` in this book to be consistent with Python
 * ``doctest`` uses single quotes and throws error on double quotes
+* For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in :pep:`257`
 
 When use double quotes?
 -----------------------
@@ -115,16 +116,16 @@ Other escape characters
     "``\\``", "Backslash ``\``"
     "``\'``", "Single quote ``'``"
     "``\""``", "Double quote ``""``"
-    "``\a``", "ASCII Bell (BEL)"
-    "``\b``", "ASCII Backspace (BS)"
-    "``\f``", "ASCII Formfeed (FF)"
-    "``\n``", "ASCII Linefeed (LF)"
-    "``\r``", "ASCII Carriage Return (CR)"
-    "``\t``", "ASCII Horizontal Tab (TAB)"
+    "``\a``", "Bell (BEL)"
+    "``\b``", "Backspace (BS)"
+    "``\f``", "New page (FF - Formfeed)"
+    "``\n``", "New line  (LF - Linefeed)"
+    "``\r``", "Carriage Return (CR)"
+    "``\t``", "Horizontal Tab (TAB)"
     "``\uxxxx``", "Character with 16-bit hex value XXXX"
     "``\Uxxxxxxxx``", "Character with 32-bit hex value XXXXXXXX"
-    "``\v``", "ASCII Vertical Tab (VT)"
-    "``\ooo``", "ASCII character with octal value ooo"
+    "``\v``", "Vertical Tab (VT)"
+    "``\ooo...``", "ASCII character with octal value oo..."
     "``\xhh...``", "ASCII character with hex value hh..."
 
 .. code-block:: text
