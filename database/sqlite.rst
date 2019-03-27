@@ -1,6 +1,6 @@
-***********
-``sqlite3``
-***********
+******
+SQLite
+******
 
 * Database API in Python
 
@@ -21,6 +21,7 @@ Constrains
     :header-rows: 1
     :file: data/sql-constraints.csv
 
+
 Connection
 ==========
 .. literalinclude:: src/database-connect-memory.py
@@ -31,11 +32,13 @@ Connection
     :language: python
     :caption: Connection to database file
 
+
 Execute
 =======
 .. literalinclude:: src/database-execute.py
     :language: python
     :caption: Execute
+
 
 Executemany
 ===========
@@ -67,6 +70,7 @@ Fetch as ``List[dict]``
 .. literalinclude:: src/database-results-dict.py
     :language: python
     :caption: Results with ``dict``
+
 
 Cursor
 ======

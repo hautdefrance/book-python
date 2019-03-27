@@ -15,10 +15,36 @@ Tabs or spaces?
 
 Line length
 -----------
+* najbardziej kontrowersyjna klauzula
 * 79 znaków
 * soft wrap
 * co z monitorami 4k?
-* najbardziej kontrowersyjna klauzula
+
+.. code-block:: python
+
+    class FoodProduct(models.Model):
+        vitamins_folic_acid = models.DecimalField(verbose_name=_('Folic Acid'), help_text=_('µg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        vitamins_a = models.DecimalField(verbose_name=_('Vitamin A'), help_text=_('µg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        vitamins_b1 = models.DecimalField(verbose_name=_('Vitamin B1'), help_text=_('mg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        vitamins_b2 = models.DecimalField(verbose_name=_('Vitamin B2'), help_text=_('mg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        vitamins_b6 = models.DecimalField(verbose_name=_('Vitamin B6'), help_text=_('mg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        vitamins_b12 = models.DecimalField(verbose_name=_('Vitamin B12'), help_text=_('µg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        vitamins_c = models.DecimalField(verbose_name=_('Vitamin C'), help_text=_('mg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        vitamins_d = models.DecimalField(verbose_name=_('Vitamin D'), help_text=_('µg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        vitamins_e = models.DecimalField(verbose_name=_('Vitamin E'), help_text=_('mg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        vitamins_pp = models.DecimalField(verbose_name=_('Vitamin PP'), help_text=_('mg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+
+        minerals_zinc = models.DecimalField(verbose_name=_('Zinc'), help_text=_('mg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        minerals_phosphorus = models.DecimalField(verbose_name=_('Phosphorus'), help_text=_('mg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        minerals_iodine = models.DecimalField(verbose_name=_('Iodine'), help_text=_('µg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        minerals_magnesium = models.DecimalField(verbose_name=_('Magnesium'), help_text=_('mg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        minerals_copper = models.DecimalField(verbose_name=_('Copper'), help_text=_('mg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        minerals_potasium = models.DecimalField(verbose_name=_('Potasium'), help_text=_('mg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        minerals_selenium = models.DecimalField(verbose_name=_('Selenium'), help_text=_('µg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        minerals_sodium = models.DecimalField(verbose_name=_('Sodium'), help_text=_('mg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        minerals_calcium = models.DecimalField(verbose_name=_('Calcium'), help_text=_('mg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+        minerals_iron = models.DecimalField(verbose_name=_('Iron'), help_text=_('mg/100g'), decimal_places=2, max_digits=5, blank=True, null=True, default=None)
+
 
 File encoding
 -------------
@@ -34,13 +60,25 @@ Comments
         def fabs(a, b):
             return float(abs(a + b))
 
-
         def float_absolute_value(a, b):
             return float(abs(a + b))
 
-
-        def float_absolute_value(a: int, b: int) -> float:
+        def abs(a: int, b: int) -> float:
             return float(abs(a + b))
+
+        def absolute_value(a: int, b: int) -> float:
+            return float(abs(a + b))
+
+Use better names, rather than comments
+--------------------------------------
+.. code-block:: python
+
+    def cal_var(results):
+        """Calculate variance"""
+        return sum((Xi-m) ** 2 for Xi in results) / len(results)
+
+    def calculate_variance(results):
+        return sum((Xi-m) ** 2 for Xi in results) / len(results)
 
 Commented code?
 ---------------
@@ -111,7 +149,6 @@ Modules names
 
         import random
         import argparse
-
 
 Function/Method argument names
 ------------------------------
@@ -239,6 +276,24 @@ Brackets
         'a', 'b', 'c',
         'd', 'e', 'f')
 
+.. code-block:: python
+
+    TYPE_CHOICES = [
+        ('custom', _('Custom Made')),
+        ('brand', _('Brand Product')),
+        ('gourmet', _('Gourmet Food')),
+        ('restaurant', _('Restaurant'))]
+
+    FORM_CHOICES = [
+        ('solid', _('Solid')),
+        ('liquid', _('Liquid'))]
+
+    CATEGORY_CHOICES = [
+        ('other', _('Other')),
+        ('fruits', _('Fruits')),
+        ('vegetables', _('Vegetables')),
+        ('meat', _('Meat'))]
+
 Line continuation
 -----------------
 Linie możemy łamać poprzez stawianie znaku ukośnika ``\`` na końcu:
@@ -260,7 +315,7 @@ Linie możemy łamać poprzez stawianie znaku ukośnika ``\`` na końcu:
                     not instance(host, str) or not instance(secure, bool) or
                     (not instance(port, int) and 0 < port <= 65535):
                 raise TypeError(f'One of your parameters is incorrect type')
-                
+
          def __str__(self):
             if secure:
                 protocol = 'https'
@@ -422,6 +477,15 @@ Whitespace in functions
 
         def complex(real, imag = 0.0):
             return magic(r = real, i = imag)
+
+:Controversial:
+    .. code-block:: python
+
+        def move(self, left: int = 0, down: int = 0, up: int = 0, right: int = 0) -> None:
+            self.set_position_coordinates(
+                x=self.position.x + right - left,
+                y=self.position.y + down - up
+            )
 
 Whitespace in conditionals
 --------------------------

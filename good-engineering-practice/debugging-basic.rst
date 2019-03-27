@@ -31,12 +31,12 @@ Good
 :settings.py:
     .. code-block:: python
 
-        ADMIINSTRATORS = 'jose.jimenez@nasa.gov',
+        ADMINISTRATORS = 'jose.jimenez@nasa.gov',
 
 :main.py:
     .. code-block:: python
 
-        from settings import ADMIINSTRATORS
+        from settings import ADMINISTRATORS
 
         for config in MY_CONFIGURATION:
             print(config)
@@ -48,12 +48,12 @@ Bad
 :settings.py:
     .. code-block:: python
 
-        ADMIINSTRATORS = 'jose.jimenez@nasa.gov'
+        ADMINISTRATORS = 'jose.jimenez@nasa.gov'
 
 :main.py:
     .. code-block:: python
 
-        from settings import ADMIINSTRATORS
+        from settings import ADMINISTRATORS
 
         for config in MY_CONFIGURATION:
             print(config)

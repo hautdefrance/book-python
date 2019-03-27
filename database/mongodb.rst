@@ -4,11 +4,13 @@
 
 * http://api.mongodb.com/python/current/tutorial.html
 
+
 Install
 =======
 .. code-block:: console
 
     $ pip install pymongo
+
 
 Insert data
 ===========
@@ -43,7 +45,8 @@ Select all records
     for astro in astronauts.find():
         print(astro)
 
-Filter records to
+Filter records
+--------------
 .. code-block:: python
 
     for astro in astronauts.find({"name": "José Jiménez"}):
