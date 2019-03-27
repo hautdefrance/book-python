@@ -12,33 +12,40 @@ Introspection
 Introspecting Types
 ===================
 
+``id()``
+--------
+.. code-block:: python
+
+    id('Jan Twardowski')                 # 4596416368
+    id('Jan Twardowski')                 # 4592969392
+
+.. code-block:: python
+
+    name = 'Jan Twardowski'
+
+    id(name)                            # 4596353264
+    id(name)                            # 4596353264
+
+.. code-block:: python
+
+    id('Jan Twardowski')                # 4466061520
+    id(str)                             # 4306722176
+
 ``type()``
 ----------
 .. code-block:: python
 
     type('')                            # <type 'str'>
+    type(str)                           # <class 'type'>
+
     type([])                            # <type 'list'>
+    type(list)                          # <class 'type'>
+
     type({})                            # <type 'dict'>
     type(dict)                          # <type 'type'>
+
     type(3)                             # <type 'int'>
-
-``id()``
---------
-.. code-block:: python
-
-    id(int)                             # 4306722176
-    id(int)                             # 4306722176
-
-.. code-block:: python
-
-    id('Jose Jimenez')                  # 4596416368
-    id('Jose Jimenez')                  # 4592969392
-
-.. code-block:: python
-
-    name = 'Jose Jimenez'
-    id(name)                            # 4596353264
-    id(name)                            # 4596353264
+    type(int)                           # <class 'type'>
 
 ``isinstance()``
 ----------------
