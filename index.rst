@@ -293,7 +293,6 @@ Numerical Analysis
     :caption: Numerical Analysis
 
     /numerical-analysis/jupyter.rst
-    /numerical-analysis/numpy.ipynb
     /numerical-analysis/numpy-new.rst
     /numerical-analysis/pandas-intro.rst
     /numerical-analysis/pandas-series.rst
