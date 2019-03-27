@@ -168,46 +168,6 @@ Design Patterns
     /design-patterns/decorator.rst
     /design-patterns/gang-of-four.rst
 
-************
-HTTP and Web
-************
-.. toctree::
-    :maxdepth: 2
-    :numbered:
-    :caption: HTTP and Web
-
-    /http/protocol.rst
-    /http/stdlib.rst
-    /http/requests.rst
-    /http/scrapping.rst
-    /http/frameworks.rst
-    /http/jinja.rst
-    /http/paas.rst
-    /http/soap-wsdl.rst
-
-*******
-Network
-*******
-.. toctree::
-    :maxdepth: 2
-    :numbered:
-    :caption: Network and HTTP
-
-    /network/ftp.rst
-    /network/imap.rst
-    /network/smtp.rst
-    /network/pop3.rst
-    /network/ldap.rst
-    /network/dns.rst
-    /network/ssh.rst
-    /network/interfaces.rst
-    /network/ip.rst
-    /network/tcp-udp.rst
-    /network/socket.rst
-    /network/ssl.rst
-    /network/libraries.rst
-    /network/botnet.rst
-
 **********************************
 CI/CD, Versioning and Distributing
 **********************************
@@ -254,6 +214,46 @@ Paradigms
 
     /paradigms/functional-programming.rst
     /paradigms/event-programming.rst
+
+************
+HTTP and Web
+************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: HTTP and Web
+
+    /http/protocol.rst
+    /http/stdlib.rst
+    /http/requests.rst
+    /http/scrapping.rst
+    /http/frameworks.rst
+    /http/jinja.rst
+    /http/paas.rst
+    /http/soap-wsdl.rst
+
+*******
+Network
+*******
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Network and HTTP
+
+    /network/ftp.rst
+    /network/imap.rst
+    /network/smtp.rst
+    /network/pop3.rst
+    /network/ldap.rst
+    /network/dns.rst
+    /network/ssh.rst
+    /network/interfaces.rst
+    /network/ip.rst
+    /network/tcp-udp.rst
+    /network/socket.rst
+    /network/ssl.rst
+    /network/libraries.rst
+    /network/botnet.rst
 
 **************************
 Scientific and Engineering
