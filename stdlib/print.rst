@@ -169,17 +169,26 @@ f-strings to rozwinięcie funkcji ``format``. Jedyne co trzeba zrobić żeby umi
 SQL Injection
 =============
 .. code-block:: python
+    :caption: Query with SQL injection possibility
 
-    username = input('Username: ')  # User type: ' OR 1=1; DROP TABLE users --
-    password = input('Password: ')  # User type: whatever
-
-    query = f"""
+    SQL_QUERY = f"""
 
         SELECT id, username, email
         FROM users
         WHERE username='{username}' AND password='{password}'
 
     """
+
+.. code-block:: python
+
+    username = input('Username: ')
+    # ' OR 1=1; DROP TABLE users --
+
+    password = input('Password: ')
+    # 123
+
+.. code-block:: python
+    :caption: Exploited SQL injection, will Select all users and then Drop all data from table users
 
     print(query)
     # SELECT id, username, email

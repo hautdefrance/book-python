@@ -117,7 +117,24 @@ Serialization
     /serialization/json.rst
     /serialization/xml.rst
     /serialization/pickle.rst
+
+********
+Database
+********
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Database
+
+    /database/db-api.rst
     /database/sqlite.rst
+    /database/mysql.rst
+    /database/postgresql.rst
+    /database/mongodb.rst
+    /database/orm.rst
+    /database/migrations.rst
+    /database/data-exploration.rst
+    /database/sql-injection.rst
     /database/sql.rst
 
 ***************************

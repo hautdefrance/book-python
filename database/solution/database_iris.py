@@ -1,6 +1,8 @@
 import sqlite3
 from datetime import datetime, timezone
 
+# DATABASE = r'iris.sqlite3'
+DATABASE = r':memory:'
 
 DATA = """4.3,3.0,1.1,0.1,0
 5.8,4.0,1.2,0.2,0
@@ -21,9 +23,9 @@ DATA = """4.3,3.0,1.1,0.1,0
 4.7,3.2,1.6,0.2,0"""
 
 SPECIES = {
-    '0': 'setosa',
-    '1': 'versicolor',
-    '2': 'virginica',
+    0: 'setosa',
+    1: 'versicolor',
+    2: 'virginica',
 }
 
 SQL_CREATE_TABLE = """
@@ -61,7 +63,7 @@ data = []
 
 
 for rekord in DATA.split():
-    pomiary = rekord.split(',')
+    *pomiary, gatunek = rekord.split(',')
 
     data.append({
         'datetime': datetime.now(tz=timezone.utc),
@@ -69,11 +71,11 @@ for rekord in DATA.split():
         'sepal_width': float(pomiary[1]),
         'petal_length': float(pomiary[2]),
         'petal_width': float(pomiary[3]),
-        'species': SPECIES[pomiary[4]],
+        'species': SPECIES[int(gatunek)],
     })
 
 
-with sqlite3.connect('iris.sqlite3') as db:
+with sqlite3.connect(DATABASE) as db:
     db.row_factory = sqlite3.Row
 
     db.execute(SQL_CREATE_TABLE)

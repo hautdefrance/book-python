@@ -30,18 +30,6 @@ Durability guarantees that once a transaction has been committed, it will remain
 
 
 
-Data Types
-==========
-.. csv-table:: SQLite data types
-    :header-rows: 1
-    :file: data/sql-types.csv
-
-Constrains
-==========
-.. csv-table:: SQL Constraints
-    :header-rows: 1
-    :file: data/sql-constraints.csv
-
 CREATE
 ======
 .. literalinclude:: src/sql-create.sql
