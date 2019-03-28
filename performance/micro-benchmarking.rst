@@ -4,6 +4,65 @@ Micro-benchmarking
 
     We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil" -- Donald Knuth
 
+
+Evaluation
+==========
+* Fresh start of Python process
+* Clean memory before start
+* Same data
+* Same start conditions, CPU load, RAM usage, ``iostat``
+* Do not measure how long Python wakes up
+* Check what you measure
+
+.. _timeit:
+
+``timeit``
+==========
+
+Programmatic use
+----------------
+.. literalinclude:: src/utils-timeit-simple.py
+    :language: python
+    :caption: Timeit simple statement
+
+.. literalinclude:: src/utils-timeit-multiple.py
+    :language: python
+    :caption: Timeit multiple statements with setup code
+
+.. literalinclude:: src/utils-timeit-globals.py
+    :language: python
+    :caption: Timeit with ``globals()``
+
+Console use
+-----------
+.. literalinclude:: src/utils-timeit.sh
+    :language: console
+    :caption: Timeit
+
+.. code-block:: text
+
+    -n N, --number=N
+    how many times to execute ‘statement’
+
+    -r N, --repeat=N
+    how many times to repeat the timer (default 5)
+
+    -s S, --setup=S
+    statement to be executed once initially (default pass)
+
+    -p, --process
+    measure process time, not wallclock time, using time.process_time() instead of time.perf_counter(), which is the default
+
+    -u, --unit=U
+    specify a time unit for timer output; can select nsec, usec, msec, or sec
+
+    -v, --verbose
+    print raw timing results; repeat for more digits precision
+
+    -h, --help
+    print a short usage message and exit
+
+
 Setup
 =====
 .. code-block:: python
@@ -52,6 +111,8 @@ Code 3
         for record in DATA
            for key in record.keys())
 
+.. warning:: Is it correct?
+
 Code 4
 ------
 * 2.11 µs ± 51 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
@@ -74,3 +135,13 @@ Code 5
             fieldnames.append(key)
 
     set(fieldnames)
+
+
+Summary
+=======
+* Code 3 appends generator object not values, this is why it is so fast!
+
+
+References
+==========
+* https://www.youtube.com/watch?v=RT88FrHttRI
