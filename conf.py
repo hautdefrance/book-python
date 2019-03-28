@@ -25,7 +25,6 @@ todo_emit_warnings = False
 todo_include_todos = True
 exclude_patterns = [
     '_book',
-    'TODO',
 ]
 
 # -----------------------------------------------------------------------------

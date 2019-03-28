@@ -164,12 +164,16 @@ Good Engineering Practice
 
     /good-engineering-practice/pep8.rst
     /good-engineering-practice/pep20.rst
+    /good-engineering-practice/code-smells.rst
+    /good-engineering-practice/type-annotation.rst
     /good-engineering-practice/logging.rst
     /good-engineering-practice/warnings.rst
     /good-engineering-practice/debugging-basic.rst
+    /good-engineering-practice/debugging-advanced.rst
     /good-engineering-practice/doctest.rst
     /good-engineering-practice/unittest.rst
     /good-engineering-practice/introspection.rst
+    /good-engineering-practice/documentation.rst
 
 **********************************
 CI/CD, Versioning and Distributing
@@ -179,15 +183,22 @@ CI/CD, Versioning and Distributing
     :numbered:
     :caption: CI/CD, Versioning and Distributing
 
-    /good-engineering-practice/type-annotation.rst
-    /good-engineering-practice/cicd-tools.rst
-    /good-engineering-practice/cicd-pipelines.rst
-    /extensions/venv.rst
-    /extensions/zipapp.rst
-    /extensions/distributing-packages.rst
+    /distributing/cicd-tools.rst
+    /distributing/cicd-pipelines.rst
+    /distributing/venv.rst
+    /distributing/zipapp.rst
+    /distributing/distributing-packages.rst
+
+****************
+Operating System
+****************
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Operating System
+
     /operating-system/argparse.rst
     /operating-system/os.rst
-    /documentation/index.rst
 
 ****************
 High Performance
@@ -199,13 +210,21 @@ High Performance
 
     /performance/optimization.rst
     /performance/micro-benchmarking.rst
-    /extensions/compilers.rst
-    /data-types/collections.rst
+    /performance/compilers.rst
+    /performance/collections.rst
+    /performance/c-types.rst
+    /performance/c-modules.rst
+
+***********
+Concurrency
+***********
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Concurrency
+
     /concurrency/threading.rst
     /concurrency/async.rst
-    /extensions/c-types.rst
-    /extensions/c-modules.rst
-    /good-engineering-practice/debugging-advanced.rst
 
 ***************
 Design Patterns
@@ -433,7 +452,6 @@ Appendixes
     /appendix/video.rst
     /appendix/python-2vs3.rst
     /appendix/python-wat.rst
-    /TODO.rst
     /LICENSE.rst
     /bibliography.rst
     /glossary.rst

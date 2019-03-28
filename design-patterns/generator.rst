@@ -28,16 +28,33 @@ Declaring generators
 
 Getting  values from generator
 ------------------------------
-.. code-block:: python
+* Get all values from generator (not very efficient)
 
-    numbers = range(0, 9_999_999)
-    list(range)  # Generator will execute here (not very efficient)
+    .. code-block:: python
 
-.. code-block:: python
+        numbers = range(0, 1E30)
+        list(range)
 
-    # Generator will execute once at a time, for every loop iteration
-    for i in range(0, 9_999_999):
-        print(i)
+* Generator will calculate next number for every loop iteration, forgetting previous number, and not knowing next one
+
+    .. code-block:: python
+
+        for i in range(0, 1E30):
+            print(i)
+
+* Will generate only three numbers, not 1,000,000,000,000,000,000,000,000,000,000
+
+    .. code-block:: python
+
+        for i in range(0, 1E30):
+            print(i)
+
+            if i == 3:
+                break
+
+        0
+        1
+        2
 
 
 Generator expressions vs. Comprehensions
@@ -49,16 +66,27 @@ Comprehensions
 
 .. code-block:: python
 
-    a = [x for x in range(0, 10)]
-    b = {x for x in range(0, 10)}
-    c = {x: x for x in range(0, 10)}
+    list(x for x in range(0, 5))        # [0, 1, 2, 3, 4]
+    [x for x in range(0, 5)]            # [0, 1, 2, 3, 4]
 
 .. code-block:: python
 
-    d = list(x for x in range(0, 10))
-    e = set(x for x in range(0, 10))
-    f = dict(x: x for x in range(0, 10))
-    g = tuple(x for x in range(0, 10))
+    set(x for x in range(0, 5))         # {0, 1, 2, 3, 4}
+    {x for x in range(0, 5)}            # {0, 1, 2, 3, 4}
+
+.. code-block:: python
+
+    {x: x for x in range(0, 5)}         # {0: 0, 1: 1, 2: 2, 3: 3, 4: 4}
+
+.. code-block:: python
+
+    tuple(x for x in range(0, 5))       # (0, 1, 2, 3, 4)
+
+.. code-block:: python
+
+    all(x for x in range(0, 5))                # False
+    any(x for x in range(0, 5) if x % 5 == 0)  # True
+    sum(x*x for x in range(0, 10, 2))          # 120
 
 Generator Expressions
 ---------------------
@@ -66,41 +94,44 @@ Generator Expressions
 
 .. code-block:: python
 
-    i = (x*x for x in range(0, 30) if x % 2)
+    (x*x for x in range(0, 30) if x % 2)
+    # <generator object <genexpr> at 0x1197032a0>
 
 What is the difference?
 -----------------------
-.. code-block:: python
+* Execution and assignment
 
-    # tutaj nastąpi wykonanie i przypisanie
-    numbers = [x**2 for x in range(0, 30) if x % 2 == 0]
+    .. code-block:: python
 
-    print(numbers)
-    # [0, 4, 16, 36, 64, 100, 144, 196, 256, 324, 400, 484, 576, 676, 784]
+        numbers = [x**2 for x in range(0, 30) if x % 2 == 0]
 
-    print(numbers)
-    # [0, 4, 16, 36, 64, 100, 144, 196, 256, 324, 400, 484, 576, 676, 784]
+        print(numbers)
+        # [0, 4, 16, 36, 64, 100, 144, 196, 256, 324, 400, 484, 576, 676, 784]
 
-.. code-block:: python
+        print(numbers)
+        # [0, 4, 16, 36, 64, 100, 144, 196, 256, 324, 400, 484, 576, 676, 784]
 
-    # tu nastąpi tylko przypisanie do generatora
-    numbers = (x**2 for x in range(0, 30) if x % 2 == 0)
+* Create generator object and assign pointer (do not execute)
 
-    print(numbers)
-    # <generator object <genexpr> at 0x11af5a570>
+    .. code-block:: python
 
-    print(list(numbers))
-    # [0, 4, 16, 36, 64, 100, 144, 196, 256, 324, 400, 484, 576, 676, 784]
+        numbers = (x**2 for x in range(0, 30) if x % 2 == 0)
 
-    print(list(numbers))
-    # []
+        print(numbers)
+        # <generator object <genexpr> at 0x11af5a570>
+
+        print(list(numbers))
+        # [0, 4, 16, 36, 64, 100, 144, 196, 256, 324, 400, 484, 576, 676, 784]
+
+        print(list(numbers))
+        # []
 
 Which one is better?
 --------------------
 * Comprehensions - Using values more than one
 * Generators - Using value one (for example in the loop iterator)
 
-Nested Comprahensions
+Nested Comprehensions
 ---------------------
 .. code-block:: python
 
@@ -115,17 +146,9 @@ Nested Comprahensions
     fieldnames = set()
     fieldnames.update(key for record in DATA for key in record.keys())
 
-
-Readability counts
-------------------
-.. literalinclude:: src/generator-clean-code.py
-    :name: listing-generator-clean-code
-    :language: python
-    :caption: Clean Code in generator
-
 .. code-block:: python
 
-    DATA = [
+   DATA = [
         {'last_name': 'Jiménez'},
         {'first_name': 'Mark', 'last_name': 'Watney'},
         {'first_name': 'Иван'},
@@ -133,13 +156,12 @@ Readability counts
         {'first_name': 'Melissa', 'last_name': 'Lewis', 'first_step': 1969},
     ]
 
-    [asd(value)
+    fieldnames = set()
+    fieldnames.update(key
+        for record in DATA
+            for key in record.keys()
+    )
 
-                for d in DATA
-            for key, value in d.items()
-        if key == 'username'
-
-    ]
 
 Operator ``yield``
 ==================
@@ -246,14 +268,8 @@ Filtering ``dict`` items
         {'first_name': 'Mark', 'last_name': 'Watney', 'agency': 'NASA'},
     ]
 
-    nasa_astronauts = [(astronaut['first_name'], astronaut['last_name']) for astronaut in DATA if astronaut['agency'] == 'NASA']
-    # [
-    #   ('Jose', 'Jimenez'),
-    #   ('Melissa', 'Lewis'),
-    #   ('Mark', 'Watney')
-    # ]
-
-    nasa_astronauts = [(x['first_name'], x['last_name']) for x in DATA if x['agency'] == 'NASA']
+    nasa_astronauts = [(x['first_name'], x['last_name'])
+                            for x in DATA if x['agency'] == 'NASA']
     # [
     #   ('Jose', 'Jimenez'),
     #   ('Melissa', 'Lewis'),
@@ -273,7 +289,7 @@ Applying functions
 ------------------
 .. code-block:: python
 
-    [float(x) for x in range(0, 10) if x % 2 == 0]
+    [float(x) for x in range(0, 5) if x % 2 == 0]
     # [0.0, 2.0, 4.0, 6.0, 8.0]
 
 .. code-block:: python
@@ -284,8 +300,50 @@ Applying functions
         else:
             return False
 
-    [float(x) for x in range(0, 10) if is_even(x)]
+    [float(x) for x in range(0, 5) if is_even(x)]
     # [0.0, 2.0, 4.0, 6.0, 8.0]
+
+Readability counts
+==================
+.. literalinclude:: src/generator-clean-code.py
+    :name: listing-generator-clean-code
+    :language: python
+    :caption: Clean Code in generator
+
+.. code-block:: python
+
+    DATA = [
+        {'last_name': 'Jiménez'},
+        {'first_name': 'Mark', 'last_name': 'Watney'},
+        {'first_name': 'Иван'},
+        {'first_name': 'Jan', 'last_name': 'Twardowski', 'born': 1961},
+        {'first_name': 'Melissa', 'last_name': 'Lewis', 'first_step': 1969},
+    ]
+
+    [asd(value)
+
+                for d in DATA
+            for key, value in d.items()
+        if key == 'username'
+
+    ]
+
+.. code-block:: python
+
+    DATA = [
+        {'first_name': 'Иван', 'last_name': 'Иванович', 'agency': 'Roscosmos'},
+        {'first_name': 'Jose', 'last_name': 'Jimenez', 'agency': 'NASA'},
+        {'first_name': 'Melissa', 'last_name': 'Lewis', 'agency': 'NASA'},
+        {'first_name': 'Alex', 'last_name': 'Vogel', 'agency': 'ESA'},
+        {'first_name': 'Mark', 'last_name': 'Watney', 'agency': 'NASA'},
+    ]
+
+    nasa_astronauts = [(astronaut['first_name'], astronaut['last_name']) for astronaut in DATA if astronaut['agency'] == 'NASA']
+    # [
+    #   ('Jose', 'Jimenez'),
+    #   ('Melissa', 'Lewis'),
+    #   ('Mark', 'Watney')
+    # ]
 
 
 Assignments

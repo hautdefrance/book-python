@@ -11,10 +11,9 @@ def function(lines):
         if line.isspace() or line.startswith('#'):
             continue
 
-        uid = int(line.split(':')[2])
-        username = str(line.split(':')[0])
+        username, _, uid, *_ = line.split(':')
 
-        if uid < 1000:
+        if int(uid) < 1000:
             accounts.append(username)
 
     return accounts
@@ -25,10 +24,9 @@ def generator(lines):
         if line.isspace() or line.startswith('#'):
             continue
 
-        uid = int(line.split(':')[2])
-        username = str(line.split(':')[0])
+        username, _, uid, *_ = line.split(':')
 
-        if uid < 1000:
+        if int(uid) < 1000:
             yield username
 
 
