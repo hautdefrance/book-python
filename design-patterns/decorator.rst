@@ -215,6 +215,8 @@ Class Decorators
 
 .. code-block:: python
 
+    import json
+
     class User:
         def __init__(self, first_name, last_name):
             self.first_name = first_name
@@ -224,24 +226,24 @@ Class Decorators
             return f'{self.first_name} {self.last_name}'
 
         def to_json(self):
-            import json
             return json.dumps(self.__dict__)
 
         @classmethod
         def from_json(cls, data):
-            import json
             data = json.loads(data)
             return cls(**data)
 
+    class SuperUser(User):
+        pass
 
-    user = User('Jan', 'Twardowski')
-    # Jan Twardowski
 
-    DATA = user.to_json()
-    # '{"first_name": "Jan", "last_name": "Twardowski"}'
+    DATA = '{"first_name": "Jan", "last_name": "Twardowski"}'
 
-    user = User.from_json(DATA)
-    # Jan Twardowski
+    normal = User.from_json(DATA)
+    root = SuperUser.from_json(DATA)
+
+    type(normal)    # <class '__main__.User'>
+    type(root)      # <class '__main__.SuperUser'>
 
 
 ``functools``

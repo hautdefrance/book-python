@@ -12,15 +12,15 @@ FIFO
 LIFO (stack)
 ------------
 
-Network Queue
--------------
-* Synchronizacja
-* Routing
-
 Priority Queue
 --------------
 * Priorytetyzacja
 * Wywłaszczenie
+
+Network Queue
+-------------
+* Synchronizacja
+* Routing
 
 
 Threads vs processes
@@ -29,8 +29,8 @@ Threads vs processes
 * Ile wątków może być w ramach procesów?
 * Jak komunikować się między wątkami?
 * Jak komunikować się między procesami?
-* Ile może być wątków na procesorze czterordzeniowym (z i bez Hyper Threading)?
-* Ile może być procesów na procesorze czterordzeniowym (z i bez Hyper Threading)?
+* Ile może być wątków przetwarzanych równolegle na procesorze czterordzeniowym (z i bez Hyper Threading)?
+* Ile może być procesów przetwarzanych równolegle na procesorze czterordzeniowym (z i bez Hyper Threading)?
 * Czy współdzielenie pamięci przez wątki jest dobre czy złe?
 
 
@@ -45,7 +45,7 @@ Problemy z wątkami
 - Problem 5 filozofów:
 
     - 5 filozofów (albo rozmyśla, albo je)
-    - 5 misek ze spagetti,
+    - 5 misek ze spaghetti,
     - 5 widelców,
     - 2 widelce potrzebne aby zjeść,
     - problem zakleszczania
@@ -80,44 +80,6 @@ Workery
     :name: listing-threading-worker
     :language: python
     :caption: Model Workerów
-
-
-Processes
-=========
-
-Problemy z procesami
---------------------
-* Zakleszczania
-* Race Condition
-
-Tworzenie procesów
-------------------
-
-Synchronizacja procesów
------------------------
-
-IPC - komunikacja międzyprocesowa
----------------------------------
-Aby ``pickle`` mógł odtworzyć obiekt, musi posiadać jego definicję - klasę.
-
-.. literalinclude:: src/figury.py
-    :name: listing-figury
-    :language: python
-    :caption: Klasa Prostokat w module figury
-
-.. literalinclude:: src/multiprocessing-client.py
-    :name: listing-multiprocessing-client
-    :language: python
-    :caption: Obiekt wysyłający dane ``multiprocessing-client.py``
-
-.. literalinclude:: src/multiprocessing-listener.py
-    :name: listing-multiprocessing-listener
-    :language: python
-    :caption: Obiekt nasłuchujący na połączenia ``multiprocessing-listener.py``
-
-
-Zamykanie procesów
-------------------
 
 
 Assignments

@@ -224,6 +224,7 @@ Concurrency
     :caption: Concurrency
 
     /concurrency/threading.rst
+    /concurrency/multiprocessing.rst
     /concurrency/async.rst
 
 ***************

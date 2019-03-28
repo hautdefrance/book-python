@@ -2,7 +2,8 @@
 Code Smells
 ***********
 
-:cite:`CodeSmells`
+
+Source :cite:`CodeSmells`
 
 
 #. Using globals - but that is a code smell in any language.

@@ -9,7 +9,7 @@ class TimeConverter:
     def __set__(self, parent, value):
         parent.utc = self.tz.localize(value).astimezone(utc)
 
-    def __del__(self, parent):
+    def __delete__(self, parent):
         parent.utc = datetime(1, 1, 1)
 
 
