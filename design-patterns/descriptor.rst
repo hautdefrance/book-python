@@ -2,24 +2,21 @@
 Descriptor
 **********
 
- - They provide the developer with the ability to add managed attributes to objects
- - The methods needed to create a descriptor are ``__get__``, ``__set__`` and ``__delete__``
- - If you define any of these methods, then you have created a descriptor
-
 
 The Descriptor Protocol
 =======================
-- ``__get__(self, obj, type=None) -> Any``
-- ``__set__(self, obj, value) -> None``
-- ``__delete__(self, obj) -> None``
+* They provide the developer with the ability to add managed attributes to objects
+* ``__get__(self, obj, type=None) -> self``
+* ``__set__(self, obj, value) -> None``
+* ``__delete__(self, obj) -> None``
 
 
 Builtin Descriptor Object Examples
 ==================================
-- classmethod
-- staticmethod
-- property
-- functions in general
+* classmethod
+* staticmethod
+* property
+* functions in general
 
 
 Example

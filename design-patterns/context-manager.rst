@@ -19,8 +19,8 @@ Zastosowanie
 
 How to create
 -------------
-* ``__enter__() -> Any``
-* ``__exit__(*args, **kwargs) -> None``
+* ``__enter__(self, *args, **kwargs) -> self``
+* ``__exit__(self, *args, **kwargs) -> None``
 
 .. code-block:: python
     :caption: How to create Context Managers
