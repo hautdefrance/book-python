@@ -6,24 +6,45 @@ Context Managers
 About Context Managers
 ======================
 
-How to create
--------------
-* ``__enter__() -> Any``
-* ``__exit__(*args) -> None``
-
-.. literalinclude:: src/context-manager-create.py
-    :language: python
-    :caption: How to create Context Managers
-
 Zastosowanie
 ------------
 * Pliki
+* Buforowanie danych
 * Połączenia do bazy danych
+* Transakcje w bazie danych
+* Cursory w bazie danych
 * Lock
-* Stream siecowe
+* Stream sieciowe
+* Komunikacja po socketach
 
-Przykład
---------
+How to create
+-------------
+* ``__enter__() -> Any``
+* ``__exit__(*args, **kwargs) -> None``
+
+.. code-block:: python
+    :caption: How to create Context Managers
+
+    class MyClass:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return None
+
+        def hello(self):
+            print('hello')
+
+
+    with MyClass() as cls:
+        cls.hello()
+
+
+Examples
+========
+
+Files
+-----
 .. code-block:: python
 
     f = open(FILE)
@@ -98,15 +119,23 @@ replaces the more verbose:
 
 Contextmanager decorator
 ========================
+* Dzieli naszą funkcję na bloki przed i po ``yield``
+* Bloki przed traktuje jako ``__enter__()``
+* Bloki za traktuje jako ``__exit__()``
+
+``contextmanager`` decorator
+----------------------------
 .. code-block:: python
 
     from contextlib import contextmanager
+
 
     @contextmanager
     def tag(name):
         print(f"<{name}>")
         yield
         print(f"</{name}>")
+
 
     with tag("p"):
         print("foo")
@@ -115,14 +144,12 @@ Contextmanager decorator
     # foo
     # </p>
 
-Dzieli naszą funkcję na bloki przed i po ``yield``.
-
-- Bloki przed traktuje jako ``__enter__()``
-- Bloki za traktuje jako ``__exit__()``
-
+``ContextDecorator`` class
+--------------------------
 .. code-block:: python
 
     from contextlib import ContextDecorator
+
 
     class makeparagraph(ContextDecorator):
         def __enter__(self):
@@ -132,17 +159,15 @@ Dzieli naszą funkcję na bloki przed i po ``yield``.
         def __exit__(self, *exc):
             print('</p>')
 
+
     @makeparagraph()
     def generate_html():
         print('Here is some non-HTML')
 
     generate_html()
-
-.. code-block:: html
-
-    <p>
-    Here is some non-HTML
-    </p>
+    # <p>
+    # Here is some non-HTML
+    # </p>
 
 timing
 ------
@@ -155,27 +180,27 @@ timing
     @contextmanager
     def timeit(task_name):
         start = time.time()
+        yield
+        duration = time.time() - start
+        print(f'{task_name} took {duration} seconds')
 
-        try:
-            yield
-        finally:
-            duration = time.time() - start
-            print(f'{task_name} took {duration} seconds')
 
     def exec_as_process():
-        pass
+        return 9999 ** 1e99999999
+
 
     def exec_as_thread():
-        pass
+        return 9999 ** 1e99999999
 
+    TRIES = int(1e8)
 
     with timeit("processes"):
-        [exec_as_process() for _ in range(500)]
+        [exec_as_process() for _ in range(TRIES)]
     # processes took 15.236166954 seconds
 
 
     with timeit("threads"):
-        [exec_as_thread() for _ in range(500)]
+        [exec_as_thread() for _ in range(TRIES)]
     # threads took 0.11357998848 seconds
 
 

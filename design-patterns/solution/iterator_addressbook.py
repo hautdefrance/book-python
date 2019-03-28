@@ -5,16 +5,16 @@ class Kontakt:
         self.adresy = adresy
 
     def __iter__(self):
-        self.obecny_adres = 0
+        self.current_element = 0
         return self
 
     def __next__(self):
-        if self.obecny_adres >= len(self.adresy):
+        if self.current_element >= len(self.adresy):
             raise StopIteration
 
-        adres = self.adresy[self.obecny_adres]
-        self.obecny_adres += 1
-        return adres
+        address = self.adresy[self.current_element]
+        self.current_element += 1
+        return address
 
 
 class Adres:
@@ -23,7 +23,7 @@ class Adres:
             setattr(self, key, value)
 
     def __str__(self):
-        return str(self.__dict__)
+        return f'{self.__dict__}'
 
 
 kontakt = Kontakt(imie='Jan', nazwisko='Twardowski', adresy=[
@@ -37,6 +37,5 @@ kontakt = Kontakt(imie='Jan', nazwisko='Twardowski', adresy=[
           kod='93550', panstwo='USA'),
 ])
 
-
-for adresy in kontakt:
-    print(adresy)
+for adres in kontakt:
+    print(adres)

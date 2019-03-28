@@ -8,14 +8,13 @@ Iterators
 What is iterator?
 =================
 * ``__iter__()``
-* ``__next__()``
-* ``raise StopIteration``
+* ``__next__() -> raise StopIteration``
 
 
 Iterowanie po obiektach
 =======================
 
-Iterowanie po stringu
+Iterowanie po ``str``
 ---------------------
 .. code-block:: python
 
