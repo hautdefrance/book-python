@@ -10,6 +10,7 @@ Visualizing RegExps
 -------------------
 * https://regexper.com/
 * https://regex101.com/
+* https://extendsclass.com/regex-tester.html
 * ``r'^[a-zA-Z0-9][\w.+-]*@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,20}$'``
 
 .. figure:: img/regexp-vizualization.png
